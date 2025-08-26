@@ -42,7 +42,7 @@
         }
 
         .tournaments-container {
-            width: 90%;
+            width: 100%;
             max-width: 800px;
             display: flex;
             flex-direction: column;
@@ -55,6 +55,8 @@
             border: 2px solid var(--text-color);
             overflow: hidden;
             transition: all 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .tournament-header {
@@ -242,7 +244,153 @@
     <h1 class="page-title" data-aos="fade-down">Chess Lions Tournaments</h1>
     
     <div class="tournaments-container">
-       <!-- Empty upcoming tournaments section -->
+        <!-- Upcoming Tournament 1 (September tournament) -->
+        <div class="tournament-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="tournament-header" onclick="toggleTournament(this.parentElement)">
+                <div class="tournament-title-container">
+                    <h2 class="tournament-title">Chess Lions Tournament September</h2>
+                    <div class="tournament-date">Saturday, September 6, 2025</div>
+                </div>
+                <div class="toggle-icon"></div>
+            </div>
+            
+            <div class="tournament-details">
+                <div class="detail-section">
+                    <div class="detail-title">Organizer</div>
+                    <div class="detail-content">Chess Lions</div>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">Location</div>
+                    <div class="detail-content">Center for Performance Arts and Learning<br>28243 Beck Rd Unt B2, Wixom, MI 48393</div>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">Format</div>
+                    <div class="detail-content">4 rounds (Swiss system); USCF Rated/Unrated</div>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">Sections</div>
+                    <div class="detail-content">OPEN, U800, U1400, Unrated K-3, Unrated K-5, Unrated K-8, Unrated OPEN (all ages)</div>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">Time Control</div>
+                    <div class="detail-content">G45/d0 for Open, G30/d0 (other sections)</div>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">Rounds</div>
+                    <div class="detail-content">
+                        <ul class="detail-list">
+                            <li>Open: 9:15 am, 11:00 am, 1:15 pm, 3:00 pm</li>
+                            <li>Other: 11:00 am, 12:30 pm, 1:45 pm, 3:00 pm</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">Entry Fee</div>
+                    <div class="detail-content">$30 per player for all sections</div>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">Check-in</div>
+                    <div class="detail-content">Open: 9 am. Under sections: 10:30 am</div>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">Prizes</div>
+                    <div class="detail-content">
+                        <ul class="detail-list">
+                            <li>Open: ⅓ of entry fee shared between 1st and 2nd</li>
+                            <li>Other sections: Trophies/medals for the top 5 (based on 20 in each section)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">Registration</div>
+                    <div class="detail-content"><a href="https://michesslions.com/registration.html" class="registration-link">Register Online</a></div>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">Payment</div>
+                    <div class="detail-content">Zelle to: <a href="mailto:i2v2chess@gmail.com" class="contact-link">i2v2chess@gmail.com</a></div>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">Contact</div>
+                    <div class="detail-content"><a href="mailto:i2v2chess@gmail.com" class="contact-link">i2v2chess@gmail.com</a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upcoming Tournament 2 (September Friday Evening Quads) -->
+        <div class="tournament-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="tournament-header" onclick="toggleTournament(this.parentElement)">
+                <div class="tournament-title-container">
+                    <h2 class="tournament-title">Rated/Unrated Friday Evening Quads</h2>
+                    <div class="tournament-date">Friday, September 26, 2025</div>
+                </div>
+                <div class="toggle-icon"></div>
+            </div>
+            
+            <div class="tournament-details">
+                <div class="detail-section">
+                    <div class="detail-title">Organizer</div>
+                    <div class="detail-content">Chess Lions</div>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">Location</div>
+                    <div class="detail-content">Center for Performance Arts and Learning<br>28243 Beck Rd Unt B2, Wixom, MI 48393</div>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">Format</div>
+                    <div class="detail-content">3 games, Round Robin</div>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">Time Control</div>
+                    <div class="detail-content">G30/d0 (for all sections)</div>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">Rounds</div>
+                    <div class="detail-content">All games start at 6 pm, subsequent rounds ASAP</div>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">Sections</div>
+                    <div class="detail-content">
+                        <ul class="detail-list">
+                            <li>USCF Rated (Quads grouped by rating)</li>
+                            <li>Unrated (Grouped by age)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">Entry Fee</div>
+                    <div class="detail-content">$25 for Unrated, $35 for Rated</div>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">Check-in</div>
+                    <div class="detail-content">Starts at 5:30 pm, ends at 5:55 pm</div>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">Prizes</div>
+                    <div class="detail-content">
+                        <ul class="detail-list">
+                            <li>Rated: $100 for first place in each Quad</li>
+                            <li>Unrated: Trophies/medals for Top 2 in each Quad</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">Registration</div>
+                    <div class="detail-content"><a href="https://michesslions.com/registration.html" class="registration-link">Register Online</a></div>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">Payment</div>
+                    <div class="detail-content">Zelle to: <a href="mailto:i2v2chess@gmail.com" class="contact-link">i2v2chess@gmail.com</a></div>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">Info</div>
+                    <div class="detail-content">Bring your own boards and clocks if you have them</div>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">Contact</div>
+                    <div class="detail-content"><a href="mailto:i2v2chess@gmail.com" class="contact-link">i2v2chess@gmail.com</a></div>
+                </div>
+            </div>
+        </div>
     </div>
     
     <h2 class="past-tournaments-title" data-aos="fade-up">Past Tournaments</h2>
