@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament Registration - Chess Lions</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- AOS CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <style>
+        /* Chess Lions Root Variables */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --accent-color: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.4;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        /* Main container */
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Logo section */
+        .logo-section {
+            margin-bottom: 3rem;
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 2rem;
+            text-transform: uppercase;
+            color: var(--text-color);
+            text-decoration: none;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        /* Header styles */
+        .header h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 3rem;
+        }
+
+        /* Tournament grid for available tournaments */
+        .tournaments-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tournament-card {
+            flex: 0 1 350px;
+            max-width: 450px;
+        }
+
+        .tournament-card {
+            background-color: var(--bg-color);
+            border: 2px solid var(--text-color);
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tournament-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .tournament-card h3 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .tournament-card p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .register-btn {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            padding: 0.75rem 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .register-btn:hover {
+            background-color: #333;
+        }
+
+        /* Modal styles for enlarged form */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background-color: var(--bg-color);
+            margin: 2% auto;
+            padding: 20px;
+            border: 2px solid var(--text-color);
+            width: 95%;
+            max-width: 1000px;
+            height: 90%;
+            position: relative;
+            animation: slideIn 0.3s ease;
+        }
+
+        .close {
+            color: var(--text-color);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            z-index: 1001;
+        }
+
+        .close:hover {
+            opacity: 0.7;
+        }
+
+        .modal-form {
+            width: 100%;
+            height: calc(100% - 60px);
+            border: none;
+            margin-top: 40px;
+        }
+
+        /* No tournaments message */
+        .no-tournaments {
+            display: none;
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #666;
+        }
+
+        .no-tournaments h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { 
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tournaments-grid {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+            
+            .tournament-card {
+                flex: none;
+                width: 100%;
+                max-width: 400px;
+                padding: 1.5rem;
+                min-height: 150px;
+            }
+            
+            .tournament-card h3 {
+                font-size: 1.4rem;
+            }
+            
+            .modal-content {
+                width: 98%;
+                height: 95%;
+                margin: 1% auto;
+                padding: 15px;
+            }
+        }
+
+        /* Widescreen optimizations */
+        @media (min-width: 1400px) {
+            .tournaments-grid {
+                grid-template-columns: repeat(3, 1fr);
+                max-width: 1400px;
+            }
+            
+            .header h1 {
+                font-size: 5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo section -->
+        <div class="logo-section" data-aos="fade-up" data-aos-duration="800">
+            <a href="#" class="logo">Chess Lions</a>
+        </div>
+
+        <!-- Header -->
+        <header class="header" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+            <h1>Register for Our Tournament(s)</h1>
+        </header>
+
+        <!-- Available tournaments grid -->
+        <div class="tournaments-grid" id="tournamentsGrid">
+            <!-- Tournaments will be dynamically populated here -->
+        </div>
+
+        <!-- No tournaments message -->
+        <div class="no-tournaments" id="noTournaments" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+            <h2>No Tournaments Currently Available</h2>
+            <p>Check back soon for upcoming tournament registration.</p>
+        </div>
+    </div>
+
+    <!-- Modal for enlarged form -->
+    <div id="tournamentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <iframe id="modalForm" class="modal-form" frameborder="0" marginheight="0" marginwidth="0">
+                Loading registration form...
+            </iframe>
+        </div>
+    </div>
+
+    <!-- AOS JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Tournament configurations - Updated with your actual tournaments
+        const tournaments = [
+            {
+                id: 'friday-quads',
+                name: "Chess Lions' Friday Evening Quads - USCF Rated & Un-Rated",
+                description: 'Weekly Friday evening quad tournaments featuring both USCF rated and unrated sections. Perfect for competitive play in a friendly environment.',
+                formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSf3nreRV1-rLE3QDJPWZIYQSyZOKTtAGqA2M0ZmjnzrVldlAQ/viewform?embedded=true'
+            },
+            {
+                id: 'september-open',
+                name: 'Chess Lions Open September 2025 - USCF Rated & Un-Rated',
+                description: 'Our signature open tournament featuring multiple sections for players of all skill levels. Both USCF rated and unrated divisions available.',
+                formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSfS6HmW6ZFbGtOPZVjujOfSXAtHswXMzNMRA2QcqX9dcDw5aA/viewform?embedded=true'
+            }
+        ];
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAvailableTournaments();
+            setupModal();
+            
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-out',
+                once: true,
+                offset: 100
+            });
+        });
+
+        function loadAvailableTournaments() {
+            const grid = document.getElementById('tournamentsGrid');
+            const noTournamentsMsg = document.getElementById('noTournaments');
+            
+            // Debug: Log each tournament name
+            tournaments.forEach((t, i) => {
+                console.log(`Tournament ${i + 1} name:`, `"${t.name}"`);
+                console.log(`Tournament ${i + 1} name length:`, t.name.length);
+                console.log(`Tournament ${i + 1} toLowerCase:`, `"${t.name.toLowerCase()}"`);
+                console.log(`Is tournament? `, t.name.toLowerCase() === 'tournament');
+            });
+            
+            // Filter tournaments that don't have 'tournament' as name (case insensitive)
+            const availableTournaments = tournaments.filter(t => t.name.toLowerCase() !== 'tournament');
+            
+            console.log('Available tournaments count:', availableTournaments.length);
+            console.log('Available tournaments:', availableTournaments);
+            
+            if (availableTournaments.length === 0) {
+                noTournamentsMsg.style.display = 'block';
+                grid.style.display = 'none';
+                return;
+            }
+
+            // Hide no tournaments message and show grid
+            noTournamentsMsg.style.display = 'none';
+            grid.style.display = 'grid';
+
+            // Clear any existing cards
+            grid.innerHTML = '';
+
+            // Create tournament cards only for available tournaments
+            availableTournaments.forEach((tournament, index) => {
+                const card = document.createElement('div');
+                card.className = 'tournament-card';
+                card.setAttribute('data-aos', 'fade-up');
+                card.setAttribute('data-aos-delay', (400 + index * 100).toString());
+                
+                card.innerHTML = `
+                    <h3>${tournament.name}</h3>
+                    <p>${tournament.description}</p>
+                    <button class="register-btn" onclick="openTournamentForm('${tournament.formUrl}', \`${tournament.name}\`)">
+                        Register Now
+                    </button>
+                `;
+                
+                grid.appendChild(card);
+            });
+            
+            // Refresh AOS for new elements
+            AOS.refresh();
+        }
+
+        function setupModal() {
+            const modal = document.getElementById('tournamentModal');
+            const closeBtn = document.getElementById('closeModal');
+            
+            closeBtn.addEventListener('click', closeModal);
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+        }
+
+        function openTournamentForm(formUrl, tournamentName) {
+            const modal = document.getElementById('tournamentModal');
+            const modalForm = document.getElementById('modalForm');
+            
+            console.log('Opening form with URL:', formUrl);
+            console.log('Tournament name:', tournamentName);
+            
+            modalForm.src = formUrl;
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            
+            // Debug: Log modal display
+            console.log('Modal display set to:', modal.style.display);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('tournamentModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
