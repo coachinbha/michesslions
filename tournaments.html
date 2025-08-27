@@ -41,35 +41,79 @@
             text-align: center;
         }
 
+        .registration-banner {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .register-button {
+            background-color: black;
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 1em 2em;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            border: 2px solid black;
+            box-shadow: 0 0 0 0 black;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .register-button:hover {
+            background-color: white;
+            color: black;
+            transform: translateY(-4px) translateX(-2px);
+            box-shadow: 4px 6px 0 0 black;
+        }
+
+        .register-button:active {
+            transform: translateY(2px) translateX(1px);
+            box-shadow: 0 0 0 0 black;
+        }
+
         .tournaments-container {
             width: 100%;
             max-width: 800px;
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 2rem;
             margin-bottom: 2rem;
         }
 
         .tournament-card {
             background-color: var(--bg-color);
-            border: 2px solid var(--text-color);
+            border: 3px solid var(--text-color);
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             width: 100%;
             box-sizing: border-box;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .tournament-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+            border-color: var(--text-color);
         }
 
         .tournament-header {
-            padding: 1.5rem 2rem;
+            padding: 2rem 2.5rem;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: relative;
+            background: linear-gradient(135deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.05) 100%);
+            transition: all 0.3s ease;
         }
 
         .tournament-header:hover {
-            background-color: rgba(0, 0, 0, 0.03);
+            background: linear-gradient(135deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.08) 100%);
         }
 
         .tournament-title-container {
@@ -77,24 +121,39 @@
         }
 
         .tournament-title {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 900;
             text-transform: uppercase;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #000000, #333333);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .tournament-date {
-            font-size: 1.1rem;
-            opacity: 0.8;
+            font-size: 1.2rem;
+            opacity: 0.7;
+            font-weight: 600;
+            color: #444;
         }
 
         .toggle-icon {
-            width: 24px;
-            height: 24px;
+            width: 32px;
+            height: 32px;
             position: relative;
             margin-left: 1rem;
-            transition: transform 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: linear-gradient(135deg, rgba(0,0,0,0.1), rgba(0,0,0,0.2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .toggle-icon:hover {
+            background: linear-gradient(135deg, rgba(0,0,0,0.15), rgba(0,0,0,0.25));
+            transform: scale(1.1);
         }
 
         .toggle-icon::before,
@@ -103,15 +162,20 @@
             position: absolute;
             background-color: var(--text-color);
             top: 50%;
-            left: 0;
-            right: 0;
-            height: 2px;
-            margin-top: -1px;
+            left: 25%;
+            right: 25%;
+            height: 3px;
+            margin-top: -1.5px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .toggle-icon::after {
             transform: rotate(90deg);
-            transition: transform 0.3s ease;
+        }
+
+        .tournament-card.active .toggle-icon {
+            transform: rotate(45deg);
+            background: linear-gradient(135deg, rgba(0,0,0,0.2), rgba(0,0,0,0.3));
         }
 
         .tournament-card.active .toggle-icon::after {
@@ -121,32 +185,48 @@
         .tournament-details {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.5s ease;
-            padding: 0 2rem;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 0 2.5rem;
+            background: linear-gradient(135deg, rgba(0,0,0,0.01) 0%, rgba(0,0,0,0.03) 100%);
         }
 
         .tournament-card.active .tournament-details {
             max-height: 2000px;
-            padding-bottom: 2rem;
+            padding-bottom: 2.5rem;
         }
 
         .detail-section {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .detail-section:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateX(8px);
+            border-color: rgba(0, 0, 0, 0.2);
         }
 
         .detail-title {
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            margin-bottom: 0.8rem;
+            color: #000;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
         }
 
         .detail-content {
-            font-size: 1rem;
+            font-size: 1.05rem;
             word-wrap: break-word;
             overflow-wrap: break-word;
             max-width: 100%;
+            line-height: 1.6;
+            color: #333;
         }
 
         .detail-list {
@@ -155,14 +235,21 @@
 
         .registration-link,
         .contact-link {
-            color: var(--text-color);
-            text-decoration: underline;
-            transition: opacity 0.3s ease;
+            color: #000;
+            text-decoration: none;
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, rgba(0,0,0,0.1), rgba(0,0,0,0.2));
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-block;
+            margin: 0.25rem 0;
         }
 
         .registration-link:hover,
         .contact-link:hover {
-            opacity: 0.7;
+            background: linear-gradient(135deg, rgba(0,0,0,0.2), rgba(0,0,0,0.3));
+            transform: translateY(-2px);
+            color: #000;
         }
 
         .past-tournaments-title {
@@ -173,29 +260,28 @@
             text-transform: uppercase;
         }
 
-        .form-actions {
-            text-align: center;
-            margin-top: 2rem;
-        }
-
         .back-button {
             background-color: white;
             color: black;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 700;
             padding: 0.75em 1.5em;
             cursor: pointer;
             transition: all 0.3s ease-in-out;
-            border: 1px solid black;
+            border: 2px solid black;
             box-shadow: 0 0 0 0 black;
             text-decoration: none;
             display: inline-block;
             font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .back-button:hover {
+            background-color: black;
+            color: white;
             transform: translateY(-4px) translateX(-2px);
-            box-shadow: 2px 5px 0 0 black;
+            box-shadow: 4px 6px 0 0 black;
         }
 
         .back-button:active {
@@ -217,15 +303,29 @@
             }
 
             .tournament-header {
-                padding: 1.2rem 1.5rem;
+                padding: 1.5rem 2rem;
             }
             
             .tournament-details {
-                padding: 0 1.5rem;
+                padding: 0 2rem;
+            }
+
+            .tournament-card.active .tournament-details {
+                padding-bottom: 2rem;
             }
             
             .detail-content {
-                font-size: 0.95rem;
+                font-size: 1rem;
+            }
+
+            .detail-section {
+                padding: 0.8rem;
+                margin-bottom: 1rem;
+            }
+
+            .detail-title {
+                font-size: 0.8rem;
+                letter-spacing: 1.5px;
             }
             
             .contact-link,
@@ -237,11 +337,20 @@
                 font-size: 0.95rem;
                 padding: 0.7em 1.4em;
             }
+            
+            .register-button {
+                font-size: 16px;
+                padding: 0.9em 1.8em;
+            }
         }
     </style>
 </head>
 <body>
     <h1 class="page-title" data-aos="fade-down">Chess Lions Tournaments</h1>
+    
+    <div class="registration-banner" data-aos="fade-up" data-aos-delay="50">
+        <a href="https://michesslions.com/registration.html" class="register-button">Register for Upcoming Tournaments</a>
+    </div>
     
     <div class="tournaments-container">
         <!-- Upcoming Tournament 1 (September tournament) -->
@@ -485,8 +594,8 @@
         </div>
     </div>
     
-    <div class="form-actions">
-        <a href="https://michesslions.com" class="back-button" data-aos="fade-up">Back to Website</a>
+    <div class="registration-banner" data-aos="fade-up">
+        <a href="https://michesslions.com" class="register-button">Back to Website</a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
@@ -507,11 +616,11 @@
             if (element.classList.contains('active')) {
                 details.style.opacity = 0;
                 setTimeout(() => {
-                    details.style.transition = 'opacity 0.5s ease, max-height 0.5s ease';
+                    details.style.transition = 'opacity 0.5s ease, max-height 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
                     details.style.opacity = 1;
                 }, 10);
             } else {
-                details.style.transition = 'opacity 0.3s ease, max-height 0.5s ease';
+                details.style.transition = 'opacity 0.3s ease, max-height 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
                 details.style.opacity = 0;
             }
         }
