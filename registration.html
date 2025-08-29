@@ -47,14 +47,21 @@
             margin-bottom: 3rem;
         }
 
-        .logo {
-            font-weight: 900;
-            font-size: 2rem;
-            text-transform: uppercase;
-            color: var(--text-color);
-            text-decoration: none;
-            margin-bottom: 1rem;
+        .logo-link {
             display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-link:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-image {
+            width: 200px;
+            height: 120px;
+            object-fit: contain;
+            border: 2px solid var(--text-color);
+            background-color: #f5f5f5;
         }
 
         /* Header styles */
@@ -221,8 +228,9 @@
                 padding: 1rem;
             }
             
-            .logo {
-                font-size: 1.5rem;
+            .logo-image {
+                width: 150px;
+                height: 90px;
             }
             
             .header h1 {
@@ -272,7 +280,11 @@
     <div class="container">
         <!-- Logo section -->
         <div class="logo-section" data-aos="fade-up" data-aos-duration="800">
-            <a href="#" class="logo">Chess Lions</a>
+            <a href="https://michesslions.com/" class="logo-link" target="_blank" rel="noopener noreferrer">
+                <img src="WCL business card 1050x600.png" 
+                     alt="Chess Lions Logo" WCL business card 1050x600.png
+                     class="logo-image">
+            </a>
         </div>
 
         <!-- Header -->
@@ -432,5 +444,3 @@
     </script>
 </body>
 </html>
-
-
