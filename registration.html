@@ -143,6 +143,28 @@
             background-color: #333;
         }
 
+        /* Secondary action button */
+        .secondary-btn {
+            background-color: transparent;
+            color: var(--text-color);
+            padding: 0.75rem 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid var(--text-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 2rem;
+        }
+
+        .secondary-btn:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+        }
+
         /* Modal styles for enlarged form */
         .modal {
             display: none;
@@ -301,6 +323,13 @@
         <div class="no-tournaments" id="noTournaments" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
             <h2>No Tournaments Currently Available</h2>
             <p>Check back soon for upcoming tournament registration.</p>
+        </div>
+
+        <!-- Registration list button -->
+        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
+            <a href="https://michesslions.com/registration-list.html" class="secondary-btn">
+                Current Registration List
+            </a>
         </div>
     </div>
 
