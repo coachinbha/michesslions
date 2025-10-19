@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament Registrations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --accent-color: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.4;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 0;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .logo-container {
+            margin-bottom: 2rem;
+        }
+
+        .logo-image {
+            max-height: 80px;
+            max-width: 250px;
+            object-fit: contain;
+            display: inline-block;
+        }
+
+        h1 {
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.2rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .loading {
+            text-align: center;
+            color: #666;
+            font-size: 1rem;
+            padding: 4rem 2rem;
+            letter-spacing: 1px;
+        }
+
+        .error {
+            background: var(--bg-color);
+            border: 2px solid var(--text-color);
+            color: var(--text-color);
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            font-size: 1rem;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin: 3rem 0;
+            padding: 2rem;
+            border: 1px solid var(--text-color);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--text-color);
+            letter-spacing: -1px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            border: 1px solid var(--text-color);
+        }
+
+        th {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 1.5rem;
+            text-align: left;
+            font-weight: 900;
+            border-bottom: 2px solid var(--text-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        td {
+            padding: 1.2rem 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.95rem;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        tr:last-child td {
+            border-bottom: 1px solid var(--text-color);
+        }
+
+        .refresh-info {
+            text-align: center;
+            color: #999;
+            font-size: 0.85rem;
+            margin-top: 2rem;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 0.75rem 1rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-section" data-aos="fade-up">
+            <div class="logo-container">
+                <a href="/" style="text-decoration: none; display: inline-block;">
+                    <img src="WCL business card 1050x600.png" alt="Chess Lions Logo" class="logo-image">
+                </a>
+            </div>
+            <h1>REGISTRATION LIST FOR OUR<br>TOURNAMENT(S)</h1>
+            <p class="subtitle">Live registration list</p>
+        </div>
+
+        <div id="loading" class="loading" data-aos="fade-up">Loading registrations...</div>
+        <div id="error" class="error" style="display:none;" data-aos="fade-up"></div>
+
+        <div id="content" style="display:none;" data-aos="fade-up">
+            <h2 id="sheetTitle"></h2>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="totalCount">0</div>
+                    <div class="stat-label">Total Registrations</div>
+                </div>
+            </div>
+
+            <table id="registrationTable">
+                <thead>
+                    <tr id="headerRow"></tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+
+            <div class="refresh-info">
+                Last updated: <span id="lastUpdate">just now</span> | Auto-refresh every 30 seconds
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS first
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // ⚠️ REPLACE THIS WITH YOUR SHEETDB ENDPOINT URL
+        const SHEETDB_URL = 'https://sheetdb.io/api/v1/x42f8plwsrlkq';
+
+        // ⚠️ CHANGE THIS TO THE COLUMN NAME YOU WANT TO DISPLAY
+        const COLUMN_TO_DISPLAY = 'Players Name (Last name, First name)';
+
+        // ⚠️ CHANGE THIS TO YOUR SHEET NAME
+        const SHEET_NAME = 'Chess Lions Troy Tournament';
+
+        async function fetchRegistrations() {
+            try {
+                const response = await fetch(SHEETDB_URL);
+
+                if (!response.ok) {
+                    throw new Error(`API error: ${response.status}`);
+                }
+
+                const data = await response.json();
+                displayRegistrations(data);
+                updateTimestamp();
+
+            } catch (error) {
+                showError('Could not load registrations. Check your SheetDB endpoint URL.');
+                console.error('Error:', error);
+            }
+        }
+
+        function displayRegistrations(data) {
+            if (!data || data.length === 0) {
+                showError('No registrations yet.');
+                return;
+            }
+
+            const headerRow = document.getElementById('headerRow');
+            headerRow.innerHTML = '';
+            const th = document.createElement('th');
+            th.textContent = COLUMN_TO_DISPLAY;
+            headerRow.appendChild(th);
+
+            const tableBody = document.getElementById('tableBody');
+            tableBody.innerHTML = '';
+            data.forEach(row => {
+                const tr = document.createElement('tr');
+                const td = document.createElement('td');
+                td.textContent = row[COLUMN_TO_DISPLAY] || '-';
+                tr.appendChild(td);
+                tableBody.appendChild(tr);
+            });
+
+            document.getElementById('totalCount').textContent = data.length;
+            document.getElementById('sheetTitle').textContent = SHEET_NAME;
+
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+            document.getElementById('error').style.display = 'none';
+
+            // Refresh AOS for newly displayed content
+            AOS.refresh();
+        }
+
+        function showError(message) {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('error').textContent = message;
+            document.getElementById('error').style.display = 'block';
+            document.getElementById('content').style.display = 'none';
+        }
+
+        function updateTimestamp() {
+            const now = new Date();
+            document.getElementById('lastUpdate').textContent = now.toLocaleTimeString();
+        }
+
+        fetchRegistrations();
+        setInterval(fetchRegistrations, 30000);
+    </script>
+</body>
+</html>
