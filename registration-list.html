@@ -121,6 +121,38 @@
             letter-spacing: 1px;
         }
 
+        .filter-section {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 2rem 0;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--text-color);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            cursor: pointer;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            transition: all 0.2s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .filter-btn:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        .filter-btn.active {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -187,6 +219,15 @@
             .stat-number {
                 font-size: 2.5rem;
             }
+
+            .filter-section {
+                gap: 0.25rem;
+            }
+
+            .filter-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.75rem;
+            }
         }
     </style>
 </head>
@@ -215,6 +256,8 @@
                 </div>
             </div>
 
+            <div class="filter-section" id="filterSection"></div>
+
             <table id="registrationTable">
                 <thead>
                     <tr id="headerRow"></tr>
@@ -241,6 +284,10 @@
 
         // Update these to match your column headers exactly
         const COLUMNS_TO_DISPLAY = ['Players Name (Last name, First name)', 'Which section? Note: sections may be combined based upon entries.'];
+        const SECTION_COLUMN = 'Which section? Note: sections may be combined based upon entries.';
+
+        let allData = [];
+        let selectedSection = 'All';
 
         async function fetchRegistrations() {
             try {
@@ -255,7 +302,9 @@
                 const data = await response.json();
                 console.log('Data received:', data);
                 
+                allData = data;
                 displayRegistrations(data);
+                updateFilters();
                 updateTimestamp();
 
             } catch (error) {
@@ -264,10 +313,53 @@
             }
         }
 
+        function updateFilters() {
+            // Get unique sections
+            const sections = new Set();
+            sections.add('All');
+            
+            allData.forEach(row => {
+                const section = row[SECTION_COLUMN];
+                if (section) {
+                    sections.add(section);
+                }
+            });
+
+            const filterSection = document.getElementById('filterSection');
+            filterSection.innerHTML = '';
+
+            const sortedSections = Array.from(sections).sort((a, b) => {
+                if (a === 'All') return -1;
+                if (b === 'All') return 1;
+                return a.localeCompare(b);
+            });
+
+            sortedSections.forEach(section => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn';
+                if (section === selectedSection) {
+                    btn.classList.add('active');
+                }
+                btn.textContent = section;
+                btn.addEventListener('click', () => {
+                    selectedSection = section;
+                    updateFilters();
+                    displayRegistrations(allData);
+                });
+                filterSection.appendChild(btn);
+            });
+        }
+
         function displayRegistrations(data) {
             if (!data || data.length === 0) {
                 showError('No registrations yet.');
                 return;
+            }
+
+            // Filter data by selected section
+            let filteredData = data;
+            if (selectedSection !== 'All') {
+                filteredData = data.filter(row => row[SECTION_COLUMN] === selectedSection);
             }
 
             const headerRow = document.getElementById('headerRow');
@@ -280,7 +372,7 @@
 
             const tableBody = document.getElementById('tableBody');
             tableBody.innerHTML = '';
-            data.forEach(row => {
+            filteredData.forEach(row => {
                 const tr = document.createElement('tr');
                 COLUMNS_TO_DISPLAY.forEach(col => {
                     const td = document.createElement('td');
@@ -290,7 +382,7 @@
                 tableBody.appendChild(tr);
             });
 
-            document.getElementById('totalCount').textContent = data.length;
+            document.getElementById('totalCount').textContent = filteredData.length;
             document.getElementById('sheetTitle').textContent = 'Tournament Registrations';
 
             document.getElementById('loading').style.display = 'none';
