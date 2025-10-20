@@ -215,6 +215,13 @@
                 </div>
             </div>
 
+            <div style="margin-bottom: 2rem; text-align: center;">
+                <label for="sectionFilter" style="margin-right: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;">Filter by Section:</label>
+                <select id="sectionFilter" style="padding: 0.75rem 1rem; font-size: 1rem; border: 2px solid var(--text-color); font-family: 'Montserrat', sans-serif; cursor: pointer;">
+                    <option value="">All Sections</option>
+                </select>
+            </div>
+
             <table id="registrationTable">
                 <thead>
                     <tr id="headerRow"></tr>
@@ -230,48 +237,36 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        // Initialize AOS first
+        // Initialize AOS
         AOS.init({
             duration: 1000,
             once: true
         });
 
-        // ⚠️ REPLACE THIS WITH YOUR SHEETDB ENDPOINT URL
-        const SHEETDB_URL = 'https://sheetdb.io/api/v1/x42f8plwsrlkq';
+        // Opensheet API - NO SIGNUP REQUIRED
+        const OPENSHEET_URL = 'https://opensheet.elk.sh/1vd-xS4iudOcvImmkfc97pke4X_b1P8v4raL6Jabh2S0/FormResponses1';
 
-        // ⚠️ CHANGE THESE TO THE COLUMN NAMES YOU WANT TO DISPLAY
+        // Update these to match your column headers exactly
         const COLUMNS_TO_DISPLAY = ['Players Name (Last name, First name)', 'Which section? Note: sections may be combined based upon entries.'];
-
-        // ⚠️ CHANGE THIS TO YOUR SHEET NAME
-        const SHEET_NAME = 'Chess Lions Troy Tournament Registration';
 
         async function fetchRegistrations() {
             try {
-                console.log('Fetching from:', SHEETDB_URL);
+                console.log('Fetching from:', OPENSHEET_URL);
                 
-                const response = await fetch(SHEETDB_URL);
+                const response = await fetch(OPENSHEET_URL);
 
                 if (!response.ok) {
                     throw new Error(`API error: ${response.status}`);
                 }
 
-                let data = await response.json();
-                console.log('Raw data:', data);
+                const data = await response.json();
+                console.log('Data received:', data);
                 
-                // Handle if data is wrapped in an object with a property
-                if (data && typeof data === 'object' && !Array.isArray(data)) {
-                    const firstKey = Object.keys(data)[0];
-                    if (Array.isArray(data[firstKey])) {
-                        data = data[firstKey];
-                    }
-                }
-                
-                console.log('Processed data:', data);
                 displayRegistrations(data);
                 updateTimestamp();
 
             } catch (error) {
-                console.error('Full error:', error);
+                console.error('Error:', error);
                 showError('Could not load registrations. Check console for details.');
             }
         }
@@ -303,13 +298,12 @@
             });
 
             document.getElementById('totalCount').textContent = data.length;
-            document.getElementById('sheetTitle').textContent = SHEET_NAME;
+            document.getElementById('sheetTitle').textContent = 'Tournament Registrations';
 
             document.getElementById('loading').style.display = 'none';
             document.getElementById('content').style.display = 'block';
             document.getElementById('error').style.display = 'none';
 
-            // Refresh AOS for newly displayed content
             AOS.refresh();
         }
 
