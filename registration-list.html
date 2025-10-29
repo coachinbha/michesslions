@@ -83,6 +83,40 @@
             font-size: 1rem;
         }
 
+        .tournament-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 2rem 0;
+            border-bottom: 2px solid var(--text-color);
+            padding-bottom: 1rem;
+        }
+
+        .tournament-tab {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--text-color);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            cursor: pointer;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            transition: all 0.2s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .tournament-tab:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        .tournament-tab.active {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+        }
+
         .stats {
             display: flex;
             justify-content: center;
@@ -228,6 +262,15 @@
                 padding: 0.6rem 1rem;
                 font-size: 0.75rem;
             }
+
+            .tournament-tabs {
+                gap: 0.25rem;
+            }
+
+            .tournament-tab {
+                padding: 0.6rem 1rem;
+                font-size: 0.75rem;
+            }
         }
     </style>
 </head>
@@ -247,6 +290,8 @@
         <div id="error" class="error" style="display:none;" data-aos="fade-up"></div>
 
         <div id="content" style="display:none;" data-aos="fade-up">
+            <div class="tournament-tabs" id="tournamentTabs"></div>
+
             <h2 id="sheetTitle"></h2>
 
             <div class="stats">
@@ -279,32 +324,42 @@
             once: true
         });
 
-        // Opensheet API - NO SIGNUP REQUIRED
-        const OPENSHEET_URL = 'https://opensheet.elk.sh/1vd-xS4iudOcvImmkfc97pke4X_b1P8v4raL6Jabh2S0/FormResponses1';
+        // CONFIGURATION: Add your tournaments here
+        // Format: { name: 'Display Name', url: 'Opensheet API URL', columns: ['col1', 'col2'], sectionColumn: 'column name' }
+        const TOURNAMENTS = [
+            {
+                name: 'Chess Lions Troy Tournament',
+                url: 'https://opensheet.elk.sh/1vd-xS4iudOcvImmkfc97pke4X_b1P8v4raL6Jabh2S0/FormResponses1',
+                columns: ['Players Name (Last name, First name)', 'Which section? Note: sections may be combined based upon entries.'],
+                sectionColumn: 'Which section? Note: sections may be combined based upon entries.'
+            },
+            {
+                name: '2nd South Lyon Chess Tournament',
+                url: 'https://opensheet.elk.sh/1FJWUPdjMoUZJxI6C1FbkQo5PYkucJ9f7fgqBUxl3D78/FormResponses1',
+                columns: ['Players Name (Last name, First name)', 'Which section? Note: sections may be combined based upon entries.'],
+                sectionColumn: 'Which section? Note: sections may be combined based upon entries.'
+            }
+        ];
 
-        // Update these to match your column headers exactly
-        const COLUMNS_TO_DISPLAY = ['Players Name (Last name, First name)', 'Which section? Note: sections may be combined based upon entries.'];
-        const SECTION_COLUMN = 'Which section? Note: sections may be combined based upon entries.';
+        let activeTournament = 0;
+        let tournamentsData = {};
+        let selectedSections = {};
 
-        let allData = [];
-        let selectedSection = 'All';
-
-        async function fetchRegistrations() {
+        async function fetchAllTournaments() {
             try {
-                console.log('Fetching from:', OPENSHEET_URL);
-                
-                const response = await fetch(OPENSHEET_URL);
+                // Initialize data objects
+                TOURNAMENTS.forEach((t, idx) => {
+                    tournamentsData[idx] = [];
+                    selectedSections[idx] = 'All';
+                });
 
-                if (!response.ok) {
-                    throw new Error(`API error: ${response.status}`);
-                }
+                // Fetch all tournament data
+                await Promise.all(
+                    TOURNAMENTS.map((tournament, idx) => fetchTournament(idx, tournament.url))
+                );
 
-                const data = await response.json();
-                console.log('Data received:', data);
-                
-                allData = data;
-                displayRegistrations(data);
-                updateFilters();
+                createTournamentTabs();
+                displayTournament(activeTournament);
                 updateTimestamp();
 
             } catch (error) {
@@ -313,13 +368,65 @@
             }
         }
 
-        function updateFilters() {
+        async function fetchTournament(idx, url) {
+            try {
+                console.log(`Fetching tournament ${idx} from:`, url);
+                
+                const response = await fetch(url);
+
+                if (!response.ok) {
+                    throw new Error(`API error: ${response.status}`);
+                }
+
+                const data = await response.json();
+                tournamentsData[idx] = data;
+                console.log(`Tournament ${idx} data received:`, data);
+
+            } catch (error) {
+                console.error(`Error fetching tournament ${idx}:`, error);
+            }
+        }
+
+        function createTournamentTabs() {
+            const tabsContainer = document.getElementById('tournamentTabs');
+            tabsContainer.innerHTML = '';
+
+            TOURNAMENTS.forEach((tournament, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'tournament-tab';
+                if (idx === activeTournament) {
+                    btn.classList.add('active');
+                }
+                btn.textContent = tournament.name;
+                btn.addEventListener('click', () => {
+                    activeTournament = idx;
+                    createTournamentTabs();
+                    displayTournament(idx);
+                });
+                tabsContainer.appendChild(btn);
+            });
+        }
+
+        function displayTournament(tournamentIdx) {
+            const tournament = TOURNAMENTS[tournamentIdx];
+            const data = tournamentsData[tournamentIdx];
+
+            if (!data || data.length === 0) {
+                showError(`No registrations for ${tournament.name} yet.`);
+                return;
+            }
+
+            updateSectionFilters(tournamentIdx, data, tournament);
+            displayRegistrations(tournamentIdx, data, tournament);
+        }
+
+        function updateSectionFilters(tournamentIdx, data, tournament) {
             // Get unique sections
             const sections = new Set();
             sections.add('All');
             
-            allData.forEach(row => {
-                const section = row[SECTION_COLUMN];
+            data.forEach(row => {
+                const section = row[tournament.sectionColumn];
                 if (section) {
                     sections.add(section);
                 }
@@ -337,34 +444,29 @@
             sortedSections.forEach(section => {
                 const btn = document.createElement('button');
                 btn.className = 'filter-btn';
-                if (section === selectedSection) {
+                if (section === selectedSections[tournamentIdx]) {
                     btn.classList.add('active');
                 }
                 btn.textContent = section;
                 btn.addEventListener('click', () => {
-                    selectedSection = section;
-                    updateFilters();
-                    displayRegistrations(allData);
+                    selectedSections[tournamentIdx] = section;
+                    updateSectionFilters(tournamentIdx, data, tournament);
+                    displayRegistrations(tournamentIdx, data, tournament);
                 });
                 filterSection.appendChild(btn);
             });
         }
 
-        function displayRegistrations(data) {
-            if (!data || data.length === 0) {
-                showError('No registrations yet.');
-                return;
-            }
-
+        function displayRegistrations(tournamentIdx, data, tournament) {
             // Filter data by selected section
             let filteredData = data;
-            if (selectedSection !== 'All') {
-                filteredData = data.filter(row => row[SECTION_COLUMN] === selectedSection);
+            if (selectedSections[tournamentIdx] !== 'All') {
+                filteredData = data.filter(row => row[tournament.sectionColumn] === selectedSections[tournamentIdx]);
             }
 
             const headerRow = document.getElementById('headerRow');
             headerRow.innerHTML = '';
-            COLUMNS_TO_DISPLAY.forEach(col => {
+            tournament.columns.forEach(col => {
                 const th = document.createElement('th');
                 th.textContent = col;
                 headerRow.appendChild(th);
@@ -374,7 +476,7 @@
             tableBody.innerHTML = '';
             filteredData.forEach(row => {
                 const tr = document.createElement('tr');
-                COLUMNS_TO_DISPLAY.forEach(col => {
+                tournament.columns.forEach(col => {
                     const td = document.createElement('td');
                     td.textContent = row[col] || '-';
                     tr.appendChild(td);
@@ -383,7 +485,7 @@
             });
 
             document.getElementById('totalCount').textContent = filteredData.length;
-            document.getElementById('sheetTitle').textContent = 'Tournament Registrations';
+            document.getElementById('sheetTitle').textContent = tournament.name;
 
             document.getElementById('loading').style.display = 'none';
             document.getElementById('content').style.display = 'block';
@@ -404,8 +506,10 @@
             document.getElementById('lastUpdate').textContent = now.toLocaleTimeString();
         }
 
-        fetchRegistrations();
-        setInterval(fetchRegistrations, 30000);
+        fetchAllTournaments();
+        setInterval(() => {
+            fetchAllTournaments();
+        }, 30000);
     </script>
 </body>
 </html>
