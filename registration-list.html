@@ -63,6 +63,27 @@
             font-size: 1.2rem;
             font-weight: 400;
             letter-spacing: 1px;
+            margin-bottom: 2rem;
+        }
+
+        .registration-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            text-decoration: none;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            border: 2px solid var(--text-color);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .registration-btn:hover {
+            background-color: var(--bg-color);
+            color: var(--text-color);
         }
 
         .loading {
@@ -271,6 +292,11 @@
                 padding: 0.6rem 1rem;
                 font-size: 0.75rem;
             }
+
+            .registration-btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
@@ -284,6 +310,7 @@
             </div>
             <h1>REGISTER FOR OUR<br>TOURNAMENT(S)</h1>
             <p class="subtitle">Live registration list</p>
+            <a href="#" class="registration-btn">Register Now</a>
         </div>
 
         <div id="loading" class="loading" data-aos="fade-up">Loading registrations...</div>
