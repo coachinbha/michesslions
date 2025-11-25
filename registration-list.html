@@ -354,9 +354,15 @@
         // CONFIGURATION: Add your tournaments here
         // Format: { name: 'Display Name', url: 'Opensheet API URL', columns: ['col1', 'col2'], sectionColumn: 'column name' }
         const TOURNAMENTS = [
-             {
+            {
                 name: '2nd South Lyon Chess Tournament',
                 url: 'https://opensheet.elk.sh/1FJWUPdjMoUZJxI6C1FbkQo5PYkucJ9f7fgqBUxl3D78/FormResponses1',
+                columns: ["Player's Name (Last name, First name)", 'Which section? Note: sections may be combined based upon entries.'],
+                sectionColumn: 'Which section? Note: sections may be combined based upon entries.'
+            },
+            {
+                name: 'Troy Chess Tournament by Chess Lions',
+                url: 'https://opensheet.elk.sh/1ohwUGjMxO6MhUK1nMGRNv8yXvJLKQkcdJYBwJt5kBFI/FormResponses1',
                 columns: ["Player's Name (Last name, First name)", 'Which section? Note: sections may be combined based upon entries.'],
                 sectionColumn: 'Which section? Note: sections may be combined based upon entries.'
             }
@@ -392,7 +398,7 @@
         async function fetchTournament(idx, url) {
             try {
                 console.log(`Fetching tournament ${idx} from:`, url);
-                
+
                 const response = await fetch(url);
 
                 if (!response.ok) {
@@ -433,7 +439,7 @@
             const data = tournamentsData[tournamentIdx];
 
             if (!data || data.length === 0) {
-                showError(`No registrations for ${tournament.name} yet.`);
+                displayEmptyRegistrations(tournamentIdx, tournament);
                 return;
             }
 
@@ -445,7 +451,7 @@
             // Get unique sections
             const sections = new Set();
             sections.add('All');
-            
+
             data.forEach(row => {
                 const section = row[tournament.sectionColumn];
                 if (section) {
@@ -507,6 +513,29 @@
 
             document.getElementById('totalCount').textContent = filteredData.length;
             document.getElementById('sheetTitle').textContent = tournament.name;
+
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+            document.getElementById('error').style.display = 'none';
+
+            AOS.refresh();
+        }
+
+        function displayEmptyRegistrations(tournamentIdx, tournament) {
+            const headerRow = document.getElementById('headerRow');
+            headerRow.innerHTML = '';
+            tournament.columns.forEach(col => {
+                const th = document.createElement('th');
+                th.textContent = col;
+                headerRow.appendChild(th);
+            });
+
+            const tableBody = document.getElementById('tableBody');
+            tableBody.innerHTML = '<tr><td colspan="' + tournament.columns.length + '" style="text-align: center; color: #999;">No registrations yet</td></tr>';
+
+            document.getElementById('totalCount').textContent = '0';
+            document.getElementById('sheetTitle').textContent = tournament.name;
+            document.getElementById('filterSection').innerHTML = '';
 
             document.getElementById('loading').style.display = 'none';
             document.getElementById('content').style.display = 'block';
