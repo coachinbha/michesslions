@@ -1,445 +1,391 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Lions Gallery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+        }
 
-    .gallery-wrapper {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-      box-sizing: border-box;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .info-section {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    
-    .gallery-info {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 16px;
-      line-height: 1.5;
-      color: #333;
-      max-width: 800px;
-      margin: 0 auto;
-      letter-spacing: 0.2px;
-      text-align: center;
-    }
-    
-    .button-container {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 30px;
-      flex-wrap: wrap;
-    }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
 
-    .button {
-      display: inline-flex;
-      align-items: center;
-      background-color: #000;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      padding: 12px 28px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 16px;
-      font-weight: 800;
-      text-transform: uppercase;
-      text-decoration: none;
-      letter-spacing: 0.5px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      justify-content: center;
-      min-width: 180px;
-    }
+        .gallery-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
 
-    .button:hover {
-      background-color: #333;
-      transform: translateY(-2px);
-    }
+        .info-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-    .button i {
-      margin-left: 8px;
-    }
+        .gallery-info {
+            font-size: 1.1rem;
+            font-weight: 400;
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-    }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
 
-    .image-container {
-      position: relative;
-      border-radius: 8px;
-      overflow: hidden;
-      opacity: 0;
-      animation: fadeIn 0.5s ease-in forwards;
-      cursor: pointer;
-      height: 100%;
-    }
+        .button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--bg-color);
+            background-color: var(--text-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease;
+            border: 2px solid var(--text-color);
+        }
 
-    .image-container img {
-      width: 100%;
-      display: block;
-      transition: all 0.4s ease;
-      height: 100%;
-    }
+        .button:hover {
+            transform: translateY(-2px);
+        }
 
-    .image-4-3 {
-      aspect-ratio: 4/3;
-      object-fit: cover;
-    }
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
 
-    .image-3-4 {
-      aspect-ratio: 3/4;
-      object-fit: cover;
-    }
+        .gallery-header h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+        }
 
-    .image-container:hover img {
-      filter: brightness(1.1);
-      transform: scale(1.1) rotate(2deg);
-    }
+        .gallery-container {
+            columns: 4;
+            column-gap: 20px;
+        }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid var(--text-color);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            background: var(--bg-color);
+            opacity: 0;
+        }
 
-    img.error {
-      display: none;
-    }
+        .gallery-item.loaded {
+            opacity: 1;
+        }
 
-    /* Improved responsive breakpoints */
-    @media (max-width: 1200px) {
-      .gallery-wrapper {
-        max-width: 900px;
-      }
-      .gallery {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
 
-    @media (max-width: 800px) {
-      .gallery-wrapper {
-        max-width: 600px;
-        padding: 15px;
-      }
-      .gallery {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-      }
-    }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
 
-    @media (max-width: 500px) {
-      .gallery-wrapper {
-        padding: 10px;
-      }
-      .gallery {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
-      }
-      .button {
-        padding: 10px 20px;
-        font-size: 14px;
-        min-width: 0;
-        width: auto;
-      }
-      .gallery-info {
-        font-size: 14px;
-        padding: 0 10px;
-      }
-      .button-container {
-        gap: 10px;
-        justify-content: center;
-      }
-      .info-section {
-        margin-bottom: 15px;
-      }
-    }
-    
-    /* Fix for very small screens */
-    @media (max-width: 320px) {
-      .gallery {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border: 2px solid white;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            z-index: 1001;
+            font-weight: 300;
+        }
+
+        .lightbox-close:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .gallery-container {
+                columns: 3;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-container {
+                columns: 2;
+            }
+            
+            .gallery-header h1 {
+                font-size: 2rem;
+            }
+            
+            .gallery-info {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-container {
+                columns: 1;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="gallery-wrapper">
-    <div class="info-section">
-      <p class="gallery-info">The pictures below are in no order. If you'd like to find images from a past tournament or find a past tournament, please use the button below.</p>
+    <div class="gallery-wrapper">
+        <div class="info-section">
+            <p class="gallery-info">The pictures below are in no order. If you'd like to find images from a past tournament or find a past tournament, please use the button below.</p>
+        </div>
+        
+        <div class="button-container">
+            <a href="https://michesslions.com" class="button home-button">
+                Back to Website <i class="fas fa-home"></i>
+            </a>
+            <a href="https://michesslions.com/tournamentviewer.html" class="button past-tournaments-button">
+                Past Tournaments <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="gallery-container" id="galleryContainer">
+            <!-- Images will be dynamically inserted here -->
+        </div>
     </div>
-    <div class="button-container">
-      <a href="https://michesslions.com" class="button home-button">
-        Back to Website <i class="fas fa-home"></i>
-      </a>
-      <a href="https://michesslions.com/tournamentviewer.html" class="button past-tournaments-button">
-        Past Tournaments <i class="fas fa-arrow-right"></i>
-      </a>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="Lightbox Image">
     </div>
-    
-    <div class="gallery">
-  <!-- Row 1 - 4:3 -->
-  <div class="image-container">
-    <img src="site1.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site3.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site5.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site7.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
 
-  <!-- Row 2 - 3:4 -->
-  <div class="image-container">
-    <img src="site2.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site4.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site6.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site8.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // All image sources from the document
+        const imageSources = [
+            'site1.jpg', 'site3.jpg', 'site5.jpg', 'site7.jpg',
+            'site2.jpg', 'site4.jpg', 'site6.jpg', 'site8.jpg',
+            'site9.jpg', 'site11.jpg', 'site13.jpg', 'site15.jpg',
+            'site10.jpg', 'site12.jpg', 'site14.jpg', 'site16.jpg',
+            'site17.jpg', 'site19.jpg', 'site21.jpg', 'site23.jpg',
+            'site18.jpg', 'site20.jpg', 'site22.jpg', 'site24.jpg',
+            'site25.jpg', 'site27.jpg', 'site29.jpg', 'site31.jpg',
+            'site26.jpg', 'site28.jpg', 'site30.jpg', 'site32.jpg',
+            'site33.jpg', 'site35.jpg', 'site37.jpg', 'site39.jpg',
+            'site34.jpg', 'site36.jpg', 'site38.jpg', 'site40.jpg',
+            'site41.jpg', 'site43.jpg', 'site45.jpg', 'site47.jpg',
+            'site42.jpg', 'site44.jpg', 'site46.jpg', 'site48.jpg',
+            'site49.jpg', 'site51.jpg', 'site53.jpg', 'site55.jpg',
+            'site50.jpg', 'site52.jpg', 'site54.jpg', 'site56.jpg',
+            'site57.jpg', 'site59.jpg', 'site61.jpg', 'site63.jpg',
+            'site58.jpg', 'site60.jpg', 'site62.jpg', 'site64.jpg'
+        ];
 
-  <!-- Row 3 - 4:3 -->
-  <div class="image-container">
-    <img src="site9.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site11.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site13.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site15.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
+        // Function to calculate aspect ratio from image
+        function calculateAspectRatio(width, height) {
+            const ratio = width / height;
+            
+            if (Math.abs(ratio - 0.5625) < 0.1) return '9:16';
+            if (Math.abs(ratio - 0.75) < 0.1) return '3:4';
+            if (Math.abs(ratio - 1) < 0.1) return '1:1';
+            if (Math.abs(ratio - 1.333) < 0.1) return '4:3';
+            if (Math.abs(ratio - 1.778) < 0.1) return '16:9';
+            
+            if (ratio < 0.9) return 'Portrait';
+            if (ratio > 1.2) return 'Landscape';
+            return 'Square';
+        }
 
-  <!-- Row 4 - 3:4 -->
-  <div class="image-container">
-    <img src="site10.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site12.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site14.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site16.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
+        // Function to organize images by aspect ratio
+        function organizeImages(imageArray) {
+            const organized = [];
+            const byRatio = {};
+            
+            imageArray.forEach((img, index) => {
+                const key = img.ratio || 'unknown';
+                if (!byRatio[key]) byRatio[key] = [];
+                byRatio[key].push({ ...img, originalIndex: index });
+            });
+            
+            const ratioKeys = Object.keys(byRatio);
+            let maxLength = Math.max(...Object.values(byRatio).map(arr => arr.length));
+            
+            for (let i = 0; i < maxLength; i++) {
+                ratioKeys.forEach(key => {
+                    if (byRatio[key][i]) {
+                        organized.push(byRatio[key][i]);
+                    }
+                });
+            }
+            
+            return organized;
+        }
 
-  <!-- Row 5 - 4:3 -->
-  <div class="image-container">
-    <img src="site17.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site19.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site21.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site23.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
+        // Function to check if image exists and load it
+        function checkAndLoadImage(src) {
+            return new Promise((resolve) => {
+                const img = new Image();
+                
+                img.onload = function() {
+                    const ratio = calculateAspectRatio(this.width, this.height);
+                    resolve({
+                        src: src,
+                        ratio: ratio,
+                        width: this.width,
+                        height: this.height,
+                        loaded: true
+                    });
+                };
+                
+                img.onerror = function() {
+                    // Image failed to load, resolve with null
+                    resolve(null);
+                };
+                
+                img.src = src;
+            });
+        }
 
-  <!-- Row 6 - 3:4 -->
-  <div class="image-container">
-    <img src="site18.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site20.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site22.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site24.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
+        // Main function to load gallery
+        async function loadGallery() {
+            const container = document.getElementById('galleryContainer');
+            
+            // Check all images and filter out the ones that don't load
+            const imageChecks = await Promise.all(
+                imageSources.map(src => checkAndLoadImage(src))
+            );
+            
+            // Filter out null values (failed images)
+            const validImages = imageChecks.filter(img => img !== null);
+            
+            if (validImages.length === 0) {
+                container.innerHTML = '<p style="text-align: center; padding: 2rem;">No images available to display.</p>';
+                return;
+            }
+            
+            // Organize valid images
+            const organizedImages = organizeImages(validImages);
+            
+            // Create gallery items
+            organizedImages.forEach((imgData, index) => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                galleryItem.setAttribute('data-aos', 'fade-up');
+                galleryItem.setAttribute('data-aos-duration', '800');
+                galleryItem.setAttribute('data-aos-delay', (index % 8) * 100);
+                
+                galleryItem.innerHTML = `<img src="${imgData.src}" alt="Chess Lions Gallery Image">`;
+                
+                container.appendChild(galleryItem);
+                
+                // Trigger fade in
+                setTimeout(() => {
+                    galleryItem.classList.add('loaded');
+                }, 50 + index * 10);
+            });
+            
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+            
+            // Setup lightbox
+            setupLightbox();
+        }
 
-  <!-- Row 7 - 4:3 -->
-  <div class="image-container">
-    <img src="site25.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site27.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site29.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site31.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
+        // Setup lightbox functionality
+        function setupLightbox() {
+            const galleryItems = document.querySelectorAll('.gallery-item img');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
 
-  <!-- Row 8 - 3:4 -->
-  <div class="image-container">
-    <img src="site26.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site28.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site30.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site32.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
+            galleryItems.forEach(img => {
+                img.addEventListener('click', () => {
+                    lightboxImg.src = img.src;
+                    lightbox.classList.add('active');
+                });
+            });
 
-  <!-- Row 9 - 4:3 -->
-  <div class="image-container">
-    <img src="site33.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site35.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site37.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site39.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
 
-  <!-- Row 10 - 3:4 -->
-  <div class="image-container">
-    <img src="site34.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site36.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site38.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site40.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                }
+            });
+        }
 
-  <!-- Row 11 - 4:3 -->
-  <div class="image-container">
-    <img src="site41.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site43.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site45.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site47.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
 
-  <!-- Row 12 - 3:4 -->
-  <div class="image-container">
-    <img src="site42.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site44.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site46.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site48.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-
-  <!-- Row 13 - 4:3 -->
-  <div class="image-container">
-    <img src="site49.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site51.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site53.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site55.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
-
-  <!-- Row 14 - 3:4 -->
-  <div class="image-container">
-    <img src="site50.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site52.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site54.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site56.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-
-  <!-- Row 15 - 4:3 -->
-  <div class="image-container">
-    <img src="site57.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site59.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site61.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site63.jpg" class="image-4-3" onerror="this.classList.add('error')">
-  </div>
-
-  <!-- Row 16 - 3:4 -->
-  <div class="image-container">
-    <img src="site58.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site60.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site62.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-  <div class="image-container">
-    <img src="site64.jpg" class="image-3-4" onerror="this.classList.add('error')">
-  </div>
-</div>
-
-  <script>
-    // Remove containers with missing images
-    document.querySelectorAll('.image-container').forEach(container => {
-      if (container.querySelector('img.error')) {
-        container.remove();
-      }
-    });
-
-    // Apply equal height to maintain grid integrity for 3:4 and 4:3 images
-    function adjustImageContainers() {
-      const containers = document.querySelectorAll('.image-container');
-      if (window.innerWidth <= 500) {
-        containers.forEach(container => {
-          container.style.height = 'auto';
-        });
-      }
-    }
-
-    // Run on load and resize
-    window.addEventListener('load', adjustImageContainers);
-    window.addEventListener('resize', adjustImageContainers);
-  </script>
+        // Load gallery on page load
+        loadGallery();
+    </script>
 </body>
 </html>
