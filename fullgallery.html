@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chess Lions Gallery</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -25,6 +24,7 @@
             color: var(--text-color);
             line-height: 1.6;
             padding: 40px 20px;
+            overflow-x: hidden;
         }
 
         /* Loader */
@@ -46,6 +46,7 @@
         .loader-container.hidden {
             opacity: 0;
             visibility: hidden;
+            pointer-events: none;
         }
 
         .loader {
@@ -73,7 +74,7 @@
             max-width: 1400px;
             margin: 0 auto;
             opacity: 0;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.8s ease;
         }
 
         .gallery-wrapper.visible {
@@ -83,6 +84,14 @@
         .info-section {
             text-align: center;
             margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .info-section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .gallery-info {
@@ -98,6 +107,14 @@
             gap: 1rem;
             margin-bottom: 50px;
             flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+        }
+
+        .button-container.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .button {
@@ -137,6 +154,7 @@
         .gallery-container {
             columns: 4;
             column-gap: 20px;
+            position: relative;
         }
 
         .gallery-item {
@@ -145,18 +163,34 @@
             position: relative;
             overflow: hidden;
             border: 2px solid var(--text-color);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
             background: var(--bg-color);
             opacity: 0;
+            transform: translateY(80px) scale(0.95);
         }
 
-        .gallery-item.loaded {
-            opacity: 1;
+        .gallery-item.visible {
+            animation: slideInPlace 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        @keyframes slideInPlace {
+            0% {
+                opacity: 0;
+                transform: translateY(80px) scale(0.95);
+            }
+            60% {
+                transform: translateY(-8px) scale(1.03);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
         .gallery-item:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
 
         .gallery-item img {
@@ -183,6 +217,16 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         .lightbox.active {
@@ -194,6 +238,18 @@
             max-height: 90%;
             object-fit: contain;
             border: 2px solid white;
+            animation: zoomIn 0.3s ease;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
         .lightbox-close {
@@ -209,7 +265,7 @@
         }
 
         .lightbox-close:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(90deg);
         }
 
         /* Responsive */
@@ -222,6 +278,7 @@
         @media (max-width: 768px) {
             .gallery-container {
                 columns: 2;
+                column-gap: 15px;
             }
             
             .gallery-header h1 {
@@ -240,15 +297,39 @@
             .loader-text {
                 font-size: 1rem;
             }
+
+            .gallery-item {
+                margin-bottom: 15px;
+            }
+
+            body {
+                padding: 30px 15px;
+            }
         }
 
         @media (max-width: 480px) {
             .gallery-container {
                 columns: 1;
+                column-gap: 0;
             }
 
             body {
                 padding: 20px 10px;
+            }
+
+            .button {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .gallery-item {
+                margin-bottom: 15px;
+            }
+
+            .lightbox-close {
+                font-size: 2.5rem;
+                top: 20px;
+                right: 20px;
             }
         }
     </style>
@@ -261,11 +342,11 @@
     </div>
 
     <div class="gallery-wrapper" id="galleryWrapper">
-        <div class="info-section">
+        <div class="info-section" id="infoSection">
             <p class="gallery-info">The pictures below are in no order. If you'd like to find images from a past tournament or find a past tournament, please use the button below.</p>
         </div>
         
-        <div class="button-container">
+        <div class="button-container" id="buttonContainer">
             <a href="https://michesslions.com" class="button home-button">
                 Back to Website <i class="fas fa-home"></i>
             </a>
@@ -285,7 +366,6 @@
         <img id="lightbox-img" src="" alt="Lightbox Image">
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
         // All image sources from the document
         const imageSources = [
@@ -364,7 +444,6 @@
                 };
                 
                 img.onerror = function() {
-                    // Image failed to load, resolve with null
                     resolve(null);
                 };
                 
@@ -377,6 +456,8 @@
             const container = document.getElementById('galleryContainer');
             const loaderContainer = document.getElementById('loaderContainer');
             const galleryWrapper = document.getElementById('galleryWrapper');
+            const infoSection = document.getElementById('infoSection');
+            const buttonContainer = document.getElementById('buttonContainer');
             
             // Check all images and filter out the ones that don't load
             const imageChecks = await Promise.all(
@@ -395,36 +476,32 @@
             // Organize valid images
             const organizedImages = organizeImages(validImages);
             
-            // Create gallery items
+            // Create gallery items first (without animation)
             organizedImages.forEach((imgData, index) => {
                 const galleryItem = document.createElement('div');
                 galleryItem.className = 'gallery-item';
-                galleryItem.setAttribute('data-aos', 'fade-up');
-                galleryItem.setAttribute('data-aos-duration', '800');
-                galleryItem.setAttribute('data-aos-delay', (index % 8) * 100);
-                
                 galleryItem.innerHTML = `<img src="${imgData.src}" alt="Chess Lions Gallery Image">`;
-                
                 container.appendChild(galleryItem);
-                
-                // Trigger fade in
-                setTimeout(() => {
-                    galleryItem.classList.add('loaded');
-                }, 50 + index * 10);
             });
-            
-            // Initialize AOS
-            AOS.init({
-                duration: 800,
-                once: true,
-                offset: 100
-            });
-            
-            // Setup lightbox
-            setupLightbox();
             
             // Hide loader and show gallery
             hideLoader();
+            
+            // Trigger animations in sequence
+            setTimeout(() => {
+                infoSection.classList.add('visible');
+                buttonContainer.classList.add('visible');
+            }, 100);
+            
+            // Setup scroll-based animations using Intersection Observer
+            setTimeout(() => {
+                setupScrollAnimations();
+            }, 300);
+            
+            // Setup lightbox after a short delay
+            setTimeout(() => {
+                setupLightbox();
+            }, 1000);
         }
 
         // Function to hide loader and show gallery
@@ -432,8 +509,35 @@
             const loaderContainer = document.getElementById('loaderContainer');
             const galleryWrapper = document.getElementById('galleryWrapper');
             
-            loaderContainer.classList.add('hidden');
-            galleryWrapper.classList.add('visible');
+            setTimeout(() => {
+                loaderContainer.classList.add('hidden');
+                galleryWrapper.classList.add('visible');
+            }, 300);
+        }
+
+        // Setup scroll-based animation observer
+        function setupScrollAnimations() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -100px 0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
+                        // Stagger animation slightly
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 30);
+                    }
+                });
+            }, observerOptions);
+
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            galleryItems.forEach(item => {
+                observer.observe(item);
+            });
         }
 
         // Setup lightbox functionality
@@ -465,6 +569,15 @@
         function closeLightbox() {
             document.getElementById('lightbox').classList.remove('active');
         }
+
+        // Debounced resize handler for responsive layout adjustments
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                // Gallery will automatically reflow with CSS columns
+            }, 250);
+        });
 
         // Load gallery on page load
         loadGallery();
