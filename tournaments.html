@@ -260,35 +260,6 @@
             text-transform: uppercase;
         }
 
-        .back-button {
-            background-color: white;
-            color: black;
-            font-size: 16px;
-            font-weight: 700;
-            padding: 0.75em 1.5em;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-            border: 2px solid black;
-            box-shadow: 0 0 0 0 black;
-            text-decoration: none;
-            display: inline-block;
-            font-family: 'Montserrat', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .back-button:hover {
-            background-color: black;
-            color: white;
-            transform: translateY(-4px) translateX(-2px);
-            box-shadow: 4px 6px 0 0 black;
-        }
-
-        .back-button:active {
-            transform: translateY(2px) translateX(1px);
-            box-shadow: 0 0 0 0 black;
-        }
-
         @media (max-width: 768px) {
             .page-title {
                 font-size: 2rem;
@@ -333,11 +304,6 @@
                 word-break: break-all;
             }
             
-            .back-button {
-                font-size: 0.95rem;
-                padding: 0.7em 1.4em;
-            }
-            
             .register-button {
                 font-size: 16px;
                 padding: 0.9em 1.8em;
@@ -352,329 +318,211 @@
         <a href="https://michesslions.com/registration" class="register-button">Register for our Tournaments</a>
     </div>
     
-    <div class="tournaments-container">
-        <!-- Upcoming Tournament (Troy Chess Tournament) -->
-        <div class="tournament-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="tournament-header" onclick="toggleTournament(this.parentElement)">
-                <div class="tournament-title-container">
-                    <h2 class="tournament-title">Chess Lions Troy Chess Tournament</h2>
-                    <div class="tournament-date">Saturday, January 11, 2026</div>
-                </div>
-                <div class="toggle-icon"></div>
-            </div>
-            
-            <div class="tournament-details">
-                <div class="detail-section">
-                    <div class="detail-title">Organizer</div>
-                    <div class="detail-content">Chess Lions</div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Location</div>
-                    <div class="detail-content">4963 Rochester Rd, Troy, MI 48085</div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Format</div>
-                    <div class="detail-content">4 rounds, Swiss System</div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Round Times</div>
-                    <div class="detail-content">First round starts at 10:00 am, subsequent rounds ASAP</div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Sections</div>
-                    <div class="detail-content">
-                        <ul class="detail-list">
-                            <li>USCF Rated: Open, U1400, and U800</li>
-                            <li>Unrated: K-3 & K-8</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Entry Fee</div>
-                    <div class="detail-content">$30 for all sections</div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Prizes</div>
-                    <div class="detail-content">Trophies/medals/cash prizes</div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Registration</div>
-                    <div class="detail-content"><a href="https://michesslions.com/registration" class="registration-link">Register Online</a></div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Payment</div>
-                    <div class="detail-content">Zelle to: <a href="mailto:i2v2chess@gmail.com" class="contact-link">i2v2chess@gmail.com</a></div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Contact</div>
-                    <div class="detail-content"><a href="mailto:i2v2chess@gmail.com" class="contact-link">i2v2chess@gmail.com</a> / 734 560 2802</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Upcoming Tournament (2nd South Lyon Chess Tournament) -->
-        <div class="tournament-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="tournament-header" onclick="toggleTournament(this.parentElement)">
-                <div class="tournament-title-container">
-                    <h2 class="tournament-title">2nd South Lyon Chess Tournament</h2>
-                    <div class="tournament-date">Saturday, December 13, 2025</div>
-                </div>
-                <div class="toggle-icon"></div>
-            </div>
-            
-            <div class="tournament-details">
-                <div class="detail-section">
-                    <div class="detail-title">Organizer</div>
-                    <div class="detail-content">Chess Lions</div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Location</div>
-                    <div class="detail-content">9800 Pontiac Trail, South Lyon, MI 48178</div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Format</div>
-                    <div class="detail-content">4 rounds, Swiss System</div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Time Control</div>
-                    <div class="detail-content">
-                        <ul class="detail-list">
-                            <li>G30/d5 (for all rated sections)</li>
-                            <li>G15/d0 (for all unrated sections)</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Round Times</div>
-                    <div class="detail-content">Games start at 10:15 am, subsequent rounds ASAP</div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Sections</div>
-                    <div class="detail-content">
-                        <ul class="detail-list">
-                            <li>USCF Rated: Open (1400+), U1400, and U800</li>
-                            <li>Unrated: K-3 & K-12</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Entry Fee</div>
-                    <div class="detail-content">$20 for Unrated, $30 for Rated</div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Prizes</div>
-                    <div class="detail-content">Trophies/medals/cash prizes</div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Registration</div>
-                    <div class="detail-content"><a href="https://michesslions.com/registration" class="registration-link">Register Online</a></div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Payment</div>
-                    <div class="detail-content">Zelle to: <a href="mailto:i2v2chess@gmail.com" class="contact-link">i2v2chess@gmail.com</a> or cash onsite</div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Contact</div>
-                    <div class="detail-content"><a href="mailto:i2v2chess@gmail.com" class="contact-link">i2v2chess@gmail.com</a> / 734 560 2802</div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="upcoming-tournaments" class="tournaments-container"></div>
 
     <h2 class="past-tournaments-title" data-aos="fade-up">Past Tournaments</h2>
 
-    <div class="tournaments-container">
-        <!-- Past Tournament (Troy Chess Tournament) -->
-        <div class="tournament-card" data-aos="fade-up" data-aos-delay="50">
-            <div class="tournament-header" onclick="toggleTournament(this.parentElement)">
-                <div class="tournament-title-container">
-                    <h2 class="tournament-title">Chess Lions Troy Chess Tournament</h2>
-                    <div class="tournament-date">Saturday, November 1, 2025</div>
-                </div>
-                <div class="toggle-icon"></div>
-            </div>
-            
-            <div class="tournament-details">
-                <div class="detail-section">
-                    <div class="detail-title">Organizer</div>
-                    <div class="detail-content">Chess Lions</div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Location</div>
-                    <div class="detail-content">Twin Knights, 4963 Rochester Rd, Troy, MI 48085</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Past Tournament 1 (Chess Lions Mini-Swiss) -->
-        <div class="tournament-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="tournament-header" onclick="toggleTournament(this.parentElement)">
-                <div class="tournament-title-container">
-                    <h2 class="tournament-title">Chess Lions Mini-Swiss</h2>
-                    <div class="tournament-date">Saturday, October 18, 2025</div>
-                </div>
-                <div class="toggle-icon"></div>
-            </div>
-            
-            <div class="tournament-details">
-                <div class="detail-section">
-                    <div class="detail-title">Organizer</div>
-                    <div class="detail-content">Chess Lions</div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Location</div>
-                    <div class="detail-content">Salem-South Lyon District Library<br>9800 Pontiac Trail, South Lyon, MI 48178</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Past Tournament 2 (September Friday Evening Quads) -->
-        <div class="tournament-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="tournament-header" onclick="toggleTournament(this.parentElement)">
-                <div class="tournament-title-container">
-                    <h2 class="tournament-title">Rated/Unrated Friday Evening Quads</h2>
-                    <div class="tournament-date">Friday, September 26, 2025</div>
-                </div>
-                <div class="toggle-icon"></div>
-            </div>
-            
-            <div class="tournament-details">
-                <div class="detail-section">
-                    <div class="detail-title">Organizer</div>
-                    <div class="detail-content">Chess Lions</div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Location</div>
-                    <div class="detail-content">Center for Performance Arts and Learning</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Past Tournament 3 (September 6th tournament) -->
-        <div class="tournament-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="tournament-header" onclick="toggleTournament(this.parentElement)">
-                <div class="tournament-title-container">
-                    <h2 class="tournament-title">Chess Lions Tournament September</h2>
-                    <div class="tournament-date">September 6, 2025</div>
-                </div>
-                <div class="toggle-icon"></div>
-            </div>
-            
-            <div class="tournament-details">
-                <div class="detail-section">
-                    <div class="detail-title">Organizer</div>
-                    <div class="detail-content">Chess Lions</div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Location</div>
-                    <div class="detail-content">Center for Performance Arts and Learning</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Past Tournament 4 (August tournament) -->
-        <div class="tournament-card" data-aos="fade-up" data-aos-delay="400">
-            <div class="tournament-header" onclick="toggleTournament(this.parentElement)">
-                <div class="tournament-title-container">
-                    <h2 class="tournament-title">August Chess Tournament</h2>
-                    <div class="tournament-date">August 10, 2025</div>
-                </div>
-                <div class="toggle-icon"></div>
-            </div>
-            
-            <div class="tournament-details">
-                <div class="detail-section">
-                    <div class="detail-title">Organizer</div>
-                    <div class="detail-content">Windsor Chess Lions</div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Location</div>
-                    <div class="detail-content">Center for Performing Arts</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Past Tournament 5 (April tournament) -->
-        <div class="tournament-card" data-aos="fade-up" data-aos-delay="500">
-            <div class="tournament-header" onclick="toggleTournament(this.parentElement)">
-                <div class="tournament-title-container">
-                    <h2 class="tournament-title">April Chess Tournament</h2>
-                    <div class="tournament-date">April 26, 2025</div>
-                </div>
-                <div class="toggle-icon"></div>
-            </div>
-            
-            <div class="tournament-details">
-                <div class="detail-section">
-                    <div class="detail-title">Organizer</div>
-                    <div class="detail-content">Windsor Chess Lions</div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Location</div>
-                    <div class="detail-content">CAW Student Centre: Alumni Auditorium (University of Windsor)</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Past Tournament 6 (March tournament) -->
-        <div class="tournament-card" data-aos="fade-up" data-aos-delay="600">
-            <div class="tournament-header" onclick="toggleTournament(this.parentElement)">
-                <div class="tournament-title-container">
-                    <h2 class="tournament-title">March Chess Tournament</h2>
-                    <div class="tournament-date">March 22, 2025</div>
-                </div>
-                <div class="toggle-icon"></div>
-            </div>
-            
-            <div class="tournament-details">
-                <div class="detail-section">
-                    <div class="detail-title">Organizer</div>
-                    <div class="detail-content">Windsor Chess Lions</div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Location</div>
-                    <div class="detail-content">Royal Canadian Legion (Branch 594)</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Past Tournament 7 (Army Cadets Fundraiser) -->
-        <div class="tournament-card" data-aos="fade-up" data-aos-delay="700">
-            <div class="tournament-header" onclick="toggleTournament(this.parentElement)">
-                <div class="tournament-title-container">
-                    <h2 class="tournament-title">Army Cadets Fundraiser</h2>
-                    <div class="tournament-date">January 11, 2025</div>
-                </div>
-                <div class="toggle-icon"></div>
-            </div>
-            
-            <div class="tournament-details">
-                <div class="detail-section">
-                    <div class="detail-title">Organizer</div>
-                    <div class="detail-content">2715 RCAC + Windsor Chess Lions</div>
-                </div>
-                <div class="detail-section">
-                    <div class="detail-title">Location</div>
-                    <div class="detail-content">Royal Canadian Legion (Branch 594)</div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="past-tournaments" class="tournaments-container"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
-        // Initialize AOS animation library
+        // ============================================
+        // UPDATE TOURNAMENTS HERE - EASY TO MAINTAIN
+        // ============================================
+        
+        const upcomingTournaments = [
+            {
+                title: "Chess Lions Troy Chess Tournament",
+                date: "Saturday, January 11, 2026",
+                details: {
+                    "Organizer": "Chess Lions",
+                    "Location": "4963 Rochester Rd, Troy, MI 48085",
+                    "Format": "4 rounds, Swiss System",
+                    "Round Times": "First round starts at 10:00 am, subsequent rounds ASAP",
+                    "Sections": [
+                        "USCF Rated: Open, U1400, and U800",
+                        "Unrated: K-3 & K-8"
+                    ],
+                    "Entry Fee": "$30 for all sections",
+                    "Prizes": "Trophies/medals/cash prizes",
+                    "Registration": { link: "https://michesslions.com/registration", text: "Register Online" },
+                    "Payment": { 
+                        text: "Zelle to: ",
+                        email: "i2v2chess@gmail.com"
+                    },
+                    "Contact": {
+                        email: "i2v2chess@gmail.com",
+                        phone: "734 560 2802"
+                    }
+                }
+            },
+            {
+                title: "2nd South Lyon Chess Tournament",
+                date: "Saturday, December 13, 2025",
+                details: {
+                    "Organizer": "Chess Lions",
+                    "Location": "9800 Pontiac Trail, South Lyon, MI 48178",
+                    "Format": "4 rounds, Swiss System",
+                    "Time Control": [
+                        "G30/d5 (for all rated sections)",
+                        "G15/d0 (for all unrated sections)"
+                    ],
+                    "Round Times": "Games start at 10:15 am, subsequent rounds ASAP",
+                    "Sections": [
+                        "USCF Rated: Open (1400+), U1400, and U800",
+                        "Unrated: K-3 & K-12"
+                    ],
+                    "Entry Fee": "$20 for Unrated, $30 for Rated",
+                    "Prizes": "Trophies/medals/cash prizes",
+                    "Registration": { link: "https://michesslions.com/registration", text: "Register Online" },
+                    "Payment": {
+                        text: "Zelle to: ",
+                        email: "i2v2chess@gmail.com",
+                        additional: " or cash onsite"
+                    },
+                    "Contact": {
+                        email: "i2v2chess@gmail.com",
+                        phone: "734 560 2802"
+                    }
+                }
+            }
+        ];
+
+        const pastTournaments = [
+            {
+                title: "Chess Lions Troy Chess Tournament",
+                date: "Saturday, November 1, 2025",
+                details: {
+                    "Organizer": "Chess Lions",
+                    "Location": "Twin Knights, 4963 Rochester Rd, Troy, MI 48085"
+                }
+            },
+            {
+                title: "Chess Lions Mini-Swiss",
+                date: "Saturday, October 18, 2025",
+                details: {
+                    "Organizer": "Chess Lions",
+                    "Location": "Salem-South Lyon District Library<br>9800 Pontiac Trail, South Lyon, MI 48178"
+                }
+            },
+            {
+                title: "Rated/Unrated Friday Evening Quads",
+                date: "Friday, September 26, 2025",
+                details: {
+                    "Organizer": "Chess Lions",
+                    "Location": "Center for Performance Arts and Learning"
+                }
+            },
+            {
+                title: "Chess Lions Tournament September",
+                date: "September 6, 2025",
+                details: {
+                    "Organizer": "Chess Lions",
+                    "Location": "Center for Performance Arts and Learning"
+                }
+            },
+            {
+                title: "August Chess Tournament",
+                date: "August 10, 2025",
+                details: {
+                    "Organizer": "Windsor Chess Lions",
+                    "Location": "Center for Performing Arts"
+                }
+            },
+            {
+                title: "April Chess Tournament",
+                date: "April 26, 2025",
+                details: {
+                    "Organizer": "Windsor Chess Lions",
+                    "Location": "CAW Student Centre: Alumni Auditorium (University of Windsor)"
+                }
+            },
+            {
+                title: "March Chess Tournament",
+                date: "March 22, 2025",
+                details: {
+                    "Organizer": "Windsor Chess Lions",
+                    "Location": "Royal Canadian Legion (Branch 594)"
+                }
+            },
+            {
+                title: "Army Cadets Fundraiser",
+                date: "January 11, 2025",
+                details: {
+                    "Organizer": "2715 RCAC + Windsor Chess Lions",
+                    "Location": "Royal Canadian Legion (Branch 594)"
+                }
+            }
+        ];
+
+        // ============================================
+        // RENDERING FUNCTIONS - NO NEED TO MODIFY
+        // ============================================
+
+        function renderDetailContent(value) {
+            if (Array.isArray(value)) {
+                return `<ul class="detail-list">${value.map(item => `<li>${item}</li>`).join('')}</ul>`;
+            } else if (typeof value === 'object') {
+                if (value.link) {
+                    return `<a href="${value.link}" class="registration-link">${value.text}</a>`;
+                } else if (value.email) {
+                    let content = value.text || '';
+                    content += `<a href="mailto:${value.email}" class="contact-link">${value.email}</a>`;
+                    if (value.phone) {
+                        content += ` / ${value.phone}`;
+                    }
+                    if (value.additional) {
+                        content += value.additional;
+                    }
+                    return content;
+                }
+            }
+            return value;
+        }
+
+        function createTournamentCard(tournament, index) {
+            const detailsHTML = Object.entries(tournament.details)
+                .map(([key, value]) => `
+                    <div class="detail-section">
+                        <div class="detail-title">${key}</div>
+                        <div class="detail-content">${renderDetailContent(value)}</div>
+                    </div>
+                `).join('');
+
+            return `
+                <div class="tournament-card" data-aos="fade-up" data-aos-delay="${index * 100}">
+                    <div class="tournament-header" onclick="toggleTournament(this.parentElement)">
+                        <div class="tournament-title-container">
+                            <h2 class="tournament-title">${tournament.title}</h2>
+                            <div class="tournament-date">${tournament.date}</div>
+                        </div>
+                        <div class="toggle-icon"></div>
+                    </div>
+                    <div class="tournament-details">
+                        ${detailsHTML}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render tournaments
+        document.getElementById('upcoming-tournaments').innerHTML = 
+            upcomingTournaments.map((t, i) => createTournamentCard(t, i)).join('');
+        
+        document.getElementById('past-tournaments').innerHTML = 
+            pastTournaments.map((t, i) => createTournamentCard(t, i)).join('');
+
+        // Initialize AOS
         AOS.init({
             duration: 800,
             easing: 'ease-out',
             once: true
         });
         
-        // Function to toggle tournament details
+        // Toggle function
         function toggleTournament(element) {
             element.classList.toggle('active');
             
-            // Add fade-in animation to details when expanded
             const details = element.querySelector('.tournament-details');
             if (element.classList.contains('active')) {
                 details.style.opacity = 0;
