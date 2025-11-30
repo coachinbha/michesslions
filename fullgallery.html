@@ -138,6 +138,41 @@
             transform: translateY(-2px);
         }
 
+        .gallery-footer {
+            text-align: center;
+            margin-top: 80px;
+            padding: 40px 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .gallery-footer.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .footer-divider {
+            width: 100px;
+            height: 2px;
+            background-color: var(--text-color);
+            margin: 0 auto 20px;
+        }
+
+        .footer-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .footer-subtext {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.7;
+        }
+
         .gallery-header {
             text-align: center;
             margin-bottom: 60px;
@@ -305,6 +340,14 @@
             body {
                 padding: 30px 15px;
             }
+
+            .footer-text {
+                font-size: 1.2rem;
+            }
+
+            .footer-subtext {
+                font-size: 0.9rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -330,6 +373,14 @@
                 font-size: 2.5rem;
                 top: 20px;
                 right: 20px;
+            }
+
+            .footer-text {
+                font-size: 1rem;
+            }
+
+            .footer-subtext {
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -357,6 +408,12 @@
 
         <div class="gallery-container" id="galleryContainer">
             <!-- Images will be dynamically inserted here -->
+        </div>
+
+        <div class="gallery-footer" id="galleryFooter">
+            <div class="footer-divider"></div>
+            <p class="footer-text">End of Gallery</p>
+            <p class="footer-subtext">Thank you for visiting</p>
         </div>
     </div>
 
@@ -538,6 +595,12 @@
             galleryItems.forEach(item => {
                 observer.observe(item);
             });
+
+            // Observe footer
+            const footer = document.getElementById('galleryFooter');
+            if (footer) {
+                observer.observe(footer);
+            }
         }
 
         // Setup lightbox functionality
