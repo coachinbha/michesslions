@@ -40,6 +40,12 @@
             height: auto;
             border: 2px solid #000000;
             display: block;
+            opacity: 0;
+            transition: opacity 0.3s ease-in;
+        }
+        
+        img.loaded {
+            opacity: 1;
         }
         
         .last-updated {
@@ -63,6 +69,11 @@
         const lastUpdatedDiv = document.getElementById('lastUpdated');
         
         img.onload = function() {
+            // Delay showing the image by 500ms
+            setTimeout(() => {
+                img.classList.add('loaded');
+            }, 500);
+            
             fetch('pairings.png', { method: 'HEAD' })
                 .then(response => {
                     const lastModified = response.headers.get('Last-Modified');
