@@ -315,11 +315,11 @@
                 columns: 2;
                 column-gap: 15px;
             }
-            
+
             .gallery-header h1 {
                 font-size: 2rem;
             }
-            
+
             .gallery-info {
                 font-size: 1rem;
             }
@@ -396,7 +396,7 @@
         <div class="info-section" id="infoSection">
             <p class="gallery-info">The pictures below are in no order. If you'd like to find images from a past tournament or find a past tournament, please use the button below.</p>
         </div>
-        
+
         <div class="button-container" id="buttonContainer">
             <a href="https://michesslions.com" class="button home-button">
                 Back to Website <i class="fas fa-home"></i>
@@ -424,7 +424,7 @@
     </div>
 
     <script>
-        // All image sources from the document
+        // All image sources
         const imageSources = [
             'site1.jpg', 'site3.jpg', 'site5.jpg', 'site7.jpg',
             'site2.jpg', 'site4.jpg', 'site6.jpg', 'site8.jpg',
@@ -444,35 +444,31 @@
             'site58.jpg', 'site60.jpg', 'site62.jpg', 'site64.jpg'
         ];
 
-        // Function to calculate aspect ratio from image
         function calculateAspectRatio(width, height) {
             const ratio = width / height;
-            
             if (Math.abs(ratio - 0.5625) < 0.1) return '9:16';
             if (Math.abs(ratio - 0.75) < 0.1) return '3:4';
             if (Math.abs(ratio - 1) < 0.1) return '1:1';
             if (Math.abs(ratio - 1.333) < 0.1) return '4:3';
             if (Math.abs(ratio - 1.778) < 0.1) return '16:9';
-            
             if (ratio < 0.9) return 'Portrait';
             if (ratio > 1.2) return 'Landscape';
             return 'Square';
         }
 
-        // Function to organize images by aspect ratio
         function organizeImages(imageArray) {
             const organized = [];
             const byRatio = {};
-            
+
             imageArray.forEach((img, index) => {
                 const key = img.ratio || 'unknown';
                 if (!byRatio[key]) byRatio[key] = [];
                 byRatio[key].push({ ...img, originalIndex: index });
             });
-            
+
             const ratioKeys = Object.keys(byRatio);
             let maxLength = Math.max(...Object.values(byRatio).map(arr => arr.length));
-            
+
             for (let i = 0; i < maxLength; i++) {
                 ratioKeys.forEach(key => {
                     if (byRatio[key][i]) {
@@ -480,15 +476,14 @@
                     }
                 });
             }
-            
+
             return organized;
         }
 
-        // Function to check if image exists and load it
         function checkAndLoadImage(src) {
             return new Promise((resolve) => {
                 const img = new Image();
-                
+
                 img.onload = function() {
                     const ratio = calculateAspectRatio(this.width, this.height);
                     resolve({
@@ -499,80 +494,70 @@
                         loaded: true
                     });
                 };
-                
+
                 img.onerror = function() {
                     resolve(null);
                 };
-                
+
                 img.src = src;
             });
         }
 
-        // Main function to load gallery
         async function loadGallery() {
             const container = document.getElementById('galleryContainer');
             const loaderContainer = document.getElementById('loaderContainer');
             const galleryWrapper = document.getElementById('galleryWrapper');
             const infoSection = document.getElementById('infoSection');
             const buttonContainer = document.getElementById('buttonContainer');
-            
-            // Check all images and filter out the ones that don't load
+
+            // Check all images
             const imageChecks = await Promise.all(
                 imageSources.map(src => checkAndLoadImage(src))
             );
-            
-            // Filter out null values (failed images)
+
             const validImages = imageChecks.filter(img => img !== null);
-            
+
             if (validImages.length === 0) {
                 container.innerHTML = '<p style="text-align: center; padding: 2rem;">No images available to display.</p>';
                 hideLoader();
                 return;
             }
-            
-            // Organize valid images
+
             const organizedImages = organizeImages(validImages);
-            
-            // Create gallery items first (without animation)
-            organizedImages.forEach((imgData, index) => {
+
+            // Use DocumentFragment for batch DOM insertion
+            const fragment = document.createDocumentFragment();
+            organizedImages.forEach((imgData) => {
                 const galleryItem = document.createElement('div');
                 galleryItem.className = 'gallery-item';
-                galleryItem.innerHTML = `<img src="${imgData.src}" alt="Chess Lions Gallery Image">`;
-                container.appendChild(galleryItem);
+                galleryItem.innerHTML = `<img src="${imgData.src}" alt="Chess Lions Gallery Image" loading="lazy">`;
+                fragment.appendChild(galleryItem);
             });
-            
-            // Hide loader and show gallery
+            container.appendChild(fragment);
+
             hideLoader();
-            
-            // Trigger animations in sequence
+
             setTimeout(() => {
                 infoSection.classList.add('visible');
                 buttonContainer.classList.add('visible');
             }, 100);
-            
-            // Setup scroll-based animations using Intersection Observer
+
             setTimeout(() => {
                 setupScrollAnimations();
-            }, 300);
-            
-            // Setup lightbox after a short delay
-            setTimeout(() => {
                 setupLightbox();
-            }, 1000);
+            }, 300);
         }
 
-        // Function to hide loader and show gallery
         function hideLoader() {
             const loaderContainer = document.getElementById('loaderContainer');
             const galleryWrapper = document.getElementById('galleryWrapper');
-            
+
             setTimeout(() => {
                 loaderContainer.classList.add('hidden');
                 galleryWrapper.classList.add('visible');
             }, 300);
         }
 
-        // Setup scroll-based animation observer
         function setupScrollAnimations() {
             const observerOptions = {
                 root: null,
@@ -581,12 +566,9 @@
             };
 
             const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry, index) => {
+                entries.forEach((entry) => {
                     if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
-                        // Stagger animation slightly
-                        setTimeout(() => {
-                            entry.target.classList.add('visible');
-                        }, index * 30);
+                        entry.target.classList.add('visible');
                     }
                 });
             }, observerOptions);
@@ -596,14 +578,10 @@
                 observer.observe(item);
             });
 
-            // Observe footer
             const footer = document.getElementById('galleryFooter');
-            if (footer) {
-                observer.observe(footer);
-            }
+            observer.observe(footer);
         }
 
-        // Setup lightbox functionality
         function setupLightbox() {
             const galleryItems = document.querySelectorAll('.gallery-item img');
             const lightbox = document.getElementById('lightbox');
@@ -633,16 +611,6 @@
             document.getElementById('lightbox').classList.remove('active');
         }
 
-        // Debounced resize handler for responsive layout adjustments
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                // Gallery will automatically reflow with CSS columns
-            }, 250);
-        });
-
-        // Load gallery on page load
         loadGallery();
     </script>
 </body>
