@@ -424,8 +424,8 @@
     </div>
 
     <script>
-        // All image sources from the document
-        const imageSources = [
+        // All image sources - optimized JPEGs
+                const imageSources = [
             'site1.jpg', 'site3.jpg', 'site5.jpg', 'site7.jpg',
             'site2.jpg', 'site4.jpg', 'site6.jpg', 'site8.jpg',
             'site9.jpg', 'site11.jpg', 'site13.jpg', 'site15.jpg',
@@ -484,12 +484,16 @@
             return organized;
         }
 
-        // Function to check if image exists and load it
+        // Function to check if image exists and load it with faster timeout
         function checkAndLoadImage(src) {
             return new Promise((resolve) => {
                 const img = new Image();
+                const timeout = setTimeout(() => {
+                    resolve(null);
+                }, 3000); // 3 second timeout for faster loading
                 
                 img.onload = function() {
+                    clearTimeout(timeout);
                     const ratio = calculateAspectRatio(this.width, this.height);
                     resolve({
                         src: src,
@@ -501,6 +505,7 @@
                 };
                 
                 img.onerror = function() {
+                    clearTimeout(timeout);
                     resolve(null);
                 };
                 
@@ -533,11 +538,11 @@
             // Organize valid images
             const organizedImages = organizeImages(validImages);
             
-            // Create gallery items first (without animation)
+            // Create gallery items with lazy loading and progressive enhancement
             organizedImages.forEach((imgData, index) => {
                 const galleryItem = document.createElement('div');
                 galleryItem.className = 'gallery-item';
-                galleryItem.innerHTML = `<img src="${imgData.src}" alt="Chess Lions Gallery Image">`;
+                galleryItem.innerHTML = `<img src="${imgData.src}" alt="Chess Lions Gallery Image" loading="lazy">`;
                 container.appendChild(galleryItem);
             });
             
