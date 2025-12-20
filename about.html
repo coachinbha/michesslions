@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Lions - Our Growth Story</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --accent-color: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .navigation {
+            position: sticky;
+            top: 0;
+            background-color: var(--bg-color);
+            z-index: 100;
+            border-bottom: 1px solid var(--text-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 900;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .logo img {
+            max-height: 50px;
+            max-width: 200px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: #666;
+        }
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown > a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .dropdown > a:hover {
+            color: #666;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--bg-color);
+            min-width: 200px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border: 1px solid var(--text-color);
+            padding-top: 0.5rem;
+            margin-top: 0;
+            z-index: 1000;
+        }
+
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            display: block;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(0,0,0,0.05);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu-toggle {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .mobile-menu-toggle svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--text-color);
+        }
+
+        .mobile-dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: var(--bg-color);
+            border: 1px solid var(--text-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 200;
+            width: 100%;
+            max-width: 175px;
+        }
+
+        .mobile-dropdown-menu a {
+            display: block;
+            padding: 1rem;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .mobile-dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-dropdown-menu a:hover {
+            background-color: rgba(0,0,0,0.05);
+        }
+
+        /* Mobile Dropdown Submenu */
+        .mobile-dropdown-submenu {
+            display: none;
+            background-color: rgba(0,0,0,0.05);
+        }
+
+        .mobile-dropdown-submenu a {
+            padding-left: 2rem;
+            font-size: 0.85rem;
+        }
+
+        .mobile-dropdown-toggle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease;
+            color: var(--text-color);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .mobile-dropdown-toggle:hover {
+            background-color: rgba(0,0,0,0.05);
+        }
+
+        .mobile-dropdown-toggle svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--text-color);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-dropdown-toggle.active svg {
+            transform: rotate(180deg);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 4rem 0 2rem;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
+        .intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background-color: var(--text-color);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            padding: 2rem;
+            border: 2px solid var(--text-color);
+            background-color: var(--bg-color);
+            position: relative;
+        }
+
+        .timeline-year {
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .timeline-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background-color: var(--text-color);
+            border-radius: 50%;
+            border: 4px solid var(--bg-color);
+        }
+
+        .stats-section {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            padding: 4rem 0;
+            margin: 4rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .achievements {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 3rem;
+            letter-spacing: -1px;
+        }
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .achievement-card {
+            border: 2px solid var(--text-color);
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .achievement-card h3 {
+            font-size: 1.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+        
+        a {
+    color: var(--text-color);
+}
+
+a:visited {
+    color: var(--text-color);
+}
+
+a:hover {
+    color: #666;
+}
+
+        .achievement-card p {
+            font-size: 1.1rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #333;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--text-color);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1.2rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+                align-items: flex-start;
+                padding-left: 50px;
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .stat-number {
+                font-size: 3rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-container {
+                position: relative;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navigation" data-aos="fade-down">
+        <div class="nav-container">
+            <a href="https://michesslions.com/" class="logo">
+                <img src="WCL business card 1050x600.png" alt="Chess Lions Logo">
+            </a>
+            <div class="nav-links">
+                <a href="https://michesslions.com/#home">Home</a>
+                <a href="https://michesslions.com/#services">Teaching</a>
+                <a href="https://michesslions.com/#about">About</a>
+                <div class="dropdown">
+                    <a>Tournaments</a>
+                    <div class="dropdown-content">
+                        <a href="https://michesslions.com/tournaments.html">Current Tournaments</a>
+                        <a href="https://michesslions.com/registration">Register</a>
+                        <a href="https://michesslions.com/pairingspage.html">Pairings</a>
+                        <a href="https://michesslions.com/registration-list.html">Registration List</a>
+                    </div>
+                </div>
+                <a href="https://michesslions.com/#contact">Contact</a>
+                <a href="https://michesslions.com/fullgallery.html">Gallery</a>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- Mobile Dropdown Menu -->
+            <div id="mobile-dropdown-menu" class="mobile-dropdown-menu">
+                <a href="https://michesslions.com/#home">Home</a>
+                <a href="https://michesslions.com/#services">Teaching</a>
+                <a href="https://michesslions.com/#about">About</a>
+                <div class="mobile-dropdown-toggle" id="mobile-tournament-toggle">
+                    <span>Tournaments</span>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div class="mobile-dropdown-submenu" id="mobile-tournament-submenu">
+                    <a href="https://michesslions.com/tournaments.html">Current Tournaments</a>
+                    <a href="https://michesslions.com/registration">Register</a>
+                    <a href="https://michesslions.com/pairingspage.html">Pairings</a>
+                    <a href="https://michesslions.com/registration-list.html">Registration List</a>
+                </div>
+                <a href="https://michesslions.com/#contact">Contact</a>
+                <a href="https://michesslions.com/fullgallery.html">Gallery</a>
+            </div>
+        </div>
+    </nav>
+
+    <header data-aos="fade-down">
+        <div class="container">
+            <h1>Our Growth Story</h1>
+            <p>From Community Club to Championship Winners</p>
+        </div>
+    </header>
+
+    <section class="container">
+        <div class="intro" data-aos="fade-up">
+            <p>What started as a small community chess club in 2017 has evolved into a local chess education organization. Through dedication, expert instruction, and a commitment to excellence, Chess Lions has helped hundreds of students discover their potential and achieve championship success.</p>
+        </div>
+    </section>
+
+    <section id="timeline" class="container">
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-content">
+                    <div class="timeline-year">2017</div>
+                    <h3>The Beginning</h3>
+                    <p>Chess Lions was founded as a small community chess club at the Novi Public Library with a handful of enthusiastic students. Our mission was simple: make chess accessible and enjoyable for everyone.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="timeline-content">
+                    <div class="timeline-year">2018</div>
+                    <h3>Expanding Programs</h3>
+                    <p>Introduced structured beginner and intermediate programs. Student enrollment doubled as word spread about our effective teaching methods and welcoming environment.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-right">
+    <div class="timeline-content">
+        <div class="timeline-year">2019</div>
+        <h3>First Tournament Success</h3>
+        <p>We ran our first ever chess tournament at the <a href="https://www.facebook.com/novipubliclibrary/posts/the-novi-chess-club-celebrated-their-first-anniversary-with-a-tournament-for-kin/10157361397359595/" style="text-decoration: underline;">Novi Library</a> drawing over 50 players and gained city-wide recognition</p>
+    </div>
+    <div class="timeline-dot"></div>
+</div>
+
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="timeline-content">
+                    <div class="timeline-year">2020</div>
+                    <h3>Digital Transformation</h3>
+                    <p>Adapted to online learning during challenging times. Launched virtual classes and online tournaments, expanding our reach beyond geographic boundaries.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>			         
+
+            <div class="timeline-item" data-aos="fade-right">
+    <div class="timeline-content">
+        <div class="timeline-year">2023</div>
+        <h3>Wins at state events</h3>
+        <p>The Chess Lions team, at the time called "Windsor Chess Lions", would go on to <a href="https://ratings.uschess.org/event/202310143752?section=2" style="text-decoration: underline;">win the K-8 Michigan Club Championship</a> and set a record of 18.0/20 total points with 3 flawless finishers, a record we would come back to break in 2025.</p>
+    </div>
+    <div class="timeline-dot"></div>
+</div>
+
+            <div class="timeline-item" data-aos="fade-left">
+    <div class="timeline-content">
+        <div class="timeline-year">2024-2025</div>
+        <h3>Event Expansion</h3>
+        <p>Continued producing state championship winning teams to finish a <a href="https://www.michess.org/result/michigan-scholastic-club" style="text-decoration: underline;">hat-rick of 1st place finishes</a>. Started to run more tournaments and events that steadily grew to reaching over 100 players.</p>
+    </div>
+    <div class="timeline-dot"></div>
+</div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="stat-number">8+</div>
+                    <div class="stat-label">Years of Excellence</div>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">Students Taught</div>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">State Club Championships</div>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Tournaments Hosted</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements" class="achievements container">
+        <h2 class="section-title" data-aos="fade-up">Key Achievements</h2>
+        <div class="achievement-grid">
+            <div class="achievement-card" data-aos="fade-up" data-aos-delay="100">
+                <h3>State Champions</h3>
+                <p>Multiple state-level championship victories in both Michigan and Canada, with our proven coaching methods.</p>
+            </div>
+            <div class="achievement-card" data-aos="fade-up" data-aos-delay="200">
+                <h3>Community Impact</h3>
+                <p>Established chess programs in libraries, schools, and community centers throughout the Detroit metro area.</p>
+            </div>
+            <div class="achievement-card" data-aos="fade-up" data-aos-delay="300">
+                <h3>Student Success</h3>
+                <p>Dozens of students have achieved expert ratings and continued pursuing chess at collegiate and competitive levels.</p>
+            </div>
+            <div class="achievement-card" data-aos="fade-up" data-aos-delay="400">
+                <h3>Tournament Excellence</h3>
+                <p>Hosted over 30 tournaments, providing competitive opportunities for players across the region.</p>
+            </div>
+            <div class="achievement-card" data-aos="fade-up" data-aos-delay="500">
+                <h3>Inclusive Environment</h3>
+                <p>Created welcoming programs for students of all ages, backgrounds, and skill levels from beginner to advanced.</p>
+            </div>
+            <div class="achievement-card" data-aos="fade-up" data-aos-delay="600">
+                <h3>Expert Instruction</h3>
+                <p>Developed comprehensive curriculum and training materials recognized for consistent student improvement.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section container" data-aos="fade-up">
+        <h2 class="section-title">Be Part of Our Story</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Join the many students who have discovered their chess potential with Chess Lions. Whether you're just starting or aiming for championship success, we're here to guide your journey.</p>
+        <a href="https://michesslions.com/signup.html" class="cta-button">Start Your Chess Journey</a>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 I2V2 Academy LLC. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileDropdownMenu = document.getElementById('mobile-dropdown-menu');
+            const mobileTournamentToggle = document.getElementById('mobile-tournament-toggle');
+            const mobileTournamentSubmenu = document.getElementById('mobile-tournament-submenu');
+
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileDropdownMenu.style.display = 
+                    mobileDropdownMenu.style.display === 'block' ? 'none' : 'block';
+            });
+
+            mobileTournamentToggle.addEventListener('click', () => {
+                mobileTournamentToggle.classList.toggle('active');
+                mobileTournamentSubmenu.style.display = 
+                    mobileTournamentSubmenu.style.display === 'block' ? 'none' : 'block';
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (event) => {
+                if (!mobileMenuToggle.contains(event.target) && 
+                    !mobileDropdownMenu.contains(event.target)) {
+                    mobileDropdownMenu.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
