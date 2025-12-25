@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chess Tutoring Sign Up</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <style>
         :root {
             --primary-color: #000000;
@@ -26,6 +27,208 @@
             color: var(--text-primary);
             line-height: 1.4;
             -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation Styles */
+        .navigation {
+            position: sticky;
+            top: 0;
+            background-color: var(--background-color);
+            z-index: 100;
+            border-bottom: 1px solid var(--text-primary);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 900;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .logo img {
+            max-height: 50px;
+            max-width: 200px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: #666;
+        }
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown > a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .dropdown > a:hover {
+            color: #666;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--background-color);
+            min-width: 200px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border: 1px solid var(--text-primary);
+            padding-top: 0.5rem;
+            margin-top: 0;
+            z-index: 1000;
+        }
+
+        .dropdown-content a {
+            color: var(--text-primary);
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            display: block;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(0,0,0,0.05);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu-toggle {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .mobile-menu-toggle svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--text-primary);
+        }
+
+        .mobile-dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: var(--background-color);
+            border: 1px solid var(--text-primary);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 200;
+            width: 100%;
+            max-width: 175px;
+        }
+
+        .mobile-dropdown-menu a {
+            display: block;
+            padding: 1rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .mobile-dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-dropdown-menu a:hover {
+            background-color: rgba(0,0,0,0.05);
+        }
+
+        /* Mobile Dropdown Submenu */
+        .mobile-dropdown-submenu {
+            display: none;
+            background-color: rgba(0,0,0,0.05);
+        }
+
+        .mobile-dropdown-submenu a {
+            padding-left: 2rem;
+            font-size: 0.85rem;
+        }
+
+        .mobile-dropdown-toggle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease;
+            color: var(--text-primary);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .mobile-dropdown-toggle:hover {
+            background-color: rgba(0,0,0,0.05);
+        }
+
+        .mobile-dropdown-toggle svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--text-primary);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-dropdown-toggle.active svg {
+            transform: rotate(180deg);
         }
 
         .signup-section {
@@ -157,7 +360,7 @@
             gap: calc(var(--spacing-unit) * 3);
         }
 
-        .logo {
+        .confirmation-logo {
             max-width: 250px;
             height: auto;
             margin-bottom: calc(var(--spacing-unit) * 1.5);
@@ -174,6 +377,24 @@
             font-size: 1rem;
             margin-bottom: calc(var(--spacing-unit) * 1.5);
             line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-container {
+                position: relative;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
         }
 
         @media (max-width: 640px) {
@@ -199,19 +420,72 @@
                 padding: 0.7em 1.4em;
             }
 
-            .logo {
+            .confirmation-logo {
                 max-width: 200px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="navigation" data-aos="fade-down">
+        <div class="nav-container">
+            <a href="https://michesslions.com/" class="logo">
+                <img src="WCL business card 1050x600.png" alt="Chess Lions Logo">
+            </a>
+            <div class="nav-links">
+                <a href="https://michesslions.com/#home">Home</a>
+                <a href="https://michesslions.com/#services">Teaching</a>
+                <a href="https://michesslions.com/#about">About</a>
+                <div class="dropdown">
+                    <a>Tournaments</a>
+                    <div class="dropdown-content">
+                        <a href="https://michesslions.com/tournaments.html">Current Tournaments</a>
+                        <a href="https://michesslions.com/registration">Register</a>
+                        <a href="https://michesslions.com/pairings page.html">Pairings</a>
+                        <a href="https://michesslions.com/registration-list.html">Registration List</a>
+                    </div>
+                </div>
+                <a href="https://michesslions.com/#contact">Contact</a>
+                <a href="https://michesslions.com/fullgallery.html">Gallery</a>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- Mobile Dropdown Menu -->
+            <div id="mobile-dropdown-menu" class="mobile-dropdown-menu">
+                <a href="https://michesslions.com/#home">Home</a>
+                <a href="https://michesslions.com/#services">Teaching</a>
+                <a href="https://michesslions.com/#about">About</a>
+                <div class="mobile-dropdown-toggle" id="mobile-tournament-toggle">
+                    <span>Tournaments</span>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div class="mobile-dropdown-submenu" id="mobile-tournament-submenu">
+                    <a href="https://michesslions.com/tournaments.html">Current Tournaments</a>
+                    <a href="https://michesslions.com/registration">Register</a>
+                    <a href="https://michesslions.com/pairingspage.html">Pairings</a>
+                    <a href="https://michesslions.com/registration-list.html">Registration List</a>
+                </div>
+                <a href="https://michesslions.com/#contact">Contact</a>
+                <a href="https://michesslions.com/fullgallery.html">Gallery</a>
+            </div>
+        </div>
+    </nav>
+
     <section class="signup-section">
-        <div class="signup-container">
-            <h2 class="signup-title">Chess Lions<br>Enrollment</h2>
+        <div class="signup-container" data-aos="fade-up" data-aos-duration="1500">
+            <h2 class="signup-title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">Chess Lions<br>Enrollment</h2>
             
             <form id="signup-form" class="signup-form" action="https://formspree.io/f/xyzyanlw" method="POST">
-                <div class="parent-guardian-section">
+                <div class="parent-guardian-section" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
                     <h3 class="section-header">Parent/Guardian Information</h3>
                     <div class="form-group">
                         <label for="parent-name">Name</label>
@@ -227,7 +501,7 @@
                     </div>
                 </div>
 
-                <div class="student-section">
+                <div class="student-section" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
                     <h3 class="section-header">Student Information</h3>
                     <div class="form-group">
                         <label for="student-name">Student Name</label>
@@ -248,21 +522,56 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">
                     <label for="goals">Learning Goals</label>
                     <input type="text" id="goals" name="goals" placeholder="What does the student want to achieve?">
                 </div>
 
-                <button type="submit" class="signup-button">Start Chess Journey</button>
+                <button type="submit" class="signup-button" data-aos="zoom-in" data-aos-duration="1500">Start Chess Journey</button>
             </form>
         </div>
         
-        <div class="form-actions">
+        <div class="form-actions" data-aos="fade-up" data-aos-duration="1500">
             <a href="https://michesslions.com/" class="back-button">Back to Website</a>
         </div>
     </section>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1500,
+            once: true
+        });
+
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileDropdownMenu = document.getElementById('mobile-dropdown-menu');
+            const mobileTournamentToggle = document.getElementById('mobile-tournament-toggle');
+            const mobileTournamentSubmenu = document.getElementById('mobile-tournament-submenu');
+
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileDropdownMenu.style.display = 
+                    mobileDropdownMenu.style.display === 'block' ? 'none' : 'block';
+            });
+
+            mobileTournamentToggle.addEventListener('click', () => {
+                mobileTournamentToggle.classList.toggle('active');
+                mobileTournamentSubmenu.style.display = 
+                    mobileTournamentSubmenu.style.display === 'block' ? 'none' : 'block';
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (event) => {
+                if (!mobileMenuToggle.contains(event.target) && 
+                    !mobileDropdownMenu.contains(event.target)) {
+                    mobileDropdownMenu.style.display = 'none';
+                }
+            });
+        });
+
+        // Form submission
         document.getElementById('signup-form').addEventListener('submit', function(event) {
             event.preventDefault();
             
@@ -280,20 +589,22 @@
                 if (response.ok) {
                     // Replace current content with confirmation page
                     document.querySelector('.signup-section').innerHTML = `
-                        <div class="confirmation-container">
-                            <img src="WCL business card 1050x600.png" alt="Chess Lions Logo" class="logo">
+                        <div class="confirmation-container" data-aos="fade-up" data-aos-duration="1500">
+                            <img src="WCL business card 1050x600.png" alt="Chess Lions Logo" class="confirmation-logo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
                             
-                            <h1 class="confirmation-title">Enrollment Confirmed!</h1>
+                            <h1 class="confirmation-title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">Enrollment Confirmed!</h1>
                             
-                            <p class="confirmation-message">
+                            <p class="confirmation-message" data-aos="fade-up" data-aos-duration="1500">
                                 Thank you for enrolling in the Chess Lions. 
                                 We've received your application and will be in touch soon 
                                 to confirm your student's chess journey.
                             </p>
                             
-                            <a href="https://michesslions.com/" class="back-button">Return to Homepage</a>
+                            <a href="https://michesslions.com/" class="back-button" data-aos="zoom-in" data-aos-duration="1500">Return to Homepage</a>
                         </div>
                     `;
+                    // Reinitialize AOS for new content
+                    AOS.refresh();
                 } else {
                     alert('There was a problem submitting your form. Please try again.');
                 }
