@@ -166,6 +166,7 @@
             font-weight: 900;
             color: var(--text-color);
             letter-spacing: -1px;
+            transition: all 0.3s ease;
         }
 
         .stat-label {
@@ -223,6 +224,12 @@
             border-collapse: collapse;
             margin-top: 2rem;
             border: 1px solid var(--text-color);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        table.updating {
+            opacity: 0.5;
+            transform: translateY(-10px);
         }
 
         th {
@@ -312,21 +319,21 @@
 </head>
 <body>
     <div class="container">
-        <div class="header-section" data-aos="fade-up">
-            <div class="logo-container">
+        <div class="header-section">
+            <div class="logo-container" data-aos="zoom-in" data-aos-duration="800">
                 <a href="/" style="text-decoration: none; display: inline-block;">
                     <img src="WCL business card 1050x600.png" alt="Chess Lions Logo" class="logo-image">
                 </a>
             </div>
-            <h1>REGISTER FOR OUR<br>TOURNAMENT(S)</h1>
-            <p class="subtitle">Live registration list</p>
-            <a href="https://michesslions.com/registration" class="registration-btn">Register Now</a>
+            <h1 data-aos="fade-up" data-aos-delay="200">REGISTER FOR OUR<br>TOURNAMENT(S)</h1>
+            <p class="subtitle" data-aos="fade-up" data-aos-delay="300">Live registration list</p>
+            <a href="https://michesslions.com/registration" class="registration-btn" data-aos="fade-up" data-aos-delay="400">Register Now</a>
         </div>
 
-        <div id="loading" class="loading" data-aos="fade-up">Loading registrations...</div>
-        <div id="error" class="error" style="display:none;" data-aos="fade-up"></div>
+        <div id="loading" class="loading" data-aos="fade-in">Loading registrations...</div>
+        <div id="error" class="error" style="display:none;" data-aos="fade-in"></div>
 
-        <div id="content" style="display:none;" data-aos="fade-up">
+        <div id="content" style="display:none;">
             <div class="tournament-tabs" id="tournamentTabs"></div>
 
             <h2 id="sheetTitle"></h2>
@@ -347,7 +354,7 @@
                 <tbody id="tableBody"></tbody>
             </table>
 
-            <div class="refresh-info">
+            <div class="refresh-info" data-aos="fade-up" data-aos-delay="600">
                 Last updated: <span id="lastUpdate">just now</span> | Auto-refresh every 30 seconds
             </div>
         </div>
@@ -358,8 +365,11 @@
         // Initialize AOS
         AOS.init({
             duration: 1000,
-            once: true
+            once: true,
+            disable: false
         });
+
+        let hasAnimated = false;
 
         // CONFIGURATION: Add your tournaments here
         // Format: { name: 'Display Name', url: 'Opensheet API URL', columns: ['col1', 'col2'], sectionColumn: 'column name' }
@@ -425,6 +435,10 @@
             TOURNAMENTS.forEach((tournament, idx) => {
                 const btn = document.createElement('button');
                 btn.className = 'tournament-tab';
+                if (!hasAnimated) {
+                    btn.setAttribute('data-aos', 'fade-up');
+                    btn.setAttribute('data-aos-delay', (idx * 100).toString());
+                }
                 if (idx === activeTournament) {
                     btn.classList.add('active');
                 }
@@ -436,6 +450,9 @@
                 });
                 tabsContainer.appendChild(btn);
             });
+            if (!hasAnimated) {
+                AOS.refresh();
+            }
         }
 
         function displayTournament(tournamentIdx) {
@@ -472,20 +489,42 @@
                 return a.localeCompare(b);
             });
 
-            sortedSections.forEach(section => {
+            sortedSections.forEach((section, idx) => {
                 const btn = document.createElement('button');
                 btn.className = 'filter-btn';
+                if (!hasAnimated) {
+                    btn.setAttribute('data-aos', 'fade-up');
+                    btn.setAttribute('data-aos-delay', (idx * 50).toString());
+                }
                 if (section === selectedSections[tournamentIdx]) {
                     btn.classList.add('active');
                 }
                 btn.textContent = section;
                 btn.addEventListener('click', () => {
                     selectedSections[tournamentIdx] = section;
-                    updateSectionFilters(tournamentIdx, data, tournament);
-                    displayRegistrations(tournamentIdx, data, tournament);
+                    
+                    // Add updating class for smooth transition
+                    const table = document.getElementById('registrationTable');
+                    const statNumber = document.getElementById('totalCount');
+                    
+                    table.classList.add('updating');
+                    statNumber.style.transform = 'scale(0.8)';
+                    statNumber.style.opacity = '0.5';
+                    
+                    setTimeout(() => {
+                        updateSectionFilters(tournamentIdx, data, tournament);
+                        displayRegistrations(tournamentIdx, data, tournament);
+                        
+                        table.classList.remove('updating');
+                        statNumber.style.transform = 'scale(1)';
+                        statNumber.style.opacity = '1';
+                    }, 150);
                 });
                 filterSection.appendChild(btn);
             });
+            if (!hasAnimated) {
+                AOS.refresh();
+            }
         }
 
         function displayRegistrations(tournamentIdx, data, tournament) {
@@ -505,7 +544,7 @@
 
             const tableBody = document.getElementById('tableBody');
             tableBody.innerHTML = '';
-            filteredData.forEach(row => {
+            filteredData.forEach((row, idx) => {
                 const tr = document.createElement('tr');
                 tournament.columns.forEach(col => {
                     const td = document.createElement('td');
@@ -518,11 +557,40 @@
             document.getElementById('totalCount').textContent = filteredData.length;
             document.getElementById('sheetTitle').textContent = tournament.name;
 
+            // Apply AOS animations only on first load
+            if (!hasAnimated) {
+                const tournamentTabs = document.getElementById('tournamentTabs');
+                const sheetTitle = document.getElementById('sheetTitle');
+                const statsBox = document.querySelector('.stats');
+                const table = document.getElementById('registrationTable');
+                const filterSection = document.getElementById('filterSection');
+                
+                tournamentTabs.setAttribute('data-aos', 'fade-up');
+                tournamentTabs.setAttribute('data-aos-delay', '100');
+                
+                sheetTitle.setAttribute('data-aos', 'fade-up');
+                sheetTitle.setAttribute('data-aos-delay', '200');
+                
+                statsBox.setAttribute('data-aos', 'fade-up');
+                statsBox.setAttribute('data-aos-delay', '300');
+                
+                if (filterSection.children.length > 0) {
+                    filterSection.setAttribute('data-aos', 'fade-up');
+                    filterSection.setAttribute('data-aos-delay', '400');
+                }
+                
+                table.setAttribute('data-aos', 'fade-up');
+                table.setAttribute('data-aos-delay', '500');
+            }
+
             document.getElementById('loading').style.display = 'none';
             document.getElementById('content').style.display = 'block';
             document.getElementById('error').style.display = 'none';
 
-            AOS.refresh();
+            if (!hasAnimated) {
+                AOS.refresh();
+                hasAnimated = true;
+            }
         }
 
         function displayEmptyRegistrations(tournamentIdx, tournament) {
