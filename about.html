@@ -272,6 +272,15 @@
             width: 2px;
             height: 100%;
             background-color: var(--text-color);
+            opacity: 0;
+            animation: fadeInLine 1.5s ease-in forwards;
+            animation-delay: 0.3s;
+        }
+
+        @keyframes fadeInLine {
+            to {
+                opacity: 1;
+            }
         }
 
         .timeline-item {
@@ -436,12 +445,6 @@
 
         .cta-button:visited {
             color: var(--bg-color) !important;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem 0;
-            border-top: 1px solid var(--text-color);
         }
 
         @media (max-width: 768px) {
@@ -662,7 +665,7 @@
                 <div class="timeline-content">
                     <div class="timeline-year">2019</div>
                     <h3>First Tournament Success</h3>
-                    <p>We ran our first ever chess tournament at the <a href="https://www.facebook.com/novipubliclibrary/posts/the-novi-chess-club-celebrated-their-first-anniversary-with-a-tournament-for-kin/10157361397359595/" style="text-decoration: underline;">Novi Library</a> drawing over 50 players and gained city-wide recognition</p>
+                    <p>We ran our first ever chess tournament at the <a href="https://www.facebook.com/novipubliclibrary/posts/the-novi-chess-club-celebrated-their-first-anniversary-with-a-tournament-for-kin/10157361397359595/" style="text-decoration: underline;">Novi Library</a> drawing over 50 players and gained city-wide recognition.</p>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
@@ -732,7 +735,7 @@
             </div>
             <div class="achievement-card" data-aos="fade-up" data-aos-delay="300">
                 <h3>Student Success</h3>
-                <p>Dozens of students have achieved expert ratings and continued pursuing chess at collegiate and competitive levels.</p>
+                <p>Dozens of students have achieved significant rating gains and continued pursuing chess at competitive levels.</p>
             </div>
             <div class="achievement-card" data-aos="fade-up" data-aos-delay="400">
                 <h3>Tournament Excellence</h3>
@@ -753,13 +756,8 @@
         <h2 class="section-title">Be Part of Our Story</h2>
         <p style="font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Join the many students who have discovered their chess potential with Chess Lions. Whether you're just starting or aiming for championship success, we're here to guide your journey.</p>
         <a href="https://michesslions.com/signup.html" class="cta-button">Start Your Chess Journey</a>
+        <p style="margin-top: 3rem; font-size: 0.9rem; color: #666;">&copy; 2025 I2V2 Academy LLC. All Rights Reserved.</p>
     </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 I2V2 Academy LLC. All Rights Reserved.</p>
-        </div>
-    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
