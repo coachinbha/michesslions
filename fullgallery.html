@@ -49,25 +49,194 @@
             pointer-events: none;
         }
 
-        .loader {
-            width: 60px;
-            height: 60px;
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            border-top-color: var(--text-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
+        .loader-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
         }
 
         .loader-text {
-            margin-top: 20px;
+            order: -1;
+        }
+
+        /* 3D Box Loader */
+        .boxes {
+            --size: 32px;
+            --duration: 800ms;
+            height: calc(var(--size) * 2);
+            width: calc(var(--size) * 3);
+            position: relative;
+            transform-style: preserve-3d;
+            transform-origin: 50% 50%;
+            transform: rotateX(60deg) rotateZ(45deg) rotateY(0deg) translateZ(0px);
+        }
+
+        .boxes .box {
+            width: var(--size);
+            height: var(--size);
+            top: 0;
+            left: 0;
+            position: absolute;
+            transform-style: preserve-3d;
+        }
+
+        .boxes .box:nth-child(1) {
+            transform: translate(100%, 0);
+            -webkit-animation: box1 var(--duration) linear infinite;
+            animation: box1 var(--duration) linear infinite;
+        }
+
+        .boxes .box:nth-child(2) {
+            transform: translate(0, 100%);
+            -webkit-animation: box2 var(--duration) linear infinite;
+            animation: box2 var(--duration) linear infinite;
+        }
+
+        .boxes .box:nth-child(3) {
+            transform: translate(100%, 100%);
+            -webkit-animation: box3 var(--duration) linear infinite;
+            animation: box3 var(--duration) linear infinite;
+        }
+
+        .boxes .box:nth-child(4) {
+            transform: translate(200%, 0);
+            -webkit-animation: box4 var(--duration) linear infinite;
+            animation: box4 var(--duration) linear infinite;
+        }
+
+        .boxes .box > div {
+            --background: #000000;
+            --top: auto;
+            --right: auto;
+            --bottom: auto;
+            --left: auto;
+            --translateZ: calc(var(--size) / 2);
+            --rotateY: 0deg;
+            --rotateX: 0deg;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--background);
+            top: var(--top);
+            right: var(--right);
+            bottom: var(--bottom);
+            left: var(--left);
+            transform: rotateY(var(--rotateY)) rotateX(var(--rotateX)) translateZ(var(--translateZ));
+        }
+
+        .boxes .box > div:nth-child(1) {
+            --top: 0;
+            --left: 0;
+        }
+
+        .boxes .box > div:nth-child(2) {
+            --background: #1a1a1a;
+            --right: 0;
+            --rotateY: 90deg;
+        }
+
+        .boxes .box > div:nth-child(3) {
+            --background: #0d0d0d;
+            --rotateX: -90deg;
+        }
+
+        .boxes .box > div:nth-child(4) {
+            --background: #262626;
+            --top: 0;
+            --left: 0;
+            --translateZ: calc(var(--size) * 3 * -1);
+        }
+
+        @-webkit-keyframes box1 {
+            0%, 50% {
+                transform: translate(100%, 0);
+            }
+            100% {
+                transform: translate(200%, 0);
+            }
+        }
+
+        @keyframes box1 {
+            0%, 50% {
+                transform: translate(100%, 0);
+            }
+            100% {
+                transform: translate(200%, 0);
+            }
+        }
+
+        @-webkit-keyframes box2 {
+            0% {
+                transform: translate(0, 100%);
+            }
+            50% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(100%, 0);
+            }
+        }
+
+        @keyframes box2 {
+            0% {
+                transform: translate(0, 100%);
+            }
+            50% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(100%, 0);
+            }
+        }
+
+        @-webkit-keyframes box3 {
+            0%, 50% {
+                transform: translate(100%, 100%);
+            }
+            100% {
+                transform: translate(0, 100%);
+            }
+        }
+
+        @keyframes box3 {
+            0%, 50% {
+                transform: translate(100%, 100%);
+            }
+            100% {
+                transform: translate(0, 100%);
+            }
+        }
+
+        @-webkit-keyframes box4 {
+            0% {
+                transform: translate(200%, 0);
+            }
+            50% {
+                transform: translate(200%, 100%);
+            }
+            100% {
+                transform: translate(100%, 100%);
+            }
+        }
+
+        @keyframes box4 {
+            0% {
+                transform: translate(200%, 0);
+            }
+            50% {
+                transform: translate(200%, 100%);
+            }
+            100% {
+                transform: translate(100%, 100%);
+            }
+        }
+
+        .loader-text {
             font-size: 1.1rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
         }
 
         .gallery-wrapper {
@@ -324,9 +493,8 @@
                 font-size: 1rem;
             }
 
-            .loader {
-                width: 50px;
-                height: 50px;
+            .boxes {
+                --size: 24px;
             }
 
             .loader-text {
@@ -382,14 +550,45 @@
             .footer-subtext {
                 font-size: 0.85rem;
             }
+
+            .boxes {
+                --size: 20px;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Loader -->
     <div class="loader-container" id="loaderContainer">
-        <div class="loader"></div>
-        <div class="loader-text">Loading Gallery...</div>
+        <div class="loader-content">
+            <div class="boxes">
+                <div class="box">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="box">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="box">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="box">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="loader-text">Loading Gallery...</div>
+        </div>
     </div>
 
     <div class="gallery-wrapper" id="galleryWrapper">
@@ -425,7 +624,7 @@
 
     <script>
         // All image sources - optimized JPEGs
-                const imageSources = [
+        const imageSources = [
             'site1.jpg', 'site3.jpg', 'site5.jpg', 'site7.jpg',
             'site2.jpg', 'site4.jpg', 'site6.jpg', 'site8.jpg',
             'site9.jpg', 'site11.jpg', 'site13.jpg', 'site15.jpg',
