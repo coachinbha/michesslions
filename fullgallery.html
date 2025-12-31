@@ -250,61 +250,34 @@
             opacity: 1;
         }
 
-        .info-section {
+        .logo-section {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 50px;
             opacity: 0;
             transform: translateY(-20px);
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
-        .info-section.visible {
+        .logo-section.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .gallery-info {
-            font-size: 1.1rem;
-            font-weight: 400;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 50px;
-            flex-wrap: wrap;
-            opacity: 0;
-            transform: translateY(-20px);
-            transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
-        }
-
-        .button-container.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            font-size: 1rem;
-            font-weight: 700;
-            font-family: 'Montserrat', sans-serif;
-            color: var(--bg-color);
-            background-color: var(--text-color);
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .logo-link {
+            display: inline-block;
             transition: transform 0.3s ease;
-            border: 2px solid var(--text-color);
         }
 
-        .button:hover {
-            transform: translateY(-2px);
+        .logo-link:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-image {
+            width: 200px;
+            height: 120px;
+            object-fit: contain;
+            border: 2px solid var(--text-color);
+            background-color: #f5f5f5;
         }
 
         .gallery-footer {
@@ -489,8 +462,9 @@
                 font-size: 2rem;
             }
             
-            .gallery-info {
-                font-size: 1rem;
+            .logo-image {
+                width: 150px;
+                height: 90px;
             }
 
             .boxes {
@@ -526,11 +500,6 @@
 
             body {
                 padding: 20px 10px;
-            }
-
-            .button {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
             }
 
             .gallery-item {
@@ -592,16 +561,11 @@
     </div>
 
     <div class="gallery-wrapper" id="galleryWrapper">
-        <div class="info-section" id="infoSection">
-            <p class="gallery-info">The pictures below are in no order. If you'd like to find images from a past tournament or find a past tournament, please use the button below.</p>
-        </div>
-        
-        <div class="button-container" id="buttonContainer">
-            <a href="https://michesslions.com" class="button home-button">
-                Back to Website <i class="fas fa-home"></i>
-            </a>
-            <a href="https://michesslions.com/tournamentviewer.html" class="button past-tournaments-button">
-                Past Tournaments <i class="fas fa-arrow-right"></i>
+        <div class="logo-section" id="logoSection">
+            <a href="https://michesslions.com" class="logo-link">
+                <img src="WCL business card 1050x600.png" 
+                     alt="Chess Lions Logo" 
+                     class="logo-image">
             </a>
         </div>
 
@@ -717,8 +681,6 @@
             const container = document.getElementById('galleryContainer');
             const loaderContainer = document.getElementById('loaderContainer');
             const galleryWrapper = document.getElementById('galleryWrapper');
-            const infoSection = document.getElementById('infoSection');
-            const buttonContainer = document.getElementById('buttonContainer');
             
             // Check all images and filter out the ones that don't load
             const imageChecks = await Promise.all(
@@ -750,8 +712,8 @@
             
             // Trigger animations in sequence
             setTimeout(() => {
-                infoSection.classList.add('visible');
-                buttonContainer.classList.add('visible');
+                const logoSection = document.getElementById('logoSection');
+                if (logoSection) logoSection.classList.add('visible');
             }, 100);
             
             // Setup scroll-based animations using Intersection Observer
