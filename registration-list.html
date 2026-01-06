@@ -469,21 +469,21 @@
         }
 
         function updateSectionFilters(tournamentIdx, data, tournament) {
-            // Get unique sections
-            const sections = new Set();
-            sections.add('All');
+            // Get unique sections and count registrations
+            const sectionCounts = {};
+            sectionCounts['All'] = data.length;
 
             data.forEach(row => {
                 const section = row[tournament.sectionColumn];
                 if (section) {
-                    sections.add(section);
+                    sectionCounts[section] = (sectionCounts[section] || 0) + 1;
                 }
             });
 
             const filterSection = document.getElementById('filterSection');
             filterSection.innerHTML = '';
 
-            const sortedSections = Array.from(sections).sort((a, b) => {
+            const sortedSections = Object.keys(sectionCounts).sort((a, b) => {
                 if (a === 'All') return -1;
                 if (b === 'All') return 1;
                 return a.localeCompare(b);
@@ -499,7 +499,7 @@
                 if (section === selectedSections[tournamentIdx]) {
                     btn.classList.add('active');
                 }
-                btn.textContent = section;
+                btn.textContent = `${section} (${sectionCounts[section]})`;
                 btn.addEventListener('click', () => {
                     selectedSections[tournamentIdx] = section;
                     
