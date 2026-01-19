@@ -391,6 +391,7 @@ header p {
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: background-color 0.3s ease;
+    margin: 0.5rem;
 }
 
 .cta-button:hover {
@@ -423,6 +424,13 @@ header p {
 .contact-item p {
     margin: 0;
     font-size: 1.2rem;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
 }
 
 /* Footer Styles */
@@ -581,6 +589,16 @@ footer {
     .image-container {
         flex: 0 0 100%;
     }
+
+    .button-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .button-group .cta-button {
+        width: 100%;
+        text-align: center;
+    }
 }
     </style>
 </head>
@@ -605,6 +623,7 @@ footer {
                     </div>
                 </div>
                 <a href="#contact">Contact</a>
+                <a href="https://michesslions.com/faq.html">FAQ</a>
                 <a href="https://michesslions.com/fullgallery.html">Gallery</a>
             </div>
             
@@ -633,6 +652,7 @@ footer {
                     <a href="https://michesslions.com/registration-list.html">Registration List</a>
                 </div>
                 <a href="#contact">Contact</a>
+                <a href="https://michesslions.com/faq.html">FAQ</a>
                 <a href="https://michesslions.com/fullgallery.html">Gallery</a>
             </div>
         </div>
@@ -711,9 +731,14 @@ footer {
             </div>
         </div>
 
-        <a href="mailto:i2v2chess@gmail.com" class="cta-button" data-aos="zoom-in" data-aos-duration="1500">
-            Send an Email
-        </a>
+        <div class="button-group">
+            <a href="mailto:i2v2chess@gmail.com" class="cta-button" data-aos="zoom-in" data-aos-duration="1500">
+                Send an Email
+            </a>
+            <a href="https://michesslions.com/faq.html" class="cta-button" data-aos="zoom-in" data-aos-duration="1500">
+                FAQ
+            </a>
+        </div>
     </section>
 
     <footer data-aos="fade-up" data-aos-duration="1500">
