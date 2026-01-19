@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Chess Lions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --accent-color: #000000;
+            --spacing-unit: 0.675rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: calc(var(--spacing-unit) * 3);
+        }
+
+        .page-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            letter-spacing: -1px;
+            text-align: center;
+        }
+
+        .faq-container {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .faq-item {
+            background-color: var(--bg-color);
+            border: 3px solid var(--text-color);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .faq-question {
+            padding: 2rem 2.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.05) 100%);
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            background: linear-gradient(135deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.08) 100%);
+        }
+
+        .faq-question-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            flex: 1;
+        }
+
+        .toggle-icon {
+            width: 32px;
+            height: 32px;
+            position: relative;
+            margin-left: 1rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: linear-gradient(135deg, rgba(0,0,0,0.1), rgba(0,0,0,0.2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .toggle-icon:hover {
+            background: linear-gradient(135deg, rgba(0,0,0,0.15), rgba(0,0,0,0.25));
+            transform: scale(1.1);
+        }
+
+        .toggle-icon::before,
+        .toggle-icon::after {
+            content: '';
+            position: absolute;
+            background-color: var(--text-color);
+            top: 50%;
+            left: 25%;
+            right: 25%;
+            height: 3px;
+            margin-top: -1.5px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .toggle-icon::after {
+            transform: rotate(90deg);
+        }
+
+        .faq-item.active .toggle-icon {
+            transform: rotate(45deg);
+            background: linear-gradient(135deg, rgba(0,0,0,0.2), rgba(0,0,0,0.3));
+        }
+
+        .faq-item.active .toggle-icon::after {
+            transform: rotate(0);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 0 2.5rem;
+            background: linear-gradient(135deg, rgba(0,0,0,0.01) 0%, rgba(0,0,0,0.03) 100%);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 1000px;
+            padding: 2.5rem;
+        }
+
+        .faq-answer-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #333;
+            font-weight: 400;
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .faq-question {
+                padding: 1.5rem 2rem;
+                flex-wrap: wrap;
+            }
+
+            .faq-question-text {
+                font-size: 1.1rem;
+            }
+
+            .faq-answer {
+                padding: 0 2rem;
+            }
+
+            .faq-item.active .faq-answer {
+                padding: 2rem;
+            }
+
+            .faq-answer-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="page-title" data-aos="fade-down">Frequently Asked Questions</h1>
+    
+    <div class="faq-container" id="faq-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // ============================================
+        // FAQ DATA - UPDATE HERE
+        // ============================================
+        
+        const faqItems = [
+            {
+                question: "What exactly is a USCF ID?",
+                answer: "A USCF ID is a unique identifier issued by the United States Chess Federation (USCF) for competitive chess players. It allows you to participate in rated tournaments, track your rating, and maintain official records of your chess progress."
+            },
+            {
+                question: "How can I register for a USCF membership?",
+                answer: "You can register for a USCF membership by visiting the official USCF website at uschess.org. You'll need to provide basic information and choose a membership tier. Memberships can be purchased online or through participating chess clubs and tournaments."
+            },
+            {
+                question: "Why is my USCF membership showing as expired?",
+                answer: "USCF memberships generally expire after one year from the date of purchase. If your membership is expired, you can renew it at any time before an event through the USCF website."
+            },
+            {
+                question: "How can I check if my membership is currently active?",
+                answer: "You can verify your USCF membership in two ways. First, check the official USCF website at <a href=\"https://ratings.uschess.org\" style=\"color: #000; text-decoration: underline; font-weight: 700;\">https://ratings.uschess.org/</a>. Alternatively, you can use our <a href=\"https://michesslions.com/uscfidlookup.html\" style=\"color: #000; text-decoration: underline; font-weight: 700;\">USCF ID Lookup tool</a> to quickly verify your membership status."
+            },
+            {
+                question: "Is a USCF membership required to participate in tournaments?",
+                answer: "Most USCF-rated tournaments require an active membership. However, many tournaments offer unrated sections for players without memberships or ratings. Check the specific tournament details to see which sections require membership."
+            },
+            {
+                question: "Can I compete if I don't have a chess rating?",
+                answer: "Yes! Our tournaments offer unrated sections specifically for players without ratings or memberships. These sections allow new players to compete and earn experience. Once you feel ready, you may sign up for a USCF ID to play in rated sections."
+            },
+            {
+                question: "I recently purchased a membership—why hasn't it updated in your system?",
+                answer: "USCF database updates may take 24-48 hours to process. If you've recently paid for a membership, please wait a day before checking again. If it's still showing as expired after 48 hours, contact USCF support at uschess.org or <a href=\"https://michesslions.com/#contact\" style=\"color: #000; text-decoration: underline; font-weight: 700;\">reach out to us</a>."
+            },
+            {
+                question: "Do I need to bring my own chess set and clock?",
+                answer: "Chess boards are provided for most sections of our Chess Lions events. Rated players should bring their own boards and clocks. Please review the specific tournament information for your event, as chess board requirements may vary by section."
+            }
+        ];
+
+        // ============================================
+        // RENDERING FUNCTION
+        // ============================================
+
+        function createFaqCard(item, index) {
+            return `
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="${index * 100}">
+                    <div class="faq-question" onclick="toggleFaq(this.parentElement)">
+                        <div class="faq-question-text">${item.question}</div>
+                        <div class="toggle-icon"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-text">${item.answer}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render FAQs
+        document.getElementById('faq-container').innerHTML = 
+            faqItems.map((item, i) => createFaqCard(item, i)).join('');
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true
+        });
+        
+        // Toggle function
+        function toggleFaq(element) {
+            element.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
