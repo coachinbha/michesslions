@@ -572,7 +572,7 @@
         }
 
         async function fetchUSCFData(uscfId) {
-            const proxyUrl = 'https://api.allorigins.win/raw?url=';
+            const proxyUrl = 'https://corsproxy.io/?';
             const apiUrl = `https://ratings-api.uschess.org/api/v1/members/${uscfId}`;
             
             const response = await fetch(proxyUrl + encodeURIComponent(apiUrl));
