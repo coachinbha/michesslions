@@ -560,7 +560,11 @@
                 const data = await fetchUSCFData(uscfId);
                 showSuccess(data);
             } catch (error) {
-                showError(error.message || 'Failed to verify ID. Please try again.');
+                if (error.message === 'USCF ID not found') {
+                    showError('USCF ID not found. Please check that you entered the correct ID number.');
+                } else {
+                    showError('Unable to verify ID. Please ensure the ID is correct and try again.');
+                }
             } finally {
                 verifyBtn.disabled = false;
                 verifyBtn.innerHTML = 'Verify Member';
@@ -591,11 +595,17 @@
         }
 
         function showSuccess(data) {
+            // Validate data structure
+            if (!data || !data.firstName || !data.lastName) {
+                showError('Invalid ID or no member found. Please verify the USCF ID is correct.');
+                return;
+            }
+
             const isActive = data.status === 'Active';
             const expired = isExpired(data.expirationDate);
             const statusClass = isActive ? 'status-active' : 'status-inactive';
             
-            const ratings = data.ratings.filter(r => r.rating);
+            const ratings = data.ratings ? data.ratings.filter(r => r.rating) : [];
             
             let ratingsHTML = '';
             if (ratings.length > 0) {
@@ -622,7 +632,8 @@
                 ratingsHTML += '</div>';
             }
 
-            const headingText = expired ? 'Expired Membership' : `${data.firstName} ${data.lastName}`;
+            const statusText = expired ? 'Expired' : 'Active Member';
+            const headingText = `${data.firstName} ${data.lastName} - ${statusText}`;
 
             resultDiv.className = 'result success';
             resultDiv.innerHTML = `
