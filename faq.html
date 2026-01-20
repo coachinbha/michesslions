@@ -4,41 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ - Chess Lions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <style>
-        :root {
-            --bg-color: #ffffff;
-            --text-color: #000000;
-            --accent-color: #000000;
-            --spacing-unit: 0.675rem;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: calc(var(--spacing-unit) * 3);
+        html {
+            scroll-behavior: smooth;
         }
 
-        /* Logo section */
-        .logo-section {
-            margin-bottom: 3rem;
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fff;
+            color: #000;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
         }
 
         .logo-link {
             display: inline-block;
+            margin-bottom: 2rem;
             transition: transform 0.3s ease;
         }
 
@@ -50,7 +51,7 @@
             width: 200px;
             height: 120px;
             object-fit: contain;
-            border: 2px solid var(--text-color);
+            border: 2px solid #000;
             background-color: #f5f5f5;
         }
 
@@ -62,169 +63,259 @@
         }
 
         .page-title {
-            font-size: 2.8rem;
+            font-size: clamp(2rem, 8vw, 3.5rem);
             font-weight: 900;
             text-transform: uppercase;
-            margin-bottom: 3rem;
-            letter-spacing: -1px;
-            text-align: center;
+            letter-spacing: -2px;
+            line-height: 1.1;
         }
 
-        .faq-container {
-            width: 100%;
-            max-width: 900px;
+        .page-subtitle {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #666;
+            margin-top: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* FAQ Section */
+        .faq-list {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
         }
 
         .faq-item {
-            background-color: var(--bg-color);
-            border: 3px solid var(--text-color);
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .faq-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+            border-top: 2px solid #000;
         }
 
         .faq-question {
-            padding: 2rem 2.5rem;
-            cursor: pointer;
+            width: 100%;
+            padding: 1.75rem 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
-            background: linear-gradient(135deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.05) 100%);
-            transition: all 0.3s ease;
-            user-select: none;
+            gap: 1.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            text-align: left;
+            font-family: inherit;
+            transition: opacity 0.3s ease;
         }
 
         .faq-question:hover {
-            background: linear-gradient(135deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.08) 100%);
+            opacity: 0.6;
         }
 
-        .faq-question-text {
-            font-size: 1.3rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .faq-question:focus {
+            outline: none;
+        }
+
+        .faq-question:focus-visible {
+            outline: 2px solid #000;
+            outline-offset: 4px;
+        }
+
+        .question-number {
+            font-size: 0.875rem;
+            font-weight: 800;
+            color: #999;
+            min-width: 2rem;
+        }
+
+        .question-text {
             flex: 1;
+            font-size: clamp(1rem, 3vw, 1.25rem);
+            font-weight: 800;
+            color: #000;
+            letter-spacing: -0.5px;
         }
 
-        .toggle-icon {
-            width: 32px;
-            height: 32px;
+        .toggle-arrow {
+            width: 24px;
+            height: 24px;
             position: relative;
-            margin-left: 1rem;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            background: linear-gradient(135deg, rgba(0,0,0,0.1), rgba(0,0,0,0.2));
-            display: flex;
-            align-items: center;
-            justify-content: center;
             flex-shrink: 0;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .toggle-icon:hover {
-            background: linear-gradient(135deg, rgba(0,0,0,0.15), rgba(0,0,0,0.25));
-            transform: scale(1.1);
-        }
-
-        .toggle-icon::before,
-        .toggle-icon::after {
+        .toggle-arrow::before,
+        .toggle-arrow::after {
             content: '';
             position: absolute;
-            background-color: var(--text-color);
-            top: 50%;
-            left: 25%;
-            right: 25%;
+            background-color: #000;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .toggle-arrow::before {
+            width: 12px;
             height: 3px;
-            margin-top: -1.5px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%) rotate(45deg);
+            transform-origin: right center;
         }
 
-        .toggle-icon::after {
-            transform: rotate(90deg);
+        .toggle-arrow::after {
+            width: 12px;
+            height: 3px;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%) rotate(-45deg);
+            transform-origin: left center;
         }
 
-        .faq-item.active .toggle-icon {
-            transform: rotate(45deg);
-            background: linear-gradient(135deg, rgba(0,0,0,0.2), rgba(0,0,0,0.3));
-        }
-
-        .faq-item.active .toggle-icon::after {
-            transform: rotate(0);
+        .faq-item.active .toggle-arrow {
+            transform: rotate(180deg);
         }
 
         .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            padding: 0 2.5rem;
-            background: linear-gradient(135deg, rgba(0,0,0,0.01) 0%, rgba(0,0,0,0.03) 100%);
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .faq-item.active .faq-answer {
-            max-height: 1000px;
-            padding: 2.5rem;
+            grid-template-rows: 1fr;
         }
 
-        .faq-answer-text {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: #333;
+        .faq-answer-inner {
+            overflow: hidden;
+        }
+
+        .faq-answer-content {
+            padding: 0 0 2rem 2rem;
+            font-size: 1rem;
             font-weight: 400;
+            color: #444;
+            line-height: 1.8;
+            max-width: 90%;
         }
 
-        @media (max-width: 768px) {
-            .page-title {
-                font-size: 2rem;
+        .faq-answer-content a {
+            color: #000;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid #000;
+            transition: opacity 0.3s ease;
+        }
+
+        .faq-answer-content a:hover {
+            opacity: 0.5;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 2px solid #000;
+        }
+
+        .footer-text {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .footer-link {
+            color: #000;
+            text-decoration: none;
+            font-weight: 800;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-link:hover {
+            opacity: 0.5;
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 600px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .header {
+                margin-bottom: 3rem;
+            }
+
+            .page-subtitle {
+                font-size: 0.75rem;
             }
 
             .faq-question {
-                padding: 1.5rem 2rem;
-                flex-wrap: wrap;
+                padding: 1.25rem 0;
+                gap: 1rem;
             }
 
-            .faq-question-text {
-                font-size: 1.1rem;
+            .question-number {
+                display: none;
             }
 
-            .faq-answer {
-                padding: 0 2rem;
+            .faq-answer-content {
+                padding: 0 0 1.5rem 0;
+                max-width: 100%;
+                font-size: 0.9375rem;
             }
 
-            .faq-item.active .faq-answer {
-                padding: 2rem;
+            .toggle-arrow {
+                width: 20px;
+                height: 20px;
             }
 
-            .faq-answer-text {
-                font-size: 1rem;
+            .toggle-arrow::before,
+            .toggle-arrow::after {
+                width: 10px;
+                height: 2px;
+            }
+
+            .footer {
+                padding-top: 2rem;
+            }
+        }
+
+        /* Touch device optimization */
+        @media (hover: none) {
+            .faq-question:hover {
+                opacity: 1;
+            }
+
+            .faq-question:active {
+                opacity: 0.6;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Logo section with AOS fade-down -->
-    <div class="logo-section" data-aos="fade-down" data-aos-duration="800">
-        <a href="https://michesslions.com/" class="logo-link">
-            <img src="WCL business card 1050x600.png" 
-                 alt="Chess Lions Logo"
-                 class="logo-image">
-        </a>
-    </div>
+    <div class="container">
+        <!-- Header -->
+        <header class="header" data-aos="fade-down" data-aos-duration="600">
+            <a href="https://michesslions.com/" class="logo-link">
+                <img src="WCL business card 1050x600.png" 
+                     alt="Chess Lions Logo"
+                     class="logo-image">
+            </a>
+            <h1 class="page-title">FAQ</h1>
+            <p class="page-subtitle">Everything you need to know</p>
+        </header>
 
-    <h1 class="page-title" data-aos="fade-down">Frequently Asked Questions</h1>
-    
-    <div class="faq-container" id="faq-container"></div>
+        <!-- FAQ List -->
+        <div class="faq-list" id="faq-list"></div>
+
+        <!-- Footer -->
+        <footer class="footer" data-aos="fade-up" data-aos-duration="600">
+            <p class="footer-text">
+                Still have questions? <a href="https://michesslions.com/#contact" class="footer-link">Contact Us</a>
+            </p>
+        </footer>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
         // ============================================
-        // FAQ DATA - UPDATE HERE
+        // FAQ DATA
         // ============================================
         
         const faqItems = [
@@ -234,7 +325,7 @@
             },
             {
                 question: "How can I register for a USCF membership?",
-                answer: "You can register for a USCF membership by visiting the <a href=\"https://new.uschess.org/form/first-time-member-new-player-\" style=\"color: #000; text-decoration: underline; font-weight: 700;\">official USCF membership registration page</a>. You'll need to provide basic information and choose a membership tier. Memberships can be purchased online or through participating chess clubs and tournaments."
+                answer: "You can register for a USCF membership by visiting the <a href=\"https://new.uschess.org/form/first-time-member-new-player-\">official USCF membership registration page</a>. You'll need to provide basic information and choose a membership tier. Memberships can be purchased online or through participating chess clubs and tournaments."
             },
             {
                 question: "Why is my USCF membership showing as expired?",
@@ -242,11 +333,11 @@
             },
             {
                 question: "How can I check if my membership is currently active?",
-                answer: "You can verify your USCF membership in two ways. First, check the official USCF website at <a href=\"https://ratings.uschess.org\" style=\"color: #000; text-decoration: underline; font-weight: 700;\">https://ratings.uschess.org/</a>. Alternatively, you can use our <a href=\"https://michesslions.com/uscfidlookup.html\" style=\"color: #000; text-decoration: underline; font-weight: 700;\">USCF ID Lookup tool</a> to quickly verify your membership status."
+                answer: "You can verify your USCF membership in two ways. First, check the official USCF website at <a href=\"https://ratings.uschess.org\">https://ratings.uschess.org/</a>. Alternatively, you can use our <a href=\"https://michesslions.com/uscfidlookup.html\">USCF ID Lookup tool</a> to quickly verify your membership status."
             },
             {
                 question: "Is a USCF membership required to participate in tournaments?",
-                answer: "Most USCF-rated tournaments require an active membership. However, many tournaments offer unrated sections for players without memberships or ratings. Check the specific tournament details to see which sections require membership."
+                answer: "Most USCF-rated tournaments require an active membership. However, many tournaments like ours offer unrated sections for players without memberships or ratings. Check the specific tournament details to see which sections require membership."
             },
             {
                 question: "Can I compete if I don't have a chess rating?",
@@ -254,7 +345,7 @@
             },
             {
                 question: "I recently purchased a membership - why hasn't it updated in your system?",
-                answer: "USCF database updates may take 24-48 hours to process. If you've recently paid for a membership, please wait a day before checking again. If it's still showing as expired after 48 hours, contact USCF support at uschess.org or <a href=\"https://michesslions.com/#contact\" style=\"color: #000; text-decoration: underline; font-weight: 700;\">reach out to us</a>."
+                answer: "USCF database updates may take 24-48 hours to process. If you've recently paid for a membership, please wait a day before checking again. If it's still showing as expired after 48 hours, contact USCF support at uschess.org or <a href=\"https://michesslions.com/#contact\">reach out to us</a>."
             },
             {
                 question: "Do I need to bring my own chess set and clock?",
@@ -263,39 +354,51 @@
         ];
 
         // ============================================
-        // RENDERING FUNCTION
+        // RENDER FAQ ITEMS
         // ============================================
 
-        function createFaqCard(item, index) {
-            return `
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="${index * 100}">
-                    <div class="faq-question" onclick="toggleFaq(this.parentElement)">
-                        <div class="faq-question-text">${item.question}</div>
-                        <div class="toggle-icon"></div>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-text">${item.answer}</div>
+        function renderFAQ() {
+            const container = document.getElementById('faq-list');
+            
+            container.innerHTML = faqItems.map((item, index) => `
+                <div class="faq-item" data-aos="fade-up" data-aos-duration="500" data-aos-delay="${index * 50}">
+                    <button class="faq-question" aria-expanded="false" aria-controls="answer-${index}">
+                        <span class="question-number">${String(index + 1).padStart(2, '0')}</span>
+                        <span class="question-text">${item.question}</span>
+                        <span class="toggle-arrow" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-answer" id="answer-${index}">
+                        <div class="faq-answer-inner">
+                            <div class="faq-answer-content">${item.answer}</div>
+                        </div>
                     </div>
                 </div>
-            `;
+            `).join('');
+
+            // Add click handlers
+            document.querySelectorAll('.faq-question').forEach(button => {
+                button.addEventListener('click', () => {
+                    const item = button.parentElement;
+                    const isActive = item.classList.contains('active');
+
+                    // Toggle current item (no closing of other items)
+                    item.classList.toggle('active');
+                    button.setAttribute('aria-expanded', !isActive);
+                });
+            });
         }
 
-        // Render FAQs
-        document.getElementById('faq-container').innerHTML = 
-            faqItems.map((item, i) => createFaqCard(item, i)).join('');
-
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            easing: 'ease-out',
-            once: true,
-            offset: 100
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFAQ();
+            
+            AOS.init({
+                duration: 500,
+                easing: 'ease-out-cubic',
+                once: true,
+                offset: 50
+            });
         });
-        
-        // Toggle function
-        function toggleFaq(element) {
-            element.classList.toggle('active');
-        }
     </script>
 </body>
 </html>
