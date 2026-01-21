@@ -50,6 +50,7 @@
         .logo-link {
             display: inline-block;
             transition: transform 0.3s ease;
+            cursor: pointer;
         }
 
         .logo-link:hover {
@@ -132,12 +133,19 @@
             letter-spacing: 1px;
             border: none;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
             font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
         }
 
         .register-btn:hover {
             background-color: #333;
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .register-btn:active {
+            transform: scale(0.98);
         }
 
         /* Secondary action button */
@@ -247,6 +255,10 @@
                 padding: 1rem;
             }
             
+            .logo-section {
+                margin-bottom: 1.5rem;
+            }
+            
             .logo-image {
                 width: 150px;
                 height: 90px;
@@ -254,12 +266,14 @@
             
             .header h1 {
                 font-size: 2.5rem;
+                margin-bottom: 1.5rem;
             }
             
             .tournaments-grid {
                 flex-direction: column;
                 align-items: center;
-                gap: 1.5rem;
+                gap: 1rem;
+                margin-bottom: 1.5rem;
             }
             
             .tournament-card {
@@ -272,6 +286,10 @@
             
             .tournament-card h3 {
                 font-size: 1.4rem;
+            }
+            
+            .secondary-btn {
+                margin-top: 0;
             }
             
             .modal-content {
@@ -287,9 +305,9 @@
     <div class="container">
         <!-- Logo section -->
         <div class="logo-section" data-aos="fade-up" data-aos-duration="800">
-            <a href="https://michesslions.com/" class="logo-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://michesslions.com/" class="logo-link">
                 <img src="WCL business card 1050x600.png" 
-                     alt="Chess Lions Logo" WCL business card 1050x600.png
+                     alt="Chess Lions Logo"
                      class="logo-image">
             </a>
         </div>
