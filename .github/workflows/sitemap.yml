@@ -1,0 +1,44 @@
+name: Generate Sitemap
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sitemap_job:
+    runs-on: ubuntu-latest
+    name: Generate and update sitemap
+
+    steps:
+    - name: Checkout the repo
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Generate the sitemap
+      id: sitemap
+      uses: cicirello/generate-sitemap@v1
+      with:
+        base-url-path: https://michesslions.com/
+
+    - name: Output sitemap stats
+      run: |
+        echo "Sitemap generated at: ${{ steps.sitemap.outputs.sitemap-path }}"
+        echo "Total URLs: ${{ steps.sitemap.outputs.url-count }}"
+        echo "Excluded URLs: ${{ steps.sitemap.outputs.excluded-count }}"
+
+    - name: Commit and push sitemap
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add sitemap.xml
+        if git diff --staged --quiet; then
+          echo "No changes to sitemap"
+        else
+          git commit -m "Auto-update sitemap [skip ci]"
+          git push
+        fi
