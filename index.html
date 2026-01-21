@@ -3,32 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chess Lions</title>
+    <title>Chess Lessons & Coaching in South Lyon MI | Chess Lions - Expert Chess Instruction</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Primary Meta Tags -->
+    <meta name="description" content="Expert chess lessons and coaching in South Lyon, Novi, Canton, and Farmington Hills, Michigan. Chess Lions offers personalized instruction, chess clubs, and tournaments for kids and adults of all skill levels. Book your lesson today!">
+    
+    <!-- Mobile Optimization -->
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://michesslions.com/">
+    <meta property="og:title" content="Chess Lions - Expert Chess Lessons in South Lyon & Metro Detroit">
+    <meta property="og:description" content="Professional chess coaching for all ages and skill levels in South Lyon, Novi, Canton, and Farmington Hills. Join our chess clubs, tournaments, and personalized training programs.">
+    <meta property="og:image" content="https://michesslions.com/WCL business card 1050x600.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://michesslions.com/">
+    <meta property="twitter:title" content="Chess Lions - Expert Chess Lessons in South Lyon & Metro Detroit">
+    <meta property="twitter:description" content="Professional chess coaching for all ages and skill levels in South Lyon, Novi, Canton, and Farmington Hills.">
+    <meta property="twitter:image" content="https://michesslions.com/WCL business card 1050x600.png">
+    
     <!-- Google Fonts - Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-    <meta name="description" content="Join MI Chess Lions for expert ches classes, clubs, and tournement training in South Lyons and the greater Detorit area. For kids and adults of all skill levels!">
-    <meta name="keywords" content="MI Chess Lions, mi chess lions, MI CHESS LIONS, chess lions, michigan chess lions, chess classes South Lyon, kids chess Detorit, chess club Novi, chess lessens Michagan, chess tournamint, ches classes, chess tutorin, chess for beginers, chess club near me">
+    
+    <!-- AOS CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-   
+    
+    <!-- Local Business Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Chess Lions",
-      "image": "Contact.jpg",
-      "description": "Expert chess instruction for all levels",
+      "image": "https://michesslions.com/WCL business card 1050x600.png",
+      "description": "Expert chess instruction, coaching, and tournaments for all skill levels in South Lyon and metro Detroit, Michigan",
+      "@id": "https://michesslions.com",
+      "url": "https://michesslions.com",
+      "telephone": "(734) 560-2802",
+      "email": "i2v2chess@gmail.com",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "",
         "addressLocality": "South Lyon",
+        "addressRegion": "MI",
+        "postalCode": "",
         "addressCountry": "US"
       },
-      "offers": {
-        "@type": "Offer",
-        "description": "Chess classes for beginners, advanced players, and youth"
-      }
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 42.43004957746741,
+        "longitude": -83.64825433484748
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "South Lyon"
+        },
+        {
+          "@type": "City",
+          "name": "Novi"
+        },
+        {
+          "@type": "City",
+          "name": "Canton"
+        },
+        {
+          "@type": "City",
+          "name": "Farmington Hills"
+        }
+      ],
+      "priceRange": "$$",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "09:00",
+        "closes": "20:00"
+      },
+      "sameAs": [
+        "https://michesslions.com"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "1"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Beginner Chess Lessons",
+          "description": "Foundational chess instruction for children and adults new to the game"
+        },
+        {
+          "@type": "Offer",
+          "name": "Intermediate Chess Training",
+          "description": "Strategic and tactical skill development for competitive play"
+        },
+        {
+          "@type": "Offer",
+          "name": "Advanced Chess Coaching",
+          "description": "Tournament preparation and advanced strategy for serious players"
+        },
+        {
+          "@type": "Offer",
+          "name": "Chess Clubs",
+          "description": "Community chess clubs for regular practice and social play"
+        },
+        {
+          "@type": "Offer",
+          "name": "Chess Tournaments",
+          "description": "Organized chess tournaments and competitive events"
+        }
+      ]
     }
     </script>
+    
     <style>
         /* Minimalist Black and White Theme */
 :root {
@@ -607,7 +710,7 @@ footer {
     <nav class="navigation" data-aos="fade-down">
         <div class="nav-container">
             <a href="/" class="logo">
-                <img src="WCL business card 1050x600.png" alt="Chess Lions Logo">
+                <img src="WCL business card 1050x600.png" alt="Chess Lions Logo - Professional Chess Instruction in South Lyon Michigan">
             </a>
             <div class="nav-links">
                 <a href="#home">Home</a>
@@ -628,7 +731,7 @@ footer {
             </div>
             
             <!-- Mobile Menu Toggle -->
-            <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle mobile menu">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -674,7 +777,7 @@ footer {
             <a href="https://michesslions.com/signup.html" class="cta-button" data-aos="zoom-in" data-aos-duration="1500">Book a Lesson</a>
         </div>
         <div class="hero-image" data-aos="fade-left" data-aos-duration="1500">
-            <img src="P1AWN.svg" alt="pawn" />
+            <img src="P1AWN.svg" alt="Chess pawn illustration representing chess instruction and strategy" />
         </div>
     </section>
 
@@ -700,13 +803,13 @@ footer {
     <section id="about" class="about container">
         <h2 class="section-title" data-aos="fade-up" data-aos-duration="1500">About Us</h2>
         <div class="hero" data-aos="fade-right" data-aos-duration="1500">
-<div class="hero-content">
+            <div class="hero-content">
                 <h3>Experienced Chess Instructors</h3>
                 <p>We are the Chess Lions, dedicated to promoting the ancient game of strategy and intellect across North America. Starting out as a community chess club in 2016, we've grown into a championship-producing organization. We've proudly coached, taught, and led teams to victory in several state-level championships in both Canada and the USA. With our proven methods and passionate instruction, everyone can be a champion.</p>
                 <a href="https://michesslions.com/about.html" class="cta-button" data-aos="zoom-in" data-aos-duration="1500">Learn More About Us</a>
             </div>
             <div class="hero-image" data-aos="fade-left" data-aos-duration="1500">
-                <img src="library.jpg" alt="Chess Coach" />
+                <img src="library.jpg" alt="Chess instruction at local library in South Lyon Michigan" />
             </div>
         </div>
     </section>
@@ -716,14 +819,14 @@ footer {
         
         <div class="contact-info">
             <div class="contact-item" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
-                <svg viewBox="0 0 24 24">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                 </svg>
                 <p>(734) 560-2802</p>
             </div>
             
             <div class="contact-item" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
-                <svg viewBox="0 0 24 24">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                     <polyline points="22,6 12,13 2,6"/>
                 </svg>
@@ -750,61 +853,61 @@ footer {
             <div class="gallery-rows-container">
                 <div class="gallery-row">
                     <div class="image-container" data-aos="fade-up" data-aos-delay="100">
-                        <img src="site1.jpg" alt="Chess Image 1" class="image-4-3">
+                        <img src="site1.jpg" alt="Chess students learning strategy at Chess Lions" class="image-4-3">
                     </div>
                     <div class="image-container" data-aos="fade-up" data-aos-delay="200">
-                        <img src="site3.jpg" alt="Chess Image 3" class="image-4-3">
+                        <img src="site3.jpg" alt="Youth chess tournament participants at Chess Lions" class="image-4-3">
                     </div>
                     <div class="image-container" data-aos="fade-up" data-aos-delay="300">
-                        <img src="site5.jpg" alt="Chess Image 5" class="image-4-3">
+                        <img src="site5.jpg" alt="Chess coaching session in South Lyon Michigan" class="image-4-3">
                     </div>
                     <div class="image-container" data-aos="fade-up" data-aos-delay="400">
-                        <img src="site7.jpg" alt="Chess Image 7" class="image-4-3">
+                        <img src="site7.jpg" alt="Chess club meeting in metro Detroit area" class="image-4-3">
                     </div>
                 </div>
 
                 <div class="gallery-row">
                     <div class="image-container" data-aos="fade-up" data-aos-delay="150">
-                        <img src="site2.jpg" alt="Chess Image 2" class="image-3-4">
+                        <img src="site2.jpg" alt="Kids learning chess fundamentals" class="image-3-4">
                     </div>
                     <div class="image-container" data-aos="fade-up" data-aos-delay="250">
-                        <img src="site4.jpg" alt="Chess Image 4" class="image-3-4">
+                        <img src="site4.jpg" alt="Advanced chess training session" class="image-3-4">
                     </div>
                     <div class="image-container" data-aos="fade-up" data-aos-delay="350">
-                        <img src="site6.jpg" alt="Chess Image 6" class="image-3-4">
+                        <img src="site6.jpg" alt="Chess tournament preparation class" class="image-3-4">
                     </div>
                     <div class="image-container" data-aos="fade-up" data-aos-delay="450">
-                        <img src="site8.jpg" alt="Chess Image 8" class="image-3-4">
+                        <img src="site8.jpg" alt="Chess instruction for all skill levels" class="image-3-4">
                     </div>
                 </div>
 
                 <div class="gallery-row">
                     <div class="image-container" data-aos="fade-up" data-aos-delay="200">
-                        <img src="site9.jpg" alt="Chess Image 9" class="image-4-3">
+                        <img src="site9.jpg" alt="Chess Lions students in competition" class="image-4-3">
                     </div>
                     <div class="image-container" data-aos="fade-up" data-aos-delay="300">
-                        <img src="site11.jpg" alt="Chess Image 11" class="image-4-3">
+                        <img src="site11.jpg" alt="Group chess lesson at Chess Lions" class="image-4-3">
                     </div>
                     <div class="image-container" data-aos="fade-up" data-aos-delay="400">
-                        <img src="site13.jpg" alt="Chess Image 13" class="image-4-3">
+                        <img src="site13.jpg" alt="Chess strategy workshop in Michigan" class="image-4-3">
                     </div>
                     <div class="image-container" data-aos="fade-up" data-aos-delay="500">
-                        <img src="site15.jpg" alt="Chess Image 15" class="image-4-3">
+                        <img src="site15.jpg" alt="Chess Lions championship training" class="image-4-3">
                     </div>
                 </div>
 
                 <div class="gallery-row">
                     <div class="image-container" data-aos="fade-up" data-aos-delay="250">
-                        <img src="site10.jpg" alt="Chess Image 10" class="image-3-4">
+                        <img src="site10.jpg" alt="Youth chess development program" class="image-3-4">
                     </div>
                     <div class="image-container" data-aos="fade-up" data-aos-delay="350">
-                        <img src="site12.jpg" alt="Chess Image 12" class="image-3-4">
+                        <img src="site12.jpg" alt="Chess club activities in South Lyon" class="image-3-4">
                     </div>
                     <div class="image-container" data-aos="fade-up" data-aos-delay="450">
-                        <img src="site14.jpg" alt="Chess Image 14" class="image-3-4">
+                        <img src="site14.jpg" alt="Chess coaching for beginners and advanced players" class="image-3-4">
                     </div>
                     <div class="image-container" data-aos="fade-up" data-aos-delay="550">
-                        <img src="site16.jpg" alt="Chess Image 16" class="image-3-4">
+                        <img src="site16.jpg" alt="Chess Lions community events" class="image-3-4">
                     </div>
                 </div>
             </div>
