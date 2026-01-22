@@ -614,10 +614,9 @@
         }
 
         async function fetchUSCFData(uscfId) {
-            const proxyUrl = 'https://corsproxy.io/?';
-            const apiUrl = `https://ratings-api.uschess.org/api/v1/members/${uscfId}`;
+            const workerUrl = `https://yellow-bonus-c067.windsorchesslions.workers.dev/?id=${uscfId}`;
             
-            const response = await fetch(proxyUrl + encodeURIComponent(apiUrl));
+            const response = await fetch(workerUrl);
 
             if (!response.ok) {
                 if (response.status === 404) {
