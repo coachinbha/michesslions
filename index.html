@@ -717,6 +717,25 @@
         }
 
         @media (max-width: 768px) {
+            /* Mobile overflow fix - prevents horizontal scrolling issues */
+            html, body {
+                overflow-x: hidden;
+                width: 100%;
+                position: relative;
+            }
+
+            /* Ensure navbar stays fixed and full-width on mobile */
+            .navbar {
+                width: 100%;
+                left: 0;
+                right: 0;
+            }
+
+            .nav-inner {
+                width: 100%;
+                max-width: 100%;
+            }
+
             .nav-links {
                 display: none;
             }
@@ -758,6 +777,12 @@
         }
 
         @media (max-width: 480px) {
+            /* Extra mobile overflow protection for smaller screens */
+            html, body {
+                overflow-x: hidden;
+                width: 100%;
+            }
+
             .logo img {
                 max-height: 40px;
                 max-width: 160px;
@@ -765,17 +790,37 @@
 
             .nav-inner {
                 padding: 0.5rem 1rem;
+                width: 100%;
             }
 
             header h1 {
                 font-size: 2rem;
+            }
+
+            /* Ensure container doesn't cause overflow */
+            .container {
+                width: 100%;
+                padding-left: 1rem;
+                padding-right: 1rem;
+                max-width: 100%;
+            }
+
+            /* Prevent gallery from causing overflow */
+            .gallery {
+                padding: 10px;
+                max-width: 100%;
+            }
+
+            /* Service grid fix for mobile */
+            .service-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" data-aos="fade-down" data-aos-duration="1000">
         <div class="nav-inner">
             <a href="/" class="logo">
                 <img src="WCL business card 1050x600.png" alt="Chess Lions Logo - Professional Chess Instruction in South Lyon Michigan">
@@ -1056,4 +1101,4 @@
         });
     </script>
 </body>
-</html>
+    </html>
