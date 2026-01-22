@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chess Tutoring Sign Up</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #000000;
-            --background-color: #ffffff;
-            --border-color: #e5e7eb;
-            --text-primary: #111827;
-            --spacing-unit: 0.675rem;
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --accent-color: #000000;
+            --gray-100: #f8f8f8;
+            --gray-200: #e5e5e5;
         }
 
         * {
@@ -21,42 +21,46 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-primary);
+            background-color: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.4;
-            -webkit-font-smoothing: antialiased;
         }
 
-        /* Navigation Styles */
-        .navigation {
-            position: sticky;
+        /* Navigation Styles from index.html */
+        .navbar {
+            position: fixed;
             top: 0;
-            background-color: var(--background-color);
-            z-index: 100;
-            border-bottom: 1px solid var(--text-primary);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            left: 0;
+            right: 0;
+            background: var(--bg-color);
+            border-bottom: 1px solid var(--gray-200);
+            z-index: 1000;
+            transition: box-shadow 0.3s ease;
         }
 
-        .nav-container {
+        .navbar.scrolled {
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0.5rem 0;
         }
 
         .logo {
             display: flex;
             align-items: center;
             text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 900;
-            font-size: 1.5rem;
-            text-transform: uppercase;
         }
 
         .logo img {
@@ -67,518 +71,672 @@
 
         .nav-links {
             display: flex;
-            gap: 2rem;
             align-items: center;
+            gap: 2rem;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-primary);
+            color: var(--text-color);
             font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            position: relative;
             transition: color 0.3s ease;
-            font-size: 0.9rem;
         }
 
-        .nav-links a:hover {
-            color: #666;
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--text-color);
+            transition: width 0.3s ease;
         }
 
-        /* Dropdown Styles */
-        .dropdown {
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown > span {
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .nav-dropdown > span svg {
+            width: 12px;
+            height: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-dropdown:hover > span svg {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 1rem);
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: var(--bg-color);
+            border: 1px solid var(--gray-200);
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -1rem;
+            left: 0;
+            right: 0;
+            height: 1rem;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: inline-flex;
+            width: 100%;
+            padding: 0.875rem 1.25rem;
+            font-size: 0.8rem;
+            border-bottom: 1px solid var(--gray-100);
+            position: relative;
+        }
+
+        .dropdown-menu a::after {
+            display: none;
+        }
+
+        .dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-menu a span {
             position: relative;
             display: inline-block;
         }
 
-        .dropdown > a {
-            text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .dropdown > a:hover {
-            color: #666;
-        }
-
-        .dropdown-content {
-            display: none;
+        .dropdown-menu a span::after {
+            content: '';
             position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: var(--background-color);
-            min-width: 200px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            border: 1px solid var(--text-primary);
-            padding-top: 0.5rem;
-            margin-top: 0;
-            z-index: 1000;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--text-color);
+            transition: width 0.3s ease;
         }
 
-        .dropdown-content a {
-            color: var(--text-primary);
-            padding: 1rem 1.5rem;
-            text-decoration: none;
-            display: block;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
-            transition: background-color 0.3s ease;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+        .dropdown-menu a:hover {
+            background: transparent;
         }
 
-        .dropdown-content a:last-child {
-            border-bottom: none;
+        .dropdown-menu a:hover span::after {
+            width: 100%;
         }
 
-        .dropdown-content a:hover {
-            background-color: rgba(0,0,0,0.05);
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        /* Mobile Menu Styles */
-        .mobile-menu-toggle {
+        .mobile-menu-container {
             display: none;
-            cursor: pointer;
+            position: relative;
+        }
+
+        .mobile-toggle {
+            display: block;
             background: none;
             border: none;
+            cursor: pointer;
+            padding: 0.75rem;
         }
 
-        .mobile-menu-toggle svg {
+        .mobile-toggle span {
+            display: block;
             width: 24px;
-            height: 24px;
-            stroke: var(--text-primary);
+            height: 2px;
+            background: var(--text-color);
+            margin: 5px 0;
+            transition: all 0.3s ease;
         }
 
-        .mobile-dropdown-menu {
+        .mobile-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .mobile-menu {
             display: none;
             position: absolute;
-            right: 0;
             top: 100%;
-            background-color: var(--background-color);
-            border: 1px solid var(--text-primary);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            z-index: 200;
-            width: 100%;
-            max-width: 175px;
+            right: 0;
+            background: var(--bg-color);
+            border: 1px solid var(--gray-200);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            z-index: 999;
+            min-width: 200px;
+            max-width: 220px;
+            margin-top: 0.5rem;
+            border-radius: 4px;
         }
 
-        .mobile-dropdown-menu a {
+        .mobile-menu.active {
             display: block;
-            padding: 1rem;
+        }
+
+        .mobile-menu a,
+        .mobile-menu .mobile-dropdown-toggle {
+            display: block;
+            padding: 0.875rem 1.25rem;
             text-decoration: none;
-            color: var(--text-primary);
+            color: var(--text-color);
             font-weight: 700;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-            transition: background-color 0.3s ease;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--gray-100);
+            transition: background-color 0.2s ease;
         }
 
-        .mobile-dropdown-menu a:last-child {
+        .mobile-menu a:hover,
+        .mobile-menu .mobile-dropdown-toggle:hover {
+            background-color: var(--gray-100);
+        }
+
+        .mobile-menu a:last-child {
             border-bottom: none;
-        }
-
-        .mobile-dropdown-menu a:hover {
-            background-color: rgba(0,0,0,0.05);
-        }
-
-        /* Mobile Dropdown Submenu */
-        .mobile-dropdown-submenu {
-            display: none;
-            background-color: rgba(0,0,0,0.05);
-        }
-
-        .mobile-dropdown-submenu a {
-            padding-left: 2rem;
-            font-size: 0.85rem;
         }
 
         .mobile-dropdown-toggle {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem;
             cursor: pointer;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-            transition: background-color 0.3s ease;
-            color: var(--text-primary);
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .mobile-dropdown-toggle:hover {
-            background-color: rgba(0,0,0,0.05);
         }
 
         .mobile-dropdown-toggle svg {
-            width: 16px;
-            height: 16px;
-            stroke: var(--text-primary);
+            width: 14px;
+            height: 14px;
             transition: transform 0.3s ease;
+            stroke: var(--text-color);
         }
 
         .mobile-dropdown-toggle.active svg {
             transform: rotate(180deg);
         }
 
+        .mobile-submenu {
+            display: none;
+            background: var(--gray-100);
+        }
+
+        .mobile-submenu.active {
+            display: block;
+        }
+
+        .mobile-submenu a {
+            padding: 0.75rem 1.25rem 0.75rem 2rem;
+            font-size: 0.75rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .mobile-submenu a:last-child {
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        /* Main Content Styles */
         .signup-section {
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: calc(var(--spacing-unit) * 1.5);
-            background-color: var(--background-color);
+            padding: 8rem 2rem 4rem;
+            background-color: var(--bg-color);
         }
 
-        .signup-container {
-            width: 100%;
-            max-width: 600px;
-            background-color: var(--background-color);
-            border: 2px solid var(--primary-color);
-            padding: calc(var(--spacing-unit) * 2.5) calc(var(--spacing-unit) * 2);
-            margin-bottom: calc(var(--spacing-unit) * 2);
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .signup-title {
-            font-size: 2.25rem;
+        .signup-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .signup-header h1 {
+            font-size: 3.5rem;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: -1px;
-            color: var(--text-primary);
-            margin-bottom: calc(var(--spacing-unit) * 2.5);
-            text-align: center;
-            line-height: 1.1;
+            margin-bottom: 1rem;
         }
 
-        .section-header {
-            font-size: 1.125rem;
-            font-weight: 700;
+        .signup-header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 2px solid var(--text-color);
+            padding: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-primary);
-            margin: calc(var(--spacing-unit) * 2) 0 calc(var(--spacing-unit) * 1);
+            letter-spacing: -0.5px;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--text-color);
         }
 
-        .signup-form {
+        .form-grid {
             display: grid;
-            gap: calc(var(--spacing-unit) * 1);
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
         }
 
-        .form-group {
+        .form-grid.single {
+            grid-template-columns: 1fr;
+        }
+
+        .form-field {
             display: flex;
             flex-direction: column;
-            gap: calc(var(--spacing-unit) * 0.5);
-            margin-bottom: calc(var(--spacing-unit) * 0.75);
+            gap: 0.5rem;
         }
 
-        .signup-form label {
-            font-size: 0.85rem;
+        .form-field.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-field label {
+            font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--text-primary);
-            margin-top: calc(var(--spacing-unit) * 0.25);
         }
 
-        .signup-form input,
-        .signup-form select {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--primary-color);
+        .form-field input,
+        .form-field select {
+            padding: 0.875rem 1rem;
+            border: 1px solid var(--text-color);
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.95rem;
-            color: var(--text-primary);
-            background-color: var(--background-color);
+            font-size: 1rem;
+            background-color: var(--bg-color);
+            transition: all 0.3s ease;
         }
 
-        .signup-form input:focus,
-        .signup-form select:focus {
+        .form-field input:focus,
+        .form-field select:focus {
             outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
         }
 
-        .signup-button,
-        .back-button {
-            background-color: white;
-            color: black;
-            font-size: 16px;
-            font-weight: 600;
-            padding: 0.75em 1.5em;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-            border: 1px solid black;
-            box-shadow: 0 0 0 0 black;
-            text-decoration: none;
+        .cta-button {
             display: inline-block;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .signup-button {
             width: 100%;
-            margin-top: calc(var(--spacing-unit) * 2);
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+            padding: 1.25rem 2rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
         }
 
-        .signup-button:hover,
-        .back-button:hover {
-            transform: translateY(-4px) translateX(-2px);
-            box-shadow: 2px 5px 0 0 black;
+        .cta-button:hover {
+            background-color: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
-        .signup-button:active,
-        .back-button:active {
-            transform: translateY(2px) translateX(1px);
-            box-shadow: 0 0 0 0 black;
-        }
-
-        .form-actions {
+        .back-link {
             text-align: center;
+            margin-top: 2rem;
         }
 
-        /* Confirmation page specific styles */
-        .confirmation-container {
+        .back-link a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        .back-link a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--text-color);
+            transition: width 0.3s ease;
+        }
+
+        .back-link a:hover::after {
             width: 100%;
-            max-width: 600px;
-            background-color: var(--background-color);
-            border: 2px solid var(--primary-color);
-            padding: calc(var(--spacing-unit) * 4);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: calc(var(--spacing-unit) * 3);
         }
 
-        .confirmation-logo {
-            max-width: 250px;
+        /* Confirmation Page */
+        .confirmation-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            border: 2px solid var(--text-color);
+            padding: 4rem 3rem;
+        }
+
+        .confirmation-wrapper img {
+            max-width: 300px;
             height: auto;
-            margin-bottom: calc(var(--spacing-unit) * 1.5);
+            margin-bottom: 2rem;
         }
 
-        .confirmation-title {
-            font-size: 2rem;
+        .confirmation-wrapper h1 {
+            font-size: 3rem;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: -1px;
+            margin-bottom: 1.5rem;
         }
 
-        .confirmation-message {
-            font-size: 1rem;
-            margin-bottom: calc(var(--spacing-unit) * 1.5);
+        .confirmation-wrapper p {
+            font-size: 1.1rem;
             line-height: 1.6;
+            margin-bottom: 2.5rem;
         }
 
+        /* Media Queries */
         @media (max-width: 768px) {
+            html, body {
+                overflow-x: hidden;
+                width: 100%;
+                position: relative;
+            }
+
+            .navbar {
+                width: 100%;
+                left: 0;
+                right: 0;
+            }
+
+            .nav-inner {
+                width: 100%;
+                max-width: 100%;
+            }
+
             .nav-links {
                 display: none;
             }
 
-            .mobile-menu-toggle {
+            .mobile-menu-container {
                 display: block;
             }
 
-            .nav-container {
-                position: relative;
+            .signup-header h1 {
+                font-size: 2.5rem;
             }
 
-            .logo {
-                font-size: 1.2rem;
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-wrapper {
+                padding: 2rem 1.5rem;
+            }
+
+            .confirmation-wrapper {
+                padding: 3rem 2rem;
+            }
+
+            .confirmation-wrapper h1 {
+                font-size: 2rem;
             }
         }
 
-        @media (max-width: 640px) {
-            .signup-container,
-            .confirmation-container {
-                padding: calc(var(--spacing-unit) * 1.5);
+        @media (max-width: 480px) {
+            .logo img {
+                max-height: 40px;
+                max-width: 160px;
             }
 
-            .signup-title,
-            .confirmation-title {
-                font-size: 1.75rem;
-                margin-bottom: calc(var(--spacing-unit) * 2);
+            .nav-inner {
+                padding: 0.5rem 1rem;
             }
 
-            .section-header {
+            .signup-section {
+                padding: 6rem 1rem 3rem;
+            }
+
+            .signup-header h1 {
+                font-size: 2rem;
+            }
+
+            .signup-header p {
                 font-size: 1rem;
-                margin: calc(var(--spacing-unit) * 1.5) 0 calc(var(--spacing-unit));
             }
 
-            .signup-button,
-            .back-button {
-                font-size: 0.95rem;
-                padding: 0.7em 1.4em;
+            .section-title {
+                font-size: 1.25rem;
             }
 
-            .confirmation-logo {
-                max-width: 200px;
+            .form-wrapper {
+                padding: 1.5rem 1rem;
+            }
+
+            .confirmation-wrapper {
+                padding: 2rem 1.5rem;
             }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navigation" data-aos="fade-down">
-        <div class="nav-container">
-            <a href="https://michesslions.com/" class="logo">
+    <nav class="navbar" id="navbar" data-aos="fade-down" data-aos-duration="1000">
+        <div class="nav-inner">
+            <a href="/" class="logo">
                 <img src="WCL business card 1050x600.png" alt="Chess Lions Logo">
             </a>
+            
             <div class="nav-links">
                 <a href="https://michesslions.com/#home">Home</a>
                 <a href="https://michesslions.com/#services">Teaching</a>
-                <a href="https://michesslions.com/#about">About</a>
-                <div class="dropdown">
-                    <a>Tournaments</a>
-                    <div class="dropdown-content">
-                        <a href="https://michesslions.com/tournaments.html">Current Tournaments</a>
-                        <a href="https://michesslions.com/registration">Register</a>
-                        <a href="https://michesslions.com/pairings page.html">Pairings</a>
-                        <a href="https://michesslions.com/registration-list.html">Registration List</a>
+                <a href="https://michesslions.com/about.html">About</a>
+                <div class="nav-dropdown">
+                    <span>Tournaments <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
+                    <div class="dropdown-menu">
+                        <a href="https://michesslions.com/tournaments.html"><span>Current Tournaments</span></a>
+                        <a href="https://michesslions.com/registration.html"><span>Register</span></a>
+                        <a href="https://michesslions.com/pairingspage.html"><span>Pairings</span></a>
+                        <a href="https://michesslions.com/registration-list.html"><span>Registration List</span></a>
                     </div>
                 </div>
                 <a href="https://michesslions.com/#contact">Contact</a>
+                <a href="https://michesslions.com/faq.html">FAQ</a>
                 <a href="https://michesslions.com/fullgallery.html">Gallery</a>
             </div>
-            
-            <!-- Mobile Menu Toggle -->
-            <button id="mobile-menu-toggle" class="mobile-menu-toggle">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
 
-            <!-- Mobile Dropdown Menu -->
-            <div id="mobile-dropdown-menu" class="mobile-dropdown-menu">
-                <a href="https://michesslions.com/#home">Home</a>
-                <a href="https://michesslions.com/#services">Teaching</a>
-                <a href="https://michesslions.com/#about">About</a>
-                <div class="mobile-dropdown-toggle" id="mobile-tournament-toggle">
-                    <span>Tournaments</span>
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
+            <div class="mobile-menu-container">
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <div class="mobile-menu" id="mobileMenu">
+                    <a href="https://michesslions.com/#home">Home</a>
+                    <a href="https://michesslions.com/#services">Teaching</a>
+                    <a href="https://michesslions.com/about.html">About</a>
+                    <div class="mobile-dropdown-toggle" id="mobileTournamentToggle">
+                        <span>Tournaments</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </div>
+                    <div class="mobile-submenu" id="mobileSubmenu">
+                        <a href="https://michesslions.com/tournaments.html">Current Tournaments</a>
+                        <a href="https://michesslions.com/registration.html">Register</a>
+                        <a href="https://michesslions.com/pairingspage.html">Pairings</a>
+                        <a href="https://michesslions.com/registration-list.html">Registration List</a>
+                    </div>
+                    <a href="https://michesslions.com/#contact">Contact</a>
+                    <a href="https://michesslions.com/faq.html">FAQ</a>
+                    <a href="https://michesslions.com/fullgallery.html">Gallery</a>
                 </div>
-                <div class="mobile-dropdown-submenu" id="mobile-tournament-submenu">
-                    <a href="https://michesslions.com/tournaments.html">Current Tournaments</a>
-                    <a href="https://michesslions.com/registration">Register</a>
-                    <a href="https://michesslions.com/pairingspage.html">Pairings</a>
-                    <a href="https://michesslions.com/registration-list.html">Registration List</a>
-                </div>
-                <a href="https://michesslions.com/#contact">Contact</a>
-                <a href="https://michesslions.com/fullgallery.html">Gallery</a>
             </div>
         </div>
     </nav>
 
+    <!-- Main Content -->
     <section class="signup-section">
-        <div class="signup-container" data-aos="fade-up" data-aos-duration="1500">
-            <h2 class="signup-title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">Chess Lions<br>Enrollment</h2>
-            
-            <form id="signup-form" class="signup-form" action="https://formspree.io/f/xyzyanlw" method="POST">
-                <div class="parent-guardian-section" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
-                    <h3 class="section-header">Parent/Guardian Information</h3>
-                    <div class="form-group">
-                        <label for="parent-name">Name</label>
-                        <input type="text" id="parent-name" name="parent-name" required placeholder="Enter parent/guardian name">
-                    </div>
-                    <div class="form-group">
-                        <label for="parent-email">Email Address</label>
-                        <input type="email" id="parent-email" name="parent-email" required placeholder="Enter parent/guardian email">
-                    </div>
-                    <div class="form-group">
-                        <label for="parent-phone">Phone Number</label>
-                        <input type="tel" id="parent-phone" name="parent-phone" required placeholder="Enter parent/guardian phone number">
-                    </div>
-                </div>
+        <div class="container">
+            <div class="signup-header" data-aos="fade-up" data-aos-duration="1500">
+                <h1>Begin Your Chess Journey</h1>
+                <p>Join the Chess Lions family and unlock your strategic potential with personalized coaching</p>
+            </div>
 
-                <div class="student-section" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
-                    <h3 class="section-header">Student Information</h3>
-                    <div class="form-group">
-                        <label for="student-name">Student Name</label>
-                        <input type="text" id="student-name" name="student-name" required placeholder="Enter student's name">
+            <div class="form-wrapper" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+                <form id="signup-form" action="https://formspree.io/f/xyzyanlw" method="POST">
+                    <h2 class="section-title">Parent/Guardian Information</h2>
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label for="parent-name">Name</label>
+                            <input type="text" id="parent-name" name="parent-name" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="parent-phone">Phone Number</label>
+                            <input type="tel" id="parent-phone" name="parent-phone" required>
+                        </div>
+                        <div class="form-field full-width">
+                            <label for="parent-email">Email Address</label>
+                            <input type="email" id="parent-email" name="parent-email" required>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="student-age">Age</label>
-                        <input type="number" id="student-age" name="student-age" required placeholder="Enter student's age">
-                    </div>
-                    <div class="form-group">
-                        <label for="skill-level">Skill Level</label>
-                        <select id="skill-level" name="skill-level" required>
-                            <option value="">Select Skill Level</option>
-                            <option value="beginner">Beginner</option>
-                            <option value="intermediate">Intermediate</option>
-                            <option value="advanced">Advanced</option>
-                        </select>
-                    </div>
-                </div>
 
-                <div class="form-group" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">
-                    <label for="goals">Learning Goals</label>
-                    <input type="text" id="goals" name="goals" placeholder="What does the student want to achieve?">
-                </div>
+                    <h2 class="section-title">Student Information</h2>
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label for="student-name">Student Name</label>
+                            <input type="text" id="student-name" name="student-name" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="student-age">Age</label>
+                            <input type="number" id="student-age" name="student-age" required>
+                        </div>
+                        <div class="form-field full-width">
+                            <label for="skill-level">Current Skill Level</label>
+                            <select id="skill-level" name="skill-level" required>
+                                <option value="">Select Skill Level</option>
+                                <option value="beginner">Beginner - Just Starting Out</option>
+                                <option value="intermediate">Intermediate - Some Experience</option>
+                                <option value="advanced">Advanced - Competitive Player</option>
+                            </select>
+                        </div>
+                        <div class="form-field full-width">
+                            <label for="goals">Learning Goals (Optional)</label>
+                            <input type="text" id="goals" name="goals" placeholder="What would you like to achieve through chess?">
+                        </div>
+                    </div>
 
-                <button type="submit" class="signup-button" data-aos="zoom-in" data-aos-duration="1500">Start Chess Journey</button>
-            </form>
-        </div>
-        
-        <div class="form-actions" data-aos="fade-up" data-aos-duration="1500">
-            <a href="https://michesslions.com/" class="back-button">Back to Website</a>
+                    <button type="submit" class="cta-button">Enroll Now</button>
+                </form>
+
+                <div class="back-link">
+                    <a href="https://michesslions.com/">← Back to Homepage</a>
+                </div>
+            </div>
         </div>
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        // Initialize AOS
         AOS.init({
             duration: 1500,
-            once: true
+            once: true,
         });
 
-        // Mobile menu functionality
-        document.addEventListener('DOMContentLoaded', () => {
-            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-            const mobileDropdownMenu = document.getElementById('mobile-dropdown-menu');
-            const mobileTournamentToggle = document.getElementById('mobile-tournament-toggle');
-            const mobileTournamentSubmenu = document.getElementById('mobile-tournament-submenu');
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
 
-            mobileMenuToggle.addEventListener('click', () => {
-                mobileDropdownMenu.style.display = 
-                    mobileDropdownMenu.style.display === 'block' ? 'none' : 'block';
-            });
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileTournamentToggle = document.getElementById('mobileTournamentToggle');
+        const mobileSubmenu = document.getElementById('mobileSubmenu');
 
-            mobileTournamentToggle.addEventListener('click', () => {
-                mobileTournamentToggle.classList.toggle('active');
-                mobileTournamentSubmenu.style.display = 
-                    mobileTournamentSubmenu.style.display === 'block' ? 'none' : 'block';
-            });
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
 
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', (event) => {
-                if (!mobileMenuToggle.contains(event.target) && 
-                    !mobileDropdownMenu.contains(event.target)) {
-                    mobileDropdownMenu.style.display = 'none';
-                }
+        mobileTournamentToggle.addEventListener('click', () => {
+            mobileTournamentToggle.classList.toggle('active');
+            mobileSubmenu.classList.toggle('active');
+        });
+
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
             });
         });
 
-        // Form submission
+        document.addEventListener('click', (e) => {
+            const mobileMenuContainer = document.querySelector('.mobile-menu-container');
+            if (!mobileMenuContainer.contains(e.target)) {
+                mobileToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
+        });
+
         document.getElementById('signup-form').addEventListener('submit', function(event) {
             event.preventDefault();
             
-            // Collect form data
             const formData = new FormData(event.target);
             
-            // Submit to Formspree
             fetch('https://formspree.io/f/xyzyanlw', {
                 method: 'POST',
                 body: formData,
@@ -587,23 +745,22 @@
                 }
             }).then(response => {
                 if (response.ok) {
-                    // Replace current content with confirmation page
                     document.querySelector('.signup-section').innerHTML = `
-                        <div class="confirmation-container" data-aos="fade-up" data-aos-duration="1500">
-                            <img src="WCL business card 1050x600.png" alt="Chess Lions Logo" class="confirmation-logo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
-                            
-                            <h1 class="confirmation-title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">Enrollment Confirmed!</h1>
-                            
-                            <p class="confirmation-message" data-aos="fade-up" data-aos-duration="1500">
-                                Thank you for enrolling in the Chess Lions. 
-                                We've received your application and will be in touch soon 
-                                to confirm your student's chess journey.
-                            </p>
-                            
-                            <a href="https://michesslions.com/" class="back-button" data-aos="zoom-in" data-aos-duration="1500">Return to Homepage</a>
+                        <div class="container">
+                            <div class="confirmation-wrapper" data-aos="fade-up" data-aos-duration="1500">
+                                <img src="WCL business card 1050x600.png" alt="Chess Lions Logo">
+                                
+                                <h1>Welcome to Chess Lions!</h1>
+                                
+                                <p>
+                                    Thank you for enrolling. We've received your application and will contact you shortly 
+                                    to discuss your chess training program and schedule your first lesson.
+                                </p>
+                                
+                                <a href="https://michesslions.com/" class="cta-button">Return to Homepage</a>
+                            </div>
                         </div>
                     `;
-                    // Reinitialize AOS for new content
                     AOS.refresh();
                 } else {
                     alert('There was a problem submitting your form. Please try again.');
