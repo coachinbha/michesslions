@@ -283,22 +283,44 @@
         }
 
         .dropdown-menu a {
-            display: block;
+            display: inline-flex;
+            width: 100%;
             padding: 0.875rem 1.25rem;
             font-size: 0.8rem;
             border-bottom: 1px solid var(--gray-100);
-        }
-
-        .dropdown-menu a:last-child {
-            border-bottom: none;
+            position: relative;
         }
 
         .dropdown-menu a::after {
             display: none;
         }
 
+        .dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-menu a span {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu a span::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--text-color);
+            transition: width 0.3s ease;
+        }
+
         .dropdown-menu a:hover {
-            background: var(--gray-100);
+            background: transparent;
+        }
+
+        .dropdown-menu a:hover span::after {
+            width: 100%;
         }
 
         /* Mobile Menu Container */
@@ -833,10 +855,10 @@
                 <div class="nav-dropdown">
                     <span>Tournaments <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
                     <div class="dropdown-menu">
-                        <a href="https://michesslions.com/tournaments.html">Current Tournaments</a>
-                        <a href="https://michesslions.com/registration.html">Register</a>
-                        <a href="https://michesslions.com/pairingspage.html">Pairings</a>
-                        <a href="https://michesslions.com/registration-list.html">Registration List</a>
+                        <a href="https://michesslions.com/tournaments.html"><span>Current Tournaments</span></a>
+                        <a href="https://michesslions.com/registration.html"><span>Register</span></a>
+                        <a href="https://michesslions.com/pairingspage.html"><span>Pairings</span></a>
+                        <a href="https://michesslions.com/registration-list.html"><span>Registration List</span></a>
                     </div>
                 </div>
                 <a href="#contact">Contact</a>
