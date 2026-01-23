@@ -11,12 +11,18 @@
             --bg-color: #ffffff;
             --text-color: #000000;
             --accent-color: #000000;
+            --gray-100: #f8f8f8;
+            --gray-200: #e5e5e5;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -28,33 +34,35 @@
             width: 100%;
         }
 
-        .navigation {
-            position: sticky;
+        /* New Modern Navigation Styles */
+        .navbar {
+            position: fixed;
             top: 0;
-            background-color: var(--bg-color);
-            z-index: 100;
-            border-bottom: 1px solid var(--text-color);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            left: 0;
+            right: 0;
+            background: var(--bg-color);
+            border-bottom: 1px solid var(--gray-200);
+            z-index: 1000;
+            transition: box-shadow 0.3s ease;
         }
 
-        .nav-container {
+        .navbar.scrolled {
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0.5rem 0;
         }
 
         .logo {
             display: flex;
             align-items: center;
             text-decoration: none;
-            color: var(--text-color);
-            font-weight: 900;
-            font-size: 1.5rem;
-            text-transform: uppercase;
         }
 
         .logo img {
@@ -65,165 +73,245 @@
 
         .nav-links {
             display: flex;
-            gap: 2rem;
             align-items: center;
+            gap: 2rem;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--text-color);
             font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            position: relative;
             transition: color 0.3s ease;
-            font-size: 0.9rem;
         }
 
-        .nav-links a:hover {
-            color: #666;
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--text-color);
+            transition: width 0.3s ease;
         }
 
-        .dropdown {
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown > span {
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .nav-dropdown > span svg {
+            width: 12px;
+            height: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-dropdown:hover > span svg {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 1rem);
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: var(--bg-color);
+            border: 1px solid var(--gray-200);
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -1rem;
+            left: 0;
+            right: 0;
+            height: 1rem;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: inline-flex;
+            width: 100%;
+            padding: 0.875rem 1.25rem;
+            font-size: 0.8rem;
+            border-bottom: 1px solid var(--gray-100);
+            position: relative;
+        }
+
+        .dropdown-menu a::after {
+            display: none;
+        }
+
+        .dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-menu a span {
             position: relative;
             display: inline-block;
         }
 
-        .dropdown > a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .dropdown > a:hover {
-            color: #666;
-        }
-
-        .dropdown-content {
-            display: none;
+        .dropdown-menu a span::after {
+            content: '';
             position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: var(--bg-color);
-            min-width: 200px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            border: 1px solid var(--text-color);
-            padding-top: 0.5rem;
-            margin-top: 0;
-            z-index: 1000;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--text-color);
+            transition: width 0.3s ease;
         }
 
-        .dropdown-content a {
-            color: var(--text-color);
-            padding: 1rem 1.5rem;
-            text-decoration: none;
-            display: block;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
-            transition: background-color 0.3s ease;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+        .dropdown-menu a:hover {
+            background: transparent;
         }
 
-        .dropdown-content a:last-child {
-            border-bottom: none;
+        .dropdown-menu a:hover span::after {
+            width: 100%;
         }
 
-        .dropdown-content a:hover {
-            background-color: rgba(0,0,0,0.05);
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .mobile-menu-toggle {
+        /* Mobile Menu Container */
+        .mobile-menu-container {
             display: none;
-            cursor: pointer;
+            position: relative;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-toggle {
+            display: block;
             background: none;
             border: none;
+            cursor: pointer;
+            padding: 0.75rem;
         }
 
-        .mobile-menu-toggle svg {
+        .mobile-toggle span {
+            display: block;
             width: 24px;
-            height: 24px;
-            stroke: var(--text-color);
+            height: 2px;
+            background: var(--text-color);
+            margin: 5px 0;
+            transition: all 0.3s ease;
         }
 
-        .mobile-dropdown-menu {
+        .mobile-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Mobile Dropdown Menu */
+        .mobile-menu {
             display: none;
             position: absolute;
-            right: 0;
             top: 100%;
-            background-color: var(--bg-color);
-            border: 1px solid var(--text-color);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            z-index: 200;
-            width: 100%;
-            max-width: 175px;
+            right: 0;
+            background: var(--bg-color);
+            border: 1px solid var(--gray-200);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            z-index: 999;
+            min-width: 200px;
+            max-width: 220px;
+            margin-top: 0.5rem;
+            border-radius: 4px;
         }
 
-        .mobile-dropdown-menu a {
+        .mobile-menu.active {
             display: block;
-            padding: 1rem;
+        }
+
+        .mobile-menu a,
+        .mobile-menu .mobile-dropdown-toggle {
+            display: block;
+            padding: 0.875rem 1.25rem;
             text-decoration: none;
             color: var(--text-color);
             font-weight: 700;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-            transition: background-color 0.3s ease;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--gray-100);
+            transition: background-color 0.2s ease;
         }
 
-        .mobile-dropdown-menu a:last-child {
+        .mobile-menu a:hover,
+        .mobile-menu .mobile-dropdown-toggle:hover {
+            background-color: var(--gray-100);
+        }
+
+        .mobile-menu a:last-child {
             border-bottom: none;
-        }
-
-        .mobile-dropdown-menu a:hover {
-            background-color: rgba(0,0,0,0.05);
-        }
-
-        .mobile-dropdown-submenu {
-            display: none;
-            background-color: rgba(0,0,0,0.05);
-        }
-
-        .mobile-dropdown-submenu a {
-            padding-left: 2rem;
-            font-size: 0.85rem;
         }
 
         .mobile-dropdown-toggle {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem;
             cursor: pointer;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-            transition: background-color 0.3s ease;
-            color: var(--text-color);
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .mobile-dropdown-toggle:hover {
-            background-color: rgba(0,0,0,0.05);
         }
 
         .mobile-dropdown-toggle svg {
-            width: 16px;
-            height: 16px;
-            stroke: var(--text-color);
+            width: 14px;
+            height: 14px;
             transition: transform 0.3s ease;
+            stroke: var(--text-color);
         }
 
         .mobile-dropdown-toggle.active svg {
             transform: rotate(180deg);
+        }
+
+        .mobile-submenu {
+            display: none;
+            background: var(--gray-100);
+        }
+
+        .mobile-submenu.active {
+            display: block;
+        }
+
+        .mobile-submenu a {
+            padding: 0.75rem 1.25rem 0.75rem 2rem;
+            font-size: 0.75rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .mobile-submenu a:last-child {
+            border-bottom: 1px solid var(--gray-100);
         }
 
         .container {
@@ -236,6 +324,7 @@
         header {
             text-align: center;
             padding: 2rem 0 1rem;
+            margin-top: 67px;
         }
 
         header h1 {
@@ -336,34 +425,58 @@
         }
 
         .stats-section {
-            background-color: var(--text-color);
-            color: var(--bg-color);
+            background-color: var(--bg-color);
             padding: 4rem 0;
             margin: 4rem 0;
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
             text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
         .stat-item {
-            padding: 2rem;
+            padding: 2.5rem 1.5rem;
+            border: 2px solid var(--text-color);
+            background: var(--bg-color);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 1rem;
+            stroke: var(--text-color);
+            fill: none;
+            stroke-width: 1.5;
         }
 
         .stat-number {
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 900;
             margin-bottom: 0.5rem;
+            color: var(--text-color);
+            line-height: 1;
         }
 
         .stat-label {
-            font-size: 1.2rem;
+            font-size: 0.9rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
+            color: var(--text-color);
+            opacity: 0.8;
         }
 
         .achievements {
@@ -448,6 +561,36 @@
         }
 
         @media (max-width: 768px) {
+            html, body {
+                overflow-x: hidden;
+                width: 100%;
+                position: relative;
+            }
+
+            .navbar {
+                width: 100%;
+                left: 0;
+                right: 0;
+            }
+
+            .nav-inner {
+                width: 100%;
+                max-width: 100%;
+                padding: 0.5rem 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-container {
+                display: block;
+            }
+
+            header {
+                margin-top: 67px;
+            }
+
             header h1 {
                 font-size: 2.5rem;
                 word-wrap: break-word;
@@ -498,12 +641,26 @@
             }
 
             .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+                padding: 0 1rem;
+            }
+
+            .stat-item {
+                padding: 1.5rem 1rem;
+            }
+
+            .stat-icon {
+                width: 36px;
+                height: 36px;
             }
 
             .stat-number {
-                font-size: 3rem;
+                font-size: 2.5rem;
+            }
+
+            .stat-label {
+                font-size: 0.75rem;
             }
 
             .section-title {
@@ -542,30 +699,6 @@
                 margin: 0 1rem;
             }
 
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .nav-container {
-                position: relative;
-                width: 95%;
-                padding: 0.5rem;
-            }
-
-            .logo {
-                font-size: 1rem;
-                max-width: 60%;
-            }
-
-            .logo img {
-                max-height: 40px;
-                max-width: 150px;
-            }
-
             .container {
                 width: 100%;
                 padding: 2rem 0;
@@ -575,57 +708,102 @@
                 padding: 2rem 1rem;
             }
         }
+
+        @media (max-width: 480px) {
+            html, body {
+                overflow-x: hidden;
+                width: 100%;
+            }
+
+            .logo img {
+                max-height: 40px;
+                max-width: 160px;
+            }
+
+            .nav-inner {
+                padding: 0.5rem 1rem;
+                width: 100%;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                width: 100%;
+                padding-left: 1rem;
+                padding-right: 1rem;
+                max-width: 100%;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .stat-item {
+                padding: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <nav class="navigation" data-aos="fade-down">
-        <div class="nav-container">
+    <!-- New Modern Navigation -->
+    <nav class="navbar" id="navbar" data-aos="fade-down" data-aos-duration="1000">
+        <div class="nav-inner">
             <a href="https://michesslions.com/" class="logo">
-                <img src="WCL business card 1050x600.png" alt="Chess Lions Logo">
+                <img src="WCL business card 1050x600.png" alt="Chess Lions Logo - Professional Chess Instruction in South Lyon Michigan">
             </a>
+            
             <div class="nav-links">
                 <a href="https://michesslions.com/#home">Home</a>
                 <a href="https://michesslions.com/#services">Teaching</a>
-                <a href="https://michesslions.com/#about">About</a>
-                <div class="dropdown">
-                    <a>Tournaments</a>
-                    <div class="dropdown-content">
-                        <a href="https://michesslions.com/tournaments.html">Current Tournaments</a>
-                        <a href="https://michesslions.com/registration">Register</a>
-                        <a href="https://michesslions.com/pairingspage.html">Pairings</a>
-                        <a href="https://michesslions.com/registration-list.html">Registration List</a>
+                <a href="https://michesslions.com/about.html">About</a>
+                <div class="nav-dropdown">
+                    <span>Tournaments <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
+                    <div class="dropdown-menu">
+                        <a href="https://michesslions.com/tournaments.html"><span>Current Tournaments</span></a>
+                        <a href="https://michesslions.com/registration.html"><span>Register</span></a>
+                        <a href="https://michesslions.com/pairingspage.html"><span>Pairings</span></a>
+                        <a href="https://michesslions.com/registration-list.html"><span>Registration List</span></a>
                     </div>
                 </div>
                 <a href="https://michesslions.com/#contact">Contact</a>
                 <a href="https://michesslions.com/faq.html">FAQ</a>
                 <a href="https://michesslions.com/fullgallery.html">Gallery</a>
             </div>
-            
-            <button id="mobile-menu-toggle" class="mobile-menu-toggle">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
 
-            <div id="mobile-dropdown-menu" class="mobile-dropdown-menu">
-                <a href="https://michesslions.com/#home">Home</a>
-                <a href="https://michesslions.com/#services">Teaching</a>
-                <a href="https://michesslions.com/#about">About</a>
-                <div class="mobile-dropdown-toggle" id="mobile-tournament-toggle">
-                    <span>Tournaments</span>
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
+            <!-- Mobile Menu Toggle & Dropdown Container -->
+            <div class="mobile-menu-container">
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <!-- Mobile Dropdown Menu -->
+                <div class="mobile-menu" id="mobileMenu">
+                    <a href="https://michesslions.com/#home">Home</a>
+                    <a href="https://michesslions.com/#services">Teaching</a>
+                    <a href="https://michesslions.com/about.html">About</a>
+                    <div class="mobile-dropdown-toggle" id="mobileTournamentToggle">
+                        <span>Tournaments</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </div>
+                    <div class="mobile-submenu" id="mobileSubmenu">
+                        <a href="https://michesslions.com/tournaments.html">Current Tournaments</a>
+                        <a href="https://michesslions.com/registration.html">Register</a>
+                        <a href="https://michesslions.com/pairingspage.html">Pairings</a>
+                        <a href="https://michesslions.com/registration-list.html">Registration List</a>
+                    </div>
+                    <a href="https://michesslions.com/#contact">Contact</a>
+                    <a href="https://michesslions.com/faq.html">FAQ</a>
+                    <a href="https://michesslions.com/fullgallery.html">Gallery</a>
                 </div>
-                <div class="mobile-dropdown-submenu" id="mobile-tournament-submenu">
-                    <a href="https://michesslions.com/tournaments.html">Current Tournaments</a>
-                    <a href="https://michesslions.com/registration">Register</a>
-                    <a href="https://michesslions.com/pairingspage.html">Pairings</a>
-                    <a href="https://michesslions.com/registration-list.html">Registration List</a>
-                </div>
-                <a href="https://michesslions.com/#contact">Contact</a>
-                <a href="https://michesslions.com/faq.html">FAQ</a>
-                <a href="https://michesslions.com/fullgallery.html">Gallery</a>
             </div>
         </div>
     </nav>
@@ -702,24 +880,44 @@
     </section>
 
     <section class="stats-section">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="stat-number">8+</div>
-                    <div class="stat-label">Years of Excellence</div>
-                </div>
-                <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="stat-number">200+</div>
-                    <div class="stat-label">Students Taught</div>
-                </div>
-                <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="stat-number">3</div>
-                    <div class="stat-label">State Club Championships</div>
-                </div>
-                <div class="stat-item" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="stat-number">30+</div>
-                    <div class="stat-label">Tournaments Hosted</div>
-                </div>
+        <div class="stats-grid">
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                <svg class="stat-icon" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <div class="stat-number" data-target="8" data-suffix="+">0</div>
+                <div class="stat-label">Years of Continued Excellence</div>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                <svg class="stat-icon" viewBox="0 0 24 24">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <div class="stat-number" data-target="200" data-suffix="+">0</div>
+                <div class="stat-label">International Students Taught</div>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                <svg class="stat-icon" viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="7"></circle>
+                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                </svg>
+                <div class="stat-number" data-target="3" data-suffix="">0</div>
+                <div class="stat-label">State Club Championships</div>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                <svg class="stat-icon" viewBox="0 0 24 24">
+                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 7 8 7 8"></path>
+                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5C17 4 17 8 17 8"></path>
+                    <path d="M4 22h16"></path>
+                    <path d="M10 22V8"></path>
+                    <path d="M14 22V8"></path>
+                    <path d="M8 8h8a4 4 0 0 0 4-4H4a4 4 0 0 0 4 4Z"></path>
+                </svg>
+                <div class="stat-number" data-target="30" data-suffix="+">0</div>
+                <div class="stat-label">International Tournaments Hosted</div>
             </div>
         </div>
     </section>
@@ -769,30 +967,106 @@
             offset: 100
         });
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-            const mobileDropdownMenu = document.getElementById('mobile-dropdown-menu');
-            const mobileTournamentToggle = document.getElementById('mobile-tournament-toggle');
-            const mobileTournamentSubmenu = document.getElementById('mobile-tournament-submenu');
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
 
-            mobileMenuToggle.addEventListener('click', () => {
-                mobileDropdownMenu.style.display = 
-                    mobileDropdownMenu.style.display === 'block' ? 'none' : 'block';
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileTournamentToggle = document.getElementById('mobileTournamentToggle');
+        const mobileSubmenu = document.getElementById('mobileSubmenu');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        mobileTournamentToggle.addEventListener('click', () => {
+            mobileTournamentToggle.classList.toggle('active');
+            mobileSubmenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
             });
+        });
 
-            mobileTournamentToggle.addEventListener('click', () => {
-                mobileTournamentToggle.classList.toggle('active');
-                mobileTournamentSubmenu.style.display = 
-                    mobileTournamentSubmenu.style.display === 'block' ? 'none' : 'block';
-            });
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const mobileMenuContainer = document.querySelector('.mobile-menu-container');
+            if (!mobileMenuContainer.contains(e.target)) {
+                mobileToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
+        });
 
-            document.addEventListener('click', (event) => {
-                if (!mobileMenuToggle.contains(event.target) && 
-                    !mobileDropdownMenu.contains(event.target)) {
-                    mobileDropdownMenu.style.display = 'none';
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
                 }
             });
         });
+
+        // Animated counter for stats
+        const animateCounters = () => {
+            const counters = document.querySelectorAll('.stat-number[data-target]');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const suffix = counter.getAttribute('data-suffix') || '';
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+                
+                const updateCounter = () => {
+                    current += step;
+                    if (current < target) {
+                        counter.textContent = Math.floor(current) + suffix;
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target + suffix;
+                    }
+                };
+                
+                updateCounter();
+            });
+        };
+
+        // Trigger counter animation when stats section is in view
+        const statsSection = document.querySelector('.stats-section');
+        let hasAnimated = false;
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !hasAnimated) {
+                    hasAnimated = true;
+                    animateCounters();
+                }
+            });
+        }, { threshold: 0.3 });
+
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
     </script>
 </body>
 </html>
