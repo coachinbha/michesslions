@@ -183,6 +183,10 @@
             animation: fadeIn 0.3s ease;
         }
 
+        .modal.closing {
+            animation: fadeOut 0.3s ease forwards;
+        }
+
         .modal-content {
             background-color: var(--bg-color);
             margin: 2% auto;
@@ -195,6 +199,10 @@
             animation: slideIn 0.3s ease;
         }
 
+        .modal.closing .modal-content {
+            animation: slideOut 0.3s ease forwards;
+        }
+
         .close {
             color: var(--text-color);
             float: right;
@@ -205,10 +213,23 @@
             right: 15px;
             top: 10px;
             z-index: 1001;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+            user-select: none;
         }
 
         .close:hover {
-            opacity: 0.7;
+            background-color: rgba(0, 0, 0, 0.1);
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        .close:active {
+            transform: rotate(90deg) scale(0.95);
         }
 
         .modal-form {
@@ -238,6 +259,11 @@
             to { opacity: 1; }
         }
 
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
         @keyframes slideIn {
             from { 
                 opacity: 0;
@@ -246,6 +272,17 @@
             to { 
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        @keyframes slideOut {
+            from { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to { 
+                opacity: 0;
+                transform: translateY(-50px);
             }
         }
 
@@ -448,6 +485,7 @@
             console.log('Tournament name:', tournamentName);
             
             modalForm.src = formUrl;
+            modal.classList.remove('closing');
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden'; // Prevent background scrolling
             
@@ -457,8 +495,14 @@
 
         function closeModal() {
             const modal = document.getElementById('tournamentModal');
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto'; // Restore scrolling
+            modal.classList.add('closing');
+            
+            // Wait for animation to complete before hiding
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Restore scrolling
+                modal.classList.remove('closing');
+            }, 300); // Match the animation duration
         }
 
         // Keyboard navigation
