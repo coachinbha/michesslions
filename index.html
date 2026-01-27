@@ -204,6 +204,12 @@
             display: flex;
             align-items: center;
             text-decoration: none;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            opacity: 0.8;
         }
 
         .logo img {
@@ -226,7 +232,11 @@
             letter-spacing: 0.5px;
             text-transform: uppercase;
             position: relative;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            transform: translateY(-2px);
         }
 
         .nav-links a::after {
@@ -257,6 +267,11 @@
             display: flex;
             align-items: center;
             gap: 0.3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-dropdown > span:hover {
+            transform: translateY(-2px);
         }
 
         .nav-dropdown > span svg {
@@ -305,6 +320,12 @@
             font-size: 0.8rem;
             border-bottom: 1px solid var(--gray-100);
             position: relative;
+            transition: background-color 0.3s ease, padding-left 0.3s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--gray-100);
+            padding-left: 1.5rem;
         }
 
         .dropdown-menu a::after {
@@ -331,10 +352,6 @@
             transition: width 0.3s ease;
         }
 
-        .dropdown-menu a:hover {
-            background: transparent;
-        }
-
         .dropdown-menu a:hover span::after {
             width: 100%;
         }
@@ -352,6 +369,11 @@
             border: none;
             cursor: pointer;
             padding: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-toggle:hover {
+            transform: scale(1.1);
         }
 
         .mobile-toggle span {
@@ -393,6 +415,18 @@
 
         .mobile-menu.active {
             display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .mobile-menu a,
@@ -406,12 +440,13 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             border-bottom: 1px solid var(--gray-100);
-            transition: background-color 0.2s ease;
+            transition: background-color 0.3s ease, padding-left 0.3s ease;
         }
 
         .mobile-menu a:hover,
         .mobile-menu .mobile-dropdown-toggle:hover {
             background-color: var(--gray-100);
+            padding-left: 1.5rem;
         }
 
         .mobile-menu a:last-child {
@@ -443,12 +478,28 @@
 
         .mobile-submenu.active {
             display: block;
+            animation: expandDown 0.3s ease;
+        }
+
+        @keyframes expandDown {
+            from {
+                opacity: 0;
+                max-height: 0;
+            }
+            to {
+                opacity: 1;
+                max-height: 500px;
+            }
         }
 
         .mobile-submenu a {
             padding: 0.75rem 1.25rem 0.75rem 2rem;
             font-size: 0.75rem;
             border-bottom: 1px solid var(--gray-200);
+        }
+
+        .mobile-submenu a:hover {
+            padding-left: 2.5rem;
         }
 
         .mobile-submenu a:last-child {
@@ -479,6 +530,12 @@
         header h1 {
             font-size: 5rem;
             margin-bottom: 0.5rem;
+            transition: transform 0.3s ease, letter-spacing 0.3s ease;
+        }
+
+        header h1:hover {
+            transform: scale(1.02);
+            letter-spacing: 2px;
         }
 
         header p {
@@ -526,6 +583,13 @@
             max-height: 400px;
             object-fit: cover;
             border-radius: 10px;
+            transition: transform 0.5s ease, box-shadow 0.5s ease, filter 0.5s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            filter: brightness(1.1);
         }
 
         /* Section Styles */
@@ -540,6 +604,24 @@
             font-size: 3rem;
             margin-bottom: 3rem;
             text-align: center;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: var(--text-color);
+            transition: width 0.5s ease;
+        }
+
+        .section-title:hover::after {
+            width: 100%;
         }
 
         .service-grid {
@@ -555,21 +637,49 @@
             padding: 2rem;
             text-align: center;
             border: 2px solid var(--text-color);
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            border-color: #333;
         }
 
         .service-card h3 {
             font-size: 2rem;
             margin-bottom: 1rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .service-card:hover h3 {
+            transform: scale(1.05);
         }
 
         .service-card p {
             font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover p {
+            transform: scale(1.02);
         }
 
         /* New Gallery Styles */
@@ -614,30 +724,49 @@
             border-radius: 8px;
         }
 
+        .image-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0);
+            transition: background 0.4s ease;
+            pointer-events: none;
+        }
+
+        .image-container:hover::after {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
         .image-4-3 {
             width: 100%;
             aspect-ratio: 4/3;
             object-fit: cover;
-            transition: transform 0.3s ease;
+            transition: transform 0.6s ease, filter 0.4s ease;
         }
 
         .image-3-4 {
             width: 100%;
             aspect-ratio: 3/4;
             object-fit: cover;
-            transition: transform 0.3s ease;
+            transition: transform 0.6s ease, filter 0.4s ease;
         }
 
-        .image-container img:hover {
-            transform: scale(1.05);
+        .image-container:hover img {
+            transform: scale(1.1) rotate(1deg);
+            filter: brightness(1.1) contrast(1.05);
         }
 
         @keyframes slideUp {
             from {
                 transform: translateY(20px);
+                opacity: 0;
             }
             to {
                 transform: translateY(0);
+                opacity: 1;
             }
         }
 
@@ -658,11 +787,33 @@
             background-color: #000;
             text-decoration: none;
             border-radius: 8px;
-            transition: transform 0.3s ease;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .website-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .website-button:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .website-button:hover {
-            transform: translateY(-2px);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background-color: #222;
         }
 
         /* Button Styles */
@@ -676,12 +827,33 @@
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: background-color 0.3s ease;
+            transition: all 0.4s ease;
             margin: 0.5rem;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid var(--text-color);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-color);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .cta-button:hover::before {
+            left: 0;
         }
 
         .cta-button:hover {
-            background-color: #333;
+            color: var(--text-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         /* Contact Styles */
@@ -697,6 +869,12 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
+            transition: transform 0.3s ease;
+            cursor: default;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
         }
 
         .contact-item svg {
@@ -705,11 +883,22 @@
             fill: none;
             stroke: var(--text-color);
             stroke-width: 2;
+            transition: transform 0.3s ease, stroke 0.3s ease;
+        }
+
+        .contact-item:hover svg {
+            transform: scale(1.2) rotate(5deg);
+            stroke: #333;
         }
 
         .contact-item p {
             margin: 0;
             font-size: 1.2rem;
+            transition: font-size 0.3s ease;
+        }
+
+        .contact-item:hover p {
+            font-size: 1.25rem;
         }
 
         .button-group {
@@ -724,6 +913,11 @@
             text-align: center;
             padding: 2rem 0;
             font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        footer:hover {
+            transform: scale(1.02);
         }
 
         /* Media Queries */
