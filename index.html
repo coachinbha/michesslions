@@ -1068,7 +1068,9 @@
             [data-aos="fade-up"],
             [data-aos="fade-down"],
             [data-aos="fade-left"],
-            [data-aos="fade-right"] {
+            [data-aos="fade-right"],
+            [data-aos="fade"],
+            [data-aos="zoom-in"] {
                 -webkit-transform: none !important;
                 transform: none !important;
             }
@@ -1107,6 +1109,79 @@
             .contact {
                 -webkit-transform: translateZ(0);
                 transform: translateZ(0);
+            }
+
+            /* ============================================
+               DISABLE HOVER EFFECTS ON TOUCH DEVICES
+               ============================================ */
+            
+            /* Disable all hover transformations and effects on touch devices */
+            .logo:hover,
+            .nav-links a:hover,
+            .nav-dropdown > span:hover,
+            .mobile-toggle:hover,
+            header h1:hover,
+            .hero-image img:hover,
+            .section-title:hover,
+            .service-card:hover,
+            .service-card:hover h3,
+            .service-card:hover p,
+            .image-container:hover img,
+            .website-button:hover,
+            .cta-button:hover,
+            .contact-item:hover,
+            .contact-item:hover svg,
+            .contact-item:hover p,
+            footer:hover {
+                transform: none !important;
+                -webkit-transform: none !important;
+            }
+
+            /* Disable hover background effects */
+            .dropdown-menu a:hover,
+            .mobile-menu a:hover,
+            .mobile-menu .mobile-dropdown-toggle:hover,
+            .mobile-submenu a:hover {
+                background-color: transparent !important;
+                padding-left: inherit !important;
+            }
+
+            /* Disable hover box shadows */
+            .service-card:hover,
+            .website-button:hover,
+            .cta-button:hover {
+                box-shadow: none !important;
+            }
+
+            /* Disable hover filters and overlays */
+            .hero-image img:hover,
+            .image-container:hover img {
+                filter: none !important;
+            }
+
+            .image-container:hover::after {
+                background: rgba(0, 0, 0, 0) !important;
+            }
+
+            /* Disable hover pseudo-elements */
+            .service-card:hover::before,
+            .website-button:hover::before,
+            .cta-button:hover::before {
+                left: -100% !important;
+            }
+
+            /* Disable hover underlines */
+            .nav-links a:hover::after,
+            .dropdown-menu a:hover span::after,
+            .section-title:hover::after {
+                width: 0 !important;
+            }
+
+            /* Keep tap/active states visible briefly */
+            .cta-button:active,
+            .website-button:active,
+            .service-card:active {
+                opacity: 0.8;
             }
         }
     </style>
@@ -1341,9 +1416,22 @@
 
         // Initialize AOS with mobile-optimized settings
         if (isTouchDevice()) {
-            // Mobile/Touch device initialization
+            // Mobile/Touch device initialization - Convert all animations to fade-only
+            document.addEventListener('DOMContentLoaded', function() {
+                const aosElements = document.querySelectorAll('[data-aos]');
+                aosElements.forEach(function(el) {
+                    // Convert all animation types to simple fade on mobile
+                    el.setAttribute('data-aos', 'fade');
+                    
+                    // Force GPU acceleration and prevent scroll issues
+                    el.style.willChange = 'opacity';
+                    el.style.webkitTransform = 'translate3d(0,0,0)';
+                    el.style.transform = 'translate3d(0,0,0)';
+                });
+            });
+
             AOS.init({
-                duration: 800,           // Shorter duration for mobile
+                duration: 600,           // Shorter duration for mobile
                 once: true,              // Only animate once
                 disable: false,          // Keep animations but optimized
                 startEvent: 'load',      // Wait for full page load
@@ -1352,7 +1440,6 @@
                 easing: 'ease-out',      // Simpler easing
                 mirror: false,           // Don't animate on scroll up
                 anchorPlacement: 'top-bottom',
-                // iOS-specific: use simpler animations
                 useClassNames: true,
                 disableMutationObserver: false,
                 debounceDelay: 50,
@@ -1361,17 +1448,6 @@
 
             // For iOS specifically, apply additional fixes after AOS init
             if (isIOS()) {
-                // Force all AOS elements to use opacity-only transitions
-                document.addEventListener('DOMContentLoaded', function() {
-                    const aosElements = document.querySelectorAll('[data-aos]');
-                    aosElements.forEach(function(el) {
-                        // Override the animation type to use simpler fade
-                        el.style.willChange = 'opacity';
-                        el.style.webkitTransform = 'translate3d(0,0,0)';
-                        el.style.transform = 'translate3d(0,0,0)';
-                    });
-                });
-
                 // Refresh AOS after a short delay to ensure proper initialization
                 window.addEventListener('load', function() {
                     setTimeout(function() {
@@ -1380,7 +1456,7 @@
                 });
             }
         } else {
-            // Desktop initialization - keep original settings
+            // Desktop initialization - keep original settings with full animations
             AOS.init({
                 duration: 1500,
                 once: true,
