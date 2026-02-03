@@ -82,6 +82,12 @@
             display: flex;
             align-items: center;
             text-decoration: none;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            opacity: 0.8;
         }
 
         .logo img {
@@ -104,7 +110,11 @@
             letter-spacing: 0.5px;
             text-transform: uppercase;
             position: relative;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            transform: translateY(-2px);
         }
 
         .nav-links a::after {
@@ -135,6 +145,11 @@
             display: flex;
             align-items: center;
             gap: 0.3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-dropdown > span:hover {
+            transform: translateY(-2px);
         }
 
         .nav-dropdown > span svg {
@@ -183,6 +198,12 @@
             font-size: 0.8rem;
             border-bottom: 1px solid var(--gray-100);
             position: relative;
+            transition: background-color 0.3s ease, padding-left 0.3s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--gray-100);
+            padding-left: 1.5rem;
         }
 
         .dropdown-menu a::after {
@@ -230,6 +251,11 @@
             border: none;
             cursor: pointer;
             padding: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-toggle:hover {
+            transform: scale(1.1);
         }
 
         .mobile-toggle span {
@@ -271,6 +297,18 @@
 
         .mobile-menu.active {
             display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .mobile-menu a,
@@ -321,6 +359,18 @@
 
         .mobile-submenu.active {
             display: block;
+            animation: expandDown 0.3s ease;
+        }
+
+        @keyframes expandDown {
+            from {
+                opacity: 0;
+                max-height: 0;
+            }
+            to {
+                opacity: 1;
+                max-height: 500px;
+            }
         }
 
         .mobile-submenu a {
@@ -352,6 +402,12 @@
             text-transform: uppercase;
             letter-spacing: -1px;
             margin-bottom: 1rem;
+            transition: transform 0.3s ease, letter-spacing 0.3s ease;
+        }
+
+        header h1:hover {
+            transform: scale(1.02);
+            letter-spacing: 2px;
         }
 
         header p {
@@ -409,6 +465,29 @@
             border: 2px solid var(--text-color);
             background-color: var(--bg-color);
             position: relative;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .timeline-content:hover::before {
+            left: 100%;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            border-color: #333;
         }
 
         .timeline-year {
@@ -417,6 +496,11 @@
             text-transform: uppercase;
             margin-bottom: 1rem;
             letter-spacing: -1px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .timeline-content:hover .timeline-year {
+            transform: scale(1.05);
         }
 
         .timeline-content h3 {
@@ -425,11 +509,21 @@
             text-transform: uppercase;
             margin-bottom: 1rem;
             letter-spacing: -1px;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-content:hover h3 {
+            transform: scale(1.02);
         }
 
         .timeline-content p {
             font-size: 1.1rem;
             line-height: 1.6;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-content:hover p {
+            transform: scale(1.01);
         }
 
         .timeline-dot {
@@ -441,6 +535,12 @@
             background-color: var(--text-color);
             border-radius: 50%;
             border: 4px solid var(--bg-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-dot {
+            transform: translateX(-50%) scale(1.3);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         }
 
         .stats-section {
@@ -464,12 +564,29 @@
             border: 2px solid var(--text-color);
             background: var(--bg-color);
             position: relative;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .stat-item:hover::before {
+            left: 100%;
         }
 
         .stat-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            border-color: #333;
         }
 
         .stat-icon {
@@ -479,6 +596,11 @@
             stroke: var(--text-color);
             fill: none;
             stroke-width: 1.5;
+            transition: transform 0.3s ease, stroke 0.3s ease;
+        }
+
+        .stat-item:hover .stat-icon {
+            transform: scale(1.2) rotate(5deg);
         }
 
         .stat-number {
@@ -487,6 +609,11 @@
             margin-bottom: 0.5rem;
             color: var(--text-color);
             line-height: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover .stat-number {
+            transform: scale(1.1);
         }
 
         .stat-label {
@@ -496,6 +623,12 @@
             letter-spacing: 1px;
             color: var(--text-color);
             opacity: 0.8;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .stat-item:hover .stat-label {
+            transform: scale(1.02);
+            opacity: 1;
         }
 
         .achievements {
@@ -509,6 +642,25 @@
             text-align: center;
             margin-bottom: 3rem;
             letter-spacing: -1px;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: var(--text-color);
+            transition: width 0.5s ease;
+        }
+
+        .section-title:hover::after {
+            width: 200px;
         }
 
         .achievement-grid {
@@ -521,11 +673,30 @@
             border: 2px solid var(--text-color);
             padding: 2rem;
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .achievement-card:hover::before {
+            left: 100%;
         }
 
         .achievement-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            border-color: #333;
         }
 
         .achievement-card h3 {
@@ -534,6 +705,11 @@
             text-transform: uppercase;
             margin-bottom: 1rem;
             letter-spacing: -1px;
+            transition: transform 0.3s ease;
+        }
+
+        .achievement-card:hover h3 {
+            transform: scale(1.05);
         }
 
         a {
@@ -550,6 +726,11 @@
 
         .achievement-card p {
             font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .achievement-card:hover p {
+            transform: scale(1.02);
         }
 
         .cta-section {
@@ -567,16 +748,51 @@
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: background-color 0.3s ease;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid var(--text-color);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-color);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .cta-button:hover::before {
+            left: 0;
         }
 
         .cta-button:hover {
-            background-color: #333;
-            color: var(--bg-color) !important;
+            color: var(--text-color) !important;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .cta-button:visited {
             color: var(--bg-color) !important;
+        }
+
+        .cta-button:hover:visited {
+            color: var(--text-color) !important;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        footer:hover {
+            transform: scale(1.02);
         }
 
         @media (max-width: 768px) {
@@ -835,9 +1051,54 @@
             }
 
             /* Disable hover effects on touch devices to prevent sticky states */
+            .logo:hover,
+            .nav-links a:hover,
+            .nav-dropdown > span:hover,
+            .mobile-toggle:hover,
+            header h1:hover,
+            .section-title:hover,
+            .timeline-content:hover,
+            .timeline-content:hover .timeline-year,
+            .timeline-content:hover h3,
+            .timeline-content:hover p,
+            .timeline-item:hover .timeline-dot,
             .stat-item:hover,
-            .achievement-card:hover {
-                transform: none;
+            .stat-item:hover .stat-icon,
+            .stat-item:hover .stat-number,
+            .stat-item:hover .stat-label,
+            .achievement-card:hover,
+            .achievement-card:hover h3,
+            .achievement-card:hover p,
+            .cta-button:hover,
+            footer:hover {
+                transform: none !important;
+                -webkit-transform: none !important;
+            }
+
+            .timeline-content:hover,
+            .stat-item:hover,
+            .achievement-card:hover,
+            .cta-button:hover {
+                box-shadow: none !important;
+            }
+
+            .timeline-content:hover::before,
+            .stat-item:hover::before,
+            .achievement-card:hover::before,
+            .cta-button:hover::before {
+                left: -100% !important;
+            }
+
+            .section-title:hover::after {
+                width: 0 !important;
+            }
+
+            /* Keep tap/active states visible briefly */
+            .cta-button:active,
+            .timeline-content:active,
+            .stat-item:active,
+            .achievement-card:active {
+                opacity: 0.8;
             }
         }
     </style>
@@ -1045,8 +1306,11 @@
         <h2 class="section-title">Be Part of Our Story</h2>
         <p style="font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Join the many students who have discovered their chess potential with Chess Lions. Whether you're just starting or aiming for championship success, we're here to guide your journey.</p>
         <a href="https://michesslions.com/signup.html" class="cta-button">Start Your Chess Journey</a>
-        <p style="margin-top: 3rem; font-size: 0.9rem; color: #666;">&copy; 2025 I2V2 Academy LLC. All Rights Reserved.</p>
     </section>
+
+    <footer data-aos="fade-up">
+        <p>&copy; 2025 I2V2 Academy LLC. All Rights Reserved.</p>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
