@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tournament Registrations</title>
+    <title>Tournament Registrations | Chess Lions</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <style>
@@ -44,11 +44,12 @@
 
         .logo-link {
             display: inline-block;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
         .logo-link:hover {
             transform: scale(1.05);
+            opacity: 0.8;
         }
 
         .logo-image {
@@ -76,24 +77,51 @@
             margin-bottom: 2rem;
         }
 
-        .registration-btn {
+        /* CTA Button with slide effect from index.html */
+        .cta-button {
             display: inline-block;
-            padding: 1rem 2.5rem;
             background-color: var(--text-color);
             color: var(--bg-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
             text-decoration: none;
-            font-weight: 900;
             text-transform: uppercase;
-            font-size: 0.9rem;
             letter-spacing: 1px;
+            transition: all 0.4s ease;
+            margin: 0.5rem;
+            position: relative;
+            overflow: hidden;
             border: 2px solid var(--text-color);
             cursor: pointer;
-            transition: all 0.2s ease;
+            font-family: 'Montserrat', sans-serif;
         }
 
-        .registration-btn:hover {
-            background-color: var(--bg-color);
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-color);
+            transition: left 0.4s ease;
+            z-index: 0;
+        }
+
+        .cta-button:hover::before {
+            left: 0;
+        }
+
+        .cta-button:hover {
             color: var(--text-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button span {
+            position: relative;
+            z-index: 1;
         }
 
         .loading {
@@ -124,6 +152,7 @@
             padding-bottom: 1rem;
         }
 
+        /* Tournament Tab with hover effects from index.html */
         .tournament-tab {
             padding: 0.75rem 1.5rem;
             border: 2px solid var(--text-color);
@@ -134,18 +163,46 @@
             text-transform: uppercase;
             font-size: 0.85rem;
             letter-spacing: 0.5px;
-            transition: all 0.2s ease;
+            transition: all 0.4s ease;
             font-family: 'Montserrat', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tournament-tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--text-color);
+            transition: left 0.4s ease;
+            z-index: 0;
+        }
+
+        .tournament-tab:hover::before {
+            left: 0;
         }
 
         .tournament-tab:hover {
-            background-color: var(--text-color);
             color: var(--bg-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .tournament-tab span {
+            position: relative;
+            z-index: 1;
         }
 
         .tournament-tab.active {
             background-color: var(--text-color);
             color: var(--bg-color);
+        }
+
+        .tournament-tab.active::before {
+            left: 0;
         }
 
         .stats {
@@ -195,6 +252,7 @@
             margin: 2rem 0;
         }
 
+        /* Filter Button with hover effects from index.html */
         .filter-btn {
             padding: 0.75rem 1.5rem;
             border: 2px solid var(--text-color);
@@ -205,18 +263,46 @@
             text-transform: uppercase;
             font-size: 0.85rem;
             letter-spacing: 0.5px;
-            transition: all 0.2s ease;
+            transition: all 0.4s ease;
             font-family: 'Montserrat', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--text-color);
+            transition: left 0.4s ease;
+            z-index: 0;
+        }
+
+        .filter-btn:hover::before {
+            left: 0;
         }
 
         .filter-btn:hover {
-            background-color: var(--text-color);
             color: var(--bg-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .filter-btn span {
+            position: relative;
+            z-index: 1;
         }
 
         .filter-btn.active {
             background-color: var(--text-color);
             color: var(--bg-color);
+        }
+
+        .filter-btn.active::before {
+            left: 0;
         }
 
         table {
@@ -266,6 +352,20 @@
             letter-spacing: 0.5px;
         }
 
+        /* Footer with hover effect */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+            margin-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        footer:hover {
+            transform: scale(1.02);
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -310,9 +410,44 @@
                 font-size: 0.75rem;
             }
 
-            .registration-btn {
+            .cta-button {
                 padding: 0.75rem 1.5rem;
-                font-size: 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* ============================================
+           iOS/TOUCH DEVICE HOVER FIXES
+           ============================================ */
+        @media (hover: none) and (pointer: coarse) {
+            /* Disable hover transformations on touch devices */
+            .logo-link:hover,
+            .cta-button:hover,
+            .tournament-tab:hover,
+            .filter-btn:hover,
+            footer:hover {
+                transform: none !important;
+                box-shadow: none !important;
+            }
+
+            /* Disable pseudo-element slide effects */
+            .cta-button:hover::before,
+            .tournament-tab:hover::before,
+            .filter-btn:hover::before {
+                left: -100% !important;
+            }
+
+            /* Keep active states working */
+            .tournament-tab.active::before,
+            .filter-btn.active::before {
+                left: 0 !important;
+            }
+
+            /* Provide tap feedback instead */
+            .cta-button:active,
+            .tournament-tab:active,
+            .filter-btn:active {
+                opacity: 0.7;
             }
         }
     </style>
@@ -321,13 +456,15 @@
     <div class="container">
         <div class="header-section">
             <div class="logo-container" data-aos="zoom-in" data-aos-duration="800">
-                <a href="/" style="text-decoration: none; display: inline-block;" class="logo-link">
+                <a href="/" class="logo-link">
                     <img src="WCL business card 1050x600.png" alt="Chess Lions Logo" class="logo-image">
                 </a>
             </div>
             <h1 data-aos="fade-up" data-aos-delay="200">REGISTER FOR OUR<br>TOURNAMENT(S)</h1>
             <p class="subtitle" data-aos="fade-up" data-aos-delay="300">Live registration list</p>
-            <a href="https://michesslions.com/registration.html" class="registration-btn" data-aos="fade-up" data-aos-delay="400">Register Now</a>
+            <a href="https://michesslions.com/registration.html" class="cta-button" data-aos="fade-up" data-aos-delay="400">
+                <span>Register Now</span>
+            </a>
         </div>
 
         <div id="loading" class="loading" data-aos="fade-in">Loading registrations...</div>
@@ -358,6 +495,10 @@
                 Last updated: <span id="lastUpdate">just now</span> | Auto-refresh every 30 seconds
             </div>
         </div>
+
+        <footer data-aos="fade-up" data-aos-duration="1500">
+            <p>&copy; 2025-2026 I2V2 Academy LLC. All Rights Reserved.</p>
+        </footer>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
@@ -372,7 +513,6 @@
         let hasAnimated = false;
 
         // CONFIGURATION: Add your tournaments here
-        // Format: { name: 'Display Name', url: 'Opensheet API URL', columns: ['col1', 'col2'], sectionColumn: 'column name' }
         const TOURNAMENTS = [
             {
                 name: 'Chess Lions February Chess Tournament',
@@ -442,7 +582,8 @@
                 if (idx === activeTournament) {
                     btn.classList.add('active');
                 }
-                btn.textContent = tournament.name;
+                // Wrap text in span for z-index layering above ::before
+                btn.innerHTML = '<span>' + tournament.name + '</span>';
                 btn.addEventListener('click', () => {
                     activeTournament = idx;
                     createTournamentTabs();
@@ -499,7 +640,8 @@
                 if (section === selectedSections[tournamentIdx]) {
                     btn.classList.add('active');
                 }
-                btn.textContent = `${section} (${sectionCounts[section]})`;
+                // Wrap text in span for z-index layering above ::before
+                btn.innerHTML = '<span>' + section + ' (' + sectionCounts[section] + ')</span>';
                 btn.addEventListener('click', () => {
                     selectedSections[tournamentIdx] = section;
                     
