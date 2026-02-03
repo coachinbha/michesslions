@@ -193,6 +193,18 @@
             position: relative;
             z-index: 1;
         }
+        /* Registration list button wrapper - always visible, stable layout */
+        .registration-list-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 0 2rem;
+            /* Ensures it is never clipped or collapsed */
+            min-height: 70px;
+            position: relative;
+            z-index: 1;
+        }
         /* Modal styles for enlarged form */
         .modal {
             display: none;
@@ -337,6 +349,12 @@
             .secondary-btn {
                 margin-top: 0;
             }
+
+            /* Keep the wrapper stable and visible on mobile */
+            .registration-list-wrapper {
+                padding: 0.75rem 0 1.5rem;
+                min-height: 60px;
+            }
             
             .modal-content {
                 width: 98%;
@@ -395,9 +413,9 @@
             <h2>No Tournaments Currently Available</h2>
             <p>Check back soon for upcoming tournament registration.</p>
         </div>
-        <!-- Registration list button -->
-        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
-            <a href="https://michesslions.com/registration-list.html" class="secondary-btn">
+        <!-- Registration list button — wrapper is always rendered and takes up space -->
+        <div class="registration-list-wrapper">
+            <a href="https://michesslions.com/registration-list.html" class="secondary-btn" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
                 <span>Current Registration List</span>
             </a>
         </div>
