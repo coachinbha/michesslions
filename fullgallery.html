@@ -381,64 +381,59 @@
             transform: scale(1.05);
         }
 
-        /* Lightbox */
-        .lightbox {
-            display: none;
+        /* Lightbox Overlay */
+        .lightbox-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.95);
+            background: rgba(0, 0, 0, 0);
+            z-index: 999;
+            pointer-events: none;
+            transition: background 0.35s ease;
+        }
+
+        .lightbox-overlay.active {
+            background: rgba(0, 0, 0, 0.95);
+            pointer-events: auto;
+        }
+
+        /* Morphing Image - GPU accelerated */
+        .lightbox-morph-img {
+            position: fixed;
             z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .lightbox.active {
-            display: flex;
-        }
-
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
             border: 2px solid white;
-            animation: zoomIn 0.3s ease;
+            pointer-events: none;
+            transform-origin: 0 0;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            will-change: transform;
         }
 
-        @keyframes zoomIn {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
+        .lightbox-morph-img.animating {
+            transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
         }
 
         .lightbox-close {
-            position: absolute;
+            position: fixed;
             top: 30px;
             right: 30px;
             color: white;
             font-size: 3rem;
             cursor: pointer;
-            transition: transform 0.2s ease;
             z-index: 1001;
             font-weight: 300;
+            opacity: 0;
+            transform: scale(0.8) rotate(-90deg);
+            transition: opacity 0.25s ease, transform 0.3s ease;
+            pointer-events: none;
+        }
+
+        .lightbox-close.visible {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+            pointer-events: auto;
         }
 
         .lightbox-close:hover {
@@ -580,11 +575,9 @@
         </div>
     </div>
 
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
-        <img id="lightbox-img" src="" alt="Lightbox Image">
-    </div>
+    <!-- Lightbox Overlay -->
+    <div class="lightbox-overlay" id="lightboxOverlay"></div>
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
 
     <script>
         // All image sources - optimized JPEGs
@@ -606,6 +599,13 @@
             'site57.jpg', 'site59.jpg', 'site61.jpg', 'site63.jpg',
             'site58.jpg', 'site60.jpg', 'site62.jpg', 'site64.jpg'
         ];
+
+        // Lightbox state
+        let currentMorphImg = null;
+        let originalImgRect = null;
+        let originalImg = null;
+        let isLightboxOpen = false;
+        let isAnimating = false;
 
         // Function to calculate aspect ratio from image
         function calculateAspectRatio(width, height) {
@@ -653,7 +653,7 @@
                 const img = new Image();
                 const timeout = setTimeout(() => {
                     resolve(null);
-                }, 3000); // 3 second timeout for faster loading
+                }, 3000);
                 
                 img.onload = function() {
                     clearTimeout(timeout);
@@ -674,6 +674,138 @@
                 
                 img.src = src;
             });
+        }
+
+        // Calculate final position for lightbox image
+        function calculateFinalPosition(imgWidth, imgHeight) {
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const padding = 40;
+            
+            const maxWidth = viewportWidth - (padding * 2);
+            const maxHeight = viewportHeight - (padding * 2);
+            
+            const imgRatio = imgWidth / imgHeight;
+            const viewportRatio = maxWidth / maxHeight;
+            
+            let finalWidth, finalHeight;
+            
+            if (imgRatio > viewportRatio) {
+                finalWidth = Math.min(maxWidth, imgWidth);
+                finalHeight = finalWidth / imgRatio;
+            } else {
+                finalHeight = Math.min(maxHeight, imgHeight);
+                finalWidth = finalHeight * imgRatio;
+            }
+            
+            const finalLeft = (viewportWidth - finalWidth) / 2;
+            const finalTop = (viewportHeight - finalHeight) / 2;
+            
+            return { finalWidth, finalHeight, finalLeft, finalTop };
+        }
+
+        // Open lightbox with GPU-accelerated FLIP animation
+        function openLightbox(imgElement) {
+            if (isLightboxOpen || isAnimating) return;
+            isAnimating = true;
+            isLightboxOpen = true;
+            
+            const overlay = document.getElementById('lightboxOverlay');
+            const closeBtn = document.getElementById('lightboxClose');
+            
+            // Store reference to original image
+            originalImg = imgElement;
+            originalImgRect = imgElement.getBoundingClientRect();
+            
+            // Calculate final position
+            const { finalWidth, finalHeight, finalLeft, finalTop } = 
+                calculateFinalPosition(imgElement.naturalWidth, imgElement.naturalHeight);
+            
+            // Calculate scale factors
+            const scaleX = originalImgRect.width / finalWidth;
+            const scaleY = originalImgRect.height / finalHeight;
+            
+            // Calculate translation to original position
+            const translateX = originalImgRect.left - finalLeft;
+            const translateY = originalImgRect.top - finalTop;
+            
+            // Create morphing image at FINAL position but transformed to look like it's at original
+            currentMorphImg = document.createElement('img');
+            currentMorphImg.src = imgElement.src;
+            currentMorphImg.className = 'lightbox-morph-img';
+            
+            // Set to final size/position
+            currentMorphImg.style.left = finalLeft + 'px';
+            currentMorphImg.style.top = finalTop + 'px';
+            currentMorphImg.style.width = finalWidth + 'px';
+            currentMorphImg.style.height = finalHeight + 'px';
+            
+            // Transform to look like original position (FLIP: Invert)
+            currentMorphImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scaleX}, ${scaleY})`;
+            
+            document.body.appendChild(currentMorphImg);
+            
+            // Activate overlay
+            overlay.classList.add('active');
+            
+            // Prevent body scroll
+            document.body.style.overflow = 'hidden';
+            
+            // Force reflow then animate (FLIP: Play)
+            currentMorphImg.offsetHeight;
+            
+            requestAnimationFrame(() => {
+                currentMorphImg.classList.add('animating');
+                currentMorphImg.style.transform = 'translate(0, 0) scale(1, 1)';
+                closeBtn.classList.add('visible');
+                
+                setTimeout(() => {
+                    isAnimating = false;
+                }, 400);
+            });
+        }
+
+        // Close lightbox with GPU-accelerated reverse animation
+        function closeLightbox() {
+            if (!isLightboxOpen || !currentMorphImg || isAnimating) return;
+            isAnimating = true;
+            
+            const overlay = document.getElementById('lightboxOverlay');
+            const closeBtn = document.getElementById('lightboxClose');
+            
+            // Hide close button immediately
+            closeBtn.classList.remove('visible');
+            
+            // Get current rect of original image (may have scrolled)
+            const currentOriginalRect = originalImg ? originalImg.getBoundingClientRect() : originalImgRect;
+            
+            // Get current morph image position
+            const morphRect = currentMorphImg.getBoundingClientRect();
+            
+            // Calculate transform back to original
+            const scaleX = currentOriginalRect.width / morphRect.width;
+            const scaleY = currentOriginalRect.height / morphRect.height;
+            const translateX = currentOriginalRect.left - morphRect.left;
+            const translateY = currentOriginalRect.top - morphRect.top;
+            
+            // Animate back
+            currentMorphImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scaleX}, ${scaleY})`;
+            
+            // Fade out overlay
+            overlay.classList.remove('active');
+            
+            // Cleanup after animation
+            setTimeout(() => {
+                if (currentMorphImg && currentMorphImg.parentNode) {
+                    currentMorphImg.parentNode.removeChild(currentMorphImg);
+                }
+                currentMorphImg = null;
+                originalImgRect = null;
+                originalImg = null;
+                isLightboxOpen = false;
+                isAnimating = false;
+                document.body.style.overflow = '';
+            }, 400);
         }
 
         // Main function to load gallery
@@ -699,7 +831,7 @@
             // Organize valid images
             const organizedImages = organizeImages(validImages);
             
-            // Create gallery items with lazy loading and progressive enhancement
+            // Create gallery items with lazy loading
             organizedImages.forEach((imgData, index) => {
                 const galleryItem = document.createElement('div');
                 galleryItem.className = 'gallery-item';
@@ -716,7 +848,7 @@
                 if (logoSection) logoSection.classList.add('visible');
             }, 100);
             
-            // Setup scroll-based animations using Intersection Observer
+            // Setup scroll-based animations
             setTimeout(() => {
                 setupScrollAnimations();
             }, 300);
@@ -749,7 +881,6 @@
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry, index) => {
                     if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
-                        // Stagger animation slightly
                         setTimeout(() => {
                             entry.target.classList.add('visible');
                         }, index * 30);
@@ -772,20 +903,21 @@
         // Setup lightbox functionality
         function setupLightbox() {
             const galleryItems = document.querySelectorAll('.gallery-item img');
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
+            const overlay = document.getElementById('lightboxOverlay');
+            const closeBtn = document.getElementById('lightboxClose');
 
             galleryItems.forEach(img => {
                 img.addEventListener('click', () => {
-                    lightboxImg.src = img.src;
-                    lightbox.classList.add('active');
+                    openLightbox(img);
                 });
             });
 
-            lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) {
-                    closeLightbox();
-                }
+            overlay.addEventListener('click', () => {
+                closeLightbox();
+            });
+
+            closeBtn.addEventListener('click', () => {
+                closeLightbox();
             });
 
             document.addEventListener('keydown', (e) => {
@@ -795,17 +927,27 @@
             });
         }
 
-        function closeLightbox() {
-            document.getElementById('lightbox').classList.remove('active');
-        }
-
-        // Debounced resize handler for responsive layout adjustments
-        let resizeTimeout;
+        // Handle window resize when lightbox is open
         window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                // Gallery will automatically reflow with CSS columns
-            }, 250);
+            if (isLightboxOpen && currentMorphImg && !isAnimating && originalImg) {
+                const { finalWidth, finalHeight, finalLeft, finalTop } = 
+                    calculateFinalPosition(originalImg.naturalWidth, originalImg.naturalHeight);
+                
+                // Remove animation class temporarily
+                currentMorphImg.classList.remove('animating');
+                
+                // Update position without animation
+                currentMorphImg.style.left = finalLeft + 'px';
+                currentMorphImg.style.top = finalTop + 'px';
+                currentMorphImg.style.width = finalWidth + 'px';
+                currentMorphImg.style.height = finalHeight + 'px';
+                currentMorphImg.style.transform = 'translate(0, 0) scale(1, 1)';
+                
+                // Re-add animation class
+                requestAnimationFrame(() => {
+                    currentMorphImg.classList.add('animating');
+                });
+            }
         });
 
         // Load gallery on page load
