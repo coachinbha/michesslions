@@ -517,14 +517,28 @@
             {
                 name: 'Chess Lions February Chess Tournament',
                 url: 'https://opensheet.elk.sh/1zCQWs6klIMMeGrQ050Ry509K2wXfhYQPxL2YcO_jwMI/FormResponses1',
+                // 'columns' must match the Google Sheet headers EXACTLY to fetch data correctly.
                 columns: ["Players Name (Last name, First name)", 'Which section? Note: sections may be combined based upon entries.'],
-                sectionColumn: 'Which section? Note: sections may be combined based upon entries.'
+                sectionColumn: 'Which section? Note: sections may be combined based upon entries.',
+                // 'columnLabels' allows you to rename headers for the frontend (Table & Filters) ONLY.
+                columnLabels: {
+                    'Players Name (Last name, First name)': 'Player Name',
+                    'Which section? Note: sections may be combined based upon entries.': 'Section'
+                }
             }
         ];
 
         let activeTournament = 0;
         let tournamentsData = {};
         let selectedSections = {};
+
+        // Helper function to get display label
+        function getLabel(tournament, key) {
+            if (tournament.columnLabels && tournament.columnLabels[key]) {
+                return tournament.columnLabels[key];
+            }
+            return key;
+        }
 
         async function fetchAllTournaments() {
             try {
@@ -640,8 +654,12 @@
                 if (section === selectedSections[tournamentIdx]) {
                     btn.classList.add('active');
                 }
+                
+                // Use the label function for display text, but keep 'section' as the actual value
+                const displayLabel = getLabel(tournament, section);
+                
                 // Wrap text in span for z-index layering above ::before
-                btn.innerHTML = '<span>' + section + ' (' + sectionCounts[section] + ')</span>';
+                btn.innerHTML = '<span>' + displayLabel + ' (' + sectionCounts[section] + ')</span>';
                 btn.addEventListener('click', () => {
                     selectedSections[tournamentIdx] = section;
                     
@@ -680,7 +698,8 @@
             headerRow.innerHTML = '';
             tournament.columns.forEach(col => {
                 const th = document.createElement('th');
-                th.textContent = col;
+                // Use label if available
+                th.textContent = getLabel(tournament, col);
                 headerRow.appendChild(th);
             });
 
@@ -740,7 +759,8 @@
             headerRow.innerHTML = '';
             tournament.columns.forEach(col => {
                 const th = document.createElement('th');
-                th.textContent = col;
+                // Use label if available
+                th.textContent = getLabel(tournament, col);
                 headerRow.appendChild(th);
             });
 
