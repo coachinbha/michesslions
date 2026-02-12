@@ -166,7 +166,7 @@
             font-weight: 600;
         }
 
-        /* Filters */
+        /* Filters - FIX: Added position and z-index */
         .filters-section {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -175,6 +175,8 @@
             padding: 1.25rem;
             background: var(--card);
             border: 1px solid var(--border);
+            position: relative; /* Needed for z-index */
+            z-index: 20;       /* Sit above charts */
         }
 
         .filter-group {
@@ -191,8 +193,8 @@
             color: var(--muted);
         }
 
-        .filter-group select,
-        .filter-group input {
+        .filter-group input,
+        .filter-group select {
             font-family: 'Montserrat', sans-serif;
             font-size: 0.8rem;
             padding: 0.6rem 0.8rem;
@@ -209,6 +211,111 @@
             border-color: var(--accent);
         }
 
+        /* Custom Multi-Select Dropdown Styles */
+        .multiselect-container {
+            position: relative;
+            user-select: none;
+        }
+
+        .multiselect-box {
+            padding: 0.6rem 0.8rem;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 38px; 
+        }
+
+        .multiselect-box:hover {
+            border-color: var(--muted);
+        }
+
+        .multiselect-text {
+            font-size: 0.8rem;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .multiselect-arrow {
+            border-style: solid;
+            border-width: 0 2px 2px 0;
+            display: inline-block;
+            padding: 3px;
+            transform: rotate(45deg);
+            transition: transform 0.3s ease;
+            margin-bottom: 2px;
+        }
+
+        .multiselect-container.open .multiselect-arrow {
+            transform: rotate(-135deg);
+        }
+
+        /* FIX: Increased z-index */
+        .multiselect-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--card);
+            border: 1px solid var(--border);
+            z-index: 1000; /* High z-index to ensure it's on top */
+            display: none;
+            max-height: 200px;
+            overflow-y: auto;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .multiselect-container.open .multiselect-dropdown {
+            display: block;
+        }
+
+        .multiselect-option {
+            padding: 0.6rem 0.8rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: background 0.2s;
+            font-size: 0.8rem;
+        }
+
+        .multiselect-option:hover {
+            background: var(--hover);
+        }
+
+        /* Custom Checkbox */
+        .custom-check {
+            width: 14px;
+            height: 14px;
+            border: 1px solid var(--muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .custom-check svg {
+            stroke: var(--bg);
+            width: 10px;
+            height: 10px;
+            stroke-width: 3;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .multiselect-option.selected .custom-check {
+            background: var(--fg);
+            border-color: var(--fg);
+        }
+
+        .multiselect-option.selected .custom-check svg {
+            opacity: 1;
+        }
+
         /* Charts Section */
         .charts-section {
             display: grid;
@@ -217,6 +324,8 @@
             background: var(--border);
             border: 1px solid var(--border);
             margin-bottom: 2rem;
+            position: relative;
+            z-index: 1; /* Lower than filters */
         }
 
         .chart-card {
@@ -364,7 +473,6 @@
             <p>Chess Lions February Tournament</p>
         </header>
 
-        <!-- Compact Upload Section -->
         <div class="upload-wrapper" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
             <div class="upload-zone" id="upload-zone">
                 <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -398,10 +506,14 @@
 
         <section class="filters-section hidden" id="filters-section" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
             <div class="filter-group">
-                <label for="section-filter">Section</label>
-                <select id="section-filter">
-                    <option value="all">All Sections</option>
-                </select>
+                <label>Section</label>
+                <div class="multiselect-container" id="section-filter-container">
+                    <div class="multiselect-box">
+                        <span class="multiselect-text">Select Sections</span>
+                        <span class="multiselect-arrow"></span>
+                    </div>
+                    <div class="multiselect-dropdown" id="section-dropdown"></div>
+                </div>
             </div>
             <div class="filter-group">
                 <label for="date-from">From Date</label>
@@ -446,9 +558,7 @@
                         <th>Registered</th>
                     </tr>
                 </thead>
-                <tbody id="table-body">
-                    <!-- Rows injected here -->
-                </tbody>
+                <tbody id="table-body"></tbody>
             </table>
         </div>
 
@@ -471,6 +581,7 @@
         let sections = new Set();
         let sectionChartInstance = null;
         let timelineChartInstance = null;
+        let selectedSections = [];
 
         const uploadZone = document.getElementById('upload-zone');
         const fileInput = document.getElementById('file-input');
@@ -480,7 +591,12 @@
         const tableContainer = document.getElementById('table-container');
         const tableBody = document.getElementById('table-body');
         const emptyState = document.getElementById('empty-state');
-        const sectionFilter = document.getElementById('section-filter');
+        
+        const msContainer = document.getElementById('section-filter-container');
+        const msBox = msContainer.querySelector('.multiselect-box');
+        const msText = msContainer.querySelector('.multiselect-text');
+        const msDropdown = document.getElementById('section-dropdown');
+
         const dateFrom = document.getElementById('date-from');
         const dateTo = document.getElementById('date-to');
         const searchInput = document.getElementById('search-input');
@@ -492,20 +608,16 @@
             uploadZone.classList.add('drag-over');
         });
 
-        uploadZone.addEventListener('dragleave', () => {
-            uploadZone.classList.remove('drag-over');
-        });
+        uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
 
         uploadZone.addEventListener('drop', (e) => {
             e.preventDefault();
             uploadZone.classList.remove('drag-over');
-            const file = e.dataTransfer.files[0];
-            if (file) processFile(file);
+            if (e.dataTransfer.files[0]) processFile(e.dataTransfer.files[0]);
         });
 
         fileInput.addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            if (file) processFile(file);
+            if (e.target.files[0]) processFile(e.target.files[0]);
         });
 
         function parseCSV(text) {
@@ -514,7 +626,6 @@
 
             const firstLine = lines[0];
             const delimiter = (firstLine.split('|').length > firstLine.split(',').length) ? '|' : ',';
-
             const headers = parseLine(lines[0], delimiter).map(h => h.trim().toLowerCase());
             
             const findIndex = (keywords) => headers.findIndex(h => keywords.some(k => h.includes(k)));
@@ -523,7 +634,7 @@
                 timestamp: findIndex(['timestamp']),
                 name: findIndex(['player', 'name']),
                 parent: findIndex(['parent']),
-                section: findIndex(['section', 'which section']),
+                section: findIndex(['section']),
                 uscf: findIndex(['uscf', 'id']),
                 email: findIndex(['email']),
                 phone: findIndex(['phone'])
@@ -566,14 +677,11 @@
 
             for (let i = 0; i < line.length; i++) {
                 const char = line[i];
-                if (char === '"') {
-                    inQuotes = !inQuotes;
-                } else if (char === delimiter && !inQuotes) {
+                if (char === '"') inQuotes = !inQuotes;
+                else if (char === delimiter && !inQuotes) {
                     result.push(current);
                     current = '';
-                } else {
-                    current += char;
-                }
+                } else current += char;
             }
             result.push(current);
             return result;
@@ -589,23 +697,8 @@
                     return;
                 }
 
-                sectionFilter.innerHTML = '<option value="all">All Sections</option>';
-                Array.from(sections).sort().forEach(section => {
-                    const option = document.createElement('option');
-                    option.value = section;
-                    option.textContent = section;
-                    sectionFilter.appendChild(option);
-                });
-
-                if (playersData.length > 0) {
-                    const dates = playersData.map(p => new Date(p.timestamp)).filter(d => !isNaN(d));
-                    if (dates.length > 0) {
-                        const minDate = new Date(Math.min(...dates));
-                        const maxDate = new Date(Math.max(...dates));
-                        dateFrom.value = minDate.toISOString().split('T')[0];
-                        dateTo.value = maxDate.toISOString().split('T')[0];
-                    }
-                }
+                populateMultiselect();
+                setDefaultDates();
 
                 statsBar.classList.remove('hidden');
                 filtersSection.classList.remove('hidden');
@@ -619,14 +712,83 @@
             reader.readAsText(file);
         }
 
+        function populateMultiselect() {
+            msDropdown.innerHTML = '';
+            selectedSections = [];
+            const sortedSections = Array.from(sections).sort();
+
+            sortedSections.forEach(section => {
+                selectedSections.push(section);
+
+                const item = document.createElement('div');
+                item.className = 'multiselect-option selected';
+                item.dataset.value = section;
+                
+                item.innerHTML = `
+                    <div class="custom-check">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <span>${section}</span>
+                `;
+
+                item.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toggleOption(item);
+                });
+
+                msDropdown.appendChild(item);
+            });
+
+            updateMultiselectText();
+        }
+
+        function toggleOption(element) {
+            const value = element.dataset.value;
+            element.classList.toggle('selected');
+
+            if (element.classList.contains('selected')) {
+                if (!selectedSections.includes(value)) selectedSections.push(value);
+            } else {
+                selectedSections = selectedSections.filter(s => s !== value);
+            }
+            updateMultiselectText();
+            updateDisplay();
+        }
+
+        function updateMultiselectText() {
+            if (selectedSections.length === 0) msText.textContent = "No Sections Selected";
+            else if (selectedSections.length === sections.size) msText.textContent = "All Sections";
+            else if (selectedSections.length <= 2) msText.textContent = selectedSections.join(', ');
+            else msText.textContent = `${selectedSections.length} Sections Selected`;
+        }
+
+        msBox.addEventListener('click', () => msContainer.classList.toggle('open'));
+
+        document.addEventListener('click', (e) => {
+            if (!msContainer.contains(e.target)) msContainer.classList.remove('open');
+        });
+
+        function setDefaultDates() {
+             if (playersData.length > 0) {
+                const dates = playersData.map(p => new Date(p.timestamp)).filter(d => !isNaN(d));
+                if (dates.length > 0) {
+                    const minDate = new Date(Math.min(...dates));
+                    const maxDate = new Date(Math.max(...dates));
+                    dateFrom.value = minDate.toISOString().split('T')[0];
+                    dateTo.value = maxDate.toISOString().split('T')[0];
+                }
+            }
+        }
+
         function filterPlayers() {
-            const sectionValue = sectionFilter.value;
             const fromDate = dateFrom.value ? new Date(dateFrom.value) : null;
             const toDate = dateTo.value ? new Date(dateTo.value + 'T23:59:59') : null;
             const searchTerm = searchInput.value.toLowerCase();
 
             return playersData.filter(player => {
-                if (sectionValue !== 'all' && player.section !== sectionValue) return false;
+                if (selectedSections.length > 0 && !selectedSections.includes(player.section)) return false;
 
                 const playerDate = new Date(player.timestamp);
                 if (fromDate && !isNaN(playerDate) && playerDate < fromDate) return false;
@@ -644,7 +806,6 @@
         }
 
         function updateCharts(filteredData) {
-            // Doughnut Chart
             const sectionCounts = {};
             filteredData.forEach(p => sectionCounts[p.section] = (sectionCounts[p.section] || 0) + 1);
             if (sectionChartInstance) sectionChartInstance.destroy();
@@ -662,12 +823,16 @@
                 },
                 options: {
                     responsive: true, maintainAspectRatio: false,
-                    plugins: { legend: { position: 'bottom', labels: { font: { family: 'Montserrat', size: 15 }, boxWidth: 10 } } },
+                    plugins: { 
+                        legend: { 
+                            position: 'bottom', 
+                            labels: { font: { family: 'Montserrat', size: 12 }, boxWidth: 12 } 
+                        } 
+                    },
                     cutout: '70%'
                 }
             });
 
-            // Bar Chart
             const dateCounts = {};
             filteredData.forEach(p => {
                 const dateObj = new Date(p.timestamp);
@@ -742,7 +907,6 @@
             filtered.forEach((player, index) => tableBody.appendChild(createRow(player, index + 1)));
         }
 
-        sectionFilter.addEventListener('change', updateDisplay);
         dateFrom.addEventListener('change', updateDisplay);
         dateTo.addEventListener('change', updateDisplay);
         searchInput.addEventListener('input', updateDisplay);
