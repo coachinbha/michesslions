@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #0a0a0a;
+            --muted: #6b6b6b;
+            --accent: #000000;
+            --card: #ffffff;
+            --border: #e0e0e0;
+            --hover: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 3rem 0 2rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+        }
+
+        header p {
+            font-size: 0.75rem;
+            color: var(--muted);
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        /* Compact Upload Section */
+        .upload-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .upload-zone {
+            border: 1px solid var(--border);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: var(--card);
+        }
+
+        .upload-zone:hover {
+            border-color: var(--accent);
+            background: var(--hover);
+        }
+
+        .upload-zone.drag-over {
+            border-color: var(--accent);
+            background: var(--hover);
+        }
+
+        .upload-icon {
+            width: 20px;
+            height: 20px;
+            stroke: var(--muted);
+            transition: stroke 0.3s ease;
+        }
+
+        .upload-zone:hover .upload-icon {
+            stroke: var(--accent);
+        }
+
+        .upload-text {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--fg);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        #file-input {
+            display: none;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1px;
+            background: var(--border);
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .stat-item {
+            background: var(--card);
+            padding: 1.25rem 1rem;
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+
+        .stat-item:hover {
+            background: var(--hover);
+        }
+
+        .stat-number {
+            font-size: 1.75rem;
+            font-weight: 900;
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+        }
+
+        /* Filters */
+        .filters-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1.25rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .filter-group label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+        }
+
+        .filter-group select,
+        .filter-group input {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            padding: 0.6rem 0.8rem;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            color: var(--fg);
+            outline: none;
+            transition: border-color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-group select:focus,
+        .filter-group input:focus {
+            border-color: var(--accent);
+        }
+
+        /* Charts Section */
+        .charts-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .chart-card {
+            background: var(--card);
+            padding: 1.5rem;
+            position: relative;
+            height: 320px;
+        }
+
+        .chart-title {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            color: var(--fg);
+        }
+
+        .chart-container {
+            position: relative;
+            height: calc(100% - 2rem);
+            width: 100%;
+        }
+
+        /* Table Container */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            background: var(--card);
+            border: 1px solid var(--border);
+            margin-bottom: 3rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 900px;
+            white-space: nowrap;
+        }
+
+        thead {
+            background: var(--fg);
+            color: var(--bg);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        th {
+            padding: 0.8rem 1rem;
+            text-align: left;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+
+        th:last-child { border-right: none; }
+
+        td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.8rem;
+            color: var(--fg);
+            transition: background 0.2s ease;
+        }
+
+        tr:hover td { background: var(--hover); }
+
+        .col-name { font-weight: 600; }
+
+        .col-section span {
+            display: inline-block;
+            padding: 0.2rem 0.4rem;
+            font-size: 0.65rem;
+            font-weight: 700;
+            background: var(--bg);
+            border: 1px solid var(--border);
+        }
+        
+        .col-section span.rated {
+            background: var(--fg);
+            color: var(--bg);
+            border-color: var(--fg);
+        }
+
+        .col-contact a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .col-contact a:hover { color: var(--fg); }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--muted);
+        }
+
+        .empty-state svg {
+            width: 60px;
+            height: 60px;
+            stroke: var(--border);
+            margin-bottom: 1rem;
+        }
+
+        .empty-state h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--fg);
+        }
+        
+        .empty-state p { font-size: 0.8rem; }
+
+        .no-results-row td {
+            text-align: center;
+            padding: 2rem;
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .hidden { display: none !important; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .charts-section { grid-template-columns: 1fr; }
+            .chart-card { height: 280px; }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 1rem; }
+            header { padding: 1.5rem 0; }
+            .filters-section { grid-template-columns: 1fr; }
+            th, td { padding: 0.6rem 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header data-aos="fade-in" data-aos-duration="800">
+            <h1>Registration Dashboard</h1>
+            <p>Chess Lions February Tournament</p>
+        </header>
+
+        <!-- Compact Upload Section -->
+        <div class="upload-wrapper" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+            <div class="upload-zone" id="upload-zone">
+                <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="17 8 12 3 7 8"/>
+                    <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+                <span class="upload-text">Upload CSV Data</span>
+                <input type="file" id="file-input" accept=".csv,.txt">
+            </div>
+        </div>
+
+        <section class="stats-bar hidden" id="stats-bar" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+            <div class="stat-item">
+                <span class="stat-number" id="total-count">0</span>
+                <span class="stat-label">Total Players</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="rated-count">0</span>
+                <span class="stat-label">Rated</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="unrated-count">0</span>
+                <span class="stat-label">Unrated</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="filtered-count">0</span>
+                <span class="stat-label">Showing</span>
+            </div>
+        </section>
+
+        <section class="filters-section hidden" id="filters-section" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+            <div class="filter-group">
+                <label for="section-filter">Section</label>
+                <select id="section-filter">
+                    <option value="all">All Sections</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="date-from">From Date</label>
+                <input type="date" id="date-from">
+            </div>
+            <div class="filter-group">
+                <label for="date-to">To Date</label>
+                <input type="date" id="date-to">
+            </div>
+            <div class="filter-group">
+                <label for="search-input">Global Search</label>
+                <input type="text" id="search-input" placeholder="Search all fields...">
+            </div>
+        </section>
+
+        <section class="charts-section hidden" id="charts-section" data-aos="fade-up" data-aos-duration="800">
+            <div class="chart-card">
+                <div class="chart-title">Section Distribution</div>
+                <div class="chart-container">
+                    <canvas id="sectionChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title">Registrations Over Time</div>
+                <div class="chart-container">
+                    <canvas id="timelineChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <div class="table-container hidden" id="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Player Name</th>
+                        <th>Section</th>
+                        <th>USCF ID</th>
+                        <th>Parent / Guardian</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Registered</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <!-- Rows injected here -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="empty-state" id="empty-state" data-aos="fade-in">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                <line x1="9" y1="9" x2="9.01" y2="9"/>
+                <line x1="15" y1="9" x2="15.01" y2="9"/>
+            </svg>
+            <h3>No Data Loaded</h3>
+            <p>Upload a CSV file to begin</p>
+        </div>
+    </div>
+
+    <script>
+        AOS.init({ once: true, duration: 800 });
+
+        let playersData = [];
+        let sections = new Set();
+        let sectionChartInstance = null;
+        let timelineChartInstance = null;
+
+        const uploadZone = document.getElementById('upload-zone');
+        const fileInput = document.getElementById('file-input');
+        const statsBar = document.getElementById('stats-bar');
+        const filtersSection = document.getElementById('filters-section');
+        const chartsSection = document.getElementById('charts-section');
+        const tableContainer = document.getElementById('table-container');
+        const tableBody = document.getElementById('table-body');
+        const emptyState = document.getElementById('empty-state');
+        const sectionFilter = document.getElementById('section-filter');
+        const dateFrom = document.getElementById('date-from');
+        const dateTo = document.getElementById('date-to');
+        const searchInput = document.getElementById('search-input');
+
+        uploadZone.addEventListener('click', () => fileInput.click());
+        
+        uploadZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadZone.classList.add('drag-over');
+        });
+
+        uploadZone.addEventListener('dragleave', () => {
+            uploadZone.classList.remove('drag-over');
+        });
+
+        uploadZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadZone.classList.remove('drag-over');
+            const file = e.dataTransfer.files[0];
+            if (file) processFile(file);
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) processFile(file);
+        });
+
+        function parseCSV(text) {
+            const lines = text.split('\n').filter(line => line.trim());
+            if (lines.length < 2) return [];
+
+            const firstLine = lines[0];
+            const delimiter = (firstLine.split('|').length > firstLine.split(',').length) ? '|' : ',';
+
+            const headers = parseLine(lines[0], delimiter).map(h => h.trim().toLowerCase());
+            
+            const findIndex = (keywords) => headers.findIndex(h => keywords.some(k => h.includes(k)));
+
+            const colMap = {
+                timestamp: findIndex(['timestamp']),
+                name: findIndex(['player', 'name']),
+                parent: findIndex(['parent']),
+                section: findIndex(['section', 'which section']),
+                uscf: findIndex(['uscf', 'id']),
+                email: findIndex(['email']),
+                phone: findIndex(['phone'])
+            };
+
+            const players = [];
+
+            for (let i = 1; i < lines.length; i++) {
+                const values = parseLine(lines[i], delimiter);
+                
+                const getVal = (key) => {
+                    const idx = colMap[key];
+                    return (idx !== -1 && values[idx]) ? values[idx].trim() : '';
+                };
+
+                const playerName = getVal('name');
+                const section = getVal('section');
+
+                if (playerName && section) {
+                    players.push({
+                        id: i,
+                        timestamp: getVal('timestamp'),
+                        playerName: playerName,
+                        parentName: getVal('parent'),
+                        section: section,
+                        uscfId: getVal('uscf'),
+                        email: getVal('email'),
+                        phone: getVal('phone')
+                    });
+                    sections.add(section);
+                }
+            }
+            return players;
+        }
+
+        function parseLine(line, delimiter) {
+            const result = [];
+            let current = '';
+            let inQuotes = false;
+
+            for (let i = 0; i < line.length; i++) {
+                const char = line[i];
+                if (char === '"') {
+                    inQuotes = !inQuotes;
+                } else if (char === delimiter && !inQuotes) {
+                    result.push(current);
+                    current = '';
+                } else {
+                    current += char;
+                }
+            }
+            result.push(current);
+            return result;
+        }
+
+        function processFile(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                playersData = parseCSV(e.target.result);
+                
+                if (playersData.length === 0) {
+                    alert("Could not parse data.");
+                    return;
+                }
+
+                sectionFilter.innerHTML = '<option value="all">All Sections</option>';
+                Array.from(sections).sort().forEach(section => {
+                    const option = document.createElement('option');
+                    option.value = section;
+                    option.textContent = section;
+                    sectionFilter.appendChild(option);
+                });
+
+                if (playersData.length > 0) {
+                    const dates = playersData.map(p => new Date(p.timestamp)).filter(d => !isNaN(d));
+                    if (dates.length > 0) {
+                        const minDate = new Date(Math.min(...dates));
+                        const maxDate = new Date(Math.max(...dates));
+                        dateFrom.value = minDate.toISOString().split('T')[0];
+                        dateTo.value = maxDate.toISOString().split('T')[0];
+                    }
+                }
+
+                statsBar.classList.remove('hidden');
+                filtersSection.classList.remove('hidden');
+                chartsSection.classList.remove('hidden');
+                tableContainer.classList.remove('hidden');
+                emptyState.classList.add('hidden');
+
+                AOS.refresh();
+                updateDisplay();
+            };
+            reader.readAsText(file);
+        }
+
+        function filterPlayers() {
+            const sectionValue = sectionFilter.value;
+            const fromDate = dateFrom.value ? new Date(dateFrom.value) : null;
+            const toDate = dateTo.value ? new Date(dateTo.value + 'T23:59:59') : null;
+            const searchTerm = searchInput.value.toLowerCase();
+
+            return playersData.filter(player => {
+                if (sectionValue !== 'all' && player.section !== sectionValue) return false;
+
+                const playerDate = new Date(player.timestamp);
+                if (fromDate && !isNaN(playerDate) && playerDate < fromDate) return false;
+                if (toDate && !isNaN(playerDate) && playerDate > toDate) return false;
+
+                if (searchTerm) {
+                    const searchFields = [
+                        player.playerName, player.parentName, player.section,
+                        player.uscfId, player.email, player.phone, player.timestamp
+                    ].map(f => (f || '').toLowerCase());
+                    if (!searchFields.some(field => field.includes(searchTerm))) return false;
+                }
+                return true;
+            });
+        }
+
+        function updateCharts(filteredData) {
+            // Doughnut Chart
+            const sectionCounts = {};
+            filteredData.forEach(p => sectionCounts[p.section] = (sectionCounts[p.section] || 0) + 1);
+            if (sectionChartInstance) sectionChartInstance.destroy();
+            
+            const ctxDoughnut = document.getElementById('sectionChart').getContext('2d');
+            sectionChartInstance = new Chart(ctxDoughnut, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(sectionCounts),
+                    datasets: [{
+                        data: Object.values(sectionCounts),
+                        backgroundColor: ['#0a0a0a', '#4a4a4a', '#8a8a8a', '#cacaca', '#3a3a3a', '#6a6a6a'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { position: 'bottom', labels: { font: { family: 'Montserrat', size: 10 }, boxWidth: 10 } } },
+                    cutout: '70%'
+                }
+            });
+
+            // Bar Chart
+            const dateCounts = {};
+            filteredData.forEach(p => {
+                const dateObj = new Date(p.timestamp);
+                if (!isNaN(dateObj)) {
+                    const dateKey = dateObj.toISOString().split('T')[0];
+                    dateCounts[dateKey] = (dateCounts[dateKey] || 0) + 1;
+                }
+            });
+            
+            const sortedDates = Object.keys(dateCounts).sort();
+            if (timelineChartInstance) timelineChartInstance.destroy();
+
+            const ctxBar = document.getElementById('timelineChart').getContext('2d');
+            timelineChartInstance = new Chart(ctxBar, {
+                type: 'bar',
+                data: {
+                    labels: sortedDates,
+                    datasets: [{
+                        label: 'Registrations',
+                        data: sortedDates.map(d => dateCounts[d]),
+                        backgroundColor: '#0a0a0a'
+                    }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { grid: { display: false }, ticks: { font: { family: 'Montserrat', size: 9 }, maxRotation: 45, minRotation: 45 } },
+                        y: { beginAtZero: true, grid: { color: '#f0f0f0' }, ticks: { font: { family: 'Montserrat', size: 9 }, stepSize: 1 } }
+                    }
+                }
+            });
+        }
+
+        function createRow(player, displayIndex) {
+            const tr = document.createElement('tr');
+            const isRated = player.section.toLowerCase().includes('rated');
+            const playerDate = new Date(player.timestamp);
+            let formattedDate = 'Invalid Date';
+            if (!isNaN(playerDate)) {
+                formattedDate = playerDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+            }
+            tr.innerHTML = `
+                <td>${displayIndex}</td>
+                <td class="col-name">${player.playerName}</td>
+                <td class="col-section"><span class="${isRated ? 'rated' : ''}">${player.section}</span></td>
+                <td>${player.uscfId || '—'}</td>
+                <td>${player.parentName || '—'}</td>
+                <td class="col-contact">${player.email ? `<a href="mailto:${player.email}">${player.email}</a>` : '—'}</td>
+                <td>${player.phone || '—'}</td>
+                <td>${formattedDate}</td>
+            `;
+            return tr;
+        }
+
+        function updateDisplay() {
+            const filtered = filterPlayers();
+            const ratedCount = playersData.filter(p => p.section.toLowerCase().includes('rated')).length;
+
+            document.getElementById('total-count').textContent = playersData.length;
+            document.getElementById('rated-count').textContent = ratedCount;
+            document.getElementById('unrated-count').textContent = playersData.length - ratedCount;
+            document.getElementById('filtered-count').textContent = filtered.length;
+
+            updateCharts(filtered);
+
+            tableBody.innerHTML = '';
+            if (filtered.length === 0) {
+                tableBody.innerHTML = '<tr class="no-results-row"><td colspan="8">No players match criteria</td></tr>';
+                return;
+            }
+            filtered.forEach((player, index) => tableBody.appendChild(createRow(player, index + 1)));
+        }
+
+        sectionFilter.addEventListener('change', updateDisplay);
+        dateFrom.addEventListener('change', updateDisplay);
+        dateTo.addEventListener('change', updateDisplay);
+        searchInput.addEventListener('input', updateDisplay);
+    </script>
+</body>
+</html>
