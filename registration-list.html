@@ -77,7 +77,7 @@
             margin-bottom: 2rem;
         }
 
-        /* CTA Button with slide effect from index.html */
+        /* CTA Button */
         .cta-button {
             display: inline-block;
             background-color: var(--text-color);
@@ -152,7 +152,6 @@
             padding-bottom: 1rem;
         }
 
-        /* Tournament Tab with hover effects from index.html */
         .tournament-tab {
             padding: 0.75rem 1.5rem;
             border: 2px solid var(--text-color);
@@ -252,7 +251,6 @@
             margin: 2rem 0;
         }
 
-        /* Filter Button with hover effects from index.html */
         .filter-btn {
             padding: 0.75rem 1.5rem;
             border: 2px solid var(--text-color);
@@ -305,6 +303,11 @@
             left: 0;
         }
 
+        /* Table Styles */
+        .table-wrapper {
+            width: 100%;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -334,6 +337,7 @@
             padding: 1.2rem 1.5rem;
             border-bottom: 1px solid #e0e0e0;
             font-size: 0.95rem;
+            vertical-align: middle;
         }
 
         tr:hover {
@@ -352,7 +356,42 @@
             letter-spacing: 0.5px;
         }
 
-        /* Footer with hover effect */
+        /* Rating Button Styles */
+        .rating-btn {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            border: 1px solid var(--text-color);
+            padding: 0.4rem 0.8rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .rating-btn:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        .rating-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .rating-display {
+            font-weight: 900;
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+
+        .rating-error {
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        /* Footer */
         footer {
             text-align: center;
             padding: 2rem 0;
@@ -367,86 +406,35 @@
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
+            h1 { font-size: 2rem; }
+            .subtitle { font-size: 1rem; }
+            .stats { flex-direction: column; gap: 2rem; }
+            th, td { padding: 0.75rem 1rem; }
+            .stat-number { font-size: 2.5rem; }
+            .filter-section { gap: 0.25rem; }
+            .filter-btn { padding: 0.6rem 1rem; font-size: 0.75rem; }
+            .tournament-tabs { gap: 0.25rem; }
+            .tournament-tab { padding: 0.6rem 1rem; font-size: 0.75rem; }
+            .cta-button { padding: 0.75rem 1.5rem; font-size: 0.9rem; }
 
-            .subtitle {
-                font-size: 1rem;
-            }
-
-            .stats {
-                flex-direction: column;
-                gap: 2rem;
-            }
-
-            table {
-                font-size: 0.9rem;
-            }
-
-            th, td {
-                padding: 0.75rem 1rem;
-            }
-
-            .stat-number {
-                font-size: 2.5rem;
-            }
-
-            .filter-section {
-                gap: 0.25rem;
-            }
-
-            .filter-btn {
-                padding: 0.6rem 1rem;
-                font-size: 0.75rem;
-            }
-
-            .tournament-tabs {
-                gap: 0.25rem;
-            }
-
-            .tournament-tab {
-                padding: 0.6rem 1rem;
-                font-size: 0.75rem;
-            }
-
-            .cta-button {
-                padding: 0.75rem 1.5rem;
-                font-size: 0.9rem;
+            /* Hides USCF ID and Rating columns on mobile */
+            .hide-on-mobile {
+                display: none;
             }
         }
 
-        /* ============================================
-           iOS/TOUCH DEVICE HOVER FIXES
-           ============================================ */
+        /* iOS/Touch Fixes */
         @media (hover: none) and (pointer: coarse) {
-            /* Disable hover transformations on touch devices */
-            .logo-link:hover,
-            .cta-button:hover,
-            .tournament-tab:hover,
-            .filter-btn:hover,
-            footer:hover {
-                transform: none !important;
-                box-shadow: none !important;
+            .logo-link:hover, .cta-button:hover, .tournament-tab:hover, .filter-btn:hover, footer:hover {
+                transform: none !important; box-shadow: none !important;
             }
-
-            /* Disable pseudo-element slide effects */
-            .cta-button:hover::before,
-            .tournament-tab:hover::before,
-            .filter-btn:hover::before {
+            .cta-button:hover::before, .tournament-tab:hover::before, .filter-btn:hover::before {
                 left: -100% !important;
             }
-
-            /* Keep active states working */
-            .tournament-tab.active::before,
-            .filter-btn.active::before {
+            .tournament-tab.active::before, .filter-btn.active::before {
                 left: 0 !important;
             }
-
-            /* Provide tap feedback instead */
-            .cta-button:active,
-            .tournament-tab:active,
-            .filter-btn:active {
+            .cta-button:active, .tournament-tab:active, .filter-btn:active {
                 opacity: 0.7;
             }
         }
@@ -472,7 +460,6 @@
 
         <div id="content" style="display:none;">
             <div class="tournament-tabs" id="tournamentTabs"></div>
-
             <h2 id="sheetTitle"></h2>
 
             <div class="stats">
@@ -484,12 +471,14 @@
 
             <div class="filter-section" id="filterSection"></div>
 
-            <table id="registrationTable">
-                <thead>
-                    <tr id="headerRow"></tr>
-                </thead>
-                <tbody id="tableBody"></tbody>
-            </table>
+            <div class="table-wrapper">
+                <table id="registrationTable">
+                    <thead>
+                        <tr id="headerRow"></tr>
+                    </thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>
 
             <div class="refresh-info" data-aos="fade-up" data-aos-delay="600">
                 Last updated: <span id="lastUpdate">just now</span> | Auto-refresh every 30 seconds
@@ -503,27 +492,26 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 1000,
-            once: true,
-            disable: false
-        });
-
+        AOS.init({ duration: 1000, once: true, disable: false });
         let hasAnimated = false;
 
-        // CONFIGURATION: Add your tournaments here
+        const USCF_ID_KEY = 'USCF ID (ONLY if playing in a rated section, an 8 digit number, like "12892910" )';
+
         const TOURNAMENTS = [
             {
                 name: 'Chess Lions February Chess Tournament',
                 url: 'https://opensheet.elk.sh/1zCQWs6klIMMeGrQ050Ry509K2wXfhYQPxL2YcO_jwMI/FormResponses1',
-                // 'columns' must match the Google Sheet headers EXACTLY to fetch data correctly.
-                columns: ["Players Name (Last name, First name)", 'Which section? Note: sections may be combined based upon entries.'],
+                columns: [
+                    "Players Name (Last name, First name)", 
+                    'Which section? Note: sections may be combined based upon entries.',
+                    USCF_ID_KEY,
+                    "Rating"
+                ],
                 sectionColumn: 'Which section? Note: sections may be combined based upon entries.',
-                // 'columnLabels' allows you to rename headers for the frontend (Table & Filters) ONLY.
                 columnLabels: {
                     'Players Name (Last name, First name)': 'Player Name',
-                    'Which section? Note: sections may be combined based upon entries.': 'Section'
+                    'Which section? Note: sections may be combined based upon entries.': 'Section',
+                    [USCF_ID_KEY]: 'USCF ID'
                 }
             }
         ];
@@ -532,31 +520,20 @@
         let tournamentsData = {};
         let selectedSections = {};
 
-        // Helper function to get display label
         function getLabel(tournament, key) {
-            if (tournament.columnLabels && tournament.columnLabels[key]) {
-                return tournament.columnLabels[key];
-            }
-            return key;
+            return (tournament.columnLabels && tournament.columnLabels[key]) ? tournament.columnLabels[key] : key;
         }
 
         async function fetchAllTournaments() {
             try {
-                // Initialize data objects
                 TOURNAMENTS.forEach((t, idx) => {
                     tournamentsData[idx] = [];
                     selectedSections[idx] = 'All';
                 });
-
-                // Fetch all tournament data
-                await Promise.all(
-                    TOURNAMENTS.map((tournament, idx) => fetchTournament(idx, tournament.url))
-                );
-
+                await Promise.all(TOURNAMENTS.map((tournament, idx) => fetchTournament(idx, tournament.url)));
                 createTournamentTabs();
                 displayTournament(activeTournament);
                 updateTimestamp();
-
             } catch (error) {
                 console.error('Error:', error);
                 showError('Could not load registrations. Check console for details.');
@@ -565,18 +542,9 @@
 
         async function fetchTournament(idx, url) {
             try {
-                console.log(`Fetching tournament ${idx} from:`, url);
-
                 const response = await fetch(url);
-
-                if (!response.ok) {
-                    throw new Error(`API error: ${response.status}`);
-                }
-
-                const data = await response.json();
-                tournamentsData[idx] = data;
-                console.log(`Tournament ${idx} data received:`, data);
-
+                if (!response.ok) throw new Error(`API error: ${response.status}`);
+                tournamentsData[idx] = await response.json();
             } catch (error) {
                 console.error(`Error fetching tournament ${idx}:`, error);
             }
@@ -585,18 +553,13 @@
         function createTournamentTabs() {
             const tabsContainer = document.getElementById('tournamentTabs');
             tabsContainer.innerHTML = '';
-
             TOURNAMENTS.forEach((tournament, idx) => {
                 const btn = document.createElement('button');
-                btn.className = 'tournament-tab';
+                btn.className = 'tournament-tab' + (idx === activeTournament ? ' active' : '');
                 if (!hasAnimated) {
                     btn.setAttribute('data-aos', 'fade-up');
                     btn.setAttribute('data-aos-delay', (idx * 100).toString());
                 }
-                if (idx === activeTournament) {
-                    btn.classList.add('active');
-                }
-                // Wrap text in span for z-index layering above ::before
                 btn.innerHTML = '<span>' + tournament.name + '</span>';
                 btn.addEventListener('click', () => {
                     activeTournament = idx;
@@ -605,76 +568,50 @@
                 });
                 tabsContainer.appendChild(btn);
             });
-            if (!hasAnimated) {
-                AOS.refresh();
-            }
+            if (!hasAnimated) AOS.refresh();
         }
 
         function displayTournament(tournamentIdx) {
             const tournament = TOURNAMENTS[tournamentIdx];
             const data = tournamentsData[tournamentIdx];
-
             if (!data || data.length === 0) {
                 displayEmptyRegistrations(tournamentIdx, tournament);
                 return;
             }
-
             updateSectionFilters(tournamentIdx, data, tournament);
             displayRegistrations(tournamentIdx, data, tournament);
         }
 
         function updateSectionFilters(tournamentIdx, data, tournament) {
-            // Get unique sections and count registrations
-            const sectionCounts = {};
-            sectionCounts['All'] = data.length;
-
+            const sectionCounts = { 'All': data.length };
             data.forEach(row => {
                 const section = row[tournament.sectionColumn];
-                if (section) {
-                    sectionCounts[section] = (sectionCounts[section] || 0) + 1;
-                }
+                if (section) sectionCounts[section] = (sectionCounts[section] || 0) + 1;
             });
 
             const filterSection = document.getElementById('filterSection');
             filterSection.innerHTML = '';
-
-            const sortedSections = Object.keys(sectionCounts).sort((a, b) => {
-                if (a === 'All') return -1;
-                if (b === 'All') return 1;
-                return a.localeCompare(b);
-            });
-
-            sortedSections.forEach((section, idx) => {
+            
+            Object.keys(sectionCounts).sort((a, b) => {
+                if (a === 'All') return -1; if (b === 'All') return 1; return a.localeCompare(b);
+            }).forEach((section, idx) => {
                 const btn = document.createElement('button');
-                btn.className = 'filter-btn';
+                btn.className = 'filter-btn' + (section === selectedSections[tournamentIdx] ? ' active' : '');
                 if (!hasAnimated) {
                     btn.setAttribute('data-aos', 'fade-up');
                     btn.setAttribute('data-aos-delay', (idx * 50).toString());
                 }
-                if (section === selectedSections[tournamentIdx]) {
-                    btn.classList.add('active');
-                }
-                
-                // Use the label function for display text, but keep 'section' as the actual value
-                const displayLabel = getLabel(tournament, section);
-                
-                // Wrap text in span for z-index layering above ::before
-                btn.innerHTML = '<span>' + displayLabel + ' (' + sectionCounts[section] + ')</span>';
+                btn.innerHTML = '<span>' + getLabel(tournament, section) + ' (' + sectionCounts[section] + ')</span>';
                 btn.addEventListener('click', () => {
                     selectedSections[tournamentIdx] = section;
-                    
-                    // Add updating class for smooth transition
                     const table = document.getElementById('registrationTable');
                     const statNumber = document.getElementById('totalCount');
-                    
                     table.classList.add('updating');
                     statNumber.style.transform = 'scale(0.8)';
                     statNumber.style.opacity = '0.5';
-                    
                     setTimeout(() => {
                         updateSectionFilters(tournamentIdx, data, tournament);
                         displayRegistrations(tournamentIdx, data, tournament);
-                        
                         table.classList.remove('updating');
                         statNumber.style.transform = 'scale(1)';
                         statNumber.style.opacity = '1';
@@ -682,34 +619,44 @@
                 });
                 filterSection.appendChild(btn);
             });
-            if (!hasAnimated) {
-                AOS.refresh();
-            }
+            if (!hasAnimated) AOS.refresh();
         }
 
         function displayRegistrations(tournamentIdx, data, tournament) {
-            // Filter data by selected section
-            let filteredData = data;
-            if (selectedSections[tournamentIdx] !== 'All') {
-                filteredData = data.filter(row => row[tournament.sectionColumn] === selectedSections[tournamentIdx]);
-            }
+            let filteredData = selectedSections[tournamentIdx] === 'All' ? data : data.filter(row => row[tournament.sectionColumn] === selectedSections[tournamentIdx]);
 
             const headerRow = document.getElementById('headerRow');
             headerRow.innerHTML = '';
             tournament.columns.forEach(col => {
                 const th = document.createElement('th');
-                // Use label if available
                 th.textContent = getLabel(tournament, col);
+                if (col === USCF_ID_KEY || col === "Rating") th.classList.add('hide-on-mobile');
                 headerRow.appendChild(th);
             });
 
             const tableBody = document.getElementById('tableBody');
             tableBody.innerHTML = '';
-            filteredData.forEach((row, idx) => {
+
+            filteredData.forEach((row) => {
                 const tr = document.createElement('tr');
                 tournament.columns.forEach(col => {
                     const td = document.createElement('td');
-                    td.textContent = row[col] || '-';
+                    if (col === USCF_ID_KEY || col === "Rating") td.classList.add('hide-on-mobile');
+
+                    if (col === "Rating") {
+                        const uscfId = row[USCF_ID_KEY];
+                        if (uscfId && uscfId.trim() !== '') {
+                            const btn = document.createElement('button');
+                            btn.className = 'rating-btn';
+                            btn.textContent = 'Get Rating';
+                            btn.onclick = (e) => fetchRating(e.target, uscfId.trim());
+                            td.appendChild(btn);
+                        } else {
+                            td.textContent = '-';
+                        }
+                    } else {
+                        td.textContent = row[col] || '-';
+                    }
                     tr.appendChild(td);
                 });
                 tableBody.appendChild(tr);
@@ -717,40 +664,40 @@
 
             document.getElementById('totalCount').textContent = filteredData.length;
             document.getElementById('sheetTitle').textContent = tournament.name;
-
-            // Apply AOS animations only on first load
-            if (!hasAnimated) {
-                const tournamentTabs = document.getElementById('tournamentTabs');
-                const sheetTitle = document.getElementById('sheetTitle');
-                const statsBox = document.querySelector('.stats');
-                const table = document.getElementById('registrationTable');
-                const filterSection = document.getElementById('filterSection');
-                
-                tournamentTabs.setAttribute('data-aos', 'fade-up');
-                tournamentTabs.setAttribute('data-aos-delay', '100');
-                
-                sheetTitle.setAttribute('data-aos', 'fade-up');
-                sheetTitle.setAttribute('data-aos-delay', '200');
-                
-                statsBox.setAttribute('data-aos', 'fade-up');
-                statsBox.setAttribute('data-aos-delay', '300');
-                
-                if (filterSection.children.length > 0) {
-                    filterSection.setAttribute('data-aos', 'fade-up');
-                    filterSection.setAttribute('data-aos-delay', '400');
-                }
-                
-                table.setAttribute('data-aos', 'fade-up');
-                table.setAttribute('data-aos-delay', '500');
-            }
-
             document.getElementById('loading').style.display = 'none';
             document.getElementById('content').style.display = 'block';
             document.getElementById('error').style.display = 'none';
+            
+            if (!hasAnimated) { AOS.refresh(); hasAnimated = true; }
+        }
 
-            if (!hasAnimated) {
-                AOS.refresh();
-                hasAnimated = true;
+        async function fetchRating(buttonElement, uscfId) {
+            buttonElement.disabled = true;
+            buttonElement.textContent = '...';
+            const workerUrl = `https://yellow-bonus-c067.windsorchesslions.workers.dev/?id=${uscfId}`;
+
+            try {
+                const response = await fetch(workerUrl);
+                if (!response.ok) throw new Error(`HTTP status ${response.status}`);
+                const data = await response.json();
+                
+                let ratingValue = 'Unrated';
+                if (data.ratings && Array.isArray(data.ratings)) {
+                    const regularRating = data.ratings.find(r => r.ratingSystem === 'R');
+                    if (regularRating && regularRating.rating) ratingValue = regularRating.rating;
+                    else if (data.ratings.length > 0 && data.ratings[0].rating) ratingValue = data.ratings[0].rating;
+                }
+
+                const span = document.createElement('span');
+                span.className = 'rating-display';
+                span.textContent = ratingValue;
+                buttonElement.parentNode.replaceChild(span, buttonElement);
+
+            } catch (error) {
+                console.error('Error fetching USCF rating:', error);
+                buttonElement.textContent = 'Error';
+                buttonElement.disabled = false;
+                buttonElement.classList.add('rating-error');
             }
         }
 
@@ -759,8 +706,8 @@
             headerRow.innerHTML = '';
             tournament.columns.forEach(col => {
                 const th = document.createElement('th');
-                // Use label if available
                 th.textContent = getLabel(tournament, col);
+                if (col === USCF_ID_KEY || col === "Rating") th.classList.add('hide-on-mobile');
                 headerRow.appendChild(th);
             });
 
@@ -770,11 +717,9 @@
             document.getElementById('totalCount').textContent = '0';
             document.getElementById('sheetTitle').textContent = tournament.name;
             document.getElementById('filterSection').innerHTML = '';
-
             document.getElementById('loading').style.display = 'none';
             document.getElementById('content').style.display = 'block';
             document.getElementById('error').style.display = 'none';
-
             AOS.refresh();
         }
 
@@ -786,14 +731,11 @@
         }
 
         function updateTimestamp() {
-            const now = new Date();
-            document.getElementById('lastUpdate').textContent = now.toLocaleTimeString();
+            document.getElementById('lastUpdate').textContent = new Date().toLocaleTimeString();
         }
 
         fetchAllTournaments();
-        setInterval(() => {
-            fetchAllTournaments();
-        }, 30000);
+        setInterval(fetchAllTournaments, 30000);
     </script>
 </body>
 </html>
