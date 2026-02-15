@@ -949,64 +949,66 @@
         }
 
         @media (max-width: 768px) {
-            /* Mobile overflow fix - prevents horizontal scrolling issues */
-            html, body {
-                overflow-x: hidden;
-                width: 100%;
-                position: relative;
-            }
+    /* Mobile overflow fix - prevents horizontal scrolling issues */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
 
-            /* Ensure navbar stays fixed and full-width on mobile */
-            .navbar {
-                width: 100%;
-                left: 0;
-                right: 0;
-            }
+    /* Ensure navbar stays fixed and full-width on mobile */
+    .navbar {
+        width: 100%;
+        left: 0;
+        right: 0;
+    }
 
-            .nav-inner {
-                width: 100%;
-                max-width: 100%;
-            }
+    .nav-inner {
+        width: 100%;
+        max-width: 100%;
+    }
 
-            .nav-links {
-                display: none;
-            }
+    .nav-links {
+        display: none;
+    }
 
-            .mobile-menu-container {
-                display: block;
-            }
+    .mobile-menu-container {
+        display: block;
+    }
 
-            header {
-                padding: 2rem 0;
-                margin-top: 67px;
-            }
+    header {
+        padding: 2rem 0;
+        margin-top: 67px;
+    }
 
-            header h1 {
-                font-size: 2.5rem;
-            }
+    header h1 {
+        font-size: 2.5rem;
+    }
 
-            .hero-content h2 {
-                font-size: 2rem;
-            }
+    .hero-content h2 {
+        font-size: 2rem;
+    }
 
-            .section-title {
-                font-size: 2rem;
-            }
+    .section-title {
+        font-size: 2rem;
+    }
 
-            .image-container {
-                flex: 0 0 100%;
-            }
+    .image-container {
+        flex: 0 0 100%;
+    }
 
-            .button-group {
-                flex-direction: column;
-                width: 100%;
-            }
+    .button-group {
+        flex-direction: column;
+        width: 100%;
+        align-items: center; /* Ensures items are centered horizontally */
+    }
 
-            .button-group .cta-button {
-                width: 100%;
-                text-align: center;
-            }
-        }
+    .button-group .cta-button {
+        width: 100%;
+        text-align: center;
+        margin: 0; /* FIX: Removes horizontal margins that caused misalignment */
+    }
+}
 
         @media (max-width: 480px) {
             /* Extra mobile overflow protection for smaller screens */
