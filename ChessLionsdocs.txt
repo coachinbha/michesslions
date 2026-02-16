@@ -1,0 +1,5 @@
+Make google form + flyer
+Post to michess.org and update tournament page on michesslions.com
+Update michesslions registration page
+Update registration page and opensheet
+Update google script to send emails to respondents
