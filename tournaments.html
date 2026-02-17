@@ -3,9 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chess Tournaments - Chess Lions</title>
+    <title>Chess Tournaments in Metro Detroit | Chess Lions - South Lyon, Novi, Farmington Hills MI</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Primary Meta Tags -->
+    <meta name="description" content="Upcoming and past chess tournaments hosted by Chess Lions in South Lyon, Farmington Hills, and Metro Detroit, Michigan. USCF-rated and unrated sections for all ages and skill levels. Register today!">
+    <meta name="keywords" content="chess tournaments Michigan, chess tournament Metro Detroit, chess tournament South Lyon, chess tournament Farmington Hills, USCF rated chess Michigan, youth chess tournament Michigan, chess events near me">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Chess Lions - I2V2 Academy LLC">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://michesslions.com/tournaments.html">
+
+    <!-- Mobile Optimization -->
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://michesslions.com/tournaments.html">
+    <meta property="og:title" content="Chess Tournaments in Metro Detroit | Chess Lions Michigan">
+    <meta property="og:description" content="Upcoming and past chess tournaments hosted by Chess Lions in South Lyon, Farmington Hills, and Metro Detroit. USCF-rated sections for all ages. Register now!">
+    <meta property="og:image" content="https://michesslions.com/WCL business card 1050x600.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://michesslions.com/tournaments.html">
+    <meta property="twitter:title" content="Chess Tournaments in Metro Detroit | Chess Lions Michigan">
+    <meta property="twitter:description" content="Upcoming and past chess tournaments in South Lyon, Farmington Hills, and Metro Detroit. USCF-rated and unrated sections for all skill levels.">
+    <meta property="twitter:image" content="https://michesslions.com/WCL business card 1050x600.png">
+
+    <!-- Google Fonts - Montserrat -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+    <!-- AOS CSS -->
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Event Series Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsOrganization",
+      "name": "Chess Lions",
+      "url": "https://michesslions.com",
+      "telephone": "(734) 560-2802",
+      "email": "i2v2chess@gmail.com",
+      "image": "https://michesslions.com/WCL business card 1050x600.png",
+      "description": "Chess Lions organizes USCF-rated and unrated chess tournaments in South Lyon, Farmington Hills, and Metro Detroit, Michigan for players of all ages and skill levels.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "South Lyon",
+        "addressRegion": "MI",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "South Lyon" },
+        { "@type": "City", "name": "Novi" },
+        { "@type": "City", "name": "Canton" },
+        { "@type": "City", "name": "Farmington Hills" },
+        { "@type": "City", "name": "Troy" },
+        { "@type": "City", "name": "Wixom" }
+      ],
+      "sport": "Chess"
+    }
+    </script>
+
+    <!-- Upcoming Tournament Event Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsEvent",
+      "name": "Chess Lions February Chess Tournament",
+      "description": "USCF-rated and unrated chess tournament in South Lyon, Michigan. Sections include U1500, U1000, U600 rated and K-3 & K-8 unrated. 4 games Swiss System. Open to all ages.",
+      "startDate": "2026-02-21",
+      "endDate": "2026-02-21",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Salem-South Lyon District Library",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "9800 Pontiac Trail",
+          "addressLocality": "South Lyon",
+          "addressRegion": "MI",
+          "postalCode": "48178",
+          "addressCountry": "US"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Chess Lions",
+        "url": "https://michesslions.com"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "10",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://michesslions.com/registration.html",
+        "validThrough": "2026-02-14"
+      },
+      "url": "https://michesslions.com/tournaments.html"
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://michesslions.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Chess Tournaments",
+          "item": "https://michesslions.com/tournaments.html"
+        }
+      ]
+    }
+    </script>
+
     <style>
         * {
             margin: 0;
@@ -77,6 +202,17 @@
             margin-top: 1rem;
             letter-spacing: 2px;
             text-transform: uppercase;
+        }
+
+        /* SEO intro text */
+        .seo-text {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: #777;
+            padding: 0 1.5rem;
         }
 
         /* Registration Button */
@@ -388,8 +524,8 @@
         <!-- Header -->
         <header class="header" data-aos="fade-down" data-aos-duration="600">
             <a href="https://michesslions.com/" class="logo-link">
-                <img src="WCL business card 1050x600.png" 
-                     alt="Chess Lions Logo"
+                <img src="WCL business card 1050x600.png"
+                     alt="Chess Lions Logo - Chess Tournaments in South Lyon Michigan"
                      class="logo-image">
             </a>
             <h1 class="page-title">Tournaments</h1>
@@ -456,8 +592,6 @@
                     }
                 }
             }
-            
-            
         ];
 
         const pastTournaments = [
