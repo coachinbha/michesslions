@@ -243,6 +243,88 @@
             letter-spacing: 1px;
         }
 
+        /* Search Bar */
+        .search-section {
+            margin: 2rem 0 1rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.9rem 3rem 0.9rem 1.25rem;
+            border: 2px solid var(--text-color);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            outline: none;
+            transition: box-shadow 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .search-input::placeholder {
+            color: #aaa;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .search-input:focus {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .search-clear {
+            position: absolute;
+            right: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: #aaa;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            padding: 0.25rem;
+            line-height: 1;
+            display: none;
+            transition: color 0.2s ease;
+        }
+
+        .search-clear:hover {
+            color: var(--text-color);
+        }
+
+        .search-clear.visible {
+            display: block;
+        }
+
+        .no-results {
+            text-align: center;
+            color: #999;
+            font-size: 0.95rem;
+            padding: 3rem 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .search-highlight {
+            background-color: #000;
+            color: #fff;
+            padding: 0 2px;
+            border-radius: 1px;
+        }
+
         .filter-section {
             display: flex;
             justify-content: center;
@@ -416,6 +498,7 @@
             .tournament-tabs { gap: 0.25rem; }
             .tournament-tab { padding: 0.6rem 1rem; font-size: 0.75rem; }
             .cta-button { padding: 0.75rem 1.5rem; font-size: 0.9rem; }
+            .search-input { font-size: 0.85rem; }
 
             /* Hides USCF ID and Rating columns on mobile */
             .hide-on-mobile {
@@ -469,6 +552,21 @@
                 </div>
             </div>
 
+            <!-- Search Bar -->
+            <div class="search-section" data-aos="fade-up">
+                <div class="search-wrapper">
+                    <input
+                        type="text"
+                        id="searchInput"
+                        class="search-input"
+                        placeholder="Search players..."
+                        autocomplete="off"
+                        spellcheck="false"
+                    />
+                    <button class="search-clear" id="searchClear" title="Clear search">&times;</button>
+                </div>
+            </div>
+
             <div class="filter-section" id="filterSection"></div>
 
             <div class="table-wrapper">
@@ -519,6 +617,62 @@
         let activeTournament = 0;
         let tournamentsData = {};
         let selectedSections = {};
+        let searchQuery = '';
+
+        // --- Search logic ---
+        const searchInput = document.getElementById('searchInput');
+        const searchClear = document.getElementById('searchClear');
+
+        searchInput.addEventListener('input', () => {
+            searchQuery = searchInput.value.trim();
+            searchClear.classList.toggle('visible', searchQuery.length > 0);
+            applyFiltersAndRender();
+        });
+
+        searchClear.addEventListener('click', () => {
+            searchInput.value = '';
+            searchQuery = '';
+            searchClear.classList.remove('visible');
+            searchInput.focus();
+            applyFiltersAndRender();
+        });
+
+        function applyFiltersAndRender() {
+            const data = tournamentsData[activeTournament];
+            const tournament = TOURNAMENTS[activeTournament];
+            if (!data) return;
+            renderTable(activeTournament, data, tournament);
+        }
+
+        function getFilteredData(tournamentIdx, data, tournament) {
+            let filtered = selectedSections[tournamentIdx] === 'All'
+                ? data
+                : data.filter(row => row[tournament.sectionColumn] === selectedSections[tournamentIdx]);
+
+            if (searchQuery) {
+                const q = searchQuery.toLowerCase();
+                filtered = filtered.filter(row => {
+                    return tournament.columns.some(col => {
+                        const val = row[col];
+                        return val && val.toString().toLowerCase().includes(q);
+                    });
+                });
+            }
+            return filtered;
+        }
+
+        function highlightText(text, query) {
+            if (!query || !text) return escapeHtml(text || '');
+            const escaped = escapeHtml(text);
+            const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            return escaped.replace(new RegExp(`(${escapedQuery})`, 'gi'), '<mark class="search-highlight">$1</mark>');
+        }
+
+        function escapeHtml(str) {
+            return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        // --- End search logic ---
 
         function getLabel(tournament, key) {
             return (tournament.columnLabels && tournament.columnLabels[key]) ? tournament.columnLabels[key] : key;
@@ -527,8 +681,8 @@
         async function fetchAllTournaments() {
             try {
                 TOURNAMENTS.forEach((t, idx) => {
-                    tournamentsData[idx] = [];
-                    selectedSections[idx] = 'All';
+                    if (!tournamentsData[idx]) tournamentsData[idx] = [];
+                    if (selectedSections[idx] === undefined) selectedSections[idx] = 'All';
                 });
                 await Promise.all(TOURNAMENTS.map((tournament, idx) => fetchTournament(idx, tournament.url)));
                 createTournamentTabs();
@@ -563,6 +717,10 @@
                 btn.innerHTML = '<span>' + tournament.name + '</span>';
                 btn.addEventListener('click', () => {
                     activeTournament = idx;
+                    // Reset search when switching tournaments
+                    searchInput.value = '';
+                    searchQuery = '';
+                    searchClear.classList.remove('visible');
                     createTournamentTabs();
                     displayTournament(idx);
                 });
@@ -579,7 +737,7 @@
                 return;
             }
             updateSectionFilters(tournamentIdx, data, tournament);
-            displayRegistrations(tournamentIdx, data, tournament);
+            renderTable(tournamentIdx, data, tournament);
         }
 
         function updateSectionFilters(tournamentIdx, data, tournament) {
@@ -611,7 +769,7 @@
                     statNumber.style.opacity = '0.5';
                     setTimeout(() => {
                         updateSectionFilters(tournamentIdx, data, tournament);
-                        displayRegistrations(tournamentIdx, data, tournament);
+                        renderTable(tournamentIdx, data, tournament);
                         table.classList.remove('updating');
                         statNumber.style.transform = 'scale(1)';
                         statNumber.style.opacity = '1';
@@ -622,8 +780,8 @@
             if (!hasAnimated) AOS.refresh();
         }
 
-        function displayRegistrations(tournamentIdx, data, tournament) {
-            let filteredData = selectedSections[tournamentIdx] === 'All' ? data : data.filter(row => row[tournament.sectionColumn] === selectedSections[tournamentIdx]);
+        function renderTable(tournamentIdx, data, tournament) {
+            const filteredData = getFilteredData(tournamentIdx, data, tournament);
 
             const headerRow = document.getElementById('headerRow');
             headerRow.innerHTML = '';
@@ -637,38 +795,60 @@
             const tableBody = document.getElementById('tableBody');
             tableBody.innerHTML = '';
 
-            filteredData.forEach((row) => {
+            if (filteredData.length === 0) {
                 const tr = document.createElement('tr');
-                tournament.columns.forEach(col => {
-                    const td = document.createElement('td');
-                    if (col === USCF_ID_KEY || col === "Rating") td.classList.add('hide-on-mobile');
-
-                    if (col === "Rating") {
-                        const uscfId = row[USCF_ID_KEY];
-                        if (uscfId && uscfId.trim() !== '') {
-                            const btn = document.createElement('button');
-                            btn.className = 'rating-btn';
-                            btn.textContent = 'Get Rating';
-                            btn.onclick = (e) => fetchRating(e.target, uscfId.trim());
-                            td.appendChild(btn);
-                        } else {
-                            td.textContent = '-';
-                        }
-                    } else {
-                        td.textContent = row[col] || '-';
-                    }
-                    tr.appendChild(td);
-                });
+                const td = document.createElement('td');
+                td.colSpan = tournament.columns.length;
+                td.className = 'no-results';
+                td.textContent = searchQuery
+                    ? `No results for "${searchQuery}"`
+                    : 'No registrations yet';
+                tr.appendChild(td);
                 tableBody.appendChild(tr);
-            });
+            } else {
+                filteredData.forEach((row) => {
+                    const tr = document.createElement('tr');
+                    tournament.columns.forEach(col => {
+                        const td = document.createElement('td');
+                        if (col === USCF_ID_KEY || col === "Rating") td.classList.add('hide-on-mobile');
+
+                        if (col === "Rating") {
+                            const uscfId = row[USCF_ID_KEY];
+                            if (uscfId && uscfId.trim() !== '') {
+                                const btn = document.createElement('button');
+                                btn.className = 'rating-btn';
+                                btn.textContent = 'Get Rating';
+                                btn.onclick = (e) => fetchRating(e.target, uscfId.trim());
+                                td.appendChild(btn);
+                            } else {
+                                td.textContent = '-';
+                            }
+                        } else {
+                            const rawValue = row[col] || '-';
+                            if (searchQuery && rawValue !== '-') {
+                                td.innerHTML = highlightText(rawValue, searchQuery);
+                            } else {
+                                td.textContent = rawValue;
+                            }
+                        }
+                        tr.appendChild(td);
+                    });
+                    tableBody.appendChild(tr);
+                });
+            }
 
             document.getElementById('totalCount').textContent = filteredData.length;
             document.getElementById('sheetTitle').textContent = tournament.name;
             document.getElementById('loading').style.display = 'none';
             document.getElementById('content').style.display = 'block';
             document.getElementById('error').style.display = 'none';
-            
+
             if (!hasAnimated) { AOS.refresh(); hasAnimated = true; }
+        }
+
+        // Keep old name as alias for compatibility
+        function displayRegistrations(tournamentIdx, data, tournament) {
+            renderTable(tournamentIdx, data, tournament);
         }
 
         async function fetchRating(buttonElement, uscfId) {
