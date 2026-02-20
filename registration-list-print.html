@@ -514,6 +514,71 @@
         .action-btn:hover { color: var(--bg-color); }
         .action-btn span { position: relative; z-index: 1; }
 
+        /* Print Layout Modal */
+        .print-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .print-modal-overlay.visible {
+            display: flex;
+        }
+
+        .print-modal {
+            background: #fff;
+            border: 2px solid #000;
+            padding: 2rem 2.5rem;
+            max-width: 420px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .print-modal h3 {
+            font-size: 1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.4rem;
+        }
+
+        .print-modal p {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.3px;
+        }
+
+        .print-modal-btns {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .print-modal-btns .action-btn {
+            font-size: 0.8rem;
+            padding: 0.65rem 1.2rem;
+        }
+
+        .print-modal-cancel {
+            margin-top: 1rem;
+            background: none;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            color: #999;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .print-modal-cancel:hover { color: #000; }
+
         /* Footer */
         footer {
             text-align: center;
@@ -639,6 +704,19 @@
         <footer data-aos="fade-up" data-aos-duration="1500">
             <p>&copy; 2025-2026 I2V2 Academy LLC. All Rights Reserved.</p>
         </footer>
+    </div>
+
+    <!-- Print layout picker modal -->
+    <div class="print-modal-overlay" id="printModalOverlay">
+        <div class="print-modal">
+            <h3>Print Layout</h3>
+            <p>How would you like sections arranged?</p>
+            <div class="print-modal-btns">
+                <button class="action-btn" id="printFlowBtn"><span>&#9776; Flowing — save paper</span></button>
+                <button class="action-btn" id="printPageBtn"><span>&#9723; One page per section</span></button>
+            </div>
+            <button class="print-modal-cancel" id="printModalCancel">Cancel</button>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
@@ -1010,15 +1088,33 @@
         }
 
         // ── Print ───────────────────────────────────────────────────────────────
-        document.getElementById('printBtn').addEventListener('click', openPrint);
+        const printModalOverlay = document.getElementById('printModalOverlay');
 
-        function openPrint() {
+        document.getElementById('printBtn').addEventListener('click', () => {
+            const data = tournamentsData[activeTournament];
+            if (!data || data.length === 0) return;
+            printModalOverlay.classList.add('visible');
+        });
+        document.getElementById('printModalCancel').addEventListener('click', () => {
+            printModalOverlay.classList.remove('visible');
+        });
+        printModalOverlay.addEventListener('click', (e) => {
+            if (e.target === printModalOverlay) printModalOverlay.classList.remove('visible');
+        });
+        document.getElementById('printFlowBtn').addEventListener('click', () => {
+            printModalOverlay.classList.remove('visible');
+            openPrint('flow');
+        });
+        document.getElementById('printPageBtn').addEventListener('click', () => {
+            printModalOverlay.classList.remove('visible');
+            openPrint('page');
+        });
+
+        function openPrint(mode) {
             const tournament = TOURNAMENTS[activeTournament];
             const data = tournamentsData[activeTournament];
             if (!data || data.length === 0) return;
 
-            // Always print from the full (section-filtered) data, ignoring search —
-            // search is a lookup tool, not a print filter.
             const baseData = selectedSections[activeTournament] === 'All'
                 ? data
                 : data.filter(row => row[tournament.sectionColumn] === selectedSections[activeTournament]);
@@ -1030,7 +1126,7 @@
                 + escapeHtml(getLabel(tournament, c)) + '</th>'
             ).join('');
 
-            // Group rows by section, preserving the order sections first appear
+            // Group by section preserving order
             const sectionMap = new Map();
             baseData.forEach(row => {
                 const sec = row[tournament.sectionColumn] || 'Unknown Section';
@@ -1038,16 +1134,10 @@
                 sectionMap.get(sec).push(row);
             });
 
-            // If viewing "All", print every section; otherwise just the one selected
-            let sectionsToprint;
-            if (selectedSections[activeTournament] === 'All') {
-                sectionsToprint = [...sectionMap.entries()]; // [[sectionName, rows], ...]
-            } else {
-                const sec = selectedSections[activeTournament];
-                sectionsToprint = [[sec, sectionMap.get(sec) || []]];
-            }
+            const sectionsToprint = selectedSections[activeTournament] === 'All'
+                ? [...sectionMap.entries()]
+                : [[selectedSections[activeTournament], sectionMap.get(selectedSections[activeTournament]) || []]];
 
-            // Build one <section> block per group — CSS page-break-after separates them
             let sectionsHtml = '';
             sectionsToprint.forEach(([sectionName, rows], sIdx) => {
                 const isLast = sIdx === sectionsToprint.length - 1;
@@ -1063,22 +1153,41 @@
                     rowsHtml += '</tr>';
                 });
 
-                sectionsHtml += `
-                <div class="section-page" style="${isLast ? '' : 'page-break-after:always;'}">
-                    <div style="margin-bottom:10pt;padding-bottom:6pt;border-bottom:2px solid #000;">
-                        <div style="font-size:10pt;color:#555;margin-bottom:2pt;">${escapeHtml(tournament.name)}</div>
-                        <h1 style="font-size:18pt;font-weight:bold;margin:0 0 3pt;">${escapeHtml(sectionName)}</h1>
-                        <div style="font-size:9pt;color:#444;">${rows.length} player${rows.length !== 1 ? 's' : ''} &nbsp;|&nbsp; Printed: ${now}</div>
-                    </div>
-                    <table style="width:100%;border-collapse:collapse;font-size:10pt;">
-                        <thead><tr>
-                            <th style="background:#fff;color:#000;padding:5pt 6pt;text-align:center;font-size:9pt;border:1px solid #000;border-bottom:2px solid #000;width:28px;">#</th>
-                            ${headerCells}
-                        </tr></thead>
-                        <tbody>${rowsHtml}</tbody>
-                    </table>
-                    <div style="margin-top:8pt;font-size:8pt;color:#666;text-align:right;">&copy; 2025-2026 I2V2 Academy LLC. All Rights Reserved.</div>
-                </div>`;
+                if (mode === 'page') {
+                    // Hard page break after each section except the last
+                    sectionsHtml += `
+                    <div style="${!isLast ? 'page-break-after:always;' : ''}padding-bottom:12pt;">
+                        <div style="margin-bottom:10pt;padding-bottom:6pt;border-bottom:2px solid #000;">
+                            <div style="font-size:9pt;color:#555;margin-bottom:2pt;">${escapeHtml(tournament.name)}</div>
+                            <h1 style="font-size:18pt;font-weight:bold;margin:0 0 3pt;">${escapeHtml(sectionName)}</h1>
+                            <div style="font-size:9pt;color:#444;">${rows.length} player${rows.length !== 1 ? 's' : ''} &nbsp;|&nbsp; Printed: ${now}</div>
+                        </div>
+                        <table style="width:100%;border-collapse:collapse;font-size:10pt;">
+                            <thead><tr>
+                                <th style="background:#fff;color:#000;padding:5pt 6pt;text-align:center;font-size:9pt;border:1px solid #000;border-bottom:2px solid #000;width:28px;">#</th>
+                                ${headerCells}
+                            </tr></thead>
+                            <tbody>${rowsHtml}</tbody>
+                        </table>
+                    </div>`;
+                } else {
+                    // Flowing — sections run on continuously, bold divider between them
+                    sectionsHtml += `
+                    <div style="margin-bottom:18pt;page-break-inside:avoid;">
+                        <div style="margin-bottom:8pt;padding-bottom:5pt;border-bottom:2px solid #000;${sIdx > 0 ? 'margin-top:24pt;border-top:3px solid #000;padding-top:10pt;' : ''}">
+                            <div style="font-size:9pt;color:#555;margin-bottom:2pt;">${escapeHtml(tournament.name)}</div>
+                            <h1 style="font-size:15pt;font-weight:bold;margin:0 0 3pt;">${escapeHtml(sectionName)}</h1>
+                            <div style="font-size:9pt;color:#444;">${rows.length} player${rows.length !== 1 ? 's' : ''} &nbsp;|&nbsp; Printed: ${now}</div>
+                        </div>
+                        <table style="width:100%;border-collapse:collapse;font-size:10pt;">
+                            <thead><tr>
+                                <th style="background:#fff;color:#000;padding:5pt 6pt;text-align:center;font-size:9pt;border:1px solid #000;border-bottom:2px solid #000;width:28px;">#</th>
+                                ${headerCells}
+                            </tr></thead>
+                            <tbody>${rowsHtml}</tbody>
+                        </table>
+                    </div>`;
+                }
             });
 
             const win = window.open('', '_blank', 'width=900,height=700');
@@ -1089,11 +1198,15 @@
 <title>Chess Lions Registrations</title>
 <style>
   body { font-family: Arial, Helvetica, sans-serif; color: #000; margin: 24px; }
-  thead tr { -webkit-print-color-adjust: exact; print-color-adjust: exact; }  tr { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  thead tr { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  tr { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   @media print { body { margin: 0; } }
 </style>
 </head>
-<body>${sectionsHtml}</body>
+<body>
+${sectionsHtml}
+<div style="margin-top:12pt;font-size:8pt;color:#666;text-align:right;border-top:1px solid #ccc;padding-top:6pt;">&copy; 2025-2026 I2V2 Academy LLC. All Rights Reserved.</div>
+</body>
 </html>`);
             win.document.close();
             win.focus();
