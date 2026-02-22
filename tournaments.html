@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -563,23 +564,23 @@
         
         const upcomingTournaments = [
             {
-                title: "Chess Lions February Chess Tournament",
-                date: "Saturday, February 21, 2026",
+                title: "Chess Lions Troy Chess Tournament - at Wyndham",
+                date: "Saturday, April 4, 2026",
                 details: {
                     "Organizer": "Chess Lions",
-                    "Location": "9800 Pontiac Trail, South Lyon, MI 48178",
+                    "Location": "2537 Rochester Ct, Troy, MI 48083 - Wingate by Wyndham Troy",
                     "Format": "4 games, Swiss System",
                     "Time Controls": [
-                        "Rated Sections: G30/d5",
-                        "Unrated Sections: G20/d0"
+                        "Upper and U1400: G50/d5",
+                        "U800 and unrated Sections: G30/d5"
                     ],
-                    "Round Times": "Games start at 10:00 am, subsequent rounds ASAP",
+                    "Round Times": "Upper & U1400: 9:30AM, 11:30AM, 1:45PM, 3PM\nU800: 9:30AM, 10:30AM, 11:30AM, 1PM\nUnrated: 9:30AM start, next rounds ASAP",
                     "Sections": [
-                        "USCF Rated: U1500, U1000, and U600",
+                        "USCF Rated: Upper (1400+), U1400, and U800",
                         "Unrated: K-3 & K-8"
                     ],
-                    "Entry Fee": "$10 by 2/14, after is $15",
-                    "Prizes": "Trophies/medals",
+                    "Entry Fee": "$30 for all sections - free entry for NM, (W)FM, (W)IM, (W)GM titles, entry deducted from prize if won",
+                    "Prizes": "Trophies/medals/cash prizes",
                     "Registration": { link: "https://michesslions.com/registration.html", text: "Register Online" },
                     "Payment": { 
                         text: "Zelle to: ",
@@ -595,11 +596,20 @@
         ];
 
         const pastTournaments = [
+        
+        	   {
+                title: "Chess Lions - Feb 2026 Tournament",
+                date: "December 21, 2025",
+                details: {
+                    "Organizer": "Chess Lions & Michigan Tamil Sangam",
+                    "Location": "9800 Pontiac Trail, South Lyon, MI 48178"
+                }
+            },
             {
                 title: "MTS 3rd Annual Chess Tournament",
                 date: "December 21, 2025",
                 details: {
-                    "Organizer": "Chess Lions & Michigan Tamil Sangam",
+                    "Organizer": "Chess Lions",
                     "Location": "34740 Rhonswood St, Farmington Hills, MI 48335"
                 }
             },
@@ -682,25 +692,21 @@
         // ============================================
 
         function renderDetailValue(value) {
-            if (Array.isArray(value)) {
-                return `<ul>${value.map(item => `<li>${item}</li>`).join('')}</ul>`;
-            } else if (typeof value === 'object') {
-                if (value.link) {
-                    return `<a href="${value.link}">${value.text}</a>`;
-                } else if (value.email) {
-                    let content = value.text || '';
-                    content += `<a href="mailto:${value.email}">${value.email}</a>`;
-                    if (value.phone) {
-                        content += ` / ${value.phone}`;
-                    }
-                    if (value.additional) {
-                        content += value.additional;
-                    }
-                    return content;
-                }
-            }
-            return value;
+    if (Array.isArray(value)) {
+        return `<ul>${value.map(item => `<li>${item}</li>`).join('')}</ul>`;
+    } else if (typeof value === 'object') {
+        if (value.link) {
+            return `<a href="${value.link}">${value.text}</a>`;
+        } else if (value.email) {
+            let content = value.text || '';
+            content += `<a href="mailto:${value.email}">${value.email}</a>`;
+            if (value.phone) content += ` / ${value.phone}`;
+            if (value.additional) content += value.additional;
+            return content;
         }
+    }
+    return `<span style="white-space: pre-line">${value}</span>`; // ← only this line changes
+}
 
         function createTournamentItem(tournament, index) {
             const detailsHTML = Object.entries(tournament.details)
