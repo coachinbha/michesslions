@@ -10,6 +10,8 @@
         :root {
             --bg-color: #ffffff;
             --text-color: #000000;
+            --gray-100: #f8f8f8;
+            --gray-200: #e5e5e5;
         }
 
         * {
@@ -18,14 +20,350 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
-            padding: 40px 20px;
             overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
         }
+
+        /* ============================================
+           NAVBAR — extracted from index.html
+        ============================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-color);
+            border-bottom: 1px solid var(--gray-200);
+            z-index: 1000;
+            transition: box-shadow 0.3s ease;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            opacity: 0.8;
+        }
+
+        .logo img {
+            max-height: 50px;
+            max-width: 200px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--text-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown > span {
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-dropdown > span:hover {
+            transform: translateY(-2px);
+        }
+
+        .nav-dropdown > span svg {
+            width: 12px;
+            height: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-dropdown:hover > span svg {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 1rem);
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: var(--bg-color);
+            border: 1px solid var(--gray-200);
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -1rem;
+            left: 0;
+            right: 0;
+            height: 1rem;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: inline-flex;
+            width: 100%;
+            padding: 0.875rem 1.25rem;
+            font-size: 0.8rem;
+            border-bottom: 1px solid var(--gray-100);
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            transition: background-color 0.3s ease, padding-left 0.3s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--gray-100);
+            padding-left: 1.5rem;
+        }
+
+        .dropdown-menu a::after {
+            display: none;
+        }
+
+        .dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-menu a span {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu a span::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--text-color);
+            transition: width 0.3s ease;
+        }
+
+        .dropdown-menu a:hover span::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Container */
+        .mobile-menu-container {
+            display: none;
+            position: relative;
+        }
+
+        .mobile-toggle {
+            display: block;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text-color);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--bg-color);
+            border: 1px solid var(--gray-200);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            z-index: 999;
+            min-width: 200px;
+            max-width: 220px;
+            margin-top: 0.5rem;
+            border-radius: 4px;
+        }
+
+        .mobile-menu.active {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .mobile-menu a,
+        .mobile-menu .mobile-dropdown-toggle {
+            display: block;
+            padding: 0.875rem 1.25rem;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--gray-100);
+            transition: background-color 0.3s ease, padding-left 0.3s ease;
+        }
+
+        .mobile-menu a:hover,
+        .mobile-menu .mobile-dropdown-toggle:hover {
+            background-color: var(--gray-100);
+            padding-left: 1.5rem;
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-dropdown-toggle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .mobile-dropdown-toggle svg {
+            width: 14px;
+            height: 14px;
+            transition: transform 0.3s ease;
+            stroke: var(--text-color);
+        }
+
+        .mobile-dropdown-toggle.active svg {
+            transform: rotate(180deg);
+        }
+
+        .mobile-submenu {
+            display: none;
+            background: var(--gray-100);
+        }
+
+        .mobile-submenu.active {
+            display: block;
+            animation: expandDown 0.3s ease;
+        }
+
+        @keyframes expandDown {
+            from { opacity: 0; max-height: 0; }
+            to   { opacity: 1; max-height: 500px; }
+        }
+
+        .mobile-submenu a {
+            padding: 0.75rem 1.25rem 0.75rem 2rem;
+            font-size: 0.75rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .mobile-submenu a:hover {
+            padding-left: 2.5rem;
+        }
+
+        .mobile-submenu a:last-child {
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        /* ============================================
+           GALLERY STYLES
+        ============================================ */
 
         /* Loader */
         .loader-container {
@@ -58,6 +396,10 @@
 
         .loader-text {
             order: -1;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         /* 3D Box Loader */
@@ -81,167 +423,51 @@
             transform-style: preserve-3d;
         }
 
-        .boxes .box:nth-child(1) {
-            transform: translate(100%, 0);
-            -webkit-animation: box1 var(--duration) linear infinite;
-            animation: box1 var(--duration) linear infinite;
-        }
-
-        .boxes .box:nth-child(2) {
-            transform: translate(0, 100%);
-            -webkit-animation: box2 var(--duration) linear infinite;
-            animation: box2 var(--duration) linear infinite;
-        }
-
-        .boxes .box:nth-child(3) {
-            transform: translate(100%, 100%);
-            -webkit-animation: box3 var(--duration) linear infinite;
-            animation: box3 var(--duration) linear infinite;
-        }
-
-        .boxes .box:nth-child(4) {
-            transform: translate(200%, 0);
-            -webkit-animation: box4 var(--duration) linear infinite;
-            animation: box4 var(--duration) linear infinite;
-        }
+        .boxes .box:nth-child(1) { transform: translate(100%, 0); animation: box1 var(--duration) linear infinite; }
+        .boxes .box:nth-child(2) { transform: translate(0, 100%); animation: box2 var(--duration) linear infinite; }
+        .boxes .box:nth-child(3) { transform: translate(100%, 100%); animation: box3 var(--duration) linear infinite; }
+        .boxes .box:nth-child(4) { transform: translate(200%, 0); animation: box4 var(--duration) linear infinite; }
 
         .boxes .box > div {
             --background: #000000;
-            --top: auto;
-            --right: auto;
-            --bottom: auto;
-            --left: auto;
+            --top: auto; --right: auto; --bottom: auto; --left: auto;
             --translateZ: calc(var(--size) / 2);
-            --rotateY: 0deg;
-            --rotateX: 0deg;
+            --rotateY: 0deg; --rotateX: 0deg;
             position: absolute;
-            width: 100%;
-            height: 100%;
+            width: 100%; height: 100%;
             background: var(--background);
-            top: var(--top);
-            right: var(--right);
-            bottom: var(--bottom);
-            left: var(--left);
+            top: var(--top); right: var(--right); bottom: var(--bottom); left: var(--left);
             transform: rotateY(var(--rotateY)) rotateX(var(--rotateX)) translateZ(var(--translateZ));
         }
 
-        .boxes .box > div:nth-child(1) {
-            --top: 0;
-            --left: 0;
-        }
-
-        .boxes .box > div:nth-child(2) {
-            --background: #1a1a1a;
-            --right: 0;
-            --rotateY: 90deg;
-        }
-
-        .boxes .box > div:nth-child(3) {
-            --background: #0d0d0d;
-            --rotateX: -90deg;
-        }
-
-        .boxes .box > div:nth-child(4) {
-            --background: #262626;
-            --top: 0;
-            --left: 0;
-            --translateZ: calc(var(--size) * 3 * -1);
-        }
-
-        @-webkit-keyframes box1 {
-            0%, 50% {
-                transform: translate(100%, 0);
-            }
-            100% {
-                transform: translate(200%, 0);
-            }
-        }
+        .boxes .box > div:nth-child(1) { --top: 0; --left: 0; }
+        .boxes .box > div:nth-child(2) { --background: #1a1a1a; --right: 0; --rotateY: 90deg; }
+        .boxes .box > div:nth-child(3) { --background: #0d0d0d; --rotateX: -90deg; }
+        .boxes .box > div:nth-child(4) { --background: #262626; --top: 0; --left: 0; --translateZ: calc(var(--size) * 3 * -1); }
 
         @keyframes box1 {
-            0%, 50% {
-                transform: translate(100%, 0);
-            }
-            100% {
-                transform: translate(200%, 0);
-            }
+            0%, 50% { transform: translate(100%, 0); }
+            100%     { transform: translate(200%, 0); }
         }
-
-        @-webkit-keyframes box2 {
-            0% {
-                transform: translate(0, 100%);
-            }
-            50% {
-                transform: translate(0, 0);
-            }
-            100% {
-                transform: translate(100%, 0);
-            }
-        }
-
         @keyframes box2 {
-            0% {
-                transform: translate(0, 100%);
-            }
-            50% {
-                transform: translate(0, 0);
-            }
-            100% {
-                transform: translate(100%, 0);
-            }
+            0%   { transform: translate(0, 100%); }
+            50%  { transform: translate(0, 0); }
+            100% { transform: translate(100%, 0); }
         }
-
-        @-webkit-keyframes box3 {
-            0%, 50% {
-                transform: translate(100%, 100%);
-            }
-            100% {
-                transform: translate(0, 100%);
-            }
-        }
-
         @keyframes box3 {
-            0%, 50% {
-                transform: translate(100%, 100%);
-            }
-            100% {
-                transform: translate(0, 100%);
-            }
+            0%, 50% { transform: translate(100%, 100%); }
+            100%    { transform: translate(0, 100%); }
         }
-
-        @-webkit-keyframes box4 {
-            0% {
-                transform: translate(200%, 0);
-            }
-            50% {
-                transform: translate(200%, 100%);
-            }
-            100% {
-                transform: translate(100%, 100%);
-            }
-        }
-
         @keyframes box4 {
-            0% {
-                transform: translate(200%, 0);
-            }
-            50% {
-                transform: translate(200%, 100%);
-            }
-            100% {
-                transform: translate(100%, 100%);
-            }
-        }
-
-        .loader-text {
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            0%   { transform: translate(200%, 0); }
+            50%  { transform: translate(200%, 100%); }
+            100% { transform: translate(100%, 100%); }
         }
 
         .gallery-wrapper {
             max-width: 1400px;
             margin: 0 auto;
+            padding: 100px 20px 40px; /* top padding accounts for fixed navbar */
             opacity: 0;
             transition: opacity 0.8s ease;
         }
@@ -250,34 +476,61 @@
             opacity: 1;
         }
 
-        .logo-section {
+        .gallery-header {
             text-align: center;
-            margin-bottom: 50px;
-            opacity: 0;
-            transform: translateY(-20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            margin-bottom: 60px;
         }
 
-        .logo-section.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .gallery-header h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
         }
 
-        .logo-link {
-            display: inline-block;
-            transition: transform 0.3s ease;
+        .gallery-container {
+            columns: 4;
+            column-gap: 20px;
+            position: relative;
         }
 
-        .logo-link:hover {
-            transform: scale(1.05);
-        }
-
-        .logo-image {
-            width: 200px;
-            height: 120px;
-            object-fit: contain;
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
             border: 2px solid var(--text-color);
-            background-color: #f5f5f5;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            background: var(--bg-color);
+            opacity: 0;
+            transform: translateY(80px) scale(0.95);
+        }
+
+        .gallery-item.visible {
+            animation: slideInPlace 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        @keyframes slideInPlace {
+            0%   { opacity: 0; transform: translateY(80px) scale(0.95); }
+            60%  { transform: translateY(-8px) scale(1.03); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
         }
 
         .gallery-footer {
@@ -315,79 +568,11 @@
             opacity: 0.7;
         }
 
-        .gallery-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .gallery-header h1 {
-            font-size: 3rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            margin-bottom: 10px;
-        }
-
-        .gallery-container {
-            columns: 4;
-            column-gap: 20px;
-            position: relative;
-        }
-
-        .gallery-item {
-            break-inside: avoid;
-            margin-bottom: 20px;
-            position: relative;
-            overflow: hidden;
-            border: 2px solid var(--text-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            background: var(--bg-color);
-            opacity: 0;
-            transform: translateY(80px) scale(0.95);
-        }
-
-        .gallery-item.visible {
-            animation: slideInPlace 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-        }
-
-        @keyframes slideInPlace {
-            0% {
-                opacity: 0;
-                transform: translateY(80px) scale(0.95);
-            }
-            60% {
-                transform: translateY(-8px) scale(1.03);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
-        /* Lightbox Overlay */
+        /* Lightbox */
         .lightbox-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0);
             z-index: 999;
             pointer-events: none;
@@ -399,7 +584,6 @@
             pointer-events: auto;
         }
 
-        /* Morphing Image - GPU accelerated */
         .lightbox-morph-img {
             position: fixed;
             z-index: 1000;
@@ -417,8 +601,7 @@
 
         .lightbox-close {
             position: fixed;
-            top: 30px;
-            right: 30px;
+            top: 30px; right: 30px;
             color: white;
             font-size: 3rem;
             cursor: pointer;
@@ -440,132 +623,138 @@
             transform: scale(1.1) rotate(90deg);
         }
 
-        /* Responsive */
-        @media (max-width: 1200px) {
-            .gallery-container {
-                columns: 3;
-            }
-        }
-
+        /* ============================================
+           RESPONSIVE
+        ============================================ */
         @media (max-width: 768px) {
-            .gallery-container {
-                columns: 2;
-                column-gap: 15px;
-            }
-            
-            .gallery-header h1 {
-                font-size: 2rem;
-            }
-            
-            .logo-image {
-                width: 150px;
-                height: 90px;
-            }
+            html, body { overflow-x: hidden; width: 100%; }
 
-            .boxes {
-                --size: 24px;
-            }
+            .navbar { width: 100%; left: 0; right: 0; }
+            .nav-inner { width: 100%; max-width: 100%; }
+            .nav-links { display: none; }
+            .mobile-menu-container { display: block; }
 
-            .loader-text {
-                font-size: 1rem;
-            }
+            .gallery-wrapper { padding-top: 90px; }
 
-            .gallery-item {
-                margin-bottom: 15px;
-            }
+            .gallery-container { columns: 2; column-gap: 15px; }
+            .gallery-header h1 { font-size: 2rem; }
+            .gallery-item { margin-bottom: 15px; }
 
-            body {
-                padding: 30px 15px;
-            }
+            .footer-text { font-size: 1.2rem; }
+            .footer-subtext { font-size: 0.9rem; }
 
-            .footer-text {
-                font-size: 1.2rem;
-            }
-
-            .footer-subtext {
-                font-size: 0.9rem;
-            }
+            .boxes { --size: 24px; }
+            .loader-text { font-size: 1rem; }
         }
 
         @media (max-width: 480px) {
-            .gallery-container {
-                columns: 1;
-                column-gap: 0;
-            }
+            html, body { overflow-x: hidden; width: 100%; }
+            .nav-inner { padding: 0.5rem 1rem; width: 100%; }
+            .logo img { max-height: 40px; max-width: 160px; }
 
-            body {
-                padding: 20px 10px;
-            }
+            .gallery-container { columns: 1; column-gap: 0; }
+            .gallery-item { margin-bottom: 15px; }
 
-            .gallery-item {
-                margin-bottom: 15px;
-            }
+            .lightbox-close { font-size: 2.5rem; top: 20px; right: 20px; }
+            .footer-text { font-size: 1rem; }
+            .footer-subtext { font-size: 0.85rem; }
+            .boxes { --size: 20px; }
+        }
 
-            .lightbox-close {
-                font-size: 2.5rem;
-                top: 20px;
-                right: 20px;
-            }
-
-            .footer-text {
-                font-size: 1rem;
-            }
-
-            .footer-subtext {
-                font-size: 0.85rem;
-            }
-
-            .boxes {
-                --size: 20px;
-            }
+        /* iOS touch device overrides */
+        @media (hover: none) and (pointer: coarse) {
+            .logo:hover,
+            .gallery-item:hover,
+            .gallery-item:hover img,
+            .lightbox-close:hover { transform: none !important; }
+            .gallery-item:hover { box-shadow: none !important; }
+            .gallery-item:active { opacity: 0.85; }
         }
     </style>
 </head>
 <body>
+
     <!-- Loader -->
     <div class="loader-container" id="loaderContainer">
         <div class="loader-content">
             <div class="boxes">
-                <div class="box">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <div class="box">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <div class="box">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <div class="box">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
+                <div class="box"><div></div><div></div><div></div><div></div></div>
+                <div class="box"><div></div><div></div><div></div><div></div></div>
+                <div class="box"><div></div><div></div><div></div><div></div></div>
+                <div class="box"><div></div><div></div><div></div><div></div></div>
             </div>
             <div class="loader-text">Loading Gallery...</div>
         </div>
     </div>
 
-    <div class="gallery-wrapper" id="galleryWrapper">
-        <div class="logo-section" id="logoSection">
-            <a href="https://michesslions.com" class="logo-link">
-                <img src="WCL business card 1050x600.png" 
-                     alt="Chess Lions Logo" 
-                     class="logo-image">
+    <!-- ============================================
+         NAVBAR — from index.html
+    ============================================ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="/" class="logo">
+                <img src="WCL business card 1050x600.png" alt="Chess Lions Logo - Professional Chess Instruction in South Lyon Michigan">
             </a>
+
+            <div class="nav-links">
+                <a href="https://michesslions.com/#home">Home</a>
+                <a href="https://michesslions.com/#services">Teaching</a>
+                <a href="https://michesslions.com/about.html">About</a>
+                <div class="nav-dropdown">
+                    <span>Tournaments
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </span>
+                    <div class="dropdown-menu">
+                        <a href="https://michesslions.com/tournaments.html"><span>Current Tournaments</span></a>
+                        <a href="https://michesslions.com/registration.html"><span>Register</span></a>
+                        <a href="https://michesslions.com/registration-list.html"><span>Registration List</span></a>
+                    </div>
+                </div>
+                <a href="https://michesslions.com/#contact">Contact</a>
+                <a href="https://michesslions.com/faq.html">FAQ</a>
+                <a href="https://michesslions.com/fullgallery.html">Gallery</a>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="mobile-menu-container">
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="mobile-menu" id="mobileMenu">
+                    <a href="https://michesslions.com/#home">Home</a>
+                    <a href="https://michesslions.com/#services">Teaching</a>
+                    <a href="https://michesslions.com/about.html">About</a>
+                    <div class="mobile-dropdown-toggle" id="mobileTournamentToggle">
+                        <span>Tournaments</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </div>
+                    <div class="mobile-submenu" id="mobileSubmenu">
+                        <a href="https://michesslions.com/tournaments.html">Current Tournaments</a>
+                        <a href="https://michesslions.com/registration.html">Register</a>
+                        <a href="https://michesslions.com/registration-list.html">Registration List</a>
+                    </div>
+                    <a href="https://michesslions.com/#contact">Contact</a>
+                    <a href="https://michesslions.com/faq.html">FAQ</a>
+                    <a href="https://michesslions.com/fullgallery.html">Gallery</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Gallery Content -->
+    <div class="gallery-wrapper" id="galleryWrapper">
+        <div class="gallery-header">
+            <h1>Gallery</h1>
         </div>
 
         <div class="gallery-container" id="galleryContainer">
-            <!-- Images will be dynamically inserted here -->
+            <!-- Images dynamically inserted -->
         </div>
 
         <div class="gallery-footer" id="galleryFooter">
@@ -575,15 +764,63 @@
         </div>
     </div>
 
-    <!-- Lightbox Overlay -->
+    <!-- Lightbox -->
     <div class="lightbox-overlay" id="lightboxOverlay"></div>
     <span class="lightbox-close" id="lightboxClose">&times;</span>
 
     <script>
-        // All image sources - optimized JPEGs
+        /* ============================================
+           NAVBAR JS — extracted from index.html
+        ============================================ */
+        const navbar = document.getElementById('navbar');
+        let ticking = false;
+
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                window.requestAnimationFrame(function () {
+                    navbar.classList.toggle('scrolled', window.scrollY > 50);
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu   = document.getElementById('mobileMenu');
+        const mobileTournamentToggle = document.getElementById('mobileTournamentToggle');
+        const mobileSubmenu = document.getElementById('mobileSubmenu');
+
+        mobileToggle.addEventListener('click', function () {
+            mobileToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        mobileTournamentToggle.addEventListener('click', function () {
+            mobileTournamentToggle.classList.toggle('active');
+            mobileSubmenu.classList.toggle('active');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                mobileToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', function (e) {
+            const container = document.querySelector('.mobile-menu-container');
+            if (!container.contains(e.target)) {
+                mobileToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
+        });
+
+        /* ============================================
+           GALLERY JS — unchanged from original
+        ============================================ */
         const imageSources = [
-            'site1.jpg', 'site3.jpg', 'site5.jpg', 'site7.jpg',
-            'site2.jpg', 'site8.jpg',
+            'site1.jpg',  'site3.jpg',  'site5.jpg',  'site7.jpg',
+            'site2.jpg',  'site8.jpg',
             'site11.jpg', 'site13.jpg', 'site15.jpg',
             'site10.jpg', 'site12.jpg', 'site14.jpg', 'site16.jpg',
             'site19.jpg', 'site21.jpg',
@@ -600,357 +837,169 @@
             'site58.jpg', 'site60.jpg', 'site62.jpg', 'site64.jpg'
         ];
 
-        // Lightbox state
-        let currentMorphImg = null;
-        let originalImgRect = null;
-        let originalImg = null;
-        let isLightboxOpen = false;
-        let isAnimating = false;
+        let currentMorphImg = null, originalImgRect = null, originalImg = null;
+        let isLightboxOpen = false, isAnimating = false;
 
-        // Function to calculate aspect ratio from image
-        function calculateAspectRatio(width, height) {
-            const ratio = width / height;
-            
-            if (Math.abs(ratio - 0.5625) < 0.1) return '9:16';
-            if (Math.abs(ratio - 0.75) < 0.1) return '3:4';
-            if (Math.abs(ratio - 1) < 0.1) return '1:1';
-            if (Math.abs(ratio - 1.333) < 0.1) return '4:3';
-            if (Math.abs(ratio - 1.778) < 0.1) return '16:9';
-            
-            if (ratio < 0.9) return 'Portrait';
-            if (ratio > 1.2) return 'Landscape';
-            return 'Square';
+        function calculateAspectRatio(w, h) {
+            const r = w / h;
+            if (Math.abs(r - 0.75)  < 0.1) return '3:4';
+            if (Math.abs(r - 1)     < 0.1) return '1:1';
+            if (Math.abs(r - 1.333) < 0.1) return '4:3';
+            if (Math.abs(r - 1.778) < 0.1) return '16:9';
+            return r < 0.9 ? 'Portrait' : r > 1.2 ? 'Landscape' : 'Square';
         }
 
-        // Function to organize images by aspect ratio
         function organizeImages(imageArray) {
-            const organized = [];
             const byRatio = {};
-            
-            imageArray.forEach((img, index) => {
+            imageArray.forEach((img, i) => {
                 const key = img.ratio || 'unknown';
-                if (!byRatio[key]) byRatio[key] = [];
-                byRatio[key].push({ ...img, originalIndex: index });
+                (byRatio[key] = byRatio[key] || []).push({ ...img, originalIndex: i });
             });
-            
-            const ratioKeys = Object.keys(byRatio);
-            let maxLength = Math.max(...Object.values(byRatio).map(arr => arr.length));
-            
-            for (let i = 0; i < maxLength; i++) {
-                ratioKeys.forEach(key => {
-                    if (byRatio[key][i]) {
-                        organized.push(byRatio[key][i]);
-                    }
-                });
+            const keys = Object.keys(byRatio);
+            const maxLen = Math.max(...Object.values(byRatio).map(a => a.length));
+            const out = [];
+            for (let i = 0; i < maxLen; i++) {
+                keys.forEach(k => { if (byRatio[k][i]) out.push(byRatio[k][i]); });
             }
-            
-            return organized;
+            return out;
         }
 
-        // Function to check if image exists and load it with faster timeout
         function checkAndLoadImage(src) {
-            return new Promise((resolve) => {
+            return new Promise(resolve => {
                 const img = new Image();
-                const timeout = setTimeout(() => {
-                    resolve(null);
-                }, 3000);
-                
-                img.onload = function() {
-                    clearTimeout(timeout);
-                    const ratio = calculateAspectRatio(this.width, this.height);
-                    resolve({
-                        src: src,
-                        ratio: ratio,
-                        width: this.width,
-                        height: this.height,
-                        loaded: true
-                    });
+                const t = setTimeout(() => resolve(null), 3000);
+                img.onload = function () {
+                    clearTimeout(t);
+                    resolve({ src, ratio: calculateAspectRatio(this.width, this.height), width: this.width, height: this.height, loaded: true });
                 };
-                
-                img.onerror = function() {
-                    clearTimeout(timeout);
-                    resolve(null);
-                };
-                
+                img.onerror = () => { clearTimeout(t); resolve(null); };
                 img.src = src;
             });
         }
 
-        // Calculate final position for lightbox image
         function calculateFinalPosition(imgWidth, imgHeight) {
-            const viewportWidth = window.innerWidth;
-            const viewportHeight = window.innerHeight;
-            const padding = 40;
-            
-            const maxWidth = viewportWidth - (padding * 2);
-            const maxHeight = viewportHeight - (padding * 2);
-            
-            const imgRatio = imgWidth / imgHeight;
-            const viewportRatio = maxWidth / maxHeight;
-            
-            let finalWidth, finalHeight;
-            
-            if (imgRatio > viewportRatio) {
-                finalWidth = Math.min(maxWidth, imgWidth);
-                finalHeight = finalWidth / imgRatio;
-            } else {
-                finalHeight = Math.min(maxHeight, imgHeight);
-                finalWidth = finalHeight * imgRatio;
-            }
-            
-            const finalLeft = (viewportWidth - finalWidth) / 2;
-            const finalTop = (viewportHeight - finalHeight) / 2;
-            
-            return { finalWidth, finalHeight, finalLeft, finalTop };
+            const vw = window.innerWidth, vh = window.innerHeight, pad = 40;
+            const maxW = vw - pad * 2, maxH = vh - pad * 2;
+            const ir = imgWidth / imgHeight, vr = maxW / maxH;
+            let fw, fh;
+            if (ir > vr) { fw = Math.min(maxW, imgWidth); fh = fw / ir; }
+            else          { fh = Math.min(maxH, imgHeight); fw = fh * ir; }
+            return { finalWidth: fw, finalHeight: fh, finalLeft: (vw - fw) / 2, finalTop: (vh - fh) / 2 };
         }
 
-        // Open lightbox with GPU-accelerated FLIP animation
-        function openLightbox(imgElement) {
+        function openLightbox(imgEl) {
             if (isLightboxOpen || isAnimating) return;
-            isAnimating = true;
-            isLightboxOpen = true;
-            
-            const overlay = document.getElementById('lightboxOverlay');
+            isAnimating = isLightboxOpen = true;
+            const overlay  = document.getElementById('lightboxOverlay');
             const closeBtn = document.getElementById('lightboxClose');
-            
-            // Store reference to original image
-            originalImg = imgElement;
-            originalImgRect = imgElement.getBoundingClientRect();
-            
-            // Calculate final position
-            const { finalWidth, finalHeight, finalLeft, finalTop } = 
-                calculateFinalPosition(imgElement.naturalWidth, imgElement.naturalHeight);
-            
-            // Calculate scale factors
-            const scaleX = originalImgRect.width / finalWidth;
+            originalImg = imgEl;
+            originalImgRect = imgEl.getBoundingClientRect();
+            const { finalWidth, finalHeight, finalLeft, finalTop } = calculateFinalPosition(imgEl.naturalWidth, imgEl.naturalHeight);
+            const scaleX = originalImgRect.width  / finalWidth;
             const scaleY = originalImgRect.height / finalHeight;
-            
-            // Calculate translation to original position
-            const translateX = originalImgRect.left - finalLeft;
-            const translateY = originalImgRect.top - finalTop;
-            
-            // Create morphing image at FINAL position but transformed to look like it's at original
+            const tx = originalImgRect.left - finalLeft;
+            const ty = originalImgRect.top  - finalTop;
             currentMorphImg = document.createElement('img');
-            currentMorphImg.src = imgElement.src;
+            currentMorphImg.src = imgEl.src;
             currentMorphImg.className = 'lightbox-morph-img';
-            
-            // Set to final size/position
-            currentMorphImg.style.left = finalLeft + 'px';
-            currentMorphImg.style.top = finalTop + 'px';
-            currentMorphImg.style.width = finalWidth + 'px';
-            currentMorphImg.style.height = finalHeight + 'px';
-            
-            // Transform to look like original position (FLIP: Invert)
-            currentMorphImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scaleX}, ${scaleY})`;
-            
+            Object.assign(currentMorphImg.style, {
+                left: finalLeft + 'px', top: finalTop + 'px',
+                width: finalWidth + 'px', height: finalHeight + 'px',
+                transform: `translate(${tx}px,${ty}px) scale(${scaleX},${scaleY})`
+            });
             document.body.appendChild(currentMorphImg);
-            
-            // Activate overlay
             overlay.classList.add('active');
-            
-            // Prevent body scroll
             document.body.style.overflow = 'hidden';
-            
-            // Force reflow then animate (FLIP: Play)
             currentMorphImg.offsetHeight;
-            
             requestAnimationFrame(() => {
                 currentMorphImg.classList.add('animating');
-                currentMorphImg.style.transform = 'translate(0, 0) scale(1, 1)';
+                currentMorphImg.style.transform = 'translate(0,0) scale(1,1)';
                 closeBtn.classList.add('visible');
-                
-                setTimeout(() => {
-                    isAnimating = false;
-                }, 400);
+                setTimeout(() => { isAnimating = false; }, 400);
             });
         }
 
-        // Close lightbox with GPU-accelerated reverse animation
         function closeLightbox() {
             if (!isLightboxOpen || !currentMorphImg || isAnimating) return;
             isAnimating = true;
-            
-            const overlay = document.getElementById('lightboxOverlay');
+            const overlay  = document.getElementById('lightboxOverlay');
             const closeBtn = document.getElementById('lightboxClose');
-            
-            // Hide close button immediately
             closeBtn.classList.remove('visible');
-            
-            // Get current rect of original image (may have scrolled)
-            const currentOriginalRect = originalImg ? originalImg.getBoundingClientRect() : originalImgRect;
-            
-            // Get current morph image position
-            const morphRect = currentMorphImg.getBoundingClientRect();
-            
-            // Calculate transform back to original
-            const scaleX = currentOriginalRect.width / morphRect.width;
-            const scaleY = currentOriginalRect.height / morphRect.height;
-            const translateX = currentOriginalRect.left - morphRect.left;
-            const translateY = currentOriginalRect.top - morphRect.top;
-            
-            // Animate back
-            currentMorphImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scaleX}, ${scaleY})`;
-            
-            // Fade out overlay
+            const cur  = originalImg ? originalImg.getBoundingClientRect() : originalImgRect;
+            const mRect = currentMorphImg.getBoundingClientRect();
+            currentMorphImg.style.transform = `translate(${cur.left - mRect.left}px,${cur.top - mRect.top}px) scale(${cur.width / mRect.width},${cur.height / mRect.height})`;
             overlay.classList.remove('active');
-            
-            // Cleanup after animation
             setTimeout(() => {
-                if (currentMorphImg && currentMorphImg.parentNode) {
-                    currentMorphImg.parentNode.removeChild(currentMorphImg);
-                }
-                currentMorphImg = null;
-                originalImgRect = null;
-                originalImg = null;
-                isLightboxOpen = false;
-                isAnimating = false;
+                if (currentMorphImg?.parentNode) currentMorphImg.parentNode.removeChild(currentMorphImg);
+                currentMorphImg = originalImgRect = originalImg = null;
+                isLightboxOpen = isAnimating = false;
                 document.body.style.overflow = '';
             }, 400);
         }
 
-        // Main function to load gallery
         async function loadGallery() {
             const container = document.getElementById('galleryContainer');
-            const loaderContainer = document.getElementById('loaderContainer');
-            const galleryWrapper = document.getElementById('galleryWrapper');
-            
-            // Check all images and filter out the ones that don't load
-            const imageChecks = await Promise.all(
-                imageSources.map(src => checkAndLoadImage(src))
-            );
-            
-            // Filter out null values (failed images)
-            const validImages = imageChecks.filter(img => img !== null);
-            
-            if (validImages.length === 0) {
-                container.innerHTML = '<p style="text-align: center; padding: 2rem;">No images available to display.</p>';
-                hideLoader();
-                return;
+            const checks = await Promise.all(imageSources.map(checkAndLoadImage));
+            const valid = checks.filter(Boolean);
+            if (!valid.length) {
+                container.innerHTML = '<p style="text-align:center;padding:2rem">No images available.</p>';
+                hideLoader(); return;
             }
-            
-            // Organize valid images
-            const organizedImages = organizeImages(validImages);
-            
-            // Create gallery items with lazy loading
-            organizedImages.forEach((imgData, index) => {
-                const galleryItem = document.createElement('div');
-                galleryItem.className = 'gallery-item';
-                galleryItem.innerHTML = `<img src="${imgData.src}" alt="Chess Lions Gallery Image" loading="lazy">`;
-                container.appendChild(galleryItem);
+            organizeImages(valid).forEach(imgData => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
+                item.innerHTML = `<img src="${imgData.src}" alt="Chess Lions Gallery Image" loading="lazy">`;
+                container.appendChild(item);
             });
-            
-            // Hide loader and show gallery
             hideLoader();
-            
-            // Trigger animations in sequence
-            setTimeout(() => {
-                const logoSection = document.getElementById('logoSection');
-                if (logoSection) logoSection.classList.add('visible');
-            }, 100);
-            
-            // Setup scroll-based animations
-            setTimeout(() => {
-                setupScrollAnimations();
-            }, 300);
-            
-            // Setup lightbox after a short delay
-            setTimeout(() => {
-                setupLightbox();
-            }, 1000);
+            setTimeout(setupScrollAnimations, 300);
+            setTimeout(setupLightbox, 1000);
         }
 
-        // Function to hide loader and show gallery
         function hideLoader() {
-            const loaderContainer = document.getElementById('loaderContainer');
-            const galleryWrapper = document.getElementById('galleryWrapper');
-            
             setTimeout(() => {
-                loaderContainer.classList.add('hidden');
-                galleryWrapper.classList.add('visible');
+                document.getElementById('loaderContainer').classList.add('hidden');
+                document.getElementById('galleryWrapper').classList.add('visible');
             }, 300);
         }
 
-        // Setup scroll-based animation observer
         function setupScrollAnimations() {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px 0px -100px 0px',
-                threshold: 0.1
-            };
-
             const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry, index) => {
+                entries.forEach((entry, i) => {
                     if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
-                        setTimeout(() => {
-                            entry.target.classList.add('visible');
-                        }, index * 30);
+                        setTimeout(() => entry.target.classList.add('visible'), i * 30);
                     }
                 });
-            }, observerOptions);
-
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            galleryItems.forEach(item => {
-                observer.observe(item);
-            });
-
-            // Observe footer
+            }, { rootMargin: '0px 0px -100px 0px', threshold: 0.1 });
+            document.querySelectorAll('.gallery-item').forEach(el => observer.observe(el));
             const footer = document.getElementById('galleryFooter');
-            if (footer) {
-                observer.observe(footer);
-            }
+            if (footer) observer.observe(footer);
         }
 
-        // Setup lightbox functionality
         function setupLightbox() {
-            const galleryItems = document.querySelectorAll('.gallery-item img');
-            const overlay = document.getElementById('lightboxOverlay');
+            const overlay  = document.getElementById('lightboxOverlay');
             const closeBtn = document.getElementById('lightboxClose');
-
-            galleryItems.forEach(img => {
-                img.addEventListener('click', () => {
-                    openLightbox(img);
-                });
+            document.querySelectorAll('.gallery-item img').forEach(img => {
+                img.addEventListener('click', () => openLightbox(img));
             });
-
-            overlay.addEventListener('click', () => {
-                closeLightbox();
-            });
-
-            closeBtn.addEventListener('click', () => {
-                closeLightbox();
-            });
-
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    closeLightbox();
-                }
-            });
+            overlay.addEventListener('click', closeLightbox);
+            closeBtn.addEventListener('click', closeLightbox);
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
         }
 
-        // Handle window resize when lightbox is open
         window.addEventListener('resize', () => {
             if (isLightboxOpen && currentMorphImg && !isAnimating && originalImg) {
-                const { finalWidth, finalHeight, finalLeft, finalTop } = 
-                    calculateFinalPosition(originalImg.naturalWidth, originalImg.naturalHeight);
-                
-                // Remove animation class temporarily
+                const { finalWidth, finalHeight, finalLeft, finalTop } = calculateFinalPosition(originalImg.naturalWidth, originalImg.naturalHeight);
                 currentMorphImg.classList.remove('animating');
-                
-                // Update position without animation
-                currentMorphImg.style.left = finalLeft + 'px';
-                currentMorphImg.style.top = finalTop + 'px';
-                currentMorphImg.style.width = finalWidth + 'px';
-                currentMorphImg.style.height = finalHeight + 'px';
-                currentMorphImg.style.transform = 'translate(0, 0) scale(1, 1)';
-                
-                // Re-add animation class
-                requestAnimationFrame(() => {
-                    currentMorphImg.classList.add('animating');
+                Object.assign(currentMorphImg.style, {
+                    left: finalLeft + 'px', top: finalTop + 'px',
+                    width: finalWidth + 'px', height: finalHeight + 'px',
+                    transform: 'translate(0,0) scale(1,1)'
                 });
+                requestAnimationFrame(() => currentMorphImg.classList.add('animating'));
             }
         });
 
-        // Load gallery on page load
         loadGallery();
     </script>
 </body>
