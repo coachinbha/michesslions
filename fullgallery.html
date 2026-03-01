@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -643,18 +644,19 @@
         }
 
         .lightbox-close {
-            position: fixed;
-            top: 30px; right: 30px;
-            color: white;
-            font-size: 3rem;
-            cursor: pointer;
-            z-index: 1001;
-            font-weight: 300;
-            opacity: 0;
-            transform: scale(0.8) rotate(-90deg);
-            transition: opacity 0.25s ease, transform 0.3s ease;
-            pointer-events: none;
-        }
+    position: fixed;
+    top: calc(var(--nav-height, 70px) + 12px);
+    right: 30px;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    z-index: 1003;
+    font-weight: 300;
+    opacity: 0;
+    transform: scale(0.8) rotate(-90deg);
+    transition: opacity 0.25s ease, transform 0.3s ease;
+    pointer-events: none;
+}
 
         .lightbox-close.visible {
             opacity: 1;
@@ -665,6 +667,13 @@
         .lightbox-close:hover {
             transform: scale(1.1) rotate(90deg);
         }
+
+        @media (max-width: 768px) {
+    .lightbox-close {
+        right: 16px;
+        font-size: 2.5rem;
+    }
+}
 
         /* ============================================
            RESPONSIVE
@@ -917,46 +926,80 @@
         }
 
         function calculateFinalPosition(imgWidth, imgHeight) {
-            const vw = window.innerWidth, vh = window.innerHeight, pad = 40;
-            const maxW = vw - pad * 2, maxH = vh - pad * 2;
-            const ir = imgWidth / imgHeight, vr = maxW / maxH;
-            let fw, fh;
-            if (ir > vr) { fw = Math.min(maxW, imgWidth); fh = fw / ir; }
-            else          { fh = Math.min(maxH, imgHeight); fw = fh * ir; }
-            return { finalWidth: fw, finalHeight: fh, finalLeft: (vw - fw) / 2, finalTop: (vh - fh) / 2 };
-        }
+    const navbar  = document.getElementById('navbar');
+    const navH    = navbar ? navbar.getBoundingClientRect().height : 70;
+    const pad     = 32;
+    const vw      = window.innerWidth;
+    const vh      = window.innerHeight;
+
+    // Usable canvas: full width minus side padding,
+    // vertical space starts BELOW the navbar
+    const availW  = vw - pad * 2;
+    const availH  = vh - navH - pad * 2;   // top pad after navbar + bottom pad
+
+    const ratio   = imgWidth / imgHeight;
+
+    // Target preview at 62% of the usable area
+    const targetW = availW * 0.62;
+    const targetH = availH * 0.62;
+
+    // Fit image inside the target box, maintaining aspect ratio
+    let fw, fh;
+    if (ratio > targetW / targetH) {
+        fw = Math.min(targetW, imgWidth);
+        fh = fw / ratio;
+    } else {
+        fh = Math.min(targetH, imgHeight);
+        fw = fh * ratio;
+    }
+
+    // Hard clamp — image can never exceed the usable area
+    if (fw > availW) { fw = availW; fh = fw / ratio; }
+    if (fh > availH) { fh = availH; fw = fh * ratio; }
+
+    // Center horizontally; center vertically within the below-navbar zone
+    const finalLeft = (vw - fw) / 2;
+    const finalTop  = navH + pad + (availH - fh) / 2;
+
+    return { finalWidth: fw, finalHeight: fh, finalLeft, finalTop };
+}
 
         function openLightbox(imgEl) {
-            if (isLightboxOpen || isAnimating) return;
-            isAnimating = isLightboxOpen = true;
-            const overlay  = document.getElementById('lightboxOverlay');
-            const closeBtn = document.getElementById('lightboxClose');
-            originalImg = imgEl;
-            originalImgRect = imgEl.getBoundingClientRect();
-            const { finalWidth, finalHeight, finalLeft, finalTop } = calculateFinalPosition(imgEl.naturalWidth, imgEl.naturalHeight);
-            const scaleX = originalImgRect.width  / finalWidth;
-            const scaleY = originalImgRect.height / finalHeight;
-            const tx = originalImgRect.left - finalLeft;
-            const ty = originalImgRect.top  - finalTop;
-            currentMorphImg = document.createElement('img');
-            currentMorphImg.src = imgEl.src;
-            currentMorphImg.className = 'lightbox-morph-img';
-            Object.assign(currentMorphImg.style, {
-                left: finalLeft + 'px', top: finalTop + 'px',
-                width: finalWidth + 'px', height: finalHeight + 'px',
-                transform: `translate(${tx}px,${ty}px) scale(${scaleX},${scaleY})`
-            });
-            document.body.appendChild(currentMorphImg);
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            currentMorphImg.offsetHeight;
-            requestAnimationFrame(() => {
-                currentMorphImg.classList.add('animating');
-                currentMorphImg.style.transform = 'translate(0,0) scale(1,1)';
-                closeBtn.classList.add('visible');
-                setTimeout(() => { isAnimating = false; }, 400);
-            });
-        }
+    if (isLightboxOpen || isAnimating) return;
+    isAnimating = isLightboxOpen = true;
+
+    // Keep the X button flush below the navbar on any screen size
+    const navH = document.getElementById('navbar')?.getBoundingClientRect().height ?? 70;
+    document.documentElement.style.setProperty('--nav-height', navH + 'px');
+
+    const overlay  = document.getElementById('lightboxOverlay');
+    const closeBtn = document.getElementById('lightboxClose');
+    originalImg = imgEl;
+    originalImgRect = imgEl.getBoundingClientRect();
+    const { finalWidth, finalHeight, finalLeft, finalTop } = calculateFinalPosition(imgEl.naturalWidth, imgEl.naturalHeight);
+    const scaleX = originalImgRect.width  / finalWidth;
+    const scaleY = originalImgRect.height / finalHeight;
+    const tx = originalImgRect.left - finalLeft;
+    const ty = originalImgRect.top  - finalTop;
+    currentMorphImg = document.createElement('img');
+    currentMorphImg.src = imgEl.src;
+    currentMorphImg.className = 'lightbox-morph-img';
+    Object.assign(currentMorphImg.style, {
+        left: finalLeft + 'px', top: finalTop + 'px',
+        width: finalWidth + 'px', height: finalHeight + 'px',
+        transform: `translate(${tx}px,${ty}px) scale(${scaleX},${scaleY})`
+    });
+    document.body.appendChild(currentMorphImg);
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    currentMorphImg.offsetHeight;
+    requestAnimationFrame(() => {
+        currentMorphImg.classList.add('animating');
+        currentMorphImg.style.transform = 'translate(0,0) scale(1,1)';
+        closeBtn.classList.add('visible');
+        setTimeout(() => { isAnimating = false; }, 400);
+    });
+}
 
         function closeLightbox() {
             if (!isLightboxOpen || !currentMorphImg || isAnimating) return;
