@@ -309,6 +309,7 @@
                        "July","August","September","October","November","December"];
   const WEEK_TTL  = 5 * 60 * 1000;   // 5 min
   const MONTH_TTL = 60 * 60 * 1000;  // 1 hr (past months: effectively forever)
+  const CACHE_V   = "v2"; // bump this to bust all cached data
 
   // ── State ──────────────────────────────────────────────────────
   let API = localStorage.getItem("workerUrl") || "";
@@ -326,13 +327,13 @@
   // ── Cache helpers ──────────────────────────────────────────────
   function cacheSet(key, value) {
     try {
-      localStorage.setItem("cache_" + key, JSON.stringify({ ts: Date.now(), value }));
+      localStorage.setItem(CACHE_V + "_" + key, JSON.stringify({ ts: Date.now(), value }));
     } catch {}
   }
 
   function cacheGet(key, ttl) {
     try {
-      const raw = localStorage.getItem("cache_" + key);
+      const raw = localStorage.getItem(CACHE_V + "_" + key);
       if (!raw) return null;
       const { ts, value } = JSON.parse(raw);
       if (Date.now() - ts > ttl) return null;
@@ -341,9 +342,8 @@
   }
 
   function cacheGetStale(key) {
-    // Return cached value even if expired (used as fallback)
     try {
-      const raw = localStorage.getItem("cache_" + key);
+      const raw = localStorage.getItem(CACHE_V + "_" + key);
       if (!raw) return null;
       return JSON.parse(raw).value;
     } catch { return null; }
@@ -693,11 +693,16 @@
     const cols = games.length > 4 ? 2 : 1;
     document.getElementById("popup-games").style.gridTemplateColumns = cols > 1 ? "1fr 1fr" : "1fr";
     document.getElementById("popup-games").innerHTML = games.map(g => {
-      const colorIcon  = g.color === "white" ? "♔" : "♚";
-      const colorLabel = g.color === "white" ? "White" : "Black";
-      const resultLabel = g.result === "win" ? "Win" : g.result === "loss" ? "Loss" : "Draw";
-      const resultClass = g.result === "win" ? "result-win" : g.result === "loss" ? "result-loss" : "result-draw";
-      const opponent = g.opponent || (g.color === "white" ? g.black : g.white) || "?";
+      // Compute from new fields, fall back to raw white/black/winner for old cached data
+      const white = g.white || "";
+      const black = g.black || "";
+      const color = g.color || (white.toLowerCase() === (g.username||"").toLowerCase() ? "white" : "black");
+      const opponent = g.opponent || (color === "white" ? black : white) || "?";
+      const result = g.result || (!g.winner || g.winner === "draw" ? "draw" : g.winner === color ? "win" : "loss");
+      const colorIcon  = color === "white" ? "♔" : "♚";
+      const colorLabel = color === "white" ? "White" : "Black";
+      const resultLabel = result === "win" ? "Win" : result === "loss" ? "Loss" : "Draw";
+      const resultClass = result === "win" ? "result-win" : result === "loss" ? "result-loss" : "result-draw";
       const player = g.username ? `<span style="color:var(--accent)">@${g.username}</span>` : "";
       return `<a href="${g.url}" target="_blank" class="game-row">
         <div style="min-width:0">
