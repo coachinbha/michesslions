@@ -161,24 +161,32 @@
     #popup-overlay.open { display: flex; }
     #popup {
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: 12px; padding: 18px 20px; width: 340px; max-width: 95vw;
+      border-radius: 12px; padding: 18px 20px;
+      width: min(700px, 95vw); max-height: 85vh;
+      display: flex; flex-direction: column;
       box-shadow: 0 16px 48px rgba(0,0,0,0.5);
     }
-    #popup h3 { font-size: 14px; margin-bottom: 12px; color: var(--text); }
+    #popup h3 { font-size: 14px; margin-bottom: 12px; color: var(--text); flex-shrink: 0; }
+    #popup-games {
+      display: grid; grid-template-columns: 1fr;
+      gap: 4px; overflow-y: auto; flex: 1;
+    }
     .game-row {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 7px 8px; border-radius: 6px; margin-bottom: 4px;
+      padding: 7px 8px; border-radius: 6px;
       background: var(--surface2); font-size: 12px;
       text-decoration: none; color: var(--text);
-      transition: background 0.12s;
+      transition: background 0.12s; gap: 8px;
     }
     .game-row:hover { background: var(--border); }
     .game-row .players { color: var(--subtext); font-size: 11px; margin-top: 2px; }
     .game-row .badge {
-      font-size: 10px; padding: 2px 6px; border-radius: 4px;
-      background: var(--bg); color: var(--subtext); flex-shrink: 0;
+      font-size: 10px; padding: 2px 8px; border-radius: 4px;
+      background: var(--bg); color: var(--subtext); flex-shrink: 0; font-weight: 700;
     }
-    .game-row .badge.win { color: var(--green); }
+    .game-row .badge.result-win  { color: var(--green); }
+    .game-row .badge.result-loss { color: var(--red); }
+    .game-row .badge.result-draw { color: var(--subtext); }
     .popup-close {
       width: 100%; margin-top: 10px; background: var(--surface2);
       color: var(--text); border: 1px solid var(--border);
@@ -309,6 +317,11 @@
   let activeStudent = null;
   let calMonth = new Date();
   let refreshTimer = null;
+
+  // Safe game store - avoids JSON-in-HTML-attribute quoting bugs
+  const gameStore = {};
+  function storeGames(key, games) { gameStore[key] = games; }
+  function openStore(key)         { showGamesPopup(gameStore[key] || [], key); }
 
   // ── Cache helpers ──────────────────────────────────────────────
   function cacheSet(key, value) {
@@ -506,7 +519,8 @@
       const count = allGames.length;
       const hasGames = count > 0 && !isFuture;
       const cls = ["cal-cell", hasGames?"has-games":"", isToday?"today":"", isFuture?"future":""].filter(Boolean).join(" ");
-      const onclick = hasGames ? `onclick="showGamesPopup(${JSON.stringify(JSON.stringify(allGames))}, '${d}')"` : "";
+      if (hasGames) storeGames(d, allGames);
+      const onclick = hasGames ? `onclick="openStore('${d}')"` : "";
 
       html += `<div class="${cls}" ${onclick}>
         <div class="day-num">${dt.getUTCDate()}</div>`;
@@ -582,13 +596,19 @@
           if (!ts) continue;
           const d = new Date(ts).toISOString().slice(0, 10);
           if (!dayGames[d]) dayGames[d] = [];
+          const white = g.players?.white?.user?.name || "?";
+          const black = g.players?.black?.user?.name || "?";
+          const playerColor = white.toLowerCase() === username.toLowerCase() ? "white" : "black";
+          const opponent = playerColor === "white" ? black : white;
+          const result = !g.winner ? "draw" : g.winner === playerColor ? "win" : "loss";
           dayGames[d].push({
-            id:     g.id,
-            url:    `https://lichess.org/${g.id}`,
-            speed:  g.speed  || "?",
-            winner: g.winner || "draw",
-            white:  g.players?.white?.user?.name || "?",
-            black:  g.players?.black?.user?.name || "?",
+            id:       g.id,
+            url:      `https://lichess.org/${g.id}`,
+            speed:    g.speed || "?",
+            color:    playerColor,
+            result,
+            opponent,
+            username,
           });
         } catch {}
       }
@@ -642,7 +662,8 @@
       const isFuture = dateStr > TODAY;
       const hasGames = count > 0;
       const cls = ["cal-cell", hasGames?"has-games":"", isToday?"today":"", isFuture?"future":""].filter(Boolean).join(" ");
-      const onclick = hasGames ? `onclick="showGamesPopup(${JSON.stringify(JSON.stringify(games))}, '${dateStr}')"` : "";
+      if (hasGames) storeGames(dateStr, games);
+      const onclick = hasGames ? `onclick="openStore('${dateStr}')"` : "";
 
       html += `<div class="${cls}" ${onclick}>
         <div class="day-num">${d}</div>`;
@@ -665,21 +686,25 @@
   }
 
   // ── Game popup ─────────────────────────────────────────────────
-  function showGamesPopup(gamesJson, dateStr) {
-    const games = JSON.parse(gamesJson);
+  function showGamesPopup(games, dateStr) {
     document.getElementById("popup-title").textContent =
-      "Games on " + new Date(dateStr + "T12:00:00Z").toLocaleDateString("en-GB", {day:"numeric",month:"short"});
+      "Games on " + new Date(dateStr + "T12:00:00Z").toLocaleDateString("en-GB", {day:"numeric",month:"short",year:"numeric"});
 
+    const cols = games.length > 4 ? 2 : 1;
+    document.getElementById("popup-games").style.gridTemplateColumns = cols > 1 ? "1fr 1fr" : "1fr";
     document.getElementById("popup-games").innerHTML = games.map(g => {
-      const isWin  = g.winner && g.winner !== "draw";
-      const result = g.winner === "draw" ? "Draw" : "Win: " + g.winner;
-      const player = g.username ? `<span style="color:var(--accent)">@${g.username}</span> · ` : "";
+      const colorIcon  = g.color === "white" ? "♔" : "♚";
+      const colorLabel = g.color === "white" ? "White" : "Black";
+      const resultLabel = g.result === "win" ? "Win" : g.result === "loss" ? "Loss" : "Draw";
+      const resultClass = g.result === "win" ? "result-win" : g.result === "loss" ? "result-loss" : "result-draw";
+      const opponent = g.opponent || (g.color === "white" ? g.black : g.white) || "?";
+      const player = g.username ? `<span style="color:var(--accent)">@${g.username}</span>` : "";
       return `<a href="${g.url}" target="_blank" class="game-row">
-        <div>
-          <div>${player}${g.white} vs ${g.black}</div>
-          <div class="players">${g.speed}</div>
+        <div style="min-width:0">
+          <div style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${player} vs ${opponent}</div>
+          <div class="players">${colorIcon} ${colorLabel} · ${g.speed}</div>
         </div>
-        <div class="badge ${isWin?'win':''}">${result}</div>
+        <div class="badge ${resultClass}" style="flex-shrink:0">${resultLabel}</div>
       </a>`;
     }).join("");
 
