@@ -23,7 +23,7 @@
     <meta property="twitter:title" content="Chess Tournaments in Metro Detroit | Chess Lions Michigan">
     <meta property="twitter:description" content="Upcoming and past chess tournaments in South Lyon, Farmington Hills, and Metro Detroit. USCF-rated and unrated sections for all skill levels.">
     <meta property="twitter:image" content="https://michesslions.com/WCL business card 1050x600.png">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsOrganization","name":"Chess Lions","url":"https://michesslions.com","telephone":"(734) 560-2802","email":"i2v2chess@gmail.com","image":"https://michesslions.com/WCL business card 1050x600.png","description":"Chess Lions organizes USCF-rated and unrated chess tournaments in South Lyon, Farmington Hills, and Metro Detroit, Michigan for players of all ages and skill levels.","address":{"@type":"PostalAddress","addressLocality":"South Lyon","addressRegion":"MI","addressCountry":"US"},"areaServed":[{"@type":"City","name":"South Lyon"},{"@type":"City","name":"Novi"},{"@type":"City","name":"Canton"},{"@type":"City","name":"Farmington Hills"},{"@type":"City","name":"Troy"},{"@type":"City","name":"Wixom"}],"sport":"Chess"}</script>
     <style>
@@ -155,13 +155,10 @@
         .container {
             max-width: 800px;
             margin: 0 auto;
-            /* top padding = navbar height (~67px) + breathing room */
             padding: 10rem 1.5rem 3rem;
         }
 
         .header { text-align: center; margin-bottom: 3rem; }
-
-        /* Logo in header hidden — navbar already has it */
         .logo-link-header { display: none; }
 
         .page-title { font-size: clamp(2rem, 8vw, 3.5rem); font-weight: 900; text-transform: uppercase; letter-spacing: -2px; line-height: 1.1; }
@@ -319,10 +316,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
-        // ============================================
-        // UPDATE TOURNAMENTS HERE - EASY TO MAINTAIN
-        // ============================================
-
         const upcomingTournaments = [
             {
                 title: "Chess Lions Troy Chess Tournament - at Wyndham",
@@ -350,119 +343,19 @@
         ];
 
         const pastTournaments = [
-            {
-                title: "Chess Lions - Feb 2026 Tournament",
-                date: "February 21, 2026",
-                resultsUrl: "https://ratings.uschess.org/event/202602210283",
-                details: {
-                    "Organizer": "Chess Lions",
-                    "Location": "9800 Pontiac Trail, South Lyon, MI 48178"
-                }
-            },
-            {
-                title: "Chess Lions January 2026 Tournament",
-                date: "January 11, 2026",
-                resultsUrl: "https://ratings.uschess.org/event/202601110333",
-                details: {
-                    "Organizer": "Chess Lions",
-                    "Location": "34740 Rhonswood St, Farmington Hills, MI 48335"
-                }
-            },
-            {
-                title: "MTS 3rd Annual Chess Tournament",
-                date: "December 21, 2025",
-                resultsUrl: "https://ratings.uschess.org/event/202512210083",
-                details: {
-                    "Organizer": "Michigan Tamil Sangam",
-                    "Location": "34740 Rhonswood St, Farmington Hills, MI 48335"
-                }
-            },
-            {
-                title: "2nd South Lyon Chess Tournament",
-                date: "December 13, 2025",
-                resultsUrl: "https://ratings.uschess.org/event/202512130503",
-                details: {
-                    "Organizer": "Chess Lions",
-                    "Location": "28243 Beck Rd Unt B2, Wixom, MI 48393"
-                }
-            },
-            {
-                title: "Chess Lions Troy Chess Tournament",
-                date: "November 1, 2025",
-                resultsUrl: "https://ratings.uschess.org/event/202511010133",
-                details: {
-                    "Organizer": "Chess Lions",
-                    "Location": "Twin Knights, 4963 Rochester Rd, Troy, MI 48085"
-                }
-            },
-            {
-                title: "Chess Lions Mini-Swiss",
-                date: "October 18, 2025",
-                resultsUrl: "",
-                details: {
-                    "Organizer": "Chess Lions",
-                    "Location": "Salem-South Lyon District Library, 9800 Pontiac Trail, South Lyon, MI 48178"
-                }
-            },
-            {
-                title: "Rated/Unrated Friday Evening Quads",
-                date: "September 26, 2025",
-                resultsUrl: "https://ratings.uschess.org/event/202509277502",
-                details: {
-                    "Organizer": "Chess Lions",
-                    "Location": "Center for Performance Arts and Learning"
-                }
-            },
-            {
-                title: "Chess Lions Tournament September",
-                date: "September 6, 2025",
-                resultsUrl: "https://ratings.uschess.org/event/202509068332",
-                details: {
-                    "Organizer": "Chess Lions",
-                    "Location": "Center for Performance Arts and Learning"
-                }
-            },
-            {
-                title: "CHESS LIONS OPEN - AUGUST 2025",
-                date: "August 10, 2025",
-                resultsUrl: "https://ratings.uschess.org/event/202508100852",
-                details: {
-                    "Organizer": "Windsor Chess Lions",
-                    "Location": "Center for Performing Arts"
-                }
-            },
-            {
-                title: "April Chess Tournament",
-                date: "April 26, 2025",
-                resultsUrl: "",
-                details: {
-                    "Organizer": "Windsor Chess Lions",
-                    "Location": "CAW Student Centre: Alumni Auditorium (University of Windsor)"
-                }
-            },
-            {
-                title: "March Chess Tournament",
-                date: "March 22, 2025",
-                resultsUrl: "",
-                details: {
-                    "Organizer": "Windsor Chess Lions",
-                    "Location": "Royal Canadian Legion (Branch 594)"
-                }
-            },
-            {
-                title: "Army Cadets Fundraiser",
-                date: "January 11, 2025",
-                resultsUrl: "",
-                details: {
-                    "Organizer": "2715 RCAC + Windsor Chess Lions",
-                    "Location": "Royal Canadian Legion (Branch 594)"
-                }
-            }
+            { title: "Chess Lions - Feb 2026 Tournament", date: "February 21, 2026", resultsUrl: "https://ratings.uschess.org/event/202602210283", details: { "Organizer": "Chess Lions", "Location": "9800 Pontiac Trail, South Lyon, MI 48178" } },
+            { title: "Chess Lions January 2026 Tournament", date: "January 11, 2026", resultsUrl: "https://ratings.uschess.org/event/202601110333", details: { "Organizer": "Chess Lions", "Location": "34740 Rhonswood St, Farmington Hills, MI 48335" } },
+            { title: "MTS 3rd Annual Chess Tournament", date: "December 21, 2025", resultsUrl: "https://ratings.uschess.org/event/202512210083", details: { "Organizer": "Michigan Tamil Sangam", "Location": "34740 Rhonswood St, Farmington Hills, MI 48335" } },
+            { title: "2nd South Lyon Chess Tournament", date: "December 13, 2025", resultsUrl: "https://ratings.uschess.org/event/202512130503", details: { "Organizer": "Chess Lions", "Location": "28243 Beck Rd Unt B2, Wixom, MI 48393" } },
+            { title: "Chess Lions Troy Chess Tournament", date: "November 1, 2025", resultsUrl: "https://ratings.uschess.org/event/202511010133", details: { "Organizer": "Chess Lions", "Location": "Twin Knights, 4963 Rochester Rd, Troy, MI 48085" } },
+            { title: "Chess Lions Mini-Swiss", date: "October 18, 2025", resultsUrl: "", details: { "Organizer": "Chess Lions", "Location": "Salem-South Lyon District Library, 9800 Pontiac Trail, South Lyon, MI 48178" } },
+            { title: "Rated/Unrated Friday Evening Quads", date: "September 26, 2025", resultsUrl: "https://ratings.uschess.org/event/202509277502", details: { "Organizer": "Chess Lions", "Location": "Center for Performance Arts and Learning" } },
+            { title: "Chess Lions Tournament September", date: "September 6, 2025", resultsUrl: "https://ratings.uschess.org/event/202509068332", details: { "Organizer": "Chess Lions", "Location": "Center for Performance Arts and Learning" } },
+            { title: "CHESS LIONS OPEN - AUGUST 2025", date: "August 10, 2025", resultsUrl: "https://ratings.uschess.org/event/202508100852", details: { "Organizer": "Windsor Chess Lions", "Location": "Center for Performing Arts" } },
+            { title: "April Chess Tournament", date: "April 26, 2025", resultsUrl: "", details: { "Organizer": "Windsor Chess Lions", "Location": "CAW Student Centre: Alumni Auditorium (University of Windsor)" } },
+            { title: "March Chess Tournament", date: "March 22, 2025", resultsUrl: "", details: { "Organizer": "Windsor Chess Lions", "Location": "Royal Canadian Legion (Branch 594)" } },
+            { title: "Army Cadets Fundraiser", date: "January 11, 2025", resultsUrl: "", details: { "Organizer": "2715 RCAC + Windsor Chess Lions", "Location": "Royal Canadian Legion (Branch 594)" } }
         ];
-
-        // ============================================
-        // RENDERING FUNCTIONS
-        // ============================================
 
         function renderDetailValue(value) {
             if (Array.isArray(value)) {
@@ -533,7 +426,6 @@
             });
         }
 
-        // ── NAVBAR JS ────────────────────────────────────────
         const navbar = document.getElementById('navbar');
         let navTick = false;
         window.addEventListener('scroll', () => {
@@ -572,7 +464,6 @@
             }
         });
 
-        // ── INIT ─────────────────────────────────────────────
         document.addEventListener('DOMContentLoaded', () => {
             renderTournaments();
             AOS.init({ duration: 500, easing: 'ease-out-cubic', once: true, offset: 50 });
