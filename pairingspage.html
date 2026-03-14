@@ -981,9 +981,9 @@ function renderPairings(sec, playerMap) {
   const round       = activeRound[activeSectionIdx];
   const roundIdx    = round - 1;
 
-  // Detect whether current round has any results entered yet
-  const hasResults = Object.values(playerMap).some(p =>
-    p.results && p.results[roundIdx] !== undefined);
+  // If rounds_paired > rounds_played, the current round is freshly paired — no results yet.
+  // This is the authoritative SwissSys signal, not the result values themselves.
+  const hasResults = round <= sec.rounds_played;
 
   let roundNavHtml = '';
   if (browseMode) {
@@ -1011,13 +1011,21 @@ function renderPairings(sec, playerMap) {
   let boards = [];
 
   if (round === totalRounds && sec.pairings.length) {
-    boards = sec.pairings.map(p => ({
-      board: p.board,
-      white: playerMap[p.white],
-      black: playerMap[p.black],
-      whiteResult: playerMap[p.white]?.results?.[roundIdx],
-      blackResult: playerMap[p.black]?.results?.[roundIdx],
-    }));
+    boards = sec.pairings.map(p => {
+      // board 0 or black 0 means a bye in SwissSys
+      if (!p.board || !p.black) {
+        const byePlayer = playerMap[p.white];
+        const byeResult = byePlayer?.results?.[roundIdx];
+        return { board: 999, bye: byePlayer, byeResult: byeResult || 'B' };
+      }
+      return {
+        board: p.board,
+        white: playerMap[p.white],
+        black: playerMap[p.black],
+        whiteResult: playerMap[p.white]?.results?.[roundIdx],
+        blackResult: playerMap[p.black]?.results?.[roundIdx],
+      };
+    });
   } else {
     const seen = new Set();
     const tmp  = [];
