@@ -265,6 +265,31 @@
       display: none;
     }
 
+    /* ── Save key button ── */
+    .save-key-btn {
+      width: 100%;
+      padding: 0.75rem;
+      background: var(--bg);
+      color: var(--gray-400);
+      border: 2px dashed var(--gray-200);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-bottom: 0;
+      transition: all 0.2s;
+    }
+
+    .save-key-btn:hover:not(:disabled) {
+      border-color: var(--text);
+      color: var(--text);
+      border-style: solid;
+    }
+
+    .save-key-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
     /* ── Divider ── */
     .divider { border: none; border-top: 1px solid var(--gray-200); margin: 2rem 0; }
 
@@ -460,6 +485,11 @@
     </div>
   </div>
 
+  <!-- Save key file -->
+  <button class="save-key-btn" id="saveKeyBtn" disabled>
+    ↓ Save as key file
+  </button>
+
   <hr class="divider" />
 
   <!-- Step 3: Pairings file -->
@@ -545,7 +575,26 @@ function checkReady() {
   const filled = ['pat','owner','repo','filePath'].every(id =>
     document.getElementById(id).value.trim() !== '');
   document.getElementById('submitBtn').disabled = !(filled && pairingsContent);
+  document.getElementById('saveKeyBtn').disabled = !filled;
 }
+
+// ── Save key file ─────────────────────────────────────────────────────────────
+document.getElementById('saveKeyBtn').addEventListener('click', () => {
+  const key = {
+    pat:   document.getElementById('pat').value.trim(),
+    owner: document.getElementById('owner').value.trim(),
+    repo:  document.getElementById('repo').value.trim(),
+    path:  document.getElementById('filePath').value.trim(),
+  };
+
+  const blob = new Blob([JSON.stringify(key, null, 2)], { type: 'application/json' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href     = url;
+  a.download = 'chess-key.json';
+  a.click();
+  URL.revokeObjectURL(url);
+});
 
 // ── Collapsible ───────────────────────────────────────────────────────────────
 document.getElementById('keyHelpToggle').addEventListener('click', () => {
