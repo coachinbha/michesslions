@@ -17,7 +17,7 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
     body {
       font-family: 'Montserrat', sans-serif;
@@ -25,6 +25,7 @@
       color: var(--text);
       font-size: 13px;
       line-height: 1.5;
+      overflow-x: hidden;
     }
 
     /* ── Top bar ── */
@@ -34,77 +35,90 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.55rem 2rem;
-      font-size: 0.72rem;
+      padding: 0.6rem 1.25rem;
+      font-size: 0.68rem;
       font-weight: 700;
-      letter-spacing: 0.6px;
+      letter-spacing: 0.5px;
       text-transform: uppercase;
     }
 
-    .top-bar a {
+    .top-bar-filter-btn {
+      background: none;
+      border: 1px solid rgba(255,255,255,0.4);
       color: #fff;
-      text-decoration: none;
-      position: relative;
-      transition: transform 0.3s ease;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      cursor: pointer;
+      transition: background 0.2s;
     }
 
-    .top-bar a::after {
-      content: '';
-      position: absolute;
-      bottom: -2px; left: 0;
-      width: 0; height: 1px;
-      background: #fff;
-      transition: width 0.3s ease;
-    }
-
-    .top-bar a:hover::after { width: 100%; }
-    .top-bar a:hover { transform: translateY(-1px); }
+    .top-bar-filter-btn:hover { background: rgba(255,255,255,0.15); }
 
     /* ── Header ── */
     .site-header {
       border-bottom: 1px solid var(--gray-200);
-      padding: 2.5rem 2rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 1rem;
+      padding: 1.5rem 1.25rem 1rem;
     }
 
     .event-title {
-      font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+      font-size: clamp(1.5rem, 7vw, 2.8rem);
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: -1px;
       line-height: 1.05;
-      transition: letter-spacing 0.3s ease;
+      margin-bottom: 0.6rem;
     }
 
-    .event-title:hover { letter-spacing: 1px; }
-
     .event-meta {
-      text-align: right;
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.5px;
       text-transform: uppercase;
       color: var(--gray-400);
       line-height: 1.9;
-      flex-shrink: 0;
     }
 
     .event-meta span { color: var(--text); }
+
+    /* ── Active filter pill ── */
+    .filter-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--text);
+      color: var(--bg);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      margin-top: 0.6rem;
+      cursor: pointer;
+      border: none;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .filter-pill span { opacity: 0.6; font-size: 0.75rem; }
 
     /* ── Section tabs ── */
     .section-tabs {
       display: flex;
       border-bottom: 1px solid var(--gray-200);
       overflow-x: auto;
-      padding: 0 2rem;
+      padding: 0 1.25rem;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
     }
 
+    .section-tabs::-webkit-scrollbar { display: none; }
+
     .section-tab {
-      padding: 0.85rem 1.25rem;
-      font-size: 0.75rem;
+      padding: 0.85rem 1rem;
+      font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.5px;
       text-transform: uppercase;
@@ -112,7 +126,8 @@
       color: var(--gray-400);
       border-bottom: 2px solid transparent;
       white-space: nowrap;
-      transition: color 0.3s ease, border-color 0.3s ease;
+      flex-shrink: 0;
+      transition: color 0.2s, border-color 0.2s;
     }
 
     .section-tab:hover { color: var(--text); }
@@ -122,11 +137,11 @@
     .view-tabs {
       display: flex;
       gap: 0.5rem;
-      padding: 1.25rem 2rem 0;
+      padding: 1rem 1.25rem 0;
     }
 
     .view-tab {
-      padding: 0.4rem 1rem;
+      padding: 0.5rem 1.1rem;
       font-family: 'Montserrat', sans-serif;
       font-size: 0.72rem;
       font-weight: 700;
@@ -136,38 +151,42 @@
       background: transparent;
       color: var(--gray-400);
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.2s;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .view-tab:hover { border-color: var(--text); color: var(--text); }
     .view-tab.active { background: var(--text); border-color: var(--text); color: var(--bg); }
 
     /* ── Content ── */
-    .content { padding: 1.5rem 2rem 5rem; }
+    .content { padding: 1rem 1.25rem 6rem; }
 
     /* ── Round nav ── */
     .round-nav {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
     }
 
     .round-btn {
       background: none;
       border: 2px solid var(--gray-200);
       color: var(--text);
-      padding: 0.35rem 0.9rem;
+      padding: 0.55rem 1rem;
       font-family: 'Montserrat', sans-serif;
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.5px;
       text-transform: uppercase;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.2s;
+      flex: 1;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .round-btn:hover:not(:disabled) {
+    .round-btn:hover:not(:disabled),
+    .round-btn:active:not(:disabled) {
       background: var(--text);
       color: var(--bg);
       border-color: var(--text);
@@ -181,70 +200,75 @@
       letter-spacing: 0.5px;
       text-transform: uppercase;
       color: var(--gray-400);
-      min-width: 70px;
       text-align: center;
+      flex: 1.5;
     }
 
     /* ── Board cards ── */
     .board-card {
       border: 1px solid var(--gray-200);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       display: grid;
-      grid-template-columns: 48px 1fr auto 1fr 48px;
-      align-items: center;
-      transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      grid-template-columns: 44px 1fr;
+      align-items: stretch;
       background: var(--bg);
-    }
-
-    .board-card:hover {
-      border-color: var(--text);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      -webkit-tap-highlight-color: transparent;
     }
 
     .board-num {
       background: var(--gray-100);
-      font-size: 1rem;
+      font-size: 1.1rem;
       font-weight: 900;
       text-align: center;
-      padding: 14px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border-right: 1px solid var(--gray-200);
+      min-height: 80px;
     }
 
-    .board-player {
-      padding: 10px 16px;
+    .board-matchup {
       display: flex;
       flex-direction: column;
-      gap: 4px;
-      min-width: 0;
     }
 
-    .board-player.black-side {
-      text-align: right;
-      align-items: flex-end;
+    .board-player-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.65rem 0.9rem;
+      gap: 0.5rem;
+    }
+
+    .board-player-row + .board-player-row {
+      border-top: 1px solid var(--gray-200);
+    }
+
+    .player-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+      flex: 1;
     }
 
     .player-name {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.2px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      max-width: 200px;
     }
 
     .player-sub {
-      font-size: 0.68rem;
-      font-weight: 400;
+      font-size: 0.65rem;
       color: var(--gray-400);
       display: flex;
-      gap: 6px;
       align-items: center;
+      gap: 5px;
     }
-
-    .board-player.black-side .player-sub { justify-content: flex-end; }
 
     .color-dot {
       width: 7px; height: 7px;
@@ -256,94 +280,82 @@
     .color-dot.W { background: #000; }
     .color-dot.B { background: #fff; border: 1px solid #bbb; }
 
-    .vs-divider {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      color: var(--gray-400);
-      padding: 0 6px;
-      text-align: center;
-    }
-
     .result-badge {
-      padding: 1px 5px;
-      font-size: 0.6rem;
+      flex-shrink: 0;
+      padding: 3px 7px;
+      font-size: 0.62rem;
       font-weight: 700;
       letter-spacing: 0.4px;
       text-transform: uppercase;
-      border: 1px solid;
+      border: 1.5px solid;
     }
 
-    .result-W { color: #000; border-color: #000; }
+    .result-W { color: #000; border-color: #000; background: #fff; }
     .result-L { color: var(--gray-400); border-color: var(--gray-200); }
-    .result-D { color: var(--gray-600); border-color: #ccc; }
-    .result-B { color: var(--gray-600); border-color: #ccc; }
+    .result-D { color: var(--gray-600); border-color: #bbb; }
+    .result-B { color: var(--gray-600); border-color: #bbb; }
     .result-U { color: var(--gray-200); border-color: var(--gray-200); }
 
     /* ── Standings ── */
-    .standings-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
+    .standings-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 0.75rem;
     }
 
-    .standings-table th {
-      text-align: left;
-      padding: 0.6rem 0.75rem;
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.6px;
-      text-transform: uppercase;
-      color: var(--gray-400);
-      border-bottom: 2px solid var(--text);
-      white-space: nowrap;
-    }
-
-    .standings-table th.num { text-align: center; }
-
-    .standings-table td {
-      padding: 0.75rem;
+    .standing-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 0.75rem;
       border-bottom: 1px solid var(--gray-200);
-      vertical-align: middle;
     }
 
-    .standings-table tr:hover td { background: var(--gray-100); }
+    .standing-row:first-child { border-top: 2px solid var(--text); }
 
-    .rank-cell {
+    .s-rank {
       font-size: 1.1rem;
       font-weight: 900;
-      text-align: center;
       color: var(--gray-200);
-      width: 36px;
+      width: 28px;
+      text-align: center;
+      flex-shrink: 0;
     }
 
-    .rank-cell.top3 { color: var(--text); }
+    .s-rank.top3 { color: var(--text); }
 
-    .name-cell {
+    .s-info { flex: 1; min-width: 0; }
+
+    .s-name {
       font-size: 0.8rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .id-cell { font-size: 0.68rem; color: var(--gray-400); }
-    .rating-cell { font-size: 0.75rem; color: var(--gray-400); text-align: right; }
-
-    .score-cell {
-      font-size: 1.2rem;
-      font-weight: 900;
-      text-align: center;
+    .s-sub {
+      font-size: 0.65rem;
+      color: var(--gray-400);
+      margin-top: 2px;
     }
 
-    .results-history { display: flex; gap: 2px; }
+    .s-pips {
+      display: flex;
+      gap: 2px;
+      flex-shrink: 0;
+    }
 
     .r-pip {
-      width: 18px; height: 18px;
+      width: 16px; height: 16px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 0.6rem;
+      font-size: 0.55rem;
       font-weight: 700;
       border: 1px solid;
+      flex-shrink: 0;
     }
 
     .r-pip.W { background: #000; color: #fff; border-color: #000; }
@@ -352,43 +364,200 @@
     .r-pip.B { background: var(--gray-100); color: var(--gray-600); border-color: var(--gray-200); }
     .r-pip.U { background: #fff; color: var(--gray-200); border-color: var(--gray-200); }
 
-    .tb-cell { font-size: 0.72rem; color: var(--gray-400); text-align: right; white-space: nowrap; }
+    .s-score {
+      font-size: 1.3rem;
+      font-weight: 900;
+      flex-shrink: 0;
+      width: 36px;
+      text-align: right;
+    }
 
     /* ── Empty state ── */
-    .state-msg { padding: 5rem 2rem; text-align: center; color: var(--gray-400); }
+    .state-msg {
+      padding: 4rem 1rem;
+      text-align: center;
+      color: var(--gray-400);
+    }
 
     .state-msg .big {
       display: block;
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: -1px;
       color: var(--gray-200);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
 
-    @media (max-width: 600px) {
-      .site-header { flex-direction: column; align-items: flex-start; padding: 1.25rem 1rem 1rem; }
-      .event-meta { text-align: left; }
-      .section-tabs, .view-tabs, .content, .top-bar { padding-left: 1rem; padding-right: 1rem; }
-      .board-card { grid-template-columns: 36px 1fr auto 1fr 0; }
-      .board-num:last-child { display: none; }
-      .player-name { max-width: 100px; font-size: 0.72rem; }
-      .standings-table th.hide-sm,
-      .standings-table td.hide-sm { display: none; }
+    /* ════════════════════════════════════════
+       POPUP OVERLAY
+    ════════════════════════════════════════ */
+    .popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 2000;
+      display: flex;
+      align-items: flex-end;        /* sheet slides up from bottom */
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+    }
+
+    .popup-overlay.visible {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .popup-sheet {
+      background: #fff;
+      width: 100%;
+      max-width: 520px;
+      padding: 1.5rem 1.5rem 2.5rem;
+      transform: translateY(30px);
+      transition: transform 0.3s cubic-bezier(0.34, 1.26, 0.64, 1);
+      border-top: 3px solid #000;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .popup-overlay.visible .popup-sheet {
+      transform: translateY(0);
+    }
+
+    .popup-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .popup-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+
+    .popup-close {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      line-height: 1;
+      color: var(--gray-400);
+      padding: 0.25rem 0.5rem;
+      font-family: 'Montserrat', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      transition: color 0.2s;
+    }
+
+    .popup-close:hover { color: var(--text); }
+
+    .popup-section-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: 0.6rem;
+    }
+
+    .popup-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .popup-option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1rem;
+      border: 2px solid var(--gray-200);
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      background: var(--bg);
+      color: var(--text);
+      transition: all 0.2s;
+      -webkit-tap-highlight-color: transparent;
+      text-align: left;
+      width: 100%;
+    }
+
+    .popup-option:hover,
+    .popup-option:active { background: var(--gray-100); }
+
+    .popup-option.selected {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+    }
+
+    .popup-option .check {
+      font-size: 1rem;
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+
+    .popup-option.selected .check { opacity: 1; }
+
+    .popup-go-btn {
+      width: 100%;
+      padding: 1rem;
+      background: var(--text);
+      color: var(--bg);
+      border: 2px solid var(--text);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .popup-go-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .popup-go-btn:active:not(:disabled) { opacity: 0.75; }
+
+    /* ── Desktop tweaks ── */
+    @media (min-width: 640px) {
+      .site-header { padding: 2rem 2rem 1.5rem; }
+      .section-tabs, .view-tabs, .content, .top-bar { padding-left: 2rem; padding-right: 2rem; }
+      .board-card { grid-template-columns: 52px 1fr; }
+      .popup-overlay { align-items: center; }
+      .popup-sheet {
+        border: 3px solid #000;
+        border-radius: 2px;
+        max-width: 420px;
+        width: 90%;
+      }
     }
   </style>
 </head>
 <body>
 
+<!-- ── Top bar ── -->
 <div class="top-bar">
   <span id="tsLeft">—</span>
-  <a href="upload.html">▲ Upload pairings</a>
+  <button class="top-bar-filter-btn" id="openPopupBtn">⊞ Filter</button>
 </div>
 
+<!-- ── Header ── -->
 <header class="site-header">
   <div class="event-title" id="eventTitle">Loading…</div>
   <div class="event-meta" id="eventMeta"></div>
+  <button class="filter-pill" id="filterPillBtn" style="display:none">
+    <span id="filterPillText">—</span>
+    <span>✕</span>
+  </button>
 </header>
 
 <div class="section-tabs" id="sectionTabs"></div>
@@ -402,26 +571,236 @@
   <div class="state-msg"><span class="big">Loading</span>Fetching tournament data…</div>
 </div>
 
+
+<!-- ════════════ POPUP ════════════ -->
+<div class="popup-overlay" id="popupOverlay">
+  <div class="popup-sheet" id="popupSheet">
+
+    <div class="popup-top">
+      <div class="popup-title">Choose what to view</div>
+      <button class="popup-close" id="popupClose">✕</button>
+    </div>
+
+    <!-- Section picker -->
+    <div class="popup-section-label">Section</div>
+    <div class="popup-options" id="sectionOptions">
+      <!-- filled by JS -->
+    </div>
+
+    <!-- Round picker -->
+    <div class="popup-section-label">Round</div>
+    <div class="popup-options" id="roundOptions">
+      <button class="popup-option selected" data-round="latest">
+        Latest / Current round
+        <span class="check">✓</span>
+      </button>
+      <button class="popup-option" data-round="all">
+        Browse all rounds
+        <span class="check">✓</span>
+      </button>
+    </div>
+
+    <button class="popup-go-btn" id="popupGoBtn">View Pairings</button>
+  </div>
+</div>
+
+
 <script>
 const DATA_URL = './pairings.json';
 
-let tournamentData = null;
+let tournamentData  = null;
 let activeSectionIdx = 0;
-let activeView = 'pairings';
-let activeRound = {};
+let activeView       = 'pairings';
+let activeRound      = {};   // sectionIdx -> current round (1-based)
+let browseMode       = false; // false = jump to latest, true = show nav
 
+// popup state
+let popupSectionIdx  = 0;
+let popupRound       = 'latest';
+
+// ── Fetch ─────────────────────────────────────────────────────────────────────
 async function loadData() {
   try {
     const res = await fetch(DATA_URL + '?t=' + Date.now());
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     tournamentData = await res.json();
-    render();
+    initApp();
   } catch (e) {
     document.getElementById('content').innerHTML =
       `<div class="state-msg"><span class="big">Error</span>Could not load pairings.json — ${e.message}</div>`;
   }
 }
 
+function initApp() {
+  const d  = tournamentData;
+  const ev = d.event;
+
+  document.title = ev.name;
+  document.getElementById('eventTitle').textContent = ev.name;
+  document.getElementById('eventMeta').innerHTML =
+    `<span>${ev.city}, ${ev.state}</span> · <span>${ev.date}</span><br>TD: <span>${ev.td}</span>`;
+  document.getElementById('tsLeft').textContent = 'Updated: ' + ev.time_stamp;
+
+  // Initialise round state
+  d.sections.forEach((sec, i) => {
+    activeRound[i] = sec.rounds_paired;
+  });
+
+  buildSectionTabs();
+  buildViewTabs();
+
+  // Build popup section options
+  buildPopupSections();
+
+  // Show popup on first load
+  showPopup();
+
+  renderContent();
+}
+
+// ── Section tabs ──────────────────────────────────────────────────────────────
+function buildSectionTabs() {
+  const el = document.getElementById('sectionTabs');
+  el.innerHTML = '';
+  tournamentData.sections.forEach((sec, i) => {
+    const t = document.createElement('div');
+    t.className = 'section-tab' + (i === activeSectionIdx ? ' active' : '');
+    t.textContent = sec.section;
+    t.onclick = () => {
+      activeSectionIdx = i;
+      document.querySelectorAll('.section-tab').forEach((s, j) =>
+        s.classList.toggle('active', j === i));
+      renderContent();
+      updateFilterPill();
+    };
+    el.appendChild(t);
+  });
+}
+
+// ── View tabs ─────────────────────────────────────────────────────────────────
+function buildViewTabs() {
+  document.querySelectorAll('.view-tab').forEach(btn => {
+    btn.onclick = () => {
+      activeView = btn.dataset.view;
+      document.querySelectorAll('.view-tab').forEach(b =>
+        b.classList.toggle('active', b.dataset.view === activeView));
+      renderContent();
+    };
+  });
+}
+
+// ── Filter pill ───────────────────────────────────────────────────────────────
+function updateFilterPill() {
+  const pill = document.getElementById('filterPillBtn');
+  const text = document.getElementById('filterPillText');
+  const sec  = tournamentData.sections[activeSectionIdx];
+  const round = browseMode ? 'All rounds' : `Rd ${activeRound[activeSectionIdx]}`;
+  text.textContent = sec.section + ' · ' + round;
+  pill.style.display = 'inline-flex';
+}
+
+document.getElementById('filterPillBtn').onclick = () => showPopup();
+document.getElementById('openPopupBtn').onclick  = () => showPopup();
+
+// ── Popup ─────────────────────────────────────────────────────────────────────
+function buildPopupSections() {
+  const el = document.getElementById('sectionOptions');
+  el.innerHTML = '';
+  tournamentData.sections.forEach((sec, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'popup-option' + (i === activeSectionIdx ? ' selected' : '');
+    btn.dataset.section = i;
+    btn.innerHTML = `${sec.section} <span class="check">✓</span>`;
+    btn.onclick = () => {
+      popupSectionIdx = i;
+      el.querySelectorAll('.popup-option').forEach((b, j) =>
+        b.classList.toggle('selected', j === i));
+    };
+    el.appendChild(btn);
+  });
+  popupSectionIdx = activeSectionIdx;
+}
+
+function showPopup() {
+  if (!tournamentData) return;
+
+  // Sync popup to current state
+  buildPopupSections();
+
+  // Sync round selection
+  document.querySelectorAll('#roundOptions .popup-option').forEach(btn => {
+    btn.classList.toggle('selected', btn.dataset.round === (browseMode ? 'all' : 'latest'));
+  });
+
+  const overlay = document.getElementById('popupOverlay');
+  overlay.classList.add('visible');
+}
+
+function hidePopup() {
+  document.getElementById('popupOverlay').classList.remove('visible');
+}
+
+document.getElementById('popupClose').onclick = hidePopup;
+
+document.getElementById('popupOverlay').onclick = e => {
+  if (e.target === document.getElementById('popupOverlay')) hidePopup();
+};
+
+// Round option clicks
+document.querySelectorAll('#roundOptions .popup-option').forEach(btn => {
+  btn.onclick = () => {
+    popupRound = btn.dataset.round;
+    document.querySelectorAll('#roundOptions .popup-option').forEach(b =>
+      b.classList.toggle('selected', b === btn));
+  };
+});
+
+document.getElementById('popupGoBtn').onclick = () => {
+  activeSectionIdx = popupSectionIdx;
+  browseMode = (popupRound === 'all');
+
+  if (!browseMode) {
+    // Jump to latest round
+    activeRound[activeSectionIdx] = tournamentData.sections[activeSectionIdx].rounds_paired;
+  }
+
+  // Sync section tabs
+  document.querySelectorAll('.section-tab').forEach((t, i) =>
+    t.classList.toggle('active', i === activeSectionIdx));
+
+  activeView = 'pairings';
+  document.querySelectorAll('.view-tab').forEach(b =>
+    b.classList.toggle('active', b.dataset.view === 'pairings'));
+
+  renderContent();
+  updateFilterPill();
+  hidePopup();
+};
+
+// ── Render ────────────────────────────────────────────────────────────────────
+function renderContent() {
+  if (!tournamentData) return;
+  const sec       = tournamentData.sections[activeSectionIdx];
+  const playerMap = buildPlayerMap(sec.players);
+
+  document.getElementById('content').innerHTML =
+    activeView === 'pairings'
+      ? renderPairings(sec, playerMap)
+      : renderStandings(sec, playerMap);
+
+  if (activeView === 'pairings') {
+    document.getElementById('prevRound')?.addEventListener('click', () => {
+      activeRound[activeSectionIdx]--;
+      renderContent();
+    });
+    document.getElementById('nextRound')?.addEventListener('click', () => {
+      activeRound[activeSectionIdx]++;
+      renderContent();
+    });
+  }
+}
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
 function buildPlayerMap(players) {
   const m = {};
   for (const p of players) m[p.pair_number] = p;
@@ -439,73 +818,27 @@ function resultLabel(r) {
   return { W:'Win', L:'Loss', D:'Draw', B:'Bye', U:'Unplayed' }[r] || r;
 }
 
-function render() {
-  const d = tournamentData;
-  const ev = d.event;
-
-  document.title = ev.name;
-  document.getElementById('eventTitle').textContent = ev.name;
-  document.getElementById('eventMeta').innerHTML =
-    `<span>${ev.city}, ${ev.state}</span> · <span>${ev.date}</span><br>TD: <span>${ev.td}</span>`;
-  document.getElementById('tsLeft').textContent = 'Updated: ' + ev.time_stamp;
-
-  const tabsEl = document.getElementById('sectionTabs');
-  tabsEl.innerHTML = '';
-  d.sections.forEach((sec, i) => {
-    const t = document.createElement('div');
-    t.className = 'section-tab' + (i === activeSectionIdx ? ' active' : '');
-    t.textContent = sec.section;
-    t.onclick = () => { activeSectionIdx = i; renderContent(); renderSectionTabs(); };
-    tabsEl.appendChild(t);
-  });
-
-  document.querySelectorAll('.view-tab').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.view === activeView);
-    btn.onclick = () => { activeView = btn.dataset.view; renderContent(); renderViewTabs(); };
-  });
-
-  renderContent();
-}
-
-function renderSectionTabs() {
-  document.querySelectorAll('.section-tab').forEach((t, i) =>
-    t.classList.toggle('active', i === activeSectionIdx));
-}
-
-function renderViewTabs() {
-  document.querySelectorAll('.view-tab').forEach(btn =>
-    btn.classList.toggle('active', btn.dataset.view === activeView));
-}
-
-function renderContent() {
-  const sec = tournamentData.sections[activeSectionIdx];
-  const playerMap = buildPlayerMap(sec.players);
+// ── Pairings ──────────────────────────────────────────────────────────────────
+function renderPairings(sec, playerMap) {
   const totalRounds = sec.rounds_paired;
+  const round       = activeRound[activeSectionIdx];
 
-  if (activeRound[activeSectionIdx] === undefined)
-    activeRound[activeSectionIdx] = totalRounds;
-
-  const content = document.getElementById('content');
-
-  if (activeView === 'pairings') {
-    content.innerHTML = renderPairings(sec, playerMap, totalRounds);
-    document.getElementById('prevRound')?.addEventListener('click', () => {
-      activeRound[activeSectionIdx]--;
-      renderContent();
-    });
-    document.getElementById('nextRound')?.addEventListener('click', () => {
-      activeRound[activeSectionIdx]++;
-      renderContent();
-    });
+  let roundNavHtml = '';
+  if (browseMode) {
+    const prevDis = round <= 1 ? 'disabled' : '';
+    const nextDis = round >= totalRounds ? 'disabled' : '';
+    roundNavHtml = `
+      <div class="round-nav">
+        <button class="round-btn" id="prevRound" ${prevDis}>← Prev</button>
+        <span class="round-label">Round ${round} / ${totalRounds}</span>
+        <button class="round-btn" id="nextRound" ${nextDis}>Next →</button>
+      </div>`;
   } else {
-    content.innerHTML = renderStandings(sec, playerMap);
+    roundNavHtml = `
+      <div class="round-nav">
+        <span class="round-label" style="flex:none;color:var(--text)">Round ${round} of ${totalRounds}</span>
+      </div>`;
   }
-}
-
-function renderPairings(sec, playerMap, totalRounds) {
-  const round = activeRound[activeSectionIdx];
-  const prevDisabled = round <= 1 ? 'disabled' : '';
-  const nextDisabled = round >= totalRounds ? 'disabled' : '';
 
   let boards = [];
 
@@ -519,154 +852,133 @@ function renderPairings(sec, playerMap, totalRounds) {
     }));
   } else {
     const seen = new Set();
-    const roundIdx = round - 1;
-    const tempBoards = [];
+    const ri   = round - 1;
+    const tmp  = [];
 
     for (const p of Object.values(playerMap)) {
-      const oppNum = p.ops?.[roundIdx];
-      const board  = p.boards?.[roundIdx];
-      const color  = p.colors?.[roundIdx];
-
+      const oppNum = p.ops?.[ri];
+      const board  = p.boards?.[ri];
+      const color  = p.colors?.[ri];
       if (!oppNum || seen.has(p.pair_number)) continue;
       const opp = playerMap[oppNum];
       if (!opp) continue;
-
       seen.add(p.pair_number);
       seen.add(oppNum);
-
       const white = color === 'W' ? p : opp;
       const black = color === 'B' ? p : opp;
-      tempBoards.push({
-        board,
-        white,
-        black,
-        whiteResult: white.results?.[roundIdx],
-        blackResult: black.results?.[roundIdx],
-      });
+      tmp.push({ board, white, black,
+        whiteResult: white.results?.[ri],
+        blackResult: black.results?.[ri] });
     }
 
     for (const p of Object.values(playerMap)) {
-      const result = p.results?.[roundIdx];
+      const result = p.results?.[ri];
       if ((result === 'B' || result === 'U') && !seen.has(p.pair_number)) {
         seen.add(p.pair_number);
-        tempBoards.push({ board: 999, bye: p, byeResult: result });
+        tmp.push({ board: 999, bye: p, byeResult: result });
       }
     }
-
-    boards = tempBoards.sort((a, b) => a.board - b.board);
+    boards = tmp.sort((a, b) => a.board - b.board);
   }
-
-  let html = `
-    <div class="round-nav">
-      <button class="round-btn" id="prevRound" ${prevDisabled}>← Prev</button>
-      <span class="round-label">Round ${round} / ${totalRounds}</span>
-      <button class="round-btn" id="nextRound" ${nextDisabled}>Next →</button>
-    </div>`;
 
   if (!boards.length) {
-    return html + `<div class="state-msg"><span class="big">No Pairings</span>Nothing available for this round.</div>`;
+    return roundNavHtml + `<div class="state-msg"><span class="big">No Pairings</span>Nothing available for this round.</div>`;
   }
+
+  let html = roundNavHtml;
 
   for (const b of boards) {
     if (b.bye) {
       const name = playerShortName(b.bye.name);
       html += `
-        <div class="board-card" style="grid-template-columns:48px 1fr">
+        <div class="board-card">
           <div class="board-num">½</div>
-          <div class="board-player" style="padding:12px 16px">
-            <span class="player-name">${name}</span>
-            <span class="player-sub"><span class="result-badge result-${b.byeResult}">${b.byeResult === 'B' ? 'Bye' : 'Unplayed'}</span></span>
+          <div class="board-matchup">
+            <div class="board-player-row">
+              <div class="player-info">
+                <div class="player-name">${name}</div>
+                <div class="player-sub">${b.byeResult === 'B' ? 'Bye' : 'Unplayed'}</div>
+              </div>
+              <span class="result-badge result-${b.byeResult}">${b.byeResult === 'B' ? 'Bye' : 'U'}</span>
+            </div>
           </div>
         </div>`;
       continue;
     }
 
-    const wName = playerShortName(b.white?.name);
-    const bName = playerShortName(b.black?.name);
+    const wName   = playerShortName(b.white?.name);
+    const bName   = playerShortName(b.black?.name);
     const wRating = b.white?.rating || '—';
     const bRating = b.black?.rating || '—';
     const wScore  = b.white?.score ?? '—';
     const bScore  = b.black?.score ?? '—';
-    const wRes = b.whiteResult;
-    const bRes = b.blackResult;
+    const wRes    = b.whiteResult;
+    const bRes    = b.blackResult;
 
     html += `
       <div class="board-card">
         <div class="board-num">${b.board}</div>
-        <div class="board-player">
-          <span class="player-name">${wName}</span>
-          <span class="player-sub">
-            <span class="color-dot W"></span>
-            <span>${wRating}</span>
-            <span>·</span>
-            <span>${wScore} pts</span>
+        <div class="board-matchup">
+          <div class="board-player-row">
+            <div class="player-info">
+              <div class="player-name">${wName}</div>
+              <div class="player-sub">
+                <span class="color-dot W"></span>
+                <span>${wRating}</span>
+                <span>·</span>
+                <span>${wScore} pts</span>
+              </div>
+            </div>
             ${wRes ? `<span class="result-badge result-${wRes}">${resultLabel(wRes)}</span>` : ''}
-          </span>
-        </div>
-        <div class="vs-divider">vs</div>
-        <div class="board-player black-side">
-          <span class="player-name">${bName}</span>
-          <span class="player-sub">
+          </div>
+          <div class="board-player-row">
+            <div class="player-info">
+              <div class="player-name">${bName}</div>
+              <div class="player-sub">
+                <span class="color-dot B"></span>
+                <span>${bRating}</span>
+                <span>·</span>
+                <span>${bScore} pts</span>
+              </div>
+            </div>
             ${bRes ? `<span class="result-badge result-${bRes}">${resultLabel(bRes)}</span>` : ''}
-            <span>${bScore} pts</span>
-            <span>·</span>
-            <span>${bRating}</span>
-            <span class="color-dot B"></span>
-          </span>
+          </div>
         </div>
-        <div class="board-num" style="border-left:1px solid var(--gray-200);border-right:none">${b.board}</div>
       </div>`;
   }
 
   return html;
 }
 
+// ── Standings ─────────────────────────────────────────────────────────────────
 function renderStandings(sec, playerMap) {
-  const tbs = sec.tiebreaks;
   const standings = sec.standings.map(pn => playerMap[pn]).filter(Boolean);
-
-  let html = `
-    <table class="standings-table">
-      <thead>
-        <tr>
-          <th class="num">#</th>
-          <th>Player</th>
-          <th class="hide-sm">USCF ID</th>
-          <th class="num">Rtg</th>
-          <th class="num">Score</th>
-          <th class="hide-sm">Results</th>
-          ${tbs.map(t => `<th class="num hide-sm">${t}</th>`).join('')}
-        </tr>
-      </thead>
-      <tbody>`;
+  let html = '<div class="standings-list">';
 
   standings.forEach((p, i) => {
-    const name = playerShortName(p.name);
-    const rank = i + 1;
-    const topClass = rank <= 3 ? ' top3' : '';
-
-    const resultPips = (p.results || []).map(r =>
+    const rank    = i + 1;
+    const topCls  = rank <= 3 ? ' top3' : '';
+    const name    = playerShortName(p.name);
+    const pips    = (p.results || []).map(r =>
       `<div class="r-pip ${r}" title="${resultLabel(r)}">${r}</div>`).join('');
 
-    const tbCells = (p.tiebreaks || []).map(v =>
-      `<td class="tb-cell hide-sm">${v % 1 === 0 ? v : v.toFixed(2)}</td>`).join('');
-
     html += `
-      <tr>
-        <td class="rank-cell${topClass}">${rank}</td>
-        <td class="name-cell">${name}</td>
-        <td class="id-cell hide-sm">${p.id1 || '—'}</td>
-        <td class="rating-cell">${p.rating || '—'}</td>
-        <td class="score-cell">${p.score}</td>
-        <td class="hide-sm"><div class="results-history">${resultPips}</div></td>
-        ${tbCells}
-      </tr>`;
+      <div class="standing-row">
+        <div class="s-rank${topCls}">${rank}</div>
+        <div class="s-info">
+          <div class="s-name">${name}</div>
+          <div class="s-sub">${p.rating || 'Unrated'} · ${p.id1 || ''}</div>
+        </div>
+        <div class="s-pips">${pips}</div>
+        <div class="s-score">${p.score}</div>
+      </div>`;
   });
 
-  html += '</tbody></table>';
+  html += '</div>';
   return html;
 }
 
+// ── Boot ──────────────────────────────────────────────────────────────────────
 loadData();
 setInterval(loadData, 120_000);
 </script>
