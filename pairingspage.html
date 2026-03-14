@@ -35,11 +35,45 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.6rem 1.25rem;
-      font-size: 0.68rem;
+      padding: 0.55rem 1.25rem;
+      font-size: 0.65rem;
       font-weight: 700;
       letter-spacing: 0.5px;
       text-transform: uppercase;
+      gap: 0.75rem;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    /* Refresh pulse dot */
+    .refresh-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #fff;
+      flex-shrink: 0;
+      opacity: 0.3;
+      transition: opacity 0.3s;
+    }
+
+    .refresh-dot.active { opacity: 1; animation: pulse 1s ease-out; }
+
+    @keyframes pulse {
+      0%   { opacity: 1; transform: scale(1.5); }
+      100% { opacity: 0.3; transform: scale(1); }
+    }
+
+    .top-bar-ts {
+      font-size: 0.62rem;
+      opacity: 0.7;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .top-bar-filter-btn {
@@ -53,56 +87,70 @@
       text-transform: uppercase;
       padding: 0.3rem 0.75rem;
       cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+      -webkit-tap-highlight-color: transparent;
       transition: background 0.2s;
     }
 
     .top-bar-filter-btn:hover { background: rgba(255,255,255,0.15); }
 
-    /* ── Header ── */
+    /* ── Header — compact on mobile ── */
     .site-header {
       border-bottom: 1px solid var(--gray-200);
-      padding: 1.5rem 1.25rem 1rem;
+      padding: 0.75rem 1.25rem 0.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
     }
 
+    .header-left { min-width: 0; flex: 1; }
+
     .event-title {
-      font-size: clamp(1.5rem, 7vw, 2.8rem);
+      font-size: clamp(0.95rem, 4.5vw, 1.6rem);
       font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: -1px;
-      line-height: 1.05;
-      margin-bottom: 0.6rem;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .event-meta {
-      font-size: 0.72rem;
+      font-size: 0.62rem;
       font-weight: 700;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
       text-transform: uppercase;
       color: var(--gray-400);
-      line-height: 1.9;
+      line-height: 1.7;
+      margin-top: 1px;
     }
 
-    .event-meta span { color: var(--text); }
+    .event-meta span { color: var(--gray-600); }
 
-    /* ── Active filter pill ── */
+    /* Filter pill */
     .filter-pill {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.35rem;
       background: var(--text);
       color: var(--bg);
-      font-size: 0.62rem;
+      font-size: 0.6rem;
       font-weight: 700;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
       text-transform: uppercase;
-      padding: 0.25rem 0.6rem;
-      margin-top: 0.6rem;
+      padding: 0.28rem 0.55rem;
       cursor: pointer;
       border: none;
       font-family: 'Montserrat', sans-serif;
+      flex-shrink: 0;
+      white-space: nowrap;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .filter-pill span { opacity: 0.6; font-size: 0.75rem; }
+    .filter-pill .x { opacity: 0.5; margin-left: 1px; }
 
     /* ── Section tabs ── */
     .section-tabs {
@@ -117,8 +165,8 @@
     .section-tabs::-webkit-scrollbar { display: none; }
 
     .section-tab {
-      padding: 0.85rem 1rem;
-      font-size: 0.72rem;
+      padding: 0.7rem 1rem;
+      font-size: 0.7rem;
       font-weight: 700;
       letter-spacing: 0.5px;
       text-transform: uppercase;
@@ -128,6 +176,7 @@
       white-space: nowrap;
       flex-shrink: 0;
       transition: color 0.2s, border-color 0.2s;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .section-tab:hover { color: var(--text); }
@@ -137,13 +186,13 @@
     .view-tabs {
       display: flex;
       gap: 0.5rem;
-      padding: 1rem 1.25rem 0;
+      padding: 0.85rem 1.25rem 0;
     }
 
     .view-tab {
-      padding: 0.5rem 1.1rem;
+      padding: 0.45rem 1rem;
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 700;
       letter-spacing: 0.5px;
       text-transform: uppercase;
@@ -158,24 +207,48 @@
     .view-tab:hover { border-color: var(--text); color: var(--text); }
     .view-tab.active { background: var(--text); border-color: var(--text); color: var(--bg); }
 
+    /* ── Search bar ── */
+    .search-wrap {
+      padding: 0.75rem 1.25rem 0;
+      display: none;
+    }
+
+    .search-wrap.visible { display: block; }
+
+    .search-input {
+      width: 100%;
+      padding: 0.55rem 0.85rem;
+      border: 2px solid var(--gray-200);
+      background: var(--bg);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-input:focus { border-color: var(--text); }
+    .search-input::placeholder { color: var(--gray-200); font-weight: 700; text-transform: uppercase; font-size: 0.68rem; letter-spacing: 0.4px; }
+
     /* ── Content ── */
-    .content { padding: 1rem 1.25rem 6rem; }
+    .content { padding: 0.85rem 1.25rem 6rem; }
 
     /* ── Round nav ── */
     .round-nav {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
     }
 
     .round-btn {
       background: none;
       border: 2px solid var(--gray-200);
       color: var(--text);
-      padding: 0.55rem 1rem;
+      padding: 0.5rem 0.9rem;
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 700;
       letter-spacing: 0.5px;
       text-transform: uppercase;
@@ -195,7 +268,7 @@
     .round-btn:disabled { opacity: 0.25; cursor: not-allowed; }
 
     .round-label {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 700;
       letter-spacing: 0.5px;
       text-transform: uppercase;
@@ -207,36 +280,35 @@
     /* ── Board cards ── */
     .board-card {
       border: 1px solid var(--gray-200);
-      margin-bottom: 8px;
+      margin-bottom: 7px;
       display: grid;
-      grid-template-columns: 44px 1fr;
+      grid-template-columns: 40px 1fr;
       align-items: stretch;
       background: var(--bg);
       -webkit-tap-highlight-color: transparent;
     }
 
+    .board-card.search-hidden { display: none; }
+
     .board-num {
       background: var(--gray-100);
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 900;
       text-align: center;
       display: flex;
       align-items: center;
       justify-content: center;
       border-right: 1px solid var(--gray-200);
-      min-height: 80px;
+      min-height: 76px;
     }
 
-    .board-matchup {
-      display: flex;
-      flex-direction: column;
-    }
+    .board-matchup { display: flex; flex-direction: column; }
 
     .board-player-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.65rem 0.9rem;
+      padding: 0.6rem 0.85rem;
       gap: 0.5rem;
     }
 
@@ -253,7 +325,7 @@
     }
 
     .player-name {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.2px;
@@ -262,8 +334,14 @@
       text-overflow: ellipsis;
     }
 
+    .player-name mark {
+      background: #000;
+      color: #fff;
+      padding: 0 1px;
+    }
+
     .player-sub {
-      font-size: 0.65rem;
+      font-size: 0.63rem;
       color: var(--gray-400);
       display: flex;
       align-items: center;
@@ -271,54 +349,91 @@
     }
 
     .color-dot {
-      width: 7px; height: 7px;
+      width: 6px; height: 6px;
       border-radius: 50%;
       flex-shrink: 0;
-      display: inline-block;
     }
 
     .color-dot.W { background: #000; }
     .color-dot.B { background: #fff; border: 1px solid #bbb; }
 
+    /* Result badge — also has a "pending" state */
     .result-badge {
       flex-shrink: 0;
-      padding: 3px 7px;
-      font-size: 0.62rem;
+      padding: 3px 6px;
+      font-size: 0.6rem;
       font-weight: 700;
       letter-spacing: 0.4px;
       text-transform: uppercase;
       border: 1.5px solid;
     }
 
-    .result-W { color: #000; border-color: #000; background: #fff; }
-    .result-L { color: var(--gray-400); border-color: var(--gray-200); }
-    .result-D { color: var(--gray-600); border-color: #bbb; }
-    .result-B { color: var(--gray-600); border-color: #bbb; }
-    .result-U { color: var(--gray-200); border-color: var(--gray-200); }
+    .result-W       { color: #000; border-color: #000; }
+    .result-L       { color: var(--gray-400); border-color: var(--gray-200); }
+    .result-D       { color: var(--gray-600); border-color: #bbb; }
+    .result-B       { color: var(--gray-600); border-color: #bbb; }
+    .result-U       { color: var(--gray-200); border-color: var(--gray-200); }
+    .result-pending { color: var(--gray-200); border-color: var(--gray-200); border-style: dashed; }
+
+    /* In-progress banner shown when latest round has no results yet */
+    .in-progress-banner {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      border: 1px dashed var(--gray-200);
+      padding: 0.5rem 0.85rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .in-progress-banner::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gray-400);
+      flex-shrink: 0;
+      animation: blink 1.4s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 0.3; }
+      50%       { opacity: 1; }
+    }
+
+    /* No search results */
+    .no-search-results {
+      display: none;
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: var(--gray-400);
+    }
 
     /* ── Standings ── */
-    .standings-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      margin-top: 0.75rem;
-    }
+    .standings-list { display: flex; flex-direction: column; margin-top: 0.75rem; }
 
     .standing-row {
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      padding: 0.85rem 0.75rem;
+      padding: 0.8rem 0.5rem;
       border-bottom: 1px solid var(--gray-200);
     }
 
     .standing-row:first-child { border-top: 2px solid var(--text); }
 
     .s-rank {
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 900;
       color: var(--gray-200);
-      width: 28px;
+      width: 26px;
       text-align: center;
       flex-shrink: 0;
     }
@@ -328,7 +443,7 @@
     .s-info { flex: 1; min-width: 0; }
 
     .s-name {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.2px;
@@ -337,22 +452,14 @@
       text-overflow: ellipsis;
     }
 
-    .s-sub {
-      font-size: 0.65rem;
-      color: var(--gray-400);
-      margin-top: 2px;
-    }
+    .s-sub { font-size: 0.62rem; color: var(--gray-400); margin-top: 1px; }
 
-    .s-pips {
-      display: flex;
-      gap: 2px;
-      flex-shrink: 0;
-    }
+    .s-pips { display: flex; gap: 2px; flex-shrink: 0; }
 
     .r-pip {
-      width: 16px; height: 16px;
+      width: 15px; height: 15px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 0.55rem;
+      font-size: 0.52rem;
       font-weight: 700;
       border: 1px solid;
       flex-shrink: 0;
@@ -365,23 +472,19 @@
     .r-pip.U { background: #fff; color: var(--gray-200); border-color: var(--gray-200); }
 
     .s-score {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 900;
       flex-shrink: 0;
-      width: 36px;
+      width: 32px;
       text-align: right;
     }
 
     /* ── Empty state ── */
-    .state-msg {
-      padding: 4rem 1rem;
-      text-align: center;
-      color: var(--gray-400);
-    }
+    .state-msg { padding: 4rem 1rem; text-align: center; color: var(--gray-400); }
 
     .state-msg .big {
       display: block;
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: -1px;
@@ -390,47 +493,42 @@
     }
 
     /* ════════════════════════════════════════
-       POPUP OVERLAY
+       POPUP
     ════════════════════════════════════════ */
     .popup-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.55);
+      background: rgba(0,0,0,0.5);
       z-index: 2000;
       display: flex;
-      align-items: flex-end;        /* sheet slides up from bottom */
+      align-items: flex-end;
       justify-content: center;
       opacity: 0;
       transition: opacity 0.25s ease;
       pointer-events: none;
     }
 
-    .popup-overlay.visible {
-      opacity: 1;
-      pointer-events: all;
-    }
+    .popup-overlay.visible { opacity: 1; pointer-events: all; }
 
     .popup-sheet {
       background: #fff;
       width: 100%;
       max-width: 520px;
       padding: 1.5rem 1.5rem 2.5rem;
-      transform: translateY(30px);
-      transition: transform 0.3s cubic-bezier(0.34, 1.26, 0.64, 1);
+      transform: translateY(24px);
+      transition: transform 0.28s cubic-bezier(0.34, 1.2, 0.64, 1);
       border-top: 3px solid #000;
-      max-height: 90vh;
+      max-height: 88vh;
       overflow-y: auto;
     }
 
-    .popup-overlay.visible .popup-sheet {
-      transform: translateY(0);
-    }
+    .popup-overlay.visible .popup-sheet { transform: translateY(0); }
 
     .popup-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.4rem;
     }
 
     .popup-title {
@@ -444,8 +542,7 @@
       background: none;
       border: none;
       cursor: pointer;
-      font-size: 1.2rem;
-      line-height: 1;
+      font-size: 1.1rem;
       color: var(--gray-400);
       padding: 0.25rem 0.5rem;
       font-family: 'Montserrat', sans-serif;
@@ -461,51 +558,41 @@
       letter-spacing: 0.6px;
       text-transform: uppercase;
       color: var(--gray-400);
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.55rem;
+      border-bottom: 1px solid var(--gray-200);
+      padding-bottom: 0.3rem;
     }
 
     .popup-options {
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
+      gap: 0.4rem;
+      margin-bottom: 1.4rem;
     }
 
     .popup-option {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.9rem 1rem;
+      padding: 0.85rem 1rem;
       border: 2px solid var(--gray-200);
       cursor: pointer;
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.3px;
       background: var(--bg);
       color: var(--text);
-      transition: all 0.2s;
+      transition: all 0.15s;
       -webkit-tap-highlight-color: transparent;
       text-align: left;
       width: 100%;
     }
 
-    .popup-option:hover,
     .popup-option:active { background: var(--gray-100); }
-
-    .popup-option.selected {
-      background: var(--text);
-      color: var(--bg);
-      border-color: var(--text);
-    }
-
-    .popup-option .check {
-      font-size: 1rem;
-      opacity: 0;
-      transition: opacity 0.15s;
-    }
-
+    .popup-option.selected { background: var(--text); color: var(--bg); border-color: var(--text); }
+    .popup-option .check { font-size: 0.9rem; opacity: 0; transition: opacity 0.15s; }
     .popup-option.selected .check { opacity: 1; }
 
     .popup-go-btn {
@@ -515,30 +602,24 @@
       color: var(--bg);
       border: 2px solid var(--text);
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 700;
       letter-spacing: 0.6px;
       text-transform: uppercase;
       cursor: pointer;
-      transition: opacity 0.2s;
       -webkit-tap-highlight-color: transparent;
+      transition: opacity 0.2s;
     }
 
-    .popup-go-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-    .popup-go-btn:active:not(:disabled) { opacity: 0.75; }
+    .popup-go-btn:active { opacity: 0.75; }
 
-    /* ── Desktop tweaks ── */
+    /* ── Desktop ── */
     @media (min-width: 640px) {
-      .site-header { padding: 2rem 2rem 1.5rem; }
-      .section-tabs, .view-tabs, .content, .top-bar { padding-left: 2rem; padding-right: 2rem; }
-      .board-card { grid-template-columns: 52px 1fr; }
+      .site-header { padding: 1.25rem 2rem 1rem; }
+      .section-tabs, .view-tabs, .search-wrap, .content, .top-bar { padding-left: 2rem; padding-right: 2rem; }
+      .event-title { font-size: 1.8rem; white-space: normal; }
       .popup-overlay { align-items: center; }
-      .popup-sheet {
-        border: 3px solid #000;
-        border-radius: 2px;
-        max-width: 420px;
-        width: 90%;
-      }
+      .popup-sheet { border: 3px solid #000; max-width: 400px; width: 90%; }
     }
   </style>
 </head>
@@ -546,17 +627,22 @@
 
 <!-- ── Top bar ── -->
 <div class="top-bar">
-  <span id="tsLeft">—</span>
+  <div class="top-bar-left">
+    <div class="refresh-dot" id="refreshDot"></div>
+    <span class="top-bar-ts" id="tsLeft">—</span>
+  </div>
   <button class="top-bar-filter-btn" id="openPopupBtn">⊞ Filter</button>
 </div>
 
 <!-- ── Header ── -->
 <header class="site-header">
-  <div class="event-title" id="eventTitle">Loading…</div>
-  <div class="event-meta" id="eventMeta"></div>
+  <div class="header-left">
+    <div class="event-title" id="eventTitle">Loading…</div>
+    <div class="event-meta" id="eventMeta"></div>
+  </div>
   <button class="filter-pill" id="filterPillBtn" style="display:none">
     <span id="filterPillText">—</span>
-    <span>✕</span>
+    <span class="x">✕</span>
   </button>
 </header>
 
@@ -567,6 +653,11 @@
   <button class="view-tab" data-view="standings">Standings</button>
 </div>
 
+<!-- ── Search bar (pairings only) ── -->
+<div class="search-wrap" id="searchWrap">
+  <input class="search-input" id="searchInput" type="search" placeholder="Search player…" autocomplete="off" autocorrect="off" spellcheck="false" />
+</div>
+
 <div class="content" id="content">
   <div class="state-msg"><span class="big">Loading</span>Fetching tournament data…</div>
 </div>
@@ -574,20 +665,16 @@
 
 <!-- ════════════ POPUP ════════════ -->
 <div class="popup-overlay" id="popupOverlay">
-  <div class="popup-sheet" id="popupSheet">
+  <div class="popup-sheet">
 
     <div class="popup-top">
       <div class="popup-title">Choose what to view</div>
       <button class="popup-close" id="popupClose">✕</button>
     </div>
 
-    <!-- Section picker -->
     <div class="popup-section-label">Section</div>
-    <div class="popup-options" id="sectionOptions">
-      <!-- filled by JS -->
-    </div>
+    <div class="popup-options" id="sectionOptions"></div>
 
-    <!-- Round picker -->
     <div class="popup-section-label">Round</div>
     <div class="popup-options" id="roundOptions">
       <button class="popup-option selected" data-round="latest">
@@ -608,54 +695,75 @@
 <script>
 const DATA_URL = './pairings.json';
 
-let tournamentData  = null;
+let tournamentData   = null;
 let activeSectionIdx = 0;
 let activeView       = 'pairings';
-let activeRound      = {};   // sectionIdx -> current round (1-based)
-let browseMode       = false; // false = jump to latest, true = show nav
+let activeRound      = {};
+let browseMode       = false;
+let searchQuery      = '';
+let firstLoad        = true;
 
 // popup state
-let popupSectionIdx  = 0;
-let popupRound       = 'latest';
+let popupSectionIdx = 0;
+let popupRound      = 'latest';
 
 // ── Fetch ─────────────────────────────────────────────────────────────────────
 async function loadData() {
   try {
     const res = await fetch(DATA_URL + '?t=' + Date.now());
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    tournamentData = await res.json();
-    initApp();
+    const fresh = await res.json();
+
+    const isFirst = !tournamentData;
+    tournamentData = fresh;
+
+    // Update timestamp
+    document.getElementById('tsLeft').textContent = 'Updated: ' + fresh.event.time_stamp;
+
+    // Flash the refresh dot
+    const dot = document.getElementById('refreshDot');
+    dot.classList.remove('active');
+    void dot.offsetWidth; // reflow to restart animation
+    dot.classList.add('active');
+
+    if (isFirst) {
+      initApp();
+    } else {
+      // Silent refresh — just re-render, don't reset state or show popup
+      updateHeader();
+      renderContent();
+      updateFilterPill();
+    }
   } catch (e) {
-    document.getElementById('content').innerHTML =
-      `<div class="state-msg"><span class="big">Error</span>Could not load pairings.json — ${e.message}</div>`;
+    if (!tournamentData) {
+      document.getElementById('content').innerHTML =
+        `<div class="state-msg"><span class="big">Error</span>Could not load pairings.json<br><small style="font-size:0.65rem;color:var(--gray-400)">${e.message}</small></div>`;
+    }
+    // Silent fail on background refresh — don't disrupt the user
   }
 }
 
 function initApp() {
-  const d  = tournamentData;
-  const ev = d.event;
+  const d = tournamentData;
 
-  document.title = ev.name;
-  document.getElementById('eventTitle').textContent = ev.name;
-  document.getElementById('eventMeta').innerHTML =
-    `<span>${ev.city}, ${ev.state}</span> · <span>${ev.date}</span><br>TD: <span>${ev.td}</span>`;
-  document.getElementById('tsLeft').textContent = 'Updated: ' + ev.time_stamp;
+  document.title = d.event.name;
+  updateHeader();
 
-  // Initialise round state
-  d.sections.forEach((sec, i) => {
-    activeRound[i] = sec.rounds_paired;
-  });
+  // Init round state to latest for each section
+  d.sections.forEach((sec, i) => { activeRound[i] = sec.rounds_paired; });
 
   buildSectionTabs();
   buildViewTabs();
-
-  // Build popup section options
   buildPopupSections();
-
-  // Show popup on first load
   showPopup();
-
   renderContent();
+}
+
+function updateHeader() {
+  const ev = tournamentData.event;
+  document.getElementById('eventTitle').textContent = ev.name;
+  document.getElementById('eventMeta').innerHTML =
+    `<span>${ev.city}, ${ev.state}</span> · TD: <span>${ev.td}</span>`;
 }
 
 // ── Section tabs ──────────────────────────────────────────────────────────────
@@ -670,6 +778,7 @@ function buildSectionTabs() {
       activeSectionIdx = i;
       document.querySelectorAll('.section-tab').forEach((s, j) =>
         s.classList.toggle('active', j === i));
+      clearSearch();
       renderContent();
       updateFilterPill();
     };
@@ -684,9 +793,50 @@ function buildViewTabs() {
       activeView = btn.dataset.view;
       document.querySelectorAll('.view-tab').forEach(b =>
         b.classList.toggle('active', b.dataset.view === activeView));
+      clearSearch();
       renderContent();
+      updateSearchBar();
     };
   });
+}
+
+// ── Search ────────────────────────────────────────────────────────────────────
+function updateSearchBar() {
+  document.getElementById('searchWrap').classList.toggle('visible', activeView === 'pairings');
+}
+
+document.getElementById('searchInput').addEventListener('input', e => {
+  searchQuery = e.target.value.trim().toLowerCase();
+  applySearch();
+});
+
+function applySearch() {
+  const cards = document.querySelectorAll('.board-card');
+  let visible = 0;
+
+  cards.forEach(card => {
+    if (!searchQuery) {
+      card.classList.remove('search-hidden');
+      visible++;
+      return;
+    }
+    const names = card.querySelectorAll('.player-name');
+    let match = false;
+    names.forEach(n => {
+      if (n.textContent.toLowerCase().includes(searchQuery)) match = true;
+    });
+    card.classList.toggle('search-hidden', !match);
+    if (match) visible++;
+  });
+
+  // Show/hide no-results message
+  const noRes = document.getElementById('noSearchResults');
+  if (noRes) noRes.style.display = visible === 0 && searchQuery ? 'block' : 'none';
+}
+
+function clearSearch() {
+  searchQuery = '';
+  document.getElementById('searchInput').value = '';
 }
 
 // ── Filter pill ───────────────────────────────────────────────────────────────
@@ -694,8 +844,8 @@ function updateFilterPill() {
   const pill = document.getElementById('filterPillBtn');
   const text = document.getElementById('filterPillText');
   const sec  = tournamentData.sections[activeSectionIdx];
-  const round = browseMode ? 'All rounds' : `Rd ${activeRound[activeSectionIdx]}`;
-  text.textContent = sec.section + ' · ' + round;
+  const rnd  = browseMode ? 'All rds' : `Rd ${activeRound[activeSectionIdx]}`;
+  text.textContent = sec.section + ' · ' + rnd;
   pill.style.display = 'inline-flex';
 }
 
@@ -723,17 +873,11 @@ function buildPopupSections() {
 
 function showPopup() {
   if (!tournamentData) return;
-
-  // Sync popup to current state
   buildPopupSections();
-
-  // Sync round selection
   document.querySelectorAll('#roundOptions .popup-option').forEach(btn => {
     btn.classList.toggle('selected', btn.dataset.round === (browseMode ? 'all' : 'latest'));
   });
-
-  const overlay = document.getElementById('popupOverlay');
-  overlay.classList.add('visible');
+  document.getElementById('popupOverlay').classList.add('visible');
 }
 
 function hidePopup() {
@@ -741,12 +885,10 @@ function hidePopup() {
 }
 
 document.getElementById('popupClose').onclick = hidePopup;
-
-document.getElementById('popupOverlay').onclick = e => {
+document.getElementById('popupOverlay').addEventListener('click', e => {
   if (e.target === document.getElementById('popupOverlay')) hidePopup();
-};
+});
 
-// Round option clicks
 document.querySelectorAll('#roundOptions .popup-option').forEach(btn => {
   btn.onclick = () => {
     popupRound = btn.dataset.round;
@@ -759,12 +901,9 @@ document.getElementById('popupGoBtn').onclick = () => {
   activeSectionIdx = popupSectionIdx;
   browseMode = (popupRound === 'all');
 
-  if (!browseMode) {
-    // Jump to latest round
+  if (!browseMode)
     activeRound[activeSectionIdx] = tournamentData.sections[activeSectionIdx].rounds_paired;
-  }
 
-  // Sync section tabs
   document.querySelectorAll('.section-tab').forEach((t, i) =>
     t.classList.toggle('active', i === activeSectionIdx));
 
@@ -772,8 +911,10 @@ document.getElementById('popupGoBtn').onclick = () => {
   document.querySelectorAll('.view-tab').forEach(b =>
     b.classList.toggle('active', b.dataset.view === 'pairings'));
 
+  clearSearch();
   renderContent();
   updateFilterPill();
+  updateSearchBar();
   hidePopup();
 };
 
@@ -791,13 +932,19 @@ function renderContent() {
   if (activeView === 'pairings') {
     document.getElementById('prevRound')?.addEventListener('click', () => {
       activeRound[activeSectionIdx]--;
+      clearSearch();
       renderContent();
     });
     document.getElementById('nextRound')?.addEventListener('click', () => {
       activeRound[activeSectionIdx]++;
+      clearSearch();
       renderContent();
     });
+    // Re-apply any active search after render
+    if (searchQuery) applySearch();
   }
+
+  updateSearchBar();
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -818,10 +965,25 @@ function resultLabel(r) {
   return { W:'Win', L:'Loss', D:'Draw', B:'Bye', U:'Unplayed' }[r] || r;
 }
 
+// Highlight search match in player name
+function highlightName(name) {
+  if (!searchQuery) return name;
+  const idx = name.toLowerCase().indexOf(searchQuery);
+  if (idx === -1) return name;
+  return name.slice(0, idx) +
+    `<mark>${name.slice(idx, idx + searchQuery.length)}</mark>` +
+    name.slice(idx + searchQuery.length);
+}
+
 // ── Pairings ──────────────────────────────────────────────────────────────────
 function renderPairings(sec, playerMap) {
   const totalRounds = sec.rounds_paired;
   const round       = activeRound[activeSectionIdx];
+  const roundIdx    = round - 1;
+
+  // Detect whether current round has any results entered yet
+  const hasResults = Object.values(playerMap).some(p =>
+    p.results && p.results[roundIdx] !== undefined);
 
   let roundNavHtml = '';
   if (browseMode) {
@@ -840,6 +1002,12 @@ function renderPairings(sec, playerMap) {
       </div>`;
   }
 
+  // Banner when round is freshly paired but no results yet
+  const inProgressBanner = (!hasResults && round === totalRounds)
+    ? `<div class="in-progress-banner">Round ${round} in progress — results will appear here</div>`
+    : '';
+
+  // Build boards list
   let boards = [];
 
   if (round === totalRounds && sec.pairings.length) {
@@ -847,18 +1015,17 @@ function renderPairings(sec, playerMap) {
       board: p.board,
       white: playerMap[p.white],
       black: playerMap[p.black],
-      whiteResult: playerMap[p.white]?.results?.[round - 1],
-      blackResult: playerMap[p.black]?.results?.[round - 1],
+      whiteResult: playerMap[p.white]?.results?.[roundIdx],
+      blackResult: playerMap[p.black]?.results?.[roundIdx],
     }));
   } else {
     const seen = new Set();
-    const ri   = round - 1;
     const tmp  = [];
 
     for (const p of Object.values(playerMap)) {
-      const oppNum = p.ops?.[ri];
-      const board  = p.boards?.[ri];
-      const color  = p.colors?.[ri];
+      const oppNum = p.ops?.[roundIdx];
+      const board  = p.boards?.[roundIdx];
+      const color  = p.colors?.[roundIdx];
       if (!oppNum || seen.has(p.pair_number)) continue;
       const opp = playerMap[oppNum];
       if (!opp) continue;
@@ -867,12 +1034,12 @@ function renderPairings(sec, playerMap) {
       const white = color === 'W' ? p : opp;
       const black = color === 'B' ? p : opp;
       tmp.push({ board, white, black,
-        whiteResult: white.results?.[ri],
-        blackResult: black.results?.[ri] });
+        whiteResult: white.results?.[roundIdx],
+        blackResult: black.results?.[roundIdx] });
     }
 
     for (const p of Object.values(playerMap)) {
-      const result = p.results?.[ri];
+      const result = p.results?.[roundIdx];
       if ((result === 'B' || result === 'U') && !seen.has(p.pair_number)) {
         seen.add(p.pair_number);
         tmp.push({ board: 999, bye: p, byeResult: result });
@@ -885,13 +1052,13 @@ function renderPairings(sec, playerMap) {
     return roundNavHtml + `<div class="state-msg"><span class="big">No Pairings</span>Nothing available for this round.</div>`;
   }
 
-  let html = roundNavHtml;
+  let html = roundNavHtml + inProgressBanner;
 
   for (const b of boards) {
     if (b.bye) {
       const name = playerShortName(b.bye.name);
       html += `
-        <div class="board-card">
+        <div class="board-card" data-players="${name.toLowerCase()}">
           <div class="board-num">½</div>
           <div class="board-matchup">
             <div class="board-player-row">
@@ -915,13 +1082,22 @@ function renderPairings(sec, playerMap) {
     const wRes    = b.whiteResult;
     const bRes    = b.blackResult;
 
+    // If no result yet, show a dashed pending badge instead of nothing
+    const wBadge = wRes
+      ? `<span class="result-badge result-${wRes}">${resultLabel(wRes)}</span>`
+      : (hasResults ? '' : `<span class="result-badge result-pending">—</span>`);
+
+    const bBadge = bRes
+      ? `<span class="result-badge result-${bRes}">${resultLabel(bRes)}</span>`
+      : (hasResults ? '' : `<span class="result-badge result-pending">—</span>`);
+
     html += `
-      <div class="board-card">
+      <div class="board-card" data-players="${wName.toLowerCase()} ${bName.toLowerCase()}">
         <div class="board-num">${b.board}</div>
         <div class="board-matchup">
           <div class="board-player-row">
             <div class="player-info">
-              <div class="player-name">${wName}</div>
+              <div class="player-name">${highlightName(wName)}</div>
               <div class="player-sub">
                 <span class="color-dot W"></span>
                 <span>${wRating}</span>
@@ -929,11 +1105,11 @@ function renderPairings(sec, playerMap) {
                 <span>${wScore} pts</span>
               </div>
             </div>
-            ${wRes ? `<span class="result-badge result-${wRes}">${resultLabel(wRes)}</span>` : ''}
+            ${wBadge}
           </div>
           <div class="board-player-row">
             <div class="player-info">
-              <div class="player-name">${bName}</div>
+              <div class="player-name">${highlightName(bName)}</div>
               <div class="player-sub">
                 <span class="color-dot B"></span>
                 <span>${bRating}</span>
@@ -941,12 +1117,13 @@ function renderPairings(sec, playerMap) {
                 <span>${bScore} pts</span>
               </div>
             </div>
-            ${bRes ? `<span class="result-badge result-${bRes}">${resultLabel(bRes)}</span>` : ''}
+            ${bBadge}
           </div>
         </div>
       </div>`;
   }
 
+  html += `<div id="noSearchResults" class="no-search-results" style="display:none">No players found</div>`;
   return html;
 }
 
@@ -956,10 +1133,10 @@ function renderStandings(sec, playerMap) {
   let html = '<div class="standings-list">';
 
   standings.forEach((p, i) => {
-    const rank    = i + 1;
-    const topCls  = rank <= 3 ? ' top3' : '';
-    const name    = playerShortName(p.name);
-    const pips    = (p.results || []).map(r =>
+    const rank   = i + 1;
+    const topCls = rank <= 3 ? ' top3' : '';
+    const name   = playerShortName(p.name);
+    const pips   = (p.results || []).map(r =>
       `<div class="r-pip ${r}" title="${resultLabel(r)}">${r}</div>`).join('');
 
     html += `
@@ -967,7 +1144,7 @@ function renderStandings(sec, playerMap) {
         <div class="s-rank${topCls}">${rank}</div>
         <div class="s-info">
           <div class="s-name">${name}</div>
-          <div class="s-sub">${p.rating || 'Unrated'} · ${p.id1 || ''}</div>
+          <div class="s-sub">${p.rating || 'Unrated'}${p.id1 ? ' · ' + p.id1 : ''}</div>
         </div>
         <div class="s-pips">${pips}</div>
         <div class="s-score">${p.score}</div>
