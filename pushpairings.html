@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upload Pairings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:      #ffffff;
+      --text:    #000000;
+      --gray-100:#f8f8f8;
+      --gray-200:#e5e5e5;
+      --gray-400:#999999;
+      --gray-600:#555555;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    /* ── Top bar ── */
+    .top-bar {
+      background: #000;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.55rem 2rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+
+    .top-bar a {
+      color: #fff;
+      text-decoration: none;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .top-bar a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 1px;
+      background: #fff;
+      transition: width 0.3s ease;
+    }
+
+    .top-bar a:hover::after { width: 100%; }
+    .top-bar a:hover { transform: translateY(-1px); }
+
+    /* ── Header ── */
+    .site-header {
+      border-bottom: 1px solid var(--gray-200);
+      padding: 2.5rem 2rem 1.5rem;
+    }
+
+    .page-title {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      transition: letter-spacing 0.3s ease;
+    }
+
+    .page-title:hover { letter-spacing: 1px; }
+
+    /* ── Main layout ── */
+    .main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 5rem;
+    }
+
+    /* ── Explainer ── */
+    .explainer {
+      border-left: 3px solid var(--text);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+      background: var(--gray-100);
+    }
+
+    .explainer-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .step-list {
+      list-style: none;
+      counter-reset: steps;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .step-list li {
+      counter-increment: steps;
+      padding-left: 1.75rem;
+      position: relative;
+      font-size: 0.78rem;
+      color: var(--gray-600);
+      line-height: 1.6;
+    }
+
+    .step-list li::before {
+      content: counter(steps);
+      position: absolute;
+      left: 0; top: 0;
+      background: var(--text);
+      color: var(--bg);
+      width: 18px; height: 18px;
+      font-size: 0.6rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-list li strong { color: var(--text); }
+
+    /* ── Section labels ── */
+    .section-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: 0.6rem;
+      border-bottom: 1px solid var(--gray-200);
+      padding-bottom: 0.4rem;
+    }
+
+    /* ── Key drop ── */
+    .key-drop {
+      border: 2px dashed var(--gray-200);
+      padding: 1.25rem;
+      text-align: center;
+      cursor: pointer;
+      margin-bottom: 2rem;
+      position: relative;
+      transition: border-color 0.3s ease, background 0.3s ease;
+    }
+
+    .key-drop:hover, .key-drop.dragover {
+      border-color: var(--text);
+      background: var(--gray-100);
+    }
+
+    .key-drop input[type=file] {
+      position: absolute; inset: 0;
+      opacity: 0; cursor: pointer;
+      width: 100%; height: 100%;
+    }
+
+    .drop-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .drop-sub {
+      font-size: 0.68rem;
+      color: var(--gray-400);
+    }
+
+    /* ── Fields ── */
+    .fields {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .field { display: flex; flex-direction: column; gap: 4px; }
+
+    .field label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+    }
+
+    .field label .hint {
+      text-transform: none;
+      letter-spacing: 0;
+      margin-left: 6px;
+      color: var(--gray-200);
+      font-weight: 400;
+    }
+
+    .field input {
+      background: var(--bg);
+      border: 2px solid var(--gray-200);
+      color: var(--text);
+      padding: 0.6rem 0.75rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 400;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .field input:focus { border-color: var(--text); }
+    .field input::placeholder { color: var(--gray-200); }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    /* ── Pairings drop ── */
+    .file-drop {
+      border: 2px dashed var(--gray-200);
+      padding: 2rem 1.25rem;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      margin-bottom: 2rem;
+      transition: border-color 0.3s ease, background 0.3s ease;
+    }
+
+    .file-drop:hover, .file-drop.dragover {
+      border-color: var(--text);
+      background: var(--gray-100);
+    }
+
+    .file-drop input[type=file] {
+      position: absolute; inset: 0;
+      opacity: 0; cursor: pointer;
+      width: 100%; height: 100%;
+    }
+
+    .drop-icon {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .file-name-display {
+      margin-top: 0.75rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      display: none;
+    }
+
+    /* ── Divider ── */
+    .divider { border: none; border-top: 1px solid var(--gray-200); margin: 2rem 0; }
+
+    /* ── Submit ── */
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      background: var(--text);
+      color: var(--bg);
+      border: 2px solid var(--text);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .submit-btn::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: var(--bg);
+      transition: left 0.4s ease;
+      z-index: 0;
+    }
+
+    .submit-btn:hover:not(:disabled)::before { left: 0; }
+    .submit-btn:hover:not(:disabled) { color: var(--text); }
+    .submit-btn span { position: relative; z-index: 1; }
+    .submit-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+    /* ── Status ── */
+    .status {
+      margin-top: 1rem;
+      padding: 0.85rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 400;
+      line-height: 1.6;
+      display: none;
+      border-left: 3px solid;
+    }
+
+    .status.success { background: var(--gray-100); border-color: var(--text); color: var(--text); display: block; }
+    .status.error   { background: #fff5f5; border-color: #cc0000; color: #cc0000; display: block; }
+    .status.loading { background: var(--gray-100); border-color: var(--gray-200); color: var(--gray-400); display: block; }
+
+    /* ── Collapsible ── */
+    .collapsible-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: 0.5rem;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+
+    .collapsible-toggle:hover { color: var(--text); }
+    .collapsible-toggle .arrow { transition: transform 0.2s ease; font-style: normal; }
+    .collapsible-toggle.open .arrow { transform: rotate(90deg); }
+
+    .collapsible-body {
+      display: none;
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+      font-size: 0.75rem;
+      color: var(--gray-600);
+      line-height: 1.8;
+    }
+
+    .collapsible-body.open { display: block; }
+    .collapsible-body strong { color: var(--text); }
+    .collapsible-body a { color: var(--text); }
+
+    .collapsible-body code {
+      background: var(--gray-200);
+      color: var(--text);
+      padding: 1px 4px;
+      font-family: 'Montserrat', monospace;
+      font-size: 0.7rem;
+    }
+
+    .collapsible-body pre {
+      background: #fff;
+      border: 1px solid var(--gray-200);
+      padding: 0.75rem 1rem;
+      overflow-x: auto;
+      font-family: monospace;
+      font-size: 0.72rem;
+      line-height: 1.7;
+      margin-top: 0.5rem;
+      color: var(--text);
+    }
+
+    @media (max-width: 600px) {
+      .site-header { padding: 1.25rem 1rem 1rem; }
+      .main { padding: 1.5rem 1rem 4rem; }
+      .top-bar { padding-left: 1rem; padding-right: 1rem; }
+      .two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <span>Pairings Upload</span>
+  <a href="index.html">← View pairings</a>
+</div>
+
+<header class="site-header">
+  <div class="page-title">Upload Pairings</div>
+</header>
+
+<div class="main">
+
+  <!-- Explainer -->
+  <div class="explainer">
+    <div class="explainer-title">How it works</div>
+    <ol class="step-list">
+      <li>Export pairings from SwissSys as a <strong>JSON file</strong> using the Online Pairings export.</li>
+      <li>Load your <strong>key file</strong> to autofill your GitHub details. You only make this once.</li>
+      <li>Drop in the SwissSys export and hit <strong>Push to GitHub</strong>.</li>
+      <li>GitHub Pages updates in about <strong>30 seconds</strong>. The pairings page refreshes automatically.</li>
+    </ol>
+  </div>
+
+  <!-- Key file help -->
+  <div class="collapsible-toggle" id="keyHelpToggle">
+    <span class="arrow">▶</span>
+    <span>How to create your key file</span>
+  </div>
+  <div class="collapsible-body" id="keyHelpBody">
+    <p>Your key file is a <code>.json</code> file saved on your computer. It holds your GitHub details so you don't type them every time. <strong>Keep it private. Treat it like a password.</strong></p>
+    <br>
+    <p><strong>1. Create a GitHub fine-grained PAT</strong><br>
+    Go to <a href="https://github.com/settings/tokens?type=beta" target="_blank">github.com/settings/tokens</a> and click <em>Generate new token (fine-grained)</em>.<br>
+    Set repository access to just your pairings repo.<br>
+    Under permissions, set <em>Contents</em> to <strong>Read and write</strong>. Nothing else needed.</p>
+    <br>
+    <p><strong>2. Create the file</strong><br>
+    Make a file named <code>chess-key.json</code> (or anything you like) with this content:</p>
+    <pre>{
+  "pat":   "github_pat_xxxxxxxxxxxx",
+  "owner": "your-github-username",
+  "repo":  "your-repo-name",
+  "path":  "pairings.json"
+}</pre>
+    <br>
+    <p><code>path</code> is where the file saves in your repo. <code>pairings.json</code> in the root works if your site fetches <code>./pairings.json</code>.</p>
+  </div>
+
+  <!-- Step 1: Key file -->
+  <div class="section-label">Step 1 — Load key file (optional)</div>
+  <div class="key-drop" id="keyDrop">
+    <input type="file" id="keyFileInput" accept=".json" />
+    <span class="drop-title">Drop key file here or click to browse</span>
+    <span class="drop-sub">Autofills the fields below</span>
+  </div>
+
+  <!-- Step 2: Fields -->
+  <div class="section-label">Step 2 — GitHub details</div>
+  <div class="fields">
+    <div class="field">
+      <label>GitHub PAT <span class="hint">fine-grained personal access token</span></label>
+      <input type="password" id="pat" placeholder="github_pat_…" autocomplete="off" />
+    </div>
+    <div class="two-col">
+      <div class="field">
+        <label>Username or Org</label>
+        <input type="text" id="owner" placeholder="your-username" />
+      </div>
+      <div class="field">
+        <label>Repository name</label>
+        <input type="text" id="repo" placeholder="tournament-site" />
+      </div>
+    </div>
+    <div class="field">
+      <label>File path in repo <span class="hint">where to save the JSON</span></label>
+      <input type="text" id="filePath" placeholder="pairings.json" value="pairings.json" />
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- Step 3: Pairings file -->
+  <div class="section-label">Step 3 — SwissSys export</div>
+  <div class="file-drop" id="pairingsDrop">
+    <input type="file" id="pairingsFileInput" accept=".json" />
+    <span class="drop-icon">♜</span>
+    <span class="drop-title">Drop SwissSys JSON here or click to browse</span>
+    <span class="drop-sub">The JSON file from SwissSys Online Pairings export</span>
+    <div class="file-name-display" id="pairingsFileName"></div>
+  </div>
+
+  <!-- Submit -->
+  <button class="submit-btn" id="submitBtn" disabled>
+    <span>Push to GitHub</span>
+  </button>
+  <div class="status" id="status"></div>
+
+</div>
+
+<script>
+// ── Key file ──────────────────────────────────────────────────────────────────
+document.getElementById('keyFileInput').addEventListener('change', e => {
+  const f = e.target.files[0];
+  if (!f) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    try {
+      const key = JSON.parse(ev.target.result);
+      if (key.pat)   document.getElementById('pat').value = key.pat;
+      if (key.owner) document.getElementById('owner').value = key.owner;
+      if (key.repo)  document.getElementById('repo').value = key.repo;
+      if (key.path)  document.getElementById('filePath').value = key.path;
+      setStatus('success', '✓ Key file loaded — fields autofilled.');
+      checkReady();
+    } catch {
+      setStatus('error', 'Could not parse key file. Make sure it\'s valid JSON.');
+    }
+  };
+  reader.readAsText(f);
+});
+
+const keyDrop = document.getElementById('keyDrop');
+keyDrop.addEventListener('dragover', e => { e.preventDefault(); keyDrop.classList.add('dragover'); });
+keyDrop.addEventListener('dragleave', () => keyDrop.classList.remove('dragover'));
+keyDrop.addEventListener('drop', e => { e.preventDefault(); keyDrop.classList.remove('dragover'); });
+
+// ── Pairings file ─────────────────────────────────────────────────────────────
+let pairingsContent = null;
+
+document.getElementById('pairingsFileInput').addEventListener('change', e => {
+  const f = e.target.files[0];
+  if (!f) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    try {
+      JSON.parse(ev.target.result);
+      pairingsContent = ev.target.result;
+      const display = document.getElementById('pairingsFileName');
+      display.textContent = '✓ ' + f.name;
+      display.style.display = 'block';
+      clearStatus();
+      checkReady();
+    } catch {
+      setStatus('error', 'Could not parse pairings file. Make sure it\'s valid JSON.');
+      pairingsContent = null;
+      checkReady();
+    }
+  };
+  reader.readAsText(f);
+});
+
+const pairingsDrop = document.getElementById('pairingsDrop');
+pairingsDrop.addEventListener('dragover', e => { e.preventDefault(); pairingsDrop.classList.add('dragover'); });
+pairingsDrop.addEventListener('dragleave', () => pairingsDrop.classList.remove('dragover'));
+pairingsDrop.addEventListener('drop', e => { e.preventDefault(); pairingsDrop.classList.remove('dragover'); });
+
+// ── Readiness check ───────────────────────────────────────────────────────────
+['pat','owner','repo','filePath'].forEach(id =>
+  document.getElementById(id).addEventListener('input', checkReady));
+
+function checkReady() {
+  const filled = ['pat','owner','repo','filePath'].every(id =>
+    document.getElementById(id).value.trim() !== '');
+  document.getElementById('submitBtn').disabled = !(filled && pairingsContent);
+}
+
+// ── Collapsible ───────────────────────────────────────────────────────────────
+document.getElementById('keyHelpToggle').addEventListener('click', () => {
+  document.getElementById('keyHelpToggle').classList.toggle('open');
+  document.getElementById('keyHelpBody').classList.toggle('open');
+});
+
+// ── Push to GitHub ────────────────────────────────────────────────────────────
+document.getElementById('submitBtn').addEventListener('click', pushToGitHub);
+
+async function pushToGitHub() {
+  const pat      = document.getElementById('pat').value.trim();
+  const owner    = document.getElementById('owner').value.trim();
+  const repo     = document.getElementById('repo').value.trim();
+  const filePath = document.getElementById('filePath').value.trim();
+  const btn      = document.getElementById('submitBtn');
+
+  btn.disabled = true;
+  setStatus('loading', 'Connecting to GitHub…');
+
+  const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${filePath}`;
+  const headers = {
+    'Authorization': `Bearer ${pat}`,
+    'Content-Type': 'application/json',
+    'Accept': 'application/vnd.github+json',
+    'X-GitHub-Api-Version': '2022-11-28',
+  };
+
+  try {
+    setStatus('loading', 'Checking for existing file…');
+    let sha = null;
+    try {
+      const getRes = await fetch(apiUrl, { headers });
+      if (getRes.ok) {
+        sha = (await getRes.json()).sha;
+      } else if (getRes.status !== 404) {
+        throw new Error(`GitHub returned ${getRes.status} — check your PAT and repo name.`);
+      }
+    } catch (e) {
+      if (!e.message.includes('GitHub returned')) sha = null;
+      else throw e;
+    }
+
+    setStatus('loading', 'Pushing file to GitHub…');
+    const body = {
+      message: `Update pairings — ${new Date().toLocaleString()}`,
+      content: btoa(unescape(encodeURIComponent(pairingsContent))),
+    };
+    if (sha) body.sha = sha;
+
+    const putRes = await fetch(apiUrl, {
+      method: 'PUT',
+      headers,
+      body: JSON.stringify(body),
+    });
+
+    if (!putRes.ok) {
+      const err = await putRes.json().catch(() => ({}));
+      throw new Error(err.message || `GitHub returned ${putRes.status}`);
+    }
+
+    const result = await putRes.json();
+    const commitUrl = result.commit?.html_url || '#';
+
+    setStatus('success',
+      `✓ Pushed successfully.\n` +
+      `Commit: <a href="${commitUrl}" target="_blank">${result.commit?.sha?.slice(0,7) || 'view'}</a> — ` +
+      `GitHub Pages will update in about 30 seconds.`
+    );
+  } catch (err) {
+    setStatus('error', '✗ Upload failed: ' + err.message);
+  } finally {
+    btn.disabled = false;
+    checkReady();
+  }
+}
+
+// ── Status helpers ────────────────────────────────────────────────────────────
+function setStatus(type, msg) {
+  const el = document.getElementById('status');
+  el.className = 'status ' + type;
+  el.innerHTML = msg.replace(/\n/g, '<br>');
+}
+
+function clearStatus() {
+  const el = document.getElementById('status');
+  el.className = 'status';
+  el.style.display = 'none';
+}
+</script>
+
+</body>
+</html>
