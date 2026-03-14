@@ -1077,8 +1077,10 @@ function renderPairings(sec, playerMap) {
     const bName   = playerShortName(b.black?.name);
     const wRating = b.white?.rating || 'Unrated';
     const bRating = b.black?.rating || 'Unrated';
-    const wScore  = b.white?.score ?? '—';
-    const bScore  = b.black?.score ?? '—';
+    const wCums   = b.white?.cumulatives;
+    const bCums   = b.black?.cumulatives;
+    const wScore  = wCums?.length ? wCums[wCums.length - 1] : (b.white?.score ?? '—');
+    const bScore  = bCums?.length ? bCums[bCums.length - 1] : (b.black?.score ?? '—');
     const wRes    = b.whiteResult;
     const bRes    = b.blackResult;
 
@@ -1147,7 +1149,7 @@ function renderStandings(sec, playerMap) {
           <div class="s-sub">${p.rating || 'Unrated'}${p.id1 ? ' · ' + p.id1 : ''}</div>
         </div>
         <div class="s-pips">${pips}</div>
-        <div class="s-score">${p.score}</div>
+        <div class="s-score">${p.cumulatives?.length ? p.cumulatives[p.cumulatives.length - 1] : p.score}</div>
       </div>`;
   });
 
