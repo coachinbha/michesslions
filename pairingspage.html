@@ -1075,8 +1075,8 @@ function renderPairings(sec, playerMap) {
 
     const wName   = playerShortName(b.white?.name);
     const bName   = playerShortName(b.black?.name);
-    const wRating = b.white?.rating || '—';
-    const bRating = b.black?.rating || '—';
+    const wRating = b.white?.rating || 'Unrated';
+    const bRating = b.black?.rating || 'Unrated';
     const wScore  = b.white?.score ?? '—';
     const bScore  = b.black?.score ?? '—';
     const wRes    = b.whiteResult;
