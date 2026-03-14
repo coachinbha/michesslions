@@ -1,96 +1,674 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chess Tournament Pairings</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            background: #ffffff;
-            color: #000000;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        h1 {
-            font-size: 2em;
-            font-weight: 400;
-            margin: 40px 0 30px 0;
-            text-align: center;
-            letter-spacing: 2px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            width: 100%;
-        }
-        
-        img {
-            width: 100%;
-            height: auto;
-            border: 2px solid #000000;
-            display: block;
-            opacity: 0;
-            transition: opacity 1s ease-in;
-        }
-        
-        img.loaded {
-            opacity: 1;
-        }
-        
-        .last-updated {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 0.9em;
-            color: #666;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tournament Pairings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:      #ffffff;
+      --text:    #000000;
+      --gray-100:#f8f8f8;
+      --gray-200:#e5e5e5;
+      --gray-400:#999999;
+      --gray-600:#555555;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    /* ── Top bar ── */
+    .top-bar {
+      background: #000;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.55rem 2rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+
+    .top-bar a {
+      color: #fff;
+      text-decoration: none;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .top-bar a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 1px;
+      background: #fff;
+      transition: width 0.3s ease;
+    }
+
+    .top-bar a:hover::after { width: 100%; }
+    .top-bar a:hover { transform: translateY(-1px); }
+
+    /* ── Header ── */
+    .site-header {
+      border-bottom: 1px solid var(--gray-200);
+      padding: 2.5rem 2rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+    }
+
+    .event-title {
+      font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      line-height: 1.05;
+      transition: letter-spacing 0.3s ease;
+    }
+
+    .event-title:hover { letter-spacing: 1px; }
+
+    .event-meta {
+      text-align: right;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      line-height: 1.9;
+      flex-shrink: 0;
+    }
+
+    .event-meta span { color: var(--text); }
+
+    /* ── Section tabs ── */
+    .section-tabs {
+      display: flex;
+      border-bottom: 1px solid var(--gray-200);
+      overflow-x: auto;
+      padding: 0 2rem;
+    }
+
+    .section-tab {
+      padding: 0.85rem 1.25rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      color: var(--gray-400);
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .section-tab:hover { color: var(--text); }
+    .section-tab.active { color: var(--text); border-bottom-color: var(--text); }
+
+    /* ── View tabs ── */
+    .view-tabs {
+      display: flex;
+      gap: 0.5rem;
+      padding: 1.25rem 2rem 0;
+    }
+
+    .view-tab {
+      padding: 0.4rem 1rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      border: 2px solid var(--gray-200);
+      background: transparent;
+      color: var(--gray-400);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .view-tab:hover { border-color: var(--text); color: var(--text); }
+    .view-tab.active { background: var(--text); border-color: var(--text); color: var(--bg); }
+
+    /* ── Content ── */
+    .content { padding: 1.5rem 2rem 5rem; }
+
+    /* ── Round nav ── */
+    .round-nav {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .round-btn {
+      background: none;
+      border: 2px solid var(--gray-200);
+      color: var(--text);
+      padding: 0.35rem 0.9rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .round-btn:hover:not(:disabled) {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+    }
+
+    .round-btn:disabled { opacity: 0.25; cursor: not-allowed; }
+
+    .round-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      min-width: 70px;
+      text-align: center;
+    }
+
+    /* ── Board cards ── */
+    .board-card {
+      border: 1px solid var(--gray-200);
+      margin-bottom: 6px;
+      display: grid;
+      grid-template-columns: 48px 1fr auto 1fr 48px;
+      align-items: center;
+      transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      background: var(--bg);
+    }
+
+    .board-card:hover {
+      border-color: var(--text);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .board-num {
+      background: var(--gray-100);
+      font-size: 1rem;
+      font-weight: 900;
+      text-align: center;
+      padding: 14px 0;
+      border-right: 1px solid var(--gray-200);
+    }
+
+    .board-player {
+      padding: 10px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .board-player.black-side {
+      text-align: right;
+      align-items: flex-end;
+    }
+
+    .player-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 200px;
+    }
+
+    .player-sub {
+      font-size: 0.68rem;
+      font-weight: 400;
+      color: var(--gray-400);
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .board-player.black-side .player-sub { justify-content: flex-end; }
+
+    .color-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: inline-block;
+    }
+
+    .color-dot.W { background: #000; }
+    .color-dot.B { background: #fff; border: 1px solid #bbb; }
+
+    .vs-divider {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      padding: 0 6px;
+      text-align: center;
+    }
+
+    .result-badge {
+      padding: 1px 5px;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      border: 1px solid;
+    }
+
+    .result-W { color: #000; border-color: #000; }
+    .result-L { color: var(--gray-400); border-color: var(--gray-200); }
+    .result-D { color: var(--gray-600); border-color: #ccc; }
+    .result-B { color: var(--gray-600); border-color: #ccc; }
+    .result-U { color: var(--gray-200); border-color: var(--gray-200); }
+
+    /* ── Standings ── */
+    .standings-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .standings-table th {
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      border-bottom: 2px solid var(--text);
+      white-space: nowrap;
+    }
+
+    .standings-table th.num { text-align: center; }
+
+    .standings-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--gray-200);
+      vertical-align: middle;
+    }
+
+    .standings-table tr:hover td { background: var(--gray-100); }
+
+    .rank-cell {
+      font-size: 1.1rem;
+      font-weight: 900;
+      text-align: center;
+      color: var(--gray-200);
+      width: 36px;
+    }
+
+    .rank-cell.top3 { color: var(--text); }
+
+    .name-cell {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .id-cell { font-size: 0.68rem; color: var(--gray-400); }
+    .rating-cell { font-size: 0.75rem; color: var(--gray-400); text-align: right; }
+
+    .score-cell {
+      font-size: 1.2rem;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .results-history { display: flex; gap: 2px; }
+
+    .r-pip {
+      width: 18px; height: 18px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.6rem;
+      font-weight: 700;
+      border: 1px solid;
+    }
+
+    .r-pip.W { background: #000; color: #fff; border-color: #000; }
+    .r-pip.L { background: #fff; color: var(--gray-400); border-color: var(--gray-200); }
+    .r-pip.D { background: var(--gray-100); color: var(--text); border-color: var(--gray-200); }
+    .r-pip.B { background: var(--gray-100); color: var(--gray-600); border-color: var(--gray-200); }
+    .r-pip.U { background: #fff; color: var(--gray-200); border-color: var(--gray-200); }
+
+    .tb-cell { font-size: 0.72rem; color: var(--gray-400); text-align: right; white-space: nowrap; }
+
+    /* ── Empty state ── */
+    .state-msg { padding: 5rem 2rem; text-align: center; color: var(--gray-400); }
+
+    .state-msg .big {
+      display: block;
+      font-size: 2.5rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      color: var(--gray-200);
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .site-header { flex-direction: column; align-items: flex-start; padding: 1.25rem 1rem 1rem; }
+      .event-meta { text-align: left; }
+      .section-tabs, .view-tabs, .content, .top-bar { padding-left: 1rem; padding-right: 1rem; }
+      .board-card { grid-template-columns: 36px 1fr auto 1fr 0; }
+      .board-num:last-child { display: none; }
+      .player-name { max-width: 100px; font-size: 0.72rem; }
+      .standings-table th.hide-sm,
+      .standings-table td.hide-sm { display: none; }
+    }
+  </style>
 </head>
 <body>
-    <h1>CHESS TOURNAMENT PAIRINGS</h1>
-    <div class="container">
-        <img src="pairings.png" alt="Chess Tournament Pairings" id="pairingsImage">
-        <div class="last-updated" id="lastUpdated"></div>
-    </div>
-    
-    <script>
-        // Display last modified time
-        const img = document.getElementById('pairingsImage');
-        const lastUpdatedDiv = document.getElementById('lastUpdated');
-        
-        img.onload = function() {
-            // Delay showing the image by 500ms
-            setTimeout(() => {
-                img.classList.add('loaded');
-            }, 500);
-            
-            fetch('pairings.png', { method: 'HEAD' })
-                .then(response => {
-                    const lastModified = response.headers.get('Last-Modified');
-                    if (lastModified) {
-                        const date = new Date(lastModified);
-                        lastUpdatedDiv.textContent = `Last updated: ${date.toLocaleString()}`;
-                    }
-                })
-                .catch(() => {
-                    // Silently fail if we can't get the date
-                });
-        };
-        
-        // Auto-refresh every second to check for updates
-        setInterval(() => {
-            img.src = 'pairings.png?' + new Date().getTime();
-        }, 1000);
-    </script>
+
+<div class="top-bar">
+  <span id="tsLeft">—</span>
+  <a href="upload.html">▲ Upload pairings</a>
+</div>
+
+<header class="site-header">
+  <div class="event-title" id="eventTitle">Loading…</div>
+  <div class="event-meta" id="eventMeta"></div>
+</header>
+
+<div class="section-tabs" id="sectionTabs"></div>
+
+<div class="view-tabs">
+  <button class="view-tab active" data-view="pairings">Pairings</button>
+  <button class="view-tab" data-view="standings">Standings</button>
+</div>
+
+<div class="content" id="content">
+  <div class="state-msg"><span class="big">Loading</span>Fetching tournament data…</div>
+</div>
+
+<script>
+const DATA_URL = './pairings.json';
+
+let tournamentData = null;
+let activeSectionIdx = 0;
+let activeView = 'pairings';
+let activeRound = {};
+
+async function loadData() {
+  try {
+    const res = await fetch(DATA_URL + '?t=' + Date.now());
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    tournamentData = await res.json();
+    render();
+  } catch (e) {
+    document.getElementById('content').innerHTML =
+      `<div class="state-msg"><span class="big">Error</span>Could not load pairings.json — ${e.message}</div>`;
+  }
+}
+
+function buildPlayerMap(players) {
+  const m = {};
+  for (const p of players) m[p.pair_number] = p;
+  return m;
+}
+
+function playerShortName(name) {
+  if (!name) return '—';
+  const parts = name.split(',');
+  if (parts.length === 2) return parts[1].trim() + ' ' + parts[0].trim();
+  return name;
+}
+
+function resultLabel(r) {
+  return { W:'Win', L:'Loss', D:'Draw', B:'Bye', U:'Unplayed' }[r] || r;
+}
+
+function render() {
+  const d = tournamentData;
+  const ev = d.event;
+
+  document.title = ev.name;
+  document.getElementById('eventTitle').textContent = ev.name;
+  document.getElementById('eventMeta').innerHTML =
+    `<span>${ev.city}, ${ev.state}</span> · <span>${ev.date}</span><br>TD: <span>${ev.td}</span>`;
+  document.getElementById('tsLeft').textContent = 'Updated: ' + ev.time_stamp;
+
+  const tabsEl = document.getElementById('sectionTabs');
+  tabsEl.innerHTML = '';
+  d.sections.forEach((sec, i) => {
+    const t = document.createElement('div');
+    t.className = 'section-tab' + (i === activeSectionIdx ? ' active' : '');
+    t.textContent = sec.section;
+    t.onclick = () => { activeSectionIdx = i; renderContent(); renderSectionTabs(); };
+    tabsEl.appendChild(t);
+  });
+
+  document.querySelectorAll('.view-tab').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.view === activeView);
+    btn.onclick = () => { activeView = btn.dataset.view; renderContent(); renderViewTabs(); };
+  });
+
+  renderContent();
+}
+
+function renderSectionTabs() {
+  document.querySelectorAll('.section-tab').forEach((t, i) =>
+    t.classList.toggle('active', i === activeSectionIdx));
+}
+
+function renderViewTabs() {
+  document.querySelectorAll('.view-tab').forEach(btn =>
+    btn.classList.toggle('active', btn.dataset.view === activeView));
+}
+
+function renderContent() {
+  const sec = tournamentData.sections[activeSectionIdx];
+  const playerMap = buildPlayerMap(sec.players);
+  const totalRounds = sec.rounds_paired;
+
+  if (activeRound[activeSectionIdx] === undefined)
+    activeRound[activeSectionIdx] = totalRounds;
+
+  const content = document.getElementById('content');
+
+  if (activeView === 'pairings') {
+    content.innerHTML = renderPairings(sec, playerMap, totalRounds);
+    document.getElementById('prevRound')?.addEventListener('click', () => {
+      activeRound[activeSectionIdx]--;
+      renderContent();
+    });
+    document.getElementById('nextRound')?.addEventListener('click', () => {
+      activeRound[activeSectionIdx]++;
+      renderContent();
+    });
+  } else {
+    content.innerHTML = renderStandings(sec, playerMap);
+  }
+}
+
+function renderPairings(sec, playerMap, totalRounds) {
+  const round = activeRound[activeSectionIdx];
+  const prevDisabled = round <= 1 ? 'disabled' : '';
+  const nextDisabled = round >= totalRounds ? 'disabled' : '';
+
+  let boards = [];
+
+  if (round === totalRounds && sec.pairings.length) {
+    boards = sec.pairings.map(p => ({
+      board: p.board,
+      white: playerMap[p.white],
+      black: playerMap[p.black],
+      whiteResult: playerMap[p.white]?.results?.[round - 1],
+      blackResult: playerMap[p.black]?.results?.[round - 1],
+    }));
+  } else {
+    const seen = new Set();
+    const roundIdx = round - 1;
+    const tempBoards = [];
+
+    for (const p of Object.values(playerMap)) {
+      const oppNum = p.ops?.[roundIdx];
+      const board  = p.boards?.[roundIdx];
+      const color  = p.colors?.[roundIdx];
+
+      if (!oppNum || seen.has(p.pair_number)) continue;
+      const opp = playerMap[oppNum];
+      if (!opp) continue;
+
+      seen.add(p.pair_number);
+      seen.add(oppNum);
+
+      const white = color === 'W' ? p : opp;
+      const black = color === 'B' ? p : opp;
+      tempBoards.push({
+        board,
+        white,
+        black,
+        whiteResult: white.results?.[roundIdx],
+        blackResult: black.results?.[roundIdx],
+      });
+    }
+
+    for (const p of Object.values(playerMap)) {
+      const result = p.results?.[roundIdx];
+      if ((result === 'B' || result === 'U') && !seen.has(p.pair_number)) {
+        seen.add(p.pair_number);
+        tempBoards.push({ board: 999, bye: p, byeResult: result });
+      }
+    }
+
+    boards = tempBoards.sort((a, b) => a.board - b.board);
+  }
+
+  let html = `
+    <div class="round-nav">
+      <button class="round-btn" id="prevRound" ${prevDisabled}>← Prev</button>
+      <span class="round-label">Round ${round} / ${totalRounds}</span>
+      <button class="round-btn" id="nextRound" ${nextDisabled}>Next →</button>
+    </div>`;
+
+  if (!boards.length) {
+    return html + `<div class="state-msg"><span class="big">No Pairings</span>Nothing available for this round.</div>`;
+  }
+
+  for (const b of boards) {
+    if (b.bye) {
+      const name = playerShortName(b.bye.name);
+      html += `
+        <div class="board-card" style="grid-template-columns:48px 1fr">
+          <div class="board-num">½</div>
+          <div class="board-player" style="padding:12px 16px">
+            <span class="player-name">${name}</span>
+            <span class="player-sub"><span class="result-badge result-${b.byeResult}">${b.byeResult === 'B' ? 'Bye' : 'Unplayed'}</span></span>
+          </div>
+        </div>`;
+      continue;
+    }
+
+    const wName = playerShortName(b.white?.name);
+    const bName = playerShortName(b.black?.name);
+    const wRating = b.white?.rating || '—';
+    const bRating = b.black?.rating || '—';
+    const wScore  = b.white?.score ?? '—';
+    const bScore  = b.black?.score ?? '—';
+    const wRes = b.whiteResult;
+    const bRes = b.blackResult;
+
+    html += `
+      <div class="board-card">
+        <div class="board-num">${b.board}</div>
+        <div class="board-player">
+          <span class="player-name">${wName}</span>
+          <span class="player-sub">
+            <span class="color-dot W"></span>
+            <span>${wRating}</span>
+            <span>·</span>
+            <span>${wScore} pts</span>
+            ${wRes ? `<span class="result-badge result-${wRes}">${resultLabel(wRes)}</span>` : ''}
+          </span>
+        </div>
+        <div class="vs-divider">vs</div>
+        <div class="board-player black-side">
+          <span class="player-name">${bName}</span>
+          <span class="player-sub">
+            ${bRes ? `<span class="result-badge result-${bRes}">${resultLabel(bRes)}</span>` : ''}
+            <span>${bScore} pts</span>
+            <span>·</span>
+            <span>${bRating}</span>
+            <span class="color-dot B"></span>
+          </span>
+        </div>
+        <div class="board-num" style="border-left:1px solid var(--gray-200);border-right:none">${b.board}</div>
+      </div>`;
+  }
+
+  return html;
+}
+
+function renderStandings(sec, playerMap) {
+  const tbs = sec.tiebreaks;
+  const standings = sec.standings.map(pn => playerMap[pn]).filter(Boolean);
+
+  let html = `
+    <table class="standings-table">
+      <thead>
+        <tr>
+          <th class="num">#</th>
+          <th>Player</th>
+          <th class="hide-sm">USCF ID</th>
+          <th class="num">Rtg</th>
+          <th class="num">Score</th>
+          <th class="hide-sm">Results</th>
+          ${tbs.map(t => `<th class="num hide-sm">${t}</th>`).join('')}
+        </tr>
+      </thead>
+      <tbody>`;
+
+  standings.forEach((p, i) => {
+    const name = playerShortName(p.name);
+    const rank = i + 1;
+    const topClass = rank <= 3 ? ' top3' : '';
+
+    const resultPips = (p.results || []).map(r =>
+      `<div class="r-pip ${r}" title="${resultLabel(r)}">${r}</div>`).join('');
+
+    const tbCells = (p.tiebreaks || []).map(v =>
+      `<td class="tb-cell hide-sm">${v % 1 === 0 ? v : v.toFixed(2)}</td>`).join('');
+
+    html += `
+      <tr>
+        <td class="rank-cell${topClass}">${rank}</td>
+        <td class="name-cell">${name}</td>
+        <td class="id-cell hide-sm">${p.id1 || '—'}</td>
+        <td class="rating-cell">${p.rating || '—'}</td>
+        <td class="score-cell">${p.score}</td>
+        <td class="hide-sm"><div class="results-history">${resultPips}</div></td>
+        ${tbCells}
+      </tr>`;
+  });
+
+  html += '</tbody></table>';
+  return html;
+}
+
+loadData();
+setInterval(loadData, 120_000);
+</script>
 </body>
 </html>
