@@ -613,6 +613,185 @@
 
     .popup-go-btn:active { opacity: 0.75; }
 
+    /* ── Player card popup ── */
+    .player-card-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 3000;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.22s ease;
+      pointer-events: none;
+    }
+
+    .player-card-overlay.visible {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .player-card-sheet {
+      background: #fff;
+      width: 100%;
+      max-width: 520px;
+      border-top: 3px solid #000;
+      max-height: 82vh;
+      overflow-y: auto;
+      transform: translateY(20px);
+      transition: transform 0.25s cubic-bezier(0.34, 1.2, 0.64, 1);
+    }
+
+    .player-card-overlay.visible .player-card-sheet { transform: translateY(0); }
+
+    .pc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 1.25rem 1.25rem 0.75rem;
+      border-bottom: 1px solid var(--gray-200);
+      gap: 0.75rem;
+    }
+
+    .pc-name {
+      font-size: clamp(1rem, 4vw, 1.3rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+
+    .pc-meta {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-top: 4px;
+    }
+
+    .pc-close {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      color: var(--gray-400);
+      padding: 0.2rem 0.4rem;
+      flex-shrink: 0;
+      -webkit-tap-highlight-color: transparent;
+      transition: color 0.2s;
+    }
+
+    .pc-close:hover { color: var(--text); }
+
+    .pc-score-bar {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.9rem 1.25rem;
+      border-bottom: 1px solid var(--gray-200);
+      background: var(--gray-100);
+    }
+
+    .pc-score-big {
+      font-size: 2.2rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .pc-score-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+    }
+
+    .pc-score-pips {
+      display: flex;
+      gap: 3px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .pc-rounds { padding: 0.75rem 1.25rem 2rem; }
+
+    .pc-round-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .pc-round-num {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      width: 44px;
+      flex-shrink: 0;
+    }
+
+    .pc-opp {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .pc-opp-name {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .pc-opp-sub {
+      font-size: 0.62rem;
+      color: var(--gray-400);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 2px;
+    }
+
+    .pc-result-badge {
+      flex-shrink: 0;
+      padding: 4px 8px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      border: 1.5px solid;
+    }
+
+    .pc-result-badge.W { color: #000; border-color: #000; }
+    .pc-result-badge.L { color: var(--gray-400); border-color: var(--gray-200); }
+    .pc-result-badge.D { color: var(--gray-600); border-color: #bbb; }
+    .pc-result-badge.B { color: var(--gray-600); border-color: #bbb; }
+    .pc-result-badge.U { color: var(--gray-200); border-color: var(--gray-200); }
+
+    .pc-cumul {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--gray-400);
+      width: 28px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .standing-row {
+      cursor: pointer;
+      transition: background 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .standing-row:active { background: var(--gray-100); }
+
     /* ── Desktop ── */
     @media (min-width: 640px) {
       .site-header { padding: 1.25rem 2rem 1rem; }
@@ -691,6 +870,30 @@
   </div>
 </div>
 
+
+<!-- ── Player card ── -->
+<div class="player-card-overlay" id="playerCardOverlay">
+  <div class="player-card-sheet">
+    <div class="pc-header">
+      <div>
+        <div class="pc-name" id="pcName">—</div>
+        <div class="pc-meta" id="pcMeta">—</div>
+      </div>
+      <button class="pc-close" id="pcClose">✕</button>
+    </div>
+    <div class="pc-score-bar">
+      <div>
+        <div class="pc-score-big" id="pcScore">0</div>
+        <div class="pc-score-label">Points</div>
+      </div>
+      <div>
+        <div class="pc-score-label">Results</div>
+        <div class="pc-score-pips" id="pcPips"></div>
+      </div>
+    </div>
+    <div class="pc-rounds" id="pcRounds"></div>
+  </div>
+</div>
 
 <script>
 const DATA_URL = './pairings.json';
@@ -1152,7 +1355,7 @@ function renderStandings(sec, playerMap) {
       `<div class="r-pip ${r}" title="${resultLabel(r)}">${r}</div>`).join('');
 
     html += `
-      <div class="standing-row">
+      <div class="standing-row" onclick="openPlayerCard(${p.pair_number})">
         <div class="s-rank${topCls}">${rank}</div>
         <div class="s-info">
           <div class="s-name">${name}</div>
@@ -1165,6 +1368,82 @@ function renderStandings(sec, playerMap) {
 
   html += '</div>';
   return html;
+}
+
+// ── Player card ───────────────────────────────────────────────────────────────
+document.getElementById('pcClose').onclick = closePlayerCard;
+document.getElementById('playerCardOverlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('playerCardOverlay')) closePlayerCard();
+});
+
+function closePlayerCard() {
+  document.getElementById('playerCardOverlay').classList.remove('visible');
+}
+
+function openPlayerCard(pairNum) {
+  const sec       = tournamentData.sections[activeSectionIdx];
+  const playerMap = buildPlayerMap(sec.players);
+  const p         = playerMap[pairNum];
+  if (!p) return;
+
+  const name  = playerShortName(p.name);
+  const score = p.cumulatives?.length
+    ? p.cumulatives[p.cumulatives.length - 1]
+    : p.score;
+
+  document.getElementById('pcName').textContent  = name;
+  document.getElementById('pcMeta').textContent  =
+    `${p.rating || 'Unrated'}${p.id1 ? ' · ' + p.id1 : ''}${p.state ? ' · ' + p.state : ''}`;
+  document.getElementById('pcScore').textContent = score;
+
+  // Result pips
+  const pips = (p.results || []).map(r =>
+    `<div class="r-pip ${r}">${r}</div>`).join('');
+  document.getElementById('pcPips').innerHTML = pips;
+
+  // Round-by-round history
+  const totalRounds = p.results?.length || 0;
+  let roundsHtml = '';
+
+  if (!totalRounds) {
+    roundsHtml = `<div style="font-size:0.72rem;color:var(--gray-400);padding:1rem 0">No rounds played yet.</div>`;
+  } else {
+    for (let ri = 0; ri < totalRounds; ri++) {
+      const result  = p.results?.[ri];
+      const color   = p.colors?.[ri];
+      const oppNum  = p.ops?.[ri];
+      const board   = p.boards?.[ri];
+      const cumul   = p.cumulatives?.[ri] ?? '—';
+      const opp     = oppNum ? playerMap[oppNum] : null;
+      const oppName = opp ? playerShortName(opp.name) : (result === 'B' ? 'Bye' : '—');
+      const oppRating = opp?.rating || (result === 'B' ? '' : 'Unrated');
+
+      const colorLabel = color === 'W' ? 'White' : color === 'B' ? 'Black' : '';
+      const colorDot   = color === 'W'
+        ? `<span class="color-dot W" style="width:8px;height:8px;border-radius:50%;background:#fff;border:1px solid #bbb;display:inline-block"></span>`
+        : color === 'B'
+        ? `<span class="color-dot B" style="width:8px;height:8px;border-radius:50%;background:#000;border-radius:50%;display:inline-block"></span>`
+        : '';
+
+      roundsHtml += `
+        <div class="pc-round-row">
+          <div class="pc-round-num">Rd ${ri + 1}${board ? '<br>Bd ' + board : ''}</div>
+          <div class="pc-opp">
+            <div class="pc-opp-name">${oppName}</div>
+            <div class="pc-opp-sub">
+              ${colorDot}
+              ${colorLabel ? `<span>${colorLabel}</span>` : ''}
+              ${oppRating ? `<span>·</span><span>${oppRating}</span>` : ''}
+            </div>
+          </div>
+          <span class="pc-result-badge ${result}">${resultLabel(result)}</span>
+          <div class="pc-cumul">${cumul}</div>
+        </div>`;
+    }
+  }
+
+  document.getElementById('pcRounds').innerHTML = roundsHtml;
+  document.getElementById('playerCardOverlay').classList.add('visible');
 }
 
 // ── Boot ──────────────────────────────────────────────────────────────────────
