@@ -349,7 +349,7 @@
     }
 
     .color-dot {
-      width: 6px; height: 6px;
+      width: 10px; height: 10px;
       border-radius: 50%;
       flex-shrink: 0;
     }
@@ -1110,6 +1110,7 @@ function renderPairings(sec, playerMap) {
               <div class="player-name">${highlightName(wName)}</div>
               <div class="player-sub">
                 <span class="color-dot W"></span>
+                <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.4px;text-transform:uppercase">White</span>
                 <span>${wRating}</span>
                 <span>·</span>
                 <span>${wScore} pts</span>
@@ -1122,6 +1123,7 @@ function renderPairings(sec, playerMap) {
               <div class="player-name">${highlightName(bName)}</div>
               <div class="player-sub">
                 <span class="color-dot B"></span>
+                <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.4px;text-transform:uppercase">Black</span>
                 <span>${bRating}</span>
                 <span>·</span>
                 <span>${bScore} pts</span>
