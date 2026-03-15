@@ -17,15 +17,22 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html { scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
+        /* FIX: height anchor on html prevents iOS vh miscalculation */
+        html {
+            scroll-behavior: smooth;
+            height: -webkit-fill-available;
+        }
 
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.4;
+            /* FIX: -webkit-fill-available prevents address-bar jump on iOS */
             min-height: 100vh;
-            overflow-x: hidden;
+            min-height: -webkit-fill-available;
+            /* FIX: clip instead of hidden — does not create a scroll container on iOS */
+            overflow-x: clip;
             position: relative;
         }
 
@@ -36,8 +43,10 @@
             border-bottom: 1px solid var(--gray-200);
             z-index: 1000;
             transition: box-shadow .3s ease;
+            /* FIX: GPU layer for fixed element + backface prevents repaint flicker on iOS scroll */
             -webkit-transform: translateZ(0);
             transform: translateZ(0);
+            -webkit-backface-visibility: hidden;
         }
         .navbar.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,.08); }
 
@@ -142,7 +151,7 @@
             width: 100%;
             max-width: 1400px;
             margin: 0 auto;
-            padding: 10rem 2rem 4rem; /* 10rem top matches other pages */
+            padding: 10rem 2rem 4rem;
             text-align: center;
         }
 
@@ -221,8 +230,9 @@
         @keyframes slideOut { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-50px); } }
 
         /* ── RESPONSIVE ─────────────────────────────────────── */
+        /* FIX: only body gets overflow-x: clip, not html */
         @media (max-width: 768px) {
-            html, body { overflow-x: hidden; width: 100%; }
+            body { overflow-x: clip; width: 100%; }
             .navbar { width: 100%; left: 0; right: 0; }
             .nav-inner { width: 100%; max-width: 100%; }
             .nav-links { display: none; }
@@ -243,15 +253,12 @@
             .logo img { max-height: 40px; max-width: 160px; }
         }
 
-        /* ── iOS / TOUCH: disable hover effects (matches index.html) ── */
+        /* ── iOS / TOUCH: disable hover effects ── */
         @media (hover: none) and (pointer: coarse) {
             .logo:hover,
             .nav-links a:hover,
             .nav-dropdown > span:hover,
-            .mobile-toggle:hover {
-                transform: none !important;
-                -webkit-transform: none !important;
-            }
+            .mobile-toggle:hover { transform: none !important; -webkit-transform: none !important; }
             .nav-links a:hover::after,
             .dropdown-menu a:hover span::after { width: 0 !important; }
             .dropdown-menu a:hover,
@@ -259,7 +266,6 @@
             .mobile-menu .mobile-dropdown-toggle:hover,
             .mobile-submenu a:hover { background-color: transparent !important; padding-left: inherit !important; }
             .logo:hover { opacity: 1 !important; }
-
             .tournament-card:hover,
             .cta-button:hover,
             .secondary-btn:hover,
@@ -426,7 +432,7 @@
             modal.classList.add('closing');
             setTimeout(() => {
                 modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
+                document.body.style.overflow = '';
                 modal.classList.remove('closing');
             }, 300);
         }
