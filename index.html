@@ -822,43 +822,46 @@
             .service-grid { grid-template-columns: 1fr; }
         }
 
-        /* ── iOS AOS scroll fixes ─────────────────────────────────────── */
+        /* ── iOS / touch fixes ────────────────────────────────────────── */
         @media (hover: none) and (pointer: coarse) {
-            [data-aos] {
-                -webkit-transform: translate3d(0,0,0) !important;
-                transform: translate3d(0,0,0) !important;
-                -webkit-backface-visibility: hidden;
-                backface-visibility: hidden;
-                will-change: opacity;
+
+            /* FIX: overscroll-behavior stops the rubber-band bounce on the page.
+               -webkit-overflow-scrolling belongs only on inner scroll containers,
+               NOT on html/body — putting it on both was doubling the bounce. */
+            html {
+                overflow-y: scroll;
+                overscroll-behavior-y: contain;
+            }
+            body {
+                overscroll-behavior-y: contain;
             }
 
-            [data-aos="fade-up"], [data-aos="fade-down"], [data-aos="fade-left"],
-            [data-aos="fade-right"], [data-aos="fade"], [data-aos="zoom-in"] {
-                -webkit-transform: none !important;
-                transform: none !important;
-            }
-
-            [data-aos]:not(.aos-animate) {
-                opacity: 0;
-                -webkit-transform: translate3d(0,0,0) !important;
-                transform: translate3d(0,0,0) !important;
-            }
-
-            [data-aos].aos-animate {
-                opacity: 1;
-                -webkit-transform: translate3d(0,0,0) !important;
-                transform: translate3d(0,0,0) !important;
-            }
-
-            html { -webkit-overflow-scrolling: touch; overflow-y: scroll; }
-            body { -webkit-overflow-scrolling: touch; }
-
-            .hero, .hero-content, .hero-image, header, .services, .about, .contact {
+            /* Promote fixed elements to their own GPU layer so they don't
+               trigger a full repaint on every scroll frame */
+            .announce-bar,
+            .navbar {
                 -webkit-transform: translateZ(0);
                 transform: translateZ(0);
+                will-change: transform;
             }
 
-            /* Disable hover effects on touch devices */
+            /* IntersectionObserver handles fade-ins (see JS).
+               Hide AOS-tagged elements until JS marks them visible.
+               No transform overrides needed — IO fires reliably on iOS. */
+            [data-aos] {
+                opacity: 0;
+                transition: opacity 0.55s ease;
+            }
+            [data-aos].io-visible {
+                opacity: 1;
+            }
+            /* Elements above the fold should always show immediately */
+            .announce-bar[data-aos],
+            .navbar[data-aos] {
+                opacity: 1;
+            }
+
+            /* Disable hover effects — touch devices have no hover state */
             .logo:hover, .nav-links a:hover, .nav-dropdown > button:hover,
             .mobile-toggle:hover, header h1:hover, .hero-image img:hover,
             .service-card:hover, .service-card:hover h3,
@@ -886,6 +889,7 @@
             .nav-links a:hover::after, .dropdown-menu a:hover span::after,
             .announce-bar-link:hover::after { width: 0 !important; }
 
+            /* Tap feedback instead of hover */
             .cta-button:active, .website-button:active, .service-card:active { opacity: 0.8; }
         }
 
@@ -1144,51 +1148,45 @@
     <!-- AOS JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        // ── Device detection ───────────────────────────────────────────
+        // ── Animation init ─────────────────────────────────────────────
+        // Touch devices (iOS/Android): use IntersectionObserver — reliable,
+        // native, zero dependency on scroll events which iOS throttles.
+        // Desktop: keep AOS as-is.
         function isTouchDevice() {
             return (('ontouchstart' in window) ||
                     (navigator.maxTouchPoints > 0) ||
                     (navigator.msMaxTouchPoints > 0));
         }
 
-        function isIOS() {
-            return /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-                   (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-        }
-
-        // ── AOS init ───────────────────────────────────────────────────
         if (isTouchDevice()) {
-            document.addEventListener('DOMContentLoaded', function () {
-                document.querySelectorAll('[data-aos]').forEach(function (el) {
-                    el.setAttribute('data-aos', 'fade');
-                    el.style.willChange = 'opacity';
-                    el.style.webkitTransform = 'translate3d(0,0,0)';
-                    el.style.transform = 'translate3d(0,0,0)';
+            // Don't load or init AOS at all on touch devices.
+            // IntersectionObserver fires when elements enter the viewport —
+            // completely independent of scroll events.
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('io-visible');
+                        io.unobserve(entry.target); // fire once, like AOS once:true
+                    }
                 });
+            }, {
+                threshold: 0.12,   // 12% of element visible triggers fade
+                rootMargin: '0px 0px -40px 0px'  // slight bottom offset
             });
 
-            AOS.init({
-                duration: 600,
-                once: true,
-                disable: false,
-                startEvent: 'load',
-                offset: 50,
-                delay: 0,
-                easing: 'ease-out',
-                mirror: false,
-                anchorPlacement: 'top-bottom',
-                useClassNames: true,
-                disableMutationObserver: false,
-                debounceDelay: 50,
-                throttleDelay: 99,
+            // Observe every element that has a data-aos attribute,
+            // but skip fixed elements (navbar, announce bar) — show them immediately.
+            document.querySelectorAll('[data-aos]').forEach(function (el) {
+                var isFixed = getComputedStyle(el).position === 'fixed';
+                if (isFixed) {
+                    el.classList.add('io-visible');
+                } else {
+                    io.observe(el);
+                }
             });
 
-            if (isIOS()) {
-                window.addEventListener('load', function () {
-                    setTimeout(function () { AOS.refresh(); }, 100);
-                });
-            }
         } else {
+            // Desktop — AOS as normal
             AOS.init({ duration: 1000, once: true });
         }
 
@@ -1241,8 +1239,11 @@
             }
 
             // Set on load and on resize (bar may wrap on narrow screens)
-            setDynamicBarHeight();
-            window.addEventListener('resize', setDynamicBarHeight, { passive: true });
+            // Small rAF delay ensures layout is settled before measuring
+            requestAnimationFrame(setDynamicBarHeight);
+            window.addEventListener('resize', function () {
+                requestAnimationFrame(setDynamicBarHeight);
+            }, { passive: true });
 
             close.addEventListener('click', dismissBar);
         })();
