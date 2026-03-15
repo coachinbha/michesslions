@@ -42,30 +42,12 @@
     "addressCountry": "US"
   },
   "areaServed": [
-    {
-      "@type": "City",
-      "name": "South Lyon"
-    },
-    {
-      "@type": "City",
-      "name": "Novi"
-    },
-    {
-      "@type": "City",
-      "name": "Canton"
-    },
-    {
-      "@type": "City",
-      "name": "Farmington Hills"
-    },
-    {
-      "@type": "City",
-      "name": "Troy"
-    },
-    {
-      "@type": "City",
-      "name": "Wixom"
-    }
+    { "@type": "City", "name": "South Lyon" },
+    { "@type": "City", "name": "Novi" },
+    { "@type": "City", "name": "Canton" },
+    { "@type": "City", "name": "Farmington Hills" },
+    { "@type": "City", "name": "Troy" },
+    { "@type": "City", "name": "Wixom" }
   ],
   "sport": "Chess"
 }
@@ -84,9 +66,10 @@
   box-sizing: border-box;
 }
 
+/* FIX: height anchor on html prevents iOS vh miscalculation */
 html {
   scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  height: -webkit-fill-available;
 }
 
 body {
@@ -94,8 +77,11 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
+  /* FIX: -webkit-fill-available prevents address-bar jump on iOS */
   min-height: 100vh;
-  overflow-x: hidden;
+  min-height: -webkit-fill-available;
+  /* FIX: clip instead of hidden — does not create a scroll container on iOS */
+  overflow-x: clip;
 }
 
 .navbar {
@@ -107,7 +93,10 @@ body {
   border-bottom: 1px solid var(--gray-200);
   z-index: 1000;
   transition: box-shadow .3s ease;
+  /* FIX: GPU layer for fixed element + backface prevents repaint flicker on iOS scroll */
+  -webkit-transform: translateZ(0);
   transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
 }
 
 .navbar.scrolled {
@@ -342,15 +331,8 @@ body {
 }
 
 @keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .mobile-menu a,
@@ -450,7 +432,6 @@ body {
   text-transform: uppercase;
 }
 
-/* ── SEO INTRO ───────────────────────────────────────── */
 .seo-intro {
   text-align: center;
   max-width: 800px;
@@ -469,7 +450,6 @@ body {
   }
 }
 
-/* ── NOSCRIPT FALLBACK ───────────────────────────────── */
 .noscript-list {
   list-style: none;
   padding: 0;
@@ -723,11 +703,10 @@ body {
   opacity: 0.5;
 }
 
+/* FIX: only body gets overflow-x: clip, not html */
 @media (max-width: 768px) {
-
-  html,
   body {
-    overflow-x: hidden;
+    overflow-x: clip;
     width: 100%;
   }
 
@@ -829,24 +808,56 @@ body {
     transform: none;
   }
 }
-</style>
+    </style>
   </head>
   <body>
     <nav class="navbar" id="navbar" data-aos="fade-down" data-aos-duration="1000">
-      <div class="nav-inner"> <a href="https://michesslions.com/" class="logo"> <img src="WCL business card 1050x600.png" alt="Chess Lions Logo - Professional Chess Instruction in South Lyon Michigan"> </a>
-        <div class="nav-links"> <a href="https://michesslions.com/#home">Home</a> <a href="https://michesslions.com/#services">Teaching</a> <a href="https://michesslions.com/about.html">About</a>
-          <div class="nav-dropdown"> <span>Tournaments <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <div class="nav-inner">
+        <a href="https://michesslions.com/" class="logo">
+          <img src="WCL business card 1050x600.png" alt="Chess Lions Logo - Professional Chess Instruction in South Lyon Michigan">
+        </a>
+        <div class="nav-links">
+          <a href="https://michesslions.com/#home">Home</a>
+          <a href="https://michesslions.com/#services">Teaching</a>
+          <a href="https://michesslions.com/about.html">About</a>
+          <div class="nav-dropdown">
+            <span>Tournaments
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg> </span>
-            <div class="dropdown-menu"> <a href="https://michesslions.com/tournaments.html"><span>Current Tournaments</span></a> <a href="https://michesslions.com/registration.html"><span>Register</span></a> <a href="https://michesslions.com/registration-list.html"><span>Registration List</span></a> </div>
-          </div> <a href="https://michesslions.com/#contact">Contact</a> <a href="https://michesslions.com/faq.html">FAQ</a> <a href="https://michesslions.com/fullgallery.html">Gallery</a>
+              </svg>
+            </span>
+            <div class="dropdown-menu">
+              <a href="https://michesslions.com/tournaments.html"><span>Current Tournaments</span></a>
+              <a href="https://michesslions.com/registration.html"><span>Register</span></a>
+              <a href="https://michesslions.com/registration-list.html"><span>Registration List</span></a>
+            </div>
+          </div>
+          <a href="https://michesslions.com/#contact">Contact</a>
+          <a href="https://michesslions.com/faq.html">FAQ</a>
+          <a href="https://michesslions.com/fullgallery.html">Gallery</a>
         </div>
-        <div class="mobile-menu-container"> <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu"> <span></span><span></span><span></span> </button>
-          <div class="mobile-menu" id="mobileMenu"> <a href="https://michesslions.com/#home">Home</a> <a href="https://michesslions.com/#services">Teaching</a> <a href="https://michesslions.com/about.html">About</a>
-            <div class="mobile-dropdown-toggle" id="mobileTournamentToggle"> <span>Tournaments</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <div class="mobile-menu-container">
+          <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+          <div class="mobile-menu" id="mobileMenu">
+            <a href="https://michesslions.com/#home">Home</a>
+            <a href="https://michesslions.com/#services">Teaching</a>
+            <a href="https://michesslions.com/about.html">About</a>
+            <div class="mobile-dropdown-toggle" id="mobileTournamentToggle">
+              <span>Tournaments</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg> </div>
-            <div class="mobile-submenu" id="mobileSubmenu"> <a href="https://michesslions.com/tournaments.html">Current Tournaments</a> <a href="https://michesslions.com/registration.html">Register</a> <a href="https://michesslions.com/registration-list.html">Registration List</a> </div> <a href="https://michesslions.com/#contact">Contact</a> <a href="https://michesslions.com/faq.html">FAQ</a> <a href="https://michesslions.com/fullgallery.html">Gallery</a>
+              </svg>
+            </div>
+            <div class="mobile-submenu" id="mobileSubmenu">
+              <a href="https://michesslions.com/tournaments.html">Current Tournaments</a>
+              <a href="https://michesslions.com/registration.html">Register</a>
+              <a href="https://michesslions.com/registration-list.html">Registration List</a>
+            </div>
+            <a href="https://michesslions.com/#contact">Contact</a>
+            <a href="https://michesslions.com/faq.html">FAQ</a>
+            <a href="https://michesslions.com/fullgallery.html">Gallery</a>
           </div>
         </div>
       </div>
@@ -858,12 +869,10 @@ body {
         <p class="page-subtitle">Upcoming &amp; Past Events</p>
       </header>
 
-      <!-- SEO INTRO: always visible to Google, no JS required -->
       <section class="seo-intro" aria-label="About our chess tournaments" data-aos="fade-up" data-aos-duration="600">
         <p>Chess Lions hosts USCF-rated chess tournaments in Metro Detroit, Michigan — South Lyon, Farmington Hills, Troy, Novi, and Wixom. Open to all ages and skill levels, with Rated and unrated sections. Sections may vary by event, details and registration bellow.</p>
       </section>
 
-      <!-- NOSCRIPT FALLBACK: for crawlers that do not execute JS -->
       <noscript>
         <h2>Upcoming Tournaments</h2>
         <ul class="noscript-list">
@@ -886,13 +895,18 @@ body {
         </ul>
       </noscript>
 
-      <div class="registration-banner" data-aos="fade-up" data-aos-duration="600"> <a href="https://michesslions.com/registration.html" class="register-button">Register Now</a> </div>
+      <div class="registration-banner" data-aos="fade-up" data-aos-duration="600">
+        <a href="https://michesslions.com/registration.html" class="register-button">Register Now</a>
+      </div>
+
       <h2 class="section-title" data-aos="fade-up">Upcoming</h2>
       <div class="tournament-list" id="upcoming-tournaments"></div>
+
       <div class="section-divider" data-aos="fade-up">
         <h2 class="section-title">Past Events</h2>
       </div>
       <div class="tournament-list" id="past-tournaments"></div>
+
       <footer class="footer" data-aos="fade-up" data-aos-duration="600">
         <p class="footer-text">Questions? <a href="https://michesslions.com/#contact" class="footer-link">Contact Us</a></p>
       </footer>
@@ -912,117 +926,72 @@ const upcomingTournaments = [{
     "Round Times": "Upper & U1400: 9:30AM, 11:30AM, 1:45PM, 3PM\nU800: 9:30AM, 10:30AM, 11:30AM, 1PM\nUnrated: 9:30AM start, following rounds ASAP",
     "Entry Fee": "$30 for all sections - free entry for NM, (W)FM, (W)IM, (W)GM titles, entry fee deducted from prize if won",
     "Prizes": "Cash prize only in Upper(1400+) section. 40% entry fee for the 1st place winner.\nAll other sections: Top-3 Trophies; Medals for 3 points or more.",
-    "Registration": {
-      link: "https://michesslions.com/registration.html",
-      text: "Register Online"
-    },
-    "Payment": {
-      text: "Zelle to: ",
-      email: "i2v2chess@gmail.com",
-      additional: " or cash onsite"
-    },
-    "Contact": {
-      email: "i2v2chess@gmail.com",
-      phone: "734 560 2802"
-    }
+    "Registration": { link: "https://michesslions.com/registration.html", text: "Register Online" },
+    "Payment": { text: "Zelle to: ", email: "i2v2chess@gmail.com", additional: " or cash onsite" },
+    "Contact": { email: "i2v2chess@gmail.com", phone: "734 560 2802" }
   }
 }];
+
 const pastTournaments = [{
   title: "Chess Lions - Feb 2026 Tournament",
   date: "February 21, 2026",
   resultsUrl: "https://ratings.uschess.org/event/202602210283",
-  details: {
-    "Organizer": "Chess Lions",
-    "Location": "9800 Pontiac Trail, South Lyon, MI 48178"
-  }
+  details: { "Organizer": "Chess Lions", "Location": "9800 Pontiac Trail, South Lyon, MI 48178" }
 }, {
   title: "Chess Lions January 2026 Tournament",
   date: "January 11, 2026",
   resultsUrl: "https://ratings.uschess.org/event/202601110333",
-  details: {
-    "Organizer": "Chess Lions",
-    "Location": "34740 Rhonswood St, Farmington Hills, MI 48335"
-  }
+  details: { "Organizer": "Chess Lions", "Location": "34740 Rhonswood St, Farmington Hills, MI 48335" }
 }, {
   title: "MTS 3rd Annual Chess Tournament",
   date: "December 21, 2025",
   resultsUrl: "https://ratings.uschess.org/event/202512210083",
-  details: {
-    "Organizer": "Michigan Tamil Sangam",
-    "Location": "34740 Rhonswood St, Farmington Hills, MI 48335"
-  }
+  details: { "Organizer": "Michigan Tamil Sangam", "Location": "34740 Rhonswood St, Farmington Hills, MI 48335" }
 }, {
   title: "2nd South Lyon Chess Tournament",
   date: "December 13, 2025",
   resultsUrl: "https://ratings.uschess.org/event/202512130503",
-  details: {
-    "Organizer": "Chess Lions",
-    "Location": "28243 Beck Rd Unt B2, Wixom, MI 48393"
-  }
+  details: { "Organizer": "Chess Lions", "Location": "28243 Beck Rd Unt B2, Wixom, MI 48393" }
 }, {
   title: "Chess Lions Troy Chess Tournament",
   date: "November 1, 2025",
   resultsUrl: "https://ratings.uschess.org/event/202511010133",
-  details: {
-    "Organizer": "Chess Lions",
-    "Location": "Twin Knights, 4963 Rochester Rd, Troy, MI 48085"
-  }
+  details: { "Organizer": "Chess Lions", "Location": "Twin Knights, 4963 Rochester Rd, Troy, MI 48085" }
 }, {
   title: "Chess Lions Mini-Swiss",
   date: "October 18, 2025",
   resultsUrl: "",
-  details: {
-    "Organizer": "Chess Lions",
-    "Location": "Salem-South Lyon District Library, 9800 Pontiac Trail, South Lyon, MI 48178"
-  }
+  details: { "Organizer": "Chess Lions", "Location": "Salem-South Lyon District Library, 9800 Pontiac Trail, South Lyon, MI 48178" }
 }, {
   title: "Rated/Unrated Friday Evening Quads",
   date: "September 26, 2025",
   resultsUrl: "https://ratings.uschess.org/event/202509277502",
-  details: {
-    "Organizer": "Chess Lions",
-    "Location": "Center for Performance Arts and Learning"
-  }
+  details: { "Organizer": "Chess Lions", "Location": "Center for Performance Arts and Learning" }
 }, {
   title: "Chess Lions Tournament September",
   date: "September 6, 2025",
   resultsUrl: "https://ratings.uschess.org/event/202509068332",
-  details: {
-    "Organizer": "Chess Lions",
-    "Location": "Center for Performance Arts and Learning"
-  }
+  details: { "Organizer": "Chess Lions", "Location": "Center for Performance Arts and Learning" }
 }, {
   title: "CHESS LIONS OPEN - AUGUST 2025",
   date: "August 10, 2025",
   resultsUrl: "https://ratings.uschess.org/event/202508100852",
-  details: {
-    "Organizer": "Windsor Chess Lions",
-    "Location": "Center for Performing Arts"
-  }
+  details: { "Organizer": "Windsor Chess Lions", "Location": "Center for Performing Arts" }
 }, {
   title: "April Chess Tournament",
   date: "April 26, 2025",
   resultsUrl: "",
-  details: {
-    "Organizer": "Windsor Chess Lions",
-    "Location": "CAW Student Centre: Alumni Auditorium (University of Windsor)"
-  }
+  details: { "Organizer": "Windsor Chess Lions", "Location": "CAW Student Centre: Alumni Auditorium (University of Windsor)" }
 }, {
   title: "March Chess Tournament",
   date: "March 22, 2025",
   resultsUrl: "",
-  details: {
-    "Organizer": "Windsor Chess Lions",
-    "Location": "Royal Canadian Legion (Branch 594)"
-  }
+  details: { "Organizer": "Windsor Chess Lions", "Location": "Royal Canadian Legion (Branch 594)" }
 }, {
   title: "Army Cadets Fundraiser",
   date: "January 11, 2025",
   resultsUrl: "",
-  details: {
-    "Organizer": "2715 RCAC + Windsor Chess Lions",
-    "Location": "Royal Canadian Legion (Branch 594)"
-  }
+  details: { "Organizer": "2715 RCAC + Windsor Chess Lions", "Location": "Royal Canadian Legion (Branch 594)" }
 }];
 
 function renderDetailValue(value) {
@@ -1043,14 +1012,39 @@ function renderDetailValue(value) {
 }
 
 function createTournamentItem(tournament, index) {
-  const detailsHTML = Object.entries(tournament.details).map(([key, value]) => ` <div class="detail-row"> <div class="detail-label">${key}</div> <div class="detail-value">${renderDetailValue(value)}</div> </div> `).join('');
-  const resultsRowHTML = tournament.resultsUrl ? `<div class="detail-row"> <div class="detail-label">Results</div> <div class="detail-value"><a href="${tournament.resultsUrl}" target="_blank" rel="noopener noreferrer">View Results &rarr;</a></div> </div>` : '';
-  return ` <div class="tournament-item" data-aos="fade-up" data-aos-duration="500" data-aos-delay="${index * 50}"> <button class="tournament-header" aria-expanded="false"> <div class="tournament-info"> <div class="tournament-title">${tournament.title}</div> <div class="tournament-date">${tournament.date}</div> </div> <span class="toggle-arrow" aria-hidden="true"></span> </button> <div class="tournament-details"> <div class="tournament-details-inner"> <div class="tournament-details-content"> ${detailsHTML}${resultsRowHTML} </div> </div> </div> </div> `;
+  const detailsHTML = Object.entries(tournament.details).map(([key, value]) =>
+    `<div class="detail-row">
+      <div class="detail-label">${key}</div>
+      <div class="detail-value">${renderDetailValue(value)}</div>
+    </div>`
+  ).join('');
+  const resultsRowHTML = tournament.resultsUrl
+    ? `<div class="detail-row">
+        <div class="detail-label">Results</div>
+        <div class="detail-value"><a href="${tournament.resultsUrl}" target="_blank" rel="noopener noreferrer">View Results &rarr;</a></div>
+      </div>`
+    : '';
+  return `<div class="tournament-item" data-aos="fade-up" data-aos-duration="500" data-aos-delay="${index * 50}">
+    <button class="tournament-header" aria-expanded="false">
+      <div class="tournament-info">
+        <div class="tournament-title">${tournament.title}</div>
+        <div class="tournament-date">${tournament.date}</div>
+      </div>
+      <span class="toggle-arrow" aria-hidden="true"></span>
+    </button>
+    <div class="tournament-details">
+      <div class="tournament-details-inner">
+        <div class="tournament-details-content">${detailsHTML}${resultsRowHTML}</div>
+      </div>
+    </div>
+  </div>`;
 }
 
 function renderTournaments() {
-  document.getElementById('upcoming-tournaments').innerHTML = upcomingTournaments.map((t, i) => createTournamentItem(t, i)).join('');
-  document.getElementById('past-tournaments').innerHTML = pastTournaments.map((t, i) => createTournamentItem(t, i)).join('');
+  document.getElementById('upcoming-tournaments').innerHTML =
+    upcomingTournaments.map((t, i) => createTournamentItem(t, i)).join('');
+  document.getElementById('past-tournaments').innerHTML =
+    pastTournaments.map((t, i) => createTournamentItem(t, i)).join('');
   document.querySelectorAll('.tournament-header').forEach(button => {
     button.addEventListener('click', () => {
       const item = button.parentElement;
@@ -1060,6 +1054,7 @@ function renderTournaments() {
     });
   });
 }
+
 const navbar = document.getElementById('navbar');
 let navTick = false;
 window.addEventListener('scroll', () => {
@@ -1070,13 +1065,13 @@ window.addEventListener('scroll', () => {
     });
     navTick = true;
   }
-}, {
-  passive: true
-});
+}, { passive: true });
+
 const mobileToggle = document.getElementById('mobileToggle');
 const mobileMenu = document.getElementById('mobileMenu');
 const mobTournamentToggle = document.getElementById('mobileTournamentToggle');
 const mobSubmenu = document.getElementById('mobileSubmenu');
+
 mobileToggle.addEventListener('click', () => {
   mobileToggle.classList.toggle('active');
   mobileMenu.classList.toggle('active');
@@ -1097,16 +1092,11 @@ document.addEventListener('click', e => {
     mobileMenu.classList.remove('active');
   }
 });
+
 document.addEventListener('DOMContentLoaded', () => {
   renderTournaments();
-  AOS.init({
-    duration: 500,
-    easing: 'ease-out-cubic',
-    once: true,
-    offset: 50
-  });
+  AOS.init({ duration: 500, easing: 'ease-out-cubic', once: true, offset: 50 });
 });
-</script>
+    </script>
   </body>
 </html>
-
