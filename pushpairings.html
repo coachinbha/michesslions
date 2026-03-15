@@ -327,6 +327,170 @@
     .submit-btn span { position: relative; z-index: 1; }
     .submit-btn:disabled { opacity: 0.3; cursor: not-allowed; }
 
+    /* ── Confirm modal ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 3000;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+    }
+
+    .modal-overlay.visible {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal-sheet {
+      background: #fff;
+      width: 100%;
+      max-width: 640px;
+      border-top: 3px solid #000;
+      max-height: 85vh;
+      overflow-y: auto;
+      transform: translateY(20px);
+      transition: transform 0.25s ease;
+    }
+
+    .modal-overlay.visible .modal-sheet { transform: translateY(0); }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 1.5rem 1rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .modal-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      color: var(--gray-400);
+      padding: 0.2rem 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .modal-close:hover { color: var(--text); }
+
+    .modal-body { padding: 1.25rem 1.5rem; }
+
+    .diff-section {
+      margin-bottom: 1.25rem;
+    }
+
+    .diff-section-title {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      border-bottom: 1px solid var(--gray-200);
+      padding-bottom: 0.3rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .diff-row {
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-start;
+      margin-bottom: 0.5rem;
+      font-size: 0.75rem;
+      line-height: 1.5;
+    }
+
+    .diff-label {
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      font-size: 0.65rem;
+      color: var(--gray-400);
+      width: 100px;
+      flex-shrink: 0;
+      padding-top: 1px;
+    }
+
+    .diff-val { flex: 1; }
+
+    .diff-old {
+      text-decoration: line-through;
+      color: var(--gray-400);
+      margin-right: 0.4rem;
+    }
+
+    .diff-new { color: var(--text); font-weight: 700; }
+
+    .diff-unchanged { color: var(--gray-600); }
+
+    .diff-added {
+      background: var(--gray-100);
+      border-left: 2px solid var(--text);
+      padding: 0.2rem 0.5rem;
+      font-size: 0.7rem;
+      margin-bottom: 3px;
+    }
+
+    .diff-no-existing {
+      font-size: 0.75rem;
+      color: var(--gray-400);
+      font-style: italic;
+      padding: 0.5rem 0;
+    }
+
+    .modal-footer {
+      display: flex;
+      gap: 0.75rem;
+      padding: 1rem 1.5rem 1.5rem;
+      border-top: 1px solid var(--gray-200);
+    }
+
+    .modal-cancel-btn {
+      flex: 1;
+      padding: 0.85rem;
+      background: var(--bg);
+      color: var(--text);
+      border: 2px solid var(--gray-200);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .modal-cancel-btn:hover { border-color: var(--text); }
+
+    .modal-confirm-btn {
+      flex: 2;
+      padding: 0.85rem;
+      background: var(--text);
+      color: var(--bg);
+      border: 2px solid var(--text);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .modal-confirm-btn:hover { opacity: 0.85; }
+
     /* ── Status ── */
     .status {
       margin-top: 1rem;
@@ -504,10 +668,27 @@
 
   <!-- Submit -->
   <button class="submit-btn" id="submitBtn" disabled>
-    <span>Push to GitHub</span>
+    <span>Review &amp; Push to GitHub</span>
   </button>
   <div class="status" id="status"></div>
 
+</div>
+
+<!-- ── Confirm modal ── -->
+<div class="modal-overlay" id="confirmOverlay">
+  <div class="modal-sheet">
+    <div class="modal-header">
+      <div class="modal-title">Confirm push</div>
+      <button class="modal-close" id="modalClose">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody">
+      <!-- filled by JS -->
+    </div>
+    <div class="modal-footer">
+      <button class="modal-cancel-btn" id="modalCancel">Cancel</button>
+      <button class="modal-confirm-btn" id="modalConfirm">✓ Push to GitHub</button>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -603,9 +784,20 @@ document.getElementById('keyHelpToggle').addEventListener('click', () => {
 });
 
 // ── Push to GitHub ────────────────────────────────────────────────────────────
-document.getElementById('submitBtn').addEventListener('click', pushToGitHub);
+let cachedSha = null;
 
-async function pushToGitHub() {
+document.getElementById('submitBtn').addEventListener('click', reviewBeforePush);
+document.getElementById('modalConfirm').addEventListener('click', confirmPush);
+document.getElementById('modalCancel').addEventListener('click', hideModal);
+document.getElementById('modalClose').addEventListener('click', hideModal);
+document.getElementById('confirmOverlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('confirmOverlay')) hideModal();
+});
+
+function showModal() { document.getElementById('confirmOverlay').classList.add('visible'); }
+function hideModal() { document.getElementById('confirmOverlay').classList.remove('visible'); }
+
+async function reviewBeforePush() {
   const pat      = document.getElementById('pat').value.trim();
   const owner    = document.getElementById('owner').value.trim();
   const repo     = document.getElementById('repo').value.trim();
@@ -613,7 +805,59 @@ async function pushToGitHub() {
   const btn      = document.getElementById('submitBtn');
 
   btn.disabled = true;
-  setStatus('loading', 'Connecting to GitHub…');
+  setStatus('loading', 'Fetching current file from GitHub…');
+
+  const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${filePath}`;
+  const headers = {
+    'Authorization': `Bearer ${pat}`,
+    'Content-Type': 'application/json',
+    'Accept': 'application/vnd.github+json',
+    'X-GitHub-Api-Version': '2022-11-28',
+  };
+
+  let existingData = null;
+  cachedSha = null;
+
+  try {
+    const getRes = await fetch(apiUrl, { headers });
+    if (getRes.ok) {
+      const fileInfo = await getRes.json();
+      cachedSha = fileInfo.sha;
+      // Decode base64 content
+      const decoded = decodeURIComponent(escape(atob(fileInfo.content.replace(/\n/g, ''))));
+      existingData = JSON.parse(decoded);
+    } else if (getRes.status !== 404) {
+      throw new Error(`GitHub returned ${getRes.status} — check your PAT and repo name.`);
+    }
+  } catch (e) {
+    if (e.message.includes('GitHub returned')) {
+      setStatus('error', '✗ ' + e.message);
+      btn.disabled = false;
+      checkReady();
+      return;
+    }
+    // 404 or parse error — treat as no existing file
+    existingData = null;
+  }
+
+  // Build the diff UI
+  const newData = JSON.parse(pairingsContent);
+  document.getElementById('modalBody').innerHTML = buildDiff(existingData, newData);
+  clearStatus();
+  btn.disabled = false;
+  checkReady();
+  showModal();
+}
+
+async function confirmPush() {
+  const pat      = document.getElementById('pat').value.trim();
+  const owner    = document.getElementById('owner').value.trim();
+  const repo     = document.getElementById('repo').value.trim();
+  const filePath = document.getElementById('filePath').value.trim();
+
+  hideModal();
+  setStatus('loading', 'Pushing to GitHub…');
+  document.getElementById('submitBtn').disabled = true;
 
   const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${filePath}`;
   const headers = {
@@ -624,32 +868,13 @@ async function pushToGitHub() {
   };
 
   try {
-    setStatus('loading', 'Checking for existing file…');
-    let sha = null;
-    try {
-      const getRes = await fetch(apiUrl, { headers });
-      if (getRes.ok) {
-        sha = (await getRes.json()).sha;
-      } else if (getRes.status !== 404) {
-        throw new Error(`GitHub returned ${getRes.status} — check your PAT and repo name.`);
-      }
-    } catch (e) {
-      if (!e.message.includes('GitHub returned')) sha = null;
-      else throw e;
-    }
-
-    setStatus('loading', 'Pushing file to GitHub…');
     const body = {
       message: `Update pairings — ${new Date().toLocaleString()}`,
       content: btoa(unescape(encodeURIComponent(pairingsContent))),
     };
-    if (sha) body.sha = sha;
+    if (cachedSha) body.sha = cachedSha;
 
-    const putRes = await fetch(apiUrl, {
-      method: 'PUT',
-      headers,
-      body: JSON.stringify(body),
-    });
+    const putRes = await fetch(apiUrl, { method: 'PUT', headers, body: JSON.stringify(body) });
 
     if (!putRes.ok) {
       const err = await putRes.json().catch(() => ({}));
@@ -658,18 +883,95 @@ async function pushToGitHub() {
 
     const result = await putRes.json();
     const commitUrl = result.commit?.html_url || '#';
-
     setStatus('success',
       `✓ Pushed successfully.\n` +
       `Commit: <a href="${commitUrl}" target="_blank">${result.commit?.sha?.slice(0,7) || 'view'}</a> — ` +
       `GitHub Pages will update in about 30 seconds.`
     );
   } catch (err) {
-    setStatus('error', '✗ Upload failed: ' + err.message);
+    setStatus('error', '✗ Push failed: ' + err.message);
   } finally {
-    btn.disabled = false;
+    document.getElementById('submitBtn').disabled = false;
     checkReady();
   }
+}
+
+// ── Diff builder ──────────────────────────────────────────────────────────────
+function buildDiff(oldData, newData) {
+  let html = '';
+
+  // ── Event info
+  html += `<div class="diff-section">`;
+  html += `<div class="diff-section-title">Event</div>`;
+
+  if (!oldData) {
+    html += `<div class="diff-no-existing">No existing file — this will be the first upload.</div>`;
+  } else {
+    html += diffRow('Name',    oldData.event?.name,       newData.event?.name);
+    html += diffRow('Date',    oldData.event?.date,       newData.event?.date);
+    html += diffRow('Updated', oldData.event?.time_stamp, newData.event?.time_stamp);
+  }
+  html += `</div>`;
+
+  // ── Sections
+  newData.sections.forEach((newSec, i) => {
+    const oldSec = oldData?.sections?.[i];
+    html += `<div class="diff-section">`;
+    html += `<div class="diff-section-title">Section: ${newSec.section}</div>`;
+
+    if (!oldSec) {
+      html += `<div class="diff-no-existing">New section — not in existing file.</div>`;
+    } else {
+      html += diffRow('Rounds paired', oldSec.rounds_paired, newSec.rounds_paired);
+      html += diffRow('Rounds played', oldSec.rounds_played, newSec.rounds_played);
+      html += diffRow('Players',       oldSec.players?.length, newSec.players?.length);
+    }
+
+    // Show new pairings
+    html += `<div class="diff-label" style="margin-top:0.6rem;margin-bottom:0.4rem">Pairings (round ${newSec.rounds_paired})</div>`;
+    const playerMap = {};
+    newSec.players.forEach(p => { playerMap[p.pair_number] = p; });
+
+    if (!newSec.pairings?.length) {
+      html += `<div class="diff-no-existing">No pairings in this file.</div>`;
+    } else {
+      newSec.pairings.forEach(p => {
+        if (!p.board || !p.black) {
+          const byePlayer = playerMap[p.white];
+          html += `<div class="diff-added">Bye — ${shortName(byePlayer?.name)}</div>`;
+        } else {
+          const w = playerMap[p.white];
+          const b = playerMap[p.black];
+          html += `<div class="diff-added">Bd ${p.board}: ${shortName(w?.name)} (W) vs ${shortName(b?.name)} (B)</div>`;
+        }
+      });
+    }
+
+    html += `</div>`;
+  });
+
+  return html;
+}
+
+function diffRow(label, oldVal, newVal) {
+  const changed = String(oldVal) !== String(newVal);
+  return `
+    <div class="diff-row">
+      <div class="diff-label">${label}</div>
+      <div class="diff-val">
+        ${changed
+          ? `<span class="diff-old">${oldVal ?? '—'}</span><span class="diff-new">${newVal ?? '—'}</span>`
+          : `<span class="diff-unchanged">${newVal ?? '—'}</span>`
+        }
+      </div>
+    </div>`;
+}
+
+function shortName(name) {
+  if (!name) return '?';
+  const parts = name.split(',');
+  if (parts.length === 2) return parts[1].trim() + ' ' + parts[0].trim();
+  return name;
 }
 
 // ── Status helpers ────────────────────────────────────────────────────────────
