@@ -490,6 +490,60 @@
       margin-bottom: 0.4rem;
     }
 
+    /* ── No-pairings holding screen ── */
+    .no-pairings-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 5rem 2rem 6rem;
+      text-align: center;
+    }
+
+    .no-pairings-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.15;
+      line-height: 1;
+    }
+
+    .no-pairings-heading {
+      font-size: clamp(1.4rem, 5vw, 2.2rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.85rem;
+    }
+
+    .no-pairings-body {
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--gray-600);
+      max-width: 320px;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .no-pairings-btn {
+      display: inline-block;
+      padding: 0.85rem 1.75rem;
+      background: var(--text);
+      color: var(--bg);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid var(--text);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .no-pairings-btn:hover {
+      background: var(--bg);
+      color: var(--text);
+    }
+
     /* ── Popup ── */
     .popup-overlay {
       position: fixed;
@@ -1264,6 +1318,13 @@ async function loadData() {
     const res = await fetch(DATA_URL + '?t=' + Date.now());
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const fresh = await res.json();
+
+    // No-pairings state: hide chrome, show holding screen
+    if (fresh.no_pairings) {
+      showNoPairings();
+      return;
+    }
+
     const isFirst = !tournamentData;
     tournamentData = fresh;
     if (isFirst) {
@@ -1279,6 +1340,28 @@ async function loadData() {
         `<div class="state-msg"><span class="big">Error</span>Could not load pairings.json<br><small style="font-size:0.65rem;color:var(--gray-400)">${e.message}</small></div>`;
     }
   }
+}
+
+function showNoPairings() {
+  // Hide interactive chrome
+  document.querySelector('.top-bar').style.display = 'none';
+  document.getElementById('sectionTabs').style.display = 'none';
+  document.querySelector('.view-tabs').style.display = 'none';
+  document.getElementById('searchWrap').style.display = 'none';
+  document.getElementById('globalResults').style.display = 'none';
+  // Neutral header
+  document.getElementById('eventTitle').textContent = 'Michigan Chess Lions';
+  document.getElementById('eventMeta').innerHTML = '';
+  // Holding screen
+  document.getElementById('content').innerHTML = `
+    <div class="no-pairings-screen">
+      <div class="no-pairings-icon">♟</div>
+      <div class="no-pairings-heading">No active tournament</div>
+      <div class="no-pairings-body">There are no current pairings. Check our upcoming events to register for the next tournament.</div>
+      <a class="no-pairings-btn" href="https://michesslions.com/tournaments.html">
+        View upcoming events →
+      </a>
+    </div>`;
 }
 
 function initApp() {
