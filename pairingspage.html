@@ -510,7 +510,7 @@
       background: #fff;
       width: 100%;
       max-width: 520px;
-      padding: 1.5rem 1.5rem 2.5rem;
+      padding: 0.9rem 1.1rem 1.2rem;
       transform: translateY(24px);
       transition: transform 0.28s cubic-bezier(0.34, 1.2, 0.64, 1);
       border-top: 3px solid #000;
@@ -524,7 +524,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 1.4rem;
+      margin-bottom: 0.75rem;
     }
 
     .popup-title {
@@ -540,7 +540,7 @@
       cursor: pointer;
       font-size: 1.1rem;
       color: var(--gray-400);
-      padding: 0.25rem 0.5rem;
+      padding: 0.15rem 0.4rem;
       font-family: 'Montserrat', sans-serif;
       -webkit-tap-highlight-color: transparent;
       transition: color 0.2s;
@@ -548,39 +548,78 @@
 
     .popup-close:hover { color: var(--text); }
 
+    /* Two-mode popup: 'browse' (default) and 'search' */
+    .popup-mode-btns {
+      display: flex;
+      gap: 0.35rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .popup-mode-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.55rem 0.5rem;
+      border: 1.5px solid var(--gray-200);
+      background: var(--bg);
+      color: var(--gray-400);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .popup-mode-btn.active {
+      border-color: var(--text);
+      color: var(--text);
+      background: var(--gray-100);
+    }
+
+    .popup-browse-panel, .popup-search-panel { display: block; }
+    .popup-browse-panel.hidden, .popup-search-panel.hidden { display: none; }
+
     .popup-section-label {
-      font-size: 0.62rem;
+      font-size: 0.6rem;
       font-weight: 700;
       letter-spacing: 0.6px;
       text-transform: uppercase;
       color: var(--gray-400);
-      margin-bottom: 0.55rem;
+      margin-bottom: 0.4rem;
       border-bottom: 1px solid var(--gray-200);
-      padding-bottom: 0.3rem;
+      padding-bottom: 0.25rem;
+      margin-top: 0.6rem;
     }
+
+    .popup-section-label:first-child { margin-top: 0; }
 
     .popup-options {
       display: flex;
       flex-direction: column;
-      gap: 0.4rem;
-      margin-bottom: 1.4rem;
+      gap: 0.3rem;
+      margin-bottom: 0.6rem;
     }
 
     .popup-options.sections-grid {
       flex-direction: row;
       flex-wrap: wrap;
-      gap: 0.35rem;
+      gap: 0.28rem;
     }
 
     .popup-option {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.85rem 1rem;
-      border: 2px solid var(--gray-200);
+      padding: 0.55rem 0.75rem;
+      border: 1.5px solid var(--gray-200);
       cursor: pointer;
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.3px;
@@ -594,29 +633,30 @@
 
     .sections-grid .popup-option {
       width: auto;
-      flex: 1 1 calc(50% - 0.18rem);
-      padding: 0.6rem 0.75rem;
-      font-size: 0.7rem;
-      gap: 0.4rem;
+      flex: 1 1 calc(50% - 0.14rem);
+      padding: 0.5rem 0.65rem;
+      font-size: 0.67rem;
+      gap: 0.35rem;
     }
 
     .popup-option:active { background: var(--gray-100); }
     .popup-option.selected { background: var(--text); color: var(--bg); border-color: var(--text); }
-    .popup-option .check { font-size: 0.9rem; opacity: 0; transition: opacity 0.15s; flex-shrink: 0; }
+    .popup-option .check { font-size: 0.85rem; opacity: 0; transition: opacity 0.15s; flex-shrink: 0; }
     .popup-option.selected .check { opacity: 1; }
 
     .popup-go-btn {
       width: 100%;
-      padding: 1rem;
+      padding: 0.75rem;
       background: var(--text);
       color: var(--bg);
       border: 2px solid var(--text);
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 0.6px;
       text-transform: uppercase;
       cursor: pointer;
+      margin-top: 0.6rem;
       -webkit-tap-highlight-color: transparent;
       transition: opacity 0.2s;
     }
@@ -625,7 +665,7 @@
 
     /* ── Popup player search ── */
     .popup-player-search-wrap {
-      margin-bottom: 1.4rem;
+      margin-bottom: 0;
     }
 
     .popup-player-search-inner {
@@ -647,7 +687,7 @@
 
     .popup-player-search-input {
       width: 100%;
-      padding: 0.7rem 2rem 0.7rem 2.2rem;
+      padding: 0.55rem 2rem 0.55rem 2.2rem;
       border: 2px solid var(--gray-200);
       background: var(--bg);
       font-family: 'Montserrat', sans-serif;
@@ -1127,36 +1167,59 @@
       <div class="popup-title">Choose what to view</div>
       <button class="popup-close" id="popupClose">✕</button>
     </div>
-    <div class="popup-section-label">Find My Player</div>
-    <div class="popup-player-search-wrap" id="popupPlayerSearchWrap">
-      <div class="popup-player-search-inner">
-        <span class="popup-player-search-icon">
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="5.5" cy="5.5" r="4.5" stroke="#000" stroke-width="1.5"/>
-            <line x1="8.9" y1="8.9" x2="12" y2="12" stroke="#000" stroke-width="1.5" stroke-linecap="square"/>
-          </svg>
-        </span>
-        <input class="popup-player-search-input" id="popupPlayerSearchInput"
-          type="search" placeholder="Type a player name…"
-          autocomplete="off" autocorrect="off" spellcheck="false" />
-        <button class="popup-player-search-clear" id="popupPlayerSearchClear">✕</button>
+    <!-- Mode toggle -->
+    <div class="popup-mode-btns">
+      <button class="popup-mode-btn active" id="modeBrowseBtn" onclick="setPopupMode('browse')">
+        <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="1" x2="11" y2="1" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="2" y1="5" x2="9" y2="5" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="4" y1="9" x2="7" y2="9" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        Browse
+      </button>
+      <button class="popup-mode-btn" id="modeSearchBtn" onclick="setPopupMode('search')">
+        <svg width="12" height="12" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="5.5" cy="5.5" r="4.5" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="8.9" y1="8.9" x2="12" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+        </svg>
+        Find my player
+      </button>
+    </div>
+    <!-- Browse panel: section + round pickers -->
+    <div class="popup-browse-panel" id="popupBrowsePanel">
+      <div class="popup-section-label">Section</div>
+      <div class="popup-options sections-grid" id="sectionOptions"></div>
+      <div class="popup-section-label">Round</div>
+      <div class="popup-options" id="roundOptions">
+        <button class="popup-option selected" data-round="latest">
+          Latest / Current round
+          <span class="check">✓</span>
+        </button>
+        <button class="popup-option" data-round="all">
+          Browse all rounds
+          <span class="check">✓</span>
+        </button>
       </div>
-      <div class="popup-player-results" id="popupPlayerResults"></div>
+      <button class="popup-go-btn" id="popupGoBtn">View Pairings</button>
     </div>
-    <div class="popup-section-label">Section</div>
-    <div class="popup-options sections-grid" id="sectionOptions"></div>
-    <div class="popup-section-label">Round</div>
-    <div class="popup-options" id="roundOptions">
-      <button class="popup-option selected" data-round="latest">
-        Latest / Current round
-        <span class="check">✓</span>
-      </button>
-      <button class="popup-option" data-round="all">
-        Browse all rounds
-        <span class="check">✓</span>
-      </button>
+    <!-- Search panel: find my player -->
+    <div class="popup-search-panel hidden" id="popupSearchPanel">
+      <div class="popup-player-search-wrap" id="popupPlayerSearchWrap">
+        <div class="popup-player-search-inner">
+          <span class="popup-player-search-icon">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="5.5" cy="5.5" r="4.5" stroke="#000" stroke-width="1.5"/>
+              <line x1="8.9" y1="8.9" x2="12" y2="12" stroke="#000" stroke-width="1.5" stroke-linecap="square"/>
+            </svg>
+          </span>
+          <input class="popup-player-search-input" id="popupPlayerSearchInput"
+            type="search" placeholder="Type a player name…"
+            autocomplete="off" autocorrect="off" spellcheck="false" />
+          <button class="popup-player-search-clear" id="popupPlayerSearchClear">✕</button>
+        </div>
+        <div class="popup-player-results" id="popupPlayerResults"></div>
+      </div>
     </div>
-    <button class="popup-go-btn" id="popupGoBtn">View Pairings</button>
   </div>
 </div>
 
@@ -1334,6 +1397,26 @@ function buildPopupSections() {
     el.appendChild(btn);
   });
   popupSectionIdx = activeSectionIdx;
+}
+
+function setPopupMode(mode) {
+  const browse = document.getElementById('popupBrowsePanel');
+  const search = document.getElementById('popupSearchPanel');
+  const btnBrowse = document.getElementById('modeBrowseBtn');
+  const btnSearch = document.getElementById('modeSearchBtn');
+  if (mode === 'search') {
+    browse.classList.add('hidden');
+    search.classList.remove('hidden');
+    btnBrowse.classList.remove('active');
+    btnSearch.classList.add('active');
+    // Focus the input after a frame so the sheet has rendered
+    requestAnimationFrame(() => document.getElementById('popupPlayerSearchInput').focus());
+  } else {
+    search.classList.add('hidden');
+    browse.classList.remove('hidden');
+    btnSearch.classList.remove('active');
+    btnBrowse.classList.add('active');
+  }
 }
 
 function showPopup() {
@@ -1758,6 +1841,7 @@ function resetPopupPlayerSearch() {
   popupPlayerClear.classList.remove('visible');
   popupPlayerResults.classList.remove('visible');
   popupPlayerResults.innerHTML = '';
+  setPopupMode('browse');
 }
 
 // ── Global search ─────────────────────────────────────────────────────────────
