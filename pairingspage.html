@@ -623,6 +623,137 @@
 
     .popup-go-btn:active { opacity: 0.75; }
 
+    /* ── Popup player search ── */
+    .popup-player-search-wrap {
+      margin-bottom: 1.4rem;
+    }
+
+    .popup-player-search-inner {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .popup-player-search-icon {
+      position: absolute;
+      left: 0.7rem;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      opacity: 0.4;
+    }
+
+    .popup-player-search-input {
+      width: 100%;
+      padding: 0.7rem 2rem 0.7rem 2.2rem;
+      border: 2px solid var(--gray-200);
+      background: var(--bg);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+      border-radius: 0;
+      -webkit-appearance: none;
+    }
+
+    .popup-player-search-input:focus { border-color: var(--text); }
+
+    .popup-player-search-input::placeholder {
+      color: var(--gray-400);
+      font-weight: 600;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .popup-player-search-input::-webkit-search-cancel-button { display: none; }
+
+    .popup-player-search-clear {
+      position: absolute;
+      right: 0.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--gray-400);
+      font-size: 0.8rem;
+      cursor: pointer;
+      padding: 0.2rem 0.3rem;
+      display: none;
+      font-family: 'Montserrat', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      line-height: 1;
+    }
+
+    .popup-player-search-clear.visible { display: block; }
+
+    .popup-player-results {
+      margin-top: 0;
+      border: 2px solid var(--text);
+      border-top: none;
+      display: none;
+      max-height: 220px;
+      overflow-y: auto;
+    }
+
+    .popup-player-results.visible { display: block; }
+
+    .popup-player-result-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.65rem 0.85rem;
+      border-bottom: 1px solid var(--gray-200);
+      cursor: pointer;
+      gap: 0.5rem;
+      -webkit-tap-highlight-color: transparent;
+      transition: background 0.12s;
+    }
+
+    .popup-player-result-row:last-child { border-bottom: none; }
+    .popup-player-result-row:hover, .popup-player-result-row:active { background: var(--gray-100); }
+
+    .popup-player-result-name {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2px;
+      flex: 1;
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .popup-player-result-name mark {
+      background: #000;
+      color: #fff;
+      padding: 0 1px;
+    }
+
+    .popup-player-result-meta {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      flex-shrink: 0;
+      text-align: right;
+    }
+
+    .popup-player-result-none {
+      padding: 0.9rem 0.85rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      color: var(--gray-400);
+    }
+
     /* ── Player card overlay ── */
     .player-card-overlay {
       position: fixed;
@@ -950,7 +1081,7 @@
       </svg>
     </span>
     <input class="top-bar-search-input" id="globalSearchInput"
-      type="search" placeholder="Find my player…"
+      type="search" placeholder="Player"
       autocomplete="off" autocorrect="off" spellcheck="false" />
     <button class="top-bar-search-clear" id="globalSearchClear">✕</button>
   </div>
@@ -995,6 +1126,22 @@
     <div class="popup-top">
       <div class="popup-title">Choose what to view</div>
       <button class="popup-close" id="popupClose">✕</button>
+    </div>
+    <div class="popup-section-label">Find My Player</div>
+    <div class="popup-player-search-wrap" id="popupPlayerSearchWrap">
+      <div class="popup-player-search-inner">
+        <span class="popup-player-search-icon">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="5.5" cy="5.5" r="4.5" stroke="#000" stroke-width="1.5"/>
+            <line x1="8.9" y1="8.9" x2="12" y2="12" stroke="#000" stroke-width="1.5" stroke-linecap="square"/>
+          </svg>
+        </span>
+        <input class="popup-player-search-input" id="popupPlayerSearchInput"
+          type="search" placeholder="Type a player name…"
+          autocomplete="off" autocorrect="off" spellcheck="false" />
+        <button class="popup-player-search-clear" id="popupPlayerSearchClear">✕</button>
+      </div>
+      <div class="popup-player-results" id="popupPlayerResults"></div>
     </div>
     <div class="popup-section-label">Section</div>
     <div class="popup-options sections-grid" id="sectionOptions"></div>
@@ -1200,6 +1347,8 @@ function showPopup() {
 
 function hidePopup() {
   document.getElementById('popupOverlay').classList.remove('visible');
+  // defer so the closing animation completes before clearing
+  setTimeout(resetPopupPlayerSearch, 300);
 }
 
 document.getElementById('popupClose').onclick = hidePopup;
@@ -1517,6 +1666,103 @@ function openPlayerCard(pairNum) {
   }
   document.getElementById('pcRounds').innerHTML = roundsHtml;
   document.getElementById('playerCardOverlay').classList.add('visible');
+}
+
+// ── Popup player search ───────────────────────────────────────────────────────
+const popupPlayerInput   = document.getElementById('popupPlayerSearchInput');
+const popupPlayerClear   = document.getElementById('popupPlayerSearchClear');
+const popupPlayerResults = document.getElementById('popupPlayerResults');
+
+popupPlayerInput.addEventListener('input', () => {
+  const q = popupPlayerInput.value.trim();
+  popupPlayerClear.classList.toggle('visible', q.length > 0);
+  if (q.length < 2) {
+    popupPlayerResults.classList.remove('visible');
+    popupPlayerResults.innerHTML = '';
+    return;
+  }
+  runPopupPlayerSearch(q);
+});
+
+popupPlayerClear.addEventListener('click', () => {
+  popupPlayerInput.value = '';
+  popupPlayerClear.classList.remove('visible');
+  popupPlayerResults.classList.remove('visible');
+  popupPlayerResults.innerHTML = '';
+  popupPlayerInput.focus();
+});
+
+function runPopupPlayerSearch(q) {
+  if (!tournamentData) return;
+  const ql = q.toLowerCase();
+  const matches = [];
+  tournamentData.sections.forEach((sec, si) => {
+    const playerMap = buildPlayerMap(sec.players);
+    sec.players.forEach(p => {
+      const display = playerShortName(p.name);
+      if (display.toLowerCase().includes(ql)) {
+        matches.push({ si, sec, playerMap, p, display });
+      }
+    });
+  });
+
+  popupPlayerResults.classList.add('visible');
+
+  if (!matches.length) {
+    popupPlayerResults.innerHTML =
+      `<div class="popup-player-result-none">No players found</div>`;
+    return;
+  }
+
+  const ql2 = q.toLowerCase();
+  let html = '';
+  matches.slice(0, 12).forEach(({ si, sec, playerMap, p, display }) => {
+    const score = p.cumulatives?.length
+      ? p.cumulatives[p.cumulatives.length - 1]
+      : (p.score ?? '—');
+    const idx = display.toLowerCase().indexOf(ql2);
+    const hlName = idx === -1 ? display
+      : display.slice(0, idx) +
+        `<mark>${display.slice(idx, idx + q.length)}</mark>` +
+        display.slice(idx + q.length);
+    html += `
+      <div class="popup-player-result-row"
+           onclick="selectPopupPlayer(${p.pair_number}, ${si})">
+        <div class="popup-player-result-name">${hlName}</div>
+        <div class="popup-player-result-meta">${sec.section} · ${score} pts</div>
+      </div>`;
+  });
+  if (matches.length > 12) {
+    html += `<div class="popup-player-result-none">+${matches.length - 12} more — keep typing</div>`;
+  }
+  popupPlayerResults.innerHTML = html;
+}
+
+function selectPopupPlayer(pairNum, sectionIdx) {
+  // Close popup, set the global search to show this player, open their card
+  hidePopup();
+  // Populate the global search bar and fire global search
+  const sec = tournamentData.sections[sectionIdx];
+  const playerMap = buildPlayerMap(sec.players);
+  const p = playerMap[pairNum];
+  if (!p) return;
+  const name = playerShortName(p.name);
+  globalInput.value = name;
+  globalClear.classList.add('visible');
+  runGlobalSearch(name);
+  // Also open the player card directly
+  const prev = activeSectionIdx;
+  activeSectionIdx = sectionIdx;
+  openPlayerCard(pairNum);
+  activeSectionIdx = prev;
+}
+
+// Reset popup search when popup closes
+function resetPopupPlayerSearch() {
+  popupPlayerInput.value = '';
+  popupPlayerClear.classList.remove('visible');
+  popupPlayerResults.classList.remove('visible');
+  popupPlayerResults.innerHTML = '';
 }
 
 // ── Global search ─────────────────────────────────────────────────────────────
