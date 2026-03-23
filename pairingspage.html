@@ -28,7 +28,6 @@
       overflow-x: hidden;
     }
 
-    /* ── Top bar ── */
     .top-bar {
       background: #000;
       color: #fff;
@@ -51,7 +50,6 @@
       overflow: hidden;
     }
 
-    /* Refresh pulse dot */
     .refresh-dot {
       width: 6px; height: 6px;
       border-radius: 50%;
@@ -95,7 +93,6 @@
 
     .top-bar-filter-btn:hover { background: rgba(255,255,255,0.15); }
 
-    /* ── Header — compact on mobile ── */
     .site-header {
       border-bottom: 1px solid var(--gray-200);
       padding: 0.75rem 1.25rem 0.6rem;
@@ -112,10 +109,7 @@
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: -0.5px;
-      line-height: 1.1;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      line-height: 1.15;
     }
 
     .event-meta {
@@ -130,7 +124,6 @@
 
     .event-meta span { color: var(--gray-600); }
 
-    /* Filter pill */
     .filter-pill {
       display: inline-flex;
       align-items: center;
@@ -152,7 +145,7 @@
 
     .filter-pill .x { opacity: 0.5; margin-left: 1px; }
 
-    /* ── Section tabs ── */
+    /* ── Section tabs — compact + scroll-friendly ── */
     .section-tabs {
       display: flex;
       border-bottom: 1px solid var(--gray-200);
@@ -160,15 +153,16 @@
       padding: 0 1.25rem;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
+      gap: 0;
     }
 
     .section-tabs::-webkit-scrollbar { display: none; }
 
     .section-tab {
-      padding: 0.7rem 1rem;
-      font-size: 0.7rem;
+      padding: 0.6rem 0.75rem;
+      font-size: 0.65rem;
       font-weight: 700;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
       text-transform: uppercase;
       cursor: pointer;
       color: var(--gray-400);
@@ -177,12 +171,15 @@
       flex-shrink: 0;
       transition: color 0.2s, border-color 0.2s;
       -webkit-tap-highlight-color: transparent;
+      /* Trim verbose suffixes like "(Rated)" visually via max-width clamp */
+      max-width: 28vw;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .section-tab:hover { color: var(--text); }
     .section-tab.active { color: var(--text); border-bottom-color: var(--text); }
 
-    /* ── View tabs ── */
     .view-tabs {
       display: flex;
       gap: 0.5rem;
@@ -207,7 +204,6 @@
     .view-tab:hover { border-color: var(--text); color: var(--text); }
     .view-tab.active { background: var(--text); border-color: var(--text); color: var(--bg); }
 
-    /* ── Search bar ── */
     .search-wrap {
       padding: 0.75rem 1.25rem 0;
       display: none;
@@ -231,10 +227,8 @@
     .search-input:focus { border-color: var(--text); }
     .search-input::placeholder { color: var(--gray-200); font-weight: 700; text-transform: uppercase; font-size: 0.68rem; letter-spacing: 0.4px; }
 
-    /* ── Content ── */
     .content { padding: 0.85rem 1.25rem 6rem; }
 
-    /* ── Round nav ── */
     .round-nav {
       display: flex;
       align-items: center;
@@ -277,7 +271,6 @@
       flex: 1.5;
     }
 
-    /* ── Board cards ── */
     .board-card {
       border: 1px solid var(--gray-200);
       margin-bottom: 7px;
@@ -357,7 +350,6 @@
     .color-dot.W { background: #fff; border: 1px solid #bbb; }
     .color-dot.B { background: #000; }
 
-    /* Result badge — also has a "pending" state */
     .result-badge {
       flex-shrink: 0;
       padding: 3px 6px;
@@ -373,38 +365,7 @@
     .result-D       { color: var(--gray-600); border-color: #bbb; }
     .result-B       { color: var(--gray-600); border-color: #bbb; }
     .result-U       { color: var(--gray-200); border-color: var(--gray-200); }
-    .result-pending { color: var(--gray-200); border-color: var(--gray-200); border-style: dashed; }
 
-    /* In-progress banner shown when latest round has no results yet */
-    .in-progress-banner {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      color: var(--gray-400);
-      border: 1px dashed var(--gray-200);
-      padding: 0.5rem 0.85rem;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .in-progress-banner::before {
-      content: '';
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--gray-400);
-      flex-shrink: 0;
-      animation: blink 1.4s ease-in-out infinite;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 0.3; }
-      50%       { opacity: 1; }
-    }
-
-    /* No search results */
     .no-search-results {
       display: none;
       padding: 2rem 0;
@@ -416,7 +377,6 @@
       color: var(--gray-400);
     }
 
-    /* ── Standings ── */
     .standings-list { display: flex; flex-direction: column; margin-top: 0.75rem; }
 
     .standing-row {
@@ -425,9 +385,13 @@
       gap: 0.75rem;
       padding: 0.8rem 0.5rem;
       border-bottom: 1px solid var(--gray-200);
+      cursor: pointer;
+      transition: background 0.15s;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .standing-row:first-child { border-top: 2px solid var(--text); }
+    .standing-row:active { background: var(--gray-100); }
 
     .s-rank {
       font-size: 1rem;
@@ -479,7 +443,6 @@
       text-align: right;
     }
 
-    /* ── Empty state ── */
     .state-msg { padding: 4rem 1rem; text-align: center; color: var(--gray-400); }
 
     .state-msg .big {
@@ -492,9 +455,6 @@
       margin-bottom: 0.4rem;
     }
 
-    /* ════════════════════════════════════════
-       POPUP
-    ════════════════════════════════════════ */
     .popup-overlay {
       position: fixed;
       inset: 0;
@@ -613,7 +573,6 @@
 
     .popup-go-btn:active { opacity: 0.75; }
 
-    /* ── Player card popup ── */
     .player-card-overlay {
       position: fixed;
       inset: 0;
@@ -784,19 +743,11 @@
       flex-shrink: 0;
     }
 
-    .standing-row {
-      cursor: pointer;
-      transition: background 0.15s;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .standing-row:active { background: var(--gray-100); }
-
-    /* ── Desktop ── */
     @media (min-width: 640px) {
       .site-header { padding: 1.25rem 2rem 1rem; }
       .section-tabs, .view-tabs, .search-wrap, .content, .top-bar { padding-left: 2rem; padding-right: 2rem; }
-      .event-title { font-size: 1.8rem; white-space: normal; }
+      .event-title { font-size: 1.8rem; }
+      .section-tab { max-width: none; font-size: 0.7rem; padding: 0.7rem 1rem; }
       .popup-overlay { align-items: center; }
       .popup-sheet { border: 3px solid #000; max-width: 400px; width: 90%; }
     }
@@ -804,7 +755,6 @@
 </head>
 <body>
 
-<!-- ── Top bar ── -->
 <div class="top-bar">
   <div class="top-bar-left">
     <div class="refresh-dot" id="refreshDot"></div>
@@ -813,7 +763,6 @@
   <button class="top-bar-filter-btn" id="openPopupBtn">⊞ Filter</button>
 </div>
 
-<!-- ── Header ── -->
 <header class="site-header">
   <div class="header-left">
     <div class="event-title" id="eventTitle">Loading…</div>
@@ -832,7 +781,6 @@
   <button class="view-tab" data-view="standings">Standings</button>
 </div>
 
-<!-- ── Search bar (pairings only) ── -->
 <div class="search-wrap" id="searchWrap">
   <input class="search-input" id="searchInput" type="search" placeholder="Search player…" autocomplete="off" autocorrect="off" spellcheck="false" />
 </div>
@@ -841,19 +789,14 @@
   <div class="state-msg"><span class="big">Loading</span>Fetching tournament data…</div>
 </div>
 
-
-<!-- ════════════ POPUP ════════════ -->
 <div class="popup-overlay" id="popupOverlay">
   <div class="popup-sheet">
-
     <div class="popup-top">
       <div class="popup-title">Choose what to view</div>
       <button class="popup-close" id="popupClose">✕</button>
     </div>
-
     <div class="popup-section-label">Section</div>
     <div class="popup-options" id="sectionOptions"></div>
-
     <div class="popup-section-label">Round</div>
     <div class="popup-options" id="roundOptions">
       <button class="popup-option selected" data-round="latest">
@@ -865,13 +808,10 @@
         <span class="check">✓</span>
       </button>
     </div>
-
     <button class="popup-go-btn" id="popupGoBtn">View Pairings</button>
   </div>
 </div>
 
-
-<!-- ── Player card ── -->
 <div class="player-card-overlay" id="playerCardOverlay">
   <div class="player-card-sheet">
     <div class="pc-header">
@@ -904,35 +844,25 @@ let activeView       = 'pairings';
 let activeRound      = {};
 let browseMode       = false;
 let searchQuery      = '';
-let firstLoad        = true;
 
-// popup state
 let popupSectionIdx = 0;
 let popupRound      = 'latest';
 
-// ── Fetch ─────────────────────────────────────────────────────────────────────
 async function loadData() {
   try {
     const res = await fetch(DATA_URL + '?t=' + Date.now());
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const fresh = await res.json();
-
     const isFirst = !tournamentData;
     tournamentData = fresh;
-
-    // Update timestamp
     document.getElementById('tsLeft').textContent = 'Updated: ' + fresh.event.time_stamp;
-
-    // Flash the refresh dot
     const dot = document.getElementById('refreshDot');
     dot.classList.remove('active');
-    void dot.offsetWidth; // reflow to restart animation
+    void dot.offsetWidth;
     dot.classList.add('active');
-
     if (isFirst) {
       initApp();
     } else {
-      // Silent refresh — just re-render, don't reset state or show popup
       updateHeader();
       renderContent();
       updateFilterPill();
@@ -942,19 +872,14 @@ async function loadData() {
       document.getElementById('content').innerHTML =
         `<div class="state-msg"><span class="big">Error</span>Could not load pairings.json<br><small style="font-size:0.65rem;color:var(--gray-400)">${e.message}</small></div>`;
     }
-    // Silent fail on background refresh — don't disrupt the user
   }
 }
 
 function initApp() {
   const d = tournamentData;
-
   document.title = d.event.name;
   updateHeader();
-
-  // Init round state to latest for each section
   d.sections.forEach((sec, i) => { activeRound[i] = sec.rounds_paired; });
-
   buildSectionTabs();
   buildViewTabs();
   buildPopupSections();
@@ -969,14 +894,15 @@ function updateHeader() {
     `<span>${ev.city}, ${ev.state}</span> · TD: <span>${ev.td}</span>`;
 }
 
-// ── Section tabs ──────────────────────────────────────────────────────────────
 function buildSectionTabs() {
   const el = document.getElementById('sectionTabs');
   el.innerHTML = '';
   tournamentData.sections.forEach((sec, i) => {
     const t = document.createElement('div');
     t.className = 'section-tab' + (i === activeSectionIdx ? ' active' : '');
-    t.textContent = sec.section;
+    // Strip trailing "(Rated)" / "(Unrated)" / "(rated)" etc. to save space
+    t.textContent = sec.section.replace(/\s*\((?:un)?rated\)/i, '').trim();
+    t.title = sec.section; // full name on long-press / hover
     t.onclick = () => {
       activeSectionIdx = i;
       document.querySelectorAll('.section-tab').forEach((s, j) =>
@@ -989,7 +915,6 @@ function buildSectionTabs() {
   });
 }
 
-// ── View tabs ─────────────────────────────────────────────────────────────────
 function buildViewTabs() {
   document.querySelectorAll('.view-tab').forEach(btn => {
     btn.onclick = () => {
@@ -1003,7 +928,6 @@ function buildViewTabs() {
   });
 }
 
-// ── Search ────────────────────────────────────────────────────────────────────
 function updateSearchBar() {
   document.getElementById('searchWrap').classList.toggle('visible', activeView === 'pairings');
 }
@@ -1016,7 +940,6 @@ document.getElementById('searchInput').addEventListener('input', e => {
 function applySearch() {
   const cards = document.querySelectorAll('.board-card');
   let visible = 0;
-
   cards.forEach(card => {
     if (!searchQuery) {
       card.classList.remove('search-hidden');
@@ -1031,8 +954,6 @@ function applySearch() {
     card.classList.toggle('search-hidden', !match);
     if (match) visible++;
   });
-
-  // Show/hide no-results message
   const noRes = document.getElementById('noSearchResults');
   if (noRes) noRes.style.display = visible === 0 && searchQuery ? 'block' : 'none';
 }
@@ -1042,7 +963,6 @@ function clearSearch() {
   document.getElementById('searchInput').value = '';
 }
 
-// ── Filter pill ───────────────────────────────────────────────────────────────
 function updateFilterPill() {
   const pill = document.getElementById('filterPillBtn');
   const text = document.getElementById('filterPillText');
@@ -1055,7 +975,6 @@ function updateFilterPill() {
 document.getElementById('filterPillBtn').onclick = () => showPopup();
 document.getElementById('openPopupBtn').onclick  = () => showPopup();
 
-// ── Popup ─────────────────────────────────────────────────────────────────────
 function buildPopupSections() {
   const el = document.getElementById('sectionOptions');
   el.innerHTML = '';
@@ -1103,17 +1022,13 @@ document.querySelectorAll('#roundOptions .popup-option').forEach(btn => {
 document.getElementById('popupGoBtn').onclick = () => {
   activeSectionIdx = popupSectionIdx;
   browseMode = (popupRound === 'all');
-
   if (!browseMode)
     activeRound[activeSectionIdx] = tournamentData.sections[activeSectionIdx].rounds_paired;
-
   document.querySelectorAll('.section-tab').forEach((t, i) =>
     t.classList.toggle('active', i === activeSectionIdx));
-
   activeView = 'pairings';
   document.querySelectorAll('.view-tab').forEach(b =>
     b.classList.toggle('active', b.dataset.view === 'pairings'));
-
   clearSearch();
   renderContent();
   updateFilterPill();
@@ -1121,17 +1036,14 @@ document.getElementById('popupGoBtn').onclick = () => {
   hidePopup();
 };
 
-// ── Render ────────────────────────────────────────────────────────────────────
 function renderContent() {
   if (!tournamentData) return;
   const sec       = tournamentData.sections[activeSectionIdx];
   const playerMap = buildPlayerMap(sec.players);
-
   document.getElementById('content').innerHTML =
     activeView === 'pairings'
       ? renderPairings(sec, playerMap)
       : renderStandings(sec, playerMap);
-
   if (activeView === 'pairings') {
     document.getElementById('prevRound')?.addEventListener('click', () => {
       activeRound[activeSectionIdx]--;
@@ -1143,14 +1055,11 @@ function renderContent() {
       clearSearch();
       renderContent();
     });
-    // Re-apply any active search after render
     if (searchQuery) applySearch();
   }
-
   updateSearchBar();
 }
 
-// ── Helpers ───────────────────────────────────────────────────────────────────
 function buildPlayerMap(players) {
   const m = {};
   for (const p of players) m[p.pair_number] = p;
@@ -1168,7 +1077,6 @@ function resultLabel(r) {
   return { W:'Win', L:'Loss', D:'Draw', B:'Bye', U:'Unplayed' }[r] || r;
 }
 
-// Highlight search match in player name
 function highlightName(name) {
   if (!searchQuery) return name;
   const idx = name.toLowerCase().indexOf(searchQuery);
@@ -1178,15 +1086,11 @@ function highlightName(name) {
     name.slice(idx + searchQuery.length);
 }
 
-// ── Pairings ──────────────────────────────────────────────────────────────────
 function renderPairings(sec, playerMap) {
   const totalRounds = sec.rounds_paired;
   const round       = activeRound[activeSectionIdx];
   const roundIdx    = round - 1;
-
-  // If rounds_paired > rounds_played, the current round is freshly paired — no results yet.
-  // This is the authoritative SwissSys signal, not the result values themselves.
-  const hasResults = round <= sec.rounds_played;
+  const hasResults  = round <= sec.rounds_played;
 
   let roundNavHtml = '';
   if (browseMode) {
@@ -1205,17 +1109,10 @@ function renderPairings(sec, playerMap) {
       </div>`;
   }
 
-  // Banner when round is freshly paired but no results yet
-  const inProgressBanner = (!hasResults && round === totalRounds)
-    ? `<div class="in-progress-banner">Round ${round} in progress — results will appear here</div>`
-    : '';
-
-  // Build boards list
   let boards = [];
 
   if (round === totalRounds && sec.pairings.length) {
     boards = sec.pairings.map(p => {
-      // board 0 or black 0 means a bye in SwissSys
       if (!p.board || !p.black) {
         const byePlayer = playerMap[p.white];
         const byeResult = byePlayer?.results?.[roundIdx];
@@ -1232,7 +1129,6 @@ function renderPairings(sec, playerMap) {
   } else {
     const seen = new Set();
     const tmp  = [];
-
     for (const p of Object.values(playerMap)) {
       const oppNum = p.ops?.[roundIdx];
       const board  = p.boards?.[roundIdx];
@@ -1248,7 +1144,6 @@ function renderPairings(sec, playerMap) {
         whiteResult: white.results?.[roundIdx],
         blackResult: black.results?.[roundIdx] });
     }
-
     for (const p of Object.values(playerMap)) {
       const result = p.results?.[roundIdx];
       if ((result === 'B' || result === 'U') && !seen.has(p.pair_number)) {
@@ -1263,7 +1158,7 @@ function renderPairings(sec, playerMap) {
     return roundNavHtml + `<div class="state-msg"><span class="big">No Pairings</span>Nothing available for this round.</div>`;
   }
 
-  let html = roundNavHtml + inProgressBanner;
+  let html = roundNavHtml;
 
   for (const b of boards) {
     if (b.bye) {
@@ -1295,14 +1190,13 @@ function renderPairings(sec, playerMap) {
     const wRes    = b.whiteResult;
     const bRes    = b.blackResult;
 
-    // If no result yet, show a dashed pending badge instead of nothing
+    // Only show a badge when there's an actual result — no pending/empty boxes
     const wBadge = wRes
       ? `<span class="result-badge result-${wRes}">${resultLabel(wRes)}</span>`
-      : (hasResults ? '' : `<span class="result-badge result-pending">—</span>`);
-
+      : '';
     const bBadge = bRes
       ? `<span class="result-badge result-${bRes}">${resultLabel(bRes)}</span>`
-      : (hasResults ? '' : `<span class="result-badge result-pending">—</span>`);
+      : '';
 
     html += `
       <div class="board-card" data-players="${wName.toLowerCase()} ${bName.toLowerCase()}">
@@ -1342,18 +1236,15 @@ function renderPairings(sec, playerMap) {
   return html;
 }
 
-// ── Standings ─────────────────────────────────────────────────────────────────
 function renderStandings(sec, playerMap) {
   const standings = sec.standings.map(pn => playerMap[pn]).filter(Boolean);
   let html = '<div class="standings-list">';
-
   standings.forEach((p, i) => {
     const rank   = i + 1;
     const topCls = rank <= 3 ? ' top3' : '';
     const name   = playerShortName(p.name);
     const pips   = (p.results || []).map(r =>
       `<div class="r-pip ${r}" title="${resultLabel(r)}">${r}</div>`).join('');
-
     html += `
       <div class="standing-row" onclick="openPlayerCard(${p.pair_number})">
         <div class="s-rank${topCls}">${rank}</div>
@@ -1365,12 +1256,10 @@ function renderStandings(sec, playerMap) {
         <div class="s-score">${p.cumulatives?.length ? p.cumulatives[p.cumulatives.length - 1] : p.score}</div>
       </div>`;
   });
-
   html += '</div>';
   return html;
 }
 
-// ── Player card ───────────────────────────────────────────────────────────────
 document.getElementById('pcClose').onclick = closePlayerCard;
 document.getElementById('playerCardOverlay').addEventListener('click', e => {
   if (e.target === document.getElementById('playerCardOverlay')) closePlayerCard();
@@ -1385,26 +1274,19 @@ function openPlayerCard(pairNum) {
   const playerMap = buildPlayerMap(sec.players);
   const p         = playerMap[pairNum];
   if (!p) return;
-
   const name  = playerShortName(p.name);
   const score = p.cumulatives?.length
     ? p.cumulatives[p.cumulatives.length - 1]
     : p.score;
-
   document.getElementById('pcName').textContent  = name;
   document.getElementById('pcMeta').textContent  =
     `${p.rating || 'Unrated'}${p.id1 ? ' · ' + p.id1 : ''}${p.state ? ' · ' + p.state : ''}`;
   document.getElementById('pcScore').textContent = score;
-
-  // Result pips
   const pips = (p.results || []).map(r =>
     `<div class="r-pip ${r}">${r}</div>`).join('');
   document.getElementById('pcPips').innerHTML = pips;
-
-  // Round-by-round history
   const totalRounds = p.results?.length || 0;
   let roundsHtml = '';
-
   if (!totalRounds) {
     roundsHtml = `<div style="font-size:0.72rem;color:var(--gray-400);padding:1rem 0">No rounds played yet.</div>`;
   } else {
@@ -1417,14 +1299,12 @@ function openPlayerCard(pairNum) {
       const opp     = oppNum ? playerMap[oppNum] : null;
       const oppName = opp ? playerShortName(opp.name) : (result === 'B' ? 'Bye' : '—');
       const oppRating = opp?.rating || (result === 'B' ? '' : 'Unrated');
-
       const colorLabel = color === 'W' ? 'White' : color === 'B' ? 'Black' : '';
       const colorDot   = color === 'W'
         ? `<span class="color-dot W" style="width:8px;height:8px;border-radius:50%;background:#fff;border:1px solid #bbb;display:inline-block"></span>`
         : color === 'B'
         ? `<span class="color-dot B" style="width:8px;height:8px;border-radius:50%;background:#000;border-radius:50%;display:inline-block"></span>`
         : '';
-
       roundsHtml += `
         <div class="pc-round-row">
           <div class="pc-round-num">Rd ${ri + 1}${board ? '<br>Bd ' + board : ''}</div>
@@ -1441,12 +1321,10 @@ function openPlayerCard(pairNum) {
         </div>`;
     }
   }
-
   document.getElementById('pcRounds').innerHTML = roundsHtml;
   document.getElementById('playerCardOverlay').classList.add('visible');
 }
 
-// ── Boot ──────────────────────────────────────────────────────────────────────
 loadData();
 setInterval(loadData, 120_000);
 </script>
