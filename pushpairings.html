@@ -27,7 +27,6 @@
       line-height: 1.5;
     }
 
-    /* ── Top bar ── */
     .top-bar {
       background: #000;
       color: #fff;
@@ -60,7 +59,6 @@
     .top-bar a:hover::after { width: 100%; }
     .top-bar a:hover { transform: translateY(-1px); }
 
-    /* ── Header ── */
     .site-header {
       border-bottom: 1px solid var(--gray-200);
       padding: 2.5rem 2rem 1.5rem;
@@ -76,14 +74,12 @@
 
     .page-title:hover { letter-spacing: 1px; }
 
-    /* ── Main layout ── */
     .main {
       max-width: 680px;
       margin: 0 auto;
       padding: 2.5rem 2rem 5rem;
     }
 
-    /* ── Explainer ── */
     .explainer {
       border-left: 3px solid var(--text);
       padding: 1.25rem 1.5rem;
@@ -132,7 +128,6 @@
 
     .step-list li strong { color: var(--text); }
 
-    /* ── Section labels ── */
     .section-label {
       font-size: 0.65rem;
       font-weight: 700;
@@ -144,7 +139,6 @@
       padding-bottom: 0.4rem;
     }
 
-    /* ── Key drop ── */
     .key-drop {
       border: 2px dashed var(--gray-200);
       padding: 1.25rem;
@@ -180,7 +174,6 @@
       color: var(--gray-400);
     }
 
-    /* ── Fields ── */
     .fields {
       display: flex;
       flex-direction: column;
@@ -228,7 +221,6 @@
       gap: 1rem;
     }
 
-    /* ── Pairings drop ── */
     .file-drop {
       border: 2px dashed var(--gray-200);
       padding: 2rem 1.25rem;
@@ -265,7 +257,6 @@
       display: none;
     }
 
-    /* ── Save key button ── */
     .save-key-btn {
       width: 100%;
       padding: 0.75rem;
@@ -290,10 +281,9 @@
 
     .save-key-btn:disabled { opacity: 0.3; cursor: not-allowed; }
 
-    /* ── Divider ── */
     .divider { border: none; border-top: 1px solid var(--gray-200); margin: 2rem 0; }
 
-    /* ── Submit ── */
+    /* ── Main submit button ── */
     .submit-btn {
       display: block;
       width: 100%;
@@ -326,6 +316,35 @@
     .submit-btn:hover:not(:disabled) { color: var(--text); }
     .submit-btn span { position: relative; z-index: 1; }
     .submit-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+    /* ── Clear pairings button ── */
+    .clear-btn-wrap {
+      margin-top: 0.75rem;
+    }
+
+    .clear-btn {
+      display: block;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: var(--bg);
+      color: var(--gray-400);
+      border: 1.5px dashed var(--gray-200);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .clear-btn:hover:not(:disabled) {
+      border-color: #cc3333;
+      color: #cc3333;
+      border-style: dashed;
+    }
+
+    .clear-btn:disabled { opacity: 0.3; cursor: not-allowed; }
 
     /* ── Confirm modal ── */
     .modal-overlay {
@@ -388,9 +407,7 @@
 
     .modal-body { padding: 1.25rem 1.5rem; }
 
-    .diff-section {
-      margin-bottom: 1.25rem;
-    }
+    .diff-section { margin-bottom: 1.25rem; }
 
     .diff-section-title {
       font-size: 0.65rem;
@@ -424,15 +441,8 @@
     }
 
     .diff-val { flex: 1; }
-
-    .diff-old {
-      text-decoration: line-through;
-      color: var(--gray-400);
-      margin-right: 0.4rem;
-    }
-
+    .diff-old { text-decoration: line-through; color: var(--gray-400); margin-right: 0.4rem; }
     .diff-new { color: var(--text); font-weight: 700; }
-
     .diff-unchanged { color: var(--gray-600); }
 
     .diff-added {
@@ -450,6 +460,7 @@
       padding: 0.5rem 0;
     }
 
+    /* Clear confirm uses a red accent on the confirm button */
     .modal-footer {
       display: flex;
       gap: 0.75rem;
@@ -491,7 +502,34 @@
 
     .modal-confirm-btn:hover { opacity: 0.85; }
 
-    /* ── Status ── */
+    /* Destructive variant for clear modal */
+    .modal-confirm-btn.destructive {
+      background: #cc3333;
+      border-color: #cc3333;
+    }
+
+    /* ── Clear modal: simple warning body ── */
+    .clear-warning {
+      font-size: 0.82rem;
+      line-height: 1.7;
+      color: var(--gray-600);
+    }
+
+    .clear-warning strong { color: var(--text); }
+
+    .clear-warning .url-preview {
+      display: inline-block;
+      margin-top: 0.75rem;
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      border-left: 3px solid var(--text);
+      padding: 0.5rem 0.85rem;
+      font-size: 0.7rem;
+      font-family: monospace;
+      word-break: break-all;
+      color: var(--text);
+    }
+
     .status {
       margin-top: 1rem;
       padding: 0.85rem 1rem;
@@ -506,7 +544,6 @@
     .status.error   { background: #fff5f5; border-color: #cc0000; color: #cc0000; display: block; }
     .status.loading { background: var(--gray-100); border-color: var(--gray-200); color: var(--gray-400); display: block; }
 
-    /* ── Collapsible ── */
     .collapsible-toggle {
       display: flex;
       align-items: center;
@@ -582,7 +619,6 @@
 
 <div class="main">
 
-  <!-- Explainer -->
   <div class="explainer">
     <div class="explainer-title">How it works</div>
     <ol class="step-list">
@@ -593,7 +629,6 @@
     </ol>
   </div>
 
-  <!-- Key file help -->
   <div class="collapsible-toggle" id="keyHelpToggle">
     <span class="arrow">▶</span>
     <span>How to create your key file</span>
@@ -618,7 +653,6 @@
     <p><code>path</code> is where the file saves in your repo. <code>pairings.json</code> in the root works if your site fetches <code>./pairings.json</code>.</p>
   </div>
 
-  <!-- Step 1: Key file -->
   <div class="section-label">Step 1 — Load key file (optional)</div>
   <div class="key-drop" id="keyDrop">
     <input type="file" id="keyFileInput" accept=".json" />
@@ -626,7 +660,6 @@
     <span class="drop-sub">Autofills the fields below</span>
   </div>
 
-  <!-- Step 2: Fields -->
   <div class="section-label">Step 2 — GitHub details</div>
   <div class="fields">
     <div class="field">
@@ -649,14 +682,12 @@
     </div>
   </div>
 
-  <!-- Save key file -->
   <button class="save-key-btn" id="saveKeyBtn" disabled>
     ↓ Save as key file
   </button>
 
   <hr class="divider" />
 
-  <!-- Step 3: Pairings file -->
   <div class="section-label">Step 3 — SwissSys export</div>
   <div class="file-drop" id="pairingsDrop">
     <input type="file" id="pairingsFileInput" accept=".json" />
@@ -666,27 +697,56 @@
     <div class="file-name-display" id="pairingsFileName"></div>
   </div>
 
-  <!-- Submit -->
   <button class="submit-btn" id="submitBtn" disabled>
     <span>Review &amp; Push to GitHub</span>
   </button>
+
+  <!-- Clear pairings — secondary destructive action -->
+  <div class="clear-btn-wrap">
+    <button class="clear-btn" id="clearBtn" disabled>
+      Clear pairings — show "no active tournament" page
+    </button>
+  </div>
+
   <div class="status" id="status"></div>
 
 </div>
 
-<!-- ── Confirm modal ── -->
+<!-- ── Push confirm modal ── -->
 <div class="modal-overlay" id="confirmOverlay">
   <div class="modal-sheet">
     <div class="modal-header">
       <div class="modal-title">Confirm push</div>
       <button class="modal-close" id="modalClose">✕</button>
     </div>
-    <div class="modal-body" id="modalBody">
-      <!-- filled by JS -->
-    </div>
+    <div class="modal-body" id="modalBody"></div>
     <div class="modal-footer">
       <button class="modal-cancel-btn" id="modalCancel">Cancel</button>
       <button class="modal-confirm-btn" id="modalConfirm">✓ Push to GitHub</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Clear confirm modal ── -->
+<div class="modal-overlay" id="clearOverlay">
+  <div class="modal-sheet">
+    <div class="modal-header">
+      <div class="modal-title">Clear pairings</div>
+      <button class="modal-close" id="clearModalClose">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="clear-warning">
+        <p>This will replace <code>pairings.json</code> with a blank file. The pairings page will show:</p>
+        <br>
+        <p><strong>"No active tournament"</strong> — with a link directing visitors to register for upcoming events at:</p>
+        <div class="url-preview">michesslions.com/tournaments.html</div>
+        <br>
+        <p>You can restore pairings at any time by pushing a new SwissSys export.</p>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-cancel-btn" id="clearModalCancel">Cancel</button>
+      <button class="modal-confirm-btn destructive" id="clearModalConfirm">Clear pairings</button>
     </div>
   </div>
 </div>
@@ -755,8 +815,10 @@ pairingsDrop.addEventListener('drop', e => { e.preventDefault(); pairingsDrop.cl
 function checkReady() {
   const filled = ['pat','owner','repo','filePath'].every(id =>
     document.getElementById(id).value.trim() !== '');
-  document.getElementById('submitBtn').disabled = !(filled && pairingsContent);
+  document.getElementById('submitBtn').disabled  = !(filled && pairingsContent);
   document.getElementById('saveKeyBtn').disabled = !filled;
+  // Clear button only needs credentials — no pairings file required
+  document.getElementById('clearBtn').disabled   = !filled;
 }
 
 // ── Save key file ─────────────────────────────────────────────────────────────
@@ -767,13 +829,10 @@ document.getElementById('saveKeyBtn').addEventListener('click', () => {
     repo:  document.getElementById('repo').value.trim(),
     path:  document.getElementById('filePath').value.trim(),
   };
-
   const blob = new Blob([JSON.stringify(key, null, 2)], { type: 'application/json' });
   const url  = URL.createObjectURL(blob);
   const a    = document.createElement('a');
-  a.href     = url;
-  a.download = 'chess-key.json';
-  a.click();
+  a.href = url; a.download = 'chess-key.json'; a.click();
   URL.revokeObjectURL(url);
 });
 
@@ -783,105 +842,114 @@ document.getElementById('keyHelpToggle').addEventListener('click', () => {
   document.getElementById('keyHelpBody').classList.toggle('open');
 });
 
-// ── Push to GitHub ────────────────────────────────────────────────────────────
+// ── Push modal helpers ────────────────────────────────────────────────────────
 let cachedSha = null;
+let clearCachedSha = null;
 
-document.getElementById('submitBtn').addEventListener('click', reviewBeforePush);
-document.getElementById('modalConfirm').addEventListener('click', confirmPush);
-document.getElementById('modalCancel').addEventListener('click', hideModal);
-document.getElementById('modalClose').addEventListener('click', hideModal);
+function showModal(id)  { document.getElementById(id).classList.add('visible'); }
+function hideModal(id)  { document.getElementById(id).classList.remove('visible'); }
+
+document.getElementById('modalClose').addEventListener('click',      () => hideModal('confirmOverlay'));
+document.getElementById('modalCancel').addEventListener('click',     () => hideModal('confirmOverlay'));
+document.getElementById('clearModalClose').addEventListener('click', () => hideModal('clearOverlay'));
+document.getElementById('clearModalCancel').addEventListener('click',() => hideModal('clearOverlay'));
 document.getElementById('confirmOverlay').addEventListener('click', e => {
-  if (e.target === document.getElementById('confirmOverlay')) hideModal();
+  if (e.target === document.getElementById('confirmOverlay')) hideModal('confirmOverlay');
+});
+document.getElementById('clearOverlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('clearOverlay')) hideModal('clearOverlay');
 });
 
-function showModal() { document.getElementById('confirmOverlay').classList.add('visible'); }
-function hideModal() { document.getElementById('confirmOverlay').classList.remove('visible'); }
-
-async function reviewBeforePush() {
-  const pat      = document.getElementById('pat').value.trim();
-  const owner    = document.getElementById('owner').value.trim();
-  const repo     = document.getElementById('repo').value.trim();
-  const filePath = document.getElementById('filePath').value.trim();
-  const btn      = document.getElementById('submitBtn');
-
-  btn.disabled = true;
-  setStatus('loading', 'Fetching current file from GitHub…');
-
-  const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${filePath}`;
-  const headers = {
-    'Authorization': `Bearer ${pat}`,
+// ── GitHub helpers ────────────────────────────────────────────────────────────
+function getGitHubHeaders() {
+  return {
+    'Authorization': `Bearer ${document.getElementById('pat').value.trim()}`,
     'Content-Type': 'application/json',
     'Accept': 'application/vnd.github+json',
     'X-GitHub-Api-Version': '2022-11-28',
   };
+}
+
+function getApiUrl() {
+  const owner    = document.getElementById('owner').value.trim();
+  const repo     = document.getElementById('repo').value.trim();
+  const filePath = document.getElementById('filePath').value.trim();
+  return `https://api.github.com/repos/${owner}/${repo}/contents/${filePath}`;
+}
+
+async function fetchCurrentSha() {
+  const res = await fetch(getApiUrl(), { headers: getGitHubHeaders() });
+  if (res.ok) {
+    const info = await res.json();
+    return { sha: info.sha, content: info.content };
+  }
+  if (res.status === 404) return { sha: null, content: null };
+  throw new Error(`GitHub returned ${res.status} — check your PAT and repo name.`);
+}
+
+async function pushContent(content, sha, commitMessage) {
+  const body = {
+    message: commitMessage,
+    content: btoa(unescape(encodeURIComponent(content))),
+  };
+  if (sha) body.sha = sha;
+  const res = await fetch(getApiUrl(), {
+    method: 'PUT',
+    headers: getGitHubHeaders(),
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.message || `GitHub returned ${res.status}`);
+  }
+  return res.json();
+}
+
+// ── Push pairings flow ────────────────────────────────────────────────────────
+document.getElementById('submitBtn').addEventListener('click', reviewBeforePush);
+document.getElementById('modalConfirm').addEventListener('click', confirmPush);
+
+async function reviewBeforePush() {
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  setStatus('loading', 'Fetching current file from GitHub…');
 
   let existingData = null;
   cachedSha = null;
 
   try {
-    const getRes = await fetch(apiUrl, { headers });
-    if (getRes.ok) {
-      const fileInfo = await getRes.json();
-      cachedSha = fileInfo.sha;
-      // Decode base64 content
-      const decoded = decodeURIComponent(escape(atob(fileInfo.content.replace(/\n/g, ''))));
+    const { sha, content } = await fetchCurrentSha();
+    cachedSha = sha;
+    if (content) {
+      const decoded = decodeURIComponent(escape(atob(content.replace(/\n/g, ''))));
       existingData = JSON.parse(decoded);
-    } else if (getRes.status !== 404) {
-      throw new Error(`GitHub returned ${getRes.status} — check your PAT and repo name.`);
     }
   } catch (e) {
-    if (e.message.includes('GitHub returned')) {
-      setStatus('error', '✗ ' + e.message);
-      btn.disabled = false;
-      checkReady();
-      return;
-    }
-    // 404 or parse error — treat as no existing file
-    existingData = null;
+    setStatus('error', '✗ ' + e.message);
+    btn.disabled = false;
+    checkReady();
+    return;
   }
 
-  // Build the diff UI
   const newData = JSON.parse(pairingsContent);
   document.getElementById('modalBody').innerHTML = buildDiff(existingData, newData);
   clearStatus();
   btn.disabled = false;
   checkReady();
-  showModal();
+  showModal('confirmOverlay');
 }
 
 async function confirmPush() {
-  const pat      = document.getElementById('pat').value.trim();
-  const owner    = document.getElementById('owner').value.trim();
-  const repo     = document.getElementById('repo').value.trim();
-  const filePath = document.getElementById('filePath').value.trim();
-
-  hideModal();
+  hideModal('confirmOverlay');
   setStatus('loading', 'Pushing to GitHub…');
   document.getElementById('submitBtn').disabled = true;
 
-  const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${filePath}`;
-  const headers = {
-    'Authorization': `Bearer ${pat}`,
-    'Content-Type': 'application/json',
-    'Accept': 'application/vnd.github+json',
-    'X-GitHub-Api-Version': '2022-11-28',
-  };
-
   try {
-    const body = {
-      message: `Update pairings — ${new Date().toLocaleString()}`,
-      content: btoa(unescape(encodeURIComponent(pairingsContent))),
-    };
-    if (cachedSha) body.sha = cachedSha;
-
-    const putRes = await fetch(apiUrl, { method: 'PUT', headers, body: JSON.stringify(body) });
-
-    if (!putRes.ok) {
-      const err = await putRes.json().catch(() => ({}));
-      throw new Error(err.message || `GitHub returned ${putRes.status}`);
-    }
-
-    const result = await putRes.json();
+    const result = await pushContent(
+      pairingsContent,
+      cachedSha,
+      `Update pairings — ${new Date().toLocaleString()}`
+    );
     const commitUrl = result.commit?.html_url || '#';
     setStatus('success',
       `✓ Pushed successfully.\n` +
@@ -896,16 +964,60 @@ async function confirmPush() {
   }
 }
 
+// ── Clear pairings flow ───────────────────────────────────────────────────────
+document.getElementById('clearBtn').addEventListener('click', async () => {
+  const btn = document.getElementById('clearBtn');
+  btn.disabled = true;
+  setStatus('loading', 'Checking current file on GitHub…');
+
+  try {
+    const { sha } = await fetchCurrentSha();
+    clearCachedSha = sha;
+    clearStatus();
+    showModal('clearOverlay');
+  } catch (e) {
+    setStatus('error', '✗ ' + e.message);
+  } finally {
+    btn.disabled = false;
+    checkReady();
+  }
+});
+
+document.getElementById('clearModalConfirm').addEventListener('click', async () => {
+  hideModal('clearOverlay');
+  setStatus('loading', 'Clearing pairings on GitHub…');
+  document.getElementById('clearBtn').disabled = true;
+
+  const blankPayload = JSON.stringify({ no_pairings: true }, null, 2);
+
+  try {
+    const result = await pushContent(
+      blankPayload,
+      clearCachedSha,
+      `Clear pairings — ${new Date().toLocaleString()}`
+    );
+    const commitUrl = result.commit?.html_url || '#';
+    setStatus('success',
+      `✓ Pairings cleared.\n` +
+      `Commit: <a href="${commitUrl}" target="_blank">${result.commit?.sha?.slice(0,7) || 'view'}</a> — ` +
+      `The pairings page will show "No active tournament" in about 30 seconds.`
+    );
+  } catch (err) {
+    setStatus('error', '✗ Clear failed: ' + err.message);
+  } finally {
+    checkReady();
+  }
+});
+
 // ── Diff builder ──────────────────────────────────────────────────────────────
 function buildDiff(oldData, newData) {
   let html = '';
 
-  // ── Event info
   html += `<div class="diff-section">`;
   html += `<div class="diff-section-title">Event</div>`;
 
-  if (!oldData) {
-    html += `<div class="diff-no-existing">No existing file — this will be the first upload.</div>`;
+  if (!oldData || oldData.no_pairings) {
+    html += `<div class="diff-no-existing">${oldData?.no_pairings ? 'Currently showing "no active tournament" — this will restore pairings.' : 'No existing file — this will be the first upload.'}</div>`;
   } else {
     html += diffRow('Name',    oldData.event?.name,       newData.event?.name);
     html += diffRow('Date',    oldData.event?.date,       newData.event?.date);
@@ -913,7 +1025,6 @@ function buildDiff(oldData, newData) {
   }
   html += `</div>`;
 
-  // ── Sections
   newData.sections.forEach((newSec, i) => {
     const oldSec = oldData?.sections?.[i];
     html += `<div class="diff-section">`;
@@ -927,7 +1038,6 @@ function buildDiff(oldData, newData) {
       html += diffRow('Players',       oldSec.players?.length, newSec.players?.length);
     }
 
-    // Show new pairings
     html += `<div class="diff-label" style="margin-top:0.6rem;margin-bottom:0.4rem">Pairings (round ${newSec.rounds_paired})</div>`;
     const playerMap = {};
     newSec.players.forEach(p => { playerMap[p.pair_number] = p; });
@@ -946,7 +1056,6 @@ function buildDiff(oldData, newData) {
         }
       });
     }
-
     html += `</div>`;
   });
 
