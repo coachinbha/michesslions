@@ -1750,11 +1750,6 @@ function selectPopupPlayer(pairNum, sectionIdx) {
   globalInput.value = name;
   globalClear.classList.add('visible');
   runGlobalSearch(name);
-  // Also open the player card directly
-  const prev = activeSectionIdx;
-  activeSectionIdx = sectionIdx;
-  openPlayerCard(pairNum);
-  activeSectionIdx = prev;
 }
 
 // Reset popup search when popup closes
