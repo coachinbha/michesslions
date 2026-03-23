@@ -33,36 +33,22 @@
       background: #000;
       color: #fff;
       display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      padding: 0.55rem 1.25rem 0.5rem;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.25rem;
       font-size: 0.65rem;
       font-weight: 700;
       letter-spacing: 0.5px;
       text-transform: uppercase;
     }
 
-    /* Row 1: dot · filter pill · filter btn */
-    .top-bar-row1 {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.6rem;
-    }
-
-    .top-bar-left {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      flex-shrink: 0;
-    }
-
-    /* Row 2: search */
+    /* Single row: search takes remaining space */
     .top-bar-search {
       display: flex;
       align-items: center;
-      gap: 0;
       position: relative;
+      flex: 1;
     }
 
     .top-bar-search-icon {
@@ -125,68 +111,36 @@
 
     .top-bar-search-clear.visible { display: block; }
 
-    .refresh-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: #fff;
+    /* ── Filter button — clear text label next to search ── */
+    .top-bar-filter-btn {
       flex-shrink: 0;
-      opacity: 0.3;
-      transition: opacity 0.3s;
-    }
-
-    .refresh-dot.active { opacity: 1; animation: pulse 1s ease-out; }
-
-    @keyframes pulse {
-      0%   { opacity: 1; transform: scale(1.5); }
-      100% { opacity: 0.3; transform: scale(1); }
-    }
-
-    .filter-pill {
-      display: none;
-      align-items: center;
-      gap: 0.35rem;
-      background: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.3);
       color: #fff;
+      font-family: 'Montserrat', sans-serif;
       font-size: 0.62rem;
       font-weight: 700;
-      letter-spacing: 0.4px;
+      letter-spacing: 0.7px;
       text-transform: uppercase;
-      padding: 0.28rem 0.6rem;
+      padding: 0 0.8rem;
       cursor: pointer;
-      border: 1px solid rgba(255,255,255,0.35);
-      font-family: 'Montserrat', sans-serif;
-      flex-shrink: 1;
-      min-width: 0;
-      overflow: hidden;
-      -webkit-tap-highlight-color: transparent;
-      transition: background 0.2s;
-    }
-
-    .filter-pill:hover { background: rgba(255,255,255,0.25); }
-
-    .filter-pill-text {
-      overflow: hidden;
-      text-overflow: ellipsis;
       white-space: nowrap;
-    }
-
-    .filter-pill .x { opacity: 0.55; flex-shrink: 0; margin-left: 1px; }
-
-    .top-bar-filter-btn {
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 1rem;
-      line-height: 1;
-      padding: 0.25rem 0.3rem;
-      cursor: pointer;
-      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
       -webkit-tap-highlight-color: transparent;
-      opacity: 0.7;
-      transition: opacity 0.2s;
+      transition: background 0.2s, border-color 0.2s;
+      /* match exact height of the search input */
+      align-self: stretch;
     }
 
-    .top-bar-filter-btn:hover { opacity: 1; }
+    .top-bar-filter-btn:hover {
+      background: rgba(255,255,255,0.22);
+      border-color: rgba(255,255,255,0.6);
+    }
+
+    /* Filter pill hidden — the button itself serves as the indicator */
+    .filter-pill { display: none !important; }
 
     /* ── Site header ── */
     .site-header {
@@ -988,16 +942,6 @@
 <body>
 
 <div class="top-bar">
-  <div class="top-bar-row1">
-    <div class="top-bar-left">
-      <div class="refresh-dot" id="refreshDot"></div>
-    </div>
-    <button class="filter-pill" id="filterPillBtn">
-      <span class="filter-pill-text" id="filterPillText">—</span>
-      <span class="x">✕</span>
-    </button>
-    <button class="top-bar-filter-btn" id="openPopupBtn" title="Filter">⊞</button>
-  </div>
   <div class="top-bar-search">
     <span class="top-bar-search-icon">
       <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1010,6 +954,14 @@
       autocomplete="off" autocorrect="off" spellcheck="false" />
     <button class="top-bar-search-clear" id="globalSearchClear">✕</button>
   </div>
+  <button class="top-bar-filter-btn" id="openPopupBtn" title="Filter by section &amp; round">
+    <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="1" x2="12" y2="1" stroke="white" stroke-width="1.5"/>
+      <line x1="2" y1="5" x2="10" y2="5" stroke="white" stroke-width="1.5"/>
+      <line x1="4" y1="9" x2="8" y2="9" stroke="white" stroke-width="1.5"/>
+    </svg>
+    Filter
+  </button>
 </div>
 
 <header class="site-header">
@@ -1104,10 +1056,6 @@ async function loadData() {
     const fresh = await res.json();
     const isFirst = !tournamentData;
     tournamentData = fresh;
-    const dot = document.getElementById('refreshDot');
-    dot.classList.remove('active');
-    void dot.offsetWidth;
-    dot.classList.add('active');
     if (isFirst) {
       initApp();
     } else {
@@ -1214,16 +1162,14 @@ function clearSearch() {
 }
 
 function updateFilterPill() {
-  const pill = document.getElementById('filterPillBtn');
-  const text = document.getElementById('filterPillText');
-  const sec  = tournamentData.sections[activeSectionIdx];
-  const rnd  = browseMode ? 'All rds' : `Rd ${activeRound[activeSectionIdx]}`;
-  text.textContent = sec.section + ' · ' + rnd;
-  pill.style.display = 'inline-flex';
+  // Filter button label reflects current section + round
+  const btn = document.getElementById('openPopupBtn');
+  const sec = tournamentData.sections[activeSectionIdx];
+  const rnd = browseMode ? 'All' : `Rd ${activeRound[activeSectionIdx]}`;
+  btn.innerHTML = `<svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="1" x2="12" y2="1" stroke="white" stroke-width="1.5"/><line x1="2" y1="5" x2="10" y2="5" stroke="white" stroke-width="1.5"/><line x1="4" y1="9" x2="8" y2="9" stroke="white" stroke-width="1.5"/></svg>${sec.section} · ${rnd}`;
 }
 
-document.getElementById('filterPillBtn').onclick = () => showPopup();
-document.getElementById('openPopupBtn').onclick  = () => showPopup();
+document.getElementById('openPopupBtn').onclick = () => showPopup();
 
 function buildPopupSections() {
   const el = document.getElementById('sectionOptions');
