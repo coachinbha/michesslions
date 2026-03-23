@@ -1,12 +1,12 @@
 {
   "event": {
-    "name": "Chess Lions - 2nd South Lyon Tournament",
-    "date": "2025/12/13",
+    "name": "Chess Lions January 2026 Tournament",
+    "date": "2026/1/11",
     "city": "South Lyon",
     "state": "MI",
     "country": "USA",
     "td": "Inbha",
-    "time_stamp": "3/14/2026 - 16:59",
+    "time_stamp": "3/23/2026 - 13:56",
     "affiliate": ""
   },
   "options": {
@@ -45,68 +45,33 @@
   },
   "sections": [
     {
-      "section": "Open",
-      "rounds_paired": 4,
+      "section": "Open (Rated)",
+      "rounds_paired": 3,
       "rounds_played": 3,
       "final_round": false,
       "standings": [
         1,
-        5,
         2,
-        4,
-        6,
-        15,
+        5,
         3,
-        8,
-        14,
-        16,
-        9,
-        10,
-        12,
-        13,
-        7,
-        11
+        4,
+        6
       ],
       "pairings": [
         {
-          "white": 5,
-          "black": 1,
+          "white": 1,
+          "black": 5,
           "board": 1
         },
         {
-          "white": 6,
-          "black": 2,
+          "white": 2,
+          "black": 3,
           "board": 2
         },
         {
-          "white": 4,
-          "black": 15,
+          "white": 6,
+          "black": 4,
           "board": 3
-        },
-        {
-          "white": 16,
-          "black": 3,
-          "board": 4
-        },
-        {
-          "white": 8,
-          "black": 14,
-          "board": 5
-        },
-        {
-          "white": 9,
-          "black": 12,
-          "board": 6
-        },
-        {
-          "white": 10,
-          "black": 13,
-          "board": 7
-        },
-        {
-          "white": 7,
-          "black": 11,
-          "board": 8
         }
       ],
       "tiebreaks": [
@@ -115,356 +80,88 @@
       ],
       "players": [
         {
-          "name": "Vijayendran, Akash",
+          "name": "Liu, Boaz",
           "pair_number": 1,
-          "id1": "30209190",
-          "rating": 1079,
-          "rating2": 0,
-          "exp1": "2/28/2026",
-          "state": "MI",
-          "class": " ",
-          "tiebreaks": [
-          ],
-          "results": [
-            "W",
-            "W",
-            "W",
-            " "
-          ],
-          "colors": [
-            "B",
-            "W",
-            "B",
-            "B"
-          ],
-          "ops": [
-            10,
-            6,
-            4,
-            5
-          ],
-          "boards": [
-            1,
-            1,
-            1,
-            1
-          ],
-          "cumulatives": [
-            1,
-            2,
-            3,
-            3
-          ],
-          "score": 3
-        },
-        {
-          "name": "Burdzinski, Jan",
-          "pair_number": 2,
-          "id1": "12583552",
-          "rating": 820,
-          "rating2": 0,
-          "exp1": "5/31/2026",
-          "state": "MI",
-          "class": " ",
-          "tiebreaks": [
-          ],
-          "results": [
-            "W",
-            "W",
-            "L",
-            " "
-          ],
-          "colors": [
-            "W",
-            "B",
-            "W",
-            "B"
-          ],
-          "ops": [
-            11,
-            9,
-            5,
-            6
-          ],
-          "boards": [
-            2,
-            2,
-            2,
-            2
-          ],
-          "cumulatives": [
-            1,
-            2,
-            2,
-            2
-          ],
-          "score": 2
-        },
-        {
-          "name": "Wang, Chris",
-          "pair_number": 3,
-          "id1": "32117122",
-          "rating": 769,
-          "rating2": 0,
-          "exp1": "10/31/2027",
-          "state": "MI",
-          "class": " ",
-          "tiebreaks": [
-          ],
-          "results": [
-            "L",
-            "W",
-            "D",
-            " "
-          ],
-          "colors": [
-            "B",
-            "W",
-            "W",
-            "B"
-          ],
-          "ops": [
-            12,
-            11,
-            14,
-            16
-          ],
-          "boards": [
-            3,
-            5,
-            3,
-            4
-          ],
-          "cumulatives": [
-            0,
-            1,
-            1.5,
-            1.5
-          ],
-          "score": 1.5
-        },
-        {
-          "name": "Muruganandam, Mugi",
-          "pair_number": 4,
-          "id1": "17258794",
-          "rating": 734,
-          "rating2": 0,
-          "exp1": "6/30/2026",
-          "class": " ",
-          "tiebreaks": [
-          ],
-          "results": [
-            "W",
-            "W",
-            "L",
-            " "
-          ],
-          "colors": [
-            "W",
-            "B",
-            "W",
-            "W"
-          ],
-          "ops": [
-            13,
-            12,
-            1,
-            15
-          ],
-          "boards": [
-            4,
-            3,
-            1,
-            3
-          ],
-          "cumulatives": [
-            1,
-            2,
-            2,
-            2
-          ],
-          "score": 2
-        },
-        {
-          "name": "Hancock, Christoph",
-          "pair_number": 5,
-          "id1": "32486846",
-          "rating": 720,
-          "rating2": 0,
-          "exp1": "6/30/2026",
-          "state": "MI",
-          "class": " ",
-          "tiebreaks": [
-          ],
-          "results": [
-            "W",
-            "W",
-            "W",
-            " "
-          ],
-          "colors": [
-            "W",
-            "B",
-            "B",
-            "W"
-          ],
-          "ops": [
-            15,
-            14,
-            2,
-            1
-          ],
-          "boards": [
-            6,
-            4,
-            2,
-            1
-          ],
-          "cumulatives": [
-            1,
-            2,
-            3,
-            3
-          ],
-          "score": 3
-        },
-        {
-          "name": "Jingade, Ridhay",
-          "pair_number": 6,
-          "id1": "32299305",
-          "rating": 660,
-          "rating2": 0,
-          "exp1": "2/28/2026",
-          "state": "MI",
-          "class": " ",
-          "byes": "1",
-          "tiebreaks": [
-          ],
-          "results": [
-            "W",
-            "L",
-            "W",
-            " "
-          ],
-          "colors": [
-            "W",
-            "B",
-            "W",
-            "W"
-          ],
-          "ops": [
-            8,
-            1,
-            12,
-            2
-          ],
-          "boards": [
-            7,
-            1,
-            4,
-            2
-          ],
-          "cumulatives": [
-            1,
-            1,
-            2,
-            2
-          ],
-          "score": 2
-        },
-        {
-          "name": "Sundara Rajan, Ini",
-          "pair_number": 7,
-          "id1": "32198515",
-          "rating": 516,
-          "rating2": 0,
-          "exp1": "12/31/2026",
-          "state": "MI",
-          "class": " ",
-          "tiebreaks": [
-          ],
-          "results": [
-            "L",
-            "L",
-            "L",
-            " "
-          ],
-          "colors": [
-            "B",
-            "W",
-            "B",
-            "W"
-          ],
-          "ops": [
-            14,
-            13,
-            16,
-            11
-          ],
-          "boards": [
-            5,
-            6,
-            7,
-            8
-          ],
-          "cumulatives": [
-            0,
-            0,
-            0,
-            0
-          ],
-          "score": 0
-        },
-        {
-          "name": "Kanutri, Deepak",
-          "pair_number": 8,
-          "id1": "31497395",
-          "rating": 500,
-          "rating2": 0,
+          "id1": "30542875",
+          "rating": 1865,
+          "rating2": 1597,
           "exp1": "3/31/2026",
           "state": "MI",
           "class": " ",
           "tiebreaks": [
           ],
           "results": [
-            "L",
-            "D",
             "W",
-            " "
+            "W",
+            "W"
           ],
           "colors": [
-            "B",
             "W",
             "B",
             "W"
           ],
           "ops": [
-            6,
-            16,
-            13,
-            14
+            4,
+            3,
+            5
           ],
           "boards": [
-            7,
-            7,
+            1,
+            1,
+            1
+          ],
+          "cumulatives": [
+            1,
+            2,
+            3
+          ],
+          "score": 3
+        },
+        {
+          "name": "Balaji, Rishab",
+          "pair_number": 2,
+          "id1": "17081988",
+          "rating": 1824,
+          "rating2": 1687,
+          "exp1": "6/30/2027",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+            "L",
+            "W",
+            "W"
+          ],
+          "colors": [
+            "B",
+            "W",
+            "W"
+          ],
+          "ops": [
+            5,
             6,
-            5
+            3
+          ],
+          "boards": [
+            2,
+            3,
+            2
           ],
           "cumulatives": [
             0,
-            0.5,
-            1.5,
-            1.5
+            1,
+            2
           ],
-          "score": 1.5
+          "score": 2
         },
         {
-          "name": "Vignesh, Kaviniral",
-          "pair_number": 9,
-          "id1": "32074926",
-          "rating": 458,
-          "rating2": 0,
-          "exp1": "10/31/2026",
+          "name": "Lin, Yundi",
+          "pair_number": 3,
+          "id1": "31312534",
+          "rating": 1480,
+          "rating2": 1308,
+          "exp1": "6/30/2026",
           "state": "MI",
           "class": " ",
           "tiebreaks": [
@@ -472,29 +169,24 @@
           "results": [
             "W",
             "L",
-            "L",
-            " "
+            "L"
           ],
           "colors": [
-            "B",
             "W",
-            "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
-            16,
-            2,
-            15,
-            12
+            6,
+            1,
+            2
           ],
           "boards": [
-            8,
-            2,
-            5,
-            6
+            3,
+            1,
+            2
           ],
           "cumulatives": [
-            1,
             1,
             1,
             1
@@ -502,11 +194,11 @@
           "score": 1
         },
         {
-          "name": "Valiambara, Akshaj",
-          "pair_number": 10,
-          "id1": "31831932",
-          "rating": 456,
-          "rating2": 0,
+          "name": "Hoffman, Miles",
+          "pair_number": 4,
+          "id1": "32029614",
+          "rating": 1358,
+          "rating2": 1235,
           "exp1": "11/30/2027",
           "state": "MI",
           "class": " ",
@@ -515,241 +207,449 @@
           "results": [
             "L",
             "L",
+            "D"
+          ],
+          "colors": [
+            "B",
             "W",
-            " "
+            "B"
+          ],
+          "ops": [
+            1,
+            5,
+            6
+          ],
+          "boards": [
+            1,
+            2,
+            3
+          ],
+          "cumulatives": [
+            0,
+            0,
+            0.5
+          ],
+          "score": 0.5
+        },
+        {
+          "name": "Duruvasan, Dhruv",
+          "pair_number": 5,
+          "id1": "17021506",
+          "rating": 1356,
+          "rating2": 1195,
+          "exp1": "1/31/2026",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+            "W",
+            "W",
+            "L"
           ],
           "colors": [
             "W",
+            "B",
+            "B"
+          ],
+          "ops": [
+            2,
+            4,
+            1
+          ],
+          "boards": [
+            2,
+            2,
+            1
+          ],
+          "cumulatives": [
+            1,
+            2,
+            2
+          ],
+          "score": 2
+        },
+        {
+          "name": "Shaji, Madhav",
+          "pair_number": 6,
+          "id1": "32215606",
+          "rating": 998,
+          "rating2": 851,
+          "exp1": "1/31/2026",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+            "L",
+            "L",
+            "D"
+          ],
+          "colors": [
             "B",
             "B",
             "W"
           ],
           "ops": [
-            1,
-            15,
-            11,
-            13
+            3,
+            2,
+            4
           ],
           "boards": [
-            1,
-            8,
-            8,
-            7
+            3,
+            3,
+            3
           ],
           "cumulatives": [
             0,
             0,
-            1,
-            1
+            0.5
           ],
-          "score": 1
+          "score": 0.5
+        }
+      ],
+      "clubs": [
+      ]
+    },
+    {
+      "section": "U1400 (Rated)",
+      "rounds_paired": 4,
+      "rounds_played": 4,
+      "final_round": true,
+      "standings": [
+        2,
+        1,
+        4,
+        3,
+        6,
+        8,
+        5,
+        7,
+        9,
+        10
+      ],
+      "pairings": [
+        {
+          "white": 2,
+          "black": 4,
+          "board": 4
         },
         {
-          "name": "Rj, Rivin Jagasva",
-          "pair_number": 11,
-          "id1": "32587396",
-          "rating": 364,
-          "rating2": 0,
-          "exp1": "9/30/2026",
+          "white": 9,
+          "black": 1,
+          "board": 5
+        },
+        {
+          "white": 6,
+          "black": 3,
+          "board": 6
+        },
+        {
+          "white": 7,
+          "black": 5,
+          "board": 7
+        },
+        {
+          "white": 8,
+          "black": 10,
+          "board": 8
+        }
+      ],
+      "tiebreaks": [
+        "Mod. Med",
+        "Solk",
+        "Cumul.",
+        "1-on-1",
+        "BWG",
+        "SB"
+      ],
+      "team_tiebreaks": [
+      ],
+      "players": [
+        {
+          "name": "Ni, Ho Ming",
+          "pair_number": 1,
+          "id1": "32130668",
+          "rating": 1395,
+          "rating2": 1246,
+          "exp1": "11/30/2026",
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            8,
+            9.5,
+            8,
+            0,
+            2,
+            5.5
           ],
           "results": [
+            "W",
+            "W",
             "L",
-            "L",
-            "L",
-            " "
+            "W"
           ],
           "colors": [
-            "B",
+            "W",
             "B",
             "W",
             "B"
           ],
           "ops": [
-            2,
-            3,
-            10,
-            7
-          ],
-          "boards": [
-            2,
-            5,
-            8,
-            8
-          ],
-          "cumulatives": [
-            0,
-            0,
-            0,
-            0
-          ],
-          "score": 0
-        },
-        {
-          "name": "Koduru, Aruhi",
-          "pair_number": 12,
-          "id1": "31716543",
-          "rating": 339,
-          "rating2": 0,
-          "exp1": "2/29/2028",
-          "state": "MI",
-          "class": " ",
-          "tiebreaks": [
-          ],
-          "results": [
-            "W",
-            "L",
-            "L",
-            " "
-          ],
-          "colors": [
-            "W",
-            "W",
-            "B",
-            "B"
-          ],
-          "ops": [
-            3,
-            4,
             6,
+            8,
+            2,
             9
           ],
           "boards": [
-            3,
-            3,
             4,
-            6
-          ],
-          "cumulatives": [
-            1,
-            1,
-            1,
-            1
-          ],
-          "score": 1
-        },
-        {
-          "name": "Raja, Likhil Reddy",
-          "pair_number": 13,
-          "id1": "32512052",
-          "rating": 138,
-          "rating2": 0,
-          "exp1": "7/31/2026",
-          "state": "MI",
-          "class": " ",
-          "tiebreaks": [
-          ],
-          "results": [
-            "L",
-            "W",
-            "L",
-            " "
-          ],
-          "colors": [
-            "B",
-            "B",
-            "W",
-            "B"
-          ],
-          "ops": [
             4,
-            7,
-            8,
-            10
-          ],
-          "boards": [
             4,
-            6,
-            6,
-            7
-          ],
-          "cumulatives": [
-            0,
-            1,
-            1,
-            1
-          ],
-          "score": 1
-        },
-        {
-          "name": "Shah, Jainav",
-          "pair_number": 14,
-          "id1": "32712297",
-          "rating": 0,
-          "rating2": 0,
-          "exp1": "12/31/2026",
-          "state": "MI",
-          "class": " ",
-          "tiebreaks": [
-          ],
-          "results": [
-            "W",
-            "L",
-            "D",
-            " "
-          ],
-          "colors": [
-            "W",
-            "W",
-            "B",
-            "B"
-          ],
-          "ops": [
-            7,
-            5,
-            3,
-            8
-          ],
-          "boards": [
-            5,
-            4,
-            3,
             5
           ],
           "cumulatives": [
             1,
+            2,
+            2,
+            3
+          ],
+          "score": 3
+        },
+        {
+          "name": "Misevich, Stanley",
+          "pair_number": 2,
+          "id1": "30270659",
+          "rating": 1334,
+          "rating2": 1189,
+          "exp1": "4/30/2025",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+            7,
+            8.5,
+            10,
+            0,
+            2,
+            8.5
+          ],
+          "results": [
+            "W",
+            "W",
+            "W",
+            "W"
+          ],
+          "colors": [
+            "B",
+            "W",
+            "B",
+            "W"
+          ],
+          "ops": [
+            7,
+            5,
             1,
+            4
+          ],
+          "boards": [
+            5,
+            5,
+            4,
+            4
+          ],
+          "cumulatives": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "score": 4
+        },
+        {
+          "name": "Lin, Cynthia Xinyi",
+          "pair_number": 3,
+          "id1": "30982705",
+          "rating": 1229,
+          "rating2": 1135,
+          "exp1": "2/28/2026",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+            4,
+            6.5,
+            3,
+            0,
+            1,
+            2
+          ],
+          "results": [
+            "L",
+            "L",
+            "W",
+            "W"
+          ],
+          "colors": [
+            "W",
+            "B",
+            "W",
+            "B"
+          ],
+          "ops": [
+            8,
+            4,
+            10,
+            6
+          ],
+          "boards": [
+            6,
+            6,
+            8,
+            6
+          ],
+          "cumulatives": [
+            0,
+            0,
+            1,
+            2
+          ],
+          "score": 2
+        },
+        {
+          "name": "Cheng, Yukai",
+          "pair_number": 4,
+          "id1": "31903326",
+          "rating": 1064,
+          "rating2": 827,
+          "exp1": "5/31/2027",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+            7.5,
+            9,
+            7,
+            0,
+            1,
+            4.25
+          ],
+          "results": [
+            "D",
+            "W",
+            "W",
+            "L"
+          ],
+          "colors": [
+            "B",
+            "W",
+            "B",
+            "B"
+          ],
+          "ops": [
+            9,
+            3,
+            5,
+            2
+          ],
+          "boards": [
+            7,
+            6,
+            5,
+            4
+          ],
+          "cumulatives": [
+            0.5,
             1.5,
+            2.5,
+            2.5
+          ],
+          "score": 2.5
+        },
+        {
+          "name": "Saraf, Ayan Akash",
+          "pair_number": 5,
+          "id1": "30666084",
+          "rating": 1056,
+          "rating2": 890,
+          "exp1": "11/30/2026",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+            4,
+            8,
+            4.5,
+            0,
+            0,
+            0.75
+          ],
+          "results": [
+            "W",
+            "L",
+            "L",
+            "D"
+          ],
+          "colors": [
+            "W",
+            "B",
+            "W",
+            "B"
+          ],
+          "ops": [
+            10,
+            2,
+            4,
+            7
+          ],
+          "boards": [
+            8,
+            5,
+            5,
+            7
+          ],
+          "cumulatives": [
+            1,
+            1,
+            1,
             1.5
           ],
           "score": 1.5
         },
         {
-          "name": "Anderson, Clarence L, Jr",
-          "pair_number": 15,
+          "name": "Anderson, Clarence",
+          "pair_number": 6,
           "id1": "32743658",
-          "rating": 0,
-          "rating2": 0,
+          "rating": 986,
+          "rating2": 921,
           "exp1": "12/31/2026",
-          "state": "MI",
           "class": " ",
           "tiebreaks": [
+            3.5,
+            8,
+            5,
+            0,
+            1,
+            3
           ],
           "results": [
             "L",
             "W",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
             "W",
-            "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
-            5,
-            10,
+            1,
             9,
-            4
+            7,
+            3
           ],
           "boards": [
+            4,
+            7,
             6,
-            8,
-            5,
-            3
+            6
           ],
           "cumulatives": [
             0,
@@ -760,21 +660,27 @@
           "score": 2
         },
         {
-          "name": "Mogalluri, Eswar",
-          "pair_number": 16,
-          "id1": "32688226",
-          "rating": 0,
-          "rating2": 0,
-          "exp1": "11/30/2026",
+          "name": "Shanmuga, Aarya",
+          "pair_number": 7,
+          "id1": "31543413",
+          "rating": 891,
+          "rating2": 853,
+          "exp1": "1/31/2027",
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            3.5,
+            7.5,
+            3.5,
+            0,
+            1,
+            0.75
           ],
           "results": [
             "L",
-            "D",
             "W",
-            " "
+            "L",
+            "D"
           ],
           "colors": [
             "W",
@@ -783,69 +689,2162 @@
             "W"
           ],
           "ops": [
-            9,
-            8,
-            7,
-            3
+            2,
+            10,
+            6,
+            5
           ],
           "boards": [
+            5,
             8,
-            7,
-            7,
-            4
+            6,
+            7
           ],
           "cumulatives": [
             0,
+            1,
+            1,
+            1.5
+          ],
+          "score": 1.5
+        },
+        {
+          "name": "Sumesh, Isabella C",
+          "pair_number": 8,
+          "id1": "31929572",
+          "rating": 819,
+          "rating2": 781,
+          "exp1": "4/30/2026",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+            3.5,
+            6.5,
+            5,
+            0,
+            1,
+            2
+          ],
+          "results": [
+            "W",
+            "L",
+            "L",
+            "W"
+          ],
+          "colors": [
+            "B",
+            "W",
+            "B",
+            "W"
+          ],
+          "ops": [
+            3,
+            1,
+            9,
+            10
+          ],
+          "boards": [
+            6,
+            4,
+            7,
+            8
+          ],
+          "cumulatives": [
+            1,
+            1,
+            1,
+            2
+          ],
+          "score": 2
+        },
+        {
+          "name": "Thakur, Archit",
+          "pair_number": 9,
+          "id1": "31030590",
+          "rating": 804,
+          "rating2": 783,
+          "exp1": "3/31/2026",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+            6.5,
+            9.5,
+            4,
+            0,
+            0,
+            3.25
+          ],
+          "results": [
+            "D",
+            "L",
+            "W",
+            "L"
+          ],
+          "colors": [
+            "W",
+            "B",
+            "W",
+            "W"
+          ],
+          "ops": [
+            4,
+            6,
+            8,
+            1
+          ],
+          "boards": [
+            7,
+            7,
+            7,
+            5
+          ],
+          "cumulatives": [
+            0.5,
             0.5,
             1.5,
             1.5
           ],
           "score": 1.5
+        },
+        {
+          "name": "Menon, Sharath",
+          "pair_number": 10,
+          "id1": "17126941",
+          "rating": 787,
+          "rating2": 754,
+          "exp1": "12/31/2026",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+            5,
+            7,
+            0,
+            0,
+            0,
+            0
+          ],
+          "results": [
+            "L",
+            "L",
+            "L",
+            "L"
+          ],
+          "colors": [
+            "B",
+            "W",
+            "B",
+            "B"
+          ],
+          "ops": [
+            5,
+            7,
+            3,
+            8
+          ],
+          "boards": [
+            8,
+            8,
+            8,
+            8
+          ],
+          "cumulatives": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "score": 0
         }
       ],
       "clubs": [
       ]
     },
     {
-      "section": "Unrated Section",
+      "section": "U800 (Rated)",
       "rounds_paired": 4,
       "rounds_played": 4,
       "final_round": true,
       "standings": [
-        4,
-        5,
-        3,
-        10,
+        1,
         2,
-        9,
+        3,
+        4,
+        6,
+        5,
         7,
         8,
-        1,
-        6
+        9,
+        10,
+        12,
+        13,
+        17,
+        14,
+        15,
+        16,
+        11
       ],
       "pairings": [
         {
-          "white": 4,
-          "black": 3,
+          "white": 1,
+          "black": 6,
+          "board": 9
+        },
+        {
+          "white": 17,
+          "black": 2,
           "board": 10
         },
         {
-          "white": 9,
-          "black": 5,
+          "white": 3,
+          "black": 7,
           "board": 11
         },
         {
-          "white": 10,
-          "black": 1,
+          "white": 5,
+          "black": 4,
           "board": 12
         },
         {
-          "white": 7,
+          "white": 9,
           "black": 8,
           "board": 13
         },
         {
+          "white": 10,
+          "black": 14,
+          "board": 14
+        },
+        {
+          "white": 15,
+          "black": 12,
+          "board": 15
+        },
+        {
+          "white": 13,
+          "black": 16,
+          "board": 16
+        }
+      ],
+      "tiebreaks": [
+        "Mod. Med",
+        "Solk",
+        "Cumul.",
+        "1-on-1",
+        "BWG",
+        "SB"
+      ],
+      "team_tiebreaks": [
+      ],
+      "players": [
+        {
+          "name": "Dacharaju, Anika",
+          "pair_number": 1,
+          "id1": "32299479",
+          "rating": 720,
+          "rating2": 690,
+          "exp1": "2/28/2026",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+            7,
+            9,
+            10,
+            0,
+            2,
+            9
+          ],
+          "results": [
+            "W",
+            "W",
+            "W",
+            "W"
+          ],
+          "colors": [
+            "B",
+            "W",
+            "B",
+            "W"
+          ],
+          "ops": [
+            9,
+            5,
+            7,
+            6
+          ],
+          "boards": [
+            9,
+            9,
+            9,
+            9
+          ],
+          "cumulatives": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "score": 4
+        },
+        {
+          "name": "Dai, Ethan",
+          "pair_number": 2,
+          "id1": "32332225",
+          "rating": 698,
+          "rating2": 645,
+          "exp1": "2/28/2026",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+            6,
+            8,
+            7,
+            0,
+            1,
+            6
+          ],
+          "results": [
+            "W",
+            "L",
+            "W",
+            "W"
+          ],
+          "colors": [
+            "W",
+            "B",
+            "W",
+            "B"
+          ],
+          "ops": [
+            10,
+            7,
+            9,
+            17
+          ],
+          "boards": [
+            10,
+            10,
+            11,
+            10
+          ],
+          "cumulatives": [
+            1,
+            1,
+            2,
+            3
+          ],
+          "score": 3
+        },
+        {
+          "name": "Dange, Vihaan",
+          "pair_number": 3,
+          "id1": "32330576",
+          "rating": 593,
+          "rating2": 580,
+          "exp1": "2/28/2026",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+            6,
+            6.5,
+            7,
+            0,
+            2,
+            4
+          ],
+          "results": [
+            "W",
+            "L",
+            "W",
+            "W"
+          ],
+          "colors": [
+            "B",
+            "W",
+            "B",
+            "W"
+          ],
+          "ops": [
+            11,
+            6,
+            14,
+            7
+          ],
+          "boards": [
+            11,
+            11,
+            12,
+            11
+          ],
+          "cumulatives": [
+            1,
+            1,
+            2,
+            3
+          ],
+          "score": 3
+        },
+        {
+          "name": "Lin, Jolie Jiayi",
+          "pair_number": 4,
+          "id1": "31676757",
+          "rating": 568,
+          "rating2": 558,
+          "exp1": "2/28/2027",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+            6,
+            7.5,
+            7,
+            0,
+            1,
+            6
+          ],
+          "results": [
+            "W",
+            "L",
+            "W",
+            "W"
+          ],
+          "colors": [
+            "W",
+            "B",
+            "W",
+            "B"
+          ],
+          "ops": [
+            12,
+            17,
+            10,
+            5
+          ],
+          "boards": [
+            12,
+            12,
+            13,
+            12
+          ],
+          "cumulatives": [
+            1,
+            1,
+            2,
+            3
+          ],
+          "score": 3
+        },
+        {
+          "name": "Varunjikar, Ishaan",
+          "pair_number": 5,
+          "id1": "32385201",
+          "rating": 526,
+          "rating2": 516,
+          "exp1": "3/31/2026",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+            4.5,
+            9,
+            6,
+            0,
+            1,
+            3
+          ],
+          "results": [
+            "W",
+            "L",
+            "W",
+            "L"
+          ],
+          "colors": [
+            "B",
+            "B",
+            "W",
+            "W"
+          ],
+          "ops": [
+            13,
+            1,
+            15,
+            4
+          ],
+          "boards": [
+            13,
+            9,
+            14,
+            12
+          ],
+          "cumulatives": [
+            1,
+            1,
+            2,
+            2
+          ],
+          "score": 2
+        },
+        {
+          "name": "Sumesh, Immanuel A",
+          "pair_number": 6,
+          "id1": "32496247",
+          "rating": 495,
+          "rating2": 487,
+          "exp1": "6/30/2026",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+            9,
+            9.5,
+            9,
+            0,
+            1,
+            6
+          ],
+          "results": [
+            "W",
+            "W",
+            "W",
+            "L"
+          ],
+          "colors": [
+            "W",
+            "B",
+            "W",
+            "B"
+          ],
+          "ops": [
+            14,
+            3,
+            17,
+            1
+          ],
+          "boards": [
+            14,
+            11,
+            10,
+            9
+          ],
+          "cumulatives": [
+            1,
+            2,
+            3,
+            3
+          ],
+          "score": 3
+        },
+        {
+          "name": "Lian, Peter",
+          "pair_number": 7,
+          "id1": "32338161",
+          "rating": 495,
+          "rating2": 474,
+          "exp1": "3/31/2027",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+            6,
+            11,
+            7,
+            0,
+            1,
+            4
+          ],
+          "results": [
+            "W",
+            "W",
+            "L",
+            "L"
+          ],
+          "colors": [
+            "B",
+            "W",
+            "W",
+            "B"
+          ],
+          "ops": [
+            16,
+            2,
+            1,
+            3
+          ],
+          "boards": [
+            15,
+            10,
+            9,
+            11
+          ],
+          "cumulatives": [
+            1,
+            2,
+            2,
+            2
+          ],
+          "score": 2
+        },
+        {
+          "name": "Saraf, Ahan",
+          "pair_number": 8,
+          "id1": "31984993",
+          "rating": 469,
+          "rating2": 453,
+          "exp1": "9/30/2026",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+            3,
+            5.5,
+            5,
+            0,
+            1,
+            2
+          ],
+          "results": [
+            "L",
+            "W",
+            "W",
+            "L"
+          ],
+          "colors": [
+            "W",
+            "B",
+            "W",
+            "B"
+          ],
+          "ops": [
+            17,
+            15,
+            16,
+            9
+          ],
+          "boards": [
+            16,
+            13,
+            15,
+            13
+          ],
+          "cumulatives": [
+            0,
+            1,
+            2,
+            2
+          ],
+          "score": 2
+        },
+        {
+          "name": "Vignesh, Kaviniral",
+          "pair_number": 9,
+          "id1": "32074926",
+          "rating": 461,
+          "rating2": 436,
+          "exp1": "10/31/2026",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+            5,
+            10.5,
+            4,
+            0,
+            1,
+            4
+          ],
+          "results": [
+            "L",
+            "W",
+            "L",
+            "W"
+          ],
+          "colors": [
+            "W",
+            "B",
+            "B",
+            "W"
+          ],
+          "ops": [
+            1,
+            12,
+            2,
+            8
+          ],
+          "boards": [
+            9,
+            14,
+            11,
+            13
+          ],
+          "cumulatives": [
+            0,
+            1,
+            1,
+            2
+          ],
+          "score": 2
+        },
+        {
+          "name": "Sundara Rajan, Ini",
+          "pair_number": 10,
+          "id1": "32198515",
+          "rating": 380,
+          "rating2": 378,
+          "exp1": "12/31/2026",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+            4.5,
+            8,
+            4,
+            0,
+            0,
+            3
+          ],
+          "results": [
+            "L",
+            "W",
+            "L",
+            "W"
+          ],
+          "colors": [
+            "B",
+            "W",
+            "B",
+            "W"
+          ],
+          "ops": [
+            2,
+            13,
+            4,
+            14
+          ],
+          "boards": [
+            10,
+            15,
+            13,
+            14
+          ],
+          "cumulatives": [
+            0,
+            1,
+            1,
+            2
+          ],
+          "score": 2
+        },
+        {
+          "name": "Bandi, Vrishank",
+          "pair_number": 11,
+          "id1": "32296793",
+          "rating": 338,
+          "rating2": 335,
+          "exp1": "2/28/2026",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+            1,
+            4,
+            0,
+            0,
+            0,
+            0
+          ],
+          "results": [
+            "L",
+            "L",
+            "F",
+            "U"
+          ],
+          "colors": [
+            "W",
+            "B",
+            "-",
+            "-"
+          ],
+          "ops": [
+            3,
+            16,
+            12,
+            0
+          ],
+          "boards": [
+            11,
+            16,
+            16,
+            0
+          ],
+          "cumulatives": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "score": 0
+        },
+        {
+          "name": "Gowda, Dhara",
+          "pair_number": 12,
+          "id1": "32371681",
+          "rating": 217,
+          "rating2": 214,
+          "exp1": "3/31/2026",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+            2.5,
+            5.5,
+            2,
+            0,
+            1,
+            3
+          ],
+          "results": [
+            "L",
+            "L",
+            "X",
+            "W"
+          ],
+          "colors": [
+            "B",
+            "W",
+            "-",
+            "B"
+          ],
+          "ops": [
+            4,
+            9,
+            11,
+            15
+          ],
+          "boards": [
+            12,
+            14,
+            16,
+            15
+          ],
+          "cumulatives": [
+            0,
+            0,
+            1,
+            2
+          ],
+          "score": 2
+        },
+        {
+          "name": "Saraf, Arhan",
+          "pair_number": 13,
+          "id1": "32531332",
+          "rating": 129,
+          "rating2": 111,
+          "exp1": "8/31/2026",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+            3,
+            5,
+            2,
+            0,
+            0,
+            3
+          ],
+          "results": [
+            "L",
+            "L",
+            "B",
+            "W"
+          ],
+          "colors": [
+            "W",
+            "B",
+            "-",
+            "W"
+          ],
+          "ops": [
+            5,
+            10,
+            0,
+            16
+          ],
+          "boards": [
+            13,
+            15,
+            0,
+            16
+          ],
+          "cumulatives": [
+            0,
+            0,
+            1,
+            2
+          ],
+          "score": 2
+        },
+        {
+          "name": "Vivek, Vivaan",
+          "pair_number": 14,
+          "id1": "32124842",
+          "rating": 109,
+          "rating2": 109,
+          "exp1": "11/30/2026",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+            5,
+            8,
+            2,
+            0,
+            0,
+            1
+          ],
+          "results": [
+            "L",
+            "B",
+            "L",
+            "L"
+          ],
+          "colors": [
+            "B",
+            "-",
+            "W",
+            "B"
+          ],
+          "ops": [
+            6,
+            0,
+            3,
+            10
+          ],
+          "boards": [
+            14,
+            0,
+            12,
+            14
+          ],
+          "cumulatives": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "score": 1
+        },
+        {
+          "name": "Lauchlan, Fiona",
+          "pair_number": 15,
+          "id1": "32331018",
+          "rating": 101,
+          "rating2": 101,
+          "exp1": "02/28/2026",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+            3.5,
+            5.5,
+            3,
+            0,
+            0,
+            1
+          ],
+          "results": [
+            "B",
+            "L",
+            "L",
+            "L"
+          ],
+          "colors": [
+            "-",
+            "W",
+            "B",
+            "W"
+          ],
+          "ops": [
+            0,
+            8,
+            5,
+            12
+          ],
+          "boards": [
+            0,
+            13,
+            14,
+            15
+          ],
+          "cumulatives": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "score": 1
+        },
+        {
+          "name": "Gawalapu, Raj",
+          "pair_number": 16,
+          "id1": "32687206",
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            4.5,
+            6.5,
+            3,
+            0,
+            0,
+            1
+          ],
+          "results": [
+            "L",
+            "W",
+            "L",
+            "L"
+          ],
+          "colors": [
+            "W",
+            "W",
+            "B",
+            "B"
+          ],
+          "ops": [
+            7,
+            11,
+            8,
+            13
+          ],
+          "boards": [
+            15,
+            16,
+            15,
+            16
+          ],
+          "cumulatives": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "score": 1
+        },
+        {
+          "name": "Sareen, Ronit",
+          "pair_number": 17,
+          "id1": "32794508",
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            6,
+            11,
+            7,
+            0,
+            1,
+            5
+          ],
+          "results": [
+            "W",
+            "W",
+            "L",
+            "L"
+          ],
+          "colors": [
+            "B",
+            "W",
+            "B",
+            "W"
+          ],
+          "ops": [
+            8,
+            4,
+            6,
+            2
+          ],
+          "boards": [
+            16,
+            12,
+            10,
+            10
+          ],
+          "cumulatives": [
+            1,
+            2,
+            2,
+            2
+          ],
+          "score": 2
+        }
+      ],
+      "clubs": [
+      ]
+    },
+    {
+      "section": "Unrated (Grade K-8)",
+      "rounds_paired": 4,
+      "rounds_played": 4,
+      "final_round": true,
+      "standings": [
+        10,
+        2,
+        5,
+        6,
+        9,
+        8,
+        14,
+        19,
+        4,
+        7,
+        13,
+        16,
+        17,
+        18,
+        1,
+        3,
+        11,
+        15,
+        20,
+        12
+      ],
+      "pairings": [
+        {
           "white": 2,
+          "black": 10,
+          "board": 17
+        },
+        {
+          "white": 5,
+          "black": 14,
+          "board": 18
+        },
+        {
+          "white": 6,
+          "black": 18,
+          "board": 19
+        },
+        {
+          "white": 9,
+          "black": 7,
+          "board": 20
+        },
+        {
+          "white": 4,
+          "black": 19,
+          "board": 21
+        },
+        {
+          "white": 8,
+          "black": 1,
+          "board": 22
+        },
+        {
+          "white": 17,
+          "black": 3,
+          "board": 23
+        },
+        {
+          "white": 11,
+          "black": 16,
+          "board": 24
+        },
+        {
+          "white": 13,
+          "black": 20,
+          "board": 25
+        },
+        {
+          "white": 15,
+          "black": 12,
+          "board": 26
+        }
+      ],
+      "tiebreaks": [
+        "Mod. Med",
+        "Solk",
+        "Cumul.",
+        "1-on-1",
+        "BWG",
+        "SB"
+      ],
+      "team_tiebreaks": [
+      ],
+      "players": [
+        {
+          "name": "Jananvi Ambati",
+          "pair_number": 1,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            4,
+            6.5,
+            2,
+            0,
+            1,
+            1
+          ],
+          "results": [
+            "L",
+            "L",
+            "W",
+            "L"
+          ],
+          "colors": [
+            "W",
+            "W",
+            "B",
+            "B"
+          ],
+          "ops": [
+            11,
+            18,
+            11,
+            8
+          ],
+          "boards": [
+            17,
+            22,
+            23,
+            22
+          ],
+          "cumulatives": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "score": 1
+        },
+        {
+          "name": "Harsanth Viswa Govindaraju",
+          "pair_number": 2,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            7.5,
+            7.5,
+            9,
+            0,
+            2,
+            4
+          ],
+          "results": [
+            "W",
+            "W",
+            "W",
+            "L"
+          ],
+          "colors": [
+            "B",
+            "W",
+            "B",
+            "W"
+          ],
+          "ops": [
+            12,
+            11,
+            5,
+            10
+          ],
+          "boards": [
+            18,
+            17,
+            17,
+            17
+          ],
+          "cumulatives": [
+            1,
+            2,
+            3,
+            3
+          ],
+          "score": 3
+        },
+        {
+          "name": "Matele, Lakhith",
+          "pair_number": 3,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            5,
+            8,
+            3,
+            0,
+            1,
+            1
+          ],
+          "results": [
+            "L",
+            "W",
+            "L",
+            "L"
+          ],
+          "colors": [
+            "W",
+            "B",
+            "W",
+            "B"
+          ],
+          "ops": [
+            13,
+            15,
+            9,
+            17
+          ],
+          "boards": [
+            19,
+            23,
+            21,
+            23
+          ],
+          "cumulatives": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "score": 1
+        },
+        {
+          "name": "Alloos, Nathan",
+          "pair_number": 4,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            4.5,
+            7,
+            4.5,
+            0,
+            0,
+            2.25
+          ],
+          "results": [
+            "L",
+            "W",
+            "D",
+            "D"
+          ],
+          "colors": [
+            "B",
+            "W",
+            "B",
+            "W"
+          ],
+          "ops": [
+            14,
+            12,
+            18,
+            19
+          ],
+          "boards": [
+            20,
+            24,
+            20,
+            21
+          ],
+          "cumulatives": [
+            0,
+            1,
+            1.5,
+            2
+          ],
+          "score": 2
+        },
+        {
+          "name": "Viyan Durai",
+          "pair_number": 5,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            7.5,
+            8.5,
+            8,
+            0,
+            1,
+            5.5
+          ],
+          "results": [
+            "W",
+            "W",
+            "L",
+            "W"
+          ],
+          "colors": [
+            "W",
+            "B",
+            "W",
+            "W"
+          ],
+          "ops": [
+            15,
+            13,
+            2,
+            14
+          ],
+          "boards": [
+            21,
+            18,
+            17,
+            18
+          ],
+          "cumulatives": [
+            1,
+            2,
+            2,
+            3
+          ],
+          "score": 3
+        },
+        {
+          "name": "Siwoo Park",
+          "pair_number": 6,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            8,
+            10,
+            7.5,
+            0,
+            1,
+            7
+          ],
+          "results": [
+            "W",
+            "D",
+            "D",
+            "W"
+          ],
+          "colors": [
+            "B",
+            "W",
+            "B",
+            "W"
+          ],
+          "ops": [
+            16,
+            14,
+            10,
+            18
+          ],
+          "boards": [
+            22,
+            19,
+            18,
+            19
+          ],
+          "cumulatives": [
+            1,
+            1.5,
+            2,
+            3
+          ],
+          "score": 3
+        },
+        {
+          "name": "Raja Nandhana",
+          "pair_number": 7,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            4,
+            8,
+            5,
+            0,
+            1,
+            3
+          ],
+          "results": [
+            "L",
+            "W",
+            "W",
+            "L"
+          ],
+          "colors": [
+            "W",
+            "B",
+            "W",
+            "B"
+          ],
+          "ops": [
+            17,
+            20,
+            13,
+            9
+          ],
+          "boards": [
+            23,
+            25,
+            22,
+            20
+          ],
+          "cumulatives": [
+            0,
+            1,
+            2,
+            2
+          ],
+          "score": 2
+        },
+        {
+          "name": "Vedamsh Challa",
+          "pair_number": 8,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            7,
+            8,
+            6,
+            0,
+            0,
+            4.5
+          ],
+          "results": [
+            "D",
+            "W",
+            "L",
+            "W"
+          ],
+          "colors": [
+            "B",
+            "W",
+            "B",
+            "W"
+          ],
+          "ops": [
+            18,
+            19,
+            14,
+            1
+          ],
+          "boards": [
+            24,
+            21,
+            19,
+            22
+          ],
+          "cumulatives": [
+            0.5,
+            1.5,
+            1.5,
+            2.5
+          ],
+          "score": 2.5
+        },
+        {
+          "name": "Varunkrishna, Logarathinam",
+          "pair_number": 9,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            6.5,
+            7.5,
+            6,
+            0,
+            1,
+            5
+          ],
+          "results": [
+            "L",
+            "W",
+            "W",
+            "W"
+          ],
+          "colors": [
+            "B",
+            "W",
+            "B",
+            "W"
+          ],
+          "ops": [
+            19,
+            16,
+            3,
+            7
+          ],
+          "boards": [
+            26,
+            26,
+            21,
+            20
+          ],
+          "cumulatives": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "score": 3
+        },
+        {
+          "name": "Daniel Choi",
+          "pair_number": 10,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            8,
+            9,
+            9,
+            0,
+            2,
+            7.5
+          ],
+          "results": [
+            "W",
+            "W",
+            "D",
+            "W"
+          ],
+          "colors": [
+            "W",
+            "B",
+            "W",
+            "B"
+          ],
+          "ops": [
+            20,
+            17,
+            6,
+            2
+          ],
+          "boards": [
+            27,
+            20,
+            18,
+            17
+          ],
+          "cumulatives": [
+            1,
+            2,
+            2.5,
+            3.5
+          ],
+          "score": 3.5
+        },
+        {
+          "name": "Adams, Layla",
+          "pair_number": 11,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            4,
+            7,
+            4,
+            0,
+            1,
+            1
+          ],
+          "results": [
+            "W",
+            "L",
+            "L",
+            "L"
+          ],
+          "colors": [
+            "B",
+            "B",
+            "W",
+            "W"
+          ],
+          "ops": [
+            1,
+            2,
+            1,
+            16
+          ],
+          "boards": [
+            17,
+            17,
+            23,
+            24
+          ],
+          "cumulatives": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "score": 1
+        },
+        {
+          "name": "Bayapati, Harshith",
+          "pair_number": 12,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            4,
+            7,
+            0,
+            0,
+            0,
+            0
+          ],
+          "results": [
+            "L",
+            "L",
+            "L",
+            "L"
+          ],
+          "colors": [
+            "W",
+            "B",
+            "W",
+            "B"
+          ],
+          "ops": [
+            2,
+            4,
+            20,
+            15
+          ],
+          "boards": [
+            18,
+            24,
+            25,
+            26
+          ],
+          "cumulatives": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "score": 0
+        },
+        {
+          "name": "Tejesh Reddy",
+          "pair_number": 13,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            3,
+            7,
+            5,
+            0,
+            1,
+            2
+          ],
+          "results": [
+            "W",
+            "L",
+            "L",
+            "W"
+          ],
+          "colors": [
+            "B",
+            "W",
+            "B",
+            "W"
+          ],
+          "ops": [
+            3,
+            5,
+            7,
+            20
+          ],
+          "boards": [
+            19,
+            18,
+            22,
+            25
+          ],
+          "cumulatives": [
+            1,
+            1,
+            1,
+            2
+          ],
+          "score": 2
+        },
+        {
+          "name": "Pruthvi Malipeddi",
+          "pair_number": 14,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            8.5,
+            10.5,
+            7.5,
+            0,
+            0,
+            6
+          ],
+          "results": [
+            "W",
+            "D",
+            "W",
+            "L"
+          ],
+          "colors": [
+            "W",
+            "B",
+            "W",
+            "B"
+          ],
+          "ops": [
+            4,
+            6,
+            8,
+            5
+          ],
+          "boards": [
+            20,
+            19,
+            19,
+            18
+          ],
+          "cumulatives": [
+            1,
+            1.5,
+            2.5,
+            2.5
+          ],
+          "score": 2.5
+        },
+        {
+          "name": "Sun, Owen",
+          "pair_number": 15,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            3,
+            6,
+            1,
+            0,
+            0,
+            0
+          ],
+          "results": [
+            "L",
+            "L",
+            "L",
+            "W"
+          ],
+          "colors": [
+            "B",
+            "W",
+            "B",
+            "W"
+          ],
+          "ops": [
+            5,
+            3,
+            16,
+            12
+          ],
+          "boards": [
+            21,
+            23,
+            26,
+            26
+          ],
+          "cumulatives": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "score": 1
+        },
+        {
+          "name": "Arunprasath Akira",
+          "pair_number": 16,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            4,
+            8,
+            3,
+            0,
+            1,
+            2
+          ],
+          "results": [
+            "L",
+            "L",
+            "W",
+            "W"
+          ],
+          "colors": [
+            "W",
+            "B",
+            "W",
+            "B"
+          ],
+          "ops": [
+            6,
+            9,
+            15,
+            11
+          ],
+          "boards": [
+            22,
+            26,
+            26,
+            24
+          ],
+          "cumulatives": [
+            0,
+            0,
+            1,
+            2
+          ],
+          "score": 2
+        },
+        {
+          "name": "Yeole Vedant",
+          "pair_number": 17,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            4.5,
+            9,
+            5,
+            0,
+            1,
+            3
+          ],
+          "results": [
+            "W",
+            "L",
+            "L",
+            "W"
+          ],
+          "colors": [
+            "B",
+            "W",
+            "B",
+            "W"
+          ],
+          "ops": [
+            7,
+            10,
+            19,
+            3
+          ],
+          "boards": [
+            23,
+            20,
+            24,
+            23
+          ],
+          "cumulatives": [
+            1,
+            1,
+            1,
+            2
+          ],
+          "score": 2
+        },
+        {
+          "name": "K S Kishan Chandar",
+          "pair_number": 18,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            4.5,
+            8.5,
+            6,
+            0,
+            1,
+            3.25
+          ],
+          "results": [
+            "D",
+            "W",
+            "D",
+            "L"
+          ],
+          "colors": [
+            "W",
+            "B",
+            "W",
+            "B"
+          ],
+          "ops": [
+            8,
+            1,
+            4,
+            6
+          ],
+          "boards": [
+            24,
+            22,
+            20,
+            19
+          ],
+          "cumulatives": [
+            0.5,
+            1.5,
+            2,
+            2
+          ],
+          "score": 2
+        },
+        {
+          "name": "Barua, Dhruv",
+          "pair_number": 19,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            7.5,
+            9.5,
+            6.5,
+            0,
+            0,
+            6
+          ],
+          "results": [
+            "W",
+            "L",
+            "W",
+            "D"
+          ],
+          "colors": [
+            "W",
+            "B",
+            "W",
+            "B"
+          ],
+          "ops": [
+            9,
+            8,
+            17,
+            4
+          ],
+          "boards": [
+            26,
+            21,
+            24,
+            21
+          ],
+          "cumulatives": [
+            1,
+            1,
+            2,
+            2.5
+          ],
+          "score": 2.5
+        },
+        {
+          "name": "Vikunth Satesh",
+          "pair_number": 20,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            4,
+            7.5,
+            2,
+            0,
+            1,
+            0
+          ],
+          "results": [
+            "L",
+            "L",
+            "W",
+            "L"
+          ],
+          "colors": [
+            "B",
+            "W",
+            "B",
+            "B"
+          ],
+          "ops": [
+            10,
+            7,
+            12,
+            13
+          ],
+          "boards": [
+            27,
+            25,
+            25,
+            25
+          ],
+          "cumulatives": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "score": 1
+        }
+      ],
+      "clubs": [
+      ]
+    },
+    {
+      "section": "Unrated (Grade K-3)",
+      "rounds_paired": 4,
+      "rounds_played": 4,
+      "final_round": true,
+      "standings": [
+        3,
+        1,
+        5,
+        6,
+        11,
+        7,
+        8,
+        14,
+        15,
+        16,
+        17,
+        9,
+        2,
+        10,
+        12,
+        13,
+        4
+      ],
+      "pairings": [
+        {
+          "white": 3,
+          "black": 1,
+          "board": 28
+        },
+        {
+          "white": 5,
+          "black": 14,
+          "board": 29
+        },
+        {
+          "white": 16,
+          "black": 6,
+          "board": 30
+        },
+        {
+          "white": 11,
+          "black": 15,
+          "board": 31
+        },
+        {
+          "white": 2,
+          "black": 7,
+          "board": 32
+        },
+        {
+          "white": 8,
+          "black": 13,
+          "board": 33
+        },
+        {
+          "white": 9,
+          "black": 4,
+          "board": 34
+        },
+        {
+          "white": 12,
           "black": 0,
           "board": 0
         }
@@ -862,155 +2861,110 @@
       ],
       "players": [
         {
-          "name": "Mogalluri, Taarak",
+          "name": "Vunnam, Jitesh",
           "pair_number": 1,
           "rating": 0,
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            6,
+            8,
             9,
-            2,
+            9,
             0,
             1,
-            1.5
+            5.5
           ],
           "results": [
-            "L",
-            "L",
+            "W",
+            "W",
             "W",
             "L"
           ],
           "colors": [
             "W",
-            "W",
             "B",
+            "W",
             "B"
           ],
           "ops": [
+            10,
+            13,
             5,
-            3,
-            8,
-            10
+            3
           ],
           "boards": [
+            28,
+            28,
+            28,
+            28
+          ],
+          "cumulatives": [
             1,
+            2,
+            3,
+            3
+          ],
+          "score": 3
+        },
+        {
+          "name": "Aarav Reddy, Komma",
+          "pair_number": 2,
+          "id1": "32709168",
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            5,
+            8,
+            3,
+            0,
+            0,
+            1
+          ],
+          "results": [
+            "L",
+            "W",
+            "L",
+            "L"
+          ],
+          "colors": [
+            "B",
+            "W",
+            "B",
+            "W"
+          ],
+          "ops": [
             11,
-            13,
-            12
+            12,
+            15,
+            7
+          ],
+          "boards": [
+            29,
+            32,
+            30,
+            32
           ],
           "cumulatives": [
             0,
-            0,
+            1,
             1,
             1
           ],
           "score": 1
         },
         {
-          "name": "Arunprasath, Akira",
-          "pair_number": 2,
-          "rating": 0,
-          "rating2": 0,
-          "class": " ",
-          "tiebreaks": [
-            2.5,
-            5,
-            4,
-            0,
-            1,
-            3.5
-          ],
-          "results": [
-            "W",
-            "L",
-            "L",
-            "B"
-          ],
-          "colors": [
-            "B",
-            "W",
-            "B",
-            "-"
-          ],
-          "ops": [
-            7,
-            9,
-            3,
-            0
-          ],
-          "boards": [
-            2,
-            9,
-            11,
-            0
-          ],
-          "cumulatives": [
-            1,
-            1,
-            1,
-            2
-          ],
-          "score": 2
-        },
-        {
-          "name": "Barua, Dhruv",
+          "name": "Surya Kondaveeti",
           "pair_number": 3,
           "rating": 0,
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
             8,
-            9,
-            7,
-            0.5,
-            1,
-            4.25
-          ],
-          "results": [
-            "D",
-            "W",
-            "W",
-            "L"
-          ],
-          "colors": [
-            "W",
-            "B",
-            "W",
-            "B"
-          ],
-          "ops": [
-            10,
-            1,
-            2,
-            4
-          ],
-          "boards": [
-            4,
-            11,
-            11,
-            10
-          ],
-          "cumulatives": [
-            0.5,
-            1.5,
-            2.5,
-            2.5
-          ],
-          "score": 2.5
-        },
-        {
-          "name": "Badeti, Sri Charith",
-          "pair_number": 4,
-          "rating": 0,
-          "rating2": 0,
-          "class": " ",
-          "tiebreaks": [
-            7,
-            8,
+            8.5,
             10,
             0,
-            2,
+            1,
             9
           ],
           "results": [
@@ -1022,20 +2976,20 @@
           "colors": [
             "W",
             "B",
-            "B",
+            "W",
             "W"
           ],
           "ops": [
-            8,
-            5,
-            9,
-            3
+            12,
+            14,
+            11,
+            1
           ],
           "boards": [
-            3,
-            10,
-            10,
-            10
+            30,
+            29,
+            29,
+            28
           ],
           "cumulatives": [
             1,
@@ -1046,22 +3000,114 @@
           "score": 4
         },
         {
-          "name": "Burla, Vihaan",
+          "name": "Jawahar Sanaa",
+          "pair_number": 4,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            4.5,
+            6.5,
+            0.5,
+            0,
+            0,
+            0.75
+          ],
+          "results": [
+            "L",
+            "L",
+            "L",
+            "D"
+          ],
+          "colors": [
+            "B",
+            "W",
+            "W",
+            "B"
+          ],
+          "ops": [
+            13,
+            8,
+            16,
+            9
+          ],
+          "boards": [
+            31,
+            33,
+            34,
+            34
+          ],
+          "cumulatives": [
+            0,
+            0,
+            0,
+            0.5
+          ],
+          "score": 0.5
+        },
+        {
+          "name": "Khedkar Ronit",
           "pair_number": 5,
           "rating": 0,
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            8,
-            9,
             7,
+            8.5,
+            8,
             0,
-            2,
+            1,
             5.5
           ],
           "results": [
             "W",
+            "W",
             "L",
+            "W"
+          ],
+          "colors": [
+            "W",
+            "B",
+            "B",
+            "W"
+          ],
+          "ops": [
+            9,
+            15,
+            1,
+            14
+          ],
+          "boards": [
+            32,
+            30,
+            28,
+            29
+          ],
+          "cumulatives": [
+            1,
+            2,
+            2,
+            3
+          ],
+          "score": 3
+        },
+        {
+          "name": "Leon Ling",
+          "pair_number": 6,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            5.5,
+            6.5,
+            6,
+            0,
+            1,
+            4.5
+          ],
+          "results": [
+            "L",
+            "W",
             "W",
             "W"
           ],
@@ -1072,19 +3118,19 @@
             "B"
           ],
           "ops": [
-            1,
-            4,
-            10,
-            9
+            14,
+            9,
+            13,
+            16
           ],
           "boards": [
-            1,
-            10,
-            12,
-            11
+            33,
+            34,
+            31,
+            30
           ],
           "cumulatives": [
-            1,
+            0,
             1,
             2,
             3
@@ -1092,22 +3138,482 @@
           "score": 3
         },
         {
-          "name": "Karthikeya, Likhith",
-          "pair_number": 6,
+          "name": "Morimoto, Kai",
+          "pair_number": 7,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            2,
+            4,
+            4,
+            0,
+            2,
+            2.5
+          ],
+          "results": [
+            "L",
+            "W",
+            "U",
+            "W"
+          ],
+          "colors": [
+            "W",
+            "B",
+            "-",
+            "B"
+          ],
+          "ops": [
+            16,
+            10,
+            0,
+            2
+          ],
+          "boards": [
+            34,
+            35,
+            0,
+            32
+          ],
+          "cumulatives": [
+            0,
+            1,
+            1,
+            2
+          ],
+          "score": 2
+        },
+        {
+          "name": "Dacharaju, Rudraan",
+          "pair_number": 8,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            3,
+            5.5,
+            4,
+            0,
+            1,
+            1.5
+          ],
+          "results": [
+            "L",
+            "W",
+            "L",
+            "W"
+          ],
+          "colors": [
+            "B",
+            "B",
+            "W",
+            "W"
+          ],
+          "ops": [
+            15,
+            4,
+            14,
+            13
+          ],
+          "boards": [
+            35,
+            33,
+            33,
+            33
+          ],
+          "cumulatives": [
+            0,
+            1,
+            1,
+            2
+          ],
+          "score": 2
+        },
+        {
+          "name": "Dey, Reyansh",
+          "pair_number": 9,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            4,
+            7,
+            2.5,
+            0,
+            0,
+            1.25
+          ],
+          "results": [
+            "L",
+            "L",
+            "W",
+            "D"
+          ],
+          "colors": [
+            "B",
+            "B",
+            "W",
+            "W"
+          ],
+          "ops": [
+            5,
+            6,
+            12,
+            4
+          ],
+          "boards": [
+            32,
+            34,
+            35,
+            34
+          ],
+          "cumulatives": [
+            0,
+            0,
+            1,
+            1.5
+          ],
+          "score": 1.5
+        },
+        {
+          "name": "Edwards, Noel",
+          "pair_number": 10,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            2.5,
+            5.5,
+            1,
+            0,
+            0,
+            1
+          ],
+          "results": [
+            "L",
+            "L",
+            "B",
+            "U"
+          ],
+          "colors": [
+            "B",
+            "W",
+            "-",
+            "-"
+          ],
+          "ops": [
+            1,
+            7,
+            0,
+            0
+          ],
+          "boards": [
+            28,
+            35,
+            0,
+            0
+          ],
+          "cumulatives": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "score": 1
+        },
+        {
+          "name": "Nagathan, Aksh",
+          "pair_number": 11,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            8,
+            9,
+            8,
+            0,
+            1,
+            5
+          ],
+          "results": [
+            "W",
+            "W",
+            "L",
+            "W"
+          ],
+          "colors": [
+            "W",
+            "B",
+            "B",
+            "W"
+          ],
+          "ops": [
+            2,
+            16,
+            3,
+            15
+          ],
+          "boards": [
+            29,
+            31,
+            29,
+            31
+          ],
+          "cumulatives": [
+            1,
+            2,
+            2,
+            3
+          ],
+          "score": 3
+        },
+        {
+          "name": "Manikandan, Kirubakaran",
+          "pair_number": 12,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            2.5,
+            6.5,
+            0,
+            0,
+            0,
+            1
+          ],
+          "results": [
+            "L",
+            "L",
+            "L",
+            "B"
+          ],
+          "colors": [
+            "B",
+            "B",
+            "B",
+            "-"
+          ],
+          "ops": [
+            3,
+            2,
+            9,
+            0
+          ],
+          "boards": [
+            30,
+            32,
+            35,
+            0
+          ],
+          "cumulatives": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "score": 1
+        },
+        {
+          "name": "K S Prathiksha",
+          "pair_number": 13,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            5.5,
+            8.5,
+            4,
+            0,
+            0,
+            0.5
+          ],
+          "results": [
+            "W",
+            "L",
+            "L",
+            "L"
+          ],
+          "colors": [
+            "W",
+            "W",
+            "B",
+            "B"
+          ],
+          "ops": [
+            4,
+            1,
+            6,
+            8
+          ],
+          "boards": [
+            31,
+            28,
+            31,
+            33
+          ],
+          "cumulatives": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "score": 1
+        },
+        {
+          "name": "Saranraj, Dhiyan",
+          "pair_number": 14,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            6,
+            12,
+            6,
+            0,
+            1,
+            5
+          ],
+          "results": [
+            "W",
+            "L",
+            "W",
+            "L"
+          ],
+          "colors": [
+            "W",
+            "W",
+            "B",
+            "B"
+          ],
+          "ops": [
+            6,
+            3,
+            8,
+            5
+          ],
+          "boards": [
+            33,
+            29,
+            33,
+            29
+          ],
+          "cumulatives": [
+            1,
+            1,
+            2,
+            2
+          ],
+          "score": 2
+        },
+        {
+          "name": "Morimoto, Hana",
+          "pair_number": 15,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            5,
+            9,
+            6,
+            0,
+            0,
+            3
+          ],
+          "results": [
+            "W",
+            "L",
+            "W",
+            "L"
+          ],
+          "colors": [
+            "W",
+            "W",
+            "W",
+            "B"
+          ],
+          "ops": [
+            8,
+            5,
+            2,
+            11
+          ],
+          "boards": [
+            35,
+            30,
+            30,
+            31
+          ],
+          "cumulatives": [
+            1,
+            1,
+            2,
+            2
+          ],
+          "score": 2
+        },
+        {
+          "name": "Modem, Chinmayee",
+          "pair_number": 16,
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+            5.5,
+            9,
+            6,
+            0,
+            2,
+            2.5
+          ],
+          "results": [
+            "W",
+            "L",
+            "W",
+            "L"
+          ],
+          "colors": [
+            "B",
+            "W",
+            "B",
+            "W"
+          ],
+          "ops": [
+            7,
+            11,
+            4,
+            6
+          ],
+          "boards": [
+            34,
+            31,
+            34,
+            30
+          ],
+          "cumulatives": [
+            1,
+            1,
+            2,
+            2
+          ],
+          "score": 2
+        },
+        {
+          "name": "Adhwik Deepan",
+          "pair_number": 17,
           "rating": 0,
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
             0,
             0,
+            5,
             0,
             0,
-            0,
-            0
+            4
           ],
           "results": [
-            "U",
-            "U",
+            "B",
+            "B",
             "U",
             "U"
           ],
@@ -1130,196 +3636,12 @@
             0
           ],
           "cumulatives": [
-            0,
-            0,
-            0,
-            0
-          ],
-          "score": 0
-        },
-        {
-          "name": "Sheshanand, Balaji",
-          "pair_number": 7,
-          "rating": 0,
-          "rating2": 0,
-          "class": " ",
-          "tiebreaks": [
-            2.5,
-            5,
-            1.5,
-            0.5,
-            0,
-            2.25
-          ],
-          "results": [
-            "L",
-            "L",
-            "B",
-            "D"
-          ],
-          "colors": [
-            "W",
-            "B",
-            "-",
-            "W"
-          ],
-          "ops": [
-            2,
-            10,
-            0,
-            8
-          ],
-          "boards": [
-            2,
-            12,
-            0,
-            13
-          ],
-          "cumulatives": [
-            0,
-            0,
-            1,
-            1.5
-          ],
-          "score": 1.5
-        },
-        {
-          "name": "Renjith, Vihaan",
-          "pair_number": 8,
-          "rating": 0,
-          "rating2": 0,
-          "class": " ",
-          "tiebreaks": [
-            2,
-            6,
-            2.5,
-            0.5,
-            0,
-            2.25
-          ],
-          "results": [
-            "L",
-            "B",
-            "L",
-            "D"
-          ],
-          "colors": [
-            "B",
-            "-",
-            "W",
-            "B"
-          ],
-          "ops": [
-            4,
-            0,
-            1,
-            7
-          ],
-          "boards": [
-            3,
-            0,
-            13,
-            13
-          ],
-          "cumulatives": [
-            0,
-            1,
-            1,
-            1.5
-          ],
-          "score": 1.5
-        },
-        {
-          "name": "Ganesh, Krishav",
-          "pair_number": 9,
-          "rating": 0,
-          "rating2": 0,
-          "class": " ",
-          "tiebreaks": [
-            4.5,
-            8.5,
-            6,
-            1,
-            1,
-            4
-          ],
-          "results": [
-            "B",
-            "W",
-            "L",
-            "L"
-          ],
-          "colors": [
-            "-",
-            "B",
-            "W",
-            "W"
-          ],
-          "ops": [
-            0,
-            2,
-            4,
-            5
-          ],
-          "boards": [
-            0,
-            9,
-            10,
-            11
-          ],
-          "cumulatives": [
             1,
             2,
             2,
             2
           ],
           "score": 2
-        },
-        {
-          "name": "Gunaseelan, Vrishank",
-          "pair_number": 10,
-          "rating": 0,
-          "rating2": 0,
-          "class": " ",
-          "tiebreaks": [
-            6.5,
-            7.5,
-            6,
-            0.5,
-            0,
-            3.75
-          ],
-          "results": [
-            "D",
-            "W",
-            "L",
-            "W"
-          ],
-          "colors": [
-            "B",
-            "W",
-            "B",
-            "W"
-          ],
-          "ops": [
-            3,
-            7,
-            5,
-            1
-          ],
-          "boards": [
-            4,
-            12,
-            12,
-            12
-          ],
-          "cumulatives": [
-            0.5,
-            1.5,
-            1.5,
-            2.5
-          ],
-          "score": 2.5
         }
       ],
       "clubs": [
