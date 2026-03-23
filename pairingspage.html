@@ -39,15 +39,14 @@
       font-weight: 700;
       letter-spacing: 0.5px;
       text-transform: uppercase;
-      gap: 0.75rem;
+      gap: 0.6rem;
     }
 
     .top-bar-left {
       display: flex;
       align-items: center;
       gap: 0.6rem;
-      min-width: 0;
-      overflow: hidden;
+      flex-shrink: 0; /* timestamp never shrinks */
     }
 
     .refresh-dot {
@@ -102,7 +101,7 @@
       gap: 0.75rem;
     }
 
-    .header-left { min-width: 0; flex: 1; }
+    .header-left { flex: 1; }
 
     .event-title {
       font-size: clamp(0.95rem, 4.5vw, 1.6rem);
@@ -125,25 +124,52 @@
     .event-meta span { color: var(--gray-600); }
 
     .filter-pill {
-      display: inline-flex;
+      display: none; /* hidden until data loads */
       align-items: center;
       gap: 0.35rem;
-      background: var(--text);
-      color: var(--bg);
-      font-size: 0.6rem;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      font-size: 0.62rem;
       font-weight: 700;
       letter-spacing: 0.4px;
       text-transform: uppercase;
-      padding: 0.28rem 0.55rem;
+      padding: 0.28rem 0.6rem;
       cursor: pointer;
-      border: none;
+      border: 1px solid rgba(255,255,255,0.35);
       font-family: 'Montserrat', sans-serif;
-      flex-shrink: 0;
-      white-space: nowrap;
+      flex-shrink: 1;
+      min-width: 0;
+      overflow: hidden;
       -webkit-tap-highlight-color: transparent;
+      transition: background 0.2s;
     }
 
-    .filter-pill .x { opacity: 0.5; margin-left: 1px; }
+    .filter-pill:hover { background: rgba(255,255,255,0.25); }
+
+    .filter-pill-text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .filter-pill .x { opacity: 0.55; flex-shrink: 0; margin-left: 1px; }
+
+    /* Filter button: icon-only once pill is visible */
+    .top-bar-filter-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1rem;
+      line-height: 1;
+      padding: 0.25rem 0.3rem;
+      cursor: pointer;
+      flex-shrink: 0;
+      -webkit-tap-highlight-color: transparent;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .top-bar-filter-btn:hover { opacity: 1; }
 
     /* ── Section tabs — wraps to 2 rows, full names ── */
     .section-tabs {
@@ -769,7 +795,11 @@
     <div class="refresh-dot" id="refreshDot"></div>
     <span class="top-bar-ts" id="tsLeft">—</span>
   </div>
-  <button class="top-bar-filter-btn" id="openPopupBtn">⊞ Filter</button>
+  <button class="filter-pill" id="filterPillBtn">
+    <span class="filter-pill-text" id="filterPillText">—</span>
+    <span class="x">✕</span>
+  </button>
+  <button class="top-bar-filter-btn" id="openPopupBtn" title="Filter">⊞</button>
 </div>
 
 <header class="site-header">
@@ -777,10 +807,6 @@
     <div class="event-title" id="eventTitle">Loading…</div>
     <div class="event-meta" id="eventMeta"></div>
   </div>
-  <button class="filter-pill" id="filterPillBtn" style="display:none">
-    <span id="filterPillText">—</span>
-    <span class="x">✕</span>
-  </button>
 </header>
 
 <div class="section-tabs" id="sectionTabs"></div>
