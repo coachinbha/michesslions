@@ -6,7 +6,7 @@
     "state": "MI",
     "country": "USA",
     "td": "Inbha",
-    "time_stamp": "3/24/2026 - 11:29",
+    "time_stamp": "3/24/2026 - 11:33",
     "affiliate": ""
   },
   "options": {
@@ -1563,7 +1563,7 @@
     },
     {
       "section": "U1000 A",
-      "rounds_paired": 0,
+      "rounds_paired": 1,
       "rounds_played": 0,
       "final_round": false,
       "standings": [
@@ -1596,74 +1596,69 @@
       ],
       "pairings": [
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 14,
+          "black": 1,
+          "board": 24
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 2,
+          "black": 15,
+          "board": 25
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 16,
+          "black": 3,
+          "board": 26
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 4,
+          "black": 17,
+          "board": 27
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 18,
+          "black": 5,
+          "board": 28
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 6,
+          "black": 19,
+          "board": 29
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 20,
+          "black": 7,
+          "board": 30
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 8,
+          "black": 21,
+          "board": 31
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 22,
+          "black": 9,
+          "board": 32
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 10,
+          "black": 23,
+          "board": 33
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 24,
+          "black": 11,
+          "board": 34
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 12,
+          "black": 25,
+          "board": 35
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
-        },
-        {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 26,
+          "black": 13,
+          "board": 36
         }
       ],
       "tiebreaks": [
@@ -1683,14 +1678,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            14
           ],
           "boards": [
+            24
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -1706,14 +1706,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            15
           ],
           "boards": [
+            25
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -1729,14 +1734,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            16
           ],
           "boards": [
+            26
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -1752,14 +1762,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            17
           ],
           "boards": [
+            27
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -1775,14 +1790,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            18
           ],
           "boards": [
+            28
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -1798,14 +1818,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            19
           ],
           "boards": [
+            29
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -1821,14 +1846,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            20
           ],
           "boards": [
+            30
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -1844,14 +1874,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            21
           ],
           "boards": [
+            31
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -1867,14 +1902,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            22
           ],
           "boards": [
+            32
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -1890,14 +1930,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            23
           ],
           "boards": [
+            33
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -1913,14 +1958,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            24
           ],
           "boards": [
+            34
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -1936,14 +1986,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            25
           ],
           "boards": [
+            35
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -1959,14 +2014,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            26
           ],
           "boards": [
+            36
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -1982,14 +2042,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            1
           ],
           "boards": [
+            24
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2005,14 +2070,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            2
           ],
           "boards": [
+            25
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2029,14 +2099,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            3
           ],
           "boards": [
+            26
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2052,14 +2127,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            4
           ],
           "boards": [
+            27
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2075,14 +2155,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            5
           ],
           "boards": [
+            28
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2099,14 +2184,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            6
           ],
           "boards": [
+            29
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2122,14 +2212,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            7
           ],
           "boards": [
+            30
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2145,14 +2240,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            8
           ],
           "boards": [
+            31
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2168,14 +2268,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            9
           ],
           "boards": [
+            32
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2192,14 +2297,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            10
           ],
           "boards": [
+            33
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2216,14 +2326,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            11
           ],
           "boards": [
+            34
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2240,14 +2355,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            12
           ],
           "boards": [
+            35
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2263,14 +2383,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            13
           ],
           "boards": [
+            36
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         }
@@ -2316,7 +2441,7 @@
     },
     {
       "section": "U1000 B",
-      "rounds_paired": 0,
+      "rounds_paired": 1,
       "rounds_played": 0,
       "final_round": false,
       "standings": [
@@ -2348,67 +2473,67 @@
       ],
       "pairings": [
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 13,
+          "black": 1,
+          "board": 37
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 2,
+          "black": 14,
+          "board": 38
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 16,
+          "black": 3,
+          "board": 39
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 4,
+          "black": 17,
+          "board": 40
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 18,
+          "black": 5,
+          "board": 41
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 6,
+          "black": 19,
+          "board": 42
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 20,
+          "black": 7,
+          "board": 43
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 8,
+          "black": 21,
+          "board": 44
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 22,
+          "black": 9,
+          "board": 45
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 10,
+          "black": 23,
+          "board": 46
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 24,
+          "black": 11,
+          "board": 47
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 12,
+          "black": 25,
+          "board": 48
         },
         {
-          "white": 0,
+          "white": 15,
           "black": 0,
           "board": 0
         }
@@ -2430,14 +2555,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            13
           ],
           "boards": [
+            37
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2453,14 +2583,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            14
           ],
           "boards": [
+            38
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2476,14 +2611,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            16
           ],
           "boards": [
+            39
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2499,14 +2639,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            17
           ],
           "boards": [
+            40
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2522,14 +2667,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            18
           ],
           "boards": [
+            41
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2545,14 +2695,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            19
           ],
           "boards": [
+            42
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2568,14 +2723,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            20
           ],
           "boards": [
+            43
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2591,14 +2751,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            21
           ],
           "boards": [
+            44
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2614,14 +2779,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            22
           ],
           "boards": [
+            45
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2637,14 +2807,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            23
           ],
           "boards": [
+            46
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2661,14 +2836,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            24
           ],
           "boards": [
+            47
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2685,14 +2865,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            25
           ],
           "boards": [
+            48
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2708,14 +2893,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            1
           ],
           "boards": [
+            37
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2731,14 +2921,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            2
           ],
           "boards": [
+            38
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2754,14 +2949,19 @@
           "tiebreaks": [
           ],
           "results": [
+            "B"
           ],
           "colors": [
+            "-"
           ],
           "ops": [
+            0
           ],
           "boards": [
+            0
           ],
           "cumulatives": [
+            1
           ],
           "score": 0
         },
@@ -2778,14 +2978,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            3
           ],
           "boards": [
+            39
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2802,14 +3007,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            4
           ],
           "boards": [
+            40
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2825,14 +3035,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            5
           ],
           "boards": [
+            41
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2849,14 +3064,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            6
           ],
           "boards": [
+            42
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2872,14 +3092,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            7
           ],
           "boards": [
+            43
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2895,14 +3120,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            8
           ],
           "boards": [
+            44
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2919,14 +3149,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            9
           ],
           "boards": [
+            45
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2943,14 +3178,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            10
           ],
           "boards": [
+            46
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2966,14 +3206,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            11
           ],
           "boards": [
+            47
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -2989,14 +3234,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            12
           ],
           "boards": [
+            48
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         }
