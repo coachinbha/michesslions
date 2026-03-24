@@ -43,7 +43,6 @@
       text-transform: uppercase;
     }
 
-    /* Single row: search takes remaining space */
     .top-bar-search {
       display: flex;
       align-items: center;
@@ -111,7 +110,6 @@
 
     .top-bar-search-clear.visible { display: block; }
 
-    /* ── Filter button — clear text label next to search ── */
     .top-bar-filter-btn {
       flex-shrink: 0;
       background: rgba(255,255,255,0.12);
@@ -130,7 +128,6 @@
       gap: 0.35rem;
       -webkit-tap-highlight-color: transparent;
       transition: background 0.2s, border-color 0.2s;
-      /* match exact height of the search input */
       align-self: stretch;
     }
 
@@ -139,10 +136,8 @@
       border-color: rgba(255,255,255,0.6);
     }
 
-    /* Filter pill hidden — the button itself serves as the indicator */
     .filter-pill { display: none !important; }
 
-    /* ── Site header ── */
     .site-header {
       border-bottom: 1px solid var(--gray-200);
       padding: 0.75rem 1.25rem 0.6rem;
@@ -173,12 +168,6 @@
     }
 
     .event-meta span { color: var(--gray-600); }
-
-    /* Timestamp inside meta — same style, small separator */
-    .event-meta .ts-sep {
-      opacity: 0.4;
-      margin: 0 1px;
-    }
 
     .section-tabs {
       display: flex;
@@ -324,11 +313,9 @@
 
     .board-matchup { display: flex; flex-direction: column; }
 
-    /* ── Player row: allow wrapping so long names don't push badge out ── */
     .board-player-row {
       display: flex;
       align-items: flex-start;
-      /* wrap so that on very long names the badge drops to next line gracefully */
       flex-wrap: wrap;
       padding: 0.6rem 0.85rem;
       gap: 0.4rem 0.5rem;
@@ -342,7 +329,6 @@
       display: flex;
       flex-direction: column;
       gap: 2px;
-      /* Take all available space; badge will sit beside it until it can't */
       flex: 1 1 0;
       min-width: 0;
     }
@@ -353,7 +339,6 @@
       text-transform: uppercase;
       letter-spacing: 0.2px;
       line-height: 1.35;
-      /* Allow name to wrap naturally */
       word-break: break-word;
       white-space: normal;
     }
@@ -381,10 +366,8 @@
     .color-dot.W { background: #fff; border: 1px solid #bbb; }
     .color-dot.B { background: #000; }
 
-    /* Badge sits to the right of player-info; flex-shrink:0 keeps it from squishing */
     .result-badge {
       flex-shrink: 0;
-      /* Align to top of the player row */
       align-self: flex-start;
       margin-top: 1px;
       padding: 3px 6px;
@@ -412,6 +395,125 @@
       color: var(--gray-400);
     }
 
+    /* ── Registered players list (round 0) ── */
+    .reg-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.85rem;
+    }
+
+    .reg-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+    }
+
+    .reg-count {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      padding: 0.2rem 0.55rem;
+    }
+
+    .reg-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 0.5rem;
+      border-bottom: 1px solid var(--gray-200);
+      cursor: pointer;
+      transition: background 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .reg-row:first-of-type { border-top: 2px solid var(--text); }
+    .reg-row:active { background: var(--gray-100); }
+
+    .reg-num {
+      font-size: 0.75rem;
+      font-weight: 900;
+      color: var(--gray-200);
+      width: 26px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .reg-info { flex: 1; min-width: 0; }
+
+    .reg-name {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .reg-name mark {
+      background: #000;
+      color: #fff;
+      padding: 0 1px;
+    }
+
+    .reg-sub {
+      font-size: 0.62rem;
+      color: var(--gray-400);
+      margin-top: 1px;
+    }
+
+    .reg-rating {
+      font-size: 1rem;
+      font-weight: 900;
+      flex-shrink: 0;
+      width: 44px;
+      text-align: right;
+    }
+
+    .reg-rating.unrated {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+    }
+
+    .waiting-banner {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: var(--gray-600);
+    }
+
+    .waiting-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--gray-400);
+      flex-shrink: 0;
+      animation: pulse 1.4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
+    }
+
+    /* ── Standings ── */
     .standings-list { display: flex; flex-direction: column; margin-top: 0.75rem; }
 
     .standing-row {
@@ -602,7 +704,6 @@
 
     .popup-close:hover { color: var(--text); }
 
-    /* Two-mode popup: 'browse' (default) and 'search' */
     .popup-mode-btns {
       display: flex;
       gap: 0.35rem;
@@ -718,9 +819,7 @@
     .popup-go-btn:active { opacity: 0.75; }
 
     /* ── Popup player search ── */
-    .popup-player-search-wrap {
-      margin-bottom: 0;
-    }
+    .popup-player-search-wrap { margin-bottom: 0; }
 
     .popup-player-search-inner {
       position: relative;
@@ -970,10 +1069,7 @@
       flex-shrink: 0;
     }
 
-    .pc-opp {
-      flex: 1;
-      min-width: 0;
-    }
+    .pc-opp { flex: 1; min-width: 0; }
 
     .pc-opp-name {
       font-size: 0.78rem;
@@ -1179,7 +1275,7 @@
       autocomplete="off" autocorrect="off" spellcheck="false" />
     <button class="top-bar-search-clear" id="globalSearchClear">✕</button>
   </div>
-  <button class="top-bar-filter-btn" id="openPopupBtn" title="Filter by section &amp; round">
+  <button class="top-bar-filter-btn" id="openPopupBtn" title="Filter by section">
     <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
       <line x1="0" y1="1" x2="12" y2="1" stroke="white" stroke-width="1.5"/>
       <line x1="2" y1="5" x2="10" y2="5" stroke="white" stroke-width="1.5"/>
@@ -1192,12 +1288,10 @@
 <header class="site-header">
   <div class="header-left">
     <div class="event-title" id="eventTitle">Loading…</div>
-    <!-- timestamp is now injected here alongside city/td -->
     <div class="event-meta" id="eventMeta"></div>
   </div>
 </header>
 
-<!-- Results replace main content while searching -->
 <div class="global-results" id="globalResults"></div>
 
 <div class="section-tabs" id="sectionTabs"></div>
@@ -1221,7 +1315,6 @@
       <div class="popup-title">Choose what to view</div>
       <button class="popup-close" id="popupClose">✕</button>
     </div>
-    <!-- Mode toggle -->
     <div class="popup-mode-btns">
       <button class="popup-mode-btn active" id="modeBrowseBtn" onclick="setPopupMode('browse')">
         <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1239,7 +1332,6 @@
         Find my player
       </button>
     </div>
-    <!-- Browse panel: section + round pickers -->
     <div class="popup-browse-panel" id="popupBrowsePanel">
       <div class="popup-section-label">Section</div>
       <div class="popup-options sections-grid" id="sectionOptions"></div>
@@ -1256,7 +1348,6 @@
       </div>
       <button class="popup-go-btn" id="popupGoBtn">View Pairings</button>
     </div>
-    <!-- Search panel: find my player -->
     <div class="popup-search-panel hidden" id="popupSearchPanel">
       <div class="popup-player-search-wrap" id="popupPlayerSearchWrap">
         <div class="popup-player-search-inner">
@@ -1319,7 +1410,6 @@ async function loadData() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const fresh = await res.json();
 
-    // No-pairings state: hide chrome, show holding screen
     if (fresh.no_pairings) {
       showNoPairings();
       return;
@@ -1343,16 +1433,13 @@ async function loadData() {
 }
 
 function showNoPairings() {
-  // Hide interactive chrome
   document.querySelector('.top-bar').style.display = 'none';
   document.getElementById('sectionTabs').style.display = 'none';
   document.querySelector('.view-tabs').style.display = 'none';
   document.getElementById('searchWrap').style.display = 'none';
   document.getElementById('globalResults').style.display = 'none';
-  // Neutral header
   document.getElementById('eventTitle').textContent = 'Michigan Chess Lions';
   document.getElementById('eventMeta').innerHTML = '';
-  // Holding screen
   document.getElementById('content').innerHTML = `
     <div class="no-pairings-screen">
       <div class="no-pairings-icon">♟</div>
@@ -1368,11 +1455,16 @@ function initApp() {
   const d = tournamentData;
   document.title = d.event.name;
   updateHeader();
-  d.sections.forEach((sec, i) => { activeRound[i] = sec.rounds_paired; });
+  d.sections.forEach((sec, i) => {
+    // For round 0 sections, set activeRound to 1 so browsing works later
+    activeRound[i] = Math.max(sec.rounds_paired, 1);
+  });
   buildSectionTabs();
   buildViewTabs();
   buildPopupSections();
-  showPopup();
+  // Only auto-open popup if there are actual rounds to browse
+  const hasAnyRounds = d.sections.some(s => s.rounds_paired > 0);
+  if (hasAnyRounds) showPopup();
   renderContent();
 }
 
@@ -1419,7 +1511,11 @@ function buildViewTabs() {
 }
 
 function updateSearchBar() {
-  document.getElementById('searchWrap').classList.toggle('visible', activeView === 'pairings');
+  const sec = tournamentData && tournamentData.sections[activeSectionIdx];
+  const isPairings = activeView === 'pairings';
+  const hasRounds  = sec && sec.rounds_paired > 0;
+  // Show local search bar only for pairings view when rounds exist
+  document.getElementById('searchWrap').classList.toggle('visible', isPairings && hasRounds);
 }
 
 document.getElementById('searchInput').addEventListener('input', e => {
@@ -1456,7 +1552,11 @@ function clearSearch() {
 function updateFilterPill() {
   const btn = document.getElementById('openPopupBtn');
   const sec = tournamentData.sections[activeSectionIdx];
-  const rnd = browseMode ? 'All' : `Rd ${activeRound[activeSectionIdx]}`;
+  const rnd = sec.rounds_paired === 0
+    ? 'Registered'
+    : browseMode
+      ? `All Rounds`
+      : `Rd ${activeRound[activeSectionIdx]}`;
   btn.innerHTML = `<svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="1" x2="12" y2="1" stroke="white" stroke-width="1.5"/><line x1="2" y1="5" x2="10" y2="5" stroke="white" stroke-width="1.5"/><line x1="4" y1="9" x2="8" y2="9" stroke="white" stroke-width="1.5"/></svg>${sec.section} · ${rnd}`;
 }
 
@@ -1530,7 +1630,7 @@ document.getElementById('popupGoBtn').onclick = () => {
   activeSectionIdx = popupSectionIdx;
   browseMode = (popupRound === 'all');
   if (!browseMode)
-    activeRound[activeSectionIdx] = tournamentData.sections[activeSectionIdx].rounds_paired;
+    activeRound[activeSectionIdx] = Math.max(tournamentData.sections[activeSectionIdx].rounds_paired, 1);
   document.querySelectorAll('.section-tab').forEach((t, i) =>
     t.classList.toggle('active', i === activeSectionIdx));
   activeView = 'pairings';
@@ -1551,7 +1651,7 @@ function renderContent() {
     activeView === 'pairings'
       ? renderPairings(sec, playerMap)
       : renderStandings(sec, playerMap);
-  if (activeView === 'pairings') {
+  if (activeView === 'pairings' && sec.rounds_paired > 0) {
     document.getElementById('prevRound')?.addEventListener('click', () => {
       activeRound[activeSectionIdx]--;
       clearSearch();
@@ -1593,7 +1693,40 @@ function highlightName(name) {
     name.slice(idx + searchQuery.length);
 }
 
+// ── FIX: render a registered players list when no rounds have been paired yet ──
+function renderRegistered(sec) {
+  const players = [...sec.players].sort((a, b) => (b.rating || 0) - (a.rating || 0));
+  let html = `
+    <div class="waiting-banner">
+      <div class="waiting-dot"></div>
+      Waiting for round 1 pairings
+    </div>
+    <div class="reg-header">
+      <span class="reg-title">Registered Players</span>
+      <span class="reg-count">${players.length} players</span>
+    </div>`;
+  players.forEach((p, i) => {
+    const name   = playerShortName(p.name);
+    const rating = p.rating || 0;
+    html += `
+      <div class="reg-row" onclick="openPlayerCardInSection(${p.pair_number}, ${activeSectionIdx})">
+        <div class="reg-num">${i + 1}</div>
+        <div class="reg-info">
+          <div class="reg-name">${name}</div>
+          <div class="reg-sub">${p.id1 ? p.id1 : ''}${p.state ? ' · ' + p.state : ''}</div>
+        </div>
+        <div class="reg-rating ${rating === 0 ? 'unrated' : ''}">${rating > 0 ? rating : 'Unr'}</div>
+      </div>`;
+  });
+  return html;
+}
+
 function renderPairings(sec, playerMap) {
+  // ── Round 0: no pairings yet — show registered players instead ──
+  if (sec.rounds_paired === 0) {
+    return renderRegistered(sec);
+  }
+
   const totalRounds = sec.rounds_paired;
   const round       = activeRound[activeSectionIdx];
   const roundIdx    = round - 1;
@@ -1618,20 +1751,22 @@ function renderPairings(sec, playerMap) {
   let boards = [];
 
   if (round === totalRounds && sec.pairings.length) {
-    boards = sec.pairings.map(p => {
-      if (!p.board || !p.black) {
-        const byePlayer = playerMap[p.white];
-        const byeResult = byePlayer?.results?.[roundIdx];
-        return { board: 999, bye: byePlayer, byeResult: byeResult || 'B' };
-      }
-      return {
-        board: p.board,
-        white: playerMap[p.white],
-        black: playerMap[p.black],
-        whiteResult: playerMap[p.white]?.results?.[roundIdx],
-        blackResult: playerMap[p.black]?.results?.[roundIdx],
-      };
-    });
+    boards = sec.pairings
+      .filter(p => p.white !== 0 || p.black !== 0) // skip placeholder entries
+      .map(p => {
+        if (!p.board || !p.black) {
+          const byePlayer = playerMap[p.white];
+          const byeResult = byePlayer?.results?.[roundIdx];
+          return { board: 999, bye: byePlayer, byeResult: byeResult || 'B' };
+        }
+        return {
+          board: p.board,
+          white: playerMap[p.white],
+          black: playerMap[p.black],
+          whiteResult: playerMap[p.white]?.results?.[roundIdx],
+          blackResult: playerMap[p.black]?.results?.[roundIdx],
+        };
+      });
   } else {
     const seen = new Set();
     const tmp  = [];
@@ -1980,10 +2115,35 @@ function runGlobalSearch(q) {
       ? p.cumulatives[p.cumulatives.length - 1]
       : (p.score ?? '—');
 
+    const idx = display.toLowerCase().indexOf(ql);
+    const hlName = idx === -1 ? display
+      : display.slice(0, idx) +
+        `<mark>${display.slice(idx, idx + q.length)}</mark>` +
+        display.slice(idx + q.length);
+
+    const pips = (p.results || []).map(r =>
+      `<div class="r-pip ${r}" title="${resultLabel(r)}">${r}</div>`).join('');
+
+    // Round 0: no pairing row needed, just show registration info
+    if (sec.rounds_paired === 0) {
+      html += `
+        <div class="gs-card" onclick="openPlayerCardInSection(${p.pair_number}, ${si})">
+          <div class="gs-card-top">
+            <div class="gs-name">${hlName}</div>
+            <div class="gs-score" style="font-size:0.72rem;color:var(--gray-400)">${p.rating > 0 ? p.rating : 'Unr'}</div>
+          </div>
+          <div class="gs-card-meta">
+            <span class="gs-section-tag">${sec.section}</span>
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.3px;text-transform:uppercase;color:var(--gray-400)">Registered</span>
+          </div>
+        </div>`;
+      return;
+    }
+
     const oppNum    = p.ops?.[roundIdx];
     const color     = p.colors?.[roundIdx];
     const result    = p.results?.[roundIdx];
-    const board     = p.boards?.[roundIdx];   // ← board number added here
+    const board     = p.boards?.[roundIdx];
     const opp       = oppNum ? playerMap[oppNum] : null;
     const oppName   = opp
       ? playerShortName(opp.name)
@@ -1996,16 +2156,6 @@ function runGlobalSearch(q) {
       : '';
     const colorLabel = color === 'W' ? 'White' : color === 'B' ? 'Black' : '';
 
-    const idx = display.toLowerCase().indexOf(ql);
-    const hlName = idx === -1 ? display
-      : display.slice(0, idx) +
-        `<mark>${display.slice(idx, idx + q.length)}</mark>` +
-        display.slice(idx + q.length);
-
-    const pips = (p.results || []).map(r =>
-      `<div class="r-pip ${r}" title="${resultLabel(r)}">${r}</div>`).join('');
-
-    // Build the pairing label: "Rd 1 · Bd 3" if board is known, else just "Rd 1"
     const pairingLabel = `Rd ${sec.rounds_paired}${board ? ' · Bd ' + board : ''}`;
 
     html += `
