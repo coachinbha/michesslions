@@ -1,3 +1,400 @@
 {
-  "no_pairings": true
+  "event": {
+    "name": "test event",
+    "date": "2026/3/24",
+    "city": "south lyon",
+    "state": "MI",
+    "country": "USA",
+    "td": "Raj",
+    "time_stamp": "3/24/2026 - 11:11",
+    "affiliate": ""
+  },
+  "options": {
+    "fide_format": false,
+    "wchart_team": false,
+    "wchart_state": false,
+    "wchart_club": false,
+    "wchart_age": false,
+    "show_handle": false,
+    "standings_post": false,
+    "standings_team": false,
+    "standings_state": false,
+    "standings_club": false,
+    "standings_id": true,
+    "standings_age": false,
+    "standings_prize": false,
+    "pchart_pairnums": true,
+    "pchart_boardnums": true,
+    "pchart_team": false,
+    "pchart_club": false,
+    "master_list_sort": "name",
+    "reg_exp2": true,
+    "reg_byes": true,
+    "reg_flag": true,
+    "reg_age": true,
+    "reg_team": true,
+    "reg_fed": false,
+    "reg_id2": false,
+    "reg_rating2": false,
+    "reg_state": false,
+    "reg_sex": false,
+    "reg_sort": 0,
+    "math_symbols": false,
+    "include_rating": false,
+    "uscf_ids": true
+  },
+  "sections": [
+    {
+      "section": "OPEN",
+      "rounds_paired": 0,
+      "rounds_played": 0,
+      "final_round": true,
+      "standings": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "pairings": [
+      ],
+      "tiebreaks": [
+      ],
+      "team_tiebreaks": [
+      ],
+      "players": [
+        {
+          "name": "Nick",
+          "pair_number": 1,
+          "rating": 2100,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0
+        },
+        {
+          "name": "Penny",
+          "pair_number": 2,
+          "rating": 2000,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0
+        },
+        {
+          "name": "Jackie",
+          "pair_number": 3,
+          "rating": 2000,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0
+        },
+        {
+          "name": "Pickle",
+          "pair_number": 4,
+          "rating": 1950,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0
+        },
+        {
+          "name": "Billy",
+          "pair_number": 5,
+          "rating": 1900,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0
+        },
+        {
+          "name": "Nicholas",
+          "pair_number": 6,
+          "rating": 1800,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0
+        }
+      ],
+      "clubs": [
+      ]
+    },
+    {
+      "section": "u1400",
+      "rounds_paired": 0,
+      "rounds_played": 0,
+      "final_round": true,
+      "standings": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "pairings": [
+      ],
+      "tiebreaks": [
+      ],
+      "team_tiebreaks": [
+      ],
+      "players": [
+        {
+          "name": "Rishab",
+          "pair_number": 1,
+          "rating": 1800,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0
+        },
+        {
+          "name": "Messi",
+          "pair_number": 2,
+          "rating": 1600,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0
+        },
+        {
+          "name": "Bob",
+          "pair_number": 3,
+          "rating": 1400,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0
+        },
+        {
+          "name": "Nice",
+          "pair_number": 4,
+          "rating": 1400,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0
+        },
+        {
+          "name": "Joe",
+          "pair_number": 5,
+          "rating": 1300,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0
+        },
+        {
+          "name": "Miller",
+          "pair_number": 6,
+          "rating": 900,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0
+        },
+        {
+          "name": "Guy",
+          "pair_number": 7,
+          "rating": 800,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0
+        },
+        {
+          "name": "Jack",
+          "pair_number": 8,
+          "rating": 780,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0
+        },
+        {
+          "name": "Ben",
+          "pair_number": 9,
+          "id1": "1200",
+          "rating": 0,
+          "rating2": 0,
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0
+        }
+      ],
+      "clubs": [
+      ]
+    }
+  ]
 }
