@@ -1379,7 +1379,6 @@ function initApp() {
 function updateHeader() {
   const ev = tournamentData.event;
   document.getElementById('eventTitle').textContent = ev.name;
-  // Timestamp folded into the same meta line, no emoji — plain separator
   document.getElementById('eventMeta').innerHTML =
     `<span>${ev.city}, ${ev.state}</span>`
     + ` · TD: <span>${ev.td}</span>`
@@ -1455,7 +1454,6 @@ function clearSearch() {
 }
 
 function updateFilterPill() {
-  // Filter button label reflects current section + round
   const btn = document.getElementById('openPopupBtn');
   const sec = tournamentData.sections[activeSectionIdx];
   const rnd = browseMode ? 'All' : `Rd ${activeRound[activeSectionIdx]}`;
@@ -1492,7 +1490,6 @@ function setPopupMode(mode) {
     search.classList.remove('hidden');
     btnBrowse.classList.remove('active');
     btnSearch.classList.add('active');
-    // Focus the input after a frame so the sheet has rendered
     requestAnimationFrame(() => document.getElementById('popupPlayerSearchInput').focus());
   } else {
     search.classList.add('hidden');
@@ -1513,7 +1510,6 @@ function showPopup() {
 
 function hidePopup() {
   document.getElementById('popupOverlay').classList.remove('visible');
-  // defer so the closing animation completes before clearing
   setTimeout(resetPopupPlayerSearch, 300);
 }
 
@@ -1905,9 +1901,7 @@ function runPopupPlayerSearch(q) {
 }
 
 function selectPopupPlayer(pairNum, sectionIdx) {
-  // Close popup, set the global search to show this player, open their card
   hidePopup();
-  // Populate the global search bar and fire global search
   const sec = tournamentData.sections[sectionIdx];
   const playerMap = buildPlayerMap(sec.players);
   const p = playerMap[pairNum];
@@ -1918,7 +1912,6 @@ function selectPopupPlayer(pairNum, sectionIdx) {
   runGlobalSearch(name);
 }
 
-// Reset popup search when popup closes
 function resetPopupPlayerSearch() {
   popupPlayerInput.value = '';
   popupPlayerClear.classList.remove('visible');
@@ -1990,6 +1983,7 @@ function runGlobalSearch(q) {
     const oppNum    = p.ops?.[roundIdx];
     const color     = p.colors?.[roundIdx];
     const result    = p.results?.[roundIdx];
+    const board     = p.boards?.[roundIdx];   // ← board number added here
     const opp       = oppNum ? playerMap[oppNum] : null;
     const oppName   = opp
       ? playerShortName(opp.name)
@@ -2011,6 +2005,9 @@ function runGlobalSearch(q) {
     const pips = (p.results || []).map(r =>
       `<div class="r-pip ${r}" title="${resultLabel(r)}">${r}</div>`).join('');
 
+    // Build the pairing label: "Rd 1 · Bd 3" if board is known, else just "Rd 1"
+    const pairingLabel = `Rd ${sec.rounds_paired}${board ? ' · Bd ' + board : ''}`;
+
     html += `
       <div class="gs-card" onclick="openPlayerCardInSection(${p.pair_number}, ${si})">
         <div class="gs-card-top">
@@ -2022,7 +2019,7 @@ function runGlobalSearch(q) {
           <div class="s-pips" style="display:flex;gap:2px">${pips}</div>
         </div>
         <div class="gs-pairing-row">
-          <span class="gs-pairing-label">Rd ${sec.rounds_paired}</span>
+          <span class="gs-pairing-label">${pairingLabel}</span>
           <span class="gs-opp-name">${oppName}</span>
           <span class="gs-color">${colorDot}${colorLabel ? '&nbsp;' + colorLabel : ''}</span>
         </div>
