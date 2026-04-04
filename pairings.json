@@ -6,7 +6,7 @@
     "state": "MI",
     "country": "USA",
     "td": "Inbha",
-    "time_stamp": "4/4/2026 - 13:23",
+    "time_stamp": "4/4/2026 - 13:44",
     "affiliate": ""
   },
   "options": {
@@ -46,38 +46,38 @@
   "sections": [
     {
       "section": "UPPER",
-      "rounds_paired": 2,
-      "rounds_played": 1,
+      "rounds_paired": 3,
+      "rounds_played": 2,
       "final_round": false,
       "standings": [
         1,
         5,
+        4,
         6,
         7,
-        2,
         3,
-        4,
-        8
+        8,
+        2
       ],
       "pairings": [
         {
-          "white": 7,
-          "black": 1,
+          "white": 1,
+          "black": 5,
           "board": 1
         },
         {
-          "white": 5,
+          "white": 4,
           "black": 6,
           "board": 2
         },
         {
-          "white": 2,
-          "black": 4,
+          "white": 3,
+          "black": 7,
           "board": 3
         },
         {
-          "white": 3,
-          "black": 8,
+          "white": 8,
+          "black": 2,
           "board": 4
         }
       ],
@@ -99,25 +99,30 @@
           ],
           "results": [
             "W",
+            "W",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             3,
-            7
+            7,
+            5
           ],
           "boards": [
             5,
+            1,
             1
           ],
           "cumulatives": [
             1,
-            1
+            2,
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "Brandt, Benjamin Jay",
@@ -132,21 +137,26 @@
           ],
           "results": [
             "L",
+            "L",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             6,
-            4
+            4,
+            8
           ],
           "boards": [
             2,
-            3
+            3,
+            4
           ],
           "cumulatives": [
+            0,
             0,
             0
           ],
@@ -164,25 +174,30 @@
           ],
           "results": [
             "L",
+            "D",
             " "
           ],
           "colors": [
             "B",
+            "W",
             "W"
           ],
           "ops": [
             1,
-            8
+            8,
+            7
           ],
           "boards": [
             5,
-            4
+            4,
+            3
           ],
           "cumulatives": [
             0,
-            0
+            0.5,
+            0.5
           ],
-          "score": 0
+          "score": 0.5
         },
         {
           "name": "Bieda, John Raymond",
@@ -197,25 +212,30 @@
           ],
           "results": [
             "L",
+            "W",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             7,
-            2
+            2,
+            6
           ],
           "boards": [
             3,
-            3
+            3,
+            2
           ],
           "cumulatives": [
             0,
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "Wang, Grace Ofia Nuoyi",
@@ -230,25 +250,30 @@
           ],
           "results": [
             "W",
+            "W",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             8,
-            6
+            6,
+            1
           ],
           "boards": [
             4,
-            2
+            2,
+            1
           ],
           "cumulatives": [
             1,
-            1
+            2,
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "Prakash, Sanmay",
@@ -263,21 +288,26 @@
           ],
           "results": [
             "W",
+            "L",
             " "
           ],
           "colors": [
             "W",
+            "B",
             "B"
           ],
           "ops": [
             2,
-            5
+            5,
+            4
           ],
           "boards": [
+            2,
             2,
             2
           ],
           "cumulatives": [
+            1,
             1,
             1
           ],
@@ -296,21 +326,26 @@
           ],
           "results": [
             "W",
+            "L",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             4,
-            1
+            1,
+            3
           ],
           "boards": [
             3,
-            1
+            1,
+            3
           ],
           "cumulatives": [
+            1,
             1,
             1
           ],
@@ -329,112 +364,118 @@
           ],
           "results": [
             "L",
+            "D",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             5,
-            3
+            3,
+            2
           ],
           "boards": [
+            4,
             4,
             4
           ],
           "cumulatives": [
             0,
-            0
+            0.5,
+            0.5
           ],
-          "score": 0
+          "score": 0.5
         }
       ]
     },
     {
       "section": "U1400",
-      "rounds_paired": 2,
-      "rounds_played": 1,
+      "rounds_paired": 3,
+      "rounds_played": 2,
       "final_round": false,
       "standings": [
-        1,
-        2,
         3,
-        5,
-        6,
         7,
         8,
-        20,
-        22,
-        4,
-        9,
-        13,
+        23,
         15,
-        21,
-        10,
+        22,
+        1,
+        2,
+        4,
+        5,
+        6,
+        9,
         11,
         12,
-        14,
+        19,
+        20,
+        10,
+        13,
         16,
+        14,
         17,
         18,
-        19
+        21
       ],
       "pairings": [
         {
-          "white": 1,
-          "black": 8,
+          "white": 8,
+          "black": 3,
           "board": 5
         },
         {
-          "white": 7,
-          "black": 2,
+          "white": 23,
+          "black": 7,
           "board": 6
         },
         {
-          "white": 3,
-          "black": 20,
+          "white": 15,
+          "black": 22,
           "board": 7
         },
         {
-          "white": 22,
-          "black": 6,
+          "white": 9,
+          "black": 1,
           "board": 8
         },
         {
-          "white": 9,
-          "black": 4,
+          "white": 2,
+          "black": 12,
           "board": 9
         },
         {
-          "white": 13,
-          "black": 21,
+          "white": 4,
+          "black": 11,
           "board": 10
         },
         {
-          "white": 16,
+          "white": 6,
+          "black": 19,
+          "board": 11
+        },
+        {
+          "white": 20,
           "black": 10,
           "board": 12
         },
         {
-          "white": 11,
-          "black": 18,
+          "white": 13,
+          "black": 16,
           "board": 13
         },
         {
-          "white": 17,
-          "black": 12,
+          "white": 14,
+          "black": 17,
           "board": 14
         },
         {
-          "white": 19,
-          "black": 14,
+          "white": 18,
+          "black": 21,
           "board": 15
-        },
-        {
-          "white": 15,
-          "black": 0,
-          "board": 0
         }
       ],
       "tiebreaks": [
@@ -455,21 +496,26 @@
           ],
           "results": [
             "W",
+            "L",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             12,
-            8
+            8,
+            9
           ],
           "boards": [
             6,
-            5
+            5,
+            8
           ],
           "cumulatives": [
+            1,
             1,
             1
           ],
@@ -488,21 +534,26 @@
           ],
           "results": [
             "W",
+            "L",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             11,
-            7
+            7,
+            12
           ],
           "boards": [
             5,
-            6
+            6,
+            9
           ],
           "cumulatives": [
+            1,
             1,
             1
           ],
@@ -521,25 +572,30 @@
           ],
           "results": [
             "W",
+            "W",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             14,
-            20
+            20,
+            8
           ],
           "boards": [
             8,
-            7
+            7,
+            5
           ],
           "cumulatives": [
             1,
-            1
+            2,
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "Yanni, Tamer",
@@ -554,25 +610,30 @@
           ],
           "results": [
             "D",
+            "D",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             15,
-            9
+            9,
+            11
           ],
           "boards": [
             9,
-            9
+            9,
+            10
           ],
           "cumulatives": [
             0.5,
-            0.5
+            1,
+            1
           ],
-          "score": 0.5
+          "score": 1
         },
         {
           "name": "Saraf, Ayan Akash",
@@ -587,21 +648,26 @@
           ],
           "results": [
             "W",
+            "U",
             "U"
           ],
           "colors": [
             "B",
+            "-",
             "-"
           ],
           "ops": [
             16,
+            0,
             0
           ],
           "boards": [
             10,
+            0,
             0
           ],
           "cumulatives": [
+            1,
             1,
             1
           ],
@@ -620,21 +686,26 @@
           ],
           "results": [
             "W",
+            "L",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             17,
-            22
+            23,
+            19
           ],
           "boards": [
             11,
-            8
+            8,
+            11
           ],
           "cumulatives": [
+            1,
             1,
             1
           ],
@@ -653,25 +724,30 @@
           ],
           "results": [
             "W",
+            "W",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             18,
-            2
+            2,
+            23
           ],
           "boards": [
             12,
+            6,
             6
           ],
           "cumulatives": [
             1,
-            1
+            2,
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "Shaji, Madhav",
@@ -686,25 +762,30 @@
           ],
           "results": [
             "W",
+            "W",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             19,
-            1
+            1,
+            3
           ],
           "boards": [
             13,
+            5,
             5
           ],
           "cumulatives": [
             1,
-            1
+            2,
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "Shanmuga, Aarya",
@@ -719,25 +800,30 @@
           ],
           "results": [
             "D",
+            "D",
             " "
           ],
           "colors": [
             "B",
+            "W",
             "W"
           ],
           "ops": [
-            21,
-            4
+            22,
+            4,
+            1
           ],
           "boards": [
             14,
-            9
+            9,
+            8
           ],
           "cumulatives": [
             0.5,
-            0.5
+            1,
+            1
           ],
-          "score": 0.5
+          "score": 1
         },
         {
           "name": "PILLAI, Arya",
@@ -752,25 +838,30 @@
           ],
           "results": [
             "L",
+            "D",
             " "
           ],
           "colors": [
             "W",
+            "B",
             "B"
           ],
           "ops": [
-            22,
-            16
+            23,
+            16,
+            20
           ],
           "boards": [
             15,
+            12,
             12
           ],
           "cumulatives": [
             0,
-            0
+            0.5,
+            0.5
           ],
-          "score": 0
+          "score": 0.5
         },
         {
           "name": "Talwar, Neil",
@@ -785,25 +876,30 @@
           ],
           "results": [
             "L",
+            "W",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             2,
-            18
+            18,
+            4
           ],
           "boards": [
             5,
-            13
+            13,
+            10
           ],
           "cumulatives": [
             0,
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "Sumesh, Isabella Cecily",
@@ -818,25 +914,30 @@
           ],
           "results": [
             "L",
+            "W",
             " "
           ],
           "colors": [
             "W",
+            "B",
             "B"
           ],
           "ops": [
             1,
-            17
+            17,
+            2
           ],
           "boards": [
             6,
-            14
+            14,
+            9
           ],
           "cumulatives": [
             0,
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "Ouma, Isaac",
@@ -851,21 +952,26 @@
           ],
           "results": [
             "Z",
+            "L",
             " "
           ],
           "colors": [
             "-",
+            "W",
             "W"
           ],
           "ops": [
             0,
-            21
+            22,
+            16
           ],
           "boards": [
             0,
-            10
+            10,
+            13
           ],
           "cumulatives": [
+            0.5,
             0.5,
             0.5
           ],
@@ -884,21 +990,26 @@
           ],
           "results": [
             "L",
+            "L",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             3,
-            19
+            19,
+            17
           ],
           "boards": [
             8,
-            15
+            15,
+            14
           ],
           "cumulatives": [
+            0,
             0,
             0
           ],
@@ -917,25 +1028,30 @@
           ],
           "results": [
             "D",
-            "X"
+            "X",
+            " "
           ],
           "colors": [
             "B",
-            "-"
+            "-",
+            "W"
           ],
           "ops": [
             4,
-            0
+            0,
+            22
           ],
           "boards": [
             9,
-            0
+            0,
+            7
           ],
           "cumulatives": [
             0.5,
+            1.5,
             1.5
           ],
-          "score": 0.5
+          "score": 1.5
         },
         {
           "name": "Pradeep, Viyan Durai",
@@ -950,25 +1066,30 @@
           ],
           "results": [
             "L",
+            "D",
             " "
           ],
           "colors": [
             "W",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             5,
-            10
+            10,
+            13
           ],
           "boards": [
             10,
-            12
+            12,
+            13
           ],
           "cumulatives": [
             0,
-            0
+            0.5,
+            0.5
           ],
-          "score": 0
+          "score": 0.5
         },
         {
           "name": "Jingade, Ridhay",
@@ -983,21 +1104,26 @@
           ],
           "results": [
             "L",
+            "L",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             6,
-            12
+            12,
+            14
           ],
           "boards": [
             11,
+            14,
             14
           ],
           "cumulatives": [
+            0,
             0,
             0
           ],
@@ -1016,21 +1142,26 @@
           ],
           "results": [
             "L",
+            "L",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             7,
-            11
+            11,
+            21
           ],
           "boards": [
             12,
-            13
+            13,
+            15
           ],
           "cumulatives": [
+            0,
             0,
             0
           ],
@@ -1049,25 +1180,30 @@
           ],
           "results": [
             "L",
+            "W",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             8,
-            14
+            14,
+            6
           ],
           "boards": [
             13,
-            15
+            15,
+            11
           ],
           "cumulatives": [
             0,
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "Abraham, Sumesh",
@@ -1082,29 +1218,72 @@
           ],
           "results": [
             "B",
+            "L",
             " "
           ],
           "colors": [
             "-",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             0,
-            3
+            3,
+            10
           ],
           "boards": [
             0,
-            7
+            7,
+            12
           ],
           "cumulatives": [
+            1,
             1,
             1
           ],
           "score": 1
         },
         {
-          "name": "JENNINGS, Elijah D",
+          "name": "GARDNER, Byron G",
           "pair_number": 21,
+          "id1": "30167947",
+          "rating": 625,
+          "rating2": 474,
+          "exp1": "07/31/2026",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+            "U",
+            "U",
+            " "
+          ],
+          "colors": [
+            "-",
+            "-",
+            "B"
+          ],
+          "ops": [
+            0,
+            0,
+            18
+          ],
+          "boards": [
+            0,
+            0,
+            15
+          ],
+          "cumulatives": [
+            0,
+            0,
+            0
+          ],
+          "score": 0
+        },
+        {
+          "name": "JENNINGS, Elijah D",
+          "pair_number": 22,
           "id1": "32921838",
           "rating": 0,
           "rating2": 0,
@@ -1115,29 +1294,34 @@
           ],
           "results": [
             "D",
+            "W",
             " "
           ],
           "colors": [
             "W",
+            "B",
             "B"
           ],
           "ops": [
             9,
-            13
+            13,
+            15
           ],
           "boards": [
             14,
-            10
+            10,
+            7
           ],
           "cumulatives": [
             0.5,
-            0.5
+            1.5,
+            1.5
           ],
-          "score": 0.5
+          "score": 1.5
         },
         {
           "name": "Boddeti, Surya",
-          "pair_number": 22,
+          "pair_number": 23,
           "id1": "32915049",
           "rating": 0,
           "rating2": 0,
@@ -1148,25 +1332,30 @@
           ],
           "results": [
             "W",
+            "W",
             " "
           ],
           "colors": [
             "B",
+            "W",
             "W"
           ],
           "ops": [
             10,
-            6
+            6,
+            7
           ],
           "boards": [
             15,
-            8
+            8,
+            6
           ],
           "cumulatives": [
             1,
-            1
+            2,
+            2
           ],
-          "score": 1
+          "score": 2
         }
       ]
     },
