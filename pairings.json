@@ -6,7 +6,7 @@
     "state": "MI",
     "country": "USA",
     "td": "Inbha",
-    "time_stamp": "4/4/2026 - 11:39",
+    "time_stamp": "4/4/2026 - 11:46",
     "affiliate": ""
   },
   "options": {
@@ -359,24 +359,24 @@
       "standings": [
         2,
         3,
+        4,
+        6,
         7,
         8,
         9,
-        15,
-        16,
         21,
         23,
-        6,
+        5,
         10,
         14,
-        17,
+        16,
         22,
         1,
-        4,
-        5,
         11,
         12,
         13,
+        15,
+        17,
         18,
         19,
         20
@@ -388,23 +388,23 @@
           "board": 5
         },
         {
-          "white": 16,
+          "white": 8,
           "black": 3,
           "board": 6
         },
         {
-          "white": 23,
-          "black": 7,
+          "white": 4,
+          "black": 21,
           "board": 7
         },
         {
-          "white": 8,
-          "black": 15,
+          "white": 23,
+          "black": 7,
           "board": 8
         },
         {
           "white": 10,
-          "black": 21,
+          "black": 5,
           "board": 9
         },
         {
@@ -413,28 +413,28 @@
           "board": 10
         },
         {
-          "white": 1,
-          "black": 17,
+          "white": 16,
+          "black": 1,
           "board": 11
         },
         {
-          "white": 4,
-          "black": 13,
-          "board": 12
-        },
-        {
-          "white": 18,
-          "black": 5,
-          "board": 13
-        },
-        {
-          "white": 20,
+          "white": 17,
           "black": 11,
-          "board": 14
+          "board": 12
         },
         {
           "white": 12,
           "black": 19,
+          "board": 13
+        },
+        {
+          "white": 18,
+          "black": 13,
+          "board": 14
+        },
+        {
+          "white": 20,
+          "black": 15,
           "board": 15
         }
       ],
@@ -460,11 +460,11 @@
           ],
           "colors": [
             "-",
-            "W"
+            "B"
           ],
           "ops": [
             0,
-            17
+            16
           ],
           "boards": [
             0,
@@ -530,7 +530,7 @@
           ],
           "ops": [
             12,
-            16
+            8
           ],
           "boards": [
             5,
@@ -554,7 +554,7 @@
           "tiebreaks": [
           ],
           "results": [
-            "L",
+            "W",
             " "
           ],
           "colors": [
@@ -563,17 +563,17 @@
           ],
           "ops": [
             15,
-            13
+            21
           ],
           "boards": [
             8,
-            12
+            7
           ],
           "cumulatives": [
-            0,
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "Yanni, Tamer",
@@ -587,7 +587,7 @@
           "tiebreaks": [
           ],
           "results": [
-            "L",
+            "D",
             " "
           ],
           "colors": [
@@ -596,17 +596,17 @@
           ],
           "ops": [
             16,
-            18
+            10
           ],
           "boards": [
             9,
-            13
+            9
           ],
           "cumulatives": [
-            0,
-            0
+            0.5,
+            0.5
           ],
-          "score": 0
+          "score": 0.5
         },
         {
           "name": "Saraf, Ayan Akash",
@@ -620,7 +620,7 @@
           "tiebreaks": [
           ],
           "results": [
-            "D",
+            "W",
             "U"
           ],
           "colors": [
@@ -636,10 +636,10 @@
             0
           ],
           "cumulatives": [
-            0.5,
-            0.5
+            1,
+            1
           ],
-          "score": 0.5
+          "score": 1
         },
         {
           "name": "BURDZINSKI, Jan Ra",
@@ -666,7 +666,7 @@
           ],
           "boards": [
             11,
-            7
+            8
           ],
           "cumulatives": [
             1,
@@ -695,11 +695,11 @@
           ],
           "ops": [
             19,
-            15
+            3
           ],
           "boards": [
             12,
-            8
+            6
           ],
           "cumulatives": [
             1,
@@ -761,7 +761,7 @@
           ],
           "ops": [
             22,
-            21
+            5
           ],
           "boards": [
             14,
@@ -794,11 +794,11 @@
           ],
           "ops": [
             23,
-            20
+            17
           ],
           "boards": [
             15,
-            14
+            12
           ],
           "cumulatives": [
             0,
@@ -831,7 +831,7 @@
           ],
           "boards": [
             5,
-            15
+            13
           ],
           "cumulatives": [
             0,
@@ -860,11 +860,11 @@
           ],
           "ops": [
             2,
-            4
+            18
           ],
           "boards": [
             6,
-            12
+            14
           ],
           "cumulatives": [
             0,
@@ -917,7 +917,7 @@
           "tiebreaks": [
           ],
           "results": [
-            "W",
+            "L",
             " "
           ],
           "colors": [
@@ -926,17 +926,17 @@
           ],
           "ops": [
             4,
-            8
+            20
           ],
           "boards": [
             8,
-            8
+            15
           ],
           "cumulatives": [
-            1,
-            1
+            0,
+            0
           ],
-          "score": 1
+          "score": 0
         },
         {
           "name": "Veeraraghavan, Kannan",
@@ -950,7 +950,7 @@
           "tiebreaks": [
           ],
           "results": [
-            "W",
+            "D",
             " "
           ],
           "colors": [
@@ -959,17 +959,17 @@
           ],
           "ops": [
             5,
-            3
+            1
           ],
           "boards": [
             9,
-            6
+            11
           ],
           "cumulatives": [
-            1,
-            1
+            0.5,
+            0.5
           ],
-          "score": 1
+          "score": 0.5
         },
         {
           "name": "Pradeep, Viyan Durai",
@@ -983,26 +983,26 @@
           "tiebreaks": [
           ],
           "results": [
-            "D",
+            "L",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "W"
           ],
           "ops": [
             6,
-            1
+            11
           ],
           "boards": [
             10,
-            11
+            12
           ],
           "cumulatives": [
-            0.5,
-            0.5
+            0,
+            0
           ],
-          "score": 0.5
+          "score": 0
         },
         {
           "name": "Jingade, Ridhay",
@@ -1025,11 +1025,11 @@
           ],
           "ops": [
             7,
-            5
+            13
           ],
           "boards": [
             11,
-            13
+            14
           ],
           "cumulatives": [
             0,
@@ -1062,7 +1062,7 @@
           ],
           "boards": [
             12,
-            15
+            13
           ],
           "cumulatives": [
             0,
@@ -1091,11 +1091,11 @@
           ],
           "ops": [
             9,
-            11
+            15
           ],
           "boards": [
             13,
-            14
+            15
           ],
           "cumulatives": [
             0,
@@ -1124,11 +1124,11 @@
           ],
           "ops": [
             0,
-            10
+            4
           ],
           "boards": [
             0,
-            9
+            7
           ],
           "cumulatives": [
             1,
@@ -1194,7 +1194,7 @@
           ],
           "boards": [
             15,
-            7
+            8
           ],
           "cumulatives": [
             1,
