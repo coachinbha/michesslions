@@ -17,7 +17,6 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* FIX: height anchor on html prevents iOS vh miscalculation */
         html {
             scroll-behavior: smooth;
             height: -webkit-fill-available;
@@ -28,10 +27,8 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.4;
-            /* FIX: -webkit-fill-available prevents address-bar jump on iOS */
             min-height: 100vh;
             min-height: -webkit-fill-available;
-            /* FIX: clip instead of hidden — does not create a scroll container on iOS */
             overflow-x: clip;
             position: relative;
         }
@@ -43,7 +40,6 @@
             border-bottom: 1px solid var(--gray-200);
             z-index: 1000;
             transition: box-shadow .3s ease;
-            /* FIX: GPU layer for fixed element + backface prevents repaint flicker on iOS scroll */
             -webkit-transform: translateZ(0);
             transform: translateZ(0);
             -webkit-backface-visibility: hidden;
@@ -171,14 +167,14 @@
         }
 
         .tournament-card {
-            flex: 0 1 350px; max-width: 450px;
+            flex: 0 1 380px; max-width: 420px;
             background-color: var(--bg-color); border: 2px solid var(--text-color);
-            padding: 2rem; cursor: pointer; transition: all 0.3s ease;
+            padding: 2rem 2.5rem; cursor: pointer; transition: all 0.3s ease;
             position: relative; min-height: 200px;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
         }
         .tournament-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .tournament-card h3 { font-size: 1.8rem; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 1rem; text-align: center; }
+        .tournament-card h3 { font-size: 1.4rem; font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; margin-bottom: 1rem; text-align: center; line-height: 1.3; }
         .tournament-card p { font-size: 1rem; color: #666; margin-bottom: 1.5rem; text-align: center; }
 
         .cta-button {
@@ -230,7 +226,6 @@
         @keyframes slideOut { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-50px); } }
 
         /* ── RESPONSIVE ─────────────────────────────────────── */
-        /* FIX: only body gets overflow-x: clip, not html */
         @media (max-width: 768px) {
             body { overflow-x: clip; width: 100%; }
             .navbar { width: 100%; left: 0; right: 0; }
@@ -368,8 +363,8 @@
         const tournaments = [
             {
                 id: 'troy-tournament',
-                name: "Chess Lions Troy Tournament - at the Wyndham Hotel",
-                description: 'Join us for our premier hotel event held at the Wingate by Wyndham Troy.',
+                name: "Chess Lions May Open - At the Holiday Inn Express Farmington Hills",
+                description: 'Join us for a bigger, professional event now at the beautiful Holiday Inn in Farmington Hills.',
                 formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSeCqgnDtHe43s-3p6RcpknMG3qoYMn3qK3h3tH8o6F6PcWDUA/viewform?embedded=true'
             }
         ];
