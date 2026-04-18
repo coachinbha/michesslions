@@ -6,7 +6,7 @@
     "state": "MI",
     "country": "USA",
     "td": "Sundar",
-    "time_stamp": "4/18/2026 - 6:45",
+    "time_stamp": "4/18/2026 - 8:57",
     "affiliate": ""
   },
   "options": {
@@ -75,7 +75,8 @@
         23,
         24,
         25,
-        26
+        26,
+        27
       ],
       "pairings": [
       ],
@@ -155,8 +156,31 @@
           "score": 0
         },
         {
-          "name": "VENKATASUBBA, Krishna",
+          "name": "ADAMSKI, Christopher Edward",
           "pair_number": 4,
+          "id1": "33066359",
+          "rating": 1726,
+          "rating2": 0,
+          "exp1": "03/31/2027",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0
+        },
+        {
+          "name": "VENKATASUBBA, Krishna",
+          "pair_number": 5,
           "id1": "12798593",
           "rating": 1700,
           "rating2": 1687,
@@ -179,7 +203,7 @@
         },
         {
           "name": "JACKSON, Randell Herbert",
-          "pair_number": 5,
+          "pair_number": 6,
           "id1": "10905567",
           "rating": 1618,
           "rating2": 1502,
@@ -201,7 +225,7 @@
         },
         {
           "name": "VALENZUELA, Thomas",
-          "pair_number": 6,
+          "pair_number": 7,
           "id1": "16847083",
           "rating": 1612,
           "rating2": 1400,
@@ -224,7 +248,7 @@
         },
         {
           "name": "KUHN, Timothy",
-          "pair_number": 7,
+          "pair_number": 8,
           "id1": "12394833",
           "rating": 1500,
           "rating2": 1441,
@@ -247,7 +271,7 @@
         },
         {
           "name": "THOMPSON, Samuel Oren",
-          "pair_number": 8,
+          "pair_number": 9,
           "id1": "13670096",
           "rating": 1462,
           "rating2": 1398,
@@ -270,7 +294,7 @@
         },
         {
           "name": "NI, Ho Ming",
-          "pair_number": 9,
+          "pair_number": 10,
           "id1": "32130668",
           "rating": 1420,
           "rating2": 1203,
@@ -293,7 +317,7 @@
         },
         {
           "name": "HRISTOV, Emil",
-          "pair_number": 10,
+          "pair_number": 11,
           "id1": "30438217",
           "rating": 1402,
           "rating2": 1304,
@@ -316,7 +340,7 @@
         },
         {
           "name": "BURGIRENO, Joe",
-          "pair_number": 11,
+          "pair_number": 12,
           "id1": "12662177",
           "rating": 1354,
           "rating2": 1081,
@@ -339,7 +363,7 @@
         },
         {
           "name": "CAO, Albert",
-          "pair_number": 12,
+          "pair_number": 13,
           "id1": "31919113",
           "rating": 1307,
           "rating2": 1198,
@@ -362,7 +386,7 @@
         },
         {
           "name": "VIJAYENDRAN, Akash",
-          "pair_number": 13,
+          "pair_number": 14,
           "id1": "30209190",
           "rating": 1254,
           "rating2": 1186,
@@ -385,11 +409,12 @@
         },
         {
           "name": "BORA, Parthiv Reddy",
-          "pair_number": 14,
+          "pair_number": 15,
           "id1": "31810221",
           "rating": 1186,
           "rating2": 1002,
           "exp1": "03/31/2027",
+          "team": "SHAJI",
           "state": "MI",
           "class": " ",
           "tiebreaks": [
@@ -408,7 +433,7 @@
         },
         {
           "name": "BHARATH, Kundhavi",
-          "pair_number": 15,
+          "pair_number": 16,
           "id1": "31842324",
           "rating": 1084,
           "rating2": 1051,
@@ -431,7 +456,7 @@
         },
         {
           "name": "CROWE, Jason",
-          "pair_number": 16,
+          "pair_number": 17,
           "id1": "32530544",
           "rating": 1081,
           "rating2": 1049,
@@ -454,7 +479,7 @@
         },
         {
           "name": "BOKHARI, Ibraheem",
-          "pair_number": 17,
+          "pair_number": 18,
           "id1": "32330869",
           "rating": 1076,
           "rating2": 1005,
@@ -477,7 +502,7 @@
         },
         {
           "name": "POTTELU, Roshan",
-          "pair_number": 18,
+          "pair_number": 19,
           "id1": "32165918",
           "rating": 1074,
           "rating2": 1032,
@@ -501,7 +526,7 @@
         },
         {
           "name": "BURDZINSKI, Jan Raymond",
-          "pair_number": 19,
+          "pair_number": 20,
           "id1": "12583552",
           "rating": 1062,
           "rating2": 904,
@@ -524,11 +549,12 @@
         },
         {
           "name": "SINGH, Karan",
-          "pair_number": 20,
+          "pair_number": 21,
           "id1": "31074909",
           "rating": 1049,
           "rating2": 1063,
           "exp1": "03/31/2027",
+          "team": "SHAJI",
           "state": "MI",
           "class": " ",
           "tiebreaks": [
@@ -547,7 +573,7 @@
         },
         {
           "name": "MEDIDHA, Jayansh Rao",
-          "pair_number": 21,
+          "pair_number": 22,
           "id1": "31778790",
           "rating": 1032,
           "rating2": 928,
@@ -570,7 +596,7 @@
         },
         {
           "name": "BERKOWSKI, Joseph",
-          "pair_number": 22,
+          "pair_number": 23,
           "id1": "31608620",
           "rating": 1019,
           "rating2": 946,
@@ -593,11 +619,12 @@
         },
         {
           "name": "SHAJI, Madhav",
-          "pair_number": 23,
+          "pair_number": 24,
           "id1": "32215606",
           "rating": 1007,
           "rating2": 839,
           "exp1": "01/31/2027",
+          "team": "SHAJI",
           "state": "MI",
           "class": " ",
           "tiebreaks": [
@@ -616,7 +643,7 @@
         },
         {
           "name": "LILLIE, Otis",
-          "pair_number": 24,
+          "pair_number": 25,
           "id1": "16957093",
           "rating": 986,
           "rating2": 887,
@@ -639,11 +666,12 @@
         },
         {
           "name": "SHANMUGA, Aarya",
-          "pair_number": 25,
+          "pair_number": 26,
           "id1": "31543413",
           "rating": 984,
           "rating2": 940,
           "exp1": "01/31/2027",
+          "team": "SHAJI",
           "state": "MI",
           "class": " ",
           "tiebreaks": [
@@ -662,7 +690,7 @@
         },
         {
           "name": "TALWAR, Neil",
-          "pair_number": 26,
+          "pair_number": 27,
           "id1": "17001388",
           "rating": 969,
           "rating2": 943,
@@ -686,6 +714,40 @@
       ],
       "teams": [
         {
+          "code": "SHAJI",
+          "team": "SHAJI",
+          "rating": "1056.5",
+          "score": 0,
+          "team_tiebreaks": [
+          ],
+          "members": [
+            {
+              "pair_number": 15,
+              "name": "BORA, Parthiv Reddy",
+              "rating": 1186,
+              "score": 0
+            },
+            {
+              "pair_number": 21,
+              "name": "SINGH, Karan",
+              "rating": 1049,
+              "score": 0
+            },
+            {
+              "pair_number": 24,
+              "name": "SHAJI, Madhav",
+              "rating": 1007,
+              "score": 0
+            },
+            {
+              "pair_number": 26,
+              "name": "SHANMUGA, Aarya",
+              "rating": 984,
+              "score": 0
+            }
+          ]
+        },
+        {
           "code": "MAHES",
           "team": "MAHES",
           "rating": "1053.0",
@@ -694,13 +756,13 @@
           ],
           "members": [
             {
-              "pair_number": 18,
+              "pair_number": 19,
               "name": "POTTELU, Roshan",
               "rating": 1074,
               "score": 0
             },
             {
-              "pair_number": 21,
+              "pair_number": 22,
               "name": "MEDIDHA, Jayansh Rao",
               "rating": 1032,
               "score": 0
@@ -758,8 +820,7 @@
         39,
         40,
         41,
-        42,
-        43
+        42
       ],
       "pairings": [
       ],
@@ -1218,7 +1279,6 @@
           "exp1": "07/31/2026",
           "state": "MI",
           "class": " ",
-          "byes": "1",
           "tiebreaks": [
           ],
           "results": [
@@ -1723,29 +1783,6 @@
           "id1": "NEW",
           "rating": 0,
           "rating2": 0,
-          "class": " ",
-          "tiebreaks": [
-          ],
-          "results": [
-          ],
-          "colors": [
-          ],
-          "ops": [
-          ],
-          "boards": [
-          ],
-          "cumulatives": [
-          ],
-          "score": 0
-        },
-        {
-          "name": "ADAMSKI, Christopher Edward",
-          "pair_number": 43,
-          "id1": "33066359",
-          "rating": 0,
-          "rating2": 0,
-          "exp1": "03/31/2027",
-          "state": "MI",
           "class": " ",
           "tiebreaks": [
           ],
