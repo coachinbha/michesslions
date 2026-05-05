@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Dashboard</title>
+    <title>Chess Lions — Tournament Hub</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
     <style>
         :root {
             --bg: #fafafa;
@@ -17,13 +18,11 @@
             --card: #ffffff;
             --border: #e0e0e0;
             --hover: #f5f5f5;
+            --success: #1a7a3a;
+            --error: #c0392b;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Montserrat', sans-serif;
@@ -36,11 +35,9 @@
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image:
                 linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
             background-size: 40px 40px;
@@ -48,13 +45,9 @@
             z-index: -1;
         }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-        }
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem 1.5rem; }
 
-        /* Header */
+        /* ── Header ── */
         header {
             text-align: center;
             padding: 3rem 0 2rem;
@@ -78,12 +71,42 @@
             text-transform: uppercase;
         }
 
-        /* Compact Upload Section */
-        .upload-wrapper {
+        /* ── Nav Tabs ── */
+        .nav-tabs {
             display: flex;
-            justify-content: center;
+            gap: 0;
+            border-bottom: 1px solid var(--border);
             margin-bottom: 2rem;
         }
+
+        .nav-tab {
+            padding: 0.85rem 1.75rem;
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-bottom: -1px;
+            color: var(--muted);
+        }
+
+        .nav-tab:hover { color: var(--fg); background: var(--hover); }
+
+        .nav-tab.active {
+            color: var(--fg);
+            border-bottom-color: var(--fg);
+        }
+
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
+
+        /* ── Upload Zone ── */
+        .upload-wrapper { display: flex; justify-content: center; margin-bottom: 2rem; }
 
         .upload-zone {
             border: 1px solid var(--border);
@@ -96,26 +119,13 @@
             background: var(--card);
         }
 
-        .upload-zone:hover {
+        .upload-zone:hover, .upload-zone.drag-over {
             border-color: var(--accent);
             background: var(--hover);
         }
 
-        .upload-zone.drag-over {
-            border-color: var(--accent);
-            background: var(--hover);
-        }
-
-        .upload-icon {
-            width: 20px;
-            height: 20px;
-            stroke: var(--muted);
-            transition: stroke 0.3s ease;
-        }
-
-        .upload-zone:hover .upload-icon {
-            stroke: var(--accent);
-        }
+        .upload-icon { width: 20px; height: 20px; stroke: var(--muted); transition: stroke 0.3s ease; }
+        .upload-zone:hover .upload-icon { stroke: var(--accent); }
 
         .upload-text {
             font-size: 0.8rem;
@@ -125,11 +135,9 @@
             letter-spacing: 0.05em;
         }
 
-        #file-input {
-            display: none;
-        }
+        #file-input { display: none; }
 
-        /* Stats Bar */
+        /* ── Stats Bar ── */
         .stats-bar {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -146,9 +154,7 @@
             transition: background 0.3s ease;
         }
 
-        .stat-item:hover {
-            background: var(--hover);
-        }
+        .stat-item:hover { background: var(--hover); }
 
         .stat-number {
             font-size: 1.75rem;
@@ -166,7 +172,7 @@
             font-weight: 600;
         }
 
-        /* Filters - FIX: Added position and z-index */
+        /* ── Filters ── */
         .filters-section {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -175,15 +181,11 @@
             padding: 1.25rem;
             background: var(--card);
             border: 1px solid var(--border);
-            position: relative; /* Needed for z-index */
-            z-index: 20;       /* Sit above charts */
+            position: relative;
+            z-index: 20;
         }
 
-        .filter-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
+        .filter-group { display: flex; flex-direction: column; gap: 0.5rem; }
 
         .filter-group label {
             font-size: 0.7rem;
@@ -207,15 +209,10 @@
         }
 
         .filter-group select:focus,
-        .filter-group input:focus {
-            border-color: var(--accent);
-        }
+        .filter-group input:focus { border-color: var(--accent); }
 
-        /* Custom Multi-Select Dropdown Styles */
-        .multiselect-container {
-            position: relative;
-            user-select: none;
-        }
+        /* ── Multiselect ── */
+        .multiselect-container { position: relative; user-select: none; }
 
         .multiselect-box {
             padding: 0.6rem 0.8rem;
@@ -225,20 +222,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            min-height: 38px; 
+            min-height: 38px;
         }
 
-        .multiselect-box:hover {
-            border-color: var(--muted);
-        }
-
-        .multiselect-text {
-            font-size: 0.8rem;
-            font-weight: 500;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+        .multiselect-box:hover { border-color: var(--muted); }
+        .multiselect-text { font-size: 0.8rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
         .multiselect-arrow {
             border-style: solid;
@@ -250,28 +238,21 @@
             margin-bottom: 2px;
         }
 
-        .multiselect-container.open .multiselect-arrow {
-            transform: rotate(-135deg);
-        }
+        .multiselect-container.open .multiselect-arrow { transform: rotate(-135deg); }
 
-        /* FIX: Increased z-index */
         .multiselect-dropdown {
             position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
+            top: 100%; left: 0; right: 0;
             background: var(--card);
             border: 1px solid var(--border);
-            z-index: 1000; /* High z-index to ensure it's on top */
+            z-index: 1000;
             display: none;
             max-height: 200px;
             overflow-y: auto;
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
         }
 
-        .multiselect-container.open .multiselect-dropdown {
-            display: block;
-        }
+        .multiselect-container.open .multiselect-dropdown { display: block; }
 
         .multiselect-option {
             padding: 0.6rem 0.8rem;
@@ -283,40 +264,20 @@
             font-size: 0.8rem;
         }
 
-        .multiselect-option:hover {
-            background: var(--hover);
-        }
+        .multiselect-option:hover { background: var(--hover); }
 
-        /* Custom Checkbox */
         .custom-check {
-            width: 14px;
-            height: 14px;
+            width: 14px; height: 14px;
             border: 1px solid var(--muted);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             flex-shrink: 0;
         }
 
-        .custom-check svg {
-            stroke: var(--bg);
-            width: 10px;
-            height: 10px;
-            stroke-width: 3;
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
+        .custom-check svg { stroke: var(--bg); width: 10px; height: 10px; stroke-width: 3; opacity: 0; transition: opacity 0.2s; }
+        .multiselect-option.selected .custom-check { background: var(--fg); border-color: var(--fg); }
+        .multiselect-option.selected .custom-check svg { opacity: 1; }
 
-        .multiselect-option.selected .custom-check {
-            background: var(--fg);
-            border-color: var(--fg);
-        }
-
-        .multiselect-option.selected .custom-check svg {
-            opacity: 1;
-        }
-
-        /* Charts Section */
+        /* ── Charts ── */
         .charts-section {
             display: grid;
             grid-template-columns: 1fr 2fr;
@@ -325,7 +286,7 @@
             border: 1px solid var(--border);
             margin-bottom: 2rem;
             position: relative;
-            z-index: 1; /* Lower than filters */
+            z-index: 1;
         }
 
         .chart-card {
@@ -341,16 +302,11 @@
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin-bottom: 1rem;
-            color: var(--fg);
         }
 
-        .chart-container {
-            position: relative;
-            height: calc(100% - 2rem);
-            width: 100%;
-        }
+        .chart-container { position: relative; height: calc(100% - 2rem); width: 100%; }
 
-        /* Table Container */
+        /* ── Table ── */
         .table-container {
             width: 100%;
             overflow-x: auto;
@@ -359,20 +315,9 @@
             margin-bottom: 3rem;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 900px;
-            white-space: nowrap;
-        }
+        table { width: 100%; border-collapse: collapse; min-width: 900px; white-space: nowrap; }
 
-        thead {
-            background: var(--fg);
-            color: var(--bg);
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
+        thead { background: var(--fg); color: var(--bg); position: sticky; top: 0; z-index: 10; }
 
         th {
             padding: 0.8rem 1rem;
@@ -395,7 +340,6 @@
         }
 
         tr:hover td { background: var(--hover); }
-
         .col-name { font-weight: 600; }
 
         .col-section span {
@@ -406,53 +350,415 @@
             background: var(--bg);
             border: 1px solid var(--border);
         }
-        
-        .col-section span.rated {
-            background: var(--fg);
-            color: var(--bg);
-            border-color: var(--fg);
-        }
 
-        .col-contact a {
-            color: var(--muted);
-            text-decoration: none;
-        }
+        .col-section span.rated { background: var(--fg); color: var(--bg); border-color: var(--fg); }
 
+        .col-contact a { color: var(--muted); text-decoration: none; }
         .col-contact a:hover { color: var(--fg); }
 
-        /* Empty State */
-        .empty-state {
-            text-align: center;
-            padding: 4rem 2rem;
+        .no-results-row td { text-align: center; padding: 2rem; color: var(--muted); font-style: italic; }
+
+        /* ── Flagged rows ── */
+        tr.row-flagged td { background: #fffbf0; }
+        tr.row-flagged:hover td { background: #fff3d0; }
+
+        .uscf-missing {
+            color: #b45309;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 0.02em;
+        }
+
+        .flag-dot {
+            display: inline-block;
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: #f59e0b;
+            margin-left: 5px;
+            vertical-align: middle;
+            position: relative;
+            top: -1px;
+        }
+
+        .stat-flagged {
+            background: #fffbf0 !important;
+        }
+
+        .stat-flagged .stat-number { color: #b45309; }
+        .stat-flagged .stat-label  { color: #b45309; }
+
+        /* ── Empty State ── */
+        .empty-state { text-align: center; padding: 4rem 2rem; color: var(--muted); }
+        .empty-state svg { width: 60px; height: 60px; stroke: var(--border); margin-bottom: 1rem; }
+        .empty-state h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; color: var(--fg); }
+        .empty-state p { font-size: 0.8rem; }
+
+        /* ── Verifier Panel ── */
+        .verifier-tabs {
+            display: flex;
+            gap: 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .verifier-tab {
+            padding: 0.75rem 1.5rem;
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-bottom: -1px;
             color: var(--muted);
         }
 
-        .empty-state svg {
-            width: 60px;
-            height: 60px;
-            stroke: var(--border);
+        .verifier-tab:hover { color: var(--fg); }
+        .verifier-tab.active { color: var(--fg); border-bottom-color: var(--fg); }
+
+        .verifier-panel { display: none; }
+        .verifier-panel.active { display: block; }
+
+        .form-section {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .input-group { margin-bottom: 1.5rem; }
+
+        .input-group label {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .input-group input[type="text"],
+        .input-group input[type="file"] {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--fg);
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-group input[type="text"]:focus,
+        .input-group input[type="file"]:focus { border-color: var(--accent); }
+
+        .input-group input[type="file"] { cursor: pointer; }
+        .input-group input[type="file"]:hover { background: var(--hover); }
+
+        .verify-btn {
+            width: 100%;
+            padding: 0.85rem;
+            background: var(--fg);
+            color: var(--bg);
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .verify-btn:hover { background: #333; }
+        .verify-btn:disabled { background: #999; cursor: not-allowed; }
+
+        /* ── Result Card ── */
+        .result-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            display: none;
+        }
+
+        .result-card.visible { display: block; }
+
+        .result-heading {
+            font-size: 1.1rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
             margin-bottom: 1rem;
         }
 
-        .empty-state h3 {
-            font-size: 1rem;
+        .info-cell {
+            background: var(--card);
+            padding: 0.9rem 1rem;
+        }
+
+        .info-cell-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+            margin-bottom: 0.3rem;
+        }
+
+        .info-cell-value {
+            font-size: 0.9rem;
             font-weight: 600;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: 1px solid;
+        }
+
+        .status-active { background: var(--success); color: #fff; border-color: var(--success); }
+        .status-inactive { background: var(--error); color: #fff; border-color: var(--error); }
+
+        .ratings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            margin-top: 1rem;
+        }
+
+        .rating-cell {
+            background: var(--card);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .rating-cell:hover { background: var(--hover); }
+
+        .rating-type {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+            margin-bottom: 0.4rem;
+        }
+
+        .rating-value { font-size: 1.75rem; font-weight: 900; line-height: 1; margin-bottom: 0.2rem; }
+
+        .rating-floor {
+            font-size: 0.65rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .error-message {
+            background: #fff5f5;
+            border: 1px solid #ffc5c5;
+            padding: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .error-message .err-title {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--error);
             margin-bottom: 0.25rem;
+        }
+
+        .error-message p { font-size: 0.8rem; color: var(--fg); }
+
+        /* ── Bulk CSV Status ── */
+        .bulk-csv-status {
+            margin-bottom: 1.25rem;
+        }
+
+        .csv-loaded-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.75rem 1rem;
+            background: var(--hover);
+            border: 1px solid var(--border);
+        }
+
+        .csv-loaded-bar .csv-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .csv-loaded-bar .csv-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--success);
+            flex-shrink: 0;
+        }
+
+        .csv-loaded-bar .csv-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
             color: var(--fg);
         }
-        
-        .empty-state p { font-size: 0.8rem; }
 
-        .no-results-row td {
-            text-align: center;
-            padding: 2rem;
+        .csv-loaded-bar .csv-meta {
+            font-size: 0.7rem;
             color: var(--muted);
-            font-style: italic;
+            font-weight: 500;
         }
+
+        .csv-no-data {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.75rem 1rem;
+            background: #fff9f0;
+            border: 1px solid #f0d9b5;
+        }
+
+        .csv-no-data .csv-warn-text {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #8a6000;
+        }
+
+        .goto-dashboard-btn {
+            padding: 0.4rem 0.9rem;
+            background: var(--fg);
+            color: var(--bg);
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+
+        .goto-dashboard-btn:hover { background: #333; }
+
+        /* ── Progress ── */
+        .progress-wrap { margin-bottom: 1.5rem; }
+
+        .progress-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+            margin-bottom: 0.4rem;
+        }
+
+        .progress-track {
+            height: 4px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--fg);
+            transition: width 0.3s ease;
+        }
+
+        /* ── Bulk Stats ── */
+        .bulk-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+        }
+
+        /* ── Bulk Table ── */
+        .bulk-table-wrap {
+            width: 100%;
+            overflow-x: auto;
+            background: var(--card);
+            border: 1px solid var(--border);
+        }
+
+        .bulk-table { width: 100%; border-collapse: collapse; min-width: 700px; white-space: nowrap; }
+
+        .bulk-table thead { background: var(--fg); color: var(--bg); position: sticky; top: 0; z-index: 10; }
+
+        .bulk-table th {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .bulk-table th:last-child { border-right: none; }
+
+        .bulk-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.8rem;
+        }
+
+        .bulk-table tr:hover td { background: var(--hover); }
+
+        .cell-muted { color: var(--muted); font-style: italic; }
+
+        /* ── Loader ── */
+        .loader {
+            display: inline-block;
+            width: 14px; height: 14px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
 
         .hidden { display: none !important; }
 
-        /* Responsive */
+        /* ── Responsive ── */
         @media (max-width: 900px) {
             .charts-section { grid-template-columns: 1fr; }
             .chart-card { height: 280px; }
@@ -467,13 +773,25 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <header data-aos="fade-in" data-aos-duration="800">
-            <h1>Registration Dashboard</h1>
-            <p>Chess Lions February Tournament</p>
-        </header>
+<div class="container">
 
-        <div class="upload-wrapper" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+    <header data-aos="fade-in" data-aos-duration="800">
+        <h1>Chess Lions Hub</h1>
+        <p>Tournament Registration &amp; Member Verification</p>
+    </header>
+
+    <!-- ── Top-level nav ── -->
+    <div class="nav-tabs" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
+        <button class="nav-tab active" onclick="switchMain('dashboard', this)">Registration Dashboard</button>
+        <button class="nav-tab" onclick="switchMain('verifier', this)">USCF ID Verifier</button>
+    </div>
+
+    <!-- ════════════════════════════════
+         TAB 1 — REGISTRATION DASHBOARD
+    ════════════════════════════════ -->
+    <div id="tab-dashboard" class="tab-panel active">
+
+        <div class="upload-wrapper" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
             <div class="upload-zone" id="upload-zone">
                 <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -485,7 +803,7 @@
             </div>
         </div>
 
-        <section class="stats-bar hidden" id="stats-bar" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+        <section class="stats-bar hidden" id="stats-bar">
             <div class="stat-item">
                 <span class="stat-number" id="total-count">0</span>
                 <span class="stat-label">Total Players</span>
@@ -502,9 +820,13 @@
                 <span class="stat-number" id="filtered-count">0</span>
                 <span class="stat-label">Showing</span>
             </div>
+            <div class="stat-item" id="stat-flagged-item">
+                <span class="stat-number" id="flagged-count">0</span>
+                <span class="stat-label">⚠ Missing ID</span>
+            </div>
         </section>
 
-        <section class="filters-section hidden" id="filters-section" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+        <section class="filters-section hidden" id="filters-section">
             <div class="filter-group">
                 <label>Section</label>
                 <div class="multiselect-container" id="section-filter-container">
@@ -529,18 +851,14 @@
             </div>
         </section>
 
-        <section class="charts-section hidden" id="charts-section" data-aos="fade-up" data-aos-duration="800">
+        <section class="charts-section hidden" id="charts-section">
             <div class="chart-card">
                 <div class="chart-title">Section Distribution</div>
-                <div class="chart-container">
-                    <canvas id="sectionChart"></canvas>
-                </div>
+                <div class="chart-container"><canvas id="sectionChart"></canvas></div>
             </div>
             <div class="chart-card">
                 <div class="chart-title">Registrations Over Time</div>
-                <div class="chart-container">
-                    <canvas id="timelineChart"></canvas>
-                </div>
+                <div class="chart-container"><canvas id="timelineChart"></canvas></div>
             </div>
         </section>
 
@@ -572,344 +890,535 @@
             <h3>No Data Loaded</h3>
             <p>Upload a CSV file to begin</p>
         </div>
-    </div>
 
-    <script>
-        AOS.init({ once: true, duration: 800 });
+    </div><!-- /tab-dashboard -->
 
-        let playersData = [];
-        let sections = new Set();
-        let sectionChartInstance = null;
-        let timelineChartInstance = null;
-        let selectedSections = [];
+    <!-- ════════════════════════════════
+         TAB 2 — USCF VERIFIER
+    ════════════════════════════════ -->
+    <div id="tab-verifier" class="tab-panel">
 
-        const uploadZone = document.getElementById('upload-zone');
-        const fileInput = document.getElementById('file-input');
-        const statsBar = document.getElementById('stats-bar');
-        const filtersSection = document.getElementById('filters-section');
-        const chartsSection = document.getElementById('charts-section');
-        const tableContainer = document.getElementById('table-container');
-        const tableBody = document.getElementById('table-body');
-        const emptyState = document.getElementById('empty-state');
-        
-        const msContainer = document.getElementById('section-filter-container');
-        const msBox = msContainer.querySelector('.multiselect-box');
-        const msText = msContainer.querySelector('.multiselect-text');
-        const msDropdown = document.getElementById('section-dropdown');
+        <div class="verifier-tabs" data-aos="fade-up" data-aos-duration="600">
+            <button class="verifier-tab active" onclick="switchVerifier('single', this)">Single ID</button>
+            <button class="verifier-tab" onclick="switchVerifier('bulk', this)">Bulk Upload</button>
+        </div>
 
-        const dateFrom = document.getElementById('date-from');
-        const dateTo = document.getElementById('date-to');
-        const searchInput = document.getElementById('search-input');
+        <!-- Single -->
+        <div id="vpanel-single" class="verifier-panel active">
+            <div class="form-section" data-aos="fade-up">
+                <div class="input-group">
+                    <label for="uscfId">USCF ID Number</label>
+                    <input type="text" id="uscfId" placeholder="Enter 6–8 digit ID" maxlength="8">
+                </div>
+                <button class="verify-btn" id="verifyBtn" onclick="verifyUSCF()">Verify Member</button>
+            </div>
+            <div id="single-result"></div>
+        </div>
 
-        uploadZone.addEventListener('click', () => fileInput.click());
-        
-        uploadZone.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            uploadZone.classList.add('drag-over');
-        });
+        <!-- Bulk -->
+        <div id="vpanel-bulk" class="verifier-panel">
+            <div class="form-section" data-aos="fade-up">
+                <div id="bulk-csv-status" class="bulk-csv-status"></div>
+                <button class="verify-btn" id="bulkVerifyBtn" onclick="verifyBulk()" disabled>Verify All Players from CSV</button>
+            </div>
 
-        uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
+            <div id="bulkProgress" class="hidden">
+                <div class="progress-label" id="progressLabel">Processing…</div>
+                <div class="progress-track">
+                    <div id="progressFill" class="progress-fill" style="width:0%"></div>
+                </div>
+            </div>
 
-        uploadZone.addEventListener('drop', (e) => {
-            e.preventDefault();
-            uploadZone.classList.remove('drag-over');
-            if (e.dataTransfer.files[0]) processFile(e.dataTransfer.files[0]);
-        });
+            <div id="bulkResults"></div>
+        </div>
 
-        fileInput.addEventListener('change', (e) => {
-            if (e.target.files[0]) processFile(e.target.files[0]);
-        });
+    </div><!-- /tab-verifier -->
 
-        function parseCSV(text) {
-            const lines = text.split('\n').filter(line => line.trim());
-            if (lines.length < 2) return [];
+</div><!-- /container -->
 
-            const firstLine = lines[0];
-            const delimiter = (firstLine.split('|').length > firstLine.split(',').length) ? '|' : ',';
-            const headers = parseLine(lines[0], delimiter).map(h => h.trim().toLowerCase());
-            
-            const findIndex = (keywords) => headers.findIndex(h => keywords.some(k => h.includes(k)));
+<script>
+AOS.init({ once: true, duration: 800 });
 
-            const colMap = {
-                timestamp: findIndex(['timestamp']),
-                name: findIndex(['player', 'name']),
-                parent: findIndex(['parent']),
-                section: findIndex(['section']),
-                uscf: findIndex(['uscf', 'id']),
-                email: findIndex(['email']),
-                phone: findIndex(['phone'])
-            };
+/* ──────────────────────────────────────────
+   MAIN NAV
+────────────────────────────────────────── */
+function switchMain(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+}
 
-            const players = [];
+function switchVerifier(id, btn) {
+    document.querySelectorAll('.verifier-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.verifier-tab').forEach(b => b.classList.remove('active'));
+    document.getElementById('vpanel-' + id).classList.add('active');
+    btn.classList.add('active');
+}
 
-            for (let i = 1; i < lines.length; i++) {
-                const values = parseLine(lines[i], delimiter);
-                
-                const getVal = (key) => {
-                    const idx = colMap[key];
-                    return (idx !== -1 && values[idx]) ? values[idx].trim() : '';
-                };
+/* ──────────────────────────────────────────
+   DASHBOARD LOGIC
+────────────────────────────────────────── */
+let playersData = [];
+let sections = new Set();
+let sectionChartInstance = null;
+let timelineChartInstance = null;
+let selectedSections = [];
 
-                const playerName = getVal('name');
-                const section = getVal('section');
+const uploadZone = document.getElementById('upload-zone');
+const fileInput = document.getElementById('file-input');
 
-                if (playerName && section) {
-                    players.push({
-                        id: i,
-                        timestamp: getVal('timestamp'),
-                        playerName: playerName,
-                        parentName: getVal('parent'),
-                        section: section,
-                        uscfId: getVal('uscf'),
-                        email: getVal('email'),
-                        phone: getVal('phone')
-                    });
-                    sections.add(section);
-                }
-            }
-            return players;
+uploadZone.addEventListener('click', () => fileInput.click());
+uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
+uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
+uploadZone.addEventListener('drop', e => {
+    e.preventDefault();
+    uploadZone.classList.remove('drag-over');
+    if (e.dataTransfer.files[0]) processFile(e.dataTransfer.files[0]);
+});
+fileInput.addEventListener('change', e => { if (e.target.files[0]) processFile(e.target.files[0]); });
+
+function parseCSV(text) {
+    const lines = text.split('\n').filter(l => l.trim());
+    if (lines.length < 2) return [];
+    const firstLine = lines[0];
+    const delimiter = (firstLine.split('|').length > firstLine.split(',').length) ? '|' : ',';
+    const headers = parseLine(lines[0], delimiter).map(h => h.trim().toLowerCase());
+    const findIndex = kw => headers.findIndex(h => kw.some(k => h.includes(k)));
+    const colMap = {
+        timestamp: findIndex(['timestamp']),
+        name: findIndex(['player', 'name']),
+        parent: findIndex(['parent']),
+        section: findIndex(['section']),
+        uscf: findIndex(['uscf', 'id']),
+        email: findIndex(['email']),
+        phone: findIndex(['phone'])
+    };
+    const players = [];
+    for (let i = 1; i < lines.length; i++) {
+        const values = parseLine(lines[i], delimiter);
+        const getVal = key => { const idx = colMap[key]; return (idx !== -1 && values[idx]) ? values[idx].trim() : ''; };
+        const playerName = getVal('name');
+        const section = getVal('section');
+        if (playerName && section) {
+            players.push({ id: i, timestamp: getVal('timestamp'), playerName, parentName: getVal('parent'), section, uscfId: getVal('uscf'), email: getVal('email'), phone: getVal('phone') });
+            sections.add(section);
         }
+    }
+    return players;
+}
 
-        function parseLine(line, delimiter) {
-            const result = [];
-            let current = '';
-            let inQuotes = false;
+function parseLine(line, delimiter) {
+    const result = [];
+    let current = '';
+    let inQuotes = false;
+    for (let i = 0; i < line.length; i++) {
+        const char = line[i];
+        if (char === '"') inQuotes = !inQuotes;
+        else if (char === delimiter && !inQuotes) { result.push(current); current = ''; }
+        else current += char;
+    }
+    result.push(current);
+    return result;
+}
 
-            for (let i = 0; i < line.length; i++) {
-                const char = line[i];
-                if (char === '"') inQuotes = !inQuotes;
-                else if (char === delimiter && !inQuotes) {
-                    result.push(current);
-                    current = '';
-                } else current += char;
-            }
-            result.push(current);
-            return result;
+function processFile(file) {
+    const reader = new FileReader();
+    reader.onload = e => {
+        playersData = parseCSV(e.target.result);
+        if (playersData.length === 0) { alert('Could not parse data.'); return; }
+        populateMultiselect();
+        setDefaultDates();
+        ['stats-bar','filters-section','charts-section','table-container'].forEach(id => document.getElementById(id).classList.remove('hidden'));
+        document.getElementById('empty-state').classList.add('hidden');
+        AOS.refresh();
+        updateDisplay();
+        refreshBulkStatus();
+    };
+    reader.readAsText(file);
+}
+
+const msContainer = document.getElementById('section-filter-container');
+const msBox = msContainer.querySelector('.multiselect-box');
+const msText = msContainer.querySelector('.multiselect-text');
+const msDropdown = document.getElementById('section-dropdown');
+
+function populateMultiselect() {
+    msDropdown.innerHTML = '';
+    selectedSections = [];
+    Array.from(sections).sort().forEach(section => {
+        selectedSections.push(section);
+        const item = document.createElement('div');
+        item.className = 'multiselect-option selected';
+        item.dataset.value = section;
+        item.innerHTML = `<div class="custom-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div><span>${section}</span>`;
+        item.addEventListener('click', e => { e.stopPropagation(); toggleOption(item); });
+        msDropdown.appendChild(item);
+    });
+    updateMultiselectText();
+}
+
+function toggleOption(el) {
+    const value = el.dataset.value;
+    el.classList.toggle('selected');
+    if (el.classList.contains('selected')) { if (!selectedSections.includes(value)) selectedSections.push(value); }
+    else selectedSections = selectedSections.filter(s => s !== value);
+    updateMultiselectText();
+    updateDisplay();
+}
+
+function updateMultiselectText() {
+    if (selectedSections.length === 0) msText.textContent = 'No Sections Selected';
+    else if (selectedSections.length === sections.size) msText.textContent = 'All Sections';
+    else if (selectedSections.length <= 2) msText.textContent = selectedSections.join(', ');
+    else msText.textContent = `${selectedSections.length} Sections Selected`;
+}
+
+msBox.addEventListener('click', () => msContainer.classList.toggle('open'));
+document.addEventListener('click', e => { if (!msContainer.contains(e.target)) msContainer.classList.remove('open'); });
+
+function setDefaultDates() {
+    if (playersData.length > 0) {
+        const dates = playersData.map(p => new Date(p.timestamp)).filter(d => !isNaN(d));
+        if (dates.length > 0) {
+            document.getElementById('date-from').value = new Date(Math.min(...dates)).toISOString().split('T')[0];
+            document.getElementById('date-to').value = new Date(Math.max(...dates)).toISOString().split('T')[0];
         }
+    }
+}
 
-        function processFile(file) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                playersData = parseCSV(e.target.result);
-                
-                if (playersData.length === 0) {
-                    alert("Could not parse data.");
-                    return;
-                }
-
-                populateMultiselect();
-                setDefaultDates();
-
-                statsBar.classList.remove('hidden');
-                filtersSection.classList.remove('hidden');
-                chartsSection.classList.remove('hidden');
-                tableContainer.classList.remove('hidden');
-                emptyState.classList.add('hidden');
-
-                AOS.refresh();
-                updateDisplay();
-            };
-            reader.readAsText(file);
+function filterPlayers() {
+    const fromDate = document.getElementById('date-from').value ? new Date(document.getElementById('date-from').value) : null;
+    const toDate = document.getElementById('date-to').value ? new Date(document.getElementById('date-to').value + 'T23:59:59') : null;
+    const searchTerm = document.getElementById('search-input').value.toLowerCase();
+    return playersData.filter(player => {
+        if (selectedSections.length > 0 && !selectedSections.includes(player.section)) return false;
+        const playerDate = new Date(player.timestamp);
+        if (fromDate && !isNaN(playerDate) && playerDate < fromDate) return false;
+        if (toDate && !isNaN(playerDate) && playerDate > toDate) return false;
+        if (searchTerm) {
+            const fields = [player.playerName, player.parentName, player.section, player.uscfId, player.email, player.phone, player.timestamp].map(f => (f || '').toLowerCase());
+            if (!fields.some(f => f.includes(searchTerm))) return false;
         }
+        return true;
+    });
+}
 
-        function populateMultiselect() {
-            msDropdown.innerHTML = '';
-            selectedSections = [];
-            const sortedSections = Array.from(sections).sort();
+function updateCharts(filteredData) {
+    const sectionCounts = {};
+    filteredData.forEach(p => sectionCounts[p.section] = (sectionCounts[p.section] || 0) + 1);
+    if (sectionChartInstance) sectionChartInstance.destroy();
+    sectionChartInstance = new Chart(document.getElementById('sectionChart').getContext('2d'), {
+        type: 'doughnut',
+        data: {
+            labels: Object.keys(sectionCounts),
+            datasets: [{ data: Object.values(sectionCounts), backgroundColor: ['#0a0a0a','#4a4a4a','#8a8a8a','#cacaca','#3a3a3a','#6a6a6a'], borderWidth: 0 }]
+        },
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { font: { family: 'Montserrat', size: 12 }, boxWidth: 12 } } }, cutout: '70%' }
+    });
 
-            sortedSections.forEach(section => {
-                selectedSections.push(section);
+    const dateCounts = {};
+    filteredData.forEach(p => {
+        const d = new Date(p.timestamp);
+        if (!isNaN(d)) { const k = d.toISOString().split('T')[0]; dateCounts[k] = (dateCounts[k] || 0) + 1; }
+    });
+    const sortedDates = Object.keys(dateCounts).sort();
+    if (timelineChartInstance) timelineChartInstance.destroy();
+    timelineChartInstance = new Chart(document.getElementById('timelineChart').getContext('2d'), {
+        type: 'bar',
+        data: { labels: sortedDates, datasets: [{ label: 'Registrations', data: sortedDates.map(d => dateCounts[d]), backgroundColor: '#0a0a0a' }] },
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { display: false }, ticks: { font: { family: 'Montserrat', size: 9 }, maxRotation: 45, minRotation: 45 } }, y: { beginAtZero: true, grid: { color: '#f0f0f0' }, ticks: { font: { family: 'Montserrat', size: 9 }, stepSize: 1 } } } }
+    });
+}
 
-                const item = document.createElement('div');
-                item.className = 'multiselect-option selected';
-                item.dataset.value = section;
-                
-                item.innerHTML = `
-                    <div class="custom-check">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                    </div>
-                    <span>${section}</span>
-                `;
+function isRatedSection(section) {
+    if (!section) return false;
+    const s = section.toLowerCase().trim();
+    // Must not be an unrated section
+    if (s.includes('unrated')) return false;
+    // Explicit rated keyword
+    if (/\brated\b/.test(s)) return true;
+    if (s.includes('open')) return true;
+    // u followed by 3-4 digits (u800, u1400, u1600 etc.)
+    if (/u\d{3,4}/.test(s)) return true;
+    // "under" followed by a number
+    if (/under\s*\d{3,4}/.test(s)) return true;
+    return false;
+}
 
-                item.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    toggleOption(item);
+function needsUscfId(player) {
+    return isRatedSection(player.section) && !player.uscfId;
+}
+
+function createRow(player, idx) {
+    const tr = document.createElement('tr');
+    const rated = isRatedSection(player.section);
+    const flagged = needsUscfId(player);
+    const d = new Date(player.timestamp);
+    const dateStr = isNaN(d) ? 'Invalid Date' : d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+
+    if (flagged) tr.classList.add('row-flagged');
+
+    const uscfCell = flagged
+        ? `<td class="uscf-missing">⚠ No USCF ID</td>`
+        : `<td>${player.uscfId || '—'}</td>`;
+
+    tr.innerHTML = `
+        <td>${idx}</td>
+        <td class="col-name">${player.playerName}${flagged ? ' <span class="flag-dot" title="Rated section — USCF ID required"></span>' : ''}</td>
+        <td class="col-section"><span class="${rated ? 'rated' : ''}">${player.section}</span></td>
+        ${uscfCell}
+        <td>${player.parentName || '—'}</td>
+        <td class="col-contact">${player.email ? `<a href="mailto:${player.email}">${player.email}</a>` : '—'}</td>
+        <td>${player.phone || '—'}</td>
+        <td>${dateStr}</td>`;
+    return tr;
+}
+
+function updateDisplay() {
+    const filtered = filterPlayers();
+    const ratedCount = playersData.filter(p => isRatedSection(p.section)).length;
+    const flaggedCount = playersData.filter(p => needsUscfId(p)).length;
+    document.getElementById('total-count').textContent = playersData.length;
+    document.getElementById('rated-count').textContent = ratedCount;
+    document.getElementById('unrated-count').textContent = playersData.length - ratedCount;
+    document.getElementById('filtered-count').textContent = filtered.length;
+    const flaggedEl = document.getElementById('flagged-count');
+    if (flaggedEl) {
+        flaggedEl.textContent = flaggedCount;
+        flaggedEl.closest('.stat-item').style.display = flaggedCount > 0 ? '' : '';
+        flaggedEl.closest('.stat-item').classList.toggle('stat-flagged', flaggedCount > 0);
+    }
+    updateCharts(filtered);
+    const tbody = document.getElementById('table-body');
+    tbody.innerHTML = '';
+    if (filtered.length === 0) { tbody.innerHTML = '<tr class="no-results-row"><td colspan="8">No players match criteria</td></tr>'; return; }
+    filtered.forEach((p, i) => tbody.appendChild(createRow(p, i + 1)));
+}
+
+document.getElementById('date-from').addEventListener('change', updateDisplay);
+document.getElementById('date-to').addEventListener('change', updateDisplay);
+document.getElementById('search-input').addEventListener('input', updateDisplay);
+
+// Init bulk status now that everything is wired up
+refreshBulkStatus();
+
+/* ──────────────────────────────────────────
+   VERIFIER LOGIC
+────────────────────────────────────────── */
+const uscfInput = document.getElementById('uscfId');
+uscfInput.addEventListener('keypress', e => { if (e.key === 'Enter') verifyUSCF(); });
+uscfInput.addEventListener('input', e => { e.target.value = e.target.value.replace(/\D/g, ''); });
+
+async function fetchUSCFData(uscfId) {
+    const res = await fetch(`https://yellow-bonus-c067.windsorchesslions.workers.dev/?id=${uscfId}`);
+    if (!res.ok) { if (res.status === 404) throw new Error('USCF ID not found'); throw new Error(`API error: ${res.status}`); }
+    return await res.json();
+}
+
+async function verifyUSCF() {
+    const uscfId = uscfInput.value.trim();
+    const resultDiv = document.getElementById('single-result');
+    const btn = document.getElementById('verifyBtn');
+
+    if (!uscfId) { renderError(resultDiv, 'Please enter a USCF ID.'); return; }
+    if (uscfId.length < 6 || uscfId.length > 8) { renderError(resultDiv, 'USCF ID must be 6–8 digits.'); return; }
+
+    btn.disabled = true;
+    btn.innerHTML = '<span class="loader"></span> Verifying…';
+    resultDiv.innerHTML = '';
+
+    try {
+        const data = await fetchUSCFData(uscfId);
+        renderSingleResult(resultDiv, data);
+    } catch (err) {
+        renderError(resultDiv, err.message === 'USCF ID not found' ? 'USCF ID not found. Please verify the ID number.' : 'Unable to verify ID. Please try again.');
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = 'Verify Member';
+    }
+}
+
+function isExpired(date) { return date ? new Date(date) < new Date() : false; }
+
+function renderSingleResult(container, data) {
+    if (!data || !data.firstName) { renderError(container, 'Invalid ID or no member found.'); return; }
+    const expired = isExpired(data.expirationDate);
+    const isActive = data.status === 'Active' && !expired;
+    const statusClass = isActive ? 'status-active' : 'status-inactive';
+    const ratings = (data.ratings || []).filter(r => r.rating);
+    const ratingNames = { R: 'Regular', Q: 'Quick', B: 'Blitz', OR: 'Online Reg', OQ: 'Online Quick', OB: 'Online Blitz' };
+
+    let ratingsHTML = '';
+    if (ratings.length > 0) {
+        ratingsHTML = `<div class="ratings-grid">` + ratings.map(r => `
+            <div class="rating-cell">
+                <div class="rating-type">${ratingNames[r.ratingSystem] || r.ratingSystem}</div>
+                <div class="rating-value">${r.rating}</div>
+                <div class="rating-floor">Floor: ${r.floor || 'N/A'}</div>
+            </div>`).join('') + `</div>`;
+    }
+
+    container.innerHTML = `
+        <div class="result-card visible">
+            <div class="result-heading">${data.firstName} ${data.lastName} — ${expired ? 'Expired ✖' : 'Active ✔'}</div>
+            <div class="info-grid">
+                <div class="info-cell"><div class="info-cell-label">USCF ID</div><div class="info-cell-value">${data.id}</div></div>
+                <div class="info-cell"><div class="info-cell-label">Status</div><div class="info-cell-value"><span class="status-badge ${statusClass}">${data.status}</span></div></div>
+                <div class="info-cell"><div class="info-cell-label">Expiration</div><div class="info-cell-value">${data.expirationDate}</div></div>
+                <div class="info-cell"><div class="info-cell-label">State</div><div class="info-cell-value">${data.stateRep}</div></div>
+            </div>
+            ${ratingsHTML}
+        </div>`;
+}
+
+function renderError(container, msg) {
+    container.innerHTML = `<div class="error-message"><div class="err-title">Error</div><p>${msg}</p></div>`;
+}
+
+/* ── Bulk ── */
+
+function refreshBulkStatus() {
+    const statusDiv = document.getElementById('bulk-csv-status');
+    const btn = document.getElementById('bulkVerifyBtn');
+    if (!statusDiv) return;
+
+    if (playersData.length === 0) {
+        statusDiv.innerHTML = `
+            <div class="csv-no-data">
+                <span class="csv-warn-text">No CSV loaded — upload one in the Dashboard tab first</span>
+                <button class="goto-dashboard-btn" onclick="switchMain('dashboard', document.querySelectorAll('.nav-tab')[0])">Go to Dashboard</button>
+            </div>`;
+        btn.disabled = true;
+    } else {
+        const ratedPlayers = playersData.filter(p => p.uscfId && p.uscfId.replace(/\D/g,'').length >= 6);
+        statusDiv.innerHTML = `
+            <div class="csv-loaded-bar">
+                <div class="csv-info">
+                    <div class="csv-dot"></div>
+                    <span class="csv-label">CSV Loaded</span>
+                    <span class="csv-meta">${playersData.length} players · ${ratedPlayers.length} with USCF IDs</span>
+                </div>
+            </div>`;
+        btn.disabled = false;
+    }
+}
+
+async function verifyBulk() {
+    if (playersData.length === 0) { refreshBulkStatus(); return; }
+
+    const btn = document.getElementById('bulkVerifyBtn');
+    const progressDiv = document.getElementById('bulkProgress');
+    const progressFill = document.getElementById('progressFill');
+    const progressLabel = document.getElementById('progressLabel');
+    const resultsDiv = document.getElementById('bulkResults');
+
+    btn.disabled = true;
+    btn.innerHTML = '<span class="loader"></span> Processing…';
+    progressDiv.classList.remove('hidden');
+    resultsDiv.innerHTML = '';
+
+    const results = [];
+    let valid = 0, errors = 0, skipped = 0;
+
+    const withIds = playersData.filter(p => {
+        const id = p.uscfId ? p.uscfId.replace(/\D/g, '') : '';
+        return id.length >= 6 && id.length <= 8;
+    });
+    // Only flag players in rated sections who are missing an ID — unrated without ID is fine
+    const ratedMissingId = playersData.filter(p => {
+        const id = p.uscfId ? p.uscfId.replace(/\D/g, '') : '';
+        return !(id.length >= 6 && id.length <= 8) && isRatedSection(p.section);
+    });
+
+    for (let i = 0; i < withIds.length; i++) {
+        const player = withIds[i];
+        const uscfId = player.uscfId.replace(/\D/g, '');
+        const pct = Math.round(((i + 1) / withIds.length) * 100);
+        progressFill.style.width = pct + '%';
+        progressLabel.textContent = `Verifying ${i + 1} of ${withIds.length} — ${player.playerName}`;
+
+        let success = false, attempts = 0;
+        while (!success && attempts < 3) {
+            attempts++;
+            try {
+                const data = await fetchUSCFData(uscfId);
+                results.push({
+                    name: player.playerName,
+                    section: player.section,
+                    uscfId: data.id,
+                    status: data.status,
+                    expiration: data.expirationDate,
+                    state: data.stateRep,
+                    regular: getRating(data.ratings, 'R'),
+                    quick: getRating(data.ratings, 'Q'),
+                    blitz: getRating(data.ratings, 'B')
                 });
-
-                msDropdown.appendChild(item);
-            });
-
-            updateMultiselectText();
-        }
-
-        function toggleOption(element) {
-            const value = element.dataset.value;
-            element.classList.toggle('selected');
-
-            if (element.classList.contains('selected')) {
-                if (!selectedSections.includes(value)) selectedSections.push(value);
-            } else {
-                selectedSections = selectedSections.filter(s => s !== value);
-            }
-            updateMultiselectText();
-            updateDisplay();
-        }
-
-        function updateMultiselectText() {
-            if (selectedSections.length === 0) msText.textContent = "No Sections Selected";
-            else if (selectedSections.length === sections.size) msText.textContent = "All Sections";
-            else if (selectedSections.length <= 2) msText.textContent = selectedSections.join(', ');
-            else msText.textContent = `${selectedSections.length} Sections Selected`;
-        }
-
-        msBox.addEventListener('click', () => msContainer.classList.toggle('open'));
-
-        document.addEventListener('click', (e) => {
-            if (!msContainer.contains(e.target)) msContainer.classList.remove('open');
-        });
-
-        function setDefaultDates() {
-             if (playersData.length > 0) {
-                const dates = playersData.map(p => new Date(p.timestamp)).filter(d => !isNaN(d));
-                if (dates.length > 0) {
-                    const minDate = new Date(Math.min(...dates));
-                    const maxDate = new Date(Math.max(...dates));
-                    dateFrom.value = minDate.toISOString().split('T')[0];
-                    dateTo.value = maxDate.toISOString().split('T')[0];
-                }
+                valid++; success = true;
+            } catch (err) {
+                if (attempts >= 3) {
+                    results.push({ name: player.playerName, section: player.section, uscfId, status: 'error', error: err.message });
+                    errors++;
+                } else await sleep(1000);
             }
         }
+        if (success) await sleep(800);
+    }
 
-        function filterPlayers() {
-            const fromDate = dateFrom.value ? new Date(dateFrom.value) : null;
-            const toDate = dateTo.value ? new Date(dateTo.value + 'T23:59:59') : null;
-            const searchTerm = searchInput.value.toLowerCase();
+    ratedMissingId.forEach(player => {
+        results.push({ name: player.playerName, section: player.section, uscfId: '—', status: 'flagged', error: '⚠ Rated section — USCF ID required' });
+        skipped++;
+    });
 
-            return playersData.filter(player => {
-                if (selectedSections.length > 0 && !selectedSections.includes(player.section)) return false;
+    renderBulkResults(resultsDiv, results, valid, errors, skipped);
+    btn.disabled = false;
+    btn.innerHTML = 'Verify All Players from CSV';
+    progressDiv.classList.add('hidden');
+}
 
-                const playerDate = new Date(player.timestamp);
-                if (fromDate && !isNaN(playerDate) && playerDate < fromDate) return false;
-                if (toDate && !isNaN(playerDate) && playerDate > toDate) return false;
+const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-                if (searchTerm) {
-                    const searchFields = [
-                        player.playerName, player.parentName, player.section,
-                        player.uscfId, player.email, player.phone, player.timestamp
-                    ].map(f => (f || '').toLowerCase());
-                    if (!searchFields.some(field => field.includes(searchTerm))) return false;
-                }
-                return true;
-            });
+function getRating(ratings, type) {
+    const r = (ratings || []).find(r => r.ratingSystem === type);
+    return r && r.rating ? r.rating : '—';
+}
+
+function renderBulkResults(container, results, valid, errors, skipped) {
+    const rows = results.map(p => {
+        const isRated = isRatedSection(p.section);
+        const sectionBadge = p.section
+            ? `<span style="display:inline-block;padding:0.2rem 0.4rem;font-size:0.65rem;font-weight:700;background:${isRated ? 'var(--fg)' : 'var(--bg)'};color:${isRated ? 'var(--bg)' : 'var(--fg)'};border:1px solid var(--border)">${p.section}</span>`
+            : '—';
+
+        if (p.status === 'flagged') {
+            return `<tr style="background:#fffbf0"><td class="col-name">${p.name}</td><td>${sectionBadge}</td><td style="color:#b45309;font-weight:700">${p.uscfId}</td><td colspan="5" style="color:#b45309;font-weight:600;font-size:0.75rem">${p.error}</td></tr>`;
         }
-
-        function updateCharts(filteredData) {
-            const sectionCounts = {};
-            filteredData.forEach(p => sectionCounts[p.section] = (sectionCounts[p.section] || 0) + 1);
-            if (sectionChartInstance) sectionChartInstance.destroy();
-            
-            const ctxDoughnut = document.getElementById('sectionChart').getContext('2d');
-            sectionChartInstance = new Chart(ctxDoughnut, {
-                type: 'doughnut',
-                data: {
-                    labels: Object.keys(sectionCounts),
-                    datasets: [{
-                        data: Object.values(sectionCounts),
-                        backgroundColor: ['#0a0a0a', '#4a4a4a', '#8a8a8a', '#cacaca', '#3a3a3a', '#6a6a6a'],
-                        borderWidth: 0
-                    }]
-                },
-                options: {
-                    responsive: true, maintainAspectRatio: false,
-                    plugins: { 
-                        legend: { 
-                            position: 'bottom', 
-                            labels: { font: { family: 'Montserrat', size: 12 }, boxWidth: 12 } 
-                        } 
-                    },
-                    cutout: '70%'
-                }
-            });
-
-            const dateCounts = {};
-            filteredData.forEach(p => {
-                const dateObj = new Date(p.timestamp);
-                if (!isNaN(dateObj)) {
-                    const dateKey = dateObj.toISOString().split('T')[0];
-                    dateCounts[dateKey] = (dateCounts[dateKey] || 0) + 1;
-                }
-            });
-            
-            const sortedDates = Object.keys(dateCounts).sort();
-            if (timelineChartInstance) timelineChartInstance.destroy();
-
-            const ctxBar = document.getElementById('timelineChart').getContext('2d');
-            timelineChartInstance = new Chart(ctxBar, {
-                type: 'bar',
-                data: {
-                    labels: sortedDates,
-                    datasets: [{
-                        label: 'Registrations',
-                        data: sortedDates.map(d => dateCounts[d]),
-                        backgroundColor: '#0a0a0a'
-                    }]
-                },
-                options: {
-                    responsive: true, maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
-                    scales: {
-                        x: { grid: { display: false }, ticks: { font: { family: 'Montserrat', size: 9 }, maxRotation: 45, minRotation: 45 } },
-                        y: { beginAtZero: true, grid: { color: '#f0f0f0' }, ticks: { font: { family: 'Montserrat', size: 9 }, stepSize: 1 } }
-                    }
-                }
-            });
+        if (p.status === 'error') {
+            return `<tr><td class="col-name">${p.name}</td><td>${sectionBadge}</td><td>${p.uscfId}</td><td colspan="5" class="cell-muted">${p.error}</td></tr>`;
         }
+        const expired = isExpired(p.expiration);
+        const sc = (p.status === 'Active' && !expired) ? 'status-active' : 'status-inactive';
+        return `<tr><td class="col-name">${p.name}</td><td>${sectionBadge}</td><td>${p.uscfId}</td><td><span class="status-badge ${sc}">${p.status}</span></td><td>${p.expiration}</td><td>${p.regular}</td><td>${p.quick}</td><td>${p.blitz}</td></tr>`;
+    }).join('');
 
-        function createRow(player, displayIndex) {
-            const tr = document.createElement('tr');
-            const isRated = player.section.toLowerCase().includes('rated');
-            const playerDate = new Date(player.timestamp);
-            let formattedDate = 'Invalid Date';
-            if (!isNaN(playerDate)) {
-                formattedDate = playerDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' });
-            }
-            tr.innerHTML = `
-                <td>${displayIndex}</td>
-                <td class="col-name">${player.playerName}</td>
-                <td class="col-section"><span class="${isRated ? 'rated' : ''}">${player.section}</span></td>
-                <td>${player.uscfId || '—'}</td>
-                <td>${player.parentName || '—'}</td>
-                <td class="col-contact">${player.email ? `<a href="mailto:${player.email}">${player.email}</a>` : '—'}</td>
-                <td>${player.phone || '—'}</td>
-                <td>${formattedDate}</td>
-            `;
-            return tr;
-        }
-
-        function updateDisplay() {
-            const filtered = filterPlayers();
-            const ratedCount = playersData.filter(p => p.section.toLowerCase().includes('rated')).length;
-
-            document.getElementById('total-count').textContent = playersData.length;
-            document.getElementById('rated-count').textContent = ratedCount;
-            document.getElementById('unrated-count').textContent = playersData.length - ratedCount;
-            document.getElementById('filtered-count').textContent = filtered.length;
-
-            updateCharts(filtered);
-
-            tableBody.innerHTML = '';
-            if (filtered.length === 0) {
-                tableBody.innerHTML = '<tr class="no-results-row"><td colspan="8">No players match criteria</td></tr>';
-                return;
-            }
-            filtered.forEach((player, index) => tableBody.appendChild(createRow(player, index + 1)));
-        }
-
-        dateFrom.addEventListener('change', updateDisplay);
-        dateTo.addEventListener('change', updateDisplay);
-        searchInput.addEventListener('input', updateDisplay);
-    </script>
+    container.innerHTML = `
+        <div class="bulk-stats">
+            <div class="stat-item"><span class="stat-number">${results.length}</span><span class="stat-label">Total</span></div>
+            <div class="stat-item"><span class="stat-number">${valid}</span><span class="stat-label">Verified</span></div>
+            <div class="stat-item"><span class="stat-number">${errors}</span><span class="stat-label">Errors</span></div>
+            <div class="stat-item${skipped > 0 ? ' stat-flagged' : ''}"><span class="stat-number">${skipped}</span><span class="stat-label">⚠ Missing ID</span></div>
+        </div>
+        <div class="bulk-table-wrap">
+            <table class="bulk-table">
+                <thead>
+                    <tr>
+                        <th>Player Name</th><th>Section</th><th>USCF ID</th><th>Status</th><th>Expiration</th><th>Regular</th><th>Quick</th><th>Blitz</th>
+                    </tr>
+                </thead>
+                <tbody>${rows}</tbody>
+            </table>
+        </div>`;
+}
+</script>
 </body>
 </html>
