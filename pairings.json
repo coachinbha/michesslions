@@ -6,7 +6,7 @@
     "state": "MI",
     "country": "USA",
     "td": "Vaishnavi",
-    "time_stamp": "5/9/2026 - 17:59",
+    "time_stamp": "5/9/2026 - 19:06",
     "affiliate": ""
   },
   "options": {
@@ -47,25 +47,25 @@
     {
       "section": "UPPER",
       "rounds_paired": 4,
-      "rounds_played": 3,
-      "final_round": false,
+      "rounds_played": 4,
+      "final_round": true,
       "standings": [
         1,
-        2,
-        3,
         6,
-        5,
+        2,
         14,
+        5,
+        4,
+        3,
+        12,
+        13,
         11,
         10,
-        7,
-        12,
         9,
         8,
-        4,
-        13,
-        15,
-        16
+        7,
+        16,
+        15
       ],
       "pairings": [
         {
@@ -135,18 +135,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
-            4,
-            5,
-            6,
+            8.5,
+            9.5,
+            10,
             0,
-            1,
-            5
+            2,
+            9.5
           ],
           "results": [
             "W",
             "W",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -170,9 +170,9 @@
             1,
             2,
             3,
-            3
+            4
           ],
-          "score": 3
+          "score": 4
         },
         {
           "name": "YASSINE, Waleed",
@@ -184,9 +184,9 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
-            3.5,
-            4.5,
-            6,
+            7.5,
+            8.5,
+            9,
             0,
             2,
             4.5
@@ -195,7 +195,7 @@
             "W",
             "W",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -234,12 +234,12 @@
           "class": " ",
           "byes": "4z",
           "tiebreaks": [
-            5,
-            6,
-            5,
+            3.5,
+            7.5,
+            7,
             0,
             1,
-            3
+            3.5
           ],
           "results": [
             "W",
@@ -283,18 +283,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
-            2,
             4,
-            2,
+            8,
+            4,
             0,
             0,
-            1
+            3
           ],
           "results": [
             "L",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -318,9 +318,9 @@
             0,
             1,
             1,
-            1
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "PRAKASH, Sanmay",
@@ -332,18 +332,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
-            4,
             5,
-            5,
+            10,
+            7,
             0,
             1,
-            2
+            4
           ],
           "results": [
             "W",
             "W",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -381,18 +381,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
-            5,
-            6,
-            4,
+            9,
+            10,
+            7,
             0,
             2,
-            3
+            6
           ],
           "results": [
             "W",
             "L",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -416,9 +416,9 @@
             1,
             1,
             2,
-            2
+            3
           ],
-          "score": 2
+          "score": 3
         },
         {
           "name": "GONG, Zhaomingyang",
@@ -431,9 +431,9 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
-            2.5,
-            5.5,
-            3,
+            5,
+            8,
+            4,
             0,
             0,
             0.5
@@ -442,7 +442,7 @@
             "W",
             "L",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -480,18 +480,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
-            2,
+            5.5,
+            8.5,
             4,
-            3,
             0,
             1,
-            0
+            1
           ],
           "results": [
             "W",
             "L",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -529,18 +529,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            6,
+            10,
             2,
-            5,
-            1,
             0,
             1,
-            0
+            1
           ],
           "results": [
             "L",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -579,18 +579,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
-            1,
-            4.5,
-            2,
+            5.5,
+            8.5,
+            3.5,
             0,
             0,
-            1.25
+            2.25
           ],
           "results": [
             "L",
             "D",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -629,12 +629,12 @@
           "class": " ",
           "byes": "4z",
           "tiebreaks": [
-            3,
-            3,
-            3,
+            2,
+            4.5,
+            5,
             0,
             1,
-            1
+            2
           ],
           "results": [
             "L",
@@ -678,18 +678,18 @@
           "state": "IN",
           "class": " ",
           "tiebreaks": [
-            2.5,
-            4.5,
-            3,
+            3.5,
+            6.5,
+            5,
             0,
             0,
-            1
+            3
           ],
           "results": [
             "W",
             "L",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -713,9 +713,9 @@
             1,
             1,
             1,
-            1
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "SHAO, Lucas",
@@ -727,18 +727,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
-            1.5,
-            3.5,
-            1,
+            3,
+            5.5,
+            3,
             0,
             0,
-            0.5
+            1.5
           ],
           "results": [
             "L",
             "L",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -762,9 +762,9 @@
             0,
             0,
             1,
-            1
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "NI, Ho Ming",
@@ -776,18 +776,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
-            3,
-            4,
-            3,
+            6.5,
+            7.5,
+            6,
             0,
-            1,
-            2
+            2,
+            4.5
           ],
           "results": [
             "L",
             "W",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -811,9 +811,9 @@
             0,
             1,
             2,
-            2
+            3
           ],
-          "score": 2
+          "score": 3
         },
         {
           "name": "YARAMALA, Jashith Sai Reddy",
@@ -825,9 +825,9 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
-            2,
             3.5,
-            1,
+            5.5,
+            1.5,
             0,
             0,
             0.75
@@ -836,7 +836,7 @@
             "L",
             "D",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -874,18 +874,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
-            2,
-            4,
+            2.5,
+            5,
+            1,
             0,
-            0,
-            0,
-            0
+            1,
+            0.5
           ],
           "results": [
             "L",
             "L",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -909,9 +909,9 @@
             0,
             0,
             0,
-            0
+            1
           ],
-          "score": 0
+          "score": 1
         }
       ],
       "teams": [
