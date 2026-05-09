@@ -6,7 +6,7 @@
     "state": "MI",
     "country": "USA",
     "td": "Vaishnavi",
-    "time_stamp": "5/9/2026 - 11:47",
+    "time_stamp": "5/9/2026 - 12:37",
     "affiliate": ""
   },
   "options": {
@@ -1204,175 +1204,175 @@
     },
     {
       "section": "U800",
-      "rounds_paired": 2,
-      "rounds_played": 1,
+      "rounds_paired": 3,
+      "rounds_played": 2,
       "final_round": false,
       "standings": [
-        2,
-        3,
         4,
         7,
         10,
-        11,
         12,
         14,
         16,
-        21,
         26,
-        33,
-        34,
-        40,
         44,
+        3,
+        5,
+        17,
+        21,
+        34,
+        50,
+        1,
+        2,
+        8,
+        11,
+        15,
+        18,
+        20,
+        23,
+        30,
+        32,
+        33,
+        37,
+        40,
+        41,
         45,
+        46,
         47,
         48,
         49,
-        50,
-        5,
-        17,
-        18,
-        30,
+        6,
+        29,
         42,
         43,
-        1,
-        6,
-        8,
         9,
         13,
-        15,
         19,
-        20,
         22,
-        23,
         24,
         25,
         27,
         28,
-        29,
         31,
-        32,
         35,
         36,
-        37,
         38,
-        39,
-        41,
-        46
+        39
       ],
       "pairings": [
         {
-          "white": 26,
-          "black": 2,
+          "white": 4,
+          "black": 14,
           "board": 16
         },
         {
-          "white": 3,
-          "black": 34,
+          "white": 16,
+          "black": 7,
           "board": 17
         },
         {
-          "white": 33,
-          "black": 4,
+          "white": 10,
+          "black": 26,
           "board": 18
         },
         {
-          "white": 7,
-          "black": 40,
+          "white": 12,
+          "black": 44,
           "board": 19
         },
         {
-          "white": 45,
-          "black": 10,
+          "white": 21,
+          "black": 3,
           "board": 20
         },
         {
-          "white": 11,
-          "black": 44,
+          "white": 34,
+          "black": 5,
           "board": 21
         },
         {
-          "white": 48,
-          "black": 12,
+          "white": 50,
+          "black": 17,
           "board": 22
         },
         {
-          "white": 47,
-          "black": 14,
+          "white": 32,
+          "black": 1,
           "board": 23
         },
         {
-          "white": 49,
-          "black": 16,
+          "white": 2,
+          "black": 33,
           "board": 24
         },
         {
-          "white": 21,
-          "black": 50,
+          "white": 8,
+          "black": 45,
           "board": 25
         },
         {
-          "white": 5,
-          "black": 42,
+          "white": 37,
+          "black": 11,
           "board": 26
         },
         {
-          "white": 17,
-          "black": 43,
+          "white": 46,
+          "black": 15,
           "board": 27
         },
         {
-          "white": 30,
-          "black": 18,
+          "white": 18,
+          "black": 47,
           "board": 28
         },
         {
-          "white": 1,
-          "black": 28,
+          "white": 20,
+          "black": 48,
           "board": 29
         },
         {
-          "white": 6,
-          "black": 29,
+          "white": 40,
+          "black": 23,
           "board": 30
         },
         {
-          "white": 35,
-          "black": 8,
+          "white": 49,
+          "black": 30,
           "board": 31
         },
         {
-          "white": 9,
-          "black": 32,
+          "white": 6,
+          "black": 41,
           "board": 32
         },
         {
-          "white": 15,
-          "black": 36,
+          "white": 29,
+          "black": 9,
           "board": 33
         },
         {
-          "white": 19,
-          "black": 37,
+          "white": 43,
+          "black": 42,
           "board": 34
         },
         {
-          "white": 39,
-          "black": 20,
+          "white": 36,
+          "black": 19,
           "board": 35
         },
         {
-          "white": 23,
-          "black": 38,
+          "white": 24,
+          "black": 35,
           "board": 36
         },
         {
-          "white": 41,
-          "black": 24,
+          "white": 38,
+          "black": 25,
           "board": 37
         },
         {
-          "white": 25,
-          "black": 46,
+          "white": 28,
+          "black": 39,
           "board": 38
         }
       ],
@@ -1394,25 +1394,30 @@
           ],
           "results": [
             "L",
+            "W",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             26,
-            28
+            28,
+            32
           ],
           "boards": [
             16,
-            29
+            29,
+            23
           ],
           "cumulatives": [
             0,
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "TOWNSEND, Genevieve D",
@@ -1427,21 +1432,26 @@
           ],
           "results": [
             "W",
+            "L",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             6,
-            26
+            26,
+            33
           ],
           "boards": [
             17,
-            16
+            16,
+            24
           ],
           "cumulatives": [
+            1,
             1,
             1
           ],
@@ -1460,25 +1470,30 @@
           ],
           "results": [
             "W",
+            "D",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             28,
-            34
+            34,
+            21
           ],
           "boards": [
             18,
-            17
+            17,
+            20
           ],
           "cumulatives": [
             1,
-            1
+            1.5,
+            1.5
           ],
-          "score": 1
+          "score": 1.5
         },
         {
           "name": "YANG, Luke",
@@ -1492,25 +1507,30 @@
           ],
           "results": [
             "W",
+            "W",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             29,
-            33
+            33,
+            14
           ],
           "boards": [
             19,
-            18
+            18,
+            16
           ],
           "cumulatives": [
             1,
-            1
+            2,
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "HAMPTON, Austin",
@@ -1525,25 +1545,30 @@
           ],
           "results": [
             "D",
+            "W",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             30,
-            42
+            42,
+            34
           ],
           "boards": [
             20,
-            26
+            26,
+            21
           ],
           "cumulatives": [
             0.5,
-            0.5
+            1.5,
+            1.5
           ],
-          "score": 0.5
+          "score": 1.5
         },
         {
           "name": "PRABU, Arjun",
@@ -1558,25 +1583,30 @@
           ],
           "results": [
             "L",
+            "D",
             " "
           ],
           "colors": [
             "B",
+            "W",
             "W"
           ],
           "ops": [
             2,
-            29
+            29,
+            41
           ],
           "boards": [
             17,
-            30
+            30,
+            32
           ],
           "cumulatives": [
             0,
-            0
+            0.5,
+            0.5
           ],
-          "score": 0
+          "score": 0.5
         },
         {
           "name": "SUMESH, Immanuel Abraham",
@@ -1591,25 +1621,30 @@
           ],
           "results": [
             "W",
+            "W",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             32,
-            40
+            40,
+            16
           ],
           "boards": [
             22,
-            19
+            19,
+            17
           ],
           "cumulatives": [
             1,
-            1
+            2,
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "LIAN, Peter",
@@ -1624,25 +1659,30 @@
           ],
           "results": [
             "L",
+            "W",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             33,
-            35
+            35,
+            45
           ],
           "boards": [
             23,
-            31
+            31,
+            25
           ],
           "cumulatives": [
             0,
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "KURUDUMALE, Yashwin Srinivasa",
@@ -1657,21 +1697,26 @@
           ],
           "results": [
             "L",
+            "L",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             34,
-            32
+            32,
+            29
           ],
           "boards": [
             24,
-            32
+            32,
+            33
           ],
           "cumulatives": [
+            0,
             0,
             0
           ],
@@ -1690,25 +1735,30 @@
           ],
           "results": [
             "W",
+            "W",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             35,
-            45
+            45,
+            26
           ],
           "boards": [
             25,
-            20
+            20,
+            18
           ],
           "cumulatives": [
             1,
-            1
+            2,
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "KARNAKANTI, Medhan",
@@ -1723,21 +1773,26 @@
           ],
           "results": [
             "W",
+            "L",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             36,
-            44
+            44,
+            37
           ],
           "boards": [
             26,
-            21
+            21,
+            26
           ],
           "cumulatives": [
+            1,
             1,
             1
           ],
@@ -1756,25 +1811,30 @@
           ],
           "results": [
             "W",
+            "W",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             37,
-            48
+            48,
+            44
           ],
           "boards": [
             27,
-            22
+            22,
+            19
           ],
           "cumulatives": [
             1,
-            1
+            2,
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "AUDIPUDI, Rishvik Venkata",
@@ -1789,21 +1849,26 @@
           ],
           "results": [
             "U",
+            "U",
             "U"
           ],
           "colors": [
+            "-",
             "-",
             "-"
           ],
           "ops": [
             0,
+            0,
             0
           ],
           "boards": [
             0,
+            0,
             0
           ],
           "cumulatives": [
+            0,
             0,
             0
           ],
@@ -1822,25 +1887,30 @@
           ],
           "results": [
             "W",
+            "W",
             " "
           ],
           "colors": [
             "W",
+            "B",
             "B"
           ],
           "ops": [
             39,
-            47
+            47,
+            4
           ],
           "boards": [
             29,
-            23
+            23,
+            16
           ],
           "cumulatives": [
             1,
-            1
+            2,
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "SATHISH, Dhanvanth",
@@ -1855,25 +1925,30 @@
           ],
           "results": [
             "L",
+            "W",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             40,
-            36
+            36,
+            46
           ],
           "boards": [
             30,
-            33
+            33,
+            27
           ],
           "cumulatives": [
             0,
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "THATI, Rithvik",
@@ -1886,25 +1961,30 @@
           ],
           "results": [
             "W",
+            "W",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             41,
-            49
+            49,
+            7
           ],
           "boards": [
             31,
-            24
+            24,
+            17
           ],
           "cumulatives": [
             1,
-            1
+            2,
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "KRISHNAKUMAR, Sanjay",
@@ -1919,25 +1999,30 @@
           ],
           "results": [
             "D",
+            "W",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             42,
-            43
+            43,
+            50
           ],
           "boards": [
             32,
-            27
+            27,
+            22
           ],
           "cumulatives": [
             0.5,
-            0.5
+            1.5,
+            1.5
           ],
-          "score": 0.5
+          "score": 1.5
         },
         {
           "name": "BARUA, Dhruv",
@@ -1952,25 +2037,30 @@
           ],
           "results": [
             "D",
+            "D",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             43,
-            30
+            30,
+            47
           ],
           "boards": [
             33,
+            28,
             28
           ],
           "cumulatives": [
             0.5,
-            0.5
+            1,
+            1
           ],
-          "score": 0.5
+          "score": 1
         },
         {
           "name": "SHANMUGAVELU, K S Prathiksha",
@@ -1986,21 +2076,26 @@
           ],
           "results": [
             "L",
+            "L",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             44,
-            37
+            37,
+            36
           ],
           "boards": [
             34,
-            34
+            34,
+            35
           ],
           "cumulatives": [
+            0,
             0,
             0
           ],
@@ -2019,25 +2114,30 @@
           ],
           "results": [
             "L",
+            "W",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             45,
-            39
+            39,
+            48
           ],
           "boards": [
             35,
-            35
+            35,
+            29
           ],
           "cumulatives": [
             0,
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "GUO, Evan",
@@ -2052,25 +2152,30 @@
           ],
           "results": [
             "W",
+            "D",
             " "
           ],
           "colors": [
             "B",
+            "W",
             "W"
           ],
           "ops": [
             46,
-            50
+            50,
+            3
           ],
           "boards": [
             36,
-            25
+            25,
+            20
           ],
           "cumulatives": [
             1,
-            1
+            1.5,
+            1.5
           ],
-          "score": 1
+          "score": 1.5
         },
         {
           "name": "HARIHARAN, Arjun Dakshin",
@@ -2085,21 +2190,26 @@
           ],
           "results": [
             "U",
+            "U",
             "U"
           ],
           "colors": [
+            "-",
             "-",
             "-"
           ],
           "ops": [
             0,
+            0,
             0
           ],
           "boards": [
             0,
+            0,
             0
           ],
           "cumulatives": [
+            0,
             0,
             0
           ],
@@ -2119,25 +2229,30 @@
           ],
           "results": [
             "L",
+            "W",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             48,
-            38
+            38,
+            40
           ],
           "boards": [
             38,
-            36
+            36,
+            30
           ],
           "cumulatives": [
             0,
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "DAY, Lucas J",
@@ -2152,21 +2267,26 @@
           ],
           "results": [
             "L",
+            "L",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             49,
-            41
+            41,
+            35
           ],
           "boards": [
             39,
-            37
+            37,
+            36
           ],
           "cumulatives": [
+            0,
             0,
             0
           ],
@@ -2185,21 +2305,26 @@
           ],
           "results": [
             "L",
+            "L",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             50,
-            46
+            46,
+            38
           ],
           "boards": [
             40,
-            38
+            38,
+            37
           ],
           "cumulatives": [
+            0,
             0,
             0
           ],
@@ -2218,25 +2343,30 @@
           ],
           "results": [
             "W",
+            "W",
             " "
           ],
           "colors": [
             "W",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             1,
-            2
+            2,
+            10
           ],
           "boards": [
             16,
-            16
+            16,
+            18
           ],
           "cumulatives": [
             1,
-            1
+            2,
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "PUNEETH, Avni",
@@ -2251,21 +2381,26 @@
           ],
           "results": [
             "U",
+            "U",
             "U"
           ],
           "colors": [
+            "-",
             "-",
             "-"
           ],
           "ops": [
             0,
+            0,
             0
           ],
           "boards": [
             0,
+            0,
             0
           ],
           "cumulatives": [
+            0,
             0,
             0
           ],
@@ -2284,21 +2419,26 @@
           ],
           "results": [
             "L",
+            "L",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             3,
-            1
+            1,
+            39
           ],
           "boards": [
             18,
-            29
+            29,
+            38
           ],
           "cumulatives": [
+            0,
             0,
             0
           ],
@@ -2317,25 +2457,30 @@
           ],
           "results": [
             "L",
+            "D",
             " "
           ],
           "colors": [
             "B",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             4,
-            6
+            6,
+            9
           ],
           "boards": [
             19,
-            30
+            30,
+            33
           ],
           "cumulatives": [
             0,
-            0
+            0.5,
+            0.5
           ],
-          "score": 0
+          "score": 0.5
         },
         {
           "name": "RAMANNAGARI, Nirvaan",
@@ -2350,25 +2495,30 @@
           ],
           "results": [
             "D",
+            "D",
             " "
           ],
           "colors": [
             "W",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             5,
-            18
+            18,
+            49
           ],
           "boards": [
             20,
-            28
+            28,
+            31
           ],
           "cumulatives": [
             0.5,
-            0.5
+            1,
+            1
           ],
-          "score": 0.5
+          "score": 1
         },
         {
           "name": "VINOTHKUMAR, Dakshan Brahas",
@@ -2383,21 +2533,26 @@
           ],
           "results": [
             "U",
+            "U",
             "U"
           ],
           "colors": [
+            "-",
             "-",
             "-"
           ],
           "ops": [
             0,
+            0,
             0
           ],
           "boards": [
             0,
+            0,
             0
           ],
           "cumulatives": [
+            0,
             0,
             0
           ],
@@ -2416,25 +2571,30 @@
           ],
           "results": [
             "L",
+            "W",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             7,
-            9
+            9,
+            1
           ],
           "boards": [
             22,
-            32
+            32,
+            23
           ],
           "cumulatives": [
             0,
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "SUNDARA RAJAN, Iniya",
@@ -2449,21 +2609,26 @@
           ],
           "results": [
             "W",
+            "L",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             8,
-            4
+            4,
+            2
           ],
           "boards": [
             23,
-            18
+            18,
+            24
           ],
           "cumulatives": [
+            1,
             1,
             1
           ],
@@ -2482,25 +2647,30 @@
           ],
           "results": [
             "W",
+            "D",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             9,
-            3
+            3,
+            5
           ],
           "boards": [
             24,
-            17
+            17,
+            21
           ],
           "cumulatives": [
             1,
-            1
+            1.5,
+            1.5
           ],
-          "score": 1
+          "score": 1.5
         },
         {
           "name": "SRIVATSAN, Saikrishna S",
@@ -2515,21 +2685,26 @@
           ],
           "results": [
             "L",
+            "L",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             10,
-            8
+            8,
+            24
           ],
           "boards": [
             25,
-            31
+            31,
+            36
           ],
           "cumulatives": [
+            0,
             0,
             0
           ],
@@ -2548,21 +2723,26 @@
           ],
           "results": [
             "L",
+            "L",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             11,
-            15
+            15,
+            19
           ],
           "boards": [
             26,
-            33
+            33,
+            35
           ],
           "cumulatives": [
+            0,
             0,
             0
           ],
@@ -2581,25 +2761,30 @@
           ],
           "results": [
             "L",
+            "W",
             " "
           ],
           "colors": [
             "B",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             12,
-            19
+            19,
+            11
           ],
           "boards": [
             27,
-            34
+            34,
+            26
           ],
           "cumulatives": [
             0,
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "SANGEETAM, Viraj",
@@ -2615,21 +2800,26 @@
           ],
           "results": [
             "L",
+            "L",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             47,
-            23
+            23,
+            25
           ],
           "boards": [
             28,
-            36
+            36,
+            37
           ],
           "cumulatives": [
+            0,
             0,
             0
           ],
@@ -2648,21 +2838,26 @@
           ],
           "results": [
             "L",
+            "L",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             14,
-            20
+            20,
+            28
           ],
           "boards": [
             29,
-            35
+            35,
+            38
           ],
           "cumulatives": [
+            0,
             0,
             0
           ],
@@ -2682,21 +2877,26 @@
           ],
           "results": [
             "W",
+            "L",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             15,
-            7
+            7,
+            23
           ],
           "boards": [
             30,
-            19
+            19,
+            30
           ],
           "cumulatives": [
+            1,
             1,
             1
           ],
@@ -2715,25 +2915,30 @@
           ],
           "results": [
             "L",
+            "W",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             16,
-            24
+            24,
+            6
           ],
           "boards": [
             31,
-            37
+            37,
+            32
           ],
           "cumulatives": [
             0,
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "GAWALAPU, Raj Alexander",
@@ -2748,21 +2953,26 @@
           ],
           "results": [
             "D",
+            "L",
             " "
           ],
           "colors": [
             "W",
+            "B",
             "B"
           ],
           "ops": [
             17,
-            5
+            5,
+            43
           ],
           "boards": [
             32,
-            26
+            26,
+            34
           ],
           "cumulatives": [
+            0.5,
             0.5,
             0.5
           ],
@@ -2781,21 +2991,26 @@
           ],
           "results": [
             "D",
+            "L",
             " "
           ],
           "colors": [
             "B",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             18,
-            17
+            17,
+            42
           ],
           "boards": [
             33,
-            27
+            27,
+            34
           ],
           "cumulatives": [
+            0.5,
             0.5,
             0.5
           ],
@@ -2814,25 +3029,30 @@
           ],
           "results": [
             "W",
+            "W",
             " "
           ],
           "colors": [
             "W",
+            "B",
             "B"
           ],
           "ops": [
             19,
-            11
+            11,
+            12
           ],
           "boards": [
             34,
-            21
+            21,
+            19
           ],
           "cumulatives": [
             1,
-            1
+            2,
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "WALKER, John Phillip",
@@ -2847,21 +3067,26 @@
           ],
           "results": [
             "W",
+            "L",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             20,
-            10
+            10,
+            8
           ],
           "boards": [
             35,
-            20
+            20,
+            25
           ],
           "cumulatives": [
+            1,
             1,
             1
           ],
@@ -2880,25 +3105,30 @@
           ],
           "results": [
             "L",
+            "W",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             21,
-            25
+            25,
+            15
           ],
           "boards": [
             36,
-            38
+            38,
+            27
           ],
           "cumulatives": [
             0,
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "SABANAYAGAM, Sai Deekshan",
@@ -2913,21 +3143,26 @@
           ],
           "results": [
             "W",
+            "L",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             38,
-            14
+            14,
+            18
           ],
           "boards": [
             28,
-            23
+            23,
+            28
           ],
           "cumulatives": [
+            1,
             1,
             1
           ],
@@ -2946,21 +3181,26 @@
           ],
           "results": [
             "W",
+            "L",
             " "
           ],
           "colors": [
             "W",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             23,
-            12
+            12,
+            20
           ],
           "boards": [
             38,
-            22
+            22,
+            29
           ],
           "cumulatives": [
+            1,
             1,
             1
           ],
@@ -2979,21 +3219,26 @@
           ],
           "results": [
             "W",
+            "L",
             " "
           ],
           "colors": [
             "B",
+            "W",
             "W"
           ],
           "ops": [
             24,
-            16
+            16,
+            30
           ],
           "boards": [
             39,
-            24
+            24,
+            31
           ],
           "cumulatives": [
+            1,
             1,
             1
           ],
@@ -3012,28 +3257,77 @@
           ],
           "results": [
             "W",
+            "D",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             25,
-            21
+            21,
+            17
           ],
           "boards": [
             40,
-            25
+            25,
+            22
           ],
           "cumulatives": [
             1,
-            1
+            1.5,
+            1.5
           ],
-          "score": 1
+          "score": 1.5
         }
       ],
       "teams": [
+        {
+          "code": "KS",
+          "team": "KS",
+          "rating": "514.5",
+          "score": 1,
+          "team_tiebreaks": [
+          ],
+          "members": [
+            {
+              "pair_number": 19,
+              "name": "SHANMUGAVELU, K S Prathiksha",
+              "rating": 529,
+              "score": 0
+            },
+            {
+              "pair_number": 23,
+              "name": "SHANMUGAVELU, K S Kishan Chandar",
+              "rating": 500,
+              "score": 1
+            }
+          ]
+        },
+        {
+          "code": "SR",
+          "team": "SR",
+          "rating": "384.0",
+          "score": 1,
+          "team_tiebreaks": [
+          ],
+          "members": [
+            {
+              "pair_number": 32,
+              "name": "SRIVATSAN, Radhika Sudhakar",
+              "rating": 390,
+              "score": 1
+            },
+            {
+              "pair_number": 35,
+              "name": "SRIVATSAN, Saikrishna S",
+              "rating": 378,
+              "score": 0
+            }
+          ]
+        },
         {
           "code": "DAK",
           "team": "DAK",
@@ -3055,50 +3349,6 @@
               "score": 1
             }
           ]
-        },
-        {
-          "code": "KS",
-          "team": "KS",
-          "rating": "514.5",
-          "score": 0,
-          "team_tiebreaks": [
-          ],
-          "members": [
-            {
-              "pair_number": 19,
-              "name": "SHANMUGAVELU, K S Prathiksha",
-              "rating": 529,
-              "score": 0
-            },
-            {
-              "pair_number": 23,
-              "name": "SHANMUGAVELU, K S Kishan Chandar",
-              "rating": 500,
-              "score": 0
-            }
-          ]
-        },
-        {
-          "code": "SR",
-          "team": "SR",
-          "rating": "384.0",
-          "score": 0,
-          "team_tiebreaks": [
-          ],
-          "members": [
-            {
-              "pair_number": 32,
-              "name": "SRIVATSAN, Radhika Sudhakar",
-              "rating": 390,
-              "score": 0
-            },
-            {
-              "pair_number": 35,
-              "name": "SRIVATSAN, Saikrishna S",
-              "rating": 378,
-              "score": 0
-            }
-          ]
         }
       ],
       "clubs": [
@@ -3106,59 +3356,59 @@
     },
     {
       "section": "Unrated (Grade K to 3)",
-      "rounds_paired": 2,
-      "rounds_played": 1,
+      "rounds_paired": 3,
+      "rounds_played": 2,
       "final_round": false,
       "standings": [
         1,
         2,
-        4,
-        8,
         9,
         11,
+        4,
+        7,
+        8,
+        10,
         12,
+        13,
         3,
         5,
         6,
-        7,
-        10,
-        13,
         14
       ],
       "pairings": [
         {
-          "white": 12,
-          "black": 9,
+          "white": 9,
+          "black": 1,
           "board": 41
         },
         {
-          "white": 11,
-          "black": 4,
+          "white": 2,
+          "black": 11,
           "board": 42
         },
         {
-          "white": 8,
-          "black": 2,
+          "white": 4,
+          "black": 12,
           "board": 43
         },
         {
-          "white": 1,
-          "black": 3,
+          "white": 10,
+          "black": 7,
           "board": 44
         },
         {
-          "white": 7,
-          "black": 6,
+          "white": 13,
+          "black": 8,
           "board": 45
         },
         {
-          "white": 5,
-          "black": 13,
+          "white": 3,
+          "black": 6,
           "board": 46
         },
         {
-          "white": 10,
-          "black": 14,
+          "white": 14,
+          "black": 5,
           "board": 47
         }
       ],
@@ -3178,25 +3428,30 @@
           ],
           "results": [
             "W",
+            "W",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             6,
-            3
+            3,
+            9
           ],
           "boards": [
             45,
-            44
+            44,
+            41
           ],
           "cumulatives": [
             1,
-            1
+            2,
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "ARYA Asmi",
@@ -3209,25 +3464,30 @@
           ],
           "results": [
             "W",
+            "W",
             " "
           ],
           "colors": [
             "B",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             3,
-            8
+            8,
+            11
           ],
           "boards": [
             43,
-            43
+            43,
+            42
           ],
           "cumulatives": [
             1,
-            1
+            2,
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "SRIKANTH, Rithannya Mala",
@@ -3240,21 +3500,26 @@
           ],
           "results": [
             "L",
+            "L",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             2,
-            1
+            1,
+            6
           ],
           "boards": [
             43,
-            44
+            44,
+            46
           ],
           "cumulatives": [
+            0,
             0,
             0
           ],
@@ -3271,21 +3536,26 @@
           ],
           "results": [
             "W",
+            "L",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             10,
-            11
+            11,
+            12
           ],
           "boards": [
             47,
-            42
+            42,
+            43
           ],
           "cumulatives": [
+            1,
             1,
             1
           ],
@@ -3302,21 +3572,26 @@
           ],
           "results": [
             "L",
+            "L",
             " "
           ],
           "colors": [
             "W",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             12,
-            13
+            13,
+            14
           ],
           "boards": [
             46,
-            46
+            46,
+            47
           ],
           "cumulatives": [
+            0,
             0,
             0
           ],
@@ -3333,21 +3608,26 @@
           ],
           "results": [
             "L",
+            "L",
             " "
           ],
           "colors": [
             "W",
+            "B",
             "B"
           ],
           "ops": [
             1,
-            7
+            7,
+            3
           ],
           "boards": [
             45,
-            45
+            45,
+            46
           ],
           "cumulatives": [
+            0,
             0,
             0
           ],
@@ -3364,25 +3644,30 @@
           ],
           "results": [
             "L",
+            "W",
             " "
           ],
           "colors": [
             "W",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             8,
-            6
+            6,
+            10
           ],
           "boards": [
             44,
-            45
+            45,
+            44
           ],
           "cumulatives": [
             0,
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "NIMESH, Bhavika",
@@ -3395,21 +3680,26 @@
           ],
           "results": [
             "W",
+            "L",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             7,
-            2
+            2,
+            13
           ],
           "boards": [
             44,
-            43
+            43,
+            45
           ],
           "cumulatives": [
+            1,
             1,
             1
           ],
@@ -3426,25 +3716,30 @@
           ],
           "results": [
             "X",
+            "W",
             " "
           ],
           "colors": [
             "-",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             0,
-            12
+            12,
+            1
           ],
           "boards": [
             0,
+            41,
             41
           ],
           "cumulatives": [
             1,
-            1
+            2,
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "SANAA Jawahar",
@@ -3457,25 +3752,30 @@
           ],
           "results": [
             "L",
+            "W",
             " "
           ],
           "colors": [
             "B",
+            "W",
             "W"
           ],
           "ops": [
             4,
-            14
+            14,
+            7
           ],
           "boards": [
             47,
-            47
+            47,
+            44
           ],
           "cumulatives": [
             0,
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "PATCHA, Hanvish ",
@@ -3488,25 +3788,30 @@
           ],
           "results": [
             "W",
+            "W",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             13,
-            4
+            4,
+            2
           ],
           "boards": [
+            42,
             42,
             42
           ],
           "cumulatives": [
             1,
-            1
+            2,
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "PADALA, Riyaansh",
@@ -3519,21 +3824,26 @@
           ],
           "results": [
             "W",
+            "L",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             5,
-            9
+            9,
+            4
           ],
           "boards": [
             46,
-            41
+            41,
+            43
           ],
           "cumulatives": [
+            1,
             1,
             1
           ],
@@ -3550,25 +3860,30 @@
           ],
           "results": [
             "L",
+            "W",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             11,
-            5
+            5,
+            8
           ],
           "boards": [
             42,
-            46
+            46,
+            45
           ],
           "cumulatives": [
             0,
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "PRAJIT Raju",
@@ -3581,21 +3896,26 @@
           ],
           "results": [
             "U",
+            "L",
             " "
           ],
           "colors": [
             "-",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             0,
-            10
+            10,
+            5
           ],
           "boards": [
             0,
+            47,
             47
           ],
           "cumulatives": [
+            0,
             0,
             0
           ],
@@ -3607,59 +3927,59 @@
     },
     {
       "section": "Unrated (Grade K to 8)",
-      "rounds_paired": 2,
-      "rounds_played": 1,
+      "rounds_paired": 3,
+      "rounds_played": 2,
       "final_round": false,
       "standings": [
-        1,
         2,
         3,
         5,
         6,
+        1,
         7,
         8,
-        11,
-        4,
-        9,
         10,
+        11,
         12,
         13,
+        4,
+        9,
         14
       ],
       "pairings": [
         {
-          "white": 5,
-          "black": 1,
+          "white": 2,
+          "black": 5,
           "board": 48
         },
         {
-          "white": 7,
-          "black": 2,
+          "white": 6,
+          "black": 3,
           "board": 49
         },
         {
-          "white": 3,
-          "black": 8,
+          "white": 1,
+          "black": 10,
           "board": 50
         },
         {
-          "white": 11,
-          "black": 6,
+          "white": 12,
+          "black": 7,
           "board": 51
         },
         {
-          "white": 13,
-          "black": 4,
+          "white": 8,
+          "black": 11,
           "board": 52
         },
         {
           "white": 9,
-          "black": 12,
+          "black": 13,
           "board": 53
         },
         {
-          "white": 14,
-          "black": 10,
+          "white": 4,
+          "black": 14,
           "board": 54
         }
       ],
@@ -3679,21 +3999,26 @@
           ],
           "results": [
             "X",
+            "L",
             " "
           ],
           "colors": [
             "-",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             0,
-            5
+            5,
+            10
           ],
           "boards": [
             0,
-            48
+            48,
+            50
           ],
           "cumulatives": [
+            1,
             1,
             1
           ],
@@ -3710,25 +4035,30 @@
           ],
           "results": [
             "W",
+            "W",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             9,
-            7
+            7,
+            5
           ],
           "boards": [
             49,
-            49
+            49,
+            48
           ],
           "cumulatives": [
             1,
-            1
+            2,
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "RAJA Nandhana",
@@ -3741,25 +4071,30 @@
           ],
           "results": [
             "W",
+            "W",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             10,
-            8
+            8,
+            6
           ],
           "boards": [
             50,
-            50
+            50,
+            49
           ],
           "cumulatives": [
             1,
-            1
+            2,
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "BALAJI Sheshanand",
@@ -3772,21 +4107,26 @@
           ],
           "results": [
             "L",
+            "L",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             11,
-            13
+            13,
+            14
           ],
           "boards": [
             51,
-            52
+            52,
+            54
           ],
           "cumulatives": [
+            0,
             0,
             0
           ],
@@ -3803,25 +4143,30 @@
           ],
           "results": [
             "W",
+            "W",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             12,
-            1
+            1,
+            2
           ],
           "boards": [
             52,
+            48,
             48
           ],
           "cumulatives": [
             1,
-            1
+            2,
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "ASHRIT Chanda",
@@ -3834,25 +4179,30 @@
           ],
           "results": [
             "W",
+            "W",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             13,
-            11
+            11,
+            3
           ],
           "boards": [
             53,
-            51
+            51,
+            49
           ],
           "cumulatives": [
             1,
-            1
+            2,
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "KALAPALA, Aadvik",
@@ -3865,21 +4215,26 @@
           ],
           "results": [
             "W",
+            "L",
             " "
           ],
           "colors": [
             "-",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             0,
-            2
+            2,
+            12
           ],
           "boards": [
             54,
-            49
+            49,
+            51
           ],
           "cumulatives": [
+            1,
             1,
             1
           ],
@@ -3896,21 +4251,26 @@
           ],
           "results": [
             "W",
+            "L",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             14,
-            3
+            3,
+            11
           ],
           "boards": [
             55,
-            50
+            50,
+            52
           ],
           "cumulatives": [
+            1,
             1,
             1
           ],
@@ -3927,21 +4287,26 @@
           ],
           "results": [
             "L",
+            "L",
             " "
           ],
           "colors": [
             "B",
+            "W",
             "W"
           ],
           "ops": [
             2,
-            12
+            12,
+            13
           ],
           "boards": [
             49,
+            53,
             53
           ],
           "cumulatives": [
+            0,
             0,
             0
           ],
@@ -3958,25 +4323,30 @@
           ],
           "results": [
             "L",
+            "W",
             " "
           ],
           "colors": [
             "W",
+            "B",
             "B"
           ],
           "ops": [
             3,
-            14
+            14,
+            1
           ],
           "boards": [
             50,
-            54
+            54,
+            50
           ],
           "cumulatives": [
             0,
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "KASIKALA Sai Ashvadh",
@@ -3989,21 +4359,26 @@
           ],
           "results": [
             "W",
+            "L",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             4,
-            6
+            6,
+            8
           ],
           "boards": [
             51,
-            51
+            51,
+            52
           ],
           "cumulatives": [
+            1,
             1,
             1
           ],
@@ -4020,25 +4395,30 @@
           ],
           "results": [
             "L",
+            "W",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             5,
-            9
+            9,
+            7
           ],
           "boards": [
             52,
-            53
+            53,
+            51
           ],
           "cumulatives": [
             0,
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "SURESH Viyan",
@@ -4051,25 +4431,30 @@
           ],
           "results": [
             "L",
+            "W",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             6,
-            4
+            4,
+            9
           ],
           "boards": [
             53,
-            52
+            52,
+            53
           ],
           "cumulatives": [
             0,
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "VEDAMSH, Gowniwari",
@@ -4081,21 +4466,26 @@
           ],
           "results": [
             "L",
+            "L",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             8,
-            10
+            10,
+            4
           ],
           "boards": [
             55,
+            54,
             54
           ],
           "cumulatives": [
+            0,
             0,
             0
           ],
