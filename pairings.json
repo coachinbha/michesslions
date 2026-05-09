@@ -6,7 +6,7 @@
     "state": "MI",
     "country": "USA",
     "td": "Vaishnavi",
-    "time_stamp": "5/9/2026 - 11:38",
+    "time_stamp": "5/9/2026 - 11:41",
     "affiliate": ""
   },
   "options": {
@@ -594,8 +594,8 @@
     },
     {
       "section": "U1400",
-      "rounds_paired": 1,
-      "rounds_played": 0,
+      "rounds_paired": 2,
+      "rounds_played": 1,
       "final_round": false,
       "standings": [
         1,
@@ -603,50 +603,50 @@
         3,
         4,
         5,
+        10,
+        14,
         6,
         7,
         8,
         9,
-        10,
         11,
         12,
-        13,
-        14
+        13
       ],
       "pairings": [
         {
-          "white": 1,
-          "black": 8,
+          "white": 4,
+          "black": 1,
           "board": 9
         },
         {
-          "white": 9,
-          "black": 2,
+          "white": 2,
+          "black": 5,
           "board": 10
         },
         {
-          "white": 3,
-          "black": 6,
+          "white": 14,
+          "black": 3,
           "board": 11
         },
         {
-          "white": 13,
-          "black": 4,
+          "white": 10,
+          "black": 6,
           "board": 12
         },
         {
-          "white": 5,
-          "black": 11,
+          "white": 12,
+          "black": 7,
           "board": 13
         },
         {
-          "white": 12,
-          "black": 10,
+          "white": 8,
+          "black": 13,
           "board": 14
         },
         {
-          "white": 7,
-          "black": 14,
+          "white": 11,
+          "black": 9,
           "board": 15
         }
       ],
@@ -667,21 +667,26 @@
           "tiebreaks": [
           ],
           "results": [
+            "W",
             " "
           ],
           "colors": [
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
-            8
+            8,
+            4
           ],
           "boards": [
+            9,
             9
           ],
           "cumulatives": [
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "ROSENSCRUGGS, Adam",
@@ -695,21 +700,26 @@
           "tiebreaks": [
           ],
           "results": [
+            "W",
             " "
           ],
           "colors": [
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
-            9
+            9,
+            5
           ],
           "boards": [
+            10,
             10
           ],
           "cumulatives": [
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "RAGEER, Krish Nrityan",
@@ -723,21 +733,26 @@
           "tiebreaks": [
           ],
           "results": [
+            "W",
             " "
           ],
           "colors": [
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
-            6
+            6,
+            14
           ],
           "boards": [
+            11,
             11
           ],
           "cumulatives": [
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "TALWAR, Neil",
@@ -751,21 +766,26 @@
           "tiebreaks": [
           ],
           "results": [
+            "W",
             " "
           ],
           "colors": [
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
-            13
+            13,
+            1
           ],
           "boards": [
-            12
+            12,
+            9
           ],
           "cumulatives": [
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "BURDZINSKI, Jan Raymond",
@@ -779,21 +799,26 @@
           "tiebreaks": [
           ],
           "results": [
+            "W",
             " "
           ],
           "colors": [
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
-            11
+            11,
+            2
           ],
           "boards": [
-            13
+            13,
+            10
           ],
           "cumulatives": [
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "SUMESH, Isabella Cecily",
@@ -808,18 +833,23 @@
           "tiebreaks": [
           ],
           "results": [
+            "L",
             " "
           ],
           "colors": [
+            "B",
             "B"
           ],
           "ops": [
-            3
+            3,
+            10
           ],
           "boards": [
-            11
+            11,
+            12
           ],
           "cumulatives": [
+            0,
             0
           ],
           "score": 0
@@ -836,18 +866,23 @@
           "tiebreaks": [
           ],
           "results": [
+            "L",
             " "
           ],
           "colors": [
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
-            14
+            14,
+            12
           ],
           "boards": [
-            15
+            15,
+            13
           ],
           "cumulatives": [
+            0,
             0
           ],
           "score": 0
@@ -864,18 +899,23 @@
           "tiebreaks": [
           ],
           "results": [
+            "L",
             " "
           ],
           "colors": [
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
-            1
+            1,
+            13
           ],
           "boards": [
-            9
+            9,
+            14
           ],
           "cumulatives": [
+            0,
             0
           ],
           "score": 0
@@ -892,18 +932,23 @@
           "tiebreaks": [
           ],
           "results": [
+            "L",
             " "
           ],
           "colors": [
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
-            2
+            2,
+            11
           ],
           "boards": [
-            10
+            10,
+            15
           ],
           "cumulatives": [
+            0,
             0
           ],
           "score": 0
@@ -920,21 +965,26 @@
           "tiebreaks": [
           ],
           "results": [
+            "W",
             " "
           ],
           "colors": [
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
-            12
+            12,
+            6
           ],
           "boards": [
-            14
+            14,
+            12
           ],
           "cumulatives": [
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "MENON, Sharath",
@@ -948,18 +998,23 @@
           "tiebreaks": [
           ],
           "results": [
+            "L",
             " "
           ],
           "colors": [
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
-            5
+            5,
+            9
           ],
           "boards": [
-            13
+            13,
+            15
           ],
           "cumulatives": [
+            0,
             0
           ],
           "score": 0
@@ -976,18 +1031,23 @@
           "tiebreaks": [
           ],
           "results": [
+            "L",
             " "
           ],
           "colors": [
+            "W",
             "W"
           ],
           "ops": [
-            10
+            10,
+            7
           ],
           "boards": [
-            14
+            14,
+            13
           ],
           "cumulatives": [
+            0,
             0
           ],
           "score": 0
@@ -1004,18 +1064,23 @@
           "tiebreaks": [
           ],
           "results": [
+            "L",
             " "
           ],
           "colors": [
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
-            4
+            4,
+            8
           ],
           "boards": [
-            12
+            12,
+            14
           ],
           "cumulatives": [
+            0,
             0
           ],
           "score": 0
@@ -1032,21 +1097,26 @@
           "tiebreaks": [
           ],
           "results": [
+            "W",
             " "
           ],
           "colors": [
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
-            7
+            7,
+            3
           ],
           "boards": [
-            15
+            15,
+            11
           ],
           "cumulatives": [
-            0
+            1,
+            1
           ],
-          "score": 0
+          "score": 1
         }
       ],
       "clubs": [
