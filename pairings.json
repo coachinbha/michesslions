@@ -6,7 +6,7 @@
     "state": "MI",
     "country": "USA",
     "td": "Vaishnavi",
-    "time_stamp": "5/8/2026 - 21:59",
+    "time_stamp": "5/9/2026 - 6:53",
     "affiliate": ""
   },
   "options": {
@@ -65,7 +65,8 @@
         13,
         14,
         15,
-        16
+        16,
+        17
       ],
       "pairings": [
       ],
@@ -144,8 +145,31 @@
           "score": 0
         },
         {
-          "name": "PRAKASH, Sanmay",
+          "name": "WANG, Grace Ofia Nuoyi",
           "pair_number": 4,
+          "id1": "30541277",
+          "rating": 1734,
+          "rating2": 1601,
+          "exp1": "03/31/2032",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0
+        },
+        {
+          "name": "PRAKASH, Sanmay",
+          "pair_number": 5,
           "id1": "32048940",
           "rating": 1733,
           "rating2": 1530,
@@ -168,7 +192,7 @@
         },
         {
           "name": "VENKATASUBBA, Krishna",
-          "pair_number": 5,
+          "pair_number": 6,
           "id1": "12798593",
           "rating": 1714,
           "rating2": 1687,
@@ -191,11 +215,12 @@
         },
         {
           "name": "GONG, Zhaomingyang",
-          "pair_number": 6,
+          "pair_number": 7,
           "id1": "30907267",
           "rating": 1675,
           "rating2": 1533,
           "exp1": "01/31/2028",
+          "team": "GONG",
           "state": "MI",
           "class": " ",
           "tiebreaks": [
@@ -214,7 +239,7 @@
         },
         {
           "name": "YAN, Gracie Ge",
-          "pair_number": 7,
+          "pair_number": 8,
           "id1": "30363150",
           "rating": 1570,
           "rating2": 1369,
@@ -237,7 +262,7 @@
         },
         {
           "name": "DURUVASAN, Dhruv",
-          "pair_number": 8,
+          "pair_number": 9,
           "id1": "17021506",
           "rating": 1505,
           "rating2": 1356,
@@ -260,11 +285,12 @@
         },
         {
           "name": "GONG, Zhaoqijun",
-          "pair_number": 9,
+          "pair_number": 10,
           "id1": "30864300",
           "rating": 1504,
           "rating2": 1235,
           "exp1": "01/31/2028",
+          "team": "GONG",
           "state": "MI",
           "class": " ",
           "tiebreaks": [
@@ -283,7 +309,7 @@
         },
         {
           "name": "FAWCETT, Aaron",
-          "pair_number": 10,
+          "pair_number": 11,
           "id1": "31818431",
           "rating": 1484,
           "rating2": 1297,
@@ -306,7 +332,7 @@
         },
         {
           "name": "SRISHTI, Phani Kumar",
-          "pair_number": 11,
+          "pair_number": 12,
           "id1": "32653000",
           "rating": 1480,
           "rating2": 1449,
@@ -329,7 +355,7 @@
         },
         {
           "name": "SHAO, Lucas",
-          "pair_number": 12,
+          "pair_number": 13,
           "id1": "31963537",
           "rating": 1442,
           "rating2": 1343,
@@ -352,7 +378,7 @@
         },
         {
           "name": "NI, Ho Ming",
-          "pair_number": 13,
+          "pair_number": 14,
           "id1": "32130668",
           "rating": 1427,
           "rating2": 1232,
@@ -375,7 +401,7 @@
         },
         {
           "name": "YARAMALA, Jashith Sai Reddy",
-          "pair_number": 14,
+          "pair_number": 15,
           "id1": "31332908",
           "rating": 1202,
           "rating2": 1066,
@@ -398,7 +424,7 @@
         },
         {
           "name": "SHAJI, Madhav",
-          "pair_number": 15,
+          "pair_number": 16,
           "id1": "32215606",
           "rating": 1168,
           "rating2": 992,
@@ -421,13 +447,14 @@
         },
         {
           "name": "SUMESH, Isabella Cecily",
-          "pair_number": 16,
+          "pair_number": 17,
           "id1": "31929572",
           "rating": 981,
           "rating2": 933,
           "exp1": "05/31/2028",
           "state": "MI",
           "class": " ",
+          "byes": "3,4z",
           "tiebreaks": [
           ],
           "results": [
@@ -441,6 +468,30 @@
           "cumulatives": [
           ],
           "score": 0
+        }
+      ],
+      "teams": [
+        {
+          "code": "GONG",
+          "team": "GONG",
+          "rating": "1589.5",
+          "score": 0,
+          "team_tiebreaks": [
+          ],
+          "members": [
+            {
+              "pair_number": 7,
+              "name": "GONG, Zhaomingyang",
+              "rating": 1675,
+              "score": 0
+            },
+            {
+              "pair_number": 10,
+              "name": "GONG, Zhaoqijun",
+              "rating": 1504,
+              "score": 0
+            }
+          ]
         }
       ],
       "clubs": [
@@ -851,7 +902,9 @@
         43,
         44,
         45,
-        46
+        46,
+        47,
+        48
       ],
       "pairings": [
       ],
@@ -1232,6 +1285,7 @@
           "rating": 529,
           "rating2": 517,
           "exp1": "02/28/2027",
+          "team": "KS",
           "state": "MI",
           "class": " ",
           "tiebreaks": [
@@ -1324,6 +1378,7 @@
           "rating": 500,
           "rating2": 469,
           "exp1": "02/28/2027",
+          "team": "KS",
           "state": "MI",
           "class": " ",
           "tiebreaks": [
@@ -1525,8 +1580,31 @@
           "score": 0
         },
         {
-          "name": "SUNDARA RAJAN, Iniya",
+          "name": "SRIVATSAN, Radhika Sudhakar",
           "pair_number": 30,
+          "id1": "30841940",
+          "rating": 390,
+          "rating2": 379,
+          "team": "SR",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0
+        },
+        {
+          "name": "SUNDARA RAJAN, Iniya",
+          "pair_number": 31,
           "id1": "32198515",
           "rating": 389,
           "rating2": 392,
@@ -1549,7 +1627,7 @@
         },
         {
           "name": "ROZARIO, Abdiel M",
-          "pair_number": 31,
+          "pair_number": 32,
           "id1": "32950258",
           "rating": 383,
           "rating2": 345,
@@ -1571,8 +1649,31 @@
           "score": 0
         },
         {
+          "name": "SRIVATSAN, Saikrishna S",
+          "pair_number": 33,
+          "id1": "30835418",
+          "rating": 378,
+          "rating2": 370,
+          "team": "SR",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0
+        },
+        {
           "name": "LUEDY, Bryan",
-          "pair_number": 32,
+          "pair_number": 34,
           "id1": "32562714",
           "rating": 365,
           "rating2": 351,
@@ -1595,7 +1696,7 @@
         },
         {
           "name": "NAGATHAN, Aksh",
-          "pair_number": 33,
+          "pair_number": 35,
           "id1": "32825566",
           "rating": 338,
           "rating2": 394,
@@ -1618,11 +1719,12 @@
         },
         {
           "name": "SANGEETAM, Viraj",
-          "pair_number": 34,
+          "pair_number": 36,
           "id1": "32557682",
           "rating": 231,
           "rating2": 219,
           "exp1": "09/30/2026",
+          "team": "DAK",
           "state": "MI",
           "class": " ",
           "tiebreaks": [
@@ -1641,7 +1743,7 @@
         },
         {
           "name": "JAVAGAL ANUP, Aarush Sharma",
-          "pair_number": 35,
+          "pair_number": 37,
           "id1": "33068025",
           "rating": 204,
           "rating2": 184,
@@ -1664,11 +1766,12 @@
         },
         {
           "name": "SANGEETAM, Daksh",
-          "pair_number": 36,
+          "pair_number": 38,
           "id1": "32523768",
           "rating": 193,
           "rating2": 192,
           "exp1": "08/31/2026",
+          "team": "DAK",
           "state": "MI",
           "class": " ",
           "tiebreaks": [
@@ -1687,7 +1790,7 @@
         },
         {
           "name": "PATEL, Arav",
-          "pair_number": 37,
+          "pair_number": 39,
           "id1": "32617192",
           "rating": 181,
           "rating2": 184,
@@ -1710,7 +1813,7 @@
         },
         {
           "name": "GAWALAPU, Raj Alexander",
-          "pair_number": 38,
+          "pair_number": 40,
           "id1": "32687206",
           "rating": 174,
           "rating2": 167,
@@ -1733,7 +1836,7 @@
         },
         {
           "name": "LAFRANCE, Andrew James",
-          "pair_number": 39,
+          "pair_number": 41,
           "id1": "33101456",
           "rating": 0,
           "rating2": 0,
@@ -1756,7 +1859,7 @@
         },
         {
           "name": "NALLA, Darshil Reddy",
-          "pair_number": 40,
+          "pair_number": 42,
           "id1": "33119002",
           "rating": 0,
           "rating2": 0,
@@ -1779,7 +1882,7 @@
         },
         {
           "name": "WALKER, John Phillip",
-          "pair_number": 41,
+          "pair_number": 43,
           "id1": "33092677",
           "rating": 0,
           "rating2": 0,
@@ -1802,7 +1905,7 @@
         },
         {
           "name": "RAWLAPALLY, Vihaan Reddy",
-          "pair_number": 42,
+          "pair_number": 44,
           "id1": "33059802",
           "rating": 0,
           "rating2": 0,
@@ -1825,7 +1928,7 @@
         },
         {
           "name": "SABANAYAGAM, Sai Deekshan",
-          "pair_number": 43,
+          "pair_number": 45,
           "id1": "33118453",
           "rating": 0,
           "rating2": 0,
@@ -1848,7 +1951,7 @@
         },
         {
           "name": "SHAIK, Mohammad Kashif",
-          "pair_number": 44,
+          "pair_number": 46,
           "id1": "33108081",
           "rating": 0,
           "rating2": 0,
@@ -1871,7 +1974,7 @@
         },
         {
           "name": "RAJESHJ, Jithesh",
-          "pair_number": 45,
+          "pair_number": 47,
           "id1": "33109649",
           "rating": 0,
           "rating2": 0,
@@ -1894,7 +1997,7 @@
         },
         {
           "name": "MITCHELL, Finn Samuel",
-          "pair_number": 46,
+          "pair_number": 48,
           "id1": "33107373",
           "rating": 0,
           "rating2": 0,
@@ -1914,6 +2017,74 @@
           "cumulatives": [
           ],
           "score": 0
+        }
+      ],
+      "teams": [
+        {
+          "code": "KS",
+          "team": "KS",
+          "rating": "514.5",
+          "score": 0,
+          "team_tiebreaks": [
+          ],
+          "members": [
+            {
+              "pair_number": 17,
+              "name": "SHANMUGAVELU, K S Prathiksha",
+              "rating": 529,
+              "score": 0
+            },
+            {
+              "pair_number": 21,
+              "name": "SHANMUGAVELU, K S Kishan Chandar",
+              "rating": 500,
+              "score": 0
+            }
+          ]
+        },
+        {
+          "code": "SR",
+          "team": "SR",
+          "rating": "384.0",
+          "score": 0,
+          "team_tiebreaks": [
+          ],
+          "members": [
+            {
+              "pair_number": 30,
+              "name": "SRIVATSAN, Radhika Sudhakar",
+              "rating": 390,
+              "score": 0
+            },
+            {
+              "pair_number": 33,
+              "name": "SRIVATSAN, Saikrishna S",
+              "rating": 378,
+              "score": 0
+            }
+          ]
+        },
+        {
+          "code": "DAK",
+          "team": "DAK",
+          "rating": "212.0",
+          "score": 0,
+          "team_tiebreaks": [
+          ],
+          "members": [
+            {
+              "pair_number": 36,
+              "name": "SANGEETAM, Viraj",
+              "rating": 231,
+              "score": 0
+            },
+            {
+              "pair_number": 38,
+              "name": "SANGEETAM, Daksh",
+              "rating": 193,
+              "score": 0
+            }
+          ]
         }
       ],
       "clubs": [
@@ -1943,12 +2114,6 @@
       "pairings": [
       ],
       "tiebreaks": [
-        "Mod. Med",
-        "Solk",
-        "Cumul.",
-        "1-on-1",
-        "BWG",
-        "SB"
       ],
       "team_tiebreaks": [
       ],
@@ -1961,12 +2126,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -1988,12 +2147,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2015,12 +2168,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2042,12 +2189,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2069,12 +2210,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2096,12 +2231,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2123,12 +2252,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2150,12 +2273,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2177,12 +2294,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2204,12 +2315,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2231,12 +2336,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2258,12 +2357,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2285,12 +2378,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2312,12 +2399,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2361,12 +2442,6 @@
       "pairings": [
       ],
       "tiebreaks": [
-        "Mod. Med",
-        "Solk",
-        "Cumul.",
-        "1-on-1",
-        "BWG",
-        "SB"
       ],
       "team_tiebreaks": [
       ],
@@ -2379,12 +2454,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2406,12 +2475,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2433,12 +2496,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2460,12 +2517,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2487,12 +2538,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2514,12 +2559,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2541,12 +2580,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2568,12 +2601,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2595,12 +2622,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2622,12 +2643,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2649,12 +2664,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2676,12 +2685,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2703,12 +2706,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2730,12 +2727,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2757,12 +2748,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
@@ -2784,12 +2769,6 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
           ],
           "results": [
           ],
