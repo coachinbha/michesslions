@@ -6,7 +6,7 @@
     "state": "MI",
     "country": "USA",
     "td": "Vaishnavi",
-    "time_stamp": "5/9/2026 - 14:30",
+    "time_stamp": "5/9/2026 - 15:11",
     "affiliate": ""
   },
   "options": {
@@ -50,17 +50,17 @@
       "rounds_played": 2,
       "final_round": false,
       "standings": [
-        1,
-        2,
         3,
+        2,
+        1,
         5,
-        4,
         6,
+        12,
         7,
         8,
         11,
-        12,
         14,
+        4,
         10,
         15,
         9,
@@ -110,6 +110,12 @@
         }
       ],
       "tiebreaks": [
+        "Mod. Med",
+        "Solk",
+        "Cumul.",
+        "1-on-1",
+        "BWG",
+        "SB"
       ],
       "team_tiebreaks": [
       ],
@@ -124,6 +130,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            1,
+            1,
+            3,
+            0,
+            1,
+            1
           ],
           "results": [
             "W",
@@ -162,6 +174,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            1,
+            1.5,
+            3,
+            0,
+            1,
+            1.5
           ],
           "results": [
             "W",
@@ -200,6 +218,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            1,
+            2,
+            3,
+            0,
+            1,
+            2
           ],
           "results": [
             "W",
@@ -238,6 +262,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
           ],
           "results": [
             "L",
@@ -276,6 +306,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            1,
+            1,
+            3,
+            0,
+            1,
+            1
           ],
           "results": [
             "W",
@@ -314,6 +350,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            0,
+            3,
+            2,
+            0,
+            1,
+            1
           ],
           "results": [
             "W",
@@ -353,6 +395,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            0,
+            2.5,
+            2,
+            0,
+            0,
+            0.5
           ],
           "results": [
             "W",
@@ -391,6 +439,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            0,
+            2,
+            2,
+            0,
+            1,
+            0
           ],
           "results": [
             "W",
@@ -429,6 +483,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            1,
+            3,
+            0,
+            0,
+            0,
+            0
           ],
           "results": [
             "L",
@@ -468,6 +528,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            0.5,
+            2.5,
+            0.5,
+            0.5,
+            0,
+            0.25
           ],
           "results": [
             "L",
@@ -506,6 +572,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            0,
+            2,
+            1,
+            0,
+            0,
+            0
           ],
           "results": [
             "L",
@@ -544,6 +616,12 @@
           "state": "IN",
           "class": " ",
           "tiebreaks": [
+            0,
+            3,
+            2,
+            0,
+            0,
+            1
           ],
           "results": [
             "W",
@@ -582,6 +660,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            1,
+            3,
+            0,
+            0,
+            0,
+            0
           ],
           "results": [
             "L",
@@ -620,6 +704,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            0
           ],
           "results": [
             "L",
@@ -658,6 +748,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            0.5,
+            1.5,
+            0.5,
+            0.5,
+            0,
+            0.25
           ],
           "results": [
             "L",
@@ -696,6 +792,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            1,
+            2,
+            0,
+            0,
+            0,
+            0
           ],
           "results": [
             "L",
@@ -758,17 +860,17 @@
       "rounds_played": 2,
       "final_round": false,
       "standings": [
-        1,
         2,
+        1,
         14,
-        3,
         4,
+        3,
+        10,
         5,
         6,
         9,
-        10,
-        12,
         13,
+        12,
         7,
         8,
         11
@@ -816,6 +918,12 @@
         }
       ],
       "tiebreaks": [
+        "Mod. Med",
+        "Solk",
+        "Cumul.",
+        "1-on-1",
+        "BWG",
+        "SB"
       ],
       "team_tiebreaks": [
       ],
@@ -830,6 +938,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            1,
+            1,
+            3,
+            0,
+            1,
+            1
           ],
           "results": [
             "W",
@@ -868,6 +982,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            1,
+            2,
+            3,
+            0,
+            1,
+            2
           ],
           "results": [
             "W",
@@ -906,6 +1026,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            0,
+            3,
+            2,
+            0,
+            0,
+            1
           ],
           "results": [
             "W",
@@ -944,6 +1070,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            0,
+            3,
+            2,
+            0,
+            1,
+            1
           ],
           "results": [
             "W",
@@ -982,6 +1114,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            0,
+            2,
+            2,
+            0,
+            0,
+            0
           ],
           "results": [
             "W",
@@ -1021,6 +1159,12 @@
           "class": " ",
           "byes": "3,4z",
           "tiebreaks": [
+            0,
+            2,
+            1,
+            0,
+            1,
+            1
           ],
           "results": [
             "L",
@@ -1059,6 +1203,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            1,
+            3,
+            0,
+            0,
+            0,
+            0
           ],
           "results": [
             "L",
@@ -1097,6 +1247,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            1,
+            3,
+            0,
+            0,
+            0,
+            0
           ],
           "results": [
             "L",
@@ -1135,6 +1291,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            0,
+            2,
+            1,
+            0,
+            1,
+            0
           ],
           "results": [
             "L",
@@ -1173,6 +1335,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            0,
+            2,
+            2,
+            0,
+            1,
+            1
           ],
           "results": [
             "W",
@@ -1211,6 +1379,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            1,
+            2,
+            0,
+            0,
+            0,
+            0
           ],
           "results": [
             "L",
@@ -1249,6 +1423,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
           ],
           "results": [
             "L",
@@ -1287,6 +1467,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            0
           ],
           "results": [
             "L",
@@ -1325,6 +1511,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            1,
+            1,
+            3,
+            0,
+            1,
+            1
           ],
           "results": [
             "W",
@@ -1360,59 +1552,59 @@
     {
       "section": "U800",
       "rounds_paired": 4,
-      "rounds_played": 3,
-      "final_round": false,
+      "rounds_played": 4,
+      "final_round": true,
       "standings": [
         4,
+        16,
         10,
         12,
-        16,
-        5,
-        17,
-        21,
         7,
-        8,
-        11,
-        14,
-        15,
-        18,
-        23,
-        26,
-        30,
-        32,
-        33,
-        44,
         48,
+        14,
+        5,
+        26,
+        17,
+        18,
+        8,
+        23,
+        21,
+        34,
         3,
         6,
-        29,
-        34,
+        33,
+        30,
+        44,
+        45,
+        32,
+        2,
+        47,
+        11,
+        49,
+        15,
+        1,
+        20,
+        46,
         43,
         50,
-        1,
-        2,
-        20,
-        25,
-        28,
+        29,
+        42,
+        40,
+        37,
         35,
         36,
-        37,
-        40,
         41,
-        45,
-        46,
-        47,
-        49,
-        42,
-        9,
-        13,
+        28,
+        25,
+        39,
         19,
-        22,
-        24,
-        27,
-        31,
         38,
-        39
+        9,
+        24,
+        13,
+        22,
+        27,
+        31
       ],
       "pairings": [
         {
@@ -1537,6 +1729,12 @@
         }
       ],
       "tiebreaks": [
+        "Mod. Med",
+        "Solk",
+        "Cumul.",
+        "1-on-1",
+        "BWG",
+        "SB"
       ],
       "team_tiebreaks": [
       ],
@@ -1551,12 +1749,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            3,
+            7,
+            4,
+            0,
+            0,
+            2
           ],
           "results": [
             "L",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -1580,9 +1784,9 @@
             0,
             1,
             1,
-            1
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "TOWNSEND, Genevieve D",
@@ -1594,12 +1798,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            4.5,
+            8.5,
+            5,
+            0,
+            1,
+            3.5
           ],
           "results": [
             "W",
             "L",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -1623,9 +1833,9 @@
             1,
             1,
             1,
-            1
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "BURLA, Vihaan",
@@ -1637,12 +1847,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            6.5,
+            7.5,
+            6.5,
+            0,
+            1,
+            3.75
           ],
           "results": [
             "W",
             "D",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -1666,9 +1882,9 @@
             1,
             1.5,
             1.5,
-            1.5
+            2.5
           ],
-          "score": 1.5
+          "score": 2.5
         },
         {
           "name": "YANG, Luke",
@@ -1679,12 +1895,18 @@
           "exp1": "07/31/2026",
           "class": " ",
           "tiebreaks": [
+            8,
+            9.5,
+            10,
+            0,
+            2,
+            9.5
           ],
           "results": [
             "W",
             "W",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -1708,9 +1930,9 @@
             1,
             2,
             3,
-            3
+            4
           ],
-          "score": 3
+          "score": 4
         },
         {
           "name": "HAMPTON, Austin",
@@ -1722,12 +1944,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            7.5,
+            9,
+            7.5,
+            0,
+            1,
+            6.5
           ],
           "results": [
             "D",
             "W",
             "W",
-            " "
+            "D"
           ],
           "colors": [
             "B",
@@ -1751,9 +1979,9 @@
             0.5,
             1.5,
             2.5,
-            2.5
+            3
           ],
-          "score": 2.5
+          "score": 3
         },
         {
           "name": "PRABU, Arjun",
@@ -1765,12 +1993,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            5,
+            6,
+            4.5,
+            0,
+            1,
+            3.25
           ],
           "results": [
             "L",
             "D",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -1794,9 +2028,9 @@
             0,
             0.5,
             1.5,
-            1.5
+            2.5
           ],
-          "score": 1.5
+          "score": 2.5
         },
         {
           "name": "SUMESH, Immanuel Abraham",
@@ -1808,12 +2042,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            8.5,
+            9.5,
+            8,
+            0,
+            1,
+            5.5
           ],
           "results": [
             "W",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -1837,9 +2077,9 @@
             1,
             2,
             2,
-            2
+            3
           ],
-          "score": 2
+          "score": 3
         },
         {
           "name": "LIAN, Peter",
@@ -1851,12 +2091,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            6,
+            7,
+            6,
+            0,
+            2,
+            5
           ],
           "results": [
             "L",
             "W",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -1880,9 +2126,9 @@
             0,
             1,
             2,
-            2
+            3
           ],
-          "score": 2
+          "score": 3
         },
         {
           "name": "KURUDUMALE, Yashwin Srinivasa",
@@ -1895,6 +2141,12 @@
           "class": " ",
           "byes": "4z",
           "tiebreaks": [
+            3.5,
+            6,
+            0,
+            0,
+            0,
+            0
           ],
           "results": [
             "L",
@@ -1938,12 +2190,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            9,
+            10,
+            9,
+            0,
+            1,
+            6
           ],
           "results": [
             "W",
             "W",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -1981,12 +2239,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            3,
+            7,
+            6,
+            0,
+            2,
+            2
           ],
           "results": [
             "W",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -2024,12 +2288,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            9,
+            10,
+            9,
+            0,
+            1,
+            6
           ],
           "results": [
             "W",
             "W",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -2067,6 +2337,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
           ],
           "results": [
             "U",
@@ -2110,12 +2386,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            8,
+            8.5,
+            8,
+            0,
+            1,
+            5
           ],
           "results": [
             "W",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -2139,9 +2421,9 @@
             1,
             2,
             2,
-            2
+            3
           ],
-          "score": 2
+          "score": 3
         },
         {
           "name": "SATHISH, Dhanvanth",
@@ -2153,12 +2435,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            3,
+            7,
+            5,
+            0,
+            1,
+            3
           ],
           "results": [
             "L",
             "W",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -2194,12 +2482,18 @@
           "rating2": 553,
           "class": " ",
           "tiebreaks": [
+            8,
+            9,
+            10,
+            0,
+            1,
+            9
           ],
           "results": [
             "W",
             "W",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -2223,9 +2517,9 @@
             1,
             2,
             3,
-            3
+            4
           ],
-          "score": 3
+          "score": 4
         },
         {
           "name": "KRISHNAKUMAR, Sanjay",
@@ -2237,12 +2531,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            6,
+            7.5,
+            7.5,
+            0,
+            1,
+            5.25
           ],
           "results": [
             "D",
             "W",
             "W",
-            " "
+            "D"
           ],
           "colors": [
             "B",
@@ -2266,9 +2566,9 @@
             0.5,
             1.5,
             2.5,
-            2.5
+            3
           ],
-          "score": 2.5
+          "score": 3
         },
         {
           "name": "BARUA, Dhruv",
@@ -2280,12 +2580,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            6,
+            7.5,
+            6.5,
+            0,
+            1,
+            5.75
           ],
           "results": [
             "D",
             "D",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -2309,9 +2615,9 @@
             0.5,
             1,
             2,
-            2
+            3
           ],
-          "score": 2
+          "score": 3
         },
         {
           "name": "SHANMUGAVELU, K S Prathiksha",
@@ -2324,12 +2630,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            2,
+            4,
+            1,
+            0,
+            0,
+            0
           ],
           "results": [
             "L",
             "L",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -2353,9 +2665,9 @@
             0,
             0,
             0,
-            0
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "COWLES, Samuel Jorge",
@@ -2367,12 +2679,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            3,
+            6.5,
+            4,
+            0,
+            2,
+            2
           ],
           "results": [
             "L",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -2396,9 +2714,9 @@
             0,
             1,
             1,
-            1
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "GUO, Evan",
@@ -2410,12 +2728,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            7.5,
+            9,
+            7.5,
+            0,
+            1,
+            5.25
           ],
           "results": [
             "W",
             "D",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -2453,6 +2777,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
           ],
           "results": [
             "U",
@@ -2497,12 +2827,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            6,
+            6,
+            6,
+            0,
+            1,
+            3
           ],
           "results": [
             "L",
             "W",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -2526,9 +2862,9 @@
             0,
             1,
             2,
-            2
+            3
           ],
-          "score": 2
+          "score": 3
         },
         {
           "name": "DAY, Lucas J",
@@ -2540,12 +2876,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            3.5,
+            5.5,
+            0,
+            0,
+            0,
+            0
           ],
           "results": [
             "L",
             "L",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -2583,12 +2925,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            3.5,
+            5.5,
+            2,
+            0,
+            1,
+            0
           ],
           "results": [
             "L",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -2626,12 +2974,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            7,
+            9,
+            8,
+            0,
+            1,
+            6
           ],
           "results": [
             "W",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -2655,9 +3009,9 @@
             1,
             2,
             2,
-            2
+            3
           ],
-          "score": 2
+          "score": 3
         },
         {
           "name": "PUNEETH, Avni",
@@ -2669,6 +3023,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
           ],
           "results": [
             "U",
@@ -2712,12 +3072,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            4.5,
+            7,
+            2,
+            0,
+            0,
+            1
           ],
           "results": [
             "L",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -2755,12 +3121,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            5.5,
+            9.5,
+            3.5,
+            0,
+            0,
+            1.75
           ],
           "results": [
             "L",
             "D",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -2798,12 +3170,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            6,
+            11,
+            5.5,
+            0,
+            1,
+            5
           ],
           "results": [
             "D",
             "D",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -2841,6 +3219,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
           ],
           "results": [
             "U",
@@ -2884,12 +3268,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            5,
+            8.5,
+            5,
+            0,
+            1,
+            2.5
           ],
           "results": [
             "L",
             "W",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -2927,12 +3317,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            6,
+            12,
+            6,
+            0,
+            2,
+            5
           ],
           "results": [
             "W",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -2970,12 +3366,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            7,
+            7.5,
+            6.5,
+            0,
+            1,
+            3.25
           ],
           "results": [
             "W",
             "D",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -2999,9 +3401,9 @@
             1,
             1.5,
             1.5,
-            1.5
+            2.5
           ],
-          "score": 1.5
+          "score": 2.5
         },
         {
           "name": "SRIVATSAN, Saikrishna S",
@@ -3013,12 +3415,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            5,
+            8,
+            2,
+            0,
+            1,
+            0
           ],
           "results": [
             "L",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -3056,12 +3464,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            5,
+            7,
+            2,
+            0,
+            0,
+            1
           ],
           "results": [
             "L",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -3099,12 +3513,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            5,
+            8,
+            3,
+            0,
+            1,
+            1
           ],
           "results": [
             "L",
             "W",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -3143,12 +3563,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            4,
+            7,
+            0,
+            0,
+            0,
+            0
           ],
           "results": [
             "L",
             "L",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -3186,6 +3612,12 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            3,
+            6,
+            0,
+            0,
+            0,
+            1
           ],
           "results": [
             "L",
@@ -3217,7 +3649,7 @@
             0,
             1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "SANGEETAM, Daksh",
@@ -3230,12 +3662,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            7,
+            10,
+            4,
+            0,
+            0,
+            2
           ],
           "results": [
             "W",
             "L",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -3273,12 +3711,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            4.5,
+            8.5,
+            3,
+            0,
+            0,
+            0
           ],
           "results": [
             "L",
             "W",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -3316,12 +3760,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            4.5,
+            7.5,
+            3,
+            0,
+            0,
+            1.5
           ],
           "results": [
             "D",
             "L",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -3345,9 +3795,9 @@
             0.5,
             0.5,
             0.5,
-            0.5
+            1.5
           ],
-          "score": 0.5
+          "score": 1.5
         },
         {
           "name": "LAFRANCE, Andrew James",
@@ -3359,12 +3809,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            7,
+            10,
+            4,
+            0,
+            0,
+            3
           ],
           "results": [
             "D",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -3402,12 +3858,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            5,
+            9,
+            7,
+            0,
+            1,
+            3
           ],
           "results": [
             "W",
             "W",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -3445,12 +3907,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            5,
+            9,
+            5,
+            0,
+            1,
+            3
           ],
           "results": [
             "W",
             "L",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -3474,9 +3942,9 @@
             1,
             1,
             1,
-            1
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "RAWLAPALLY, Vihaan Reddy",
@@ -3488,12 +3956,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            3,
+            6.5,
+            4,
+            0,
+            2,
+            2
           ],
           "results": [
             "L",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -3517,9 +3991,9 @@
             0,
             1,
             1,
-            1
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "SABANAYAGAM, Sai Deekshan",
@@ -3531,12 +4005,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            4,
+            7,
+            5,
+            0,
+            1,
+            1
           ],
           "results": [
             "W",
             "L",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -3560,9 +4040,9 @@
             1,
             1,
             1,
-            1
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "SHAIK, Mohammad Kashif",
@@ -3574,12 +4054,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            8,
+            10,
+            7,
+            0,
+            2,
+            7
           ],
           "results": [
             "W",
             "L",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -3603,9 +4089,9 @@
             1,
             1,
             2,
-            2
+            3
           ],
-          "score": 2
+          "score": 3
         },
         {
           "name": "RAJESHJ, Jithesh",
@@ -3617,12 +4103,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            3,
+            7,
+            5,
+            0,
+            2,
+            1
           ],
           "results": [
             "W",
             "L",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -3646,9 +4138,9 @@
             1,
             1,
             1,
-            1
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "MITCHELL, Finn Samuel",
@@ -3660,12 +4152,18 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            6,
+            9,
+            5.5,
+            0,
+            0,
+            2.25
           ],
           "results": [
             "W",
             "D",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -3696,6 +4194,28 @@
       ],
       "teams": [
         {
+          "code": "KS",
+          "team": "KS",
+          "rating": "514.5",
+          "score": 4,
+          "team_tiebreaks": [
+          ],
+          "members": [
+            {
+              "pair_number": 19,
+              "name": "SHANMUGAVELU, K S Prathiksha",
+              "rating": 529,
+              "score": 1
+            },
+            {
+              "pair_number": 23,
+              "name": "SHANMUGAVELU, K S Kishan Chandar",
+              "rating": 500,
+              "score": 3
+            }
+          ]
+        },
+        {
           "code": "SR",
           "team": "SR",
           "rating": "384.0",
@@ -3714,28 +4234,6 @@
               "name": "SRIVATSAN, Saikrishna S",
               "rating": 378,
               "score": 1
-            }
-          ]
-        },
-        {
-          "code": "KS",
-          "team": "KS",
-          "rating": "514.5",
-          "score": 2,
-          "team_tiebreaks": [
-          ],
-          "members": [
-            {
-              "pair_number": 19,
-              "name": "SHANMUGAVELU, K S Prathiksha",
-              "rating": 529,
-              "score": 0
-            },
-            {
-              "pair_number": 23,
-              "name": "SHANMUGAVELU, K S Kishan Chandar",
-              "rating": 500,
-              "score": 2
             }
           ]
         },
@@ -3768,23 +4266,23 @@
     {
       "section": "Unrated (Grade K to 3)",
       "rounds_paired": 4,
-      "rounds_played": 3,
-      "final_round": false,
+      "rounds_played": 4,
+      "final_round": true,
       "standings": [
-        2,
         9,
-        1,
-        7,
-        11,
         12,
+        2,
+        1,
         13,
-        3,
-        4,
-        5,
+        11,
+        7,
         8,
+        5,
+        4,
         10,
-        6,
-        14
+        3,
+        14,
+        6
       ],
       "pairings": [
         {
@@ -3824,6 +4322,12 @@
         }
       ],
       "tiebreaks": [
+        "Mod. Med",
+        "Solk",
+        "Cumul.",
+        "1-on-1",
+        "BWG",
+        "SB"
       ],
       "team_tiebreaks": [
       ],
@@ -3836,12 +4340,18 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            6.5,
+            6.5,
+            8,
+            0,
+            1,
+            3
           ],
           "results": [
             "W",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -3865,9 +4375,9 @@
             1,
             2,
             2,
-            2
+            3
           ],
-          "score": 2
+          "score": 3
         },
         {
           "name": "ARYA Asmi",
@@ -3877,12 +4387,18 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            7,
+            8,
+            9,
+            0,
+            2,
+            4.5
           ],
           "results": [
             "W",
             "W",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -3918,12 +4434,18 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            6,
+            9,
+            2,
+            0,
+            0,
+            0
           ],
           "results": [
             "L",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -3959,12 +4481,18 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            5,
+            8,
+            4.5,
+            0,
+            0,
+            2.25
           ],
           "results": [
             "W",
             "L",
             "L",
-            " "
+            "D"
           ],
           "colors": [
             "W",
@@ -3988,9 +4516,9 @@
             1,
             1,
             1,
-            1
+            1.5
           ],
-          "score": 1
+          "score": 1.5
         },
         {
           "name": "CUI, Boyan",
@@ -4000,12 +4528,18 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            6,
+            9,
+            2.5,
+            0,
+            1,
+            1.75
           ],
           "results": [
             "L",
             "L",
             "W",
-            " "
+            "D"
           ],
           "colors": [
             "W",
@@ -4029,9 +4563,9 @@
             0,
             0,
             1,
-            1
+            1.5
           ],
-          "score": 1
+          "score": 1.5
         },
         {
           "name": "KASHYAP Vittaldevara ",
@@ -4041,12 +4575,18 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            4.5,
+            7.5,
+            0,
+            0,
+            0,
+            0
           ],
           "results": [
             "L",
             "L",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -4082,12 +4622,18 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            3,
+            6,
+            5,
+            0,
+            1,
+            1.5
           ],
           "results": [
             "L",
             "W",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -4123,12 +4669,18 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            6.5,
+            9.5,
+            4.5,
+            0,
+            1,
+            2.75
           ],
           "results": [
             "W",
             "L",
             "L",
-            " "
+            "D"
           ],
           "colors": [
             "B",
@@ -4152,9 +4704,9 @@
             1,
             1,
             1,
-            1
+            1.5
           ],
-          "score": 1
+          "score": 1.5
         },
         {
           "name": "PAKANATI, Shreyas",
@@ -4164,12 +4716,18 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            9,
+            9,
+            9,
+            0,
+            2,
+            13
           ],
           "results": [
             "X",
             "W",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "-",
@@ -4193,9 +4751,9 @@
             1,
             2,
             3,
-            3
+            4
           ],
-          "score": 3
+          "score": 4
         },
         {
           "name": "SANAA Jawahar",
@@ -4205,12 +4763,18 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            4.5,
+            6.5,
+            3.5,
+            0,
+            0,
+            1.75
           ],
           "results": [
             "L",
             "W",
             "L",
-            " "
+            "D"
           ],
           "colors": [
             "B",
@@ -4234,9 +4798,9 @@
             0,
             1,
             1,
-            1
+            1.5
           ],
-          "score": 1
+          "score": 1.5
         },
         {
           "name": "PATCHA, Hanvish ",
@@ -4246,12 +4810,18 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            6,
+            10.5,
+            7,
+            0,
+            1,
+            4.5
           ],
           "results": [
             "W",
             "W",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -4287,12 +4857,18 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            7,
+            8.5,
+            7,
+            0,
+            2,
+            5
           ],
           "results": [
             "W",
             "L",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -4316,9 +4892,9 @@
             1,
             1,
             2,
-            2
+            3
           ],
-          "score": 2
+          "score": 3
         },
         {
           "name": "NEEV Vekariya",
@@ -4328,12 +4904,18 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            5,
+            6,
+            6,
+            0,
+            2,
+            4
           ],
           "results": [
             "L",
             "W",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -4357,9 +4939,9 @@
             0,
             1,
             2,
-            2
+            3
           ],
-          "score": 2
+          "score": 3
         },
         {
           "name": "PRAJIT Raju",
@@ -4369,12 +4951,18 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            1.5,
+            3,
+            1,
+            0,
+            1,
+            0
           ],
           "results": [
             "U",
             "L",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "-",
@@ -4398,9 +4986,9 @@
             0,
             0,
             0,
-            0
+            1
           ],
-          "score": 0
+          "score": 1
         }
       ],
       "clubs": [
@@ -4409,23 +4997,23 @@
     {
       "section": "Unrated (Grade K to 8)",
       "rounds_paired": 4,
-      "rounds_played": 3,
-      "final_round": false,
+      "rounds_played": 4,
+      "final_round": true,
       "standings": [
         5,
         6,
-        2,
         3,
         10,
-        11,
         13,
-        1,
+        11,
+        2,
         4,
-        7,
-        8,
         12,
+        1,
         14,
-        9
+        9,
+        7,
+        8
       ],
       "pairings": [
         {
@@ -4465,6 +5053,12 @@
         }
       ],
       "tiebreaks": [
+        "Mod. Med",
+        "Solk",
+        "Cumul.",
+        "1-on-1",
+        "BWG",
+        "SB"
       ],
       "team_tiebreaks": [
       ],
@@ -4477,12 +5071,18 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            6,
+            10,
+            3,
+            0,
+            0,
+            1
           ],
           "results": [
             "X",
             "L",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "-",
@@ -4518,12 +5118,18 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            4,
+            8.5,
+            7,
+            0,
+            1,
+            2
           ],
           "results": [
             "W",
             "W",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -4559,12 +5165,18 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            8,
+            9.5,
+            8,
+            0,
+            1,
+            6.5
           ],
           "results": [
             "W",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -4588,9 +5200,9 @@
             1,
             2,
             2,
-            2
+            3
           ],
-          "score": 2
+          "score": 3
         },
         {
           "name": "BALAJI Sheshanand",
@@ -4600,12 +5212,18 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            3,
+            7,
+            3,
+            0,
+            1,
+            2
           ],
           "results": [
             "L",
             "L",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -4629,9 +5247,9 @@
             0,
             0,
             1,
-            1
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "LOKESH, Srishashanth",
@@ -4641,12 +5259,18 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            7,
+            7.5,
+            10,
+            0,
+            2,
+            8
           ],
           "results": [
             "W",
             "W",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -4670,9 +5294,9 @@
             1,
             2,
             3,
-            3
+            4
           ],
-          "score": 3
+          "score": 4
         },
         {
           "name": "ASHRIT Chanda",
@@ -4682,12 +5306,18 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            10,
+            12,
+            9,
+            0,
+            1,
+            8
           ],
           "results": [
             "W",
             "W",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -4723,12 +5353,18 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            4,
+            6,
+            4,
+            0,
+            0,
+            0
           ],
           "results": [
             "W",
             "L",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "-",
@@ -4764,18 +5400,24 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            3,
+            6,
+            4,
+            0,
+            0,
+            1
           ],
           "results": [
             "W",
             "L",
             "L",
-            " "
+            "F"
           ],
           "colors": [
             "W",
             "B",
             "W",
-            "W"
+            "-"
           ],
           "ops": [
             14,
@@ -4805,18 +5447,24 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            4,
+            7,
+            0,
+            0,
+            0,
+            1
           ],
           "results": [
             "L",
             "L",
             "L",
-            " "
+            "X"
           ],
           "colors": [
             "B",
             "W",
             "W",
-            "B"
+            "-"
           ],
           "ops": [
             2,
@@ -4834,9 +5482,9 @@
             0,
             0,
             0,
-            0
+            1
           ],
-          "score": 0
+          "score": 1
         },
         {
           "name": "JOTHI, Rhema",
@@ -4846,12 +5494,18 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            6,
+            6.5,
+            6,
+            0,
+            2,
+            4
           ],
           "results": [
             "L",
             "W",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -4875,9 +5529,9 @@
             0,
             1,
             2,
-            2
+            3
           ],
-          "score": 2
+          "score": 3
         },
         {
           "name": "KASIKALA Sai Ashvadh",
@@ -4887,12 +5541,18 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            5,
+            9.5,
+            6,
+            0,
+            2,
+            3.5
           ],
           "results": [
             "W",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -4928,12 +5588,18 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            2,
+            6.5,
+            4,
+            0,
+            2,
+            2
           ],
           "results": [
             "L",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -4957,9 +5623,9 @@
             0,
             1,
             1,
-            1
+            2
           ],
-          "score": 1
+          "score": 2
         },
         {
           "name": "SURESH Viyan",
@@ -4969,12 +5635,18 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            5.5,
+            6,
+            6,
+            0,
+            1,
+            4
           ],
           "results": [
             "L",
             "W",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -4998,9 +5670,9 @@
             0,
             1,
             2,
-            2
+            3
           ],
-          "score": 2
+          "score": 3
         },
         {
           "name": "VEDAMSH, Gowniwari",
@@ -5009,12 +5681,18 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            5.5,
+            8.5,
+            2,
+            0,
+            1,
+            2
           ],
           "results": [
             "L",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
