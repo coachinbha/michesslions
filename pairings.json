@@ -6,7 +6,7 @@
     "state": "MI",
     "country": "USA",
     "td": "Vaishnavi",
-    "time_stamp": "5/8/2026 - 21:18",
+    "time_stamp": "5/8/2026 - 21:59",
     "affiliate": ""
   },
   "options": {
@@ -63,7 +63,9 @@
         11,
         12,
         13,
-        14
+        14,
+        15,
+        16
       ],
       "pairings": [
       ],
@@ -188,8 +190,31 @@
           "score": 0
         },
         {
-          "name": "YAN, Gracie Ge",
+          "name": "GONG, Zhaomingyang",
           "pair_number": 6,
+          "id1": "30907267",
+          "rating": 1675,
+          "rating2": 1533,
+          "exp1": "01/31/2028",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0
+        },
+        {
+          "name": "YAN, Gracie Ge",
+          "pair_number": 7,
           "id1": "30363150",
           "rating": 1570,
           "rating2": 1369,
@@ -212,7 +237,7 @@
         },
         {
           "name": "DURUVASAN, Dhruv",
-          "pair_number": 7,
+          "pair_number": 8,
           "id1": "17021506",
           "rating": 1505,
           "rating2": 1356,
@@ -234,8 +259,31 @@
           "score": 0
         },
         {
+          "name": "GONG, Zhaoqijun",
+          "pair_number": 9,
+          "id1": "30864300",
+          "rating": 1504,
+          "rating2": 1235,
+          "exp1": "01/31/2028",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0
+        },
+        {
           "name": "FAWCETT, Aaron",
-          "pair_number": 8,
+          "pair_number": 10,
           "id1": "31818431",
           "rating": 1484,
           "rating2": 1297,
@@ -258,7 +306,7 @@
         },
         {
           "name": "SRISHTI, Phani Kumar",
-          "pair_number": 9,
+          "pair_number": 11,
           "id1": "32653000",
           "rating": 1480,
           "rating2": 1449,
@@ -281,7 +329,7 @@
         },
         {
           "name": "SHAO, Lucas",
-          "pair_number": 10,
+          "pair_number": 12,
           "id1": "31963537",
           "rating": 1442,
           "rating2": 1343,
@@ -304,7 +352,7 @@
         },
         {
           "name": "NI, Ho Ming",
-          "pair_number": 11,
+          "pair_number": 13,
           "id1": "32130668",
           "rating": 1427,
           "rating2": 1232,
@@ -327,7 +375,7 @@
         },
         {
           "name": "YARAMALA, Jashith Sai Reddy",
-          "pair_number": 12,
+          "pair_number": 14,
           "id1": "31332908",
           "rating": 1202,
           "rating2": 1066,
@@ -350,7 +398,7 @@
         },
         {
           "name": "SHAJI, Madhav",
-          "pair_number": 13,
+          "pair_number": 15,
           "id1": "32215606",
           "rating": 1168,
           "rating2": 992,
@@ -373,7 +421,7 @@
         },
         {
           "name": "SUMESH, Isabella Cecily",
-          "pair_number": 14,
+          "pair_number": 16,
           "id1": "31929572",
           "rating": 981,
           "rating2": 933,
@@ -415,7 +463,9 @@
         9,
         10,
         11,
-        12
+        12,
+        13,
+        14
       ],
       "pairings": [
       ],
@@ -586,8 +636,54 @@
           "score": 0
         },
         {
-          "name": "COGSWELL, Christian",
+          "name": "DAI, Ethan",
           "pair_number": 8,
+          "id1": "32332225",
+          "rating": 851,
+          "rating2": 688,
+          "exp1": "03/31/2027",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0
+        },
+        {
+          "name": "PFEIFFER, Timothy Y",
+          "pair_number": 9,
+          "id1": "32925919",
+          "rating": 849,
+          "rating2": 814,
+          "exp1": "03/31/2028",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0
+        },
+        {
+          "name": "COGSWELL, Christian",
+          "pair_number": 10,
           "id1": "32656754",
           "rating": 804,
           "rating2": 842,
@@ -610,7 +706,7 @@
         },
         {
           "name": "MENON, Sharath",
-          "pair_number": 9,
+          "pair_number": 11,
           "id1": "17126941",
           "rating": 782,
           "rating2": 723,
@@ -633,7 +729,7 @@
         },
         {
           "name": "LI, Henry Yuan",
-          "pair_number": 10,
+          "pair_number": 12,
           "id1": "32124806",
           "rating": 776,
           "rating2": 685,
@@ -656,7 +752,7 @@
         },
         {
           "name": "PELTON, Walter George",
-          "pair_number": 11,
+          "pair_number": 13,
           "id1": "32791333",
           "rating": 755,
           "rating2": 737,
@@ -679,7 +775,7 @@
         },
         {
           "name": "PERRY, Seth",
-          "pair_number": 12,
+          "pair_number": 14,
           "id1": "33114826",
           "rating": 0,
           "rating2": 0,
@@ -755,9 +851,7 @@
         43,
         44,
         45,
-        46,
-        47,
-        48
+        46
       ],
       "pairings": [
       ],
@@ -767,54 +861,8 @@
       ],
       "players": [
         {
-          "name": "DAI, Ethan",
-          "pair_number": 1,
-          "id1": "32332225",
-          "rating": 851,
-          "rating2": 688,
-          "exp1": "03/31/2027",
-          "state": "MI",
-          "class": " ",
-          "tiebreaks": [
-          ],
-          "results": [
-          ],
-          "colors": [
-          ],
-          "ops": [
-          ],
-          "boards": [
-          ],
-          "cumulatives": [
-          ],
-          "score": 0
-        },
-        {
-          "name": "PFEIFFER, Timothy Y",
-          "pair_number": 2,
-          "id1": "32925919",
-          "rating": 849,
-          "rating2": 814,
-          "exp1": "03/31/2028",
-          "state": "MI",
-          "class": " ",
-          "tiebreaks": [
-          ],
-          "results": [
-          ],
-          "colors": [
-          ],
-          "ops": [
-          ],
-          "boards": [
-          ],
-          "cumulatives": [
-          ],
-          "score": 0
-        },
-        {
           "name": "JINGADE, Ridhay",
-          "pair_number": 3,
+          "pair_number": 1,
           "id1": "32299305",
           "rating": 774,
           "rating2": 717,
@@ -837,7 +885,7 @@
         },
         {
           "name": "TOWNSEND, Genevieve D",
-          "pair_number": 4,
+          "pair_number": 2,
           "id1": "32516370",
           "rating": 762,
           "rating2": 660,
@@ -860,7 +908,7 @@
         },
         {
           "name": "BURLA, Vihaan",
-          "pair_number": 5,
+          "pair_number": 3,
           "id1": "32192154",
           "rating": 758,
           "rating2": 735,
@@ -883,7 +931,7 @@
         },
         {
           "name": "YANG, Luke",
-          "pair_number": 6,
+          "pair_number": 4,
           "id1": "32510880",
           "rating": 746,
           "rating2": 725,
@@ -905,7 +953,7 @@
         },
         {
           "name": "HAMPTON, Austin",
-          "pair_number": 7,
+          "pair_number": 5,
           "id1": "32694376",
           "rating": 737,
           "rating2": 700,
@@ -928,7 +976,7 @@
         },
         {
           "name": "PRABU, Arjun",
-          "pair_number": 8,
+          "pair_number": 6,
           "id1": "32660190",
           "rating": 730,
           "rating2": 696,
@@ -951,7 +999,7 @@
         },
         {
           "name": "SUMESH, Immanuel Abraham",
-          "pair_number": 9,
+          "pair_number": 7,
           "id1": "32496247",
           "rating": 722,
           "rating2": 703,
@@ -974,7 +1022,7 @@
         },
         {
           "name": "LIAN, Peter",
-          "pair_number": 10,
+          "pair_number": 8,
           "id1": "32338161",
           "rating": 713,
           "rating2": 499,
@@ -997,7 +1045,7 @@
         },
         {
           "name": "KURUDUMALE, Yashwin Srinivasa",
-          "pair_number": 11,
+          "pair_number": 9,
           "id1": "31916152",
           "rating": 694,
           "rating2": 635,
@@ -1020,7 +1068,7 @@
         },
         {
           "name": "VARUNJIKAR, Ishaan Tejas",
-          "pair_number": 12,
+          "pair_number": 10,
           "id1": "32385201",
           "rating": 685,
           "rating2": 630,
@@ -1043,7 +1091,7 @@
         },
         {
           "name": "AUDIPUDI, Rishvik Venkata",
-          "pair_number": 13,
+          "pair_number": 11,
           "id1": "32481628",
           "rating": 647,
           "rating2": 660,
@@ -1066,7 +1114,7 @@
         },
         {
           "name": "SHEN, Harper",
-          "pair_number": 14,
+          "pair_number": 12,
           "id1": "31121876",
           "rating": 631,
           "rating2": 610,
@@ -1089,7 +1137,7 @@
         },
         {
           "name": "SATHISH, Dhanvanth",
-          "pair_number": 15,
+          "pair_number": 13,
           "id1": "32885062",
           "rating": 629,
           "rating2": 619,
@@ -1112,7 +1160,7 @@
         },
         {
           "name": "THATI, Rithvik",
-          "pair_number": 16,
+          "pair_number": 14,
           "id1": "31517493",
           "rating": 571,
           "rating2": 553,
@@ -1133,7 +1181,7 @@
         },
         {
           "name": "KRISHNAKUMAR, Sanjay",
-          "pair_number": 17,
+          "pair_number": 15,
           "id1": "30421767",
           "rating": 552,
           "rating2": 541,
@@ -1156,7 +1204,7 @@
         },
         {
           "name": "BARUA, Dhruv",
-          "pair_number": 18,
+          "pair_number": 16,
           "id1": "32027435",
           "rating": 532,
           "rating2": 516,
@@ -1179,7 +1227,7 @@
         },
         {
           "name": "SHANMUGAVELU, K S Prathiksha",
-          "pair_number": 19,
+          "pair_number": 17,
           "id1": "32889575",
           "rating": 529,
           "rating2": 517,
@@ -1202,7 +1250,7 @@
         },
         {
           "name": "COWLES, Samuel Jorge",
-          "pair_number": 20,
+          "pair_number": 18,
           "id1": "32837237",
           "rating": 524,
           "rating2": 513,
@@ -1225,7 +1273,7 @@
         },
         {
           "name": "GUO, Evan",
-          "pair_number": 21,
+          "pair_number": 19,
           "id1": "31810797",
           "rating": 523,
           "rating2": 509,
@@ -1248,7 +1296,7 @@
         },
         {
           "name": "HARIHARAN, Arjun Dakshin",
-          "pair_number": 22,
+          "pair_number": 20,
           "id1": "32548905",
           "rating": 507,
           "rating2": 467,
@@ -1271,7 +1319,7 @@
         },
         {
           "name": "SHANMUGAVELU, K S Kishan Chandar",
-          "pair_number": 23,
+          "pair_number": 21,
           "id1": "32889459",
           "rating": 500,
           "rating2": 469,
@@ -1294,7 +1342,7 @@
         },
         {
           "name": "DAY, Lucas J",
-          "pair_number": 24,
+          "pair_number": 22,
           "id1": "32675204",
           "rating": 491,
           "rating2": 466,
@@ -1317,7 +1365,7 @@
         },
         {
           "name": "LONG, Henri Zimo",
-          "pair_number": 25,
+          "pair_number": 23,
           "id1": "32603014",
           "rating": 487,
           "rating2": 481,
@@ -1340,7 +1388,7 @@
         },
         {
           "name": "ZHANG, Hanrui",
-          "pair_number": 26,
+          "pair_number": 24,
           "id1": "32675229",
           "rating": 476,
           "rating2": 451,
@@ -1363,7 +1411,7 @@
         },
         {
           "name": "PUNEETH, Avni",
-          "pair_number": 27,
+          "pair_number": 25,
           "id1": "32224954",
           "rating": 475,
           "rating2": 299,
@@ -1386,7 +1434,7 @@
         },
         {
           "name": "VUNNAM, Jitesh",
-          "pair_number": 28,
+          "pair_number": 26,
           "id1": "32822804",
           "rating": 449,
           "rating2": 439,
@@ -1409,7 +1457,7 @@
         },
         {
           "name": "RJ, Rivin Jagasva",
-          "pair_number": 29,
+          "pair_number": 27,
           "id1": "32587396",
           "rating": 443,
           "rating2": 433,
@@ -1432,7 +1480,7 @@
         },
         {
           "name": "RAMANNAGARI, Nirvaan",
-          "pair_number": 30,
+          "pair_number": 28,
           "id1": "32226445",
           "rating": 415,
           "rating2": 403,
@@ -1455,7 +1503,7 @@
         },
         {
           "name": "VINOTHKUMAR, Dakshan Brahas",
-          "pair_number": 31,
+          "pair_number": 29,
           "id1": "32518507",
           "rating": 414,
           "rating2": 537,
@@ -1478,7 +1526,7 @@
         },
         {
           "name": "SUNDARA RAJAN, Iniya",
-          "pair_number": 32,
+          "pair_number": 30,
           "id1": "32198515",
           "rating": 389,
           "rating2": 392,
@@ -1501,7 +1549,7 @@
         },
         {
           "name": "ROZARIO, Abdiel M",
-          "pair_number": 33,
+          "pair_number": 31,
           "id1": "32950258",
           "rating": 383,
           "rating2": 345,
@@ -1524,7 +1572,7 @@
         },
         {
           "name": "LUEDY, Bryan",
-          "pair_number": 34,
+          "pair_number": 32,
           "id1": "32562714",
           "rating": 365,
           "rating2": 351,
@@ -1547,7 +1595,7 @@
         },
         {
           "name": "NAGATHAN, Aksh",
-          "pair_number": 35,
+          "pair_number": 33,
           "id1": "32825566",
           "rating": 338,
           "rating2": 394,
@@ -1570,7 +1618,7 @@
         },
         {
           "name": "SANGEETAM, Viraj",
-          "pair_number": 36,
+          "pair_number": 34,
           "id1": "32557682",
           "rating": 231,
           "rating2": 219,
@@ -1593,7 +1641,7 @@
         },
         {
           "name": "JAVAGAL ANUP, Aarush Sharma",
-          "pair_number": 37,
+          "pair_number": 35,
           "id1": "33068025",
           "rating": 204,
           "rating2": 184,
@@ -1616,7 +1664,7 @@
         },
         {
           "name": "SANGEETAM, Daksh",
-          "pair_number": 38,
+          "pair_number": 36,
           "id1": "32523768",
           "rating": 193,
           "rating2": 192,
@@ -1639,7 +1687,7 @@
         },
         {
           "name": "PATEL, Arav",
-          "pair_number": 39,
+          "pair_number": 37,
           "id1": "32617192",
           "rating": 181,
           "rating2": 184,
@@ -1662,7 +1710,7 @@
         },
         {
           "name": "GAWALAPU, Raj Alexander",
-          "pair_number": 40,
+          "pair_number": 38,
           "id1": "32687206",
           "rating": 174,
           "rating2": 167,
@@ -1685,7 +1733,7 @@
         },
         {
           "name": "LAFRANCE, Andrew James",
-          "pair_number": 41,
+          "pair_number": 39,
           "id1": "33101456",
           "rating": 0,
           "rating2": 0,
@@ -1708,7 +1756,7 @@
         },
         {
           "name": "NALLA, Darshil Reddy",
-          "pair_number": 42,
+          "pair_number": 40,
           "id1": "33119002",
           "rating": 0,
           "rating2": 0,
@@ -1731,7 +1779,7 @@
         },
         {
           "name": "WALKER, John Phillip",
-          "pair_number": 43,
+          "pair_number": 41,
           "id1": "33092677",
           "rating": 0,
           "rating2": 0,
@@ -1754,7 +1802,7 @@
         },
         {
           "name": "RAWLAPALLY, Vihaan Reddy",
-          "pair_number": 44,
+          "pair_number": 42,
           "id1": "33059802",
           "rating": 0,
           "rating2": 0,
@@ -1777,7 +1825,7 @@
         },
         {
           "name": "SABANAYAGAM, Sai Deekshan",
-          "pair_number": 45,
+          "pair_number": 43,
           "id1": "33118453",
           "rating": 0,
           "rating2": 0,
@@ -1800,7 +1848,7 @@
         },
         {
           "name": "SHAIK, Mohammad Kashif",
-          "pair_number": 46,
+          "pair_number": 44,
           "id1": "33108081",
           "rating": 0,
           "rating2": 0,
@@ -1823,7 +1871,7 @@
         },
         {
           "name": "RAJESHJ, Jithesh",
-          "pair_number": 47,
+          "pair_number": 45,
           "id1": "33109649",
           "rating": 0,
           "rating2": 0,
@@ -1846,7 +1894,7 @@
         },
         {
           "name": "MITCHELL, Finn Samuel",
-          "pair_number": 48,
+          "pair_number": 46,
           "id1": "33107373",
           "rating": 0,
           "rating2": 0,
