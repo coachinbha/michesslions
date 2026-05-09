@@ -6,7 +6,7 @@
     "state": "MI",
     "country": "USA",
     "td": "Vaishnavi",
-    "time_stamp": "5/9/2026 - 6:53",
+    "time_stamp": "5/9/2026 - 9:40",
     "affiliate": ""
   },
   "options": {
@@ -46,7 +46,7 @@
   "sections": [
     {
       "section": "UPPER",
-      "rounds_paired": 0,
+      "rounds_paired": 1,
       "rounds_played": 0,
       "final_round": false,
       "standings": [
@@ -65,10 +65,49 @@
         13,
         14,
         15,
-        16,
-        17
+        16
       ],
       "pairings": [
+        {
+          "white": 1,
+          "black": 9,
+          "board": 1
+        },
+        {
+          "white": 10,
+          "black": 2,
+          "board": 2
+        },
+        {
+          "white": 3,
+          "black": 11,
+          "board": 3
+        },
+        {
+          "white": 12,
+          "black": 4,
+          "board": 4
+        },
+        {
+          "white": 5,
+          "black": 13,
+          "board": 5
+        },
+        {
+          "white": 14,
+          "black": 6,
+          "board": 6
+        },
+        {
+          "white": 7,
+          "black": 15,
+          "board": 7
+        },
+        {
+          "white": 16,
+          "black": 8,
+          "board": 8
+        }
       ],
       "tiebreaks": [
       ],
@@ -87,14 +126,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            9
           ],
           "boards": [
+            1
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -110,14 +154,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            10
           ],
           "boards": [
+            2
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -133,14 +182,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            11
           ],
           "boards": [
+            3
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -156,14 +210,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            12
           ],
           "boards": [
+            4
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -179,14 +238,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            13
           ],
           "boards": [
+            5
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -202,14 +266,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            14
           ],
           "boards": [
+            6
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -226,14 +295,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            15
           ],
           "boards": [
+            7
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -249,14 +323,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            16
           ],
           "boards": [
+            8
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -272,14 +351,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            1
           ],
           "boards": [
+            1
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -296,14 +380,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            2
           ],
           "boards": [
+            2
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -319,14 +408,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            3
           ],
           "boards": [
+            3
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -342,14 +436,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            4
           ],
           "boards": [
+            4
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -365,14 +464,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            5
           ],
           "boards": [
+            5
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -388,14 +492,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            6
           ],
           "boards": [
+            6
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -411,14 +520,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            7
           ],
           "boards": [
+            7
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -434,38 +548,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            8
           ],
           "boards": [
+            8
           ],
           "cumulatives": [
-          ],
-          "score": 0
-        },
-        {
-          "name": "SUMESH, Isabella Cecily",
-          "pair_number": 17,
-          "id1": "31929572",
-          "rating": 981,
-          "rating2": 933,
-          "exp1": "05/31/2028",
-          "state": "MI",
-          "class": " ",
-          "byes": "3,4z",
-          "tiebreaks": [
-          ],
-          "results": [
-          ],
-          "colors": [
-          ],
-          "ops": [
-          ],
-          "boards": [
-          ],
-          "cumulatives": [
+            0
           ],
           "score": 0
         }
@@ -499,7 +594,7 @@
     },
     {
       "section": "U1400",
-      "rounds_paired": 0,
+      "rounds_paired": 1,
       "rounds_played": 0,
       "final_round": false,
       "standings": [
@@ -516,9 +611,50 @@
         11,
         12,
         13,
-        14
+        14,
+        15
       ],
       "pairings": [
+        {
+          "white": 1,
+          "black": 8,
+          "board": 9
+        },
+        {
+          "white": 9,
+          "black": 2,
+          "board": 10
+        },
+        {
+          "white": 3,
+          "black": 6,
+          "board": 11
+        },
+        {
+          "white": 11,
+          "black": 4,
+          "board": 12
+        },
+        {
+          "white": 5,
+          "black": 12,
+          "board": 13
+        },
+        {
+          "white": 13,
+          "black": 10,
+          "board": 14
+        },
+        {
+          "white": 7,
+          "black": 15,
+          "board": 15
+        },
+        {
+          "white": 14,
+          "black": 0,
+          "board": 0
+        }
       ],
       "tiebreaks": [
       ],
@@ -537,14 +673,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            8
           ],
           "boards": [
+            9
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -560,14 +701,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            9
           ],
           "boards": [
+            10
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -583,14 +729,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            6
           ],
           "boards": [
+            11
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -606,14 +757,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            11
           ],
           "boards": [
+            12
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -629,20 +785,54 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            12
           ],
           "boards": [
+            13
           ],
           "cumulatives": [
+            0
+          ],
+          "score": 0
+        },
+        {
+          "name": "SUMESH, Isabella Cecily",
+          "pair_number": 6,
+          "id1": "31929572",
+          "rating": 981,
+          "rating2": 933,
+          "exp1": "05/31/2028",
+          "state": "MI",
+          "class": " ",
+          "byes": "3,4z",
+          "tiebreaks": [
+          ],
+          "results": [
+            " "
+          ],
+          "colors": [
+            "B"
+          ],
+          "ops": [
+            3
+          ],
+          "boards": [
+            11
+          ],
+          "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "ABRAHAM, Sumesh",
-          "pair_number": 6,
+          "pair_number": 7,
           "id1": "32455229",
           "rating": 945,
           "rating2": 871,
@@ -652,20 +842,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            15
           ],
           "boards": [
+            15
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "PILLAI, Arya",
-          "pair_number": 7,
+          "pair_number": 8,
           "id1": "32062433",
           "rating": 899,
           "rating2": 766,
@@ -675,20 +870,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            1
           ],
           "boards": [
+            9
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "DAI, Ethan",
-          "pair_number": 8,
+          "pair_number": 9,
           "id1": "32332225",
           "rating": 851,
           "rating2": 688,
@@ -698,20 +898,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            2
           ],
           "boards": [
+            10
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "PFEIFFER, Timothy Y",
-          "pair_number": 9,
+          "pair_number": 10,
           "id1": "32925919",
           "rating": 849,
           "rating2": 814,
@@ -721,20 +926,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            13
           ],
           "boards": [
+            14
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "COGSWELL, Christian",
-          "pair_number": 10,
+          "pair_number": 11,
           "id1": "32656754",
           "rating": 804,
           "rating2": 842,
@@ -744,20 +954,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            4
           ],
           "boards": [
+            12
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "MENON, Sharath",
-          "pair_number": 11,
+          "pair_number": 12,
           "id1": "17126941",
           "rating": 782,
           "rating2": 723,
@@ -767,20 +982,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            5
           ],
           "boards": [
+            13
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "LI, Henry Yuan",
-          "pair_number": 12,
+          "pair_number": 13,
           "id1": "32124806",
           "rating": 776,
           "rating2": 685,
@@ -790,20 +1010,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            10
           ],
           "boards": [
+            14
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "PELTON, Walter George",
-          "pair_number": 13,
+          "pair_number": 14,
           "id1": "32791333",
           "rating": 755,
           "rating2": 737,
@@ -813,20 +1038,25 @@
           "tiebreaks": [
           ],
           "results": [
+            "B"
           ],
           "colors": [
+            "-"
           ],
           "ops": [
+            0
           ],
           "boards": [
+            0
           ],
           "cumulatives": [
+            1
           ],
           "score": 0
         },
         {
           "name": "PERRY, Seth",
-          "pair_number": 14,
+          "pair_number": 15,
           "id1": "33114826",
           "rating": 0,
           "rating2": 0,
@@ -836,14 +1066,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            7
           ],
           "boards": [
+            15
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         }
