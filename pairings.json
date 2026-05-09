@@ -6,7 +6,7 @@
     "state": "MI",
     "country": "USA",
     "td": "Vaishnavi",
-    "time_stamp": "5/9/2026 - 15:47",
+    "time_stamp": "5/9/2026 - 15:49",
     "affiliate": ""
   },
   "options": {
@@ -907,11 +907,6 @@
           "board": 14
         },
         {
-          "white": 7,
-          "black": 0,
-          "board": 0
-        },
-        {
           "white": 6,
           "black": 0,
           "board": 0
@@ -1244,7 +1239,7 @@
             "L",
             "L",
             "L",
-            "B"
+            "U"
           ],
           "colors": [
             "W",
@@ -1268,7 +1263,7 @@
             0,
             0,
             0,
-            1
+            0
           ],
           "score": 0
         },
