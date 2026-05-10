@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -110,7 +108,6 @@
         html {
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
-            /* FIX: removed overscroll-behavior-y from html — caused Android scroll lock */
         }
 
         body {
@@ -120,7 +117,6 @@
             line-height: 1.4;
             position: relative;
             min-height: 100vh;
-            /* iOS: prevent momentum scroll on the body itself */
             overscroll-behavior-y: none;
         }
 
@@ -334,16 +330,9 @@
         .nav-links a:hover::after,
         .nav-links a:focus::after { width: 100%; }
 
-        /* ── Nav Dropdown ─────────────────────────────────────────────
-           ACCESSIBILITY FIX: was a <span>; now a <button> so it is
-           natively focusable, operable by keyboard, and announced by
-           screen readers with role="button".
-        ──────────────────────────────────────────────────────────────── */
         .nav-dropdown { position: relative; }
 
-        /* Reset <button> chrome, then match the old <span> visuals exactly */
         .nav-dropdown-btn {
-            /* Reset */
             appearance: none;
             -webkit-appearance: none;
             background: none;
@@ -353,7 +342,6 @@
             font-family: 'Montserrat', sans-serif;
             color: var(--text-color);
             cursor: pointer;
-            /* Match old span */
             font-weight: 700;
             font-size: 0.85rem;
             letter-spacing: 0.5px;
@@ -366,7 +354,6 @@
 
         .nav-dropdown-btn:hover { transform: translateY(-2px); }
 
-        /* Visible focus ring — important for keyboard users */
         .nav-dropdown-btn:focus {
             outline: 2px solid var(--text-color);
             outline-offset: 3px;
@@ -380,7 +367,6 @@
             pointer-events: none;
         }
 
-        /* Rotate chevron when dropdown is open (hover OR keyboard-open class) */
         .nav-dropdown:hover .nav-dropdown-btn svg,
         .nav-dropdown.is-open  .nav-dropdown-btn svg { transform: rotate(180deg); }
 
@@ -398,7 +384,6 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
         }
 
-        /* Invisible hover bridge so the menu doesn't close mid-cursor */
         .dropdown-menu::before {
             content: '';
             position: absolute;
@@ -407,7 +392,6 @@
             height: 1rem;
         }
 
-        /* Open via CSS hover OR via JS .is-open class (keyboard) */
         .nav-dropdown:hover .dropdown-menu,
         .nav-dropdown.is-open .dropdown-menu {
             opacity: 1;
@@ -415,7 +399,6 @@
             transform: translateX(-50%) translateY(0);
         }
 
-        /* Also open when focus is anywhere inside (Tab key) */
         .nav-dropdown:focus-within .dropdown-menu {
             opacity: 1;
             visibility: visible;
@@ -539,7 +522,6 @@
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            /* Reset button styles */
             appearance: none;
             -webkit-appearance: none;
             background: none;
@@ -570,8 +552,6 @@
             to   { opacity: 1; max-height: 500px; }
         }
 
-        /* ── FIX: explicit padding values so iOS :active/:hover
-           state never inherits an ancestor's 0 padding-left ──────────── */
         .mobile-submenu a {
             padding: 0.75rem 1.25rem 0.75rem 2rem;
             font-size: 0.75rem;
@@ -843,8 +823,6 @@
         }
 
         @media (max-width: 768px) {
-            /* FIX: overflow-x: hidden on <html> blocks Android touch scrolling.
-               Apply only to body; leave html unrestricted. */
             html { width: 100%; }
             body { overflow-x: hidden; width: 100%; position: relative; }
 
@@ -883,7 +861,6 @@
         }
 
         @media (max-width: 480px) {
-            /* FIX: same as above — html must not have overflow-x: hidden */
             html { width: 100%; }
             body { overflow-x: hidden; width: 100%; }
 
@@ -895,19 +872,6 @@
             .service-grid { grid-template-columns: 1fr; }
         }
 
-        /* ─────────────────────────────────────────────────────────────
-           iOS / touch device overrides
-           
-           ROOT CAUSE OF THE "MOVES LEFT" BUG:
-           The old code used `padding-left: inherit !important` to cancel
-           the hover-induced padding increase. `inherit` walks up the DOM
-           and found an ancestor with padding-left: 0, so tapping an item
-           snapped it all the way left.
-           
-           FIX: simply omit the padding-left override entirely. The base
-           padding values declared above are preserved; the hover-increase
-           just never triggers on touch (which is the desired behaviour).
-        ─────────────────────────────────────────────────────────────── */
         @media (hover: none) and (pointer: coarse) {
             [data-aos] {
                 -webkit-transform: translate3d(0,0,0) !important;
@@ -943,7 +907,6 @@
                 transform: translateZ(0);
             }
 
-            /* Disable hover visual effects on touch devices */
             .logo:hover, .nav-links a:hover, .nav-dropdown-btn:hover,
             .mobile-toggle:hover, header h1:hover, .hero-image img:hover,
             .section-title:hover, .service-card:hover, .service-card:hover h3,
@@ -955,16 +918,11 @@
                 -webkit-transform: none !important;
             }
 
-            /* Background colours: suppress hover state */
             .dropdown-menu a:hover,
             .mobile-menu a:hover,
             .mobile-menu .mobile-dropdown-toggle:hover,
             .mobile-submenu a:hover {
                 background-color: transparent !important;
-                /* NOTE: padding-left is intentionally NOT overridden here.
-                   The base padding values are preserved from the rules above.
-                   Previously `padding-left: inherit` was here — that was the
-                   bug causing items to jump left on iOS tap. */
             }
 
             .service-card:hover, .website-button:hover, .cta-button:hover { box-shadow: none !important; }
@@ -977,7 +935,6 @@
             .nav-links a:hover::after, .dropdown-menu a:hover span::after,
             .section-title:hover::after, .announce-bar-link:hover::after { width: 0 !important; }
 
-            /* Subtle active-state feedback on tap instead */
             .cta-button:active, .website-button:active, .service-card:active { opacity: 0.8; }
             .mobile-menu a:active, .mobile-submenu a:active { background-color: var(--gray-200) !important; }
         }
@@ -992,7 +949,6 @@
 </head>
 <body>
 
-    <!-- Skip link — first focusable element on the page (desktop a11y) -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- ── Announcement Bar ───────────────────────────────────────────── -->
@@ -1001,15 +957,12 @@
          data-aos-duration="1000"
          role="banner"
          aria-label="Upcoming event announcement">
-        <!-- Desktop: full text + separate link -->
         <span class="announce-bar-desktop">
-            <span>(Upcoming Tournament) June Open&nbsp;&mdash;&nbsp;Farmington Hills, MI&nbsp;&middot;&nbsp;Still at Holiday Inn!</span>
+            <span>(Upcoming Tournament) May Open&nbsp;&mdash;&nbsp;Farmington Hills, MI&nbsp;&middot;&nbsp;Now at Holiday Inn!</span>
             <span class="announce-bar-dot">&nbsp;|&nbsp;</span>
             <a href="https://michesslions.com/registration.html" class="announce-bar-link">Register Now</a>
         </span>
-        <!-- Mobile: just the link -->
-        <a href="https://michesslions.com/registration.html" class="announce-bar-link announce-bar-mobile">June Open @ Holiday Inn &mdash; Register <span style="font-weight:700;font-style:normal;">&#x2192;</span></a>
-        <!-- Dismiss button -->
+        <a href="https://michesslions.com/registration.html" class="announce-bar-link announce-bar-mobile">May Open @ Holiday Inn &mdash; Register <span style="font-weight:700;font-style:normal;">&#x2192;</span></a>
         <button class="announce-bar-close" id="announceClose" aria-label="Dismiss announcement">&#x2715;</button>
     </div>
 
@@ -1046,9 +999,10 @@
                         role="menu"
                         aria-labelledby="tournamentsBtn"
                     >
-                        <a href="https://michesslions.com/tournaments.html"      role="menuitem"><span>Current Tournaments</span></a>
-                        <a href="https://michesslions.com/registration.html"     role="menuitem"><span>Register</span></a>
+                        <a href="https://michesslions.com/tournaments.html"       role="menuitem"><span>Current Tournaments</span></a>
+                        <a href="https://michesslions.com/registration.html"      role="menuitem"><span>Register</span></a>
                         <a href="https://michesslions.com/registration-list.html" role="menuitem"><span>Registration List</span></a>
+                        <a href="https://michesslions.com/pairingspage.html"      role="menuitem"><span>Pairings</span></a>
                     </div>
                 </div>
 
@@ -1092,6 +1046,7 @@
                         <a href="https://michesslions.com/tournaments.html"       role="menuitem">Current Tournaments</a>
                         <a href="https://michesslions.com/registration.html"      role="menuitem">Register</a>
                         <a href="https://michesslions.com/registration-list.html" role="menuitem">Registration List</a>
+                        <a href="https://michesslions.com/pairingspage.html"      role="menuitem">Pairings</a>
                     </div>
                     <a href="#contact" role="menuitem">Contact</a>
                     <a href="https://michesslions.com/faq.html"         role="menuitem">FAQ</a>
@@ -1384,9 +1339,7 @@
             }
         });
 
-        // ─────────────────────────────────────────────────────────────
-        // Desktop dropdown — keyboard accessibility
-        // ─────────────────────────────────────────────────────────────
+        // ── Desktop dropdown — keyboard accessibility ──────────────────
         document.querySelectorAll('.nav-dropdown').forEach(function (dropdown) {
             const btn   = dropdown.querySelector('.nav-dropdown-btn');
             const menu  = dropdown.querySelector('.dropdown-menu');
