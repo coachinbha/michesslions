@@ -14,6 +14,8 @@
       --gray-200:#e5e5e5;
       --gray-400:#999999;
       --gray-600:#555555;
+      --accent-color: #000000;
+      --nav-height: 67px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -27,6 +29,310 @@
       line-height: 1.5;
       overflow-x: hidden;
     }
+
+    /* ── Navbar (from main page) ────────────────────────────────────── */
+    .navbar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--gray-200);
+      z-index: 1000;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .navbar.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .logo:hover  { transform: scale(1.05); opacity: 0.8; }
+    .logo:focus  { outline: 2px solid var(--text); outline-offset: 3px; }
+
+    .logo img {
+      max-height: 50px;
+      max-width: 200px;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      position: relative;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-links a:hover  { transform: translateY(-2px); }
+    .nav-links a:focus  { outline: 2px solid var(--text); outline-offset: 3px; border-radius: 2px; }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--text);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus::after { width: 100%; }
+
+    .nav-dropdown { position: relative; }
+
+    .nav-dropdown-btn {
+      appearance: none;
+      -webkit-appearance: none;
+      background: none;
+      border: none;
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text);
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-dropdown-btn:hover { transform: translateY(-2px); }
+
+    .nav-dropdown-btn:focus {
+      outline: 2px solid var(--text);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    .nav-dropdown-btn svg {
+      width: 12px;
+      height: 12px;
+      transition: transform 0.3s ease;
+      pointer-events: none;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-btn svg,
+    .nav-dropdown.is-open  .nav-dropdown-btn svg { transform: rotate(180deg); }
+
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 1rem);
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: var(--bg);
+      border: 1px solid var(--gray-200);
+      min-width: 200px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+
+    .dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -1rem;
+      left: 0; right: 0;
+      height: 1rem;
+    }
+
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown.is-open .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .nav-dropdown:focus-within .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .dropdown-menu a {
+      display: inline-flex;
+      width: 100%;
+      padding: 0.875rem 1.25rem;
+      font-size: 0.8rem;
+      border-bottom: 1px solid var(--gray-100);
+      position: relative;
+      text-decoration: none;
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: background-color 0.3s ease, padding-left 0.3s ease;
+    }
+
+    .dropdown-menu a:hover    { background-color: var(--gray-100); padding-left: 1.5rem; }
+    .dropdown-menu a:focus    { background-color: var(--gray-100); padding-left: 1.5rem; outline: 2px solid var(--text); outline-offset: -2px; }
+    .dropdown-menu a::after   { display: none; }
+    .dropdown-menu a:last-child { border-bottom: none; }
+
+    .dropdown-menu a span { position: relative; display: inline-block; }
+
+    .dropdown-menu a span::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--text);
+      transition: width 0.3s ease;
+    }
+
+    .dropdown-menu a:hover span::after,
+    .dropdown-menu a:focus span::after { width: 100%; }
+
+    /* Mobile Menu */
+    .mobile-menu-container { display: none; position: relative; }
+
+    .mobile-toggle {
+      display: block;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.75rem;
+      transition: transform 0.3s ease;
+    }
+
+    .mobile-toggle:hover { transform: scale(1.1); }
+    .mobile-toggle:focus { outline: 2px solid var(--text); outline-offset: 2px; border-radius: 2px; }
+
+    .mobile-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      margin: 5px 0;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .mobile-toggle.active span:nth-child(2) { opacity: 0; }
+    .mobile-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: var(--bg);
+      border: 1px solid var(--gray-200);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      z-index: 999;
+      min-width: 200px;
+      max-width: 220px;
+      margin-top: 0.5rem;
+      border-radius: 4px;
+    }
+
+    .mobile-menu.active {
+      display: block;
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .mobile-menu a,
+    .mobile-menu .mobile-dropdown-toggle {
+      display: block;
+      padding: 0.875rem 1.25rem;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--gray-100);
+      transition: background-color 0.3s ease, padding-left 0.3s ease;
+    }
+
+    .mobile-menu a:hover,
+    .mobile-menu .mobile-dropdown-toggle:hover {
+      background-color: var(--gray-100);
+      padding-left: 1.5rem;
+    }
+
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    .mobile-dropdown-toggle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .mobile-dropdown-toggle svg {
+      width: 14px; height: 14px;
+      transition: transform 0.3s ease;
+      stroke: var(--text);
+      flex-shrink: 0;
+    }
+
+    .mobile-dropdown-toggle.active svg { transform: rotate(180deg); }
+
+    .mobile-submenu { display: none; background: var(--gray-100); }
+
+    .mobile-submenu.active {
+      display: block;
+      animation: expandDown 0.3s ease;
+    }
+
+    @keyframes expandDown {
+      from { opacity: 0; max-height: 0; }
+      to   { opacity: 1; max-height: 500px; }
+    }
+
+    .mobile-submenu a {
+      padding: 0.75rem 1.25rem 0.75rem 2rem;
+      font-size: 0.75rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .mobile-submenu a:hover        { padding-left: 2.5rem; }
+    .mobile-submenu a:last-child   { border-bottom: 1px solid var(--gray-100); }
 
     /* ── Top bar ── */
     .top-bar {
@@ -1249,6 +1555,11 @@
     .gs-active .search-wrap,
     .gs-active #content { display: none; }
 
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-menu-container { display: block; }
+    }
+
     @media (min-width: 640px) {
       .site-header { padding: 1.25rem 2rem 1rem; }
       .global-results { padding-left: 2rem; padding-right: 2rem; }
@@ -1262,6 +1573,97 @@
 </head>
 <body>
 
+<!-- ── Navigation Bar (from main page) ────────────────────────────────────── -->
+<nav class="navbar" id="navbar" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="logo" aria-label="Chess Lions — home">
+      <img src="WCL business card 1050x600.png" alt="Chess Lions Logo - Professional Chess Instruction in South Lyon Michigan">
+    </a>
+    
+    <div class="nav-links" role="menubar" aria-label="Main menu">
+      <a href="https://michesslions.com/" role="menuitem">Home</a>
+      <a href="https://michesslions.com/" role="menuitem">Teaching</a>
+      <a href="https://michesslions.com/about.html" role="menuitem">About</a>
+
+      <div class="nav-dropdown" role="none">
+        <button
+          type="button"
+          class="nav-dropdown-btn"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="tournamentsMenu"
+          id="tournamentsBtn"
+          role="menuitem"
+        >
+          Tournaments
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" focusable="false">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div
+          class="dropdown-menu"
+          id="tournamentsMenu"
+          role="menu"
+          aria-labelledby="tournamentsBtn"
+        >
+          <a href="https://michesslions.com/tournaments.html"       role="menuitem"><span>Current Tournaments</span></a>
+          <a href="https://michesslions.com/registration.html"      role="menuitem"><span>Register</span></a>
+          <a href="https://michesslions.com/registration-list.html" role="menuitem"><span>Registration List</span></a>
+          <a href="https://michesslions.com/pairingspage.html"      role="menuitem"><span>Pairings</span></a>
+        </div>
+      </div>
+
+      <a href="https://michesslions.com/" role="menuitem">Contact</a>
+      <a href="https://michesslions.com/faq.html"         role="menuitem">FAQ</a>
+      <a href="https://michesslions.com/fullgallery.html" role="menuitem">Gallery</a>
+    </div>
+
+    <div class="mobile-menu-container">
+      <button
+        class="mobile-toggle"
+        id="mobileToggle"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="mobileMenu"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+      
+      <div class="mobile-menu" id="mobileMenu" role="menu" aria-label="Mobile navigation">
+        <a href="https://michesslions.com/" role="menuitem">Home</a>
+        <a href="https://michesslions.com/" role="menuitem">Teaching</a>
+        <a href="https://michesslions.com/about.html" role="menuitem">About</a>
+        <button
+          type="button"
+          class="mobile-dropdown-toggle"
+          id="mobileTournamentToggle"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="mobileSubmenu"
+          role="menuitem"
+        >
+          <span>Tournaments</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" focusable="false">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div class="mobile-submenu" id="mobileSubmenu" role="menu" aria-label="Tournaments submenu">
+          <a href="https://michesslions.com/tournaments.html"       role="menuitem">Current Tournaments</a>
+          <a href="https://michesslions.com/registration.html"      role="menuitem">Register</a>
+          <a href="https://michesslions.com/registration-list.html" role="menuitem">Registration List</a>
+          <a href="https://michesslions.com/pairingspage.html"      role="menuitem">Pairings</a>
+        </div>
+        <a href="https://michesslions.com/" role="menuitem">Contact</a>
+        <a href="https://michesslions.com/faq.html"         role="menuitem">FAQ</a>
+        <a href="https://michesslions.com/fullgallery.html" role="menuitem">Gallery</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Top Search Bar ───────────────────────────────────────────────────────── -->
 <div class="top-bar">
   <div class="top-bar-search">
     <span class="top-bar-search-icon">
@@ -1426,8 +1828,7 @@ async function loadData() {
     }
   } catch (e) {
     if (!tournamentData) {
-      document.getElementById('content').innerHTML =
-        `<div class="state-msg"><span class="big">Error</span>Could not load pairings.json<br><small style="font-size:0.65rem;color:var(--gray-400)">${e.message}</small></div>`;
+      showNoPairings();
     }
   }
 }
@@ -1438,8 +1839,7 @@ function showNoPairings() {
   document.querySelector('.view-tabs').style.display = 'none';
   document.getElementById('searchWrap').style.display = 'none';
   document.getElementById('globalResults').style.display = 'none';
-  document.getElementById('eventTitle').textContent = 'Michigan Chess Lions';
-  document.getElementById('eventMeta').innerHTML = '';
+  document.querySelector('.site-header').style.display = 'none';
   document.getElementById('content').innerHTML = `
     <div class="no-pairings-screen">
       <div class="no-pairings-icon">♟</div>
@@ -1456,13 +1856,11 @@ function initApp() {
   document.title = d.event.name;
   updateHeader();
   d.sections.forEach((sec, i) => {
-    // For round 0 sections, set activeRound to 1 so browsing works later
     activeRound[i] = Math.max(sec.rounds_paired, 1);
   });
   buildSectionTabs();
   buildViewTabs();
   buildPopupSections();
-  // Only auto-open popup if there are actual rounds to browse
   const hasAnyRounds = d.sections.some(s => s.rounds_paired > 0);
   if (hasAnyRounds) showPopup();
   renderContent();
@@ -1514,7 +1912,6 @@ function updateSearchBar() {
   const sec = tournamentData && tournamentData.sections[activeSectionIdx];
   const isPairings = activeView === 'pairings';
   const hasRounds  = sec && sec.rounds_paired > 0;
-  // Show local search bar only for pairings view when rounds exist
   document.getElementById('searchWrap').classList.toggle('visible', isPairings && hasRounds);
 }
 
@@ -1693,7 +2090,6 @@ function highlightName(name) {
     name.slice(idx + searchQuery.length);
 }
 
-// ── FIX: render a registered players list when no rounds have been paired yet ──
 function renderRegistered(sec) {
   const players = [...sec.players].sort((a, b) => (b.rating || 0) - (a.rating || 0));
   let html = `
@@ -1722,7 +2118,6 @@ function renderRegistered(sec) {
 }
 
 function renderPairings(sec, playerMap) {
-  // ── Round 0: no pairings yet — show registered players instead ──
   if (sec.rounds_paired === 0) {
     return renderRegistered(sec);
   }
@@ -1752,7 +2147,7 @@ function renderPairings(sec, playerMap) {
 
   if (round === totalRounds && sec.pairings.length) {
     boards = sec.pairings
-      .filter(p => p.white !== 0 || p.black !== 0) // skip placeholder entries
+      .filter(p => p.white !== 0 || p.black !== 0)
       .map(p => {
         if (!p.board || !p.black) {
           const byePlayer = playerMap[p.white];
@@ -1965,7 +2360,6 @@ function openPlayerCard(pairNum) {
   document.getElementById('playerCardOverlay').classList.add('visible');
 }
 
-// ── Popup player search ───────────────────────────────────────────────────────
 const popupPlayerInput   = document.getElementById('popupPlayerSearchInput');
 const popupPlayerClear   = document.getElementById('popupPlayerSearchClear');
 const popupPlayerResults = document.getElementById('popupPlayerResults');
@@ -2055,7 +2449,6 @@ function resetPopupPlayerSearch() {
   setPopupMode('browse');
 }
 
-// ── Global search ─────────────────────────────────────────────────────────────
 const globalInput = document.getElementById('globalSearchInput');
 const globalClear = document.getElementById('globalSearchClear');
 const globalResultsEl = document.getElementById('globalResults');
@@ -2124,7 +2517,6 @@ function runGlobalSearch(q) {
     const pips = (p.results || []).map(r =>
       `<div class="r-pip ${r}" title="${resultLabel(r)}">${r}</div>`).join('');
 
-    // Round 0: no pairing row needed, just show registration info
     if (sec.rounds_paired === 0) {
       html += `
         <div class="gs-card" onclick="openPlayerCardInSection(${p.pair_number}, ${si})">
@@ -2185,6 +2577,134 @@ function openPlayerCardInSection(pairNum, sectionIdx) {
   openPlayerCard(pairNum);
   activeSectionIdx = prev;
 }
+
+// Navbar scroll effect
+const navbar = document.getElementById('navbar');
+let ticking  = false;
+
+window.addEventListener('scroll', function () {
+  if (!ticking) {
+    window.requestAnimationFrame(function () {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+      ticking = false;
+    });
+    ticking = true;
+  }
+}, { passive: true });
+
+// Desktop dropdown keyboard accessibility
+document.querySelectorAll('.nav-dropdown').forEach(function (dropdown) {
+  const btn   = dropdown.querySelector('.nav-dropdown-btn');
+  const menu  = dropdown.querySelector('.dropdown-menu');
+  const items = Array.from(menu.querySelectorAll('a[role="menuitem"]'));
+
+  function openMenu(focusIndex) {
+    dropdown.classList.add('is-open');
+    btn.setAttribute('aria-expanded', 'true');
+    if (typeof focusIndex === 'number') items[focusIndex].focus();
+  }
+
+  function closeMenu(returnFocus) {
+    dropdown.classList.remove('is-open');
+    btn.setAttribute('aria-expanded', 'false');
+    if (returnFocus) btn.focus();
+  }
+
+  btn.addEventListener('keydown', function (e) {
+    switch (e.key) {
+      case 'Enter':
+      case ' ':
+      case 'ArrowDown':
+        e.preventDefault();
+        openMenu(0);
+        break;
+      case 'ArrowUp':
+        e.preventDefault();
+        openMenu(items.length - 1);
+        break;
+      case 'Escape':
+        closeMenu(true);
+        break;
+    }
+  });
+
+  items.forEach(function (item, index) {
+    item.addEventListener('keydown', function (e) {
+      switch (e.key) {
+        case 'ArrowDown':
+          e.preventDefault();
+          items[(index + 1) % items.length].focus();
+          break;
+        case 'ArrowUp':
+          e.preventDefault();
+          items[(index - 1 + items.length) % items.length].focus();
+          break;
+        case 'Home':
+          e.preventDefault();
+          items[0].focus();
+          break;
+        case 'End':
+          e.preventDefault();
+          items[items.length - 1].focus();
+          break;
+        case 'Escape':
+          e.preventDefault();
+          closeMenu(true);
+          break;
+        case 'Tab':
+          closeMenu(false);
+          break;
+      }
+    });
+  });
+
+  dropdown.addEventListener('focusout', function (e) {
+    if (!dropdown.contains(e.relatedTarget)) {
+      closeMenu(false);
+    }
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!dropdown.contains(e.target)) {
+      closeMenu(false);
+    }
+  });
+});
+
+// Mobile menu
+const mobileToggle           = document.getElementById('mobileToggle');
+const mobileMenu             = document.getElementById('mobileMenu');
+const mobileTournamentToggle = document.getElementById('mobileTournamentToggle');
+const mobileSubmenu          = document.getElementById('mobileSubmenu');
+
+mobileToggle.addEventListener('click', function () {
+  const isOpen = mobileMenu.classList.toggle('active');
+  mobileToggle.classList.toggle('active', isOpen);
+  mobileToggle.setAttribute('aria-expanded', String(isOpen));
+});
+
+mobileTournamentToggle.addEventListener('click', function () {
+  const isOpen = mobileSubmenu.classList.toggle('active');
+  mobileTournamentToggle.classList.toggle('active', isOpen);
+  mobileTournamentToggle.setAttribute('aria-expanded', String(isOpen));
+});
+
+mobileMenu.querySelectorAll('a').forEach(function (link) {
+  link.addEventListener('click', function () {
+    mobileToggle.classList.remove('active');
+    mobileMenu.classList.remove('active');
+    mobileToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+
+document.addEventListener('click', function (e) {
+  const container = document.querySelector('.mobile-menu-container');
+  if (!container.contains(e.target)) {
+    mobileToggle.classList.remove('active');
+    mobileMenu.classList.remove('active');
+    mobileToggle.setAttribute('aria-expanded', 'false');
+  }
+});
 
 loadData();
 setInterval(loadData, 120_000);
