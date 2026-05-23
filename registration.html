@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,6 +32,24 @@
             overflow-x: clip;
             position: relative;
         }
+        
+        /* ── Coming Soon Message Styles ──────────────────────── */
+.coming-soon-message {
+    /* Font Size: Increases text size (1rem = 16px default) */
+    font-size: 1.25rem; 
+    margin-top: 2rem;
+    padding: 2rem;
+
+    /* Text Appearance: Makes it bold and readable */
+    font-weight: 700; 
+    color: #000000;
+
+    /* Layout: Ensures it is centered with the rest of the page */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
         /* ── NAVBAR ─────────────────────────────────────────── */
         .navbar {
@@ -341,6 +358,11 @@
             <h2>No Tournaments Currently Available</h2>
             <p>Check back soon for upcoming tournament registration.</p>
         </div>
+        
+        <div class="coming-soon-message" data-aos="fade-up">
+    <p>Our next tournament "Chess Lions: Mega Junior Championship - (K-3, K-5, K-8)" will be listed here on June 1st.</p>
+</div>
+
 
         <div class="registration-list-wrapper">
             <a href="https://michesslions.com/registration-list.html" class="secondary-btn" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
