@@ -6,7 +6,7 @@
     "state": "MI",
     "country": "USA",
     "td": "Vaishnavi",
-    "time_stamp": "6/7/2026 - 6:55",
+    "time_stamp": "6/7/2026 - 9:27",
     "affiliate": ""
   },
   "options": {
@@ -46,7 +46,7 @@
   "sections": [
     {
       "section": "Upper",
-      "rounds_paired": 0,
+      "rounds_paired": 1,
       "rounds_played": 0,
       "final_round": false,
       "standings": [
@@ -67,58 +67,60 @@
         15,
         16,
         17,
-        18
+        18,
+        19,
+        20
       ],
       "pairings": [
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 1,
+          "black": 11,
+          "board": 1
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 12,
+          "black": 2,
+          "board": 2
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 3,
+          "black": 13,
+          "board": 3
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 14,
+          "black": 4,
+          "board": 4
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 5,
+          "black": 15,
+          "board": 5
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 16,
+          "black": 6,
+          "board": 6
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 7,
+          "black": 17,
+          "board": 7
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 18,
+          "black": 8,
+          "board": 8
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 9,
+          "black": 19,
+          "board": 9
         },
         {
-          "white": 0,
-          "black": 0,
-          "board": 0
+          "white": 20,
+          "black": 10,
+          "board": 10
         }
       ],
       "tiebreaks": [
@@ -127,8 +129,36 @@
       ],
       "players": [
         {
-          "name": "YASSINE, Waleed",
+          "name": "DAVIDOVICH, Manis",
           "pair_number": 1,
+          "id1": "12744534",
+          "rating": 2219,
+          "rating2": 1984,
+          "exp1": "1/31/2027",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+            " "
+          ],
+          "colors": [
+            "W"
+          ],
+          "ops": [
+            11
+          ],
+          "boards": [
+            1
+          ],
+          "cumulatives": [
+            0
+          ],
+          "score": 0
+        },
+        {
+          "name": "YASSINE, Waleed",
+          "pair_number": 2,
           "id1": "12859685",
           "rating": 2051,
           "rating2": 1858,
@@ -138,20 +168,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            12
           ],
           "boards": [
+            2
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "NICHOLS, Anthony Thomas",
-          "pair_number": 2,
+          "pair_number": 3,
           "id1": "12753902",
           "rating": 2034,
           "rating2": 1969,
@@ -161,20 +196,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            13
           ],
           "boards": [
+            3
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "MOGAL, Aaban Baig",
-          "pair_number": 3,
+          "pair_number": 4,
           "id1": "31793940",
           "rating": 2012,
           "rating2": 1796,
@@ -184,20 +224,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            14
           ],
           "boards": [
+            4
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "DAVILA HERNANDEZ, Nicolas Francisco",
-          "pair_number": 4,
+          "pair_number": 5,
           "id1": "30755895",
           "rating": 1771,
           "rating2": 1595,
@@ -207,20 +252,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            15
           ],
           "boards": [
+            5
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "SRINIVASAN, Arjun Balaji",
-          "pair_number": 5,
+          "pair_number": 6,
           "id1": "14920150",
           "rating": 1733,
           "rating2": 1670,
@@ -230,20 +280,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            16
           ],
           "boards": [
+            6
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "PRAKASH, Sanmay",
-          "pair_number": 6,
+          "pair_number": 7,
           "id1": "32048940",
           "rating": 1724,
           "rating2": 1539,
@@ -253,20 +308,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            17
           ],
           "boards": [
+            7
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "WANG, Grace Ofia Nuoyi",
-          "pair_number": 7,
+          "pair_number": 8,
           "id1": "30541277",
           "rating": 1695,
           "rating2": 1568,
@@ -276,20 +336,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            18
           ],
           "boards": [
+            8
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "HAAKONSTAD, Olaf",
-          "pair_number": 8,
+          "pair_number": 9,
           "id1": "12406916",
           "rating": 1600,
           "rating2": 1500,
@@ -299,20 +364,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            19
           ],
           "boards": [
+            9
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "SRISHTI, Phani Kumar",
-          "pair_number": 9,
+          "pair_number": 10,
           "id1": "32653000",
           "rating": 1555,
           "rating2": 1453,
@@ -322,20 +392,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            20
           ],
           "boards": [
+            10
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "HARRIS, Jack Avery",
-          "pair_number": 10,
+          "pair_number": 11,
           "id1": "14146537",
           "rating": 1543,
           "rating2": 1449,
@@ -344,20 +419,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            1
           ],
           "boards": [
+            1
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "BLANCA, Daniel",
-          "pair_number": 11,
+          "pair_number": 12,
           "id1": "30223271",
           "rating": 1464,
           "rating2": 1287,
@@ -367,20 +447,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            2
           ],
           "boards": [
+            2
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "WESSEL, Ezekiel David",
-          "pair_number": 12,
+          "pair_number": 13,
           "id1": "32497663",
           "rating": 1456,
           "rating2": 877,
@@ -390,20 +475,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            3
           ],
           "boards": [
+            3
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "LIN, Yundi",
-          "pair_number": 13,
+          "pair_number": 14,
           "id1": "31312534",
           "rating": 1450,
           "rating2": 1299,
@@ -413,20 +503,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            4
           ],
           "boards": [
+            4
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "YARAMALA, Jashith Sai Reddy",
-          "pair_number": 14,
+          "pair_number": 15,
           "id1": "31332908",
           "rating": 1331,
           "rating2": 1205,
@@ -436,20 +531,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            5
           ],
           "boards": [
+            5
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "BORA, Parthiv Reddy",
-          "pair_number": 15,
+          "pair_number": 16,
           "id1": "31810221",
           "rating": 1315,
           "rating2": 1028,
@@ -459,20 +559,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            6
           ],
           "boards": [
+            6
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "VIJAYENDRAN, Akash",
-          "pair_number": 16,
+          "pair_number": 17,
           "id1": "30209190",
           "rating": 1273,
           "rating2": 1118,
@@ -482,20 +587,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            7
           ],
           "boards": [
+            7
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "SHAJI, Madhav",
-          "pair_number": 17,
+          "pair_number": 18,
           "id1": "32215606",
           "rating": 1199,
           "rating2": 1052,
@@ -505,20 +615,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            8
           ],
           "boards": [
+            8
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "TALWAR, Neil",
-          "pair_number": 18,
+          "pair_number": 19,
           "id1": "17001388",
           "rating": 1128,
           "rating2": 1023,
@@ -528,14 +643,47 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            9
           ],
           "boards": [
+            9
           ],
           "cumulatives": [
+            0
+          ],
+          "score": 0
+        },
+        {
+          "name": "PELTON, Walter George",
+          "pair_number": 20,
+          "id1": "32791333",
+          "rating": 1111,
+          "rating2": 867,
+          "exp1": "12/31/2026",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+            " "
+          ],
+          "colors": [
+            "W"
+          ],
+          "ops": [
+            10
+          ],
+          "boards": [
+            10
+          ],
+          "cumulatives": [
+            0
           ],
           "score": 0
         }
@@ -543,7 +691,7 @@
     },
     {
       "section": "U1400",
-      "rounds_paired": 0,
+      "rounds_paired": 1,
       "rounds_played": 0,
       "final_round": false,
       "standings": [
@@ -571,6 +719,66 @@
         22
       ],
       "pairings": [
+        {
+          "white": 11,
+          "black": 1,
+          "board": 11
+        },
+        {
+          "white": 2,
+          "black": 12,
+          "board": 12
+        },
+        {
+          "white": 14,
+          "black": 3,
+          "board": 13
+        },
+        {
+          "white": 4,
+          "black": 15,
+          "board": 14
+        },
+        {
+          "white": 16,
+          "black": 5,
+          "board": 15
+        },
+        {
+          "white": 6,
+          "black": 17,
+          "board": 16
+        },
+        {
+          "white": 18,
+          "black": 7,
+          "board": 17
+        },
+        {
+          "white": 8,
+          "black": 20,
+          "board": 18
+        },
+        {
+          "white": 21,
+          "black": 9,
+          "board": 19
+        },
+        {
+          "white": 10,
+          "black": 22,
+          "board": 20
+        },
+        {
+          "white": 19,
+          "black": 0,
+          "board": 0
+        },
+        {
+          "white": 13,
+          "black": 0,
+          "board": 0
+        }
       ],
       "tiebreaks": [
       ],
@@ -589,14 +797,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            11
           ],
           "boards": [
+            11
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -612,14 +825,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            12
           ],
           "boards": [
+            12
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -635,14 +853,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            14
           ],
           "boards": [
+            13
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -658,14 +881,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            15
           ],
           "boards": [
+            14
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -681,14 +909,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            16
           ],
           "boards": [
+            15
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -704,14 +937,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            17
           ],
           "boards": [
+            16
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -727,43 +965,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            18
           ],
           "boards": [
+            17
           ],
           "cumulatives": [
-          ],
-          "score": 0
-        },
-        {
-          "name": "PELTON, Walter George",
-          "pair_number": 8,
-          "id1": "32791333",
-          "rating": 1111,
-          "rating2": 867,
-          "exp1": "12/31/2026",
-          "state": "MI",
-          "class": " ",
-          "tiebreaks": [
-          ],
-          "results": [
-          ],
-          "colors": [
-          ],
-          "ops": [
-          ],
-          "boards": [
-          ],
-          "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "BHARATH, Kundhavi",
-          "pair_number": 9,
+          "pair_number": 8,
           "id1": "31842324",
           "rating": 984,
           "rating2": 932,
@@ -773,20 +993,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            20
           ],
           "boards": [
+            18
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "SAREEN, Ronit",
-          "pair_number": 10,
+          "pair_number": 9,
           "id1": "32794508",
           "rating": 958,
           "rating2": 924,
@@ -796,20 +1021,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            21
           ],
           "boards": [
+            19
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "SINGH, Arjun",
-          "pair_number": 11,
+          "pair_number": 10,
           "id1": "32320964",
           "rating": 940,
           "rating2": 887,
@@ -819,20 +1049,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            22
           ],
           "boards": [
+            20
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "NAGIREDDY, Shrikar Amar",
-          "pair_number": 12,
+          "pair_number": 11,
           "id1": "31718394",
           "rating": 890,
           "rating2": 865,
@@ -842,20 +1077,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            1
           ],
           "boards": [
+            11
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "KATTI, Mihir",
-          "pair_number": 13,
+          "pair_number": 12,
           "id1": "31972678",
           "rating": 888,
           "rating2": 843,
@@ -865,20 +1105,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            2
           ],
           "boards": [
+            12
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "PILLAI, Arya",
-          "pair_number": 14,
+          "pair_number": 13,
           "id1": "32062433",
           "rating": 887,
           "rating2": 794,
@@ -889,20 +1134,25 @@
           "tiebreaks": [
           ],
           "results": [
+            "H"
           ],
           "colors": [
+            "-"
           ],
           "ops": [
+            0
           ],
           "boards": [
+            0
           ],
           "cumulatives": [
+            0.5
           ],
           "score": 0
         },
         {
           "name": "YANG, Joshua",
-          "pair_number": 15,
+          "pair_number": 14,
           "id1": "32571165",
           "rating": 874,
           "rating2": 809,
@@ -911,20 +1161,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            3
           ],
           "boards": [
+            13
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "YANG, Luke",
-          "pair_number": 16,
+          "pair_number": 15,
           "id1": "32510880",
           "rating": 827,
           "rating2": 805,
@@ -933,20 +1188,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            4
           ],
           "boards": [
+            14
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "GALLOWAY, Tristan",
-          "pair_number": 17,
+          "pair_number": 16,
           "id1": "31566804",
           "rating": 808,
           "rating2": 705,
@@ -956,20 +1216,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            5
           ],
           "boards": [
+            15
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "FIELD, Richard",
-          "pair_number": 18,
+          "pair_number": 17,
           "id1": "32031501",
           "rating": 784,
           "rating2": 0,
@@ -979,20 +1244,25 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            6
           ],
           "boards": [
+            16
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
         {
           "name": "BODDETI, Surya",
-          "pair_number": 19,
+          "pair_number": 18,
           "id1": "32915049",
           "rating": 777,
           "rating2": 749,
@@ -1002,14 +1272,47 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            7
           ],
           "boards": [
+            17
           ],
           "cumulatives": [
+            0
+          ],
+          "score": 0
+        },
+        {
+          "name": "WRIGHT, Jonathan",
+          "pair_number": 19,
+          "id1": "32341697",
+          "rating": 757,
+          "rating2": 811,
+          "exp1": "4/30/2028",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+            "B"
+          ],
+          "colors": [
+            "-"
+          ],
+          "ops": [
+            0
+          ],
+          "boards": [
+            0
+          ],
+          "cumulatives": [
+            1
           ],
           "score": 0
         },
@@ -1025,14 +1328,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            8
           ],
           "boards": [
+            18
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -1048,14 +1356,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "W"
           ],
           "ops": [
+            9
           ],
           "boards": [
+            19
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         },
@@ -1071,14 +1384,19 @@
           "tiebreaks": [
           ],
           "results": [
+            " "
           ],
           "colors": [
+            "B"
           ],
           "ops": [
+            10
           ],
           "boards": [
+            20
           ],
           "cumulatives": [
+            0
           ],
           "score": 0
         }
