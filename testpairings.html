@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Tournament Pairings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #000000;
+      --gray-100: #f8f8f8;
+      --gray-200: #e5e5e5;
+      --gray-400: #999999;
+      --gray-600: #555555;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--gray-100);
+      color: var(--text);
+      line-height: 1.5;
+      display: flex;
+      justify-content: center;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      background: var(--bg);
+      border: 1px solid var(--gray-200);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 1.25rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--text);
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+    }
+
+    label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--gray-600);
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid var(--gray-200);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input[type="text"]:focus {
+      border-color: var(--text);
+    }
+
+    button {
+      background: var(--text);
+      color: var(--bg);
+      border: none;
+      padding: 0.85rem 1rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    button:hover { opacity: 0.85; }
+
+    .result-card {
+      margin-top: 1.5rem;
+      background: var(--gray-100);
+      border-left: 5px solid var(--text);
+      padding: 1.25rem;
+      display: none;
+    }
+
+    .result-card.visible { display: block; }
+
+    .player-greeting {
+      font-size: 1.2rem;
+      font-weight: 900;
+      margin-bottom: 0.75rem;
+    }
+
+    .pairing-info {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .pairing-info strong {
+      font-weight: 700;
+    }
+
+    .color-pill {
+      display: inline-block;
+      padding: 2px 6px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border: 1px solid var(--text);
+      margin: 0 2px;
+    }
+
+    .color-pill.W { background: #fff; color: #000; }
+    .color-pill.B { background: #000; color: #fff; }
+
+    .result-tag {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 4px 8px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: var(--gray-200);
+    }
+
+    .error-msg {
+      color: #cc0000;
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-top: 1rem;
+      display: none;
+    }
+
+    .error-msg.visible { display: block; }
+
+    .suggestions {
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--gray-600);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1 id="eventTitle">Tournament Pairings</h1>
+    
+    <div class="form-group">
+      <label for="nameInput">Enter your name to find your pairing</label>
+      <input type="text" id="nameInput" placeholder="e.g. Manis Davidovich" autocomplete="off" />
+      <button id="findBtn">Find My Pairing</button>
+      <div id="errorMsg" class="error-msg"></div>
+    </div>
+
+    <div id="resultCard" class="result-card">
+      <div id="resultContent"></div>
+    </div>
+  </div>
+
+  <script>
+    // --- Embedded Tournament Data ---
+    const tournamentData = {
+      "event": {
+        "name": "Chess Lions - June Open 2026",
+        "date": "2026/6/7",
+        "city": "Farmington Hill",
+        "state": "MI",
+        "country": "USA",
+        "td": "Vaishnavi",
+        "time_stamp": "6/7/2026 - 17:54",
+        "affiliate": ""
+      },
+      "sections": [
+        {
+          "section": "Upper",
+          "rounds_paired": 4,
+          "players": [
+            { "name": "DAVIDOVICH, Manis", "pair_number": 1, "results": ["W", "W", "D", "W"], "colors": ["W", "B", "W", "B"], "ops": [11, 6, 4, 5], "boards": [1, 1, 1, 1] },
+            { "name": "YASSINE, Waleed", "pair_number": 2, "results": ["L", "W", "D", "U"], "colors": ["B", "B", "W", "-"], "ops": [12, 19, 10, 0], "boards": [2, 6, 4, 0] },
+            { "name": "NICHOLS, Anthony Thomas", "pair_number": 3, "results": ["W", "W", "L", "U"], "colors": ["W", "B", "W", "-"], "ops": [13, 8, 5, 0], "boards": [3, 2, 2, 0] },
+            { "name": "MOGAL, Aaban Baig", "pair_number": 4, "results": ["W", "W", "D", "L"], "colors": ["B", "W", "B", "W"], "ops": [14, 7, 1, 6], "boards": [4, 3, 1, 2] },
+            { "name": "DAVILA HERNANDEZ, Nicolas Francisco", "pair_number": 5, "results": ["W", "W", "W", "L"], "colors": ["W", "B", "B", "W"], "ops": [15, 10, 3, 1], "boards": [5, 4, 2, 1] },
+            { "name": "SRINIVASAN, Arjun Balaji", "pair_number": 6, "results": ["W", "L", "W", "W"], "colors": ["B", "W", "B", "B"], "ops": [16, 1, 12, 4], "boards": [6, 1, 3, 2] },
+            { "name": "PRAKASH, Sanmay", "pair_number": 7, "results": ["W", "L", "W", "W"], "colors": ["W", "B", "W", "B"], "ops": [17, 4, 16, 18], "boards": [7, 3, 5, 3] },
+            { "name": "WANG, Grace Ofia Nuoyi", "pair_number": 8, "results": ["W", "L", "L", "D"], "colors": ["B", "W", "B", "W"], "ops": [18, 3, 20, 14], "boards": [8, 2, 6, 6] },
+            { "name": "HAAKONSTAD, Olaf", "pair_number": 9, "results": ["D", "L", "L", "D"], "colors": ["W", "W", "B", "W"], "ops": [19, 12, 18, 11], "boards": [9, 5, 7, 9] },
+            { "name": "SRISHTI, Phani Kumar", "pair_number": 10, "results": ["W", "L", "D", "W"], "colors": ["B", "W", "B", "W"], "ops": [20, 5, 2, 17], "boards": [10, 4, 4, 5] },
+            { "name": "HARRIS, Jack Avery", "pair_number": 11, "results": ["L", "L", "L", "D"], "colors": ["B", "W", "W", "B"], "ops": [1, 16, 17, 9], "boards": [1, 7, 9, 9] },
+            { "name": "BLANCA, Daniel", "pair_number": 12, "results": ["W", "W", "L", "W"], "colors": ["W", "B", "W", "B"], "ops": [2, 9, 6, 20], "boards": [2, 5, 3, 4] },
+            { "name": "WESSEL, Ezekiel David", "pair_number": 13, "results": ["L", "L", "W", "W"], "colors": ["B", "W", "B", "W"], "ops": [3, 18, 15, 19], "boards": [3, 8, 10, 7] },
+            { "name": "LIN, Yundi", "pair_number": 14, "results": ["L", "D", "D", "D"], "colors": ["W", "B", "W", "B"], "ops": [4, 17, 19, 8], "boards": [4, 9, 8, 6] },
+            { "name": "YARAMALA, Jashith Sai Reddy", "pair_number": 15, "results": ["L", "L", "L", "D"], "colors": ["B", "W", "W", "B"], "ops": [5, 20, 13, 16], "boards": [5, 10, 10, 8] },
+            { "name": "BORA, Parthiv Reddy", "pair_number": 16, "results": ["L", "W", "L", "D"], "colors": ["W", "B", "B", "W"], "ops": [6, 11, 7, 15], "boards": [6, 7, 5, 8] },
+            { "name": "VIJAYENDRAN, Akash", "pair_number": 17, "results": ["L", "D", "W", "L"], "colors": ["B", "W", "B", "B"], "ops": [7, 14, 11, 10], "boards": [7, 9, 9, 5] },
+            { "name": "SHAJI, Madhav", "pair_number": 18, "results": ["L", "W", "W", "L"], "colors": ["W", "B", "W", "W"], "ops": [8, 13, 9, 7], "boards": [8, 8, 7, 3] },
+            { "name": "TALWAR, Neil", "pair_number": 19, "results": ["D", "L", "D", "L"], "colors": ["B", "W", "B", "B"], "ops": [9, 2, 14, 13], "boards": [9, 6, 8, 7] },
+            { "name": "PELTON, Walter George", "pair_number": 20, "results": ["L", "W", "W", "L"], "colors": ["W", "B", "W", "W"], "ops": [10, 15, 8, 12], "boards": [10, 10, 6, 4] }
+          ]
+        },
+        {
+          "section": "U1400",
+          "rounds_paired": 4,
+          "players": [
+            { "name": "NGUYEN, Linh", "pair_number": 1, "results": ["W", "W", "W", "W"], "colors": ["B", "W", "B", "W"], "ops": [11, 8, 15, 7], "boards": [11, 11, 11, 11] },
+            { "name": "NATARAJAN, Nakulan", "pair_number": 2, "results": ["W", "L", "W", "D"], "colors": ["W", "B", "W", "B"], "ops": [12, 15, 9, 5], "boards": [12, 12, 14, 12] },
+            { "name": "ROSENSCRUGGS, Adam", "pair_number": 3, "results": ["W", "L", "W", "L"], "colors": ["B", "W", "B", "W"], "ops": [14, 17, 10, 15], "boards": [13, 13, 15, 14] },
+            { "name": "LIN, Cynthia Xinyi", "pair_number": 4, "results": ["L", "W", "W", "L"], "colors": ["W", "B", "W", "B"], "ops": [15, 12, 20, 17], "boards": [14, 17, 16, 13] },
+            { "name": "JENNINGS, Elijah D", "pair_number": 5, "results": ["W", "W", "D", "D"], "colors": ["B", "W", "B", "W"], "ops": [16, 21, 17, 2], "boards": [15, 14, 12, 12] },
+            { "name": "SHANE MCDONALD, Ian", "pair_number": 6, "results": ["L", "W", "W", "L"], "colors": ["W", "B", "W", "B"], "ops": [17, 14, 21, 22], "boards": [16, 18, 17, 15] },
+            { "name": "NICASTRO, Andrew Michael", "pair_number": 7, "results": ["W", "W", "W", "L"], "colors": ["B", "W", "W", "B"], "ops": [18, 22, 19, 1], "boards": [17, 15, 13, 11] },
+            { "name": "BHARATH, Kundhavi", "pair_number": 8, "results": ["W", "L", "L", "W"], "colors": ["W", "B", "B", "W"], "ops": [20, 1, 22, 19], "boards": [18, 11, 18, 16] },
+            { "name": "SAREEN, Ronit", "pair_number": 9, "results": ["L", "W", "L", "L"], "colors": ["B", "W", "B", "W"], "ops": [21, 16, 2, 20], "boards": [19, 19, 14, 17] },
+            { "name": "SINGH, Arjun", "pair_number": 10, "results": ["L", "W", "L", "L"], "colors": ["W", "B", "W", "B"], "ops": [22, 18, 3, 21], "boards": [20, 20, 15, 18] },
+            { "name": "NAGIREDDY, Shrikar Amar", "pair_number": 11, "results": ["L", "L", "D", "W"], "colors": ["W", "B", "W", "B"], "ops": [1, 20, 18, 13], "boards": [11, 21, 20, 20] },
+            { "name": "KATTI, Mihir", "pair_number": 12, "results": ["L", "L", "W", "W"], "colors": ["B", "W", "B", "W"], "ops": [2, 4, 13, 16], "boards": [12, 17, 19, 19] },
+            { "name": "PILLAI, Arya", "pair_number": 13, "results": ["H", "L", "L", "L"], "colors": ["-", "B", "W", "W"], "ops": [0, 19, 12, 11], "boards": [0, 16, 19, 20] },
+            { "name": "YANG, Joshua", "pair_number": 14, "results": ["L", "L", "L", "W"], "colors": ["W", "W", "B", "W"], "ops": [3, 6, 16, 18], "boards": [13, 18, 21, 21] },
+            { "name": "YANG, Luke", "pair_number": 15, "results": ["W", "W", "L", "W"], "colors": ["B", "W", "W", "B"], "ops": [4, 2, 1, 3], "boards": [14, 12, 11, 14] },
+            { "name": "GALLOWAY, Tristan", "pair_number": 16, "results": ["L", "L", "W", "L"], "colors": ["W", "B", "W", "B"], "ops": [5, 9, 14, 12], "boards": [15, 19, 21, 19] },
+            { "name": "FIELD, Richard", "pair_number": 17, "results": ["W", "W", "D", "W"], "colors": ["B", "B", "W", "W"], "ops": [6, 3, 5, 4], "boards": [16, 13, 12, 13] },
+            { "name": "BODDETI, Surya", "pair_number": 18, "results": ["L", "L", "D", "L"], "colors": ["W", "W", "B", "B"], "ops": [7, 10, 11, 14], "boards": [17, 20, 20, 21] },
+            { "name": "WRIGHT, Jonathan", "pair_number": 19, "results": ["B", "W", "L", "L"], "colors": ["-", "W", "B", "B"], "ops": [0, 13, 7, 8], "boards": [0, 16, 13, 16] },
+            { "name": "LIU, Aaron Li", "pair_number": 20, "results": ["L", "W", "L", "W"], "colors": ["B", "W", "B", "B"], "ops": [8, 11, 4, 9], "boards": [18, 21, 16, 17] },
+            { "name": "TARALUNGA, Vlad Dumitru", "pair_number": 21, "results": ["W", "L", "L", "W"], "colors": ["W", "B", "B", "W"], "ops": [9, 5, 6, 10], "boards": [19, 14, 17, 18] },
+            { "name": "WARD, Zachary James", "pair_number": 22, "results": ["W", "L", "W", "W"], "colors": ["B", "B", "W", "W"], "ops": [10, 7, 8, 6], "boards": [20, 15, 18, 15] }
+          ]
+        },
+        {
+          "section": "Unrated K to 8",
+          "rounds_paired": 4,
+          "players": [
+            { "name": "RAMESH, Rashmitha", "pair_number": 1, "results": ["L", "L", "L", "B"], "colors": ["W", "B", "W", "-"], "ops": [15, 14, 3, 0], "boards": [41, 46, 48, 0] },
+            { "name": "MANIKANDAN, Aahana", "pair_number": 2, "results": ["L", "W", "L", "W"], "colors": ["B", "W", "B", "B"], "ops": [9, 4, 7, 15], "boards": [42, 47, 45, 46] },
+            { "name": "RAJESHKUMAR Saswin", "pair_number": 3, "results": ["L", "L", "W", "L"], "colors": ["W", "B", "B", "W"], "ops": [10, 6, 1, 9], "boards": [43, 48, 48, 47] },
+            { "name": "ARUNPRASATH, Akira", "pair_number": 4, "results": ["L", "L", "B", "W"], "colors": ["B", "B", "-", "W"], "ops": [11, 2, 0, 12], "boards": [44, 47, 0, 48] },
+            { "name": "MANOJKUMAR, Jovidha", "pair_number": 5, "results": ["W", "L", "W", "W"], "colors": ["W", "B", "W", "B"], "ops": [12, 10, 15, 8], "boards": [45, 42, 44, 43] },
+            { "name": "YEDLAPALLI, Riaan", "pair_number": 6, "results": ["L", "W", "W", "L"], "colors": ["B", "W", "B", "W"], "ops": [13, 3, 9, 7], "boards": [46, 48, 46, 44] },
+            { "name": "MUDDASANI Sriansh", "pair_number": 7, "results": ["D", "D", "W", "W"], "colors": ["W", "B", "W", "B"], "ops": [14, 15, 2, 6], "boards": [47, 45, 45, 44] },
+            { "name": "KASIKALA, Sai Ashvadh", "pair_number": 8, "results": ["B", "L", "W", "L"], "colors": ["-", "W", "B", "W"], "ops": [0, 11, 12, 5], "boards": [0, 43, 47, 43] },
+            { "name": "RAMESH, Ram Mithun", "pair_number": 9, "results": ["W", "L", "L", "W"], "colors": ["W", "B", "W", "B"], "ops": [2, 13, 6, 3], "boards": [42, 44, 46, 47] },
+            { "name": "BALAJI, Sheshanand ", "pair_number": 10, "results": ["W", "W", "L", "L"], "colors": ["B", "W", "B", "W"], "ops": [3, 5, 11, 14], "boards": [43, 42, 42, 45] },
+            { "name": "SASHIREGHAA Balaji Naga", "pair_number": 11, "results": ["W", "W", "W", "W"], "colors": ["W", "B", "W", "B"], "ops": [4, 8, 10, 13], "boards": [44, 43, 42, 42] },
+            { "name": "PECHETTIE Mihiraamsh ", "pair_number": 12, "results": ["L", "B", "L", "L"], "colors": ["B", "-", "W", "B"], "ops": [5, 0, 8, 4], "boards": [45, 0, 47, 48] },
+            { "name": "BOZELL, Jacob", "pair_number": 13, "results": ["W", "W", "W", "L"], "colors": ["W", "W", "B", "W"], "ops": [6, 9, 14, 11], "boards": [46, 44, 43, 42] },
+            { "name": "ARUNKRISHNA, Vijith", "pair_number": 14, "results": ["D", "W", "L", "W"], "colors": ["B", "W", "W", "B"], "ops": [7, 1, 13, 10], "boards": [47, 46, 43, 45] },
+            { "name": "GUSTAVO Moreira", "pair_number": 15, "results": ["W", "D", "L", "L"], "colors": ["B", "W", "B", "W"], "ops": [1, 7, 5, 2], "boards": [41, 45, 44, 46] }
+          ]
+        }
+      ]
+    };
+
+    // --- App Logic ---
+    const nameInput = document.getElementById('nameInput');
+    const findBtn = document.getElementById('findBtn');
+    const resultCard = document.getElementById('resultCard');
+    const resultContent = document.getElementById('resultContent');
+    const errorMsg = document.getElementById('errorMsg');
+    const eventTitle = document.getElementById('eventTitle');
+
+    // Set Event Title
+    eventTitle.textContent = tournamentData.event.name;
+
+    // Format name from "LASTNAME, Firstname" to "Firstname Lastname"
+    function formatName(rawName) {
+      if (!rawName) return 'Unknown';
+      if (rawName.includes(',')) {
+        const parts = rawName.split(',');
+        return `${parts[1].trim()} ${parts[0].trim()}`;
+      }
+      return rawName;
+    }
+
+    function findPlayer(query) {
+      const q = query.trim().toLowerCase();
+      const matches = [];
+
+      tournamentData.sections.forEach(section => {
+        section.players.forEach(player => {
+          const rawLower = player.name.toLowerCase();
+          const formattedLower = formatName(player.name).toLowerCase();
+          
+          // Check if query matches either raw or formatted name
+          if (rawLower.includes(q) || formattedLower.includes(q) || q.includes(rawLower) || q.includes(formattedLower)) {
+            matches.push({ section, player });
+          }
+        });
+      });
+
+      return matches;
+    }
+
+    function displayPairing() {
+      const query = nameInput.value.trim();
+      resultCard.classList.remove('visible');
+      errorMsg.classList.remove('visible');
+      errorMsg.innerHTML = '';
+
+      if (!query) {
+        errorMsg.textContent = 'Please enter a name.';
+        errorMsg.classList.add('visible');
+        return;
+      }
+
+      // Save to local storage
+      localStorage.setItem('chess_player_name', query);
+
+      const matches = findPlayer(query);
+
+      if (matches.length === 0) {
+        errorMsg.textContent = 'No player found with that name. Please check your spelling.';
+        errorMsg.classList.add('visible');
+        return;
+      }
+
+      if (matches.length > 1) {
+        errorMsg.innerHTML = 'Multiple players found. Please type your full name.<br><br>Did you mean:<br>';
+        const suggestions = matches.map(m => `- ${formatName(m.player.name)} (${m.section.section})`).join('<br>');
+        errorMsg.innerHTML += suggestions;
+        errorMsg.classList.add('visible');
+        return;
+      }
+
+      const { section, player } = matches[0];
+      const currentRound = section.rounds_paired;
+      
+      if (currentRound === 0) {
+        resultContent.innerHTML = `
+          <div class="player-greeting">Hi ${formatName(player.name)}</div>
+          <div class="pairing-info">You are registered in the <strong>${section.section}</strong> section.</div>
+          <div class="pairing-info">Pairings are not yet available. Please check back later.</div>
+        `;
+        resultCard.classList.add('visible');
+        return;
+      }
+
+      const roundIdx = currentRound - 1;
+      const opponentNum = player.ops[roundIdx] || 0;
+      const boardNum = player.boards[roundIdx] || 0;
+      const color = player.colors[roundIdx] || '';
+      const result = player.results[roundIdx] || '';
+
+      let pairingHtml = `
+        <div class="player-greeting">Hi ${formatName(player.name)}</div>
+        <div class="pairing-info"><strong>Section:</strong> ${section.section} &nbsp;|&nbsp; <strong>Round:</strong> ${currentRound}</div>
+      `;
+
+      if (opponentNum === 0) {
+        pairingHtml += `<div class="pairing-info">You have a <strong>Bye</strong> for this round.</div>`;
+      } else {
+        const opponent = section.players.find(p => p.pair_number === opponentNum);
+        const opponentName = opponent ? formatName(opponent.name) : 'Unknown';
+        const colorText = color === 'W' ? '<span class="color-pill W">White</span>' : color === 'B' ? '<span class="color-pill B">Black</span>' : 'Unknown';
+        
+        pairingHtml += `
+          <div class="pairing-info">You are on <strong>Board ${boardNum}</strong> playing ${colorText} against <strong>${opponentName}</strong>.</div>
+        `;
+      }
+
+      // Show result if the game has been played
+      if (result && result !== 'U' && result !== 'B' && result !== 'X' && result !== 'H') {
+        const resultMap = { 'W': 'Win', 'L': 'Loss', 'D': 'Draw' };
+        pairingHtml += `<div class="result-tag">Result: ${resultMap[result] || result}</div>`;
+      }
+
+      resultContent.innerHTML = pairingHtml;
+      resultCard.classList.add('visible');
+    }
+
+    // Event Listeners
+    findBtn.addEventListener('click', displayPairing);
+    nameInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') displayPairing();
+    });
+
+    // On load, check if name is saved in browser
+    window.addEventListener('load', () => {
+      const savedName = localStorage.getItem('chess_player_name');
+      if (savedName) {
+        nameInput.value = savedName;
+        // Automatically search on load if name exists
+        displayPairing();
+      }
+    });
+  </script>
+</body>
+</html>
