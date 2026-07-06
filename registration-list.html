@@ -216,6 +216,7 @@
             font-size: 0.85rem; letter-spacing: 0.5px; transition: all 0.4s ease;
             font-family: 'Montserrat', sans-serif; position: relative; overflow: hidden;
             -webkit-tap-highlight-color: transparent;
+            animation: uiFadeIn 0.4s ease both;
         }
         .tournament-tab::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: var(--text-color); transition: left 0.4s ease; z-index: 0; }
         .tournament-tab:hover::before { left: 0; }
@@ -264,6 +265,7 @@
             font-size: 0.85rem; letter-spacing: 0.5px; transition: all 0.4s ease;
             font-family: 'Montserrat', sans-serif; position: relative; overflow: hidden;
             -webkit-tap-highlight-color: transparent;
+            animation: uiFadeIn 0.35s ease both;
         }
         .filter-btn::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: var(--text-color); transition: left 0.4s ease; z-index: 0; }
         .filter-btn:hover::before { left: 0; }
@@ -271,6 +273,12 @@
         .filter-btn span { position: relative; z-index: 1; }
         .filter-btn.active { background-color: var(--text-color); color: var(--bg-color); }
         .filter-btn.active::before { left: 0; }
+
+        /* Pure CSS fade-in for UI controls — no IntersectionObserver dependency */
+        @keyframes uiFadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
 
         .table-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
         table { width: 100%; border-collapse: collapse; margin-top: 2rem; border: 1px solid var(--text-color); transition: opacity 0.3s ease, transform 0.3s ease; }
@@ -322,20 +330,14 @@
             .logo:hover,
             .nav-links a:hover,
             .nav-dropdown > span:hover,
-            .mobile-toggle:hover {
-                transform: none !important;
-                -webkit-transform: none !important;
-            }
+            .mobile-toggle:hover { transform: none !important; -webkit-transform: none !important; }
             .nav-links a:hover::after,
             .dropdown-menu a:hover span::after { width: 0 !important; }
 
-            /* Only suppress background-color on touch, NOT padding-left */
             .dropdown-menu a:hover,
             .mobile-menu a:hover,
             .mobile-menu .mobile-dropdown-toggle:hover,
-            .mobile-submenu a:hover {
-                background-color: transparent !important;
-            }
+            .mobile-submenu a:hover { background-color: transparent !important; }
 
             .logo:hover { opacity: 1 !important; }
 
@@ -454,7 +456,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true, disable: false });
-        let hasAnimated = false;
 
         const USCF_ID_KEY = 'USCF ID (ONLY if playing in a rated section, an 8 digit number, like "12892910" )';
 const SECTION_KEY = 'Which section?(For the scholastic sections, please use the grade the student was in this January)\n\n Note: sections may be combined based upon entries.';
@@ -689,10 +690,7 @@ const CACHE_DURATION = 24 * 60 * 60 * 1000;
             TOURNAMENTS.forEach((tournament, idx) => {
                 const btn = document.createElement('button');
                 btn.className = 'tournament-tab' + (idx === activeTournament ? ' active' : '');
-                if (!hasAnimated) {
-                    btn.setAttribute('data-aos', 'fade-up');
-                    btn.setAttribute('data-aos-delay', (idx * 100).toString());
-                }
+                btn.style.animationDelay = (idx * 80) + 'ms';
                 btn.innerHTML = '<span>' + tournament.name + '</span>';
                 btn.addEventListener('click', () => {
                     activeTournament = idx;
@@ -704,7 +702,6 @@ const CACHE_DURATION = 24 * 60 * 60 * 1000;
                 });
                 tabsContainer.appendChild(btn);
             });
-            if (!hasAnimated) AOS.refresh();
         }
 
         function displayTournament(tournamentIdx) {
@@ -733,10 +730,7 @@ const CACHE_DURATION = 24 * 60 * 60 * 1000;
             }).forEach((section, idx) => {
                 const btn = document.createElement('button');
                 btn.className = 'filter-btn' + (section === selectedSections[tournamentIdx] ? ' active' : '');
-                if (!hasAnimated) {
-                    btn.setAttribute('data-aos', 'fade-up');
-                    btn.setAttribute('data-aos-delay', (idx * 50).toString());
-                }
+                btn.style.animationDelay = (idx * 40) + 'ms';
                 btn.innerHTML = '<span>' + getLabel(tournament, section) + ' (' + sectionCounts[section] + ')</span>';
                 btn.addEventListener('click', () => {
                     selectedSections[tournamentIdx] = section;
@@ -755,7 +749,6 @@ const CACHE_DURATION = 24 * 60 * 60 * 1000;
                 });
                 filterSection.appendChild(btn);
             });
-            if (!hasAnimated) AOS.refresh();
         }
 
         function renderTable(tournamentIdx, data, tournament) {
@@ -822,8 +815,6 @@ const CACHE_DURATION = 24 * 60 * 60 * 1000;
             document.getElementById('loading').style.display = 'none';
             document.getElementById('content').style.display = 'block';
             document.getElementById('error').style.display = 'none';
-
-            if (!hasAnimated) { AOS.refresh(); hasAnimated = true; }
         }
 
         function displayEmptyRegistrations(tournamentIdx, tournament) {
@@ -843,7 +834,6 @@ const CACHE_DURATION = 24 * 60 * 60 * 1000;
             document.getElementById('loading').style.display = 'none';
             document.getElementById('content').style.display = 'block';
             document.getElementById('error').style.display = 'none';
-            AOS.refresh();
         }
 
         function showError(message) {
