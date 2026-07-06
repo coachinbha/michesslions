@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Tournament Registration - Chess Lions</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
@@ -19,7 +19,6 @@
 
         html {
             scroll-behavior: smooth;
-            height: -webkit-fill-available;
         }
 
         body {
@@ -28,23 +27,19 @@
             color: var(--text-color);
             line-height: 1.4;
             min-height: 100vh;
-            min-height: -webkit-fill-available;
-            overflow-x: clip;
+            overflow-x: hidden;
             position: relative;
+            -webkit-text-size-adjust: 100%;
+            touch-action: pan-y;
         }
         
         /* ── Coming Soon Message Styles ──────────────────────── */
 .coming-soon-message {
-    /* Font Size: Increases text size (1rem = 16px default) */
     font-size: 1.25rem; 
     margin-top: 2rem;
     padding: 2rem;
-
-    /* Text Appearance: Makes it bold and readable */
     font-weight: 700; 
     color: #000000;
-
-    /* Layout: Ensures it is centered with the rest of the page */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -58,9 +53,7 @@
             border-bottom: 1px solid var(--gray-200);
             z-index: 1000;
             transition: box-shadow .3s ease;
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-            -webkit-backface-visibility: hidden;
+            will-change: box-shadow;
         }
         .navbar.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,.08); }
 
@@ -70,7 +63,7 @@
             display: flex; justify-content: space-between; align-items: center;
         }
 
-        .logo { display: flex; align-items: center; text-decoration: none; transition: transform .3s ease, opacity .3s ease; }
+        .logo { display: flex; align-items: center; text-decoration: none; transition: transform .3s ease, opacity .3s ease; -webkit-tap-highlight-color: transparent; }
         .logo:hover { transform: scale(1.05); opacity: .8; }
         .logo img { max-height: 50px; max-width: 200px; object-fit: contain; }
 
@@ -124,7 +117,7 @@
 
         /* Mobile nav */
         .mobile-menu-container { display: none; position: relative; }
-        .mobile-toggle { background: none; border: none; cursor: pointer; padding: .75rem; transition: transform .3s ease; }
+        .mobile-toggle { background: none; border: none; cursor: pointer; padding: .75rem; transition: transform .3s ease; -webkit-tap-highlight-color: transparent; }
         .mobile-toggle:hover { transform: scale(1.1); }
         .mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--text-color); margin: 5px 0; transition: all .3s ease; }
         .mobile-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
@@ -137,6 +130,9 @@
             box-shadow: 0 10px 40px rgba(0,0,0,.15);
             z-index: 999; min-width: 200px; max-width: 220px;
             margin-top: .5rem; border-radius: 4px;
+            -webkit-overflow-scrolling: auto;
+            max-height: 80vh;
+            overflow-y: auto;
         }
         .mobile-menu.active { display: block; animation: slideDown .3s ease; }
         @keyframes slideDown { from { opacity:0; transform:translateY(-10px); } to { opacity:1; transform:translateY(0); } }
@@ -147,6 +143,7 @@
             font-weight: 700; font-size: .8rem; text-transform: uppercase; letter-spacing: .5px;
             border-bottom: 1px solid var(--gray-100);
             transition: background-color .3s ease, padding-left .3s ease;
+            -webkit-tap-highlight-color: transparent;
         }
         .mobile-menu a:hover, .mobile-menu .mobile-dropdown-toggle:hover { background: var(--gray-100); padding-left: 1.5rem; }
         .mobile-menu a:last-child { border-bottom: none; }
@@ -154,7 +151,7 @@
         .mobile-dropdown-toggle svg { width: 14px; height: 14px; transition: transform .3s ease; stroke: var(--text-color); }
         .mobile-dropdown-toggle.active svg { transform: rotate(180deg); }
         .mobile-submenu { display: none; background: var(--gray-100); }
-        .mobile-submenu.active { display: block; animation: expandDown .3s ease; }
+        .mobile-submenu.active { display: block; animation: expandDown .3s ease forwards; overflow: hidden; }
         @keyframes expandDown { from { opacity:0; max-height:0; } to { opacity:1; max-height:500px; } }
         .mobile-submenu a { padding: .75rem 1.25rem .75rem 2rem; font-size: .75rem; border-bottom: 1px solid var(--gray-200); }
         .mobile-submenu a:hover { padding-left: 2.5rem; }
@@ -190,6 +187,7 @@
             padding: 2rem 2.5rem; cursor: pointer; transition: all 0.3s ease;
             position: relative; min-height: 200px;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
+            animation: uiFadeIn 0.5s ease both;
         }
         .tournament-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         .tournament-card h3 { font-size: 1.4rem; font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; margin-bottom: 1rem; text-align: center; line-height: 1.3; }
@@ -201,6 +199,7 @@
             text-decoration: none; text-transform: uppercase; letter-spacing: 1px;
             transition: all 0.4s ease; position: relative; overflow: hidden;
             border: 2px solid var(--text-color); cursor: pointer; font-family: 'Montserrat', sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
         .cta-button::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: var(--bg-color); transition: left 0.4s ease; z-index: 0; }
         .cta-button:hover::before { left: 0; }
@@ -214,6 +213,7 @@
             transition: all 0.4s ease; position: relative; overflow: hidden;
             border: 2px solid var(--text-color); cursor: pointer; font-family: 'Montserrat', sans-serif;
             margin-top: 2rem;
+            -webkit-tap-highlight-color: transparent;
         }
         .secondary-btn::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: var(--text-color); transition: left 0.4s ease; z-index: 0; }
         .secondary-btn:hover::before { left: 0; }
@@ -228,12 +228,18 @@
         .no-tournaments { display: none; text-align: center; padding: 4rem 2rem; color: #666; }
         .no-tournaments h2 { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
 
+        /* Pure CSS fade-in for dynamically created cards — no IntersectionObserver */
+        @keyframes uiFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
         /* Modal */
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); animation: fadeIn 0.3s ease; }
         .modal.closing { animation: fadeOut 0.3s ease forwards; }
         .modal-content { background-color: var(--bg-color); margin: 2% auto; padding: 20px; border: 2px solid var(--text-color); width: 95%; max-width: 1000px; height: 90%; position: relative; animation: slideIn 0.3s ease; }
         .modal.closing .modal-content { animation: slideOut 0.3s ease forwards; }
-        .close { color: var(--text-color); float: right; font-size: 28px; font-weight: bold; cursor: pointer; position: absolute; right: 15px; top: 10px; z-index: 1001; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 4px; user-select: none; }
+        .close { color: var(--text-color); float: right; font-size: 28px; font-weight: bold; cursor: pointer; position: absolute; right: 15px; top: 10px; z-index: 1001; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 4px; user-select: none; -webkit-tap-highlight-color: transparent; }
         .close:hover { background-color: rgba(0,0,0,0.1); transform: rotate(90deg) scale(1.1); }
         .close:active { transform: rotate(90deg) scale(0.95); }
         .modal-form { width: 100%; height: calc(100% - 60px); border: none; margin-top: 40px; }
@@ -245,7 +251,7 @@
 
         /* ── RESPONSIVE ─────────────────────────────────────── */
         @media (max-width: 768px) {
-            body { overflow-x: clip; width: 100%; }
+            body { overflow-x: hidden; width: 100%; }
             .navbar { width: 100%; left: 0; right: 0; }
             .nav-inner { width: 100%; max-width: 100%; }
             .nav-links { display: none; }
@@ -274,10 +280,12 @@
             .mobile-toggle:hover { transform: none !important; -webkit-transform: none !important; }
             .nav-links a:hover::after,
             .dropdown-menu a:hover span::after { width: 0 !important; }
+
             .dropdown-menu a:hover,
             .mobile-menu a:hover,
             .mobile-menu .mobile-dropdown-toggle:hover,
-            .mobile-submenu a:hover { background-color: transparent !important; padding-left: inherit !important; }
+            .mobile-submenu a:hover { background-color: transparent !important; }
+
             .logo:hover { opacity: 1 !important; }
             .tournament-card:hover,
             .cta-button:hover,
@@ -381,7 +389,7 @@
     <script>
         const tournaments = [
             
-        	{
+            {
                 id: 'Chess Lions: Mega Junior Championship - (K-3, K-5, K-8) ',
                 name: "Chess Lions: Mega Junior Championship - with side event for all ages",
                 description: 'A tournament where the kids can battle it out to see who is the champion! Along with the side event, there will be many trophies, cash prizes, and award certificates for players in all sections.',
@@ -403,7 +411,7 @@
             AOS.init({ duration: 800, easing: 'ease-out', once: true, offset: 100 });
         });
 
-        function loadAvailableTournaments() {
+                function loadAvailableTournaments() {
             const grid = document.getElementById('tournamentsGrid');
             const noTournamentsMsg = document.getElementById('noTournaments');
             const available = tournaments.filter(t => t.name.toLowerCase() !== 'tournament');
@@ -421,8 +429,7 @@
             available.forEach((tournament, index) => {
                 const card = document.createElement('div');
                 card.className = 'tournament-card';
-                card.setAttribute('data-aos', 'fade-up');
-                card.setAttribute('data-aos-delay', (400 + index * 100).toString());
+                card.style.animationDelay = (400 + index * 100) + 'ms';
                 card.innerHTML = `
                     <h3>${tournament.name}</h3>
                     <p>${tournament.description}</p>
@@ -432,8 +439,6 @@
                 `;
                 grid.appendChild(card);
             });
-
-            AOS.refresh();
         }
 
         function setupModal() {
@@ -484,7 +489,8 @@
             mobileToggle.classList.toggle('active');
             mobileMenu.classList.toggle('active');
         });
-        mobTournamentToggle.addEventListener('click', () => {
+        mobTournamentToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
             mobTournamentToggle.classList.toggle('active');
             mobSubmenu.classList.toggle('active');
         });
