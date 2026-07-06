@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Tournament Registrations | Chess Lions</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
@@ -17,7 +17,7 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html { scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Montserrat', sans-serif;
@@ -25,8 +25,9 @@
             color: var(--text-color);
             line-height: 1.4;
             overflow-x: hidden;
-            position: relative;
             min-height: 100vh;
+            -webkit-text-size-adjust: 100%;
+            touch-action: pan-y;
         }
 
         /* ── NAVBAR ─────────────────────────────────────────── */
@@ -36,8 +37,7 @@
             border-bottom: 1px solid var(--gray-200);
             z-index: 1000;
             transition: box-shadow .3s ease;
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
+            will-change: box-shadow;
         }
         .navbar.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,.08); }
 
@@ -47,7 +47,7 @@
             display: flex; justify-content: space-between; align-items: center;
         }
 
-        .logo { display: flex; align-items: center; text-decoration: none; transition: transform .3s ease, opacity .3s ease; }
+        .logo { display: flex; align-items: center; text-decoration: none; transition: transform .3s ease, opacity .3s ease; -webkit-tap-highlight-color: transparent; }
         .logo:hover { transform: scale(1.05); opacity: .8; }
         .logo img { max-height: 50px; max-width: 200px; object-fit: contain; }
 
@@ -101,7 +101,7 @@
 
         /* Mobile nav */
         .mobile-menu-container { display: none; position: relative; }
-        .mobile-toggle { background: none; border: none; cursor: pointer; padding: .75rem; transition: transform .3s ease; }
+        .mobile-toggle { background: none; border: none; cursor: pointer; padding: .75rem; transition: transform .3s ease; -webkit-tap-highlight-color: transparent; }
         .mobile-toggle:hover { transform: scale(1.1); }
         .mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--text-color); margin: 5px 0; transition: all .3s ease; }
         .mobile-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
@@ -114,6 +114,9 @@
             box-shadow: 0 10px 40px rgba(0,0,0,.15);
             z-index: 999; min-width: 200px; max-width: 220px;
             margin-top: .5rem; border-radius: 4px;
+            -webkit-overflow-scrolling: auto;
+            max-height: 80vh;
+            overflow-y: auto;
         }
         .mobile-menu.active { display: block; animation: slideDown .3s ease; }
         @keyframes slideDown { from { opacity:0; transform:translateY(-10px); } to { opacity:1; transform:translateY(0); } }
@@ -124,6 +127,7 @@
             font-weight: 700; font-size: .8rem; text-transform: uppercase; letter-spacing: .5px;
             border-bottom: 1px solid var(--gray-100);
             transition: background-color .3s ease, padding-left .3s ease;
+            -webkit-tap-highlight-color: transparent;
         }
         .mobile-menu a:hover, .mobile-menu .mobile-dropdown-toggle:hover { background: var(--gray-100); padding-left: 1.5rem; }
         .mobile-menu a:last-child { border-bottom: none; }
@@ -131,7 +135,7 @@
         .mobile-dropdown-toggle svg { width: 14px; height: 14px; transition: transform .3s ease; stroke: var(--text-color); }
         .mobile-dropdown-toggle.active svg { transform: rotate(180deg); }
         .mobile-submenu { display: none; background: var(--gray-100); }
-        .mobile-submenu.active { display: block; animation: expandDown .3s ease; }
+        .mobile-submenu.active { display: block; animation: expandDown .3s ease forwards; overflow: hidden; }
         @keyframes expandDown { from { opacity:0; max-height:0; } to { opacity:1; max-height:500px; } }
         .mobile-submenu a { padding: .75rem 1.25rem .75rem 2rem; font-size: .75rem; border-bottom: 1px solid var(--gray-200); }
         .mobile-submenu a:hover { padding-left: 2.5rem; }
@@ -142,7 +146,7 @@
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 10rem 0 4rem; /* 10rem top matches tournaments.html */
+            padding: 10rem 0 4rem;
         }
 
         .header-section {
@@ -185,6 +189,7 @@
             border: 2px solid var(--text-color);
             cursor: pointer;
             font-family: 'Montserrat', sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
         .cta-button::before {
             content: ''; position: absolute; top: 0; left: -100%;
@@ -210,6 +215,7 @@
             cursor: pointer; font-weight: 700; text-transform: uppercase;
             font-size: 0.85rem; letter-spacing: 0.5px; transition: all 0.4s ease;
             font-family: 'Montserrat', sans-serif; position: relative; overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
         }
         .tournament-tab::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: var(--text-color); transition: left 0.4s ease; z-index: 0; }
         .tournament-tab:hover::before { left: 0; }
@@ -233,6 +239,8 @@
             color: var(--text-color); font-family: 'Montserrat', sans-serif;
             font-size: 0.95rem; font-weight: 700; letter-spacing: 0.5px;
             outline: none; transition: box-shadow 0.3s ease; text-transform: uppercase;
+            -webkit-appearance: none;
+            border-radius: 0;
         }
         .search-input::placeholder { color: #aaa; font-weight: 400; text-transform: uppercase; letter-spacing: 1px; }
         .search-input:focus { box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
@@ -241,6 +249,7 @@
             background: none; border: none; cursor: pointer; font-size: 1.1rem;
             color: #aaa; font-family: 'Montserrat', sans-serif; font-weight: 900;
             padding: 0.25rem; line-height: 1; display: none; transition: color 0.2s ease;
+            -webkit-tap-highlight-color: transparent;
         }
         .search-clear:hover { color: var(--text-color); }
         .search-clear.visible { display: block; }
@@ -254,6 +263,7 @@
             cursor: pointer; font-weight: 700; text-transform: uppercase;
             font-size: 0.85rem; letter-spacing: 0.5px; transition: all 0.4s ease;
             font-family: 'Montserrat', sans-serif; position: relative; overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
         }
         .filter-btn::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: var(--text-color); transition: left 0.4s ease; z-index: 0; }
         .filter-btn:hover::before { left: 0; }
@@ -262,10 +272,10 @@
         .filter-btn.active { background-color: var(--text-color); color: var(--bg-color); }
         .filter-btn.active::before { left: 0; }
 
-        .table-wrapper { width: 100%; }
+        .table-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
         table { width: 100%; border-collapse: collapse; margin-top: 2rem; border: 1px solid var(--text-color); transition: opacity 0.3s ease, transform 0.3s ease; }
         table.updating { opacity: 0.5; transform: translateY(-10px); }
-        th { background-color: var(--bg-color); color: var(--text-color); padding: 1.5rem; text-align: left; font-weight: 900; border-bottom: 2px solid var(--text-color); text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
+        th { background-color: var(--bg-color); color: var(--text-color); padding: 1.5rem; text-align: left; font-weight: 900; border-bottom: 2px solid var(--text-color); text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; white-space: nowrap; }
         td { padding: 1.2rem 1.5rem; border-bottom: 1px solid #e0e0e0; font-size: 0.95rem; vertical-align: middle; }
         tr:hover { background-color: #f9f9f9; }
         tr:last-child td { border-bottom: 1px solid var(--text-color); }
@@ -282,7 +292,7 @@
 
         /* ── RESPONSIVE ─────────────────────────────────────── */
         @media (max-width: 768px) {
-            html, body { overflow-x: hidden; width: 100%; }
+            body { overflow-x: hidden; width: 100%; }
             .navbar { width: 100%; left: 0; right: 0; }
             .nav-inner { width: 100%; max-width: 100%; }
             .nav-links { display: none; }
@@ -307,7 +317,7 @@
             .logo img { max-height: 40px; max-width: 160px; }
         }
 
-        /* ── iOS / TOUCH: disable hover effects (matches index.html) ── */
+        /* ── iOS / TOUCH: disable hover effects ── */
         @media (hover: none) and (pointer: coarse) {
             .logo:hover,
             .nav-links a:hover,
@@ -318,10 +328,15 @@
             }
             .nav-links a:hover::after,
             .dropdown-menu a:hover span::after { width: 0 !important; }
+
+            /* Only suppress background-color on touch, NOT padding-left */
             .dropdown-menu a:hover,
             .mobile-menu a:hover,
             .mobile-menu .mobile-dropdown-toggle:hover,
-            .mobile-submenu a:hover { background-color: transparent !important; padding-left: inherit !important; }
+            .mobile-submenu a:hover {
+                background-color: transparent !important;
+            }
+
             .logo:hover { opacity: 1 !important; }
 
             .cta-button:hover, .tournament-tab:hover, .filter-btn:hover, footer:hover { transform: none !important; box-shadow: none !important; }
@@ -444,11 +459,10 @@
         const USCF_ID_KEY = 'USCF ID (ONLY if playing in a rated section, an 8 digit number, like "12892910" )';
 const SECTION_KEY = 'Which section?(For the scholastic sections, please use the grade the student was in this January)\n\n Note: sections may be combined based upon entries.';
 const RATING_CACHE_KEY = 'uscf_rating_cache';
-const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+const CACHE_DURATION = 24 * 60 * 60 * 1000;
 
         const TOURNAMENTS = [
             
-            // ── INSERT YOUR NEW TOURNAMENT CODE BELOW THIS LINE ───────────
             {
     name: 'Chess Lions: Mega Junior Championship and Side Event', 
     url: 'https://opensheet.elk.sh/1U2fKXguu-IyOGCcbtPL5qRwY5SKegaW_8thjZxEHBrk/dataforopensheet', 
@@ -482,7 +496,6 @@ const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
         [USCF_ID_KEY]: 'USCF ID'
     }
 }
-            // ── END NEW TOURNAMENT CODE ───────────────────────────────────
         ];
 
         let activeTournament = 0;
@@ -491,14 +504,12 @@ const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
         let searchQuery = '';
         let ratingCache = {};
 
-        // Load rating cache from localStorage
         function loadRatingCache() {
             try {
                 const stored = localStorage.getItem(RATING_CACHE_KEY);
                 if (stored) {
                     const parsed = JSON.parse(stored);
                     const now = Date.now();
-                    // Clean up expired entries
                     Object.keys(parsed).forEach(id => {
                         if (now - parsed[id].timestamp > CACHE_DURATION) {
                             delete parsed[id];
@@ -513,7 +524,6 @@ const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
             }
         }
 
-        // Save rating cache to localStorage
         function saveRatingCache() {
             try {
                 localStorage.setItem(RATING_CACHE_KEY, JSON.stringify(ratingCache));
@@ -586,7 +596,6 @@ const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
                 await Promise.all(TOURNAMENTS.map((tournament, idx) => fetchTournament(idx, tournament.url)));
                 createTournamentTabs();
                 displayTournament(activeTournament);
-                // Fetch all ratings automatically after data loads
                 await fetchAllRatings();
                 updateTimestamp();
             } catch (error) {
@@ -606,9 +615,7 @@ const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
         }
 
         async function fetchAllRatings() {
-            // Collect all unique USCF IDs from all tournaments
             const uscfIds = new Set();
-            
             Object.values(tournamentsData).forEach(data => {
                 if (Array.isArray(data)) {
                     data.forEach(row => {
@@ -622,21 +629,17 @@ const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
             console.log(`Fetching ratings for ${uscfIds.size} players...`);
 
-            // Fetch ratings in parallel with a concurrency limit
-            const batchSize = 5; // Fetch 5 at a time to avoid overwhelming the API
+            const batchSize = 5;
             const idsArray = Array.from(uscfIds);
-            
             for (let i = 0; i < idsArray.length; i += batchSize) {
                 const batch = idsArray.slice(i, i + batchSize);
                 await Promise.all(batch.map(id => fetchAndCacheRating(id)));
             }
 
-            // Re-render the table to show fetched ratings
             applyFiltersAndRender();
         }
 
         async function fetchAndCacheRating(uscfId) {
-            // Check if we have a cached rating
             if (ratingCache[uscfId]) {
                 return ratingCache[uscfId].rating;
             }
@@ -645,9 +648,7 @@ const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
                 const response = await fetch(
                     `https://yellow-bonus-c067.windsorchesslions.workers.dev/?id=${encodeURIComponent(uscfId)}`
                 );
-                
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                
                 const data = await response.json();
                 let rating = 'Unrated';
 
@@ -660,21 +661,12 @@ const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
                     }
                 }
 
-                // Cache the rating
-                ratingCache[uscfId] = {
-                    rating: rating,
-                    timestamp: Date.now()
-                };
+                ratingCache[uscfId] = { rating: rating, timestamp: Date.now() };
                 saveRatingCache();
-
                 return rating;
             } catch (error) {
                 console.error(`Error fetching rating for ${uscfId}:`, error);
-                // Cache the error so we don't retry immediately
-                ratingCache[uscfId] = {
-                    rating: 'Error',
-                    timestamp: Date.now()
-                };
+                ratingCache[uscfId] = { rating: 'Error', timestamp: Date.now() };
                 saveRatingCache();
                 return 'Error';
             }
@@ -684,12 +676,10 @@ const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
             if (!uscfId || !uscfId.trim() || !/^\d{8}$/.test(uscfId.trim())) {
                 return '-';
             }
-
             const cached = ratingCache[uscfId.trim()];
             if (cached) {
                 return cached.rating;
             }
-
             return 'Loading...';
         }
 
@@ -801,7 +791,6 @@ const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
                         if (col === "Rating") {
                             const uscfId = row[USCF_ID_KEY];
                             const rating = getRatingDisplay(uscfId);
-                            
                             const span = document.createElement('span');
                             if (rating === 'Loading...') {
                                 span.className = 'rating-loading';
@@ -890,7 +879,8 @@ const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
             mobileToggle.classList.toggle('active');
             mobileMenu.classList.toggle('active');
         });
-        mobTournamentToggle.addEventListener('click', () => {
+        mobTournamentToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
             mobTournamentToggle.classList.toggle('active');
             mobSubmenu.classList.toggle('active');
         });
