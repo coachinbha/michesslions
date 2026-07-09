@@ -979,47 +979,89 @@ uploadZone.addEventListener('drop', e => {
 fileInput.addEventListener('change', e => { if (e.target.files[0]) processFile(e.target.files[0]); });
 
 function parseCSV(text) {
-    const lines = text.split('\n').filter(l => l.trim());
-    if (lines.length < 2) return [];
-    const firstLine = lines[0];
+    sections = new Set(); // clear any previous data
+
+    // Detect delimiter from first non-empty line
+    const firstLine = text.split('\n').find(l => l.trim()) || '';
     const delimiter = (firstLine.split('|').length > firstLine.split(',').length) ? '|' : ',';
-    const headers = parseLine(lines[0], delimiter).map(h => h.trim().toLowerCase());
+
+    // Use PapaParse — handles quoted multi-line cells correctly
+    const result = Papa.parse(text, {
+        delimiter: delimiter,
+        skipEmptyLines: true,
+        header: false
+    });
+
+    let rows = result.data;
+    if (!rows || rows.length < 2) return [];
+
+    // ── Fix: merge header rows split by multi-line cells ──
+    // If the header has fewer columns than data rows, keep merging
+    // subsequent rows into the header until column counts match
+    // (stops if the next row looks like actual data)
+    const maxCols = Math.max(...rows.map(r => r ? r.length : 0));
+    let headerRow = rows[0] ? [...rows[0]] : [];
+    let rowsToRemove = 0;
+
+    while (headerRow.length < maxCols && rowsToRemove + 1 < rows.length) {
+        const nextRow = rows[rowsToRemove + 1];
+        if (!nextRow) break;
+        // Stop if next row looks like data (starts with a number or date)
+        const firstVal = (nextRow[0] || '').toString().trim();
+        if (/^\d+$/.test(firstVal) || /^\d{1,2}\/\d{1,2}\/\d{4}/.test(firstVal)) break;
+        // Merge: join last column of header with first column of next row
+        const lastIdx = headerRow.length - 1;
+        if (lastIdx >= 0 && nextRow[0]) {
+            headerRow[lastIdx] = (headerRow[lastIdx] + ' ' + nextRow[0]).trim();
+        }
+        // Append remaining columns
+        for (let j = 1; j < nextRow.length; j++) {
+            headerRow.push(nextRow[j]);
+        }
+        rowsToRemove++;
+    }
+    rows[0] = headerRow;
+    if (rowsToRemove > 0) rows.splice(1, rowsToRemove);
+
+    // ── Map columns by keyword ──
+    const headers = rows[0].map(h => (h || '').toString().trim().toLowerCase());
     const findIndex = kw => headers.findIndex(h => kw.some(k => h.includes(k)));
     const colMap = {
         timestamp: findIndex(['timestamp']),
-        name: findIndex(['player', 'name']),
-        parent: findIndex(['parent']),
-        section: findIndex(['section']),
-        uscf: findIndex(['uscf', 'id']),
-        email: findIndex(['email']),
-        phone: findIndex(['phone'])
+        name:      findIndex(['player', 'name']),
+        parent:    findIndex(['parent', 'payer']),   // catches either Parent or Payer
+        section:   findIndex(['section']),
+        uscf:      findIndex(['uscf', 'id']),
+        email:     findIndex(['email']),
+        phone:     findIndex(['phone'])
     };
+
     const players = [];
-    for (let i = 1; i < lines.length; i++) {
-        const values = parseLine(lines[i], delimiter);
-        const getVal = key => { const idx = colMap[key]; return (idx !== -1 && values[idx]) ? values[idx].trim() : ''; };
+    for (let i = 1; i < rows.length; i++) {
+        const values = rows[i];
+        if (!values || values.length === 0) continue;
+        const getVal = key => {
+            const idx = colMap[key];
+            return (idx !== -1 && idx < values.length && values[idx] != null)
+                ? values[idx].toString().trim() : '';
+        };
         const playerName = getVal('name');
-        const section = getVal('section');
+        const section    = getVal('section');
         if (playerName && section) {
-            players.push({ id: i, timestamp: getVal('timestamp'), playerName, parentName: getVal('parent'), section, uscfId: getVal('uscf'), email: getVal('email'), phone: getVal('phone') });
+            players.push({
+                id: i,
+                timestamp:  getVal('timestamp'),
+                playerName,
+                parentName: getVal('parent'),
+                section,
+                uscfId:     getVal('uscf'),
+                email:      getVal('email'),
+                phone:      getVal('phone')
+            });
             sections.add(section);
         }
     }
     return players;
-}
-
-function parseLine(line, delimiter) {
-    const result = [];
-    let current = '';
-    let inQuotes = false;
-    for (let i = 0; i < line.length; i++) {
-        const char = line[i];
-        if (char === '"') inQuotes = !inQuotes;
-        else if (char === delimiter && !inQuotes) { result.push(current); current = ''; }
-        else current += char;
-    }
-    result.push(current);
-    return result;
 }
 
 function processFile(file) {
@@ -1147,7 +1189,9 @@ function isRatedSection(section) {
 }
 
 function needsUscfId(player) {
-    return isRatedSection(player.section) && !player.uscfId;
+    if (!isRatedSection(player.section)) return false;
+    const id = player.uscfId ? player.uscfId.replace(/\D/g, '') : '';
+    return id.length < 6;
 }
 
 function createRow(player, idx) {
