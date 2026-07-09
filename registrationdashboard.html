@@ -14,12 +14,15 @@
             --bg: #fafafa;
             --fg: #0a0a0a;
             --muted: #6b6b6b;
-            --accent: #000000;
+            --accent: #0a0a0a;
+            --gold: #c5a059; /* Chess Lions Gold Accent */
             --card: #ffffff;
             --border: #e0e0e0;
             --hover: #f5f5f5;
             --success: #1a7a3a;
             --error: #c0392b;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.04);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.06);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -53,6 +56,16 @@
             padding: 3rem 0 2rem;
             border-bottom: 1px solid var(--border);
             margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px; left: 50%;
+            transform: translateX(-50%);
+            width: 100px; height: 2px;
+            background: var(--gold);
         }
 
         header h1 {
@@ -99,7 +112,7 @@
 
         .nav-tab.active {
             color: var(--fg);
-            border-bottom-color: var(--fg);
+            border-bottom-color: var(--gold);
         }
 
         .tab-panel { display: none; }
@@ -110,22 +123,26 @@
 
         .upload-zone {
             border: 1px solid var(--border);
-            padding: 0.75rem 1.5rem;
+            padding: 0.85rem 1.8rem;
             display: flex;
             align-items: center;
             gap: 0.75rem;
             cursor: pointer;
             transition: all 0.3s ease;
             background: var(--card);
+            border-radius: 6px;
+            box-shadow: var(--shadow-sm);
         }
 
         .upload-zone:hover, .upload-zone.drag-over {
-            border-color: var(--accent);
+            border-color: var(--gold);
             background: var(--hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
 
         .upload-icon { width: 20px; height: 20px; stroke: var(--muted); transition: stroke 0.3s ease; }
-        .upload-zone:hover .upload-icon { stroke: var(--accent); }
+        .upload-zone:hover .upload-icon { stroke: var(--gold); }
 
         .upload-text {
             font-size: 0.8rem;
@@ -145,6 +162,9 @@
             background: var(--border);
             margin-bottom: 2rem;
             border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
         }
 
         .stat-item {
@@ -181,8 +201,10 @@
             padding: 1.25rem;
             background: var(--card);
             border: 1px solid var(--border);
+            border-radius: 8px;
             position: relative;
             z-index: 20;
+            box-shadow: var(--shadow-sm);
         }
 
         .filter-group { display: flex; flex-direction: column; gap: 0.5rem; }
@@ -206,10 +228,11 @@
             outline: none;
             transition: border-color 0.3s ease;
             font-weight: 500;
+            border-radius: 4px;
         }
 
         .filter-group select:focus,
-        .filter-group input:focus { border-color: var(--accent); }
+        .filter-group input:focus { border-color: var(--gold); }
 
         /* ── Multiselect ── */
         .multiselect-container { position: relative; user-select: none; }
@@ -223,6 +246,7 @@
             justify-content: space-between;
             align-items: center;
             min-height: 38px;
+            border-radius: 4px;
         }
 
         .multiselect-box:hover { border-color: var(--muted); }
@@ -249,7 +273,8 @@
             display: none;
             max-height: 200px;
             overflow-y: auto;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-md);
+            border-radius: 4px;
         }
 
         .multiselect-container.open .multiselect-dropdown { display: block; }
@@ -271,6 +296,7 @@
             border: 1px solid var(--muted);
             display: flex; align-items: center; justify-content: center;
             flex-shrink: 0;
+            border-radius: 2px;
         }
 
         .custom-check svg { stroke: var(--bg); width: 10px; height: 10px; stroke-width: 3; opacity: 0; transition: opacity 0.2s; }
@@ -287,6 +313,9 @@
             margin-bottom: 2rem;
             position: relative;
             z-index: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
         }
 
         .chart-card {
@@ -302,6 +331,7 @@
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin-bottom: 1rem;
+            color: var(--muted);
         }
 
         .chart-container { position: relative; height: calc(100% - 2rem); width: 100%; }
@@ -313,11 +343,15 @@
             background: var(--card);
             border: 1px solid var(--border);
             margin-bottom: 3rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
         }
 
         table { width: 100%; border-collapse: collapse; min-width: 900px; white-space: nowrap; }
 
         thead { background: var(--fg); color: var(--bg); position: sticky; top: 0; z-index: 10; }
+        thead th:first-child { border-top-left-radius: 8px; }
+        thead th:last-child { border-top-right-radius: 8px; }
 
         th {
             padding: 0.8rem 1rem;
@@ -339,28 +373,31 @@
             transition: background 0.2s ease;
         }
 
+        tr:nth-child(even) td { background: #fcfcfc; }
         tr:hover td { background: var(--hover); }
+        
         .col-name { font-weight: 600; }
 
         .col-section span {
             display: inline-block;
-            padding: 0.2rem 0.4rem;
+            padding: 0.2rem 0.5rem;
             font-size: 0.65rem;
             font-weight: 700;
             background: var(--bg);
             border: 1px solid var(--border);
+            border-radius: 4px;
         }
 
         .col-section span.rated { background: var(--fg); color: var(--bg); border-color: var(--fg); }
 
         .col-contact a { color: var(--muted); text-decoration: none; }
-        .col-contact a:hover { color: var(--fg); }
+        .col-contact a:hover { color: var(--gold); }
 
         .no-results-row td { text-align: center; padding: 2rem; color: var(--muted); font-style: italic; }
 
         /* ── Flagged rows ── */
-        tr.row-flagged td { background: #fffbf0; }
-        tr.row-flagged:hover td { background: #fff3d0; }
+        tr.row-flagged td { background: #fffbf0 !important; }
+        tr.row-flagged:hover td { background: #fff3d0 !important; }
 
         .uscf-missing {
             color: #b45309;
@@ -418,7 +455,7 @@
         }
 
         .verifier-tab:hover { color: var(--fg); }
-        .verifier-tab.active { color: var(--fg); border-bottom-color: var(--fg); }
+        .verifier-tab.active { color: var(--fg); border-bottom-color: var(--gold); }
 
         .verifier-panel { display: none; }
         .verifier-panel.active { display: block; }
@@ -428,6 +465,8 @@
             border: 1px solid var(--border);
             padding: 1.5rem;
             margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
         }
 
         .input-group { margin-bottom: 1.5rem; }
@@ -454,10 +493,11 @@
             color: var(--fg);
             outline: none;
             transition: border-color 0.3s ease;
+            border-radius: 4px;
         }
 
         .input-group input[type="text"]:focus,
-        .input-group input[type="file"]:focus { border-color: var(--accent); }
+        .input-group input[type="file"]:focus { border-color: var(--gold); }
 
         .input-group input[type="file"] { cursor: pointer; }
         .input-group input[type="file"]:hover { background: var(--hover); }
@@ -479,10 +519,11 @@
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
+            border-radius: 6px;
         }
 
-        .verify-btn:hover { background: #333; }
-        .verify-btn:disabled { background: #999; cursor: not-allowed; }
+        .verify-btn:hover { background: #333; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        .verify-btn:disabled { background: #999; cursor: not-allowed; box-shadow: none; }
 
         /* ── Result Card ── */
         .result-card {
@@ -491,6 +532,8 @@
             padding: 1.5rem;
             margin-top: 1.5rem;
             display: none;
+            border-radius: 8px;
+            box-shadow: var(--shadow-md);
         }
 
         .result-card.visible { display: block; }
@@ -512,6 +555,8 @@
             background: var(--border);
             border: 1px solid var(--border);
             margin-bottom: 1rem;
+            border-radius: 6px;
+            overflow: hidden;
         }
 
         .info-cell {
@@ -535,12 +580,13 @@
 
         .status-badge {
             display: inline-block;
-            padding: 0.2rem 0.5rem;
+            padding: 0.2rem 0.6rem;
             font-size: 0.65rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             border: 1px solid;
+            border-radius: 12px;
         }
 
         .status-active { background: var(--success); color: #fff; border-color: var(--success); }
@@ -553,6 +599,8 @@
             background: var(--border);
             border: 1px solid var(--border);
             margin-top: 1rem;
+            border-radius: 6px;
+            overflow: hidden;
         }
 
         .rating-cell {
@@ -586,6 +634,7 @@
             border: 1px solid #ffc5c5;
             padding: 1rem;
             margin-top: 1.5rem;
+            border-radius: 6px;
         }
 
         .error-message .err-title {
@@ -612,6 +661,7 @@
             padding: 0.75rem 1rem;
             background: var(--hover);
             border: 1px solid var(--border);
+            border-radius: 6px;
         }
 
         .csv-loaded-bar .csv-info {
@@ -649,6 +699,7 @@
             padding: 0.75rem 1rem;
             background: #fff9f0;
             border: 1px solid #f0d9b5;
+            border-radius: 6px;
         }
 
         .csv-no-data .csv-warn-text {
@@ -672,6 +723,7 @@
             cursor: pointer;
             white-space: nowrap;
             transition: background 0.2s;
+            border-radius: 4px;
         }
 
         .goto-dashboard-btn:hover { background: #333; }
@@ -689,14 +741,16 @@
         }
 
         .progress-track {
-            height: 4px;
+            height: 6px;
             background: var(--border);
             border: 1px solid var(--border);
+            border-radius: 3px;
+            overflow: hidden;
         }
 
         .progress-fill {
             height: 100%;
-            background: var(--fg);
+            background: var(--gold);
             transition: width 0.3s ease;
         }
 
@@ -708,6 +762,9 @@
             background: var(--border);
             border: 1px solid var(--border);
             margin-bottom: 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
         }
 
         /* ── Bulk Table ── */
@@ -716,11 +773,15 @@
             overflow-x: auto;
             background: var(--card);
             border: 1px solid var(--border);
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
         }
 
         .bulk-table { width: 100%; border-collapse: collapse; min-width: 700px; white-space: nowrap; }
 
         .bulk-table thead { background: var(--fg); color: var(--bg); position: sticky; top: 0; z-index: 10; }
+        .bulk-table thead th:first-child { border-top-left-radius: 8px; }
+        .bulk-table thead th:last-child { border-top-right-radius: 8px; }
 
         .bulk-table th {
             padding: 0.75rem 1rem;
@@ -740,6 +801,7 @@
             font-size: 0.8rem;
         }
 
+        .bulk-table tr:nth-child(even) td { background: #fcfcfc; }
         .bulk-table tr:hover td { background: var(--hover); }
 
         .cell-muted { color: var(--muted); font-style: italic; }
@@ -940,6 +1002,13 @@
 AOS.init({ once: true, duration: 800 });
 
 /* ──────────────────────────────────────────
+   CONFIGURATION
+────────────────────────────────────────── */
+// REPLACE THIS with your new Cloudflare Worker URL
+const WORKER_URL = "https://broken-lab-ba65.windsorchesslions.workers.dev/"; 
+
+
+/* ──────────────────────────────────────────
    MAIN NAV
 ────────────────────────────────────────── */
 function switchMain(id, btn) {
@@ -996,9 +1065,6 @@ function parseCSV(text) {
     if (!rows || rows.length < 2) return [];
 
     // ── Fix: merge header rows split by multi-line cells ──
-    // If the header has fewer columns than data rows, keep merging
-    // subsequent rows into the header until column counts match
-    // (stops if the next row looks like actual data)
     const maxCols = Math.max(...rows.map(r => r ? r.length : 0));
     let headerRow = rows[0] ? [...rows[0]] : [];
     let rowsToRemove = 0;
@@ -1006,15 +1072,12 @@ function parseCSV(text) {
     while (headerRow.length < maxCols && rowsToRemove + 1 < rows.length) {
         const nextRow = rows[rowsToRemove + 1];
         if (!nextRow) break;
-        // Stop if next row looks like data (starts with a number or date)
         const firstVal = (nextRow[0] || '').toString().trim();
         if (/^\d+$/.test(firstVal) || /^\d{1,2}\/\d{1,2}\/\d{4}/.test(firstVal)) break;
-        // Merge: join last column of header with first column of next row
         const lastIdx = headerRow.length - 1;
         if (lastIdx >= 0 && nextRow[0]) {
             headerRow[lastIdx] = (headerRow[lastIdx] + ' ' + nextRow[0]).trim();
         }
-        // Append remaining columns
         for (let j = 1; j < nextRow.length; j++) {
             headerRow.push(nextRow[j]);
         }
@@ -1029,7 +1092,7 @@ function parseCSV(text) {
     const colMap = {
         timestamp: findIndex(['timestamp']),
         name:      findIndex(['player', 'name']),
-        parent:    findIndex(['parent', 'payer']),   // catches either Parent or Payer
+        parent:    findIndex(['parent', 'payer']),
         section:   findIndex(['section']),
         uscf:      findIndex(['uscf', 'id']),
         email:     findIndex(['email']),
@@ -1154,7 +1217,7 @@ function updateCharts(filteredData) {
         type: 'doughnut',
         data: {
             labels: Object.keys(sectionCounts),
-            datasets: [{ data: Object.values(sectionCounts), backgroundColor: ['#0a0a0a','#4a4a4a','#8a8a8a','#cacaca','#3a3a3a','#6a6a6a'], borderWidth: 0 }]
+            datasets: [{ data: Object.values(sectionCounts), backgroundColor: ['#0a0a0a','#4a4a4a','#8a8a8a','#cacaca','#c5a059','#3a3a3a'], borderWidth: 0 }]
         },
         options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { font: { family: 'Montserrat', size: 12 }, boxWidth: 12 } } }, cutout: '70%' }
     });
@@ -1176,14 +1239,10 @@ function updateCharts(filteredData) {
 function isRatedSection(section) {
     if (!section) return false;
     const s = section.toLowerCase().trim();
-    // Must not be an unrated section
     if (s.includes('unrated')) return false;
-    // Explicit rated keyword
     if (/\brated\b/.test(s)) return true;
     if (s.includes('open')) return true;
-    // u followed by 3-4 digits (u800, u1400, u1600 etc.)
     if (/u\d{3,4}/.test(s)) return true;
-    // "under" followed by a number
     if (/under\s*\d{3,4}/.test(s)) return true;
     return false;
 }
@@ -1244,7 +1303,6 @@ document.getElementById('date-from').addEventListener('change', updateDisplay);
 document.getElementById('date-to').addEventListener('change', updateDisplay);
 document.getElementById('search-input').addEventListener('input', updateDisplay);
 
-// Init bulk status now that everything is wired up
 refreshBulkStatus();
 
 /* ──────────────────────────────────────────
@@ -1255,7 +1313,9 @@ uscfInput.addEventListener('keypress', e => { if (e.key === 'Enter') verifyUSCF(
 uscfInput.addEventListener('input', e => { e.target.value = e.target.value.replace(/\D/g, ''); });
 
 async function fetchUSCFData(uscfId) {
-    const res = await fetch(`https://yellow-bonus-c067.windsorchesslions.workers.dev/?id=${uscfId}`);
+    // Uses the WORKER_URL constant defined at the top of the script
+    // Ensures NO CACHING via the Cloudflare Worker script provided previously
+    const res = await fetch(`${WORKER_URL}?id=${uscfId}`);
     if (!res.ok) { if (res.status === 404) throw new Error('USCF ID not found'); throw new Error(`API error: ${res.status}`); }
     return await res.json();
 }
@@ -1285,13 +1345,53 @@ async function verifyUSCF() {
 
 function isExpired(date) { return date ? new Date(date) < new Date() : false; }
 
+function getExpiryState(dateStr) {
+    if (!dateStr) return 'unknown';
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const exp = new Date(dateStr + 'T00:00:00');
+    if (isNaN(exp.getTime())) return 'unknown';
+    if (exp < today) return 'expired';
+    const diffDays = Math.round((exp - today) / 86400000);
+    return diffDays <= 30 ? 'expiring' : 'ok';
+}
+
+function expiryWarning(state) {
+    if (state === 'expiring') {
+        return ' <span class="flag-dot" style="background:#f59e0b" title="Membership expires within 30 days"></span>';
+    }
+    if (state === 'expired') {
+        return ' <span class="flag-dot" style="background:#c0392b" title="Membership expired"></span>';
+    }
+    return '';
+}
+
+function daysUntilExpiry(dateStr) {
+    if (!dateStr) return null;
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const exp = new Date(dateStr + 'T00:00:00');
+    if (isNaN(exp.getTime())) return null;
+    return Math.round((exp - today) / 86400000);
+}
+
 function renderSingleResult(container, data) {
     if (!data || !data.firstName) { renderError(container, 'Invalid ID or no member found.'); return; }
-    const expired = isExpired(data.expirationDate);
-    const isActive = data.status === 'Active' && !expired;
+
+    const expiryState = getExpiryState(data.expirationDate);
+    const expired     = expiryState === 'expired';
+    const expiring    = expiryState === 'expiring';
+    const daysLeft    = daysUntilExpiry(data.expirationDate);
+
+    const isActive   = data.status === 'Active' && !expired;
     const statusClass = isActive ? 'status-active' : 'status-inactive';
+
     const ratings = (data.ratings || []).filter(r => r.rating);
     const ratingNames = { R: 'Regular', Q: 'Quick', B: 'Blitz', OR: 'Online Reg', OQ: 'Online Quick', OB: 'Online Blitz' };
+
+    let headlineIcon = '✔';
+    if (expired)  headlineIcon = '✖';
+    else if (expiring) headlineIcon = '⚠';
 
     let ratingsHTML = '';
     if (ratings.length > 0) {
@@ -1303,13 +1403,28 @@ function renderSingleResult(container, data) {
             </div>`).join('') + `</div>`;
     }
 
+    const expiryCellBg    = expired ? '#ffe5e5' : (expiring ? '#fff3d0' : '');
+    const expiryCellColor = expired ? '#c0392b' : (expiring ? '#b45309' : '');
+    const expiryLabel = expired
+        ? `${data.expirationDate} <span style="font-weight:700">— Expired</span>`
+        : (expiring
+            ? `${data.expirationDate} <span style="font-weight:700">— Expiring in ${daysLeft} day${daysLeft === 1 ? '' : 's'}</span>`
+            : data.expirationDate);
+
+    const banner = expiring
+        ? `<div style="background:#fff3d0;border:1px solid #f0d9b5;padding:0.6rem 0.8rem;margin-bottom:1rem;font-size:0.75rem;font-weight:700;color:#8a6000;text-transform:uppercase;letter-spacing:0.08em;border-radius:4px;">⚠ Membership expires in ${daysLeft} day${daysLeft === 1 ? '' : 's'} — renew before tournament</div>`
+        : (expired
+            ? `<div style="background:#ffe5e5;border:1px solid #ffc5c5;padding:0.6rem 0.8rem;margin-bottom:1rem;font-size:0.75rem;font-weight:700;color:#c0392b;text-transform:uppercase;letter-spacing:0.08em;border-radius:4px;">✖ Membership expired — renewal required</div>`
+            : '');
+
     container.innerHTML = `
         <div class="result-card visible">
-            <div class="result-heading">${data.firstName} ${data.lastName} — ${expired ? 'Expired ✖' : 'Active ✔'}</div>
+            ${banner}
+            <div class="result-heading">${data.firstName} ${data.lastName} ${headlineIcon}</div>
             <div class="info-grid">
                 <div class="info-cell"><div class="info-cell-label">USCF ID</div><div class="info-cell-value">${data.id}</div></div>
                 <div class="info-cell"><div class="info-cell-label">Status</div><div class="info-cell-value"><span class="status-badge ${statusClass}">${data.status}</span></div></div>
-                <div class="info-cell"><div class="info-cell-label">Expiration</div><div class="info-cell-value">${data.expirationDate}</div></div>
+                <div class="info-cell" style="background:${expiryCellBg}"><div class="info-cell-label" style="color:${expiryCellColor || ''}">Expiration</div><div class="info-cell-value" style="color:${expiryCellColor || ''}">${expiryLabel}</div></div>
                 <div class="info-cell"><div class="info-cell-label">State</div><div class="info-cell-value">${data.stateRep}</div></div>
             </div>
             ${ratingsHTML}
@@ -1369,7 +1484,6 @@ async function verifyBulk() {
         const id = p.uscfId ? p.uscfId.replace(/\D/g, '') : '';
         return id.length >= 6 && id.length <= 8;
     });
-    // Only flag players in rated sections who are missing an ID — unrated without ID is fine
     const ratedMissingId = playersData.filter(p => {
         const id = p.uscfId ? p.uscfId.replace(/\D/g, '') : '';
         return !(id.length >= 6 && id.length <= 8) && isRatedSection(p.section);
@@ -1431,7 +1545,7 @@ function renderBulkResults(container, results, valid, errors, skipped) {
     const rows = results.map(p => {
         const isRated = isRatedSection(p.section);
         const sectionBadge = p.section
-            ? `<span style="display:inline-block;padding:0.2rem 0.4rem;font-size:0.65rem;font-weight:700;background:${isRated ? 'var(--fg)' : 'var(--bg)'};color:${isRated ? 'var(--bg)' : 'var(--fg)'};border:1px solid var(--border)">${p.section}</span>`
+            ? `<span style="display:inline-block;padding:0.2rem 0.5rem;font-size:0.65rem;font-weight:700;background:${isRated ? 'var(--fg)' : 'var(--bg)'};color:${isRated ? 'var(--bg)' : 'var(--fg)'};border:1px solid var(--border);border-radius:4px;">${p.section}</span>`
             : '—';
 
         if (p.status === 'flagged') {
@@ -1440,9 +1554,26 @@ function renderBulkResults(container, results, valid, errors, skipped) {
         if (p.status === 'error') {
             return `<tr><td class="col-name">${p.name}</td><td>${sectionBadge}</td><td>${p.uscfId}</td><td colspan="5" class="cell-muted">${p.error}</td></tr>`;
         }
-        const expired = isExpired(p.expiration);
+
+        const expiryState = getExpiryState(p.expiration);
+        const expired     = expiryState === 'expired';
+        const expiring    = expiryState === 'expiring';
+        const daysLeft    = daysUntilExpiry(p.expiration);
         const sc = (p.status === 'Active' && !expired) ? 'status-active' : 'status-inactive';
-        return `<tr><td class="col-name">${p.name}</td><td>${sectionBadge}</td><td>${p.uscfId}</td><td><span class="status-badge ${sc}">${p.status}</span></td><td>${p.expiration}</td><td>${p.regular}</td><td>${p.quick}</td><td>${p.blitz}</td></tr>`;
+
+        const nameHtml = p.name + expiryWarning(expiryState);
+
+        let expStyle = '';
+        let expText  = p.expiration || '—';
+        if (expired) {
+            expStyle = 'style="color:#c0392b;font-weight:700;background:#ffe5e5"';
+            expText  = `${p.expiration} (expired)`;
+        } else if (expiring) {
+            expStyle = 'style="color:#b45309;font-weight:700;background:#fff3d0"';
+            expText  = `${p.expiration} (${daysLeft}d)`;
+        }
+
+        return `<tr><td class="col-name">${nameHtml}</td><td>${sectionBadge}</td><td>${p.uscfId}</td><td><span class="status-badge ${sc}">${p.status}</span></td><td ${expStyle}>${expText}</td><td>${p.regular}</td><td>${p.quick}</td><td>${p.blitz}</td></tr>`;
     }).join('');
 
     container.innerHTML = `
