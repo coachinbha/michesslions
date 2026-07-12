@@ -6,7 +6,7 @@
     "state": "MI",
     "country": "USA",
     "td": "Vaishnavi",
-    "time_stamp": "7/11/2026 - 22:29",
+    "time_stamp": "7/12/2026 - 9:38",
     "affiliate": ""
   },
   "options": {
@@ -145,31 +145,8 @@
           "score": 0
         },
         {
-          "name": "SUNDARA RAJAN, Inbhavenkat",
-          "pair_number": 2,
-          "id1": "16487601",
-          "rating": 2034,
-          "rating2": 1911,
-          "exp1": "10/31/2027",
-          "state": "MI",
-          "class": " ",
-          "tiebreaks": [
-          ],
-          "results": [
-          ],
-          "colors": [
-          ],
-          "ops": [
-          ],
-          "boards": [
-          ],
-          "cumulatives": [
-          ],
-          "score": 0
-        },
-        {
           "name": "YASSINE, Waleed",
-          "pair_number": 3,
+          "pair_number": 2,
           "id1": "12859685",
           "rating": 1977,
           "rating2": 1800,
@@ -192,7 +169,7 @@
         },
         {
           "name": "PRAKASH, Sanmay",
-          "pair_number": 4,
+          "pair_number": 3,
           "id1": "32048940",
           "rating": 1776,
           "rating2": 1639,
@@ -215,12 +192,35 @@
         },
         {
           "name": "AMINOV, Nodirbek",
-          "pair_number": 5,
+          "pair_number": 4,
           "id1": "31794222",
           "rating": 1678,
           "rating2": 1609,
           "exp1": "05/31/2027",
           "state": "OH",
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0
+        },
+        {
+          "name": "SHAJI, Madhav",
+          "pair_number": 5,
+          "id1": "32215606",
+          "rating": 1473,
+          "rating2": 1219,
+          "exp1": "01/31/2027",
+          "state": "MI",
           "class": " ",
           "tiebreaks": [
           ],
@@ -581,8 +581,7 @@
         24,
         25,
         26,
-        27,
-        28
+        27
       ],
       "pairings": [
       ],
@@ -986,31 +985,8 @@
           "score": 0
         },
         {
-          "name": "SOMA, Saanvi",
-          "pair_number": 18,
-          "id1": "32395129",
-          "rating": 674,
-          "rating2": 666,
-          "exp1": "03/31/2027",
-          "state": "MI",
-          "class": " ",
-          "tiebreaks": [
-          ],
-          "results": [
-          ],
-          "colors": [
-          ],
-          "ops": [
-          ],
-          "boards": [
-          ],
-          "cumulatives": [
-          ],
-          "score": 0
-        },
-        {
           "name": "VASA, Avyukthram",
-          "pair_number": 19,
+          "pair_number": 18,
           "id1": "32562088",
           "rating": 556,
           "rating2": 534,
@@ -1033,7 +1009,7 @@
         },
         {
           "name": "VIKRAM, Aaraadhya",
-          "pair_number": 20,
+          "pair_number": 19,
           "id1": "32831093",
           "rating": 506,
           "rating2": 488,
@@ -1056,7 +1032,7 @@
         },
         {
           "name": "BATHULA, Drithi Reddy",
-          "pair_number": 21,
+          "pair_number": 20,
           "id1": "32330896",
           "rating": 427,
           "rating2": 409,
@@ -1079,7 +1055,7 @@
         },
         {
           "name": "SANGEETAM, Daksh",
-          "pair_number": 22,
+          "pair_number": 21,
           "id1": "32523768",
           "rating": 264,
           "rating2": 257,
@@ -1102,7 +1078,7 @@
         },
         {
           "name": "ARUNKRISHNA, Vijith",
-          "pair_number": 23,
+          "pair_number": 22,
           "id1": "33148523",
           "rating": 231,
           "rating2": 191,
@@ -1125,7 +1101,7 @@
         },
         {
           "name": "MAZON, Axel",
-          "pair_number": 24,
+          "pair_number": 23,
           "id1": "33070778",
           "rating": 0,
           "rating2": 0,
@@ -1148,7 +1124,7 @@
         },
         {
           "name": "MUDDASANI, Sriansh Reddy",
-          "pair_number": 25,
+          "pair_number": 24,
           "id1": "33157493",
           "rating": 0,
           "rating2": 0,
@@ -1171,7 +1147,7 @@
         },
         {
           "name": "YEOLE, Vedant Yogesh",
-          "pair_number": 26,
+          "pair_number": 25,
           "id1": "33157628",
           "rating": 0,
           "rating2": 0,
@@ -1194,7 +1170,7 @@
         },
         {
           "name": "RAO, Achyutha",
-          "pair_number": 27,
+          "pair_number": 26,
           "id1": "33188699",
           "rating": 0,
           "rating2": 0,
@@ -1217,7 +1193,7 @@
         },
         {
           "name": "HUNG, Aaron",
-          "pair_number": 28,
+          "pair_number": 27,
           "id1": "33074045",
           "rating": 0,
           "rating2": 0,
@@ -3043,7 +3019,7 @@
           "score": 0
         },
         {
-          "name": "MARISELVAN , Vidhul",
+          "name": "MARISELVAN, Vidhul",
           "pair_number": 15,
           "id1": "K31",
           "rating": 0,
