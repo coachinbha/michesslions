@@ -975,19 +975,27 @@ body {
 const upcomingTournaments = [
 
   {
-    title: "Chess Lions: Mega Junior Championship with Side Events for all ages",
-    date: "Sunday, July 12, 2026",
+    title: "Chess Lions: September Open - At the Holiday Inn Express Farmington Hills",
+    date: "Sunday, August 16, 2026",
     details: {
       "Organizer": "Chess Lions",
       "Location": "Holiday Inn Express & Suites, 33103 Hamilton Ct, Farmington Hills, MI 48334",
-      "About": "A tournament where the kids can battle it out to see who is the champion! Now with a side event for their parents or others who want to play. Chess boards and pieces are provided, please bring clocks.",
+      "About": "A return to the original format with the Open/Upper and under sections, now with a new skittles room for the parents and players. ",
       "Format": "4 Round Swiss",
-      "Sections": ["Rated sections: Grades K-3, Grades K-5, Grades K-8", "Un-Rated sections: Grades K-3, Grades K-5, Grades K-8", "SIDE EVENT: Open to all ages, rated --> U1000, & Upper(1000+)"],
-      "Rounds": "All sections: 10:00 am, 11:00 am, 1:00 pm, 2:00 pm",
-      "Time Control": "G/30;d5 for all sections",
+      "Sections": ["Rated Sections: Open/Upper(1400+), U1400, U800"],
+      "Rounds": {
+        type: 'roundTable',
+        checkIn: 'ASAP - between 9:00 am &mdash; 9:25 am (all sections)',
+        rows: [
+          { section: 'Upper (1400+)', rounds: ['9:30 am', '11:30 am', '2:00 pm', '4:00 pm'] },
+          { section: 'U1400', rounds: ['9:30 am', '11:30 am', '2:00 pm', '4:00 pm'] },
+          { section: 'U800', rounds: ['10:30 am', '11:30 am', '1:00 pm', '2:00 pm'] }
+        ]
+      },
+      "Time Control": ["G/50;d5 for Upper (1400+) & U1400", "G/30;d5 for U800"],
       "Entry Fee": "Early bird: $35 for all sections if registered & paid by 07/10, add $5 extra if registered after 07/10.",
       "Payment": { text: "Zelle to: ", email: "i2v2chess@gmail.com" },
-      "Prizes": "Cash prizes based on 25 entries minimum in a given section; Zelle pay/transfer only.\n\nU1000 & Upper: 1st place: $100, 2nd place: $50\n\nScholastic sections (Rated & Un-Rated):\n$50 for 1st place in each section\n\nTop-3 trophies in each section; Additional trophies or medals may be awarded if a particular section has more than 40 participants.",
+      "Prizes": "Cash prize: Only in the Upper(1400+) section; 40% entry fee shared between the 1st & 2nd place winners.\n\nAll other sections: Top-3 Trophies. Additional trophies or medals awarded if a particular section has more than 30 participants",
       "Registration": { link: "https://michesslions.com/registration.html", text: "Register Online" },
       "Contact": { email: "i2v2chess@gmail.com", phone: "(734) 560-2802" }
     }
