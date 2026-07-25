@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -146,7 +145,7 @@
             line-height: 1.4;
         }
 
-        /* Navigation Styles from index.html */
+        /* Navigation Styles */
         .navbar {
             position: fixed;
             top: 0;
@@ -456,7 +455,7 @@
             margin: 0 auto;
         }
 
-        /* Subtle SEO text — unobtrusive, crawlable, honest */
+        /* Subtle SEO text */
         .seo-text {
             max-width: 800px;
             margin: -2rem auto 3rem;
@@ -466,93 +465,119 @@
             color: #777;
         }
 
-        .form-wrapper {
+        /* Call To Action Wrapper */
+        .call-cta-wrapper {
             max-width: 800px;
             margin: 0 auto;
             border: 2px solid var(--text-color);
-            padding: 3rem;
+            padding: 4rem 2rem;
+            text-align: center;
+            background-color: var(--bg-color);
         }
 
-        .section-title {
+        .call-cta-title {
             font-size: 1.5rem;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: -0.5px;
-            margin-bottom: 2rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--text-color);
+            margin-bottom: 1rem;
         }
 
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+        .call-cta-subtext {
+            font-size: 1.1rem;
+            font-weight: 300;
             margin-bottom: 2.5rem;
+            opacity: 0.9;
+            color: #333;
         }
 
-        .form-grid.single {
-            grid-template-columns: 1fr;
-        }
-
-        .form-field {
+        /* Button Container */
+        .cta-button-group {
             display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
         }
 
-        .form-field.full-width {
-            grid-column: 1 / -1;
-        }
-
-        .form-field label {
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .form-field input,
-        .form-field select {
-            padding: 0.875rem 1rem;
-            border: 1px solid var(--text-color);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-            background-color: var(--bg-color);
-            transition: all 0.3s ease;
-        }
-
-        .form-field input:focus,
-        .form-field select:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .cta-button {
-            display: inline-block;
-            width: 100%;
+        /* Call & Text Buttons */
+        .action-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
             background-color: var(--text-color);
             color: var(--bg-color);
-            font-weight: 700;
-            font-size: 1.2rem;
-            padding: 1.25rem 2rem;
+            font-weight: 900;
+            font-size: 1.5rem;
+            padding: 1.5rem 2.5rem;
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            margin-top: 1rem;
+            border: 2px solid var(--text-color);
+            min-width: 280px;
         }
 
-        .cta-button:hover {
-            background-color: #333;
+        .action-button:hover {
+            background-color: transparent;
+            color: var(--text-color);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
+        .action-button svg {
+            width: 28px;
+            height: 28px;
+            stroke: currentColor;
+        }
+
+        /* What to Expect Section */
+        .expectations {
+            border-top: 1px solid var(--gray-200);
+            padding-top: 2.5rem;
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .expectations h3 {
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .expectations ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .expectations li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #444;
+        }
+
+        .expectations li::before {
+            content: '✓';
+            color: var(--text-color);
+            font-weight: 900;
+            font-size: 1.2rem;
+            line-height: 1.2;
+        }
+
+        /* Back Link & Fallback Email */
         .back-link {
             text-align: center;
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
 
         .back-link a {
@@ -580,33 +605,21 @@
             width: 100%;
         }
 
-        /* Confirmation Page */
-        .confirmation-wrapper {
-            max-width: 700px;
-            margin: 0 auto;
+        .email-fallback {
             text-align: center;
-            border: 2px solid var(--text-color);
-            padding: 4rem 3rem;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: #777;
         }
 
-        .confirmation-wrapper img {
-            max-width: 300px;
-            height: auto;
-            margin-bottom: 2rem;
+        .email-fallback a {
+            color: #777;
+            text-decoration: underline;
+            transition: color 0.3s ease;
         }
 
-        .confirmation-wrapper h1 {
-            font-size: 3rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            margin-bottom: 1.5rem;
-        }
-
-        .confirmation-wrapper p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 2.5rem;
+        .email-fallback a:hover {
+            color: var(--text-color);
         }
 
         /* Media Queries */
@@ -640,20 +653,18 @@
                 font-size: 2.5rem;
             }
 
-            .form-grid {
+            .call-cta-wrapper {
+                padding: 3rem 1.5rem;
+            }
+
+            .action-button {
+                font-size: 1.2rem;
+                padding: 1.25rem 1.5rem;
+                min-width: 100%;
+            }
+
+            .expectations ul {
                 grid-template-columns: 1fr;
-            }
-
-            .form-wrapper {
-                padding: 2rem 1.5rem;
-            }
-
-            .confirmation-wrapper {
-                padding: 3rem 2rem;
-            }
-
-            .confirmation-wrapper h1 {
-                font-size: 2rem;
             }
         }
 
@@ -677,18 +688,6 @@
 
             .signup-header p {
                 font-size: 1rem;
-            }
-
-            .section-title {
-                font-size: 1.25rem;
-            }
-
-            .form-wrapper {
-                padding: 1.5rem 1rem;
-            }
-
-            .confirmation-wrapper {
-                padding: 2rem 1.5rem;
             }
         }
     </style>
@@ -751,65 +750,55 @@
         <div class="container">
             <div class="signup-header" data-aos="fade-up" data-aos-duration="1500">
                 <h1>Begin Your Chess Journey</h1>
-                <p>Join the Chess Lions and unlock your strategic potential with our coaching</p>
+                <p>Skip the email tag. Give us a quick call or text, and we’ll get your first lesson scheduled today.</p>
             </div>
 
-            <!-- SEO text: crawlable by Google, unobtrusive to users -->
+            <!-- SEO text -->
             <p class="seo-text" data-aos="fade-up" data-aos-duration="1500">
                 Professional chess lessons for kids in South Lyon, Novi, Canton, and Farmington Hills, Michigan.
                 Beginner, intermediate, and advanced programs available. Championship-level coaching since 2017.
             </p>
 
-            <div class="form-wrapper" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
-                <form id="signup-form" action="https://formspree.io/f/xyzyanlw" method="POST">
-                    <h2 class="section-title">Parent/Guardian Information</h2>
-                    <div class="form-grid">
-                        <div class="form-field">
-                            <label for="parent-name">Name</label>
-                            <input type="text" id="parent-name" name="parent-name" required>
-                        </div>
-                        <div class="form-field">
-                            <label for="parent-phone">Phone Number</label>
-                            <input type="tel" id="parent-phone" name="parent-phone" required>
-                        </div>
-                        <div class="form-field full-width">
-                            <label for="parent-email">Email Address</label>
-                            <input type="email" id="parent-email" name="parent-email" required>
-                        </div>
-                    </div>
+            <!-- Primary Call CTA -->
+            <div class="call-cta-wrapper" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
+                <h2 class="call-cta-title">Call or Text to Enroll</h2>
+                <p class="call-cta-subtext">Speak directly with our coaching staff to find the perfect fit in minutes.</p>
+                
+                <div class="cta-button-group">
+                    <a href="tel:+17345602802" class="action-button">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        Call Us
+                    </a>
+                    <a href="sms:+17345602802" class="action-button">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        Text Us
+                    </a>
+                </div>
 
-                    <h2 class="section-title">Student Information</h2>
-                    <div class="form-grid">
-                        <div class="form-field">
-                            <label for="student-name">Student Name</label>
-                            <input type="text" id="student-name" name="student-name" required>
-                        </div>
-                        <div class="form-field">
-                            <label for="student-age">Age</label>
-                            <input type="number" id="student-age" name="student-age" required>
-                        </div>
-                        <div class="form-field full-width">
-                            <label for="skill-level">Current Skill Level</label>
-                            <select id="skill-level" name="skill-level" required>
-                                <option value="">Select Skill Level</option>
-                                <option value="beginner">Beginner - Just Starting Out</option>
-                                <option value="intermediate">Intermediate - Some Experience</option>
-                                <option value="advanced">Advanced - Competitive Player</option>
-                            </select>
-                        </div>
-                        <div class="form-field full-width">
-                            <label for="goals">Learning Goals (Optional)</label>
-                            <input type="text" id="goals" name="goals" placeholder="What would you like to achieve through chess?">
-                        </div>
-                    </div>
-
-                    <button type="submit" class="cta-button">Enroll Now</button>
-                </form>
-
-                <div class="back-link">
-                    <a href="https://michesslions.com/">← Back to Homepage</a>
+                <!-- Filling the space with value to reduce friction -->
+                <div class="expectations">
+                    <h3>What to Expect</h3>
+                    <ul>
+                        <li>A quick 5-minute chat about your goals.</li>
+                        <li>Help choosing the right program for your skill level.</li>
+                        <li>Matching you with the perfect coach.</li>
+                        <li>Scheduling your first lesson on the spot.</li>
+                    </ul>
                 </div>
             </div>
+
+            <div class="back-link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+                <a href="https://michesslions.com/">← Back to Homepage</a>
+            </div>
+
+            <!-- Absolute fallback for non-callers -->
+            <p class="email-fallback" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+                Prefer email? Reach us at <a href="mailto:i2v2chess@gmail.com">i2v2chess@gmail.com</a>
+            </p>
         </div>
     </section>
 
@@ -858,45 +847,6 @@
                 mobileToggle.classList.remove('active');
                 mobileMenu.classList.remove('active');
             }
-        });
-
-        document.getElementById('signup-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            const formData = new FormData(event.target);
-            
-            fetch('https://formspree.io/f/xyzyanlw', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    document.querySelector('.signup-section').innerHTML = `
-                        <div class="container">
-                            <div class="confirmation-wrapper" data-aos="fade-up" data-aos-duration="1500">
-                                <img src="WCL business card 1050x600.png" alt="Chess Lions - Chess Lessons in Metro Detroit Michigan">
-                                
-                                <h1>Welcome to Chess Lions!</h1>
-                                
-                                <p>
-                                    Thank you for enrolling. We've received your application and will contact you shortly 
-                                    to discuss your chess training program and schedule your first lesson.
-                                </p>
-                                
-                                <a href="https://michesslions.com/" class="cta-button">Return to Homepage</a>
-                            </div>
-                        </div>
-                    `;
-                    AOS.refresh();
-                } else {
-                    alert('There was a problem submitting your form. Please try again.');
-                }
-            }).catch(error => {
-                console.error('Error:', error);
-                alert('There was a problem submitting your form. Please try again.');
-            });
         });
     </script>
 </body>
