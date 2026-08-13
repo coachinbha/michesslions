@@ -86,6 +86,27 @@ hr{border:0;border-top:1px solid var(--rule);margin:16px 0}
 /* ---------- sheet ---------- */
 .main{padding:22px 26px 60px;max-width:1180px}
 .sheet-head{border-bottom:2px solid var(--line);padding-bottom:8px;margin-bottom:4px}
+.brandbar{display:flex;align-items:center;gap:14px}
+.brandbar .titles{flex:1;min-width:0}
+#logoImg{display:none;max-height:64px;max-width:210px;width:auto;object-fit:contain;flex:none}
+#logoImg.on{display:block}
+.org{display:none;font-size:13px;font-weight:600;letter-spacing:.02em;margin:0 0 1px}
+.org.on{display:block}
+.logorow{display:flex;gap:6px;align-items:center;margin-top:4px}
+.logorow .file{
+  flex:1;border:1px solid var(--line);padding:5px 7px;cursor:pointer;
+  font-size:12px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.logorow .file:hover{background:var(--ink);color:var(--paper)}
+.logorow input[type=file]{display:none}
+.logorow .x{
+  border:1px solid var(--line);background:var(--paper);padding:5px 9px;cursor:pointer;
+  font-size:12px;line-height:1;flex:none;
+}
+.logorow .x:hover{background:var(--ink);color:var(--paper)}
+.thumb{display:none;margin-top:6px;border:1px solid var(--rule);padding:5px;text-align:center}
+.thumb.on{display:block}
+.thumb img{max-height:44px;max-width:100%;object-fit:contain;vertical-align:middle}
 .sheet-title{font-size:20px;font-weight:700;margin:0}
 .sheet-sub{font-size:12px;color:var(--muted);margin:3px 0 0;display:flex;flex-wrap:wrap;gap:4px 14px}
 .namerow{display:none;font-size:12px;margin-top:10px;gap:26px}
@@ -144,6 +165,20 @@ hr{border:0;border-top:1px solid var(--rule);margin:16px 0}
 }
 .card.show .sol{display:block}
 
+/* writing space: ruled lines for students to record their moves */
+.write{display:none;margin-top:6px}
+body.write-on .write{display:block}
+.write .ln{
+  border-bottom:1px solid #9a9a9a;
+  height:var(--lineh,26px);
+  display:flex;align-items:flex-end;
+  padding-left:2px;
+}
+.write .ln .mv{
+  font-size:10px;color:#8a8a8a;font-variant-numeric:tabular-nums;
+  padding-bottom:2px;letter-spacing:.02em;
+}
+
 /* answer key (print) */
 .key{display:none;margin-top:28px;border-top:2px solid var(--line);padding-top:10px}
 .key h2{font-size:14px;margin:0 0 8px;letter-spacing:.06em;text-transform:uppercase}
@@ -183,8 +218,10 @@ hr{border:0;border-top:1px solid var(--rule);margin:16px 0}
     justify-items:center;
   }
   /* keep boards a sensible size on paper: fill the column, but never huge.
-     the whole card is capped so captions line up with the board edges */
-  .card{width:100%;max-width:var(--pmax,2.3in)}
+     the whole card is capped so captions line up with the board edges.
+     writing lines eat vertical space, so trim the board a little as lines
+     are added — otherwise a row stops fitting and half a page is wasted. */
+  .card{width:100%;max-width:calc(var(--pmax,2.3in) - var(--lineadj,0in))}
   .bwrap{width:100%}
   .board{width:100%}
   .cap{margin-bottom:3px;font-size:9.5pt}
@@ -199,9 +236,29 @@ hr{border:0;border-top:1px solid var(--rule);margin:16px 0}
   .card{page-break-inside:avoid}
   .key{display:block;page-break-inside:auto}
   body.answers-on-key .card .sol{display:none !important}
+  /* default board sizes */
   body.cols2{--pmax:3.1in}
   body.cols3{--pmax:2.25in}
   body.cols4{--pmax:1.68in}
+  /* roomier: bigger boards + more space between cards */
+  body.roomy.cols2{--pmax:3.4in}
+  body.roomy.cols3{--pmax:2.55in}
+  body.roomy.cols4{--pmax:1.85in}
+  body.roomy .grid{gap:26px 20px}
+
+  /* Writing lines add height to every card, which can push a whole row onto the
+     next page and leave half a sheet blank. In the 2-column layout the boards are
+     big enough that 3+ lines cost a row, so trim just enough to keep it. Values
+     measured from real PDFs; 3- and 4-column boards already fit, so leave them big. */
+  body.wl3.cols2{--lineadj:0.28in}
+  body.wl4.cols2{--lineadj:0.58in}
+  body.roomy.wl3.cols2{--lineadj:0.55in}
+  body.roomy.wl4.cols2{--lineadj:0.88in}
+
+  #logoImg{max-height:0.72in;max-width:2.1in}
+  .brandbar{gap:0.16in}
+  .write .ln{border-bottom:0.75pt solid #666}
+  .write .ln .mv{font-size:7.5pt;color:#666}
   body.keypage .key{page-break-before:always}
 }
 </style>
@@ -264,6 +321,44 @@ hr{border:0;border-top:1px solid var(--rule);margin:16px 0}
       <span class="lbl">Sheet</span>
       <label class="chk"><input type="checkbox" id="nameLine" checked> Name / date lines</label>
       <label class="chk"><input type="checkbox" id="coords" checked> Board coordinates</label>
+      <label class="chk"><input type="checkbox" id="roomy"> Bigger boards &amp; spacing</label>
+    </div>
+
+    <div class="grp">
+      <span class="lbl">Writing space</span>
+      <select id="writeLines">
+        <option value="0">None</option>
+        <option value="1">1 line</option>
+        <option value="2" selected>2 lines</option>
+        <option value="3">3 lines</option>
+        <option value="4">4 lines</option>
+      </select>
+      <div class="row2" style="margin-top:6px">
+        <select id="lineH" title="How tall each writing line is">
+          <option value="22">Compact</option>
+          <option value="28" selected>Normal</option>
+          <option value="36">Tall</option>
+        </select>
+        <select id="lineNums" title="Label the lines with move numbers">
+          <option value="none">No labels</option>
+          <option value="num" selected>1. 2. 3.</option>
+        </select>
+      </div>
+      <p class="note">Ruled lines under each board for students to write their moves.</p>
+    </div>
+
+    <hr>
+
+    <div class="grp">
+      <span class="lbl">Branding</span>
+      <input type="text" id="org" placeholder="Club or coach name" autocomplete="off">
+      <div class="logorow">
+        <label class="file" for="logo" id="logoLabel">Choose logo…</label>
+        <input type="file" id="logo" accept="image/*">
+        <button class="x" id="logoClear" type="button" title="Remove logo">&times;</button>
+      </div>
+      <div class="thumb" id="logoThumb"><img id="logoPrev" alt="Logo preview"></div>
+      <p class="note">PNG, JPG or SVG. Saved in this browser, and embedded in the printout.</p>
     </div>
 
     <hr>
@@ -287,11 +382,17 @@ hr{border:0;border-top:1px solid var(--rule);margin:16px 0}
   <!-- ============ sheet ============ -->
   <main class="main">
     <header class="sheet-head">
-      <h2 class="sheet-title" id="sheetTitle">Checkmate in 2</h2>
-      <p class="sheet-sub">
-        <span id="sheetMeta"></span>
-        <span id="sheetDate"></span>
-      </p>
+      <div class="brandbar">
+        <img id="logoImg" alt="">
+        <div class="titles">
+          <p class="org" id="orgName"></p>
+          <h2 class="sheet-title" id="sheetTitle">Checkmate in 2</h2>
+          <p class="sheet-sub">
+            <span id="sheetMeta"></span>
+            <span id="sheetDate"></span>
+          </p>
+        </div>
+      </div>
       <div class="namerow">
         <span>Name</span><span>Date</span><span>Score</span>
       </div>
@@ -1004,6 +1105,22 @@ function render(){
     sol.textContent=solutionText(it);
     card.appendChild(sol);
 
+    // ruled lines for the student's answer
+    var nLines=+document.getElementById('writeLines').value;
+    if(nLines>0){
+      var w=el('div','write');
+      var labels=document.getElementById('lineNums').value==='num';
+      var start=parseInt(it.fen.split(' ')[5],10)||1;
+      for(var L=0;L<nLines;L++){
+        var ln=el('div','ln');
+        // black-to-move puzzles start mid-move-pair, so the first label is "25…"
+        if(labels) ln.appendChild(el('span','mv',
+          (start+L)+((L===0&&it.stm==='b')?'…':'.')));
+        w.appendChild(ln);
+      }
+      card.appendChild(w);
+    }
+
     grid.appendChild(card);
 
     // board — chessboard2, static position, oriented for the side to move
@@ -1040,6 +1157,10 @@ function syncHead(){
   document.documentElement.style.setProperty('--cols',S.cols);
   document.body.classList.remove('cols2','cols3','cols4');
   document.body.classList.add('cols'+S.cols);
+  var wl=+document.getElementById('writeLines').value;
+  document.body.classList.remove('wl0','wl1','wl2','wl3','wl4');
+  document.body.classList.add('wl'+wl);
+  document.body.classList.toggle('write-on',wl>0);
 }
 
 function say(msg,busy){
@@ -1110,6 +1231,59 @@ document.getElementById('keyPage').addEventListener('change',function(){
   document.body.classList.toggle('keypage',this.checked);
 });
 document.getElementById('nameLine').addEventListener('change',syncHead);
+document.getElementById('writeLines').addEventListener('change',function(){render();syncHead();});
+document.getElementById('lineNums').addEventListener('change',function(){render();});
+document.getElementById('lineH').addEventListener('change',function(){
+  document.documentElement.style.setProperty('--lineh',this.value+'px');
+});
+document.getElementById('roomy').addEventListener('change',function(){
+  document.body.classList.toggle('roomy',this.checked);
+});
+
+/* ---------- branding (logo + org name, remembered per browser) ---------- */
+var LS={org:'pp.org',logo:'pp.logo'};
+function store(k,v){ try{ v==null?localStorage.removeItem(k):localStorage.setItem(k,v); }catch(e){} }
+function recall(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+
+function applyOrg(v){
+  var e=document.getElementById('orgName');
+  e.textContent=v||'';
+  e.classList.toggle('on',!!v);
+}
+function applyLogo(dataUrl){
+  var img=document.getElementById('logoImg'),
+      th=document.getElementById('logoThumb'),
+      pv=document.getElementById('logoPrev'),
+      lb=document.getElementById('logoLabel');
+  if(dataUrl){
+    img.src=dataUrl; img.classList.add('on');
+    pv.src=dataUrl; th.classList.add('on');
+    lb.textContent='Change logo…';
+  }else{
+    img.removeAttribute('src'); img.classList.remove('on');
+    pv.removeAttribute('src'); th.classList.remove('on');
+    lb.textContent='Choose logo…';
+  }
+}
+document.getElementById('org').addEventListener('input',function(){
+  applyOrg(this.value.trim()); store(LS.org,this.value.trim()||null);
+});
+document.getElementById('logo').addEventListener('change',function(){
+  var f=this.files&&this.files[0];
+  if(!f) return;
+  if(f.size>2*1024*1024){
+    say('That logo is larger than 2 MB — try a smaller file.');
+    this.value=''; return;
+  }
+  var r=new FileReader();
+  r.onload=function(){ applyLogo(r.result); store(LS.logo,r.result); say(''); };
+  r.onerror=function(){ say('Could not read that image file.'); };
+  r.readAsDataURL(f);
+});
+document.getElementById('logoClear').addEventListener('click',function(){
+  applyLogo(null); store(LS.logo,null);
+  document.getElementById('logo').value='';
+});
 document.getElementById('coords').addEventListener('change',function(){render();});
 document.getElementById('useApi').addEventListener('change',function(){
   S.api=this.checked;
@@ -1117,10 +1291,18 @@ document.getElementById('useApi').addEventListener('change',function(){
 });
 
 document.getElementById('poolCount').textContent=DATA.p.length.toLocaleString();
-document.body.classList.add('answers-on-key');
+document.body.classList.add('answers-on-key','write-on');
+document.documentElement.style.setProperty('--lineh',
+  document.getElementById('lineH').value+'px');
+
+/* restore saved branding */
+var savedOrg=recall(LS.org), savedLogo=recall(LS.logo);
+if(savedOrg){ document.getElementById('org').value=savedOrg; applyOrg(savedOrg); }
+if(savedLogo) applyLogo(savedLogo);
+
 buildThemeList('');
 load(true);
 })();
 </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2a46a39db3de9b7',t:'MTc4NjU4OTQ1NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
