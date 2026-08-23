@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -432,7 +431,7 @@ body {
 .seo-intro {
   text-align: center;
   max-width: 800px;
-  margin: 0 auto 4rem;
+  margin: 0 auto 3rem;
   font-size: 1.2rem;
   line-height: 1.8;
 }
@@ -444,6 +443,84 @@ body {
 @media (max-width: 768px) {
   .seo-intro {
     display: none;
+  }
+}
+
+/* Event Photo Gallery - Ultra Compact Grid */
+.event-gallery {
+  margin: 0 auto 4rem;
+  width: 100%;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--gray-100);
+  border: 1px solid var(--gray-200);
+  aspect-ratio: 4 / 3;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Perfectly crops high-res portrait (3000x4000) and landscape (4000x3000) images on the fly */
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.gallery-item:hover .gallery-img {
+  transform: scale(1.05);
+}
+
+.gallery-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.3) 70%, transparent 100%);
+  color: #ffffff;
+  padding: 1rem 0.75rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* Mobile-Specific Performance Optimization */
+@media (max-width: 600px) {
+  .event-gallery {
+    margin-bottom: 2rem;
+    padding: 0 0.25rem;
+  }
+
+  .gallery-grid {
+    gap: 0.5rem; /* Drastically tightens gap to save horizontal width */
+  }
+
+  .gallery-item {
+    aspect-ratio: 16 / 10; /* Drastically shallow height to eliminate vertical bloat */
+    border-radius: 2px;
+  }
+
+  .gallery-label {
+    font-size: 0.55rem;
+    padding: 0.5rem 0.2rem 0.2rem;
+    letter-spacing: 0.5px;
+    line-height: 1.1;
   }
 }
 
@@ -927,6 +1004,27 @@ body {
 
       <section class="seo-intro" aria-label="About our chess tournaments" data-aos="fade-up" data-aos-duration="600">
         <p>Chess Lions hosts USCF-rated chess tournaments in Metro Detroit, Michigan — Novi, Farmington Hills, Troy, Canton, and South Lyon. Open to all ages and skill levels, with Rated and unrated sections. Note; sections may vary by event, details and registration links below.</p>
+      </section>
+
+      <!-- CREDIBILITY IMAGE GALLERY SECTION (Source aspect ratios: 4000x3000, 3000x4000, 4000x3000) -->
+      <section class="event-gallery" aria-label="Event photos" data-aos="fade-up" data-aos-duration="600">
+        <div class="gallery-grid">
+          <!-- Photo 1 (Landscape - 4000x3000 source) -->
+          <div class="gallery-item">
+            <img src="site59.jpg" alt="Active Tournament Arena" class="gallery-img">
+            <div class="gallery-label">100+ Players</div>
+          </div>
+          <!-- Photo 2 (Portrait - 3000x4000 source) -->
+          <div class="gallery-item">
+            <img src="event2-3000x4000.jpg" alt="Tournament Focus and Concentration" class="gallery-img">
+            <div class="gallery-label">Championship Focus</div>
+          </div>
+          <!-- Photo 3 (Landscape - 4000x3000 source) -->
+          <div class="gallery-item">
+            <img src="site47.jpg" alt="Award Ceremony and Trophies" class="gallery-img">
+            <div class="gallery-label">Championship Winners</div>
+          </div>
+        </div>
       </section>
 
       <noscript>
