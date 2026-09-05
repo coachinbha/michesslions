@@ -6,7 +6,7 @@
     "state": "MI",
     "country": "USA",
     "td": "Sundara Rajan",
-    "time_stamp": "9/5/2026 - 13:39",
+    "time_stamp": "9/5/2026 - 15:10",
     "affiliate": ""
   },
   "options": {
@@ -53,11 +53,11 @@
     {
       "section": "Booster",
       "rounds_paired": 4,
-      "rounds_played": 3,
+      "rounds_played": 4,
       "final_round": false,
       "reportStatus": {
         "kind": "hidden",
-        "roundsPlayed": 3,
+        "roundsPlayed": 4,
         "finalRound": 8,
         "gamesRemaining": 0,
         "prizesClinched": 0,
@@ -71,56 +71,56 @@
       "standings": [
         2,
         7,
-        8,
-        10,
         11,
-        6,
         12,
-        1,
-        3,
         4,
         5,
+        6,
+        8,
         9,
-        13,
+        10,
         15,
         18,
         20,
-        21,
+        3,
+        13,
         22,
-        23,
-        24,
         26,
-        29,
-        43,
-        51,
-        17,
-        25,
         30,
-        37,
         39,
-        40,
+        1,
         16,
         19,
-        27,
-        28,
+        21,
+        23,
+        24,
+        29,
         31,
         32,
         33,
+        37,
+        38,
+        43,
+        51,
+        53,
+        17,
+        25,
+        27,
+        36,
+        40,
+        42,
+        28,
         34,
         35,
-        36,
-        38,
         41,
-        46,
-        50,
-        53,
-        42,
-        14,
         44,
-        45,
-        47,
-        48,
+        46,
         49,
+        50,
+        45,
+        48,
+        14,
+        47,
         52
       ],
       "pairings": [
@@ -282,7 +282,7 @@
             "W",
             "W",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -309,7 +309,7 @@
             2
           ],
           "score": 2,
-          "place": "8-24"
+          "place": "20-34"
         },
         {
           "name": "Ray, Cornelius",
@@ -327,7 +327,7 @@
             "W",
             "W",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -351,10 +351,10 @@
             1,
             2,
             3,
-            3
+            4
           ],
-          "score": 3,
-          "place": "1-5"
+          "score": 4,
+          "place": "1-2"
         },
         {
           "name": "Kornacki, Michael",
@@ -373,7 +373,7 @@
             "W",
             "W",
             "L",
-            " "
+            "D"
           ],
           "colors": [
             "B",
@@ -397,10 +397,10 @@
             1,
             2,
             2,
-            2
+            2.5
           ],
-          "score": 2,
-          "place": "8-24"
+          "score": 2.5,
+          "place": "14-19"
         },
         {
           "name": "Kusky, Zion",
@@ -419,7 +419,7 @@
             "W",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -443,10 +443,10 @@
             1,
             2,
             2,
-            2
+            3
           ],
-          "score": 2,
-          "place": "8-24"
+          "score": 3,
+          "place": "5-13"
         },
         {
           "name": "Varunjikar, Ishaan",
@@ -464,7 +464,7 @@
             "D",
             "W",
             "D",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -488,10 +488,10 @@
             0.5,
             1.5,
             2,
-            2
+            3
           ],
-          "score": 2,
-          "place": "8-24"
+          "score": 3,
+          "place": "5-13"
         },
         {
           "name": "Komline, Paul",
@@ -510,7 +510,7 @@
             "W",
             "D",
             "W",
-            " "
+            "D"
           ],
           "colors": [
             "W",
@@ -534,10 +534,10 @@
             1,
             1.5,
             2.5,
-            2.5
+            3
           ],
-          "score": 2.5,
-          "place": "6-7"
+          "score": 3,
+          "place": "5-13"
         },
         {
           "name": "Komline, Kenneth",
@@ -556,7 +556,7 @@
             "W",
             "W",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -580,10 +580,10 @@
             1,
             2,
             3,
-            3
+            4
           ],
-          "score": 3,
-          "place": "1-5"
+          "score": 4,
+          "place": "1-2"
         },
         {
           "name": "Li, Henry",
@@ -601,7 +601,7 @@
             "W",
             "W",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -628,7 +628,7 @@
             3
           ],
           "score": 3,
-          "place": "1-5"
+          "place": "5-13"
         },
         {
           "name": "Mogalluri, Eswar",
@@ -646,7 +646,7 @@
             "W",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -670,10 +670,10 @@
             1,
             2,
             2,
-            2
+            3
           ],
-          "score": 2,
-          "place": "8-24"
+          "score": 3,
+          "place": "5-13"
         },
         {
           "name": "Bansod, Saish",
@@ -691,7 +691,7 @@
             "W",
             "W",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -718,7 +718,7 @@
             3
           ],
           "score": 3,
-          "place": "1-5"
+          "place": "5-13"
         },
         {
           "name": "Bhatia, Rhythm",
@@ -737,7 +737,7 @@
             "W",
             "W",
             "W",
-            " "
+            "D"
           ],
           "colors": [
             "B",
@@ -761,10 +761,10 @@
             1,
             2,
             3,
-            3
+            3.5
           ],
-          "score": 3,
-          "place": "1-5"
+          "score": 3.5,
+          "place": "3-4"
         },
         {
           "name": "Hoerlein, Benjamin",
@@ -782,7 +782,7 @@
             "W",
             "D",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -806,10 +806,10 @@
             1,
             1.5,
             2.5,
-            2.5
+            3.5
           ],
-          "score": 2.5,
-          "place": "6-7"
+          "score": 3.5,
+          "place": "3-4"
         },
         {
           "name": "Joshi, Shriya",
@@ -827,7 +827,7 @@
             "L",
             "W",
             "W",
-            " "
+            "D"
           ],
           "colors": [
             "B",
@@ -851,10 +851,10 @@
             0,
             1,
             2,
-            2
+            2.5
           ],
-          "score": 2,
-          "place": "8-24"
+          "score": 2.5,
+          "place": "14-19"
         },
         {
           "name": "Van Buren, James",
@@ -873,7 +873,7 @@
             "L",
             "L",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -900,7 +900,7 @@
             0
           ],
           "score": 0,
-          "place": "47-53"
+          "place": "51-53"
         },
         {
           "name": "Pieniadz, Noah",
@@ -918,7 +918,7 @@
             "L",
             "W",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -942,10 +942,10 @@
             0,
             1,
             2,
-            2
+            3
           ],
-          "score": 2,
-          "place": "8-24"
+          "score": 3,
+          "place": "5-13"
         },
         {
           "name": "Townsend, Genevieve",
@@ -963,7 +963,7 @@
             "W",
             "L",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -987,10 +987,10 @@
             1,
             1,
             1,
-            1
+            2
           ],
-          "score": 1,
-          "place": "31-45"
+          "score": 2,
+          "place": "20-34"
         },
         {
           "name": "Prabu, Arjun",
@@ -1009,7 +1009,7 @@
             "L",
             "D",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -1036,7 +1036,7 @@
             1.5
           ],
           "score": 1.5,
-          "place": "25-30"
+          "place": "35-40"
         },
         {
           "name": "Garg, Yuveen",
@@ -1054,7 +1054,7 @@
             "W",
             "L",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -1078,10 +1078,10 @@
             1,
             1,
             2,
-            2
+            3
           ],
-          "score": 2,
-          "place": "8-24"
+          "score": 3,
+          "place": "5-13"
         },
         {
           "name": "Mazon, Axel",
@@ -1100,7 +1100,7 @@
             "W",
             "L",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -1124,10 +1124,10 @@
             1,
             1,
             1,
-            1
+            2
           ],
-          "score": 1,
-          "place": "31-45"
+          "score": 2,
+          "place": "20-34"
         },
         {
           "name": "Yadav, Ayansh",
@@ -1145,7 +1145,7 @@
             "W",
             "L",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -1169,10 +1169,10 @@
             1,
             1,
             2,
-            2
+            3
           ],
-          "score": 2,
-          "place": "8-24"
+          "score": 3,
+          "place": "5-13"
         },
         {
           "name": "Garcia, Addison",
@@ -1191,7 +1191,7 @@
             "W",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -1218,7 +1218,7 @@
             2
           ],
           "score": 2,
-          "place": "8-24"
+          "place": "20-34"
         },
         {
           "name": "Peterman, Caden",
@@ -1237,7 +1237,7 @@
             "W",
             "D",
             "D",
-            " "
+            "D"
           ],
           "colors": [
             "W",
@@ -1261,10 +1261,10 @@
             1,
             1.5,
             2,
-            2
+            2.5
           ],
-          "score": 2,
-          "place": "8-24"
+          "score": 2.5,
+          "place": "14-19"
         },
         {
           "name": "Singh, Shaarav",
@@ -1282,7 +1282,7 @@
             "W",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -1309,7 +1309,7 @@
             2
           ],
           "score": 2,
-          "place": "8-24"
+          "place": "20-34"
         },
         {
           "name": "Daniels, Drew",
@@ -1327,7 +1327,7 @@
             "L",
             "W",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -1354,7 +1354,7 @@
             2
           ],
           "score": 2,
-          "place": "8-24"
+          "place": "20-34"
         },
         {
           "name": "Zhang, Hanrui",
@@ -1372,7 +1372,7 @@
             "W",
             "L",
             "D",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -1399,7 +1399,7 @@
             1.5
           ],
           "score": 1.5,
-          "place": "25-30"
+          "place": "35-40"
         },
         {
           "name": "Dacharaju, Anika",
@@ -1418,7 +1418,7 @@
             "L",
             "W",
             "W",
-            " "
+            "D"
           ],
           "colors": [
             "W",
@@ -1442,10 +1442,10 @@
             0,
             1,
             2,
-            2
+            2.5
           ],
-          "score": 2,
-          "place": "8-24"
+          "score": 2.5,
+          "place": "14-19"
         },
         {
           "name": "Barua, Dhruv",
@@ -1463,7 +1463,7 @@
             "L",
             "W",
             "L",
-            " "
+            "D"
           ],
           "colors": [
             "B",
@@ -1487,10 +1487,10 @@
             0,
             1,
             1,
-            1
+            1.5
           ],
-          "score": 1,
-          "place": "31-45"
+          "score": 1.5,
+          "place": "35-40"
         },
         {
           "name": "Harris, Lawrence",
@@ -1508,7 +1508,7 @@
             "L",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -1535,7 +1535,7 @@
             1
           ],
           "score": 1,
-          "place": "31-45"
+          "place": "41-48"
         },
         {
           "name": "Sundara Rajan, Iniya",
@@ -1553,7 +1553,7 @@
             "L",
             "W",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -1580,7 +1580,7 @@
             2
           ],
           "score": 2,
-          "place": "8-24"
+          "place": "20-34"
         },
         {
           "name": "Sathish, Dhanvanth",
@@ -1598,7 +1598,7 @@
             "D",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -1622,10 +1622,10 @@
             0.5,
             1.5,
             1.5,
-            1.5
+            2.5
           ],
-          "score": 1.5,
-          "place": "25-30"
+          "score": 2.5,
+          "place": "14-19"
         },
         {
           "name": "Jolly, Kaydin",
@@ -1643,7 +1643,7 @@
             "L",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -1667,10 +1667,10 @@
             0,
             1,
             1,
-            1
+            2
           ],
-          "score": 1,
-          "place": "31-45"
+          "score": 2,
+          "place": "20-34"
         },
         {
           "name": "Nagolu, Krishna",
@@ -1688,7 +1688,7 @@
             "L",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -1712,10 +1712,10 @@
             0,
             1,
             1,
-            1
+            2
           ],
-          "score": 1,
-          "place": "31-45"
+          "score": 2,
+          "place": "20-34"
         },
         {
           "name": "Rojo, Deion",
@@ -1734,7 +1734,7 @@
             "L",
             "L",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -1758,10 +1758,10 @@
             0,
             0,
             1,
-            1
+            2
           ],
-          "score": 1,
-          "place": "31-45"
+          "score": 2,
+          "place": "20-34"
         },
         {
           "name": "Verdugo, Emmanuel",
@@ -1780,7 +1780,7 @@
             "L",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -1807,7 +1807,7 @@
             1
           ],
           "score": 1,
-          "place": "31-45"
+          "place": "41-48"
         },
         {
           "name": "Kusky, Dan",
@@ -1826,7 +1826,7 @@
             "L",
             "W",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -1853,7 +1853,7 @@
             1
           ],
           "score": 1,
-          "place": "31-45"
+          "place": "41-48"
         },
         {
           "name": "Adambarage De Alwia, Kaushi",
@@ -1872,7 +1872,7 @@
             "L",
             "L",
             "W",
-            " "
+            "D"
           ],
           "colors": [
             "W",
@@ -1896,10 +1896,10 @@
             0,
             0,
             1,
-            1
+            1.5
           ],
-          "score": 1,
-          "place": "31-45"
+          "score": 1.5,
+          "place": "35-40"
         },
         {
           "name": "Vasa, Avyukthram",
@@ -1944,8 +1944,8 @@
             1.5,
             2
           ],
-          "score": 1.5,
-          "place": "25-30"
+          "score": 2,
+          "place": "20-34"
         },
         {
           "name": "Garcia, Aiden",
@@ -1964,7 +1964,7 @@
             "W",
             "L",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -1988,10 +1988,10 @@
             1,
             1,
             1,
-            1
+            2
           ],
-          "score": 1,
-          "place": "31-45"
+          "score": 2,
+          "place": "20-34"
         },
         {
           "name": "Sotelo, Salvador",
@@ -2010,7 +2010,7 @@
             "W",
             "D",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -2034,10 +2034,10 @@
             1,
             1.5,
             1.5,
-            1.5
+            2.5
           ],
-          "score": 1.5,
-          "place": "25-30"
+          "score": 2.5,
+          "place": "14-19"
         },
         {
           "name": "Hopkins, Jeremiah",
@@ -2056,7 +2056,7 @@
             "W",
             "L",
             "D",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -2083,7 +2083,7 @@
             1.5
           ],
           "score": 1.5,
-          "place": "25-30"
+          "place": "35-40"
         },
         {
           "name": "Taylor, Braylon",
@@ -2101,7 +2101,7 @@
             "L",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -2128,7 +2128,7 @@
             1
           ],
           "score": 1,
-          "place": "31-45"
+          "place": "41-48"
         },
         {
           "name": "Lin, Jolie",
@@ -2147,7 +2147,7 @@
             "H",
             "L",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "-",
@@ -2171,10 +2171,10 @@
             0.5,
             0.5,
             0.5,
-            0.5
+            1.5
           ],
-          "score": 0.5,
-          "place": "46"
+          "score": 1.5,
+          "place": "35-40"
         },
         {
           "name": "Huang, Ronan",
@@ -2192,7 +2192,7 @@
             "W",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -2219,7 +2219,7 @@
             2
           ],
           "score": 2,
-          "place": "8-24"
+          "place": "20-34"
         },
         {
           "name": "Ren, Davis",
@@ -2237,7 +2237,7 @@
             "L",
             "L",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -2261,10 +2261,10 @@
             0,
             0,
             0,
-            0
+            1
           ],
-          "score": 0,
-          "place": "47-53"
+          "score": 1,
+          "place": "41-48"
         },
         {
           "name": "Dacharaju, Rudraan",
@@ -2283,7 +2283,7 @@
             "L",
             "L",
             "L",
-            " "
+            "D"
           ],
           "colors": [
             "W",
@@ -2307,10 +2307,10 @@
             0,
             0,
             0,
-            0
+            0.5
           ],
-          "score": 0,
-          "place": "47-53"
+          "score": 0.5,
+          "place": "49-50"
         },
         {
           "name": "Esquivel, Madison",
@@ -2329,7 +2329,7 @@
             "L",
             "W",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -2356,7 +2356,7 @@
             1
           ],
           "score": 1,
-          "place": "31-45"
+          "place": "41-48"
         },
         {
           "name": "Rajeshkumar, Saswin",
@@ -2374,7 +2374,7 @@
             "L",
             "L",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -2401,7 +2401,7 @@
             0
           ],
           "score": 0,
-          "place": "47-53"
+          "place": "51-53"
         },
         {
           "name": "Prabu, Aaradhya",
@@ -2420,7 +2420,7 @@
             "L",
             "L",
             "L",
-            " "
+            "D"
           ],
           "colors": [
             "B",
@@ -2444,10 +2444,10 @@
             0,
             0,
             0,
-            0
+            0.5
           ],
-          "score": 0,
-          "place": "47-53"
+          "score": 0.5,
+          "place": "49-50"
         },
         {
           "name": "Robertson, Trayvon",
@@ -2491,8 +2491,8 @@
             0,
             1
           ],
-          "score": 0,
-          "place": "47-53"
+          "score": 1,
+          "place": "41-48"
         },
         {
           "name": "Zhang, Jacob",
@@ -2510,7 +2510,7 @@
             "B",
             "L",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "-",
@@ -2537,7 +2537,7 @@
             1
           ],
           "score": 1,
-          "place": "31-45"
+          "place": "41-48"
         },
         {
           "name": "Lamptey, Aidan",
@@ -2555,7 +2555,7 @@
             "W",
             "W",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -2582,7 +2582,7 @@
             2
           ],
           "score": 2,
-          "place": "8-24"
+          "place": "20-34"
         },
         {
           "name": "DONNELLY, Erin Andrew",
@@ -2628,7 +2628,7 @@
             0
           ],
           "score": 0,
-          "place": "47-53"
+          "place": "51-53"
         },
         {
           "name": "Malipeddi, Pruthvi",
@@ -2646,7 +2646,7 @@
             "L",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -2670,18 +2670,40 @@
             0,
             1,
             1,
-            1
+            2
           ],
-          "score": 1,
-          "place": "31-45"
+          "score": 2,
+          "place": "20-34"
         }
       ],
       "teams": [
         {
+          "code": "KOMLINE",
+          "team": "KOMLINE",
+          "rating": "1013.0",
+          "score": 4,
+          "team_tiebreaks": [
+          ],
+          "members": [
+            {
+              "pair_number": 6,
+              "name": "Komline, Paul",
+              "rating": 1013,
+              "score": 3
+            },
+            {
+              "pair_number": 7,
+              "name": "Komline, Kenneth",
+              "rating": 1005,
+              "score": 4
+            }
+          ]
+        },
+        {
           "code": "BHATIA",
           "team": "BHATIA",
           "rating": "1154.0",
-          "score": 3,
+          "score": 3.5,
           "team_tiebreaks": [
           ],
           "members": [
@@ -2695,29 +2717,7 @@
               "pair_number": 11,
               "name": "Bhatia, Rhythm",
               "rating": 878,
-              "score": 3
-            }
-          ]
-        },
-        {
-          "code": "KOMLINE",
-          "team": "KOMLINE",
-          "rating": "1013.0",
-          "score": 3,
-          "team_tiebreaks": [
-          ],
-          "members": [
-            {
-              "pair_number": 6,
-              "name": "Komline, Paul",
-              "rating": 1013,
-              "score": 2.5
-            },
-            {
-              "pair_number": 7,
-              "name": "Komline, Kenneth",
-              "rating": 1005,
-              "score": 3
+              "score": 3.5
             }
           ]
         },
@@ -2725,7 +2725,7 @@
           "code": "KUSKY",
           "team": "KUSKY",
           "rating": "1060.0",
-          "score": 2,
+          "score": 3,
           "team_tiebreaks": [
           ],
           "members": [
@@ -2733,7 +2733,7 @@
               "pair_number": 4,
               "name": "Kusky, Zion",
               "rating": 1060,
-              "score": 2
+              "score": 3
             },
             {
               "pair_number": 35,
@@ -2744,32 +2744,10 @@
           ]
         },
         {
-          "code": "DACHA",
-          "team": "DACHA",
-          "rating": "679.0",
-          "score": 2,
-          "team_tiebreaks": [
-          ],
-          "members": [
-            {
-              "pair_number": 26,
-              "name": "Dacharaju, Anika",
-              "rating": 679,
-              "score": 2
-            },
-            {
-              "pair_number": 45,
-              "name": "Dacharaju, Rudraan",
-              "rating": 255,
-              "score": 0
-            }
-          ]
-        },
-        {
           "code": "FITE",
           "team": "FITE",
           "rating": "764.0",
-          "score": 2,
+          "score": 2.5,
           "team_tiebreaks": [
           ],
           "members": [
@@ -2777,7 +2755,7 @@
               "pair_number": 19,
               "name": "Mazon, Axel",
               "rating": 764,
-              "score": 1
+              "score": 2
             },
             {
               "pair_number": 21,
@@ -2789,7 +2767,7 @@
               "pair_number": 33,
               "name": "Rojo, Deion",
               "rating": 622,
-              "score": 1
+              "score": 2
             },
             {
               "pair_number": 34,
@@ -2801,19 +2779,19 @@
               "pair_number": 36,
               "name": "Adambarage De Alwia, Kaushi",
               "rating": 580,
-              "score": 1
+              "score": 1.5
             },
             {
               "pair_number": 38,
               "name": "Garcia, Aiden",
               "rating": 538,
-              "score": 1
+              "score": 2
             },
             {
               "pair_number": 39,
               "name": "Sotelo, Salvador",
               "rating": 522,
-              "score": 1.5
+              "score": 2.5
             },
             {
               "pair_number": 40,
@@ -2826,6 +2804,28 @@
               "name": "Esquivel, Madison",
               "rating": 236,
               "score": 1
+            }
+          ]
+        },
+        {
+          "code": "DACHA",
+          "team": "DACHA",
+          "rating": "679.0",
+          "score": 2.5,
+          "team_tiebreaks": [
+          ],
+          "members": [
+            {
+              "pair_number": 26,
+              "name": "Dacharaju, Anika",
+              "rating": 679,
+              "score": 2.5
+            },
+            {
+              "pair_number": 45,
+              "name": "Dacharaju, Rudraan",
+              "rating": 255,
+              "score": 0.5
             }
           ]
         },
@@ -2847,7 +2847,7 @@
               "pair_number": 48,
               "name": "Prabu, Aaradhya",
               "rating": 171,
-              "score": 0
+              "score": 0.5
             }
           ]
         }
@@ -2856,14 +2856,38 @@
         {
           "code": "BOOSTER",
           "rating": "675.7",
-          "score": 78.5,
+          "score": 105,
           "tiebreaks": [
           ],
           "members": [
             {
+              "pair_number": 2,
+              "name": "Ray, Cornelius",
+              "rating": 1146,
+              "score": 4
+            },
+            {
+              "pair_number": 7,
+              "name": "Komline, Kenneth",
+              "rating": 1005,
+              "score": 4
+            },
+            {
               "pair_number": 11,
               "name": "Bhatia, Rhythm",
               "rating": 878,
+              "score": 3.5
+            },
+            {
+              "pair_number": 12,
+              "name": "Hoerlein, Benjamin",
+              "rating": 840,
+              "score": 3.5
+            },
+            {
+              "pair_number": 6,
+              "name": "Komline, Paul",
+              "rating": 1013,
               "score": 3
             },
             {
@@ -2879,27 +2903,75 @@
               "score": 3
             },
             {
-              "pair_number": 7,
-              "name": "Komline, Kenneth",
-              "rating": 1005,
+              "pair_number": 4,
+              "name": "Kusky, Zion",
+              "rating": 1060,
               "score": 3
             },
             {
-              "pair_number": 2,
-              "name": "Ray, Cornelius",
-              "rating": 1146,
+              "pair_number": 9,
+              "name": "Mogalluri, Eswar",
+              "rating": 967,
               "score": 3
             },
             {
-              "pair_number": 6,
-              "name": "Komline, Paul",
-              "rating": 1013,
+              "pair_number": 5,
+              "name": "Varunjikar, Ishaan",
+              "rating": 1019,
+              "score": 3
+            },
+            {
+              "pair_number": 18,
+              "name": "Garg, Yuveen",
+              "rating": 767,
+              "score": 3
+            },
+            {
+              "pair_number": 20,
+              "name": "Yadav, Ayansh",
+              "rating": 747,
+              "score": 3
+            },
+            {
+              "pair_number": 15,
+              "name": "Pieniadz, Noah",
+              "rating": 818,
+              "score": 3
+            },
+            {
+              "pair_number": 3,
+              "name": "Kornacki, Michael",
+              "rating": 1144,
               "score": 2.5
             },
             {
-              "pair_number": 12,
-              "name": "Hoerlein, Benjamin",
-              "rating": 840,
+              "pair_number": 22,
+              "name": "Peterman, Caden",
+              "rating": 737,
+              "score": 2.5
+            },
+            {
+              "pair_number": 30,
+              "name": "Sathish, Dhanvanth",
+              "rating": 646,
+              "score": 2.5
+            },
+            {
+              "pair_number": 39,
+              "name": "Sotelo, Salvador",
+              "rating": 522,
+              "score": 2.5
+            },
+            {
+              "pair_number": 13,
+              "name": "Joshi, Shriya",
+              "rating": 837,
+              "score": 2.5
+            },
+            {
+              "pair_number": 26,
+              "name": "Dacharaju, Anika",
+              "rating": 679,
               "score": 2.5
             },
             {
@@ -2909,27 +2981,9 @@
               "score": 2
             },
             {
-              "pair_number": 4,
-              "name": "Kusky, Zion",
-              "rating": 1060,
-              "score": 2
-            },
-            {
-              "pair_number": 3,
-              "name": "Kornacki, Michael",
-              "rating": 1144,
-              "score": 2
-            },
-            {
               "pair_number": 51,
               "name": "Lamptey, Aidan",
               "rating": 0,
-              "score": 2
-            },
-            {
-              "pair_number": 9,
-              "name": "Mogalluri, Eswar",
-              "rating": 967,
               "score": 2
             },
             {
@@ -2939,39 +2993,9 @@
               "score": 2
             },
             {
-              "pair_number": 22,
-              "name": "Peterman, Caden",
-              "rating": 737,
-              "score": 2
-            },
-            {
               "pair_number": 23,
               "name": "Singh, Shaarav",
               "rating": 728,
-              "score": 2
-            },
-            {
-              "pair_number": 5,
-              "name": "Varunjikar, Ishaan",
-              "rating": 1019,
-              "score": 2
-            },
-            {
-              "pair_number": 20,
-              "name": "Yadav, Ayansh",
-              "rating": 747,
-              "score": 2
-            },
-            {
-              "pair_number": 24,
-              "name": "Daniels, Drew",
-              "rating": 725,
-              "score": 2
-            },
-            {
-              "pair_number": 18,
-              "name": "Garg, Yuveen",
-              "rating": 767,
               "score": 2
             },
             {
@@ -2981,15 +3005,27 @@
               "score": 2
             },
             {
-              "pair_number": 26,
-              "name": "Dacharaju, Anika",
-              "rating": 679,
+              "pair_number": 38,
+              "name": "Garcia, Aiden",
+              "rating": 538,
               "score": 2
             },
             {
-              "pair_number": 15,
-              "name": "Pieniadz, Noah",
-              "rating": 818,
+              "pair_number": 31,
+              "name": "Jolly, Kaydin",
+              "rating": 642,
+              "score": 2
+            },
+            {
+              "pair_number": 32,
+              "name": "Nagolu, Krishna",
+              "rating": 629,
+              "score": 2
+            },
+            {
+              "pair_number": 53,
+              "name": "Malipeddi, Pruthvi",
+              "rating": 0,
               "score": 2
             },
             {
@@ -2999,27 +3035,39 @@
               "score": 2
             },
             {
-              "pair_number": 13,
-              "name": "Joshi, Shriya",
-              "rating": 837,
+              "pair_number": 24,
+              "name": "Daniels, Drew",
+              "rating": 725,
               "score": 2
             },
             {
-              "pair_number": 39,
-              "name": "Sotelo, Salvador",
-              "rating": 522,
-              "score": 1.5
+              "pair_number": 33,
+              "name": "Rojo, Deion",
+              "rating": 622,
+              "score": 2
+            },
+            {
+              "pair_number": 16,
+              "name": "Townsend, Genevieve",
+              "rating": 785,
+              "score": 2
+            },
+            {
+              "pair_number": 19,
+              "name": "Mazon, Axel",
+              "rating": 764,
+              "score": 2
+            },
+            {
+              "pair_number": 37,
+              "name": "Vasa, Avyukthram",
+              "rating": 547,
+              "score": 2
             },
             {
               "pair_number": 40,
               "name": "Hopkins, Jeremiah",
               "rating": 479,
-              "score": 1.5
-            },
-            {
-              "pair_number": 30,
-              "name": "Sathish, Dhanvanth",
-              "rating": 646,
               "score": 1.5
             },
             {
@@ -3029,45 +3077,33 @@
               "score": 1.5
             },
             {
-              "pair_number": 37,
-              "name": "Vasa, Avyukthram",
-              "rating": 547,
-              "score": 1.5
-            },
-            {
               "pair_number": 17,
               "name": "Prabu, Arjun",
               "rating": 778,
               "score": 1.5
             },
             {
-              "pair_number": 38,
-              "name": "Garcia, Aiden",
-              "rating": 538,
-              "score": 1
+              "pair_number": 27,
+              "name": "Barua, Dhruv",
+              "rating": 674,
+              "score": 1.5
             },
             {
-              "pair_number": 16,
-              "name": "Townsend, Genevieve",
-              "rating": 785,
-              "score": 1
+              "pair_number": 36,
+              "name": "Adambarage De Alwia, Kaushi",
+              "rating": 580,
+              "score": 1.5
+            },
+            {
+              "pair_number": 42,
+              "name": "Lin, Jolie",
+              "rating": 399,
+              "score": 1.5
             },
             {
               "pair_number": 46,
               "name": "Esquivel, Madison",
               "rating": 236,
-              "score": 1
-            },
-            {
-              "pair_number": 53,
-              "name": "Malipeddi, Pruthvi",
-              "rating": 0,
-              "score": 1
-            },
-            {
-              "pair_number": 19,
-              "name": "Mazon, Axel",
-              "rating": 764,
               "score": 1
             },
             {
@@ -3077,45 +3113,9 @@
               "score": 1
             },
             {
-              "pair_number": 27,
-              "name": "Barua, Dhruv",
-              "rating": 674,
-              "score": 1
-            },
-            {
-              "pair_number": 32,
-              "name": "Nagolu, Krishna",
-              "rating": 629,
-              "score": 1
-            },
-            {
-              "pair_number": 36,
-              "name": "Adambarage De Alwia, Kaushi",
-              "rating": 580,
-              "score": 1
-            },
-            {
-              "pair_number": 31,
-              "name": "Jolly, Kaydin",
-              "rating": 642,
-              "score": 1
-            },
-            {
-              "pair_number": 50,
-              "name": "Zhang, Jacob",
-              "rating": 113,
-              "score": 1
-            },
-            {
               "pair_number": 34,
               "name": "Verdugo, Emmanuel",
               "rating": 611,
-              "score": 1
-            },
-            {
-              "pair_number": 33,
-              "name": "Rojo, Deion",
-              "rating": 622,
               "score": 1
             },
             {
@@ -3125,28 +3125,40 @@
               "score": 1
             },
             {
+              "pair_number": 50,
+              "name": "Zhang, Jacob",
+              "rating": 113,
+              "score": 1
+            },
+            {
               "pair_number": 28,
               "name": "Harris, Lawrence",
               "rating": 657,
               "score": 1
             },
             {
-              "pair_number": 42,
-              "name": "Lin, Jolie",
-              "rating": 399,
-              "score": 0.5
-            },
-            {
               "pair_number": 44,
               "name": "Ren, Davis",
               "rating": 312,
-              "score": 0
+              "score": 1
             },
             {
-              "pair_number": 47,
-              "name": "Rajeshkumar, Saswin",
-              "rating": 207,
-              "score": 0
+              "pair_number": 49,
+              "name": "Robertson, Trayvon",
+              "rating": 148,
+              "score": 1
+            },
+            {
+              "pair_number": 48,
+              "name": "Prabu, Aaradhya",
+              "rating": 171,
+              "score": 0.5
+            },
+            {
+              "pair_number": 45,
+              "name": "Dacharaju, Rudraan",
+              "rating": 255,
+              "score": 0.5
             },
             {
               "pair_number": 14,
@@ -3155,21 +3167,9 @@
               "score": 0
             },
             {
-              "pair_number": 48,
-              "name": "Prabu, Aaradhya",
-              "rating": 171,
-              "score": 0
-            },
-            {
-              "pair_number": 49,
-              "name": "Robertson, Trayvon",
-              "rating": 148,
-              "score": 0
-            },
-            {
-              "pair_number": 45,
-              "name": "Dacharaju, Rudraan",
-              "rating": 255,
+              "pair_number": 47,
+              "name": "Rajeshkumar, Saswin",
+              "rating": 207,
               "score": 0
             }
           ]
