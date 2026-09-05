@@ -1,12 +1,12 @@
 {
   "event": {
-    "name": "Chess Lions - August Open  2026",
-    "date": "2026/8/16",
-    "city": "Farmington Hill",
+    "name": "2026 Michigan Open Booster",
+    "date": "2026/9/5",
+    "city": "Grand Rapids",
     "state": "MI",
     "country": "USA",
-    "td": "Vaishnavi",
-    "time_stamp": "8/16/2026 - 15:16",
+    "td": "Sundara Rajan",
+    "time_stamp": "9/5/2026 - 2:16",
     "affiliate": ""
   },
   "options": {
@@ -26,11 +26,11 @@
     "standings_id": true,
     "standings_age": false,
     "standings_grade": false,
-    "standings_prize": true,
+    "standings_prize": false,
     "pchart_pairnums": false,
     "pchart_boardnums": true,
     "pchart_team": false,
-    "pchart_club": true,
+    "pchart_club": false,
     "pchart_federation": false,
     "master_list_sort": "name",
     "reg_exp2": true,
@@ -51,14 +51,14 @@
   },
   "sections": [
     {
-      "section": "Upper",
-      "rounds_paired": 3,
-      "rounds_played": 2,
+      "section": "Booster",
+      "rounds_paired": 0,
+      "rounds_played": 0,
       "final_round": false,
       "reportStatus": {
-        "kind": "partialMode1",
-        "roundsPlayed": 2,
-        "finalRound": 4,
+        "kind": "hidden",
+        "roundsPlayed": 0,
+        "finalRound": 8,
         "gamesRemaining": 0,
         "prizesClinched": 0,
         "prizesPending": 0,
@@ -69,5206 +69,1886 @@
       "pendingPrizes": [
       ],
       "standings": [
-        6,
         1,
         2,
-        5,
-        13,
         3,
         4,
+        5,
+        6,
         7,
-        14,
         8,
+        9,
+        10,
         11,
         12,
-        10,
-        9,
-        15,
-        16
-      ],
-      "pairings": [
-        {
-          "white": 2,
-          "black": 1,
-          "board": 1
-        },
-        {
-          "white": 6,
-          "black": 5,
-          "board": 2
-        },
-        {
-          "white": 13,
-          "black": 3,
-          "board": 3
-        },
-        {
-          "white": 4,
-          "black": 14,
-          "board": 4
-        },
-        {
-          "white": 11,
-          "black": 7,
-          "board": 5
-        },
-        {
-          "white": 8,
-          "black": 12,
-          "board": 6
-        },
-        {
-          "white": 9,
-          "black": 16,
-          "board": 7
-        },
-        {
-          "white": 15,
-          "black": 10,
-          "board": 8
-        }
-      ],
-      "tiebreaks": [
-        "Mod. Med",
-        "Solk",
-        "Cumul.",
-        "1-on-1",
-        "BPG"
-      ],
-      "team_tiebreaks": [
-      ],
-      "players": [
-        {
-          "name": "CLAYTON, Ryan Daniel",
-          "pair_number": 1,
-          "id1": "13676048",
-          "rating": 2279,
-          "rating2": 2088,
-          "exp1": "03/31/2027",
-          "state": "OH",
-          "federation": "USA",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            1,
-            1,
-            3,
-            0,
-            1
-          ],
-          "results": [
-            "W",
-            "W",
-            " "
-          ],
-          "colors": [
-            "B",
-            "W",
-            "B"
-          ],
-          "ops": [
-            9,
-            4,
-            2
-          ],
-          "boards": [
-            1,
-            1,
-            1
-          ],
-          "cumulatives": [
-            1,
-            2,
-            0
-          ],
-          "score": 2,
-          "place": "1-3",
-          "post_tiebreak_place": "2-3"
-        },
-        {
-          "name": "DAVIDOVICH, Manis",
-          "pair_number": 2,
-          "id1": "12744534",
-          "rating": 2202,
-          "rating2": 2009,
-          "exp1": "01/31/2027",
-          "state": "MI",
-          "federation": "USA",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            1,
-            1,
-            3,
-            0,
-            1
-          ],
-          "results": [
-            "W",
-            "W",
-            " "
-          ],
-          "colors": [
-            "W",
-            "B",
-            "W"
-          ],
-          "ops": [
-            10,
-            7,
-            1
-          ],
-          "boards": [
-            2,
-            2,
-            1
-          ],
-          "cumulatives": [
-            1,
-            2,
-            0
-          ],
-          "score": 2,
-          "place": "1-3",
-          "post_tiebreak_place": "2-3"
-        },
-        {
-          "name": "GABBARA, Faris F",
-          "pair_number": 3,
-          "id1": "12187800",
-          "rating": 2040,
-          "rating2": 1916,
-          "exp1": "07/31/2027",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            0,
-            3,
-            2,
-            0,
-            1
-          ],
-          "results": [
-            "W",
-            "L",
-            " "
-          ],
-          "colors": [
-            "B",
-            "W",
-            "B"
-          ],
-          "ops": [
-            11,
-            6,
-            13
-          ],
-          "boards": [
-            3,
-            3,
-            3
-          ],
-          "cumulatives": [
-            1,
-            1,
-            0
-          ],
-          "score": 1,
-          "place": "6-12",
-          "post_tiebreak_place": "6-7"
-        },
-        {
-          "name": "YASSINE, Waleed",
-          "pair_number": 4,
-          "id1": "12859685",
-          "rating": 1993,
-          "rating2": 1835,
-          "exp1": "11/30/2026",
-          "state": "MI",
-          "federation": "USA",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            0,
-            3,
-            2,
-            0,
-            1
-          ],
-          "results": [
-            "W",
-            "L",
-            " "
-          ],
-          "colors": [
-            "W",
-            "B",
-            "W"
-          ],
-          "ops": [
-            12,
-            1,
-            14
-          ],
-          "boards": [
-            4,
-            1,
-            4
-          ],
-          "cumulatives": [
-            1,
-            1,
-            0
-          ],
-          "score": 1,
-          "place": "6-12",
-          "post_tiebreak_place": "6-7"
-        },
-        {
-          "name": "BHARATH, Adhrit",
-          "pair_number": 5,
-          "id1": "16022006",
-          "rating": 1775,
-          "rating2": 1501,
-          "exp1": "08/31/2026",
-          "state": "MI",
-          "federation": "USA",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            1.5,
-            2.5,
-            2,
-            0.5,
-            1
-          ],
-          "results": [
-            "D",
-            "W",
-            " "
-          ],
-          "colors": [
-            "B",
-            "W",
-            "B"
-          ],
-          "ops": [
-            13,
-            8,
-            6
-          ],
-          "boards": [
-            5,
-            4,
-            2
-          ],
-          "cumulatives": [
-            0.5,
-            1.5,
-            0
-          ],
-          "score": 1.5,
-          "place": "4-5",
-          "post_tiebreak_place": "4"
-        },
-        {
-          "name": "DAVILA HERNANDEZ, Nicolas Francisco",
-          "pair_number": 6,
-          "id1": "30755895",
-          "rating": 1773,
-          "rating2": 1628,
-          "exp1": "10/31/2026",
-          "state": "MI",
-          "federation": "USA",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            1,
-            2,
-            3,
-            0,
-            1
-          ],
-          "results": [
-            "W",
-            "W",
-            " "
-          ],
-          "colors": [
-            "W",
-            "B",
-            "W"
-          ],
-          "ops": [
-            14,
-            3,
-            5
-          ],
-          "boards": [
-            6,
-            3,
-            2
-          ],
-          "cumulatives": [
-            1,
-            2,
-            0
-          ],
-          "score": 2,
-          "place": "1-3",
-          "post_tiebreak_place": "1"
-        },
-        {
-          "name": "KANNAN, Pavan",
-          "pair_number": 7,
-          "id1": "14602667",
-          "rating": 1721,
-          "rating2": 1508,
-          "exp1": "06/30/2027",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            0,
-            2,
-            2,
-            0,
-            1
-          ],
-          "results": [
-            "W",
-            "L",
-            " "
-          ],
-          "colors": [
-            "B",
-            "W",
-            "B"
-          ],
-          "ops": [
-            15,
-            2,
-            11
-          ],
-          "boards": [
-            7,
-            2,
-            5
-          ],
-          "cumulatives": [
-            1,
-            1,
-            0
-          ],
-          "score": 1,
-          "place": "6-12",
-          "post_tiebreak_place": "8"
-        },
-        {
-          "name": "BIEDA, John Raymond",
-          "pair_number": 8,
-          "id1": "30319757",
-          "rating": 1676,
-          "rating2": 1562,
-          "exp1": "07/31/2027",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            0,
-            1.5,
-            2,
-            0,
-            1
-          ],
-          "results": [
-            "W",
-            "L",
-            " "
-          ],
-          "colors": [
-            "W",
-            "B",
-            "W"
-          ],
-          "ops": [
-            16,
-            5,
-            12
-          ],
-          "boards": [
-            8,
-            4,
-            6
-          ],
-          "cumulatives": [
-            1,
-            1,
-            0
-          ],
-          "score": 1,
-          "place": "6-12",
-          "post_tiebreak_place": "10"
-        },
-        {
-          "name": "HAAKONSTAD, Olaf",
-          "pair_number": 9,
-          "id1": "12406916",
-          "rating": 1600,
-          "rating2": 1500,
-          "exp1": "04/30/2027",
-          "state": "MI",
-          "federation": "USA",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            1,
-            3,
-            0,
-            0,
-            1
-          ],
-          "results": [
-            "L",
-            "L",
-            " "
-          ],
-          "colors": [
-            "W",
-            "B",
-            "W"
-          ],
-          "ops": [
-            1,
-            14,
-            16
-          ],
-          "boards": [
-            1,
-            6,
-            7
-          ],
-          "cumulatives": [
-            0,
-            0,
-            0
-          ],
-          "score": 0,
-          "place": "13-16",
-          "post_tiebreak_place": "14"
-        },
-        {
-          "name": "WANG, Grace Ofia Nuoyi",
-          "pair_number": 10,
-          "id1": "30541277",
-          "rating": 1590,
-          "rating2": 1462,
-          "exp1": "03/31/2032",
-          "state": "MI",
-          "federation": "USA",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            1.5,
-            3.5,
-            0,
-            0,
-            1
-          ],
-          "results": [
-            "L",
-            "L",
-            " "
-          ],
-          "colors": [
-            "B",
-            "W",
-            "B"
-          ],
-          "ops": [
-            2,
-            13,
-            15
-          ],
-          "boards": [
-            2,
-            5,
-            8
-          ],
-          "cumulatives": [
-            0,
-            0,
-            0
-          ],
-          "score": 0,
-          "place": "13-16",
-          "post_tiebreak_place": "13"
-        },
-        {
-          "name": "LU, Ivy",
-          "pair_number": 11,
-          "id1": "31998745",
-          "rating": 1443,
-          "rating2": 1179,
-          "exp1": "08/31/2027",
-          "state": "OH",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            0,
-            1,
-            1,
-            0,
-            1
-          ],
-          "results": [
-            "L",
-            "W",
-            " "
-          ],
-          "colors": [
-            "W",
-            "B",
-            "W"
-          ],
-          "ops": [
-            3,
-            16,
-            7
-          ],
-          "boards": [
-            3,
-            7,
-            5
-          ],
-          "cumulatives": [
-            0,
-            1,
-            0
-          ],
-          "score": 1,
-          "place": "6-12",
-          "post_tiebreak_place": "11-12"
-        },
-        {
-          "name": "LIN, Yundi",
-          "pair_number": 12,
-          "id1": "31312534",
-          "rating": 1429,
-          "rating2": 1284,
-          "exp1": "06/30/2028",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            0,
-            1,
-            1,
-            0,
-            1
-          ],
-          "results": [
-            "L",
-            "W",
-            " "
-          ],
-          "colors": [
-            "B",
-            "W",
-            "B"
-          ],
-          "ops": [
-            4,
-            15,
-            8
-          ],
-          "boards": [
-            4,
-            8,
-            6
-          ],
-          "cumulatives": [
-            0,
-            1,
-            0
-          ],
-          "score": 1,
-          "place": "6-12",
-          "post_tiebreak_place": "11-12"
-        },
-        {
-          "name": "NELSON, Robert Edward",
-          "pair_number": 13,
-          "id1": "30965788",
-          "rating": 1427,
-          "rating2": 1330,
-          "exp1": "06/30/2027",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            1.5,
-            1.5,
-            2,
-            0.5,
-            1
-          ],
-          "results": [
-            "D",
-            "W",
-            " "
-          ],
-          "colors": [
-            "W",
-            "B",
-            "W"
-          ],
-          "ops": [
-            5,
-            10,
-            3
-          ],
-          "boards": [
-            5,
-            5,
-            3
-          ],
-          "cumulatives": [
-            0.5,
-            1.5,
-            0
-          ],
-          "score": 1.5,
-          "place": "4-5",
-          "post_tiebreak_place": "5"
-        },
-        {
-          "name": "SHAJI, Madhav",
-          "pair_number": 14,
-          "id1": "32215606",
-          "rating": 1372,
-          "rating2": 1173,
-          "exp1": "01/31/2027",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            0,
-            2,
-            1,
-            0,
-            1
-          ],
-          "results": [
-            "L",
-            "W",
-            " "
-          ],
-          "colors": [
-            "B",
-            "W",
-            "B"
-          ],
-          "ops": [
-            6,
-            9,
-            4
-          ],
-          "boards": [
-            6,
-            6,
-            4
-          ],
-          "cumulatives": [
-            0,
-            1,
-            0
-          ],
-          "score": 1,
-          "place": "6-12",
-          "post_tiebreak_place": "9"
-        },
-        {
-          "name": "VIJAYENDRAN, Akash",
-          "pair_number": 15,
-          "id1": "30209190",
-          "rating": 1365,
-          "rating2": 1205,
-          "exp1": "02/28/2027",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            1,
-            2,
-            0,
-            0,
-            1
-          ],
-          "results": [
-            "L",
-            "L",
-            " "
-          ],
-          "colors": [
-            "W",
-            "B",
-            "W"
-          ],
-          "ops": [
-            7,
-            12,
-            10
-          ],
-          "boards": [
-            7,
-            8,
-            8
-          ],
-          "cumulatives": [
-            0,
-            0,
-            0
-          ],
-          "score": 0,
-          "place": "13-16",
-          "post_tiebreak_place": "15-16"
-        },
-        {
-          "name": "SHANMUGA, Aarya",
-          "pair_number": 16,
-          "id1": "31543413",
-          "rating": 1213,
-          "rating2": 1050,
-          "exp1": "01/31/2027",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            1,
-            2,
-            0,
-            0,
-            1
-          ],
-          "results": [
-            "L",
-            "L",
-            " "
-          ],
-          "colors": [
-            "B",
-            "W",
-            "B"
-          ],
-          "ops": [
-            8,
-            11,
-            9
-          ],
-          "boards": [
-            8,
-            7,
-            7
-          ],
-          "cumulatives": [
-            0,
-            0,
-            0
-          ],
-          "score": 0,
-          "place": "13-16",
-          "post_tiebreak_place": "15-16"
-        }
-      ],
-      "clubs": [
-      ]
-    },
-    {
-      "section": "U1400",
-      "rounds_paired": 3,
-      "rounds_played": 2,
-      "final_round": false,
-      "reportStatus": {
-        "kind": "partialMode1",
-        "roundsPlayed": 2,
-        "finalRound": 4,
-        "gamesRemaining": 0,
-        "prizesClinched": 0,
-        "prizesPending": 0,
-        "bannerText": ""
-      },
-      "prizeAwards": [
-      ],
-      "pendingPrizes": [
-      ],
-      "standings": [
-        4,
-        5,
-        7,
-        28,
-        2,
-        6,
-        8,
-        1,
-        9,
-        16,
         13,
-        24,
-        10,
+        14,
+        15,
+        16,
         17,
         18,
-        20,
-        27,
-        3,
-        14,
-        22,
-        12,
-        25,
-        15,
         19,
-        21,
-        11,
-        23,
-        26
-      ],
-      "pairings": [
-        {
-          "white": 2,
-          "black": 6,
-          "board": 9
-        },
-        {
-          "white": 4,
-          "black": 7,
-          "board": 10
-        },
-        {
-          "white": 8,
-          "black": 5,
-          "board": 11
-        },
-        {
-          "white": 1,
-          "black": 28,
-          "board": 12
-        },
-        {
-          "white": 3,
-          "black": 17,
-          "board": 13
-        },
-        {
-          "white": 18,
-          "black": 9,
-          "board": 14
-        },
-        {
-          "white": 20,
-          "black": 13,
-          "board": 15
-        },
-        {
-          "white": 14,
-          "black": 22,
-          "board": 16
-        },
-        {
-          "white": 16,
-          "black": 24,
-          "board": 17
-        },
-        {
-          "white": 27,
-          "black": 12,
-          "board": 18
-        },
-        {
-          "white": 11,
-          "black": 25,
-          "board": 19
-        },
-        {
-          "white": 21,
-          "black": 15,
-          "board": 20
-        },
-        {
-          "white": 23,
-          "black": 19,
-          "board": 21
-        },
-        {
-          "white": 26,
-          "black": 0,
-          "board": 0
-        },
-        {
-          "white": 10,
-          "black": 0,
-          "board": 0
-        }
-      ],
-      "tiebreaks": [
-        "Mod. Med",
-        "Solk",
-        "Cumul.",
-        "1-on-1",
-        "BPG"
-      ],
-      "team_tiebreaks": [
-      ],
-      "players": [
-        {
-          "name": "PELTON, Walter George",
-          "pair_number": 1,
-          "id1": "32791333",
-          "rating": 1262,
-          "rating2": 1025,
-          "exp1": "12/31/2026",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            0,
-            3,
-            2,
-            0,
-            1
-          ],
-          "results": [
-            "W",
-            "L",
-            " "
-          ],
-          "colors": [
-            "B",
-            "W",
-            "W"
-          ],
-          "ops": [
-            14,
-            8,
-            28
-          ],
-          "boards": [
-            9,
-            9,
-            12
-          ],
-          "cumulatives": [
-            1,
-            1,
-            0
-          ],
-          "score": 1,
-          "place": "8-20",
-          "post_tiebreak_place": "8-10"
-        },
-        {
-          "name": "LIN, Cynthia Xinyi",
-          "pair_number": 2,
-          "id1": "30982705",
-          "rating": 1211,
-          "rating2": 1119,
-          "exp1": "02/28/2029",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            1,
-            1,
-            3,
-            0,
-            1
-          ],
-          "results": [
-            "W",
-            "W",
-            " "
-          ],
-          "colors": [
-            "W",
-            "B",
-            "W"
-          ],
-          "ops": [
-            15,
-            9,
-            6
-          ],
-          "boards": [
-            10,
-            10,
-            9
-          ],
-          "cumulatives": [
-            1,
-            2,
-            0
-          ],
-          "score": 2,
-          "place": "1-7",
-          "post_tiebreak_place": "5-7"
-        },
-        {
-          "name": "PHILIPS, Sophia",
-          "pair_number": 3,
-          "id1": "30020470",
-          "rating": 1175,
-          "rating2": 1077,
-          "exp1": "05/31/2028",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            0,
-            1.5,
-            1,
-            0,
-            2
-          ],
-          "results": [
-            "L",
-            "W",
-            " "
-          ],
-          "colors": [
-            "B",
-            "B",
-            "W"
-          ],
-          "ops": [
-            16,
-            25,
-            17
-          ],
-          "boards": [
-            11,
-            16,
-            13
-          ],
-          "cumulatives": [
-            0,
-            1,
-            0
-          ],
-          "score": 1,
-          "place": "8-20",
-          "post_tiebreak_place": "18"
-        },
-        {
-          "name": "SAREEN, Ronit",
-          "pair_number": 4,
-          "id1": "32794508",
-          "rating": 1136,
-          "rating2": 1071,
-          "exp1": "01/31/2027",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            1,
-            2,
-            3,
-            0,
-            1
-          ],
-          "results": [
-            "W",
-            "W",
-            " "
-          ],
-          "colors": [
-            "W",
-            "B",
-            "W"
-          ],
-          "ops": [
-            17,
-            10,
-            7
-          ],
-          "boards": [
-            12,
-            11,
-            10
-          ],
-          "cumulatives": [
-            1,
-            2,
-            0
-          ],
-          "score": 2,
-          "place": "1-7",
-          "post_tiebreak_place": "1-3"
-        },
-        {
-          "name": "VEERARAGHAVAN, Kannan",
-          "pair_number": 5,
-          "id1": "32241743",
-          "rating": 1085,
-          "rating2": 1045,
-          "exp1": "01/31/2027",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            1,
-            2,
-            3,
-            0,
-            1
-          ],
-          "results": [
-            "W",
-            "W",
-            " "
-          ],
-          "colors": [
-            "B",
-            "W",
-            "B"
-          ],
-          "ops": [
-            18,
-            16,
-            8
-          ],
-          "boards": [
-            13,
-            12,
-            11
-          ],
-          "cumulatives": [
-            1,
-            2,
-            0
-          ],
-          "score": 2,
-          "place": "1-7",
-          "post_tiebreak_place": "1-3"
-        },
-        {
-          "name": "AGRAWAL, Aarav",
-          "pair_number": 6,
-          "id1": "32222273",
-          "rating": 1068,
-          "rating2": 938,
-          "exp1": "03/31/2028",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            1,
-            1,
-            3,
-            0,
-            1
-          ],
-          "results": [
-            "W",
-            "W",
-            " "
-          ],
-          "colors": [
-            "W",
-            "B",
-            "B"
-          ],
-          "ops": [
-            19,
-            13,
-            2
-          ],
-          "boards": [
-            14,
-            13,
-            9
-          ],
-          "cumulatives": [
-            1,
-            2,
-            0
-          ],
-          "score": 2,
-          "place": "1-7",
-          "post_tiebreak_place": "5-7"
-        },
-        {
-          "name": "SKAKUN, Gregory Edward",
-          "pair_number": 7,
-          "id1": "32793103",
-          "rating": 1063,
-          "rating2": 1072,
-          "exp1": "01/31/2027",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            1,
-            2,
-            3,
-            0,
-            1
-          ],
-          "results": [
-            "W",
-            "W",
-            " "
-          ],
-          "colors": [
-            "B",
-            "W",
-            "B"
-          ],
-          "ops": [
-            20,
-            24,
-            4
-          ],
-          "boards": [
-            15,
-            14,
-            10
-          ],
-          "cumulatives": [
-            1,
-            2,
-            0
-          ],
-          "score": 2,
-          "place": "1-7",
-          "post_tiebreak_place": "1-3"
-        },
-        {
-          "name": "ALASRY, Asel Mohammed",
-          "pair_number": 8,
-          "id1": "32786433",
-          "rating": 1056,
-          "rating2": 1000,
-          "exp1": "12/31/2026",
-          "state": "MI",
-          "federation": "USA",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            1,
-            1,
-            3,
-            0,
-            1
-          ],
-          "results": [
-            "W",
-            "W",
-            " "
-          ],
-          "colors": [
-            "W",
-            "B",
-            "W"
-          ],
-          "ops": [
-            21,
-            1,
-            5
-          ],
-          "boards": [
-            16,
-            9,
-            11
-          ],
-          "cumulatives": [
-            1,
-            2,
-            0
-          ],
-          "score": 2,
-          "place": "1-7",
-          "post_tiebreak_place": "5-7"
-        },
-        {
-          "name": "ZOLNOR, Theo",
-          "pair_number": 9,
-          "id1": "30960810",
-          "rating": 1038,
-          "rating2": 965,
-          "exp1": "01/31/2027",
-          "state": "OH",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            0,
-            3,
-            2,
-            0,
-            1
-          ],
-          "results": [
-            "W",
-            "L",
-            " "
-          ],
-          "colors": [
-            "B",
-            "W",
-            "B"
-          ],
-          "ops": [
-            22,
-            2,
-            18
-          ],
-          "boards": [
-            17,
-            10,
-            14
-          ],
-          "cumulatives": [
-            1,
-            1,
-            0
-          ],
-          "score": 1,
-          "place": "8-20",
-          "post_tiebreak_place": "8-10"
-        },
-        {
-          "name": "TARALUNGA, Vlad Dumitru",
-          "pair_number": 10,
-          "id1": "33133004",
-          "rating": 1035,
-          "rating2": 981,
-          "exp1": "05/31/2027",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "byes": "3z",
-          "tiebreaks": [
-            0,
-            2,
-            2,
-            0,
-            0
-          ],
-          "results": [
-            "W",
-            "L",
-            "U"
-          ],
-          "colors": [
-            "W",
-            "W",
-            "-"
-          ],
-          "ops": [
-            23,
-            4,
-            0
-          ],
-          "boards": [
-            18,
-            11,
-            0
-          ],
-          "cumulatives": [
-            1,
-            1,
-            0
-          ],
-          "score": 1,
-          "place": "8-20",
-          "post_tiebreak_place": "13"
-        },
-        {
-          "name": "BROWN, Kymoni",
-          "pair_number": 11,
-          "id1": "17248185",
-          "rating": 1021,
-          "rating2": 984,
-          "exp1": "04/30/2028",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            1,
-            2,
-            0,
-            0,
-            1
-          ],
-          "results": [
-            "L",
-            "L",
-            " "
-          ],
-          "colors": [
-            "B",
-            "W",
-            "W"
-          ],
-          "ops": [
-            24,
-            20,
-            25
-          ],
-          "boards": [
-            19,
-            17,
-            19
-          ],
-          "cumulatives": [
-            0,
-            0,
-            0
-          ],
-          "score": 0,
-          "place": "23-28",
-          "post_tiebreak_place": "26-28"
-        },
-        {
-          "name": "YADAV, Ved",
-          "pair_number": 12,
-          "id1": "32282637",
-          "rating": 1014,
-          "rating2": 975,
-          "exp1": "02/28/2027",
-          "state": "MI",
-          "federation": "USA",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            0.5,
-            2.5,
-            1,
-            0.5,
-            1
-          ],
-          "results": [
-            "D",
-            "L",
-            " "
-          ],
-          "colors": [
-            "W",
-            "B",
-            "B"
-          ],
-          "ops": [
-            25,
-            28,
-            27
-          ],
-          "boards": [
-            20,
-            15,
-            18
-          ],
-          "cumulatives": [
-            0.5,
-            0.5,
-            0
-          ],
-          "score": 0.5,
-          "place": "21-22",
-          "post_tiebreak_place": "21"
-        },
-        {
-          "name": "LULUAN, Johannes",
-          "pair_number": 13,
-          "id1": "31818500",
-          "rating": 1008,
-          "rating2": 945,
-          "exp1": "07/31/2027",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            0,
-            2,
-            2,
-            0,
-            1
-          ],
-          "results": [
-            "W",
-            "L",
-            " "
-          ],
-          "colors": [
-            "B",
-            "W",
-            "B"
-          ],
-          "ops": [
-            26,
-            6,
-            20
-          ],
-          "boards": [
-            21,
-            13,
-            15
-          ],
-          "cumulatives": [
-            1,
-            1,
-            0
-          ],
-          "score": 1,
-          "place": "8-20",
-          "post_tiebreak_place": "11-12"
-        },
-        {
-          "name": "HUNG, Aaron",
-          "pair_number": 14,
-          "id1": "33074045",
-          "rating": 993,
-          "rating2": 946,
-          "exp1": "04/30/2028",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            0,
-            1,
-            1,
-            0,
-            1
-          ],
-          "results": [
-            "L",
-            "W",
-            " "
-          ],
-          "colors": [
-            "W",
-            "B",
-            "W"
-          ],
-          "ops": [
-            1,
-            21,
-            22
-          ],
-          "boards": [
-            9,
-            18,
-            16
-          ],
-          "cumulatives": [
-            0,
-            1,
-            0
-          ],
-          "score": 1,
-          "place": "8-20",
-          "post_tiebreak_place": "19-20"
-        },
-        {
-          "name": "GALLOWAY, Tristan",
-          "pair_number": 15,
-          "id1": "31566804",
-          "rating": 965,
-          "rating2": 893,
-          "exp1": "02/28/2027",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "byes": "4z",
-          "tiebreaks": [
-            1,
-            3,
-            0,
-            0,
-            1
-          ],
-          "results": [
-            "L",
-            "L",
-            " "
-          ],
-          "colors": [
-            "B",
-            "W",
-            "B"
-          ],
-          "ops": [
-            2,
-            22,
-            21
-          ],
-          "boards": [
-            10,
-            19,
-            20
-          ],
-          "cumulatives": [
-            0,
-            0,
-            0
-          ],
-          "score": 0,
-          "place": "23-28",
-          "post_tiebreak_place": "23-25"
-        },
-        {
-          "name": "LI, Henry Yuan",
-          "pair_number": 16,
-          "id1": "32124806",
-          "rating": 907,
-          "rating2": 876,
-          "exp1": "12/31/2026",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            0,
-            3,
-            2,
-            0,
-            1
-          ],
-          "results": [
-            "W",
-            "L",
-            " "
-          ],
-          "colors": [
-            "W",
-            "B",
-            "W"
-          ],
-          "ops": [
-            3,
-            5,
-            24
-          ],
-          "boards": [
-            11,
-            12,
-            17
-          ],
-          "cumulatives": [
-            1,
-            1,
-            0
-          ],
-          "score": 1,
-          "place": "8-20",
-          "post_tiebreak_place": "8-10"
-        },
-        {
-          "name": "SUMESH, Isabella Cecily",
-          "pair_number": 17,
-          "id1": "31929572",
-          "rating": 903,
-          "rating2": 853,
-          "exp1": "05/31/2028",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            0,
-            2,
-            1,
-            0,
-            1
-          ],
-          "results": [
-            "L",
-            "W",
-            " "
-          ],
-          "colors": [
-            "B",
-            "W",
-            "B"
-          ],
-          "ops": [
-            4,
-            26,
-            3
-          ],
-          "boards": [
-            12,
-            20,
-            13
-          ],
-          "cumulatives": [
-            0,
-            1,
-            0
-          ],
-          "score": 1,
-          "place": "8-20",
-          "post_tiebreak_place": "14-17"
-        },
-        {
-          "name": "YEOLE, Vedant Yogesh",
-          "pair_number": 18,
-          "id1": "33157628",
-          "rating": 894,
-          "rating2": 879,
-          "exp1": "06/30/2027",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            0,
-            2,
-            1,
-            0,
-            1
-          ],
-          "results": [
-            "L",
-            "W",
-            " "
-          ],
-          "colors": [
-            "W",
-            "B",
-            "W"
-          ],
-          "ops": [
-            5,
-            23,
-            9
-          ],
-          "boards": [
-            13,
-            21,
-            14
-          ],
-          "cumulatives": [
-            0,
-            1,
-            0
-          ],
-          "score": 1,
-          "place": "8-20",
-          "post_tiebreak_place": "14-17"
-        },
-        {
-          "name": "PIENIADZ, Noah Samuel",
-          "pair_number": 19,
-          "id1": "32549885",
-          "rating": 886,
-          "rating2": 809,
-          "exp1": "08/31/2026",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            1,
-            3,
-            0,
-            0,
-            1
-          ],
-          "results": [
-            "L",
-            "L",
-            " "
-          ],
-          "colors": [
-            "B",
-            "W",
-            "B"
-          ],
-          "ops": [
-            6,
-            27,
-            23
-          ],
-          "boards": [
-            14,
-            22,
-            21
-          ],
-          "cumulatives": [
-            0,
-            0,
-            0
-          ],
-          "score": 0,
-          "place": "23-28",
-          "post_tiebreak_place": "23-25"
-        },
-        {
-          "name": "BURLA, Vihaan",
-          "pair_number": 20,
-          "id1": "32192154",
-          "rating": 862,
-          "rating2": 829,
-          "exp1": "12/31/2026",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            0,
-            2,
-            1,
-            0,
-            1
-          ],
-          "results": [
-            "L",
-            "W",
-            " "
-          ],
-          "colors": [
-            "W",
-            "B",
-            "W"
-          ],
-          "ops": [
-            7,
-            11,
-            13
-          ],
-          "boards": [
-            15,
-            17,
-            15
-          ],
-          "cumulatives": [
-            0,
-            1,
-            0
-          ],
-          "score": 1,
-          "place": "8-20",
-          "post_tiebreak_place": "14-17"
-        },
-        {
-          "name": "KURUDUMALE, Yashwin Srinivasa",
-          "pair_number": 21,
-          "id1": "31916152",
-          "rating": 857,
-          "rating2": 818,
-          "exp1": "10/31/2026",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            1,
-            3,
-            0,
-            0,
-            1
-          ],
-          "results": [
-            "L",
-            "L",
-            " "
-          ],
-          "colors": [
-            "B",
-            "W",
-            "W"
-          ],
-          "ops": [
-            8,
-            14,
-            15
-          ],
-          "boards": [
-            16,
-            18,
-            20
-          ],
-          "cumulatives": [
-            0,
-            0,
-            0
-          ],
-          "score": 0,
-          "place": "23-28",
-          "post_tiebreak_place": "23-25"
-        },
-        {
-          "name": "VALVANI, Avyaan Ram",
-          "pair_number": 22,
-          "id1": "30249208",
-          "rating": 844,
-          "rating2": 771,
-          "exp1": "10/31/2027",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            0,
-            1,
-            1,
-            0,
-            1
-          ],
-          "results": [
-            "L",
-            "W",
-            " "
-          ],
-          "colors": [
-            "W",
-            "B",
-            "B"
-          ],
-          "ops": [
-            9,
-            15,
-            14
-          ],
-          "boards": [
-            17,
-            19,
-            16
-          ],
-          "cumulatives": [
-            0,
-            1,
-            0
-          ],
-          "score": 1,
-          "place": "8-20",
-          "post_tiebreak_place": "19-20"
-        },
-        {
-          "name": "LIAN, Peter",
-          "pair_number": 23,
-          "id1": "32338161",
-          "rating": 814,
-          "rating2": 745,
-          "exp1": "03/31/2027",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            1,
-            2,
-            0,
-            0,
-            1
-          ],
-          "results": [
-            "L",
-            "L",
-            " "
-          ],
-          "colors": [
-            "B",
-            "W",
-            "W"
-          ],
-          "ops": [
-            10,
-            18,
-            19
-          ],
-          "boards": [
-            18,
-            21,
-            21
-          ],
-          "cumulatives": [
-            0,
-            0,
-            0
-          ],
-          "score": 0,
-          "place": "23-28",
-          "post_tiebreak_place": "26-28"
-        },
-        {
-          "name": "IYER, Rithvik",
-          "pair_number": 24,
-          "id1": "32010028",
-          "rating": 813,
-          "rating2": 786,
-          "exp1": "09/30/2027",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            0,
-            2,
-            2,
-            0,
-            1
-          ],
-          "results": [
-            "W",
-            "L",
-            " "
-          ],
-          "colors": [
-            "W",
-            "B",
-            "B"
-          ],
-          "ops": [
-            11,
-            7,
-            16
-          ],
-          "boards": [
-            19,
-            14,
-            17
-          ],
-          "cumulatives": [
-            1,
-            1,
-            0
-          ],
-          "score": 1,
-          "place": "8-20",
-          "post_tiebreak_place": "11-12"
-        },
-        {
-          "name": "SINGH, Arjun",
-          "pair_number": 25,
-          "id1": "32320964",
-          "rating": 808,
-          "rating2": 749,
-          "exp1": "02/29/2028",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            0.5,
-            1.5,
-            1,
-            0.5,
-            1
-          ],
-          "results": [
-            "D",
-            "L",
-            " "
-          ],
-          "colors": [
-            "B",
-            "W",
-            "B"
-          ],
-          "ops": [
-            12,
-            3,
-            11
-          ],
-          "boards": [
-            20,
-            16,
-            19
-          ],
-          "cumulatives": [
-            0.5,
-            0.5,
-            0
-          ],
-          "score": 0.5,
-          "place": "21-22",
-          "post_tiebreak_place": "22"
-        },
-        {
-          "name": "PILLAI, Arya",
-          "pair_number": 26,
-          "id1": "32062433",
-          "rating": 783,
-          "rating2": 722,
-          "exp1": "10/31/2026",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            1,
-            2,
-            0,
-            0,
-            1
-          ],
-          "results": [
-            "L",
-            "L",
-            "B"
-          ],
-          "colors": [
-            "W",
-            "B",
-            "-"
-          ],
-          "ops": [
-            13,
-            17,
-            0
-          ],
-          "boards": [
-            21,
-            20,
-            0
-          ],
-          "cumulatives": [
-            0,
-            0,
-            0
-          ],
-          "score": 0,
-          "place": "23-28",
-          "post_tiebreak_place": "26-28"
-        },
-        {
-          "name": "SUMESH, Immanuel Abraham",
-          "pair_number": 27,
-          "id1": "32496247",
-          "rating": 756,
-          "rating2": 710,
-          "exp1": "07/31/2027",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            0,
-            2,
-            1,
-            0,
-            1
-          ],
-          "results": [
-            "L",
-            "W",
-            " "
-          ],
-          "colors": [
-            "W",
-            "B",
-            "W"
-          ],
-          "ops": [
-            28,
-            19,
-            12
-          ],
-          "boards": [
-            22,
-            22,
-            18
-          ],
-          "cumulatives": [
-            0,
-            1,
-            0
-          ],
-          "score": 1,
-          "place": "8-20",
-          "post_tiebreak_place": "14-17"
-        },
-        {
-          "name": "HUSSEIN, Ali",
-          "pair_number": 28,
-          "id1": "32786440",
-          "rating": 736,
-          "rating2": 645,
-          "exp1": "12/31/2026",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-            1,
-            1.5,
-            3,
-            0,
-            1
-          ],
-          "results": [
-            "W",
-            "W",
-            " "
-          ],
-          "colors": [
-            "B",
-            "W",
-            "B"
-          ],
-          "ops": [
-            27,
-            12,
-            1
-          ],
-          "boards": [
-            22,
-            15,
-            12
-          ],
-          "cumulatives": [
-            1,
-            2,
-            0
-          ],
-          "score": 2,
-          "place": "1-7",
-          "post_tiebreak_place": "4"
-        }
-      ],
-      "clubs": [
-      ]
-    },
-    {
-      "section": "U800",
-      "rounds_paired": 4,
-      "rounds_played": 4,
-      "final_round": true,
-      "reportStatus": {
-        "kind": "final",
-        "roundsPlayed": 4,
-        "finalRound": 4,
-        "gamesRemaining": 0,
-        "prizesClinched": 0,
-        "prizesPending": 0,
-        "bannerText": "FINAL RESULTS"
-      },
-      "prizeAwards": [
-      ],
-      "pendingPrizes": [
-      ],
-      "standings": [
-        2,
-        15,
-        37,
-        8,
-        7,
-        5,
-        4,
-        33,
-        24,
-        40,
-        43,
-        22,
-        44,
-        1,
-        14,
-        35,
         20,
-        12,
-        16,
-        32,
-        18,
-        3,
         21,
-        13,
-        9,
-        27,
+        22,
+        23,
+        24,
+        25,
         26,
-        39,
-        42,
-        38,
-        11,
-        19,
-        6,
-        41,
-        23,
-        34,
-        10,
-        17,
-        36,
-        25,
-        31,
+        27,
+        28,
         29,
         30,
-        28
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
       ],
       "pairings": [
-        {
-          "white": 2,
-          "black": 7,
-          "board": 23
-        },
-        {
-          "white": 4,
-          "black": 15,
-          "board": 24
-        },
-        {
-          "white": 24,
-          "black": 37,
-          "board": 25
-        },
-        {
-          "white": 5,
-          "black": 1,
-          "board": 26
-        },
-        {
-          "white": 22,
-          "black": 3,
-          "board": 27
-        },
-        {
-          "white": 32,
-          "black": 8,
-          "board": 28
-        },
-        {
-          "white": 9,
-          "black": 40,
-          "board": 29
-        },
-        {
-          "white": 13,
-          "black": 44,
-          "board": 30
-        },
-        {
-          "white": 43,
-          "black": 18,
-          "board": 31
-        },
-        {
-          "white": 33,
-          "black": 20,
-          "board": 32
-        },
-        {
-          "white": 11,
-          "black": 14,
-          "board": 33
-        },
-        {
-          "white": 35,
-          "black": 42,
-          "board": 34
-        },
-        {
-          "white": 26,
-          "black": 6,
-          "board": 35
-        },
-        {
-          "white": 27,
-          "black": 10,
-          "board": 36
-        },
-        {
-          "white": 34,
-          "black": 12,
-          "board": 37
-        },
-        {
-          "white": 41,
-          "black": 16,
-          "board": 38
-        },
-        {
-          "white": 19,
-          "black": 38,
-          "board": 39
-        },
-        {
-          "white": 21,
-          "black": 36,
-          "board": 40
-        },
-        {
-          "white": 39,
-          "black": 25,
-          "board": 41
-        },
-        {
-          "white": 17,
-          "black": 29,
-          "board": 42
-        },
-        {
-          "white": 30,
-          "black": 23,
-          "board": 43
-        },
-        {
-          "white": 28,
-          "black": 31,
-          "board": 44
-        }
       ],
       "tiebreaks": [
-        "Mod. Med",
-        "Solk",
-        "Cumul.",
-        "1-on-1",
-        "BPG"
       ],
       "team_tiebreaks": [
       ],
       "players": [
         {
-          "name": "SHAIK, Mohammad Kashif",
+          "name": "Bhatia, Tia",
           "pair_number": 1,
-          "id1": "33108081",
-          "rating": 759,
-          "rating2": 732,
-          "exp1": "04/30/2027",
+          "id1": "31536539",
+          "rating": 1154,
+          "rating2": 0,
+          "exp1": "2026-12-31",
+          "club": "Booster",
+          "team": "BHATIA",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            10,
-            12,
-            7.5,
-            0,
-            2
           ],
           "results": [
-            "W",
-            "W",
-            "L",
-            "D"
           ],
           "colors": [
-            "W",
-            "B",
-            "W",
-            "B"
           ],
           "ops": [
-            22,
-            21,
-            15,
-            5
           ],
           "boards": [
-            23,
-            23,
-            23,
-            26
           ],
           "cumulatives": [
-            1,
-            2,
-            2,
-            2.5
           ],
-          "score": 2.5,
-          "place": "14-16",
-          "post_tiebreak_place": "14"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "JIMENEZ, Iker",
+          "name": "Ray, Cornelius",
           "pair_number": 2,
-          "id1": "31550774",
-          "rating": 752,
-          "rating2": 723,
-          "exp1": "09/30/2026",
+          "id1": "31495256",
+          "rating": 1146,
+          "rating2": 0,
+          "exp1": "2026-10-31",
+          "club": "Booster",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            8,
-            9,
-            10,
-            0,
-            2
           ],
           "results": [
-            "W",
-            "W",
-            "W",
-            "W"
           ],
           "colors": [
-            "B",
-            "W",
-            "B",
-            "W"
           ],
           "ops": [
-            23,
-            16,
-            8,
-            7
           ],
           "boards": [
-            24,
-            24,
-            24,
-            23
           ],
           "cumulatives": [
-            1,
-            2,
-            3,
-            4
           ],
-          "score": 4,
-          "place": "1-2",
-          "post_tiebreak_place": "1"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "SONDKAR, Akshita",
+          "name": "Kornacki, Michael",
           "pair_number": 3,
-          "id1": "32577950",
-          "rating": 749,
-          "rating2": 455,
-          "exp1": "09/30/2026",
+          "id1": "32475655",
+          "rating": 1144,
+          "rating2": 0,
+          "exp1": "2028-07-31",
+          "club": "Booster",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            5,
-            8,
-            5,
-            0,
-            2
           ],
           "results": [
-            "L",
-            "W",
-            "W",
-            "L"
           ],
           "colors": [
-            "W",
-            "B",
-            "W",
-            "B"
           ],
           "ops": [
-            24,
-            29,
-            21,
-            22
           ],
           "boards": [
-            25,
-            34,
-            29,
-            27
           ],
           "cumulatives": [
-            0,
-            1,
-            2,
-            2
           ],
-          "score": 2,
-          "place": "17-28",
-          "post_tiebreak_place": "22"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "DEVISETTI, Nishant",
+          "name": "Kusky, Zion",
           "pair_number": 4,
-          "id1": "32603000",
-          "rating": 747,
-          "rating2": 720,
-          "exp1": "10/31/2026",
+          "id1": "32273538",
+          "rating": 1060,
+          "rating2": 0,
+          "exp1": "2027-02-28",
+          "club": "Booster",
+          "team": "KUSKY",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            8,
-            9,
-            9,
-            0,
-            2
           ],
           "results": [
-            "W",
-            "W",
-            "W",
-            "L"
           ],
           "colors": [
-            "B",
-            "W",
-            "B",
-            "W"
           ],
           "ops": [
-            25,
-            18,
-            32,
-            15
           ],
           "boards": [
-            26,
-            25,
-            25,
-            24
           ],
           "cumulatives": [
-            1,
-            2,
-            3,
-            3
           ],
-          "score": 3,
-          "place": "4-13",
-          "post_tiebreak_place": "7"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "GARCIA, Addison",
+          "name": "Varunjikar, Ishaan",
           "pair_number": 5,
-          "id1": "32576361",
-          "rating": 692,
-          "rating2": 605,
-          "exp1": "09/30/2026",
+          "id1": "32385201",
+          "rating": 1019,
+          "rating2": 0,
+          "exp1": "2027-03-31",
+          "club": "Booster",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            8,
-            9.5,
-            8.5,
-            0,
-            2
           ],
           "results": [
-            "W",
-            "W",
-            "D",
-            "D"
           ],
           "colors": [
-            "B",
-            "W",
-            "B",
-            "W"
           ],
           "ops": [
-            27,
-            20,
-            37,
-            1
           ],
           "boards": [
-            28,
-            26,
-            26,
-            26
           ],
           "cumulatives": [
-            1,
-            2,
-            2.5,
-            3
           ],
-          "score": 3,
-          "place": "4-13",
-          "post_tiebreak_place": "6"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "VERDUGO, Emmanuel",
+          "name": "Komline, Paul",
           "pair_number": 6,
-          "id1": "32803517",
-          "rating": 690,
-          "rating2": 596,
-          "exp1": "01/31/2027",
+          "id1": "31706588",
+          "rating": 1013,
+          "rating2": 0,
+          "exp1": "2027-02-28",
+          "club": "Booster",
+          "team": "KOMLINE",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            5,
-            8,
-            4,
-            0,
-            2
           ],
           "results": [
-            "W",
-            "L",
-            "L",
-            "L"
           ],
           "colors": [
-            "W",
-            "B",
-            "W",
-            "B"
           ],
           "ops": [
-            28,
-            24,
-            22,
-            26
           ],
           "boards": [
-            29,
-            27,
-            30,
-            35
           ],
           "cumulatives": [
-            1,
-            1,
-            1,
-            1
           ],
-          "score": 1,
-          "place": "33-41",
-          "post_tiebreak_place": "33"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "YADAV, Ayansh",
+          "name": "Komline, Kenneth",
           "pair_number": 7,
-          "id1": "32282621",
-          "rating": 638,
-          "rating2": 631,
-          "exp1": "02/28/2027",
+          "id1": "31706550",
+          "rating": 1005,
+          "rating2": 0,
+          "exp1": "2027-02-28",
+          "club": "Booster",
+          "team": "KOMLINE",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            9,
-            9,
-            9,
-            0,
-            3
           ],
           "results": [
-            "W",
-            "W",
-            "W",
-            "L"
           ],
           "colors": [
-            "B",
-            "W",
-            "B",
-            "B"
           ],
           "ops": [
-            29,
-            26,
-            40,
-            2
           ],
           "boards": [
-            30,
-            28,
-            27,
-            23
           ],
           "cumulatives": [
-            1,
-            2,
-            3,
-            3
           ],
-          "score": 3,
-          "place": "4-13",
-          "post_tiebreak_place": "5"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "KRISHNAKUMAR, Sanjay",
+          "name": "Li, Henry",
           "pair_number": 8,
-          "id1": "30421767",
-          "rating": 634,
-          "rating2": 584,
-          "exp1": "04/30/2027",
+          "id1": "32124806",
+          "rating": 1001,
+          "rating2": 0,
+          "exp1": "2026-12-31",
+          "club": "Booster",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            9,
-            10,
-            8,
-            0,
-            2
           ],
           "results": [
-            "W",
-            "W",
-            "L",
-            "W"
           ],
           "colors": [
-            "W",
-            "B",
-            "W",
-            "B"
           ],
           "ops": [
-            31,
-            33,
-            2,
-            32
           ],
           "boards": [
-            31,
-            29,
-            24,
-            28
           ],
           "cumulatives": [
-            1,
-            2,
-            2,
-            3
           ],
-          "score": 3,
-          "place": "4-13",
-          "post_tiebreak_place": "4"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "ADAMBARAGE DE ALWIS, Kaushi Yashodha",
+          "name": "Mogalluri, Eswar",
           "pair_number": 9,
-          "id1": "32586189",
-          "rating": 624,
-          "rating2": 587,
-          "exp1": "09/30/2026",
+          "id1": "32688226",
+          "rating": 967,
+          "rating2": 0,
+          "exp1": "2026-11-30",
+          "club": "Booster",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            4,
-            7,
-            5,
-            0,
-            2
           ],
           "results": [
-            "L",
-            "W",
-            "W",
-            "L"
           ],
           "colors": [
-            "B",
-            "W",
-            "B",
-            "W"
           ],
           "ops": [
-            32,
-            30,
-            26,
-            40
           ],
           "boards": [
-            32,
-            35,
-            31,
-            29
           ],
           "cumulatives": [
-            0,
-            1,
-            2,
-            2
           ],
-          "score": 2,
-          "place": "17-28",
-          "post_tiebreak_place": "25"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "TARALUNGA, Alexandru Sebastian",
+          "name": "Bansod, Saish",
           "pair_number": 10,
-          "id1": "33136990",
-          "rating": 607,
-          "rating2": 586,
-          "exp1": "05/31/2027",
+          "id1": "32111855",
+          "rating": 909,
+          "rating2": 0,
+          "exp1": "2027-04-30",
+          "club": "Booster",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            4,
-            7,
-            3,
-            0,
-            1
           ],
           "results": [
-            "L",
-            "W",
-            "L",
-            "F"
           ],
           "colors": [
-            "W",
-            "B",
-            "W",
-            "-"
           ],
           "ops": [
-            33,
-            31,
-            24,
-            27
           ],
           "boards": [
-            33,
-            36,
-            28,
-            36
           ],
           "cumulatives": [
-            0,
-            1,
-            1,
-            1
           ],
-          "score": 1,
-          "place": "33-41",
-          "post_tiebreak_place": "37"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "GARCIA, Aiden",
+          "name": "Bhatia, Rhythm",
           "pair_number": 11,
-          "id1": "32576340",
-          "rating": 581,
-          "rating2": 563,
-          "exp1": "09/30/2026",
+          "id1": "31209420",
+          "rating": 878,
+          "rating2": 0,
+          "exp1": "2027-05-31",
+          "club": "Booster",
+          "team": "BHATIA",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            4.5,
-            7,
-            5,
-            0,
-            2
           ],
           "results": [
-            "W",
-            "L",
-            "D",
-            "L"
           ],
           "colors": [
-            "B",
-            "W",
-            "B",
-            "W"
           ],
           "ops": [
-            34,
-            32,
-            42,
-            14
           ],
           "boards": [
-            34,
-            30,
-            32,
-            33
           ],
           "cumulatives": [
-            1,
-            1,
-            1.5,
-            1.5
           ],
-          "score": 1.5,
-          "place": "29-32",
-          "post_tiebreak_place": "31"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "BATHULA, Drithi Reddy",
+          "name": "Hoerlein, Benjamin",
           "pair_number": 12,
-          "id1": "32330896",
-          "rating": 575,
-          "rating2": 557,
-          "exp1": "03/31/2028",
+          "id1": "32316237",
+          "rating": 840,
+          "rating2": 0,
+          "exp1": "2027-02-28",
+          "club": "Booster",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            5.5,
-            10,
-            5,
-            0,
-            2
           ],
           "results": [
-            "W",
-            "L",
-            "L",
-            "W"
           ],
           "colors": [
-            "W",
-            "B",
-            "W",
-            "B"
           ],
           "ops": [
-            35,
-            37,
-            33,
-            34
           ],
           "boards": [
-            35,
-            31,
-            33,
-            37
           ],
           "cumulatives": [
-            1,
-            1,
-            1,
-            2
           ],
-          "score": 2,
-          "place": "17-28",
-          "post_tiebreak_place": "18"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "LOGARATHINAM, Varunkrishna",
+          "name": "Joshi, Shriya",
           "pair_number": 13,
-          "id1": "32695970",
-          "rating": 572,
-          "rating2": 563,
-          "exp1": "11/30/2026",
+          "id1": "30272870",
+          "rating": 837,
+          "rating2": 0,
+          "exp1": "2026-09-30",
+          "club": "Booster",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            4,
-            8,
-            6,
-            0,
-            2
           ],
           "results": [
-            "W",
-            "L",
-            "W",
-            "L"
           ],
           "colors": [
-            "B",
-            "W",
-            "B",
-            "W"
           ],
           "ops": [
-            36,
-            40,
-            34,
-            44
           ],
           "boards": [
-            36,
-            32,
-            34,
-            30
           ],
           "cumulatives": [
-            1,
-            1,
-            2,
-            2
           ],
-          "score": 2,
-          "place": "17-28",
-          "post_tiebreak_place": "24"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "ROJO, Deion",
+          "name": "Van Buren, James",
           "pair_number": 14,
-          "id1": "32576230",
-          "rating": 560,
-          "rating2": 529,
-          "exp1": "09/30/2026",
+          "id1": "30831959",
+          "rating": 820,
+          "rating2": 0,
+          "exp1": "2026-11-30",
+          "club": "Booster",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            7.5,
-            8.5,
-            4.5,
-            0,
-            2
           ],
           "results": [
-            "L",
-            "D",
-            "W",
-            "W"
           ],
           "colors": [
-            "W",
-            "B",
-            "W",
-            "B"
           ],
           "ops": [
-            37,
-            35,
-            17,
-            11
           ],
           "boards": [
-            37,
-            37,
-            39,
-            33
           ],
           "cumulatives": [
-            0,
-            0.5,
-            1.5,
-            2.5
           ],
-          "score": 2.5,
-          "place": "14-16",
-          "post_tiebreak_place": "15"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "MAZON, Axel",
+          "name": "Pieniadz, Noah",
           "pair_number": 15,
-          "id1": "33070778",
-          "rating": 558,
-          "rating2": 535,
-          "exp1": "04/30/2027",
+          "id1": "32549885",
+          "rating": 818,
+          "rating2": 0,
+          "exp1": "2028-08-31",
+          "club": "Booster",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            7,
-            8.5,
-            10,
-            0,
-            3
           ],
           "results": [
-            "W",
-            "W",
-            "W",
-            "W"
           ],
           "colors": [
-            "B",
-            "W",
-            "B",
-            "B"
           ],
           "ops": [
-            38,
-            42,
-            1,
-            4
           ],
           "boards": [
-            38,
-            33,
-            23,
-            24
           ],
           "cumulatives": [
-            1,
-            2,
-            3,
-            4
           ],
-          "score": 4,
-          "place": "1-2",
-          "post_tiebreak_place": "2"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "SUNDARA RAJAN, Iniya",
+          "name": "Townsend, Genevieve",
           "pair_number": 16,
-          "id1": "32198515",
-          "rating": 546,
-          "rating2": 512,
-          "exp1": "12/31/2026",
+          "id1": "32516370",
+          "rating": 785,
+          "rating2": 0,
+          "exp1": "2028-07-31",
+          "club": "Booster",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            5,
-            10,
-            5,
-            0,
-            2
           ],
           "results": [
-            "W",
-            "L",
-            "L",
-            "W"
           ],
           "colors": [
-            "W",
-            "B",
-            "W",
-            "B"
           ],
           "ops": [
-            39,
-            2,
-            43,
-            41
           ],
           "boards": [
-            39,
-            24,
-            35,
-            38
           ],
           "cumulatives": [
-            1,
-            1,
-            1,
-            2
           ],
-          "score": 2,
-          "place": "17-28",
-          "post_tiebreak_place": "19"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "LIN, Jolie Jiayi",
+          "name": "Prabu, Arjun",
           "pair_number": 17,
-          "id1": "31676757",
-          "rating": 510,
-          "rating2": 494,
-          "exp1": "02/28/2029",
+          "id1": "32660190",
+          "rating": 778,
+          "rating2": 0,
+          "exp1": "2028-01-31",
+          "club": "Booster",
+          "team": "PRABU",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            3.5,
-            6.5,
-            1,
-            0,
-            2
           ],
           "results": [
-            "L",
-            "L",
-            "L",
-            "W"
           ],
           "colors": [
-            "B",
-            "W",
-            "B",
-            "W"
           ],
           "ops": [
-            40,
-            34,
-            14,
-            29
           ],
           "boards": [
-            40,
-            38,
-            39,
-            42
           ],
           "cumulatives": [
-            0,
-            0,
-            0,
-            1
           ],
-          "score": 1,
-          "place": "33-41",
-          "post_tiebreak_place": "38"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "SHANKAR, Hakshay",
+          "name": "Garg, Yuveen",
           "pair_number": 18,
-          "id1": "32116073",
-          "rating": 492,
-          "rating2": 470,
-          "exp1": "07/31/2027",
+          "id1": "31497426",
+          "rating": 767,
+          "rating2": 0,
+          "exp1": "2027-10-31",
+          "club": "Booster",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            5,
-            9,
-            6,
-            0,
-            2
           ],
           "results": [
-            "W",
-            "L",
-            "W",
-            "L"
           ],
           "colors": [
-            "W",
-            "B",
-            "W",
-            "B"
           ],
           "ops": [
-            41,
-            4,
-            39,
-            43
           ],
           "boards": [
-            41,
-            25,
-            36,
-            31
           ],
           "cumulatives": [
-            1,
-            1,
-            2,
-            2
           ],
-          "score": 2,
-          "place": "17-28",
-          "post_tiebreak_place": "21"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "RAWLAPALLY, Vihaan Reddy",
+          "name": "Mazon, Axel",
           "pair_number": 19,
-          "id1": "33059802",
-          "rating": 481,
-          "rating2": 462,
-          "exp1": "03/31/2027",
+          "id1": "33070778",
+          "rating": 764,
+          "rating2": 0,
+          "exp1": "2027-04-30",
+          "club": "Booster",
+          "team": "FITE",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            4,
-            7,
-            3.5,
-            0,
-            2
           ],
           "results": [
-            "L",
-            "W",
-            "L",
-            "D"
           ],
           "colors": [
-            "B",
-            "W",
-            "B",
-            "W"
           ],
           "ops": [
-            42,
-            36,
-            44,
-            38
           ],
           "boards": [
-            42,
-            39,
-            37,
-            39
           ],
           "cumulatives": [
-            0,
-            1,
-            1,
-            1.5
           ],
-          "score": 1.5,
-          "place": "29-32",
-          "post_tiebreak_place": "32"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "AUSTIN, Kasey",
+          "name": "Yadav, Ayansh",
           "pair_number": 20,
-          "id1": "32120989",
-          "rating": 455,
-          "rating2": 482,
-          "exp1": "12/31/2026",
+          "id1": "32282621",
+          "rating": 747,
+          "rating2": 0,
+          "exp1": "2027-02-28",
+          "club": "Booster",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            6,
-            10,
-            6,
-            0,
-            2
           ],
           "results": [
-            "W",
-            "L",
-            "W",
-            "L"
           ],
           "colors": [
-            "W",
-            "B",
-            "W",
-            "B"
           ],
           "ops": [
-            43,
-            5,
-            41,
-            33
           ],
           "boards": [
-            43,
-            26,
-            38,
-            32
           ],
           "cumulatives": [
-            1,
-            1,
-            2,
-            2
           ],
-          "score": 2,
-          "place": "17-28",
-          "post_tiebreak_place": "17"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "RAJA, Likhil Reddy",
+          "name": "Garcia, Addison",
           "pair_number": 21,
-          "id1": "32512052",
-          "rating": 452,
-          "rating2": 433,
-          "exp1": "07/31/2028",
+          "id1": "32576361",
+          "rating": 739,
+          "rating2": 0,
+          "exp1": "2026-09-30",
+          "club": "Booster",
+          "team": "FITE",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            4.5,
-            8.5,
-            5,
-            0,
-            2
           ],
           "results": [
-            "W",
-            "L",
-            "L",
-            "W"
           ],
           "colors": [
-            "B",
-            "W",
-            "B",
-            "W"
           ],
           "ops": [
-            44,
-            1,
-            3,
-            36
           ],
           "boards": [
-            44,
-            23,
-            29,
-            40
           ],
           "cumulatives": [
-            1,
-            1,
-            1,
-            2
           ],
-          "score": 2,
-          "place": "17-28",
-          "post_tiebreak_place": "23"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "KIM, Soeun",
+          "name": "Peterman, Caden",
           "pair_number": 22,
-          "id1": "32154557",
-          "rating": 401,
-          "rating2": 379,
-          "exp1": "01/31/2027",
+          "id1": "33136248",
+          "rating": 737,
+          "rating2": 0,
+          "exp1": "2028-05-31",
+          "club": "Booster",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
+          "byes": "5",
           "tiebreaks": [
-            6,
-            7,
-            6,
-            0,
-            2
           ],
           "results": [
-            "L",
-            "W",
-            "W",
-            "W"
           ],
           "colors": [
-            "B",
-            "W",
-            "B",
-            "W"
           ],
           "ops": [
-            1,
-            38,
-            6,
-            3
           ],
           "boards": [
-            23,
-            40,
-            30,
-            27
           ],
           "cumulatives": [
-            0,
-            1,
-            2,
-            3
           ],
-          "score": 3,
-          "place": "4-13",
-          "post_tiebreak_place": "12"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "KHEDKAR, Ronit R",
+          "name": "Singh, Shaarav",
           "pair_number": 23,
-          "id1": "32663419",
-          "rating": 397,
-          "rating2": 385,
-          "exp1": "11/30/2026",
+          "id1": "32330854",
+          "rating": 728,
+          "rating2": 0,
+          "exp1": "2027-08-31",
+          "club": "Booster",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            4.5,
-            8.5,
-            1,
-            0,
-            2
           ],
           "results": [
-            "L",
-            "L",
-            "L",
-            "W"
           ],
           "colors": [
-            "W",
-            "B",
-            "W",
-            "B"
           ],
           "ops": [
-            2,
-            39,
-            35,
-            30
           ],
           "boards": [
-            24,
-            41,
-            40,
-            43
           ],
           "cumulatives": [
-            0,
-            0,
-            0,
-            1
           ],
-          "score": 1,
-          "place": "33-41",
-          "post_tiebreak_place": "35"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "RAHANGDALE, Praveer Sharma",
+          "name": "Daniels, Drew",
           "pair_number": 24,
-          "id1": "31810779",
-          "rating": 384,
-          "rating2": 368,
-          "exp1": "01/31/2027",
+          "id1": "32153275",
+          "rating": 725,
+          "rating2": 0,
+          "exp1": "2027-01-31",
+          "club": "Booster",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            7,
-            8,
-            9,
-            0,
-            2
           ],
           "results": [
-            "W",
-            "W",
-            "W",
-            "L"
           ],
           "colors": [
-            "B",
-            "W",
-            "B",
-            "W"
           ],
           "ops": [
-            3,
-            6,
-            10,
-            37
           ],
           "boards": [
-            25,
-            27,
-            28,
-            25
           ],
           "cumulatives": [
-            1,
-            2,
-            3,
-            3
           ],
-          "score": 3,
-          "place": "4-13",
-          "post_tiebreak_place": "9"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "POTRAPALLI, Aanya",
+          "name": "Zhang, Hanrui",
           "pair_number": 25,
-          "id1": "32626048",
-          "rating": 333,
-          "rating2": 311,
-          "exp1": "10/31/2026",
+          "id1": "32675229",
+          "rating": 682,
+          "rating2": 0,
+          "exp1": "2026-11-30",
+          "club": "Booster",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            3,
-            6,
-            2,
-            0,
-            2
           ],
           "results": [
-            "L",
-            "L",
-            "W",
-            "L"
           ],
           "colors": [
-            "W",
-            "B",
-            "W",
-            "B"
           ],
           "ops": [
-            4,
-            41,
-            30,
-            39
           ],
           "boards": [
-            26,
-            42,
-            41,
-            41
           ],
           "cumulatives": [
-            0,
-            0,
-            1,
-            1
           ],
-          "score": 1,
-          "place": "33-41",
-          "post_tiebreak_place": "40"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "IMMADI, Shivansh",
+          "name": "Dacharaju, Anika",
           "pair_number": 26,
-          "id1": "32835837",
-          "rating": 329,
-          "rating2": 308,
-          "exp1": "01/31/2027",
+          "id1": "32299479",
+          "rating": 679,
+          "rating2": 0,
+          "exp1": "2028-03-31",
+          "club": "Booster",
+          "team": "DACHA",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            3,
-            6,
-            5,
-            0,
-            2
           ],
           "results": [
-            "W",
-            "L",
-            "L",
-            "W"
           ],
           "colors": [
-            "B",
-            "B",
-            "W",
-            "W"
           ],
           "ops": [
-            30,
-            7,
-            9,
-            6
           ],
           "boards": [
-            27,
-            28,
-            31,
-            35
           ],
           "cumulatives": [
-            1,
-            1,
-            1,
-            2
           ],
-          "score": 2,
-          "place": "17-28",
-          "post_tiebreak_place": "27"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "NAGATHAN, Aksh",
+          "name": "Barua, Dhruv",
           "pair_number": 27,
-          "id1": "32825566",
-          "rating": 322,
-          "rating2": 345,
-          "exp1": "01/31/2027",
+          "id1": "32027435",
+          "rating": 674,
+          "rating2": 0,
+          "exp1": "2027-09-30",
+          "club": "Booster",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            4,
-            7,
-            2,
-            0,
-            1
           ],
           "results": [
-            "L",
-            "L",
-            "W",
-            "X"
           ],
           "colors": [
-            "W",
-            "B",
-            "W",
-            "-"
           ],
           "ops": [
-            5,
-            43,
-            31,
-            10
           ],
           "boards": [
-            28,
-            43,
-            42,
-            36
           ],
           "cumulatives": [
-            0,
-            0,
-            1,
-            2
           ],
-          "score": 2,
-          "place": "17-28",
-          "post_tiebreak_place": "26"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "ZOLNOR, Jude",
+          "name": "Harris, Lawrence",
           "pair_number": 28,
-          "id1": "30960823",
-          "rating": 259,
-          "rating2": 253,
-          "exp1": "01/31/2027",
-          "state": "OH",
-          "org1": "USCF",
-          "org2": "USCF",
+          "id1": "32133138",
+          "rating": 657,
+          "rating2": 0,
+          "exp1": "2026-11-30",
+          "club": "Booster",
+          "state": "MI",
           "class": " ",
           "tiebreaks": [
-            3,
-            6,
-            0,
-            0,
-            2
           ],
           "results": [
-            "L",
-            "L",
-            "L",
-            "L"
           ],
           "colors": [
-            "B",
-            "W",
-            "B",
-            "W"
           ],
           "ops": [
-            6,
-            44,
-            36,
-            31
           ],
           "boards": [
-            29,
-            44,
-            43,
-            44
           ],
           "cumulatives": [
-            0,
-            0,
-            0,
-            0
           ],
           "score": 0,
-          "place": "42-44",
-          "post_tiebreak_place": "44"
+          "place": "1-52"
         },
         {
-          "name": "CELESTIN, Patrick",
+          "name": "Sundara Rajan, Iniya",
           "pair_number": 29,
-          "id1": "33190677",
-          "rating": 215,
-          "rating2": 196,
-          "exp1": "07/31/2027",
-          "org1": "USCF",
-          "org2": "USCF",
+          "id1": "32198515",
+          "rating": 654,
+          "rating2": 0,
+          "exp1": "2026-12-31",
+          "club": "Booster",
+          "state": "MI",
           "class": " ",
           "tiebreaks": [
-            4.5,
-            7.5,
-            0,
-            0,
-            2
           ],
           "results": [
-            "L",
-            "L",
-            "L",
-            "L"
           ],
           "colors": [
-            "W",
-            "W",
-            "B",
-            "B"
           ],
           "ops": [
-            7,
-            3,
-            38,
-            17
           ],
           "boards": [
-            30,
-            34,
-            44,
-            42
           ],
           "cumulatives": [
-            0,
-            0,
-            0,
-            0
           ],
           "score": 0,
-          "place": "42-44",
-          "post_tiebreak_place": "42"
+          "place": "1-52"
         },
         {
-          "name": "KUMARI, Kashwini",
+          "name": "Sathish, Dhanvanth",
           "pair_number": 30,
-          "id1": "32808861",
-          "rating": 104,
-          "rating2": 104,
-          "exp1": "01/31/2027",
+          "id1": "32885062",
+          "rating": 646,
+          "rating2": 0,
+          "exp1": "2027-02-28",
+          "club": "Booster",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            4,
-            6,
-            0,
-            0,
-            2
           ],
           "results": [
-            "L",
-            "L",
-            "L",
-            "L"
           ],
           "colors": [
-            "W",
-            "B",
-            "B",
-            "W"
           ],
           "ops": [
-            26,
-            9,
-            25,
-            23
           ],
           "boards": [
-            27,
-            35,
-            41,
-            43
           ],
           "cumulatives": [
-            0,
-            0,
-            0,
-            0
           ],
           "score": 0,
-          "place": "42-44",
-          "post_tiebreak_place": "43"
+          "place": "1-52"
         },
         {
-          "name": "SATHRI, Smyan Joshua",
+          "name": "Jolly, Kaydin",
           "pair_number": 31,
-          "id1": "33208316",
-          "rating": 0,
+          "id1": "32790149",
+          "rating": 642,
           "rating2": 0,
-          "exp1": "07/31/2027",
+          "exp1": "2027-01-31",
+          "club": "Booster",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            3,
-            6,
-            1,
-            0,
-            3
           ],
           "results": [
-            "L",
-            "L",
-            "L",
-            "W"
           ],
           "colors": [
-            "B",
-            "W",
-            "B",
-            "B"
           ],
           "ops": [
-            8,
-            10,
-            27,
-            28
           ],
           "boards": [
-            31,
-            36,
-            42,
-            44
           ],
           "cumulatives": [
-            0,
-            0,
-            0,
-            1
           ],
-          "score": 1,
-          "place": "33-41",
-          "post_tiebreak_place": "41"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "KOHN, Oliver Robert",
+          "name": "Nagolu, Krishna",
           "pair_number": 32,
-          "id1": "33222541",
-          "rating": 0,
+          "id1": "32338174",
+          "rating": 629,
           "rating2": 0,
-          "exp1": "08/31/2027",
+          "exp1": "2028-02-29",
+          "club": "Booster",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            5,
-            9.5,
-            7,
-            0,
-            1
           ],
           "results": [
-            "W",
-            "W",
-            "L",
-            "L"
           ],
           "colors": [
-            "W",
-            "B",
-            "W",
-            "W"
           ],
           "ops": [
-            9,
-            11,
-            4,
-            8
           ],
           "boards": [
-            32,
-            30,
-            25,
-            28
           ],
           "cumulatives": [
-            1,
-            2,
-            2,
-            2
           ],
-          "score": 2,
-          "place": "17-28",
-          "post_tiebreak_place": "20"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "ZOU, Qi Fan",
+          "name": "Rojo, Deion",
           "pair_number": 33,
-          "id1": "32644773",
-          "rating": 0,
+          "id1": "32576230",
+          "rating": 622,
           "rating2": 0,
-          "exp1": "10/31/2026",
+          "exp1": "2026-09-30",
+          "club": "Booster",
+          "team": "FITE",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            7,
-            8.5,
-            7,
-            0,
-            2
           ],
           "results": [
-            "W",
-            "L",
-            "W",
-            "W"
           ],
           "colors": [
-            "B",
-            "W",
-            "B",
-            "W"
           ],
           "ops": [
-            10,
-            8,
-            12,
-            20
           ],
           "boards": [
-            33,
-            29,
-            33,
-            32
           ],
           "cumulatives": [
-            1,
-            1,
-            2,
-            3
           ],
-          "score": 3,
-          "place": "4-13",
-          "post_tiebreak_place": "8"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "MARISELVAN, Vidhul",
+          "name": "Verdugo, Emmanuel",
           "pair_number": 34,
-          "id1": "33193841",
-          "rating": 0,
+          "id1": "32803517",
+          "rating": 611,
           "rating2": 0,
-          "exp1": "07/31/2027",
+          "exp1": "2027-01-31",
+          "club": "Booster",
+          "team": "FITE",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            4.5,
-            6.5,
-            3,
-            0,
-            1
           ],
           "results": [
-            "L",
-            "W",
-            "L",
-            "L"
           ],
           "colors": [
-            "W",
-            "B",
-            "W",
-            "W"
           ],
           "ops": [
-            11,
-            17,
-            13,
-            12
           ],
           "boards": [
-            34,
-            38,
-            34,
-            37
           ],
           "cumulatives": [
-            0,
-            1,
-            1,
-            1
           ],
-          "score": 1,
-          "place": "33-41",
-          "post_tiebreak_place": "36"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "BALAJI NAGA, Sashireghaa",
+          "name": "Kusky, Dan",
           "pair_number": 35,
-          "id1": "33201814",
-          "rating": 0,
+          "id1": "32457915",
+          "rating": 591,
           "rating2": 0,
-          "exp1": "07/31/2027",
+          "exp1": "2027-06-30",
+          "club": "Booster",
+          "team": "KUSKY",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            6,
-            7,
-            4.5,
-            0,
-            2
           ],
           "results": [
-            "L",
-            "D",
-            "W",
-            "W"
           ],
           "colors": [
-            "B",
-            "W",
-            "B",
-            "W"
           ],
           "ops": [
-            12,
-            14,
-            23,
-            42
           ],
           "boards": [
-            35,
-            37,
-            40,
-            34
           ],
           "cumulatives": [
-            0,
-            0.5,
-            1.5,
-            2.5
           ],
-          "score": 2.5,
-          "place": "14-16",
-          "post_tiebreak_place": "16"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "LING, Leon",
+          "name": "Adambarage De Alwia, Kaushi",
           "pair_number": 36,
-          "id1": "33209278",
-          "rating": 0,
+          "id1": "32586189",
+          "rating": 580,
           "rating2": 0,
-          "exp1": "07/31/2027",
-          "org1": "USCF",
-          "org2": "USCF",
+          "exp1": "2026-09-30",
+          "club": "Booster",
+          "team": "FITE",
+          "state": "MI",
           "class": " ",
           "tiebreaks": [
-            3.5,
-            5.5,
-            2,
-            0,
-            2
           ],
           "results": [
-            "L",
-            "L",
-            "W",
-            "L"
           ],
           "colors": [
-            "W",
-            "B",
-            "W",
-            "B"
           ],
           "ops": [
-            13,
-            19,
-            28,
-            21
           ],
           "boards": [
-            36,
-            39,
-            43,
-            40
           ],
           "cumulatives": [
-            0,
-            0,
-            1,
-            1
           ],
-          "score": 1,
-          "place": "33-41",
-          "post_tiebreak_place": "39"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "EKBLAD, Jackson",
+          "name": "Vasa, Avyukthram",
           "pair_number": 37,
-          "id1": "31687809",
-          "rating": 0,
+          "id1": "32562088",
+          "rating": 547,
           "rating2": 0,
-          "exp1": "05/31/2027",
+          "exp1": "2026-09-30",
+          "club": "Booster",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            8.5,
-            10.5,
-            9,
-            0,
-            2
           ],
           "results": [
-            "W",
-            "W",
-            "D",
-            "W"
           ],
           "colors": [
-            "B",
-            "W",
-            "W",
-            "B"
           ],
           "ops": [
-            14,
-            12,
-            5,
-            24
           ],
           "boards": [
-            37,
-            31,
-            26,
-            25
           ],
           "cumulatives": [
-            1,
-            2,
-            2.5,
-            3.5
           ],
-          "score": 3.5,
-          "place": "3",
-          "post_tiebreak_place": "3"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "KONDAVEETI, Surya",
+          "name": "Garcia, Aiden",
           "pair_number": 38,
-          "id1": "33221423",
-          "rating": 0,
+          "id1": "32576340",
+          "rating": 538,
           "rating2": 0,
-          "exp1": "08/31/2027",
+          "exp1": "2026-09-30",
+          "club": "Booster",
+          "team": "FITE",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            4.5,
-            8.5,
-            2.5,
-            0,
-            2
           ],
           "results": [
-            "L",
-            "L",
-            "W",
-            "D"
           ],
           "colors": [
-            "W",
-            "B",
-            "W",
-            "B"
           ],
           "ops": [
-            15,
-            22,
-            29,
-            19
           ],
           "boards": [
-            38,
-            40,
-            44,
-            39
           ],
           "cumulatives": [
-            0,
-            0,
-            1,
-            1.5
           ],
-          "score": 1.5,
-          "place": "29-32",
-          "post_tiebreak_place": "30"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "SINGH JR, Advika",
+          "name": "Sotelo, Salvador",
           "pair_number": 39,
-          "id1": "33219224",
-          "rating": 0,
+          "id1": "32576291",
+          "rating": 522,
           "rating2": 0,
-          "exp1": "08/31/2027",
+          "exp1": "2027-09-30",
+          "club": "Booster",
+          "team": "FITE",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            3,
-            6,
-            4,
-            0,
-            2
           ],
           "results": [
-            "L",
-            "W",
-            "L",
-            "W"
           ],
           "colors": [
-            "B",
-            "W",
-            "B",
-            "W"
           ],
           "ops": [
-            16,
-            23,
-            18,
-            25
           ],
           "boards": [
-            39,
-            41,
-            36,
-            41
           ],
           "cumulatives": [
-            0,
-            1,
-            1,
-            2
           ],
-          "score": 2,
-          "place": "17-28",
-          "post_tiebreak_place": "28"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "RAMESH, Mythreyi",
+          "name": "Hopkins, Jeremiah",
           "pair_number": 40,
-          "id1": "32782588",
-          "rating": 0,
+          "id1": "32576191",
+          "rating": 479,
           "rating2": 0,
-          "exp1": "12/31/2026",
+          "exp1": "2026-09-30",
+          "club": "Booster",
+          "team": "FITE",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            7,
-            8,
-            8,
-            0,
-            2
           ],
           "results": [
-            "W",
-            "W",
-            "L",
-            "W"
           ],
           "colors": [
-            "W",
-            "B",
-            "W",
-            "B"
           ],
           "ops": [
-            17,
-            13,
-            7,
-            9
           ],
           "boards": [
-            40,
-            32,
-            27,
-            29
           ],
           "cumulatives": [
-            1,
-            2,
-            2,
-            3
           ],
-          "score": 3,
-          "place": "4-13",
-          "post_tiebreak_place": "10"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "VEKARIYA, Neev",
+          "name": "Taylor, Braylon",
           "pair_number": 41,
-          "id1": "33067564",
-          "rating": 0,
+          "id1": "32133366",
+          "rating": 433,
           "rating2": 0,
-          "exp1": "07/31/2027",
+          "exp1": "2027-12-31",
+          "club": "Booster",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            5,
-            7,
-            3,
-            0,
-            2
           ],
           "results": [
-            "L",
-            "W",
-            "L",
-            "L"
           ],
           "colors": [
-            "B",
-            "W",
-            "B",
-            "W"
           ],
           "ops": [
-            18,
-            25,
-            20,
-            16
           ],
           "boards": [
-            41,
-            42,
-            38,
-            38
           ],
           "cumulatives": [
-            0,
-            1,
-            1,
-            1
           ],
-          "score": 1,
-          "place": "33-41",
-          "post_tiebreak_place": "34"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "GANNON, Colton Michael",
+          "name": "Lin, Jolie",
           "pair_number": 42,
-          "id1": "33217301",
-          "rating": 0,
+          "id1": "31676757",
+          "rating": 399,
           "rating2": 0,
-          "exp1": "08/31/2027",
+          "exp1": "2029-02-28",
+          "club": "Booster",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
+          "byes": "1",
           "tiebreaks": [
-            5.5,
-            9.5,
-            5,
-            0,
-            2
           ],
           "results": [
-            "W",
-            "L",
-            "D",
-            "L"
           ],
           "colors": [
-            "W",
-            "B",
-            "W",
-            "B"
           ],
           "ops": [
-            19,
-            15,
-            11,
-            35
           ],
           "boards": [
-            42,
-            33,
-            32,
-            34
           ],
           "cumulatives": [
-            1,
-            1,
-            1.5,
-            1.5
           ],
-          "score": 1.5,
-          "place": "29-32",
-          "post_tiebreak_place": "29"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "LENTINE, Charlie",
+          "name": "Huang, Ronan",
           "pair_number": 43,
-          "id1": "33213403",
-          "rating": 0,
+          "id1": "31337228",
+          "rating": 378,
           "rating2": 0,
-          "exp1": "08/31/2028",
+          "exp1": "2028-08-31",
+          "club": "Booster",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            6,
-            7.5,
-            6,
-            0,
-            2
           ],
           "results": [
-            "L",
-            "W",
-            "W",
-            "W"
           ],
           "colors": [
-            "B",
-            "W",
-            "B",
-            "W"
           ],
           "ops": [
-            20,
-            27,
-            16,
-            18
           ],
           "boards": [
-            43,
-            43,
-            35,
-            31
           ],
           "cumulatives": [
-            0,
-            1,
-            2,
-            3
           ],
-          "score": 3,
-          "place": "4-13",
-          "post_tiebreak_place": "11"
+          "score": 0,
+          "place": "1-52"
         },
         {
-          "name": "CHOPADE, Shantanu Sagar",
+          "name": "Ren, Davis",
           "pair_number": 44,
-          "id1": "33193408",
-          "rating": 0,
+          "id1": "32389249",
+          "rating": 312,
           "rating2": 0,
-          "exp1": "07/31/2027",
+          "exp1": "2027-03-31",
+          "club": "Booster",
           "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
           "class": " ",
           "tiebreaks": [
-            5.5,
-            5.5,
-            6,
-            0,
-            2
           ],
           "results": [
-            "L",
-            "W",
-            "W",
-            "W"
           ],
           "colors": [
-            "W",
-            "B",
-            "W",
-            "B"
           ],
           "ops": [
-            21,
-            28,
-            19,
-            13
           ],
           "boards": [
-            44,
-            44,
-            37,
-            30
           ],
           "cumulatives": [
-            0,
-            1,
-            2,
-            3
           ],
-          "score": 3,
-          "place": "4-13",
-          "post_tiebreak_place": "13"
+          "score": 0,
+          "place": "1-52"
+        },
+        {
+          "name": "Dacharaju, Rudraan",
+          "pair_number": 45,
+          "id1": "32383706",
+          "rating": 255,
+          "rating2": 0,
+          "exp1": "2027-03-31",
+          "club": "Booster",
+          "team": "DACHA",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0,
+          "place": "1-52"
+        },
+        {
+          "name": "Esquivel, Madison",
+          "pair_number": 46,
+          "id1": "32585768",
+          "rating": 236,
+          "rating2": 0,
+          "exp1": "2026-09-30",
+          "club": "Booster",
+          "team": "FITE",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0,
+          "place": "1-52"
+        },
+        {
+          "name": "Rajeshkumar, Saswin",
+          "pair_number": 47,
+          "id1": "33165772",
+          "rating": 207,
+          "rating2": 0,
+          "exp1": "2028-06-30",
+          "club": "Booster",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0,
+          "place": "1-52"
+        },
+        {
+          "name": "Prabu, Aaradhya",
+          "pair_number": 48,
+          "id1": "32695737",
+          "rating": 171,
+          "rating2": 0,
+          "exp1": "2027-04-30",
+          "club": "Booster",
+          "team": "PRABU",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0,
+          "place": "1-52"
+        },
+        {
+          "name": "Robertson, Trayvon",
+          "pair_number": 49,
+          "id1": "32709233",
+          "rating": 148,
+          "rating2": 0,
+          "exp1": "2026-12-31",
+          "club": "Booster",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0,
+          "place": "1-52"
+        },
+        {
+          "name": "Zhang, Jacob",
+          "pair_number": 50,
+          "id1": "33171705",
+          "rating": 113,
+          "rating2": 0,
+          "exp1": "2027-06-30",
+          "club": "Booster",
+          "state": "TX",
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0,
+          "place": "1-52"
+        },
+        {
+          "name": "Lamptey, Aidan",
+          "pair_number": 51,
+          "id1": "33226552",
+          "rating": 0,
+          "rating2": 0,
+          "exp1": "2028-08-31",
+          "club": "Booster",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0,
+          "place": "1-52"
+        },
+        {
+          "name": "Malipeddi, Pruthvi",
+          "pair_number": 52,
+          "id1": "33187478",
+          "rating": 0,
+          "rating2": 0,
+          "exp1": "2027-07-31",
+          "club": "Booster",
+          "state": "MI",
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+          ],
+          "colors": [
+          ],
+          "ops": [
+          ],
+          "boards": [
+          ],
+          "cumulatives": [
+          ],
+          "score": 0,
+          "place": "1-52"
+        }
+      ],
+      "teams": [
+        {
+          "code": "BHATIA",
+          "team": "BHATIA",
+          "rating": "1154.0",
+          "score": 0,
+          "team_tiebreaks": [
+          ],
+          "members": [
+            {
+              "pair_number": 1,
+              "name": "Bhatia, Tia",
+              "rating": 1154,
+              "score": 0
+            },
+            {
+              "pair_number": 11,
+              "name": "Bhatia, Rhythm",
+              "rating": 878,
+              "score": 0
+            }
+          ]
+        },
+        {
+          "code": "KUSKY",
+          "team": "KUSKY",
+          "rating": "1060.0",
+          "score": 0,
+          "team_tiebreaks": [
+          ],
+          "members": [
+            {
+              "pair_number": 4,
+              "name": "Kusky, Zion",
+              "rating": 1060,
+              "score": 0
+            },
+            {
+              "pair_number": 35,
+              "name": "Kusky, Dan",
+              "rating": 591,
+              "score": 0
+            }
+          ]
+        },
+        {
+          "code": "KOMLINE",
+          "team": "KOMLINE",
+          "rating": "1013.0",
+          "score": 0,
+          "team_tiebreaks": [
+          ],
+          "members": [
+            {
+              "pair_number": 6,
+              "name": "Komline, Paul",
+              "rating": 1013,
+              "score": 0
+            },
+            {
+              "pair_number": 7,
+              "name": "Komline, Kenneth",
+              "rating": 1005,
+              "score": 0
+            }
+          ]
+        },
+        {
+          "code": "PRABU",
+          "team": "PRABU",
+          "rating": "778.0",
+          "score": 0,
+          "team_tiebreaks": [
+          ],
+          "members": [
+            {
+              "pair_number": 17,
+              "name": "Prabu, Arjun",
+              "rating": 778,
+              "score": 0
+            },
+            {
+              "pair_number": 48,
+              "name": "Prabu, Aaradhya",
+              "rating": 171,
+              "score": 0
+            }
+          ]
+        },
+        {
+          "code": "FITE",
+          "team": "FITE",
+          "rating": "764.0",
+          "score": 0,
+          "team_tiebreaks": [
+          ],
+          "members": [
+            {
+              "pair_number": 19,
+              "name": "Mazon, Axel",
+              "rating": 764,
+              "score": 0
+            },
+            {
+              "pair_number": 21,
+              "name": "Garcia, Addison",
+              "rating": 739,
+              "score": 0
+            },
+            {
+              "pair_number": 33,
+              "name": "Rojo, Deion",
+              "rating": 622,
+              "score": 0
+            },
+            {
+              "pair_number": 34,
+              "name": "Verdugo, Emmanuel",
+              "rating": 611,
+              "score": 0
+            },
+            {
+              "pair_number": 36,
+              "name": "Adambarage De Alwia, Kaushi",
+              "rating": 580,
+              "score": 0
+            },
+            {
+              "pair_number": 38,
+              "name": "Garcia, Aiden",
+              "rating": 538,
+              "score": 0
+            },
+            {
+              "pair_number": 39,
+              "name": "Sotelo, Salvador",
+              "rating": 522,
+              "score": 0
+            },
+            {
+              "pair_number": 40,
+              "name": "Hopkins, Jeremiah",
+              "rating": 479,
+              "score": 0
+            },
+            {
+              "pair_number": 46,
+              "name": "Esquivel, Madison",
+              "rating": 236,
+              "score": 0
+            }
+          ]
+        },
+        {
+          "code": "DACHA",
+          "team": "DACHA",
+          "rating": "679.0",
+          "score": 0,
+          "team_tiebreaks": [
+          ],
+          "members": [
+            {
+              "pair_number": 26,
+              "name": "Dacharaju, Anika",
+              "rating": 679,
+              "score": 0
+            },
+            {
+              "pair_number": 45,
+              "name": "Dacharaju, Rudraan",
+              "rating": 255,
+              "score": 0
+            }
+          ]
         }
       ],
       "clubs": [
-      ]
-    },
-    {
-      "section": "Unrated Kto6",
-      "rounds_paired": 4,
-      "rounds_played": 4,
-      "final_round": true,
-      "reportStatus": {
-        "kind": "final",
-        "roundsPlayed": 4,
-        "finalRound": 4,
-        "gamesRemaining": 0,
-        "prizesClinched": 0,
-        "prizesPending": 0,
-        "bannerText": "FINAL RESULTS"
-      },
-      "prizeAwards": [
-      ],
-      "pendingPrizes": [
-      ],
-      "standings": [
-        3,
-        4,
-        1,
-        7,
-        6,
-        2,
-        5,
-        8
-      ],
-      "pairings": [
         {
-          "white": 4,
-          "black": 3,
-          "board": 46
-        },
-        {
-          "white": 7,
-          "black": 1,
-          "board": 47
-        },
-        {
-          "white": 2,
-          "black": 6,
-          "board": 48
+          "code": "BOOSTER",
+          "rating": "675.7",
+          "score": 0,
+          "tiebreaks": [
+          ],
+          "members": [
+            {
+              "pair_number": 1,
+              "name": "Bhatia, Tia",
+              "rating": 1154,
+              "score": 0
+            },
+            {
+              "pair_number": 2,
+              "name": "Ray, Cornelius",
+              "rating": 1146,
+              "score": 0
+            },
+            {
+              "pair_number": 3,
+              "name": "Kornacki, Michael",
+              "rating": 1144,
+              "score": 0
+            },
+            {
+              "pair_number": 4,
+              "name": "Kusky, Zion",
+              "rating": 1060,
+              "score": 0
+            },
+            {
+              "pair_number": 5,
+              "name": "Varunjikar, Ishaan",
+              "rating": 1019,
+              "score": 0
+            },
+            {
+              "pair_number": 6,
+              "name": "Komline, Paul",
+              "rating": 1013,
+              "score": 0
+            },
+            {
+              "pair_number": 7,
+              "name": "Komline, Kenneth",
+              "rating": 1005,
+              "score": 0
+            },
+            {
+              "pair_number": 8,
+              "name": "Li, Henry",
+              "rating": 1001,
+              "score": 0
+            },
+            {
+              "pair_number": 9,
+              "name": "Mogalluri, Eswar",
+              "rating": 967,
+              "score": 0
+            },
+            {
+              "pair_number": 10,
+              "name": "Bansod, Saish",
+              "rating": 909,
+              "score": 0
+            },
+            {
+              "pair_number": 11,
+              "name": "Bhatia, Rhythm",
+              "rating": 878,
+              "score": 0
+            },
+            {
+              "pair_number": 12,
+              "name": "Hoerlein, Benjamin",
+              "rating": 840,
+              "score": 0
+            },
+            {
+              "pair_number": 13,
+              "name": "Joshi, Shriya",
+              "rating": 837,
+              "score": 0
+            },
+            {
+              "pair_number": 14,
+              "name": "Van Buren, James",
+              "rating": 820,
+              "score": 0
+            },
+            {
+              "pair_number": 15,
+              "name": "Pieniadz, Noah",
+              "rating": 818,
+              "score": 0
+            },
+            {
+              "pair_number": 16,
+              "name": "Townsend, Genevieve",
+              "rating": 785,
+              "score": 0
+            },
+            {
+              "pair_number": 17,
+              "name": "Prabu, Arjun",
+              "rating": 778,
+              "score": 0
+            },
+            {
+              "pair_number": 18,
+              "name": "Garg, Yuveen",
+              "rating": 767,
+              "score": 0
+            },
+            {
+              "pair_number": 19,
+              "name": "Mazon, Axel",
+              "rating": 764,
+              "score": 0
+            },
+            {
+              "pair_number": 20,
+              "name": "Yadav, Ayansh",
+              "rating": 747,
+              "score": 0
+            },
+            {
+              "pair_number": 21,
+              "name": "Garcia, Addison",
+              "rating": 739,
+              "score": 0
+            },
+            {
+              "pair_number": 22,
+              "name": "Peterman, Caden",
+              "rating": 737,
+              "score": 0
+            },
+            {
+              "pair_number": 23,
+              "name": "Singh, Shaarav",
+              "rating": 728,
+              "score": 0
+            },
+            {
+              "pair_number": 24,
+              "name": "Daniels, Drew",
+              "rating": 725,
+              "score": 0
+            },
+            {
+              "pair_number": 25,
+              "name": "Zhang, Hanrui",
+              "rating": 682,
+              "score": 0
+            },
+            {
+              "pair_number": 26,
+              "name": "Dacharaju, Anika",
+              "rating": 679,
+              "score": 0
+            },
+            {
+              "pair_number": 27,
+              "name": "Barua, Dhruv",
+              "rating": 674,
+              "score": 0
+            },
+            {
+              "pair_number": 28,
+              "name": "Harris, Lawrence",
+              "rating": 657,
+              "score": 0
+            },
+            {
+              "pair_number": 29,
+              "name": "Sundara Rajan, Iniya",
+              "rating": 654,
+              "score": 0
+            },
+            {
+              "pair_number": 30,
+              "name": "Sathish, Dhanvanth",
+              "rating": 646,
+              "score": 0
+            },
+            {
+              "pair_number": 31,
+              "name": "Jolly, Kaydin",
+              "rating": 642,
+              "score": 0
+            },
+            {
+              "pair_number": 32,
+              "name": "Nagolu, Krishna",
+              "rating": 629,
+              "score": 0
+            },
+            {
+              "pair_number": 33,
+              "name": "Rojo, Deion",
+              "rating": 622,
+              "score": 0
+            },
+            {
+              "pair_number": 34,
+              "name": "Verdugo, Emmanuel",
+              "rating": 611,
+              "score": 0
+            },
+            {
+              "pair_number": 35,
+              "name": "Kusky, Dan",
+              "rating": 591,
+              "score": 0
+            },
+            {
+              "pair_number": 36,
+              "name": "Adambarage De Alwia, Kaushi",
+              "rating": 580,
+              "score": 0
+            },
+            {
+              "pair_number": 37,
+              "name": "Vasa, Avyukthram",
+              "rating": 547,
+              "score": 0
+            },
+            {
+              "pair_number": 38,
+              "name": "Garcia, Aiden",
+              "rating": 538,
+              "score": 0
+            },
+            {
+              "pair_number": 39,
+              "name": "Sotelo, Salvador",
+              "rating": 522,
+              "score": 0
+            },
+            {
+              "pair_number": 40,
+              "name": "Hopkins, Jeremiah",
+              "rating": 479,
+              "score": 0
+            },
+            {
+              "pair_number": 41,
+              "name": "Taylor, Braylon",
+              "rating": 433,
+              "score": 0
+            },
+            {
+              "pair_number": 42,
+              "name": "Lin, Jolie",
+              "rating": 399,
+              "score": 0
+            },
+            {
+              "pair_number": 43,
+              "name": "Huang, Ronan",
+              "rating": 378,
+              "score": 0
+            },
+            {
+              "pair_number": 44,
+              "name": "Ren, Davis",
+              "rating": 312,
+              "score": 0
+            },
+            {
+              "pair_number": 45,
+              "name": "Dacharaju, Rudraan",
+              "rating": 255,
+              "score": 0
+            },
+            {
+              "pair_number": 46,
+              "name": "Esquivel, Madison",
+              "rating": 236,
+              "score": 0
+            },
+            {
+              "pair_number": 47,
+              "name": "Rajeshkumar, Saswin",
+              "rating": 207,
+              "score": 0
+            },
+            {
+              "pair_number": 48,
+              "name": "Prabu, Aaradhya",
+              "rating": 171,
+              "score": 0
+            },
+            {
+              "pair_number": 49,
+              "name": "Robertson, Trayvon",
+              "rating": 148,
+              "score": 0
+            },
+            {
+              "pair_number": 50,
+              "name": "Zhang, Jacob",
+              "rating": 113,
+              "score": 0
+            },
+            {
+              "pair_number": 51,
+              "name": "Lamptey, Aidan",
+              "rating": 0,
+              "score": 0
+            },
+            {
+              "pair_number": 52,
+              "name": "Malipeddi, Pruthvi",
+              "rating": 0,
+              "score": 0
+            }
+          ]
         }
-      ],
-      "tiebreaks": [
-        "Mod. Med",
-        "Solk",
-        "Cumul.",
-        "1-on-1",
-        "BPG"
-      ],
-      "team_tiebreaks": [
-      ],
-      "players": [
-        {
-          "name": "BALCHUNAS, Nathan",
-          "pair_number": 1,
-          "rating": 0,
-          "rating2": 0,
-          "class": " ",
-          "tiebreaks": [
-            4,
-            8,
-            6,
-            0,
-            2
-          ],
-          "results": [
-            "W",
-            "L",
-            "W",
-            "L"
-          ],
-          "colors": [
-            "W",
-            "B",
-            "W",
-            "B"
-          ],
-          "ops": [
-            4,
-            3,
-            2,
-            7
-          ],
-          "boards": [
-            49,
-            46,
-            47,
-            47
-          ],
-          "cumulatives": [
-            1,
-            1,
-            2,
-            2
-          ],
-          "score": 2,
-          "place": "2-5",
-          "post_tiebreak_place": "3"
-        },
-        {
-          "name": "BHATTACHARYA, Aryaman",
-          "pair_number": 2,
-          "rating": 0,
-          "rating2": 0,
-          "class": " ",
-          "tiebreaks": [
-            6,
-            8,
-            0,
-            0,
-            2
-          ],
-          "results": [
-            "L",
-            "L",
-            "L",
-            "L"
-          ],
-          "colors": [
-            "B",
-            "W",
-            "B",
-            "W"
-          ],
-          "ops": [
-            6,
-            7,
-            1,
-            6
-          ],
-          "boards": [
-            47,
-            48,
-            47,
-            48
-          ],
-          "cumulatives": [
-            0,
-            0,
-            0,
-            0
-          ],
-          "score": 0,
-          "place": "6-8",
-          "post_tiebreak_place": "6"
-        },
-        {
-          "name": "TRIVEDI, Ayaan",
-          "pair_number": 3,
-          "rating": 0,
-          "rating2": 0,
-          "class": " ",
-          "tiebreaks": [
-            6,
-            8,
-            10,
-            0,
-            2
-          ],
-          "results": [
-            "W",
-            "W",
-            "W",
-            "W"
-          ],
-          "colors": [
-            "W",
-            "W",
-            "B",
-            "B"
-          ],
-          "ops": [
-            7,
-            1,
-            6,
-            4
-          ],
-          "boards": [
-            48,
-            46,
-            46,
-            46
-          ],
-          "cumulatives": [
-            1,
-            2,
-            3,
-            4
-          ],
-          "score": 4,
-          "place": "1",
-          "post_tiebreak_place": "1"
-        },
-        {
-          "name": "RENJITH, Vihaan",
-          "pair_number": 4,
-          "rating": 0,
-          "rating2": 0,
-          "class": " ",
-          "tiebreaks": [
-            4,
-            10,
-            5,
-            0,
-            2
-          ],
-          "results": [
-            "L",
-            "W",
-            "W",
-            "L"
-          ],
-          "colors": [
-            "B",
-            "W",
-            "B",
-            "W"
-          ],
-          "ops": [
-            1,
-            6,
-            7,
-            3
-          ],
-          "boards": [
-            49,
-            47,
-            48,
-            46
-          ],
-          "cumulatives": [
-            0,
-            1,
-            2,
-            2
-          ],
-          "score": 2,
-          "place": "2-5",
-          "post_tiebreak_place": "2"
-        },
-        {
-          "name": "VALIAMBARA, Akshaj",
-          "pair_number": 5,
-          "rating": 0,
-          "rating2": 0,
-          "class": " ",
-          "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "results": [
-            "U",
-            "U",
-            "U",
-            "U"
-          ],
-          "colors": [
-            "-",
-            "-",
-            "-",
-            "-"
-          ],
-          "ops": [
-            0,
-            0,
-            0,
-            0
-          ],
-          "boards": [
-            0,
-            0,
-            0,
-            0
-          ],
-          "cumulatives": [
-            0,
-            0,
-            0,
-            0
-          ],
-          "score": 0,
-          "place": "6-8",
-          "post_tiebreak_place": "7-8"
-        },
-        {
-          "name": "HUNG, Brandon",
-          "pair_number": 6,
-          "rating": 0,
-          "rating2": 0,
-          "class": " ",
-          "tiebreaks": [
-            2,
-            6,
-            5,
-            0,
-            2
-          ],
-          "results": [
-            "W",
-            "L",
-            "L",
-            "W"
-          ],
-          "colors": [
-            "W",
-            "B",
-            "W",
-            "B"
-          ],
-          "ops": [
-            2,
-            4,
-            3,
-            2
-          ],
-          "boards": [
-            47,
-            47,
-            46,
-            48
-          ],
-          "cumulatives": [
-            1,
-            1,
-            1,
-            2
-          ],
-          "score": 2,
-          "place": "2-5",
-          "post_tiebreak_place": "5"
-        },
-        {
-          "name": "PEDDI, Jaidev",
-          "pair_number": 7,
-          "rating": 0,
-          "rating2": 0,
-          "class": " ",
-          "tiebreaks": [
-            4,
-            8,
-            4,
-            0,
-            2
-          ],
-          "results": [
-            "L",
-            "W",
-            "L",
-            "W"
-          ],
-          "colors": [
-            "B",
-            "B",
-            "W",
-            "W"
-          ],
-          "ops": [
-            3,
-            2,
-            4,
-            1
-          ],
-          "boards": [
-            48,
-            48,
-            48,
-            47
-          ],
-          "cumulatives": [
-            0,
-            1,
-            1,
-            2
-          ],
-          "score": 2,
-          "place": "2-5",
-          "post_tiebreak_place": "4"
-        },
-        {
-          "name": "AUSTIN, Kasey",
-          "pair_number": 8,
-          "rating": 0,
-          "rating2": 0,
-          "class": " ",
-          "tiebreaks": [
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "results": [
-            "U",
-            "U",
-            "U",
-            "U"
-          ],
-          "colors": [
-            "-",
-            "-",
-            "-",
-            "-"
-          ],
-          "ops": [
-            0,
-            0,
-            0,
-            0
-          ],
-          "boards": [
-            0,
-            0,
-            0,
-            0
-          ],
-          "cumulatives": [
-            0,
-            0,
-            0,
-            0
-          ],
-          "score": 0,
-          "place": "6-8",
-          "post_tiebreak_place": "7-8"
-        }
-      ],
-      "clubs": [
       ]
     }
   ]
