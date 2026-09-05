@@ -6,7 +6,7 @@
     "state": "MI",
     "country": "USA",
     "td": "Sundara Rajan",
-    "time_stamp": "9/5/2026 - 9:13",
+    "time_stamp": "9/5/2026 - 9:17",
     "affiliate": ""
   },
   "options": {
@@ -251,8 +251,8 @@
         },
         {
           "white": 50,
-          "black": 52,
-          "board": 126
+          "black": 0,
+          "board": 0
         },
         {
           "white": 42,
@@ -1769,19 +1769,19 @@
           "tiebreaks": [
           ],
           "results": [
-            " "
+            "B"
           ],
           "colors": [
-            "W"
+            "-"
           ],
           "ops": [
-            52
+            0
           ],
           "boards": [
-            126
+            0
           ],
           "cumulatives": [
-            0
+            1
           ],
           "score": 0,
           "place": "1-53"
@@ -1830,16 +1830,16 @@
           "tiebreaks": [
           ],
           "results": [
-            " "
+            "U"
           ],
           "colors": [
-            "B"
+            "-"
           ],
           "ops": [
-            50
+            0
           ],
           "boards": [
-            126
+            0
           ],
           "cumulatives": [
             0
@@ -2058,7 +2058,7 @@
         {
           "code": "BOOSTER",
           "rating": "675.7",
-          "score": 0.5,
+          "score": 1.5,
           "tiebreaks": [
           ],
           "members": [
