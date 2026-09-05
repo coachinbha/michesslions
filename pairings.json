@@ -6,7 +6,7 @@
     "state": "MI",
     "country": "USA",
     "td": "Sundara Rajan",
-    "time_stamp": "9/5/2026 - 9:06",
+    "time_stamp": "9/5/2026 - 9:13",
     "affiliate": ""
   },
   "options": {
@@ -120,7 +120,8 @@
         49,
         50,
         51,
-        52
+        52,
+        53
       ],
       "pairings": [
         {
@@ -244,14 +245,14 @@
           "board": 124
         },
         {
-          "white": 52,
+          "white": 53,
           "black": 25,
           "board": 125
         },
         {
           "white": 50,
-          "black": 0,
-          "board": 0
+          "black": 52,
+          "board": 126
         },
         {
           "white": 42,
@@ -293,7 +294,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Ray, Cornelius",
@@ -323,7 +324,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Kornacki, Michael",
@@ -353,7 +354,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Kusky, Zion",
@@ -384,7 +385,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Varunjikar, Ishaan",
@@ -414,7 +415,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Komline, Paul",
@@ -445,7 +446,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Komline, Kenneth",
@@ -476,7 +477,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Li, Henry",
@@ -506,7 +507,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Mogalluri, Eswar",
@@ -536,7 +537,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Bansod, Saish",
@@ -566,7 +567,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Bhatia, Rhythm",
@@ -597,7 +598,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Hoerlein, Benjamin",
@@ -627,7 +628,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Joshi, Shriya",
@@ -657,7 +658,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Van Buren, James",
@@ -687,7 +688,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Pieniadz, Noah",
@@ -717,7 +718,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Townsend, Genevieve",
@@ -747,7 +748,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Prabu, Arjun",
@@ -778,7 +779,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Garg, Yuveen",
@@ -808,7 +809,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Mazon, Axel",
@@ -839,7 +840,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Yadav, Ayansh",
@@ -869,7 +870,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Garcia, Addison",
@@ -900,7 +901,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Peterman, Caden",
@@ -931,7 +932,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Singh, Shaarav",
@@ -961,7 +962,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Daniels, Drew",
@@ -991,7 +992,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Zhang, Hanrui",
@@ -1012,7 +1013,7 @@
             "B"
           ],
           "ops": [
-            52
+            53
           ],
           "boards": [
             125
@@ -1021,7 +1022,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Dacharaju, Anika",
@@ -1052,7 +1053,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Barua, Dhruv",
@@ -1082,7 +1083,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Harris, Lawrence",
@@ -1112,7 +1113,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Sundara Rajan, Iniya",
@@ -1142,7 +1143,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Sathish, Dhanvanth",
@@ -1172,7 +1173,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Jolly, Kaydin",
@@ -1202,7 +1203,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Nagolu, Krishna",
@@ -1232,7 +1233,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Rojo, Deion",
@@ -1263,7 +1264,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Verdugo, Emmanuel",
@@ -1294,7 +1295,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Kusky, Dan",
@@ -1325,7 +1326,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Adambarage De Alwia, Kaushi",
@@ -1356,7 +1357,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Vasa, Avyukthram",
@@ -1386,7 +1387,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Garcia, Aiden",
@@ -1417,7 +1418,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Sotelo, Salvador",
@@ -1448,7 +1449,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Hopkins, Jeremiah",
@@ -1479,7 +1480,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Taylor, Braylon",
@@ -1509,7 +1510,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Lin, Jolie",
@@ -1540,7 +1541,7 @@
             0.5
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Huang, Ronan",
@@ -1570,7 +1571,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Ren, Davis",
@@ -1600,7 +1601,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Dacharaju, Rudraan",
@@ -1631,7 +1632,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Esquivel, Madison",
@@ -1662,7 +1663,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Rajeshkumar, Saswin",
@@ -1692,7 +1693,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Prabu, Aaradhya",
@@ -1723,7 +1724,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Robertson, Trayvon",
@@ -1753,7 +1754,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Zhang, Jacob",
@@ -1768,22 +1769,22 @@
           "tiebreaks": [
           ],
           "results": [
-            "B"
+            " "
           ],
           "colors": [
-            "-"
+            "W"
           ],
           "ops": [
-            0
+            52
           ],
           "boards": [
-            0
+            126
           ],
           "cumulatives": [
-            1
+            0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         },
         {
           "name": "Lamptey, Aidan",
@@ -1813,11 +1814,42 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
+        },
+        {
+          "name": "DONNELLY, Erin Andrew",
+          "pair_number": 52,
+          "id1": "33242118",
+          "rating": 0,
+          "rating2": 0,
+          "exp1": "08/31/2027",
+          "state": "MI",
+          "org1": "USCF",
+          "org2": "USCF",
+          "class": " ",
+          "tiebreaks": [
+          ],
+          "results": [
+            " "
+          ],
+          "colors": [
+            "B"
+          ],
+          "ops": [
+            50
+          ],
+          "boards": [
+            126
+          ],
+          "cumulatives": [
+            0
+          ],
+          "score": 0,
+          "place": "1-53"
         },
         {
           "name": "Malipeddi, Pruthvi",
-          "pair_number": 52,
+          "pair_number": 53,
           "id1": "33187478",
           "rating": 0,
           "rating2": 0,
@@ -1843,7 +1875,7 @@
             0
           ],
           "score": 0,
-          "place": "1-52"
+          "place": "1-53"
         }
       ],
       "teams": [
@@ -2026,7 +2058,7 @@
         {
           "code": "BOOSTER",
           "rating": "675.7",
-          "score": 1.5,
+          "score": 0.5,
           "tiebreaks": [
           ],
           "members": [
@@ -2337,7 +2369,7 @@
               "score": 0
             },
             {
-              "pair_number": 52,
+              "pair_number": 53,
               "name": "Malipeddi, Pruthvi",
               "rating": 0,
               "score": 0
