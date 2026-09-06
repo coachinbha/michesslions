@@ -6,7 +6,7 @@
     "state": "MI",
     "country": "USA",
     "td": "Sundara Rajan",
-    "time_stamp": "9/6/2026 - 13:45",
+    "time_stamp": "9/6/2026 - 15:08",
     "affiliate": ""
   },
   "options": {
@@ -26,7 +26,7 @@
     "standings_id": true,
     "standings_age": false,
     "standings_grade": false,
-    "standings_prize": false,
+    "standings_prize": true,
     "pchart_pairnums": false,
     "pchart_boardnums": true,
     "pchart_team": false,
@@ -53,73 +53,73 @@
     {
       "section": "Booster",
       "rounds_paired": 8,
-      "rounds_played": 7,
-      "final_round": false,
+      "rounds_played": 8,
+      "final_round": true,
       "reportStatus": {
-        "kind": "hidden",
-        "roundsPlayed": 7,
+        "kind": "final",
+        "roundsPlayed": 8,
         "finalRound": 8,
         "gamesRemaining": 0,
         "prizesClinched": 0,
         "prizesPending": 0,
-        "bannerText": ""
+        "bannerText": "FINAL RESULTS"
       },
       "prizeAwards": [
       ],
       "pendingPrizes": [
       ],
       "standings": [
-        2,
         5,
+        2,
+        11,
         12,
+        15,
+        39,
+        9,
+        4,
         6,
         7,
         8,
         10,
-        11,
-        15,
-        39,
-        1,
-        9,
-        4,
-        13,
-        18,
-        19,
-        20,
         21,
-        23,
-        24,
+        18,
+        20,
         26,
-        52,
-        3,
+        1,
         22,
-        25,
-        31,
-        32,
         36,
-        38,
-        40,
-        16,
+        13,
+        52,
+        24,
+        23,
         27,
-        28,
+        25,
+        19,
         29,
         33,
-        37,
-        41,
-        44,
-        54,
-        17,
+        28,
+        32,
         30,
-        35,
+        38,
+        31,
+        40,
+        16,
         43,
+        3,
+        41,
+        54,
+        44,
+        37,
+        45,
+        35,
+        46,
+        50,
+        17,
         34,
         42,
-        45,
         47,
-        50,
-        46,
-        49,
         51,
+        49,
         14,
         48,
         53
@@ -267,8 +267,19 @@
         }
       ],
       "tiebreaks": [
+        "Mod. Med",
+        "Solk",
+        "Cumul.",
+        "1-on-1",
+        "BPG"
       ],
       "team_tiebreaks": [
+        "Mod. Med",
+        "Solk",
+        "Cumul.",
+        "1-on-1",
+        "BPG",
+        "SB"
       ],
       "players": [
         {
@@ -283,6 +294,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            37,
+            40.5,
+            22,
+            0,
+            5
           ],
           "results": [
             "W",
@@ -292,7 +308,7 @@
             "D",
             "W",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -335,7 +351,8 @@
             4.5
           ],
           "score": 4.5,
-          "place": "11-12"
+          "place": "17-19",
+          "post_tiebreak_place": "17"
         },
         {
           "name": "Ray, Cornelius",
@@ -348,6 +365,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            36.5,
+            40.5,
+            34,
+            0,
+            4
           ],
           "results": [
             "W",
@@ -357,7 +379,7 @@
             "W",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -397,10 +419,11 @@
             5,
             6,
             6,
-            6
+            7
           ],
-          "score": 6,
-          "place": "1-3"
+          "score": 7,
+          "place": "1-2",
+          "post_tiebreak_place": "2"
         },
         {
           "name": "Kornacki, Michael",
@@ -414,6 +437,11 @@
           "class": " ",
           "byes": "5,6,7z,8z",
           "tiebreaks": [
+            13.5,
+            18.5,
+            20,
+            0,
+            2
           ],
           "results": [
             "W",
@@ -466,7 +494,8 @@
             3.5
           ],
           "score": 3.5,
-          "place": "23-30"
+          "place": "31-38",
+          "post_tiebreak_place": "37"
         },
         {
           "name": "Kusky, Zion",
@@ -480,6 +509,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            37.5,
+            41.5,
+            25,
+            0,
+            3
           ],
           "results": [
             "W",
@@ -489,7 +523,7 @@
             "W",
             "L",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -529,10 +563,11 @@
             4,
             4,
             4,
-            4
+            5
           ],
-          "score": 4,
-          "place": "13-22"
+          "score": 5,
+          "place": "8-16",
+          "post_tiebreak_place": "8"
         },
         {
           "name": "Varunjikar, Ishaan",
@@ -545,6 +580,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            38,
+            39.5,
+            29,
+            1,
+            4
           ],
           "results": [
             "D",
@@ -554,7 +594,7 @@
             "W",
             "W",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -594,10 +634,11 @@
             4,
             5,
             6,
-            6
+            7
           ],
-          "score": 6,
-          "place": "1-3"
+          "score": 7,
+          "place": "1-2",
+          "post_tiebreak_place": "1"
         },
         {
           "name": "Komline, Paul",
@@ -611,6 +652,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            37.5,
+            41,
+            26,
+            0,
+            3
           ],
           "results": [
             "W",
@@ -620,7 +666,7 @@
             "W",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -663,7 +709,8 @@
             5
           ],
           "score": 5,
-          "place": "4-10"
+          "place": "8-16",
+          "post_tiebreak_place": "9"
         },
         {
           "name": "Komline, Kenneth",
@@ -677,6 +724,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            37,
+            40.5,
+            28,
+            0,
+            4
           ],
           "results": [
             "W",
@@ -686,7 +738,7 @@
             "L",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -729,7 +781,8 @@
             5
           ],
           "score": 5,
-          "place": "4-10"
+          "place": "8-16",
+          "post_tiebreak_place": "10"
         },
         {
           "name": "Li, Henry",
@@ -742,6 +795,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            36.5,
+            40.5,
+            26,
+            0,
+            4
           ],
           "results": [
             "W",
@@ -751,7 +809,7 @@
             "L",
             "W",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -794,7 +852,8 @@
             5
           ],
           "score": 5,
-          "place": "4-10"
+          "place": "8-16",
+          "post_tiebreak_place": "11"
         },
         {
           "name": "Mogalluri, Eswar",
@@ -807,6 +866,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            32,
+            34,
+            24.5,
+            0,
+            4
           ],
           "results": [
             "W",
@@ -816,7 +880,7 @@
             "L",
             "D",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -856,10 +920,11 @@
             3,
             3.5,
             4.5,
-            4.5
+            5.5
           ],
-          "score": 4.5,
-          "place": "11-12"
+          "score": 5.5,
+          "place": "7",
+          "post_tiebreak_place": "7"
         },
         {
           "name": "Bansod, Saish",
@@ -872,6 +937,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            35.5,
+            38,
+            28,
+            0,
+            4
           ],
           "results": [
             "W",
@@ -881,7 +951,7 @@
             "W",
             "W",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -924,7 +994,8 @@
             5
           ],
           "score": 5,
-          "place": "4-10"
+          "place": "8-16",
+          "post_tiebreak_place": "12"
         },
         {
           "name": "Bhatia, Rhythm",
@@ -938,6 +1009,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            37.5,
+            40.5,
+            28.5,
+            0,
+            4
           ],
           "results": [
             "W",
@@ -947,7 +1023,7 @@
             "D",
             "L",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -987,10 +1063,11 @@
             4,
             4,
             5,
-            5
+            6
           ],
-          "score": 5,
-          "place": "4-10"
+          "score": 6,
+          "place": "3-6",
+          "post_tiebreak_place": "3"
         },
         {
           "name": "Hoerlein, Benjamin",
@@ -1003,6 +1080,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            37,
+            40,
+            29.5,
+            0,
+            4
           ],
           "results": [
             "W",
@@ -1012,7 +1094,7 @@
             "D",
             "W",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -1055,7 +1137,8 @@
             6
           ],
           "score": 6,
-          "place": "1-3"
+          "place": "3-6",
+          "post_tiebreak_place": "4"
         },
         {
           "name": "Joshi, Shriya",
@@ -1068,6 +1151,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            26.5,
+            34.5,
+            20.5,
+            0,
+            4
           ],
           "results": [
             "L",
@@ -1077,7 +1165,7 @@
             "D",
             "W",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -1120,7 +1208,8 @@
             4
           ],
           "score": 4,
-          "place": "13-22"
+          "place": "20-30",
+          "post_tiebreak_place": "20"
         },
         {
           "name": "Van Buren, James",
@@ -1134,6 +1223,11 @@
           "class": " ",
           "byes": "5,6,7z,8z",
           "tiebreaks": [
+            9,
+            15,
+            2.5,
+            0,
+            2
           ],
           "results": [
             "L",
@@ -1186,7 +1280,8 @@
             1
           ],
           "score": 1,
-          "place": "52"
+          "place": "52",
+          "post_tiebreak_place": "52"
         },
         {
           "name": "Pieniadz, Noah",
@@ -1199,6 +1294,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            33,
+            36,
+            24,
+            0,
+            4
           ],
           "results": [
             "L",
@@ -1208,7 +1308,7 @@
             "L",
             "W",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -1248,10 +1348,11 @@
             3,
             4,
             5,
-            5
+            6
           ],
-          "score": 5,
-          "place": "4-10"
+          "score": 6,
+          "place": "3-6",
+          "post_tiebreak_place": "5"
         },
         {
           "name": "Townsend, Genevieve",
@@ -1264,6 +1365,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            24,
+            28.5,
+            15.5,
+            0,
+            4
           ],
           "results": [
             "W",
@@ -1273,7 +1379,7 @@
             "L",
             "L",
             "W",
-            " "
+            "D"
           ],
           "colors": [
             "W",
@@ -1313,10 +1419,11 @@
             2,
             2,
             3,
-            3
+            3.5
           ],
-          "score": 3,
-          "place": "31-39"
+          "score": 3.5,
+          "place": "31-38",
+          "post_tiebreak_place": "35"
         },
         {
           "name": "Prabu, Arjun",
@@ -1331,6 +1438,11 @@
           "class": " ",
           "byes": "5,6,7z,8z",
           "tiebreaks": [
+            9.5,
+            13,
+            12,
+            0,
+            2
           ],
           "results": [
             "L",
@@ -1383,7 +1495,8 @@
             2.5
           ],
           "score": 2.5,
-          "place": "40-43"
+          "place": "43-46",
+          "post_tiebreak_place": "46"
         },
         {
           "name": "Garg, Yuveen",
@@ -1396,6 +1509,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            30,
+            33,
+            23.5,
+            0,
+            3
           ],
           "results": [
             "W",
@@ -1405,7 +1523,7 @@
             "D",
             "D",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -1445,10 +1563,11 @@
             3.5,
             4,
             4,
-            4
+            5
           ],
-          "score": 4,
-          "place": "13-22"
+          "score": 5,
+          "place": "8-16",
+          "post_tiebreak_place": "14"
         },
         {
           "name": "Mazon, Axel",
@@ -1462,6 +1581,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            23,
+            31.5,
+            20,
+            0,
+            4
           ],
           "results": [
             "W",
@@ -1471,7 +1595,7 @@
             "W",
             "W",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -1514,7 +1638,8 @@
             4
           ],
           "score": 4,
-          "place": "13-22"
+          "place": "20-30",
+          "post_tiebreak_place": "26"
         },
         {
           "name": "Yadav, Ayansh",
@@ -1527,6 +1652,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            30,
+            32,
+            23,
+            0,
+            4
           ],
           "results": [
             "W",
@@ -1536,7 +1666,7 @@
             "L",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -1576,10 +1706,11 @@
             3,
             4,
             4,
-            4
+            5
           ],
-          "score": 4,
-          "place": "13-22"
+          "score": 5,
+          "place": "8-16",
+          "post_tiebreak_place": "15"
         },
         {
           "name": "Garcia, Addison",
@@ -1593,6 +1724,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            30.5,
+            32,
+            21,
+            0,
+            4
           ],
           "results": [
             "W",
@@ -1602,7 +1738,7 @@
             "W",
             "L",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -1642,10 +1778,11 @@
             3,
             3,
             4,
-            4
+            5
           ],
-          "score": 4,
-          "place": "13-22"
+          "score": 5,
+          "place": "8-16",
+          "post_tiebreak_place": "13"
         },
         {
           "name": "Peterman, Caden",
@@ -1659,6 +1796,11 @@
           "class": " ",
           "byes": "5",
           "tiebreaks": [
+            33,
+            33,
+            21,
+            0,
+            3
           ],
           "results": [
             "W",
@@ -1668,7 +1810,7 @@
             "H",
             "D",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -1708,10 +1850,11 @@
             3,
             3.5,
             3.5,
-            3.5
+            4.5
           ],
-          "score": 3.5,
-          "place": "23-30"
+          "score": 4.5,
+          "place": "17-19",
+          "post_tiebreak_place": "18"
         },
         {
           "name": "Singh, Shaarav",
@@ -1724,6 +1867,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            24.5,
+            31.5,
+            20,
+            0,
+            4
           ],
           "results": [
             "W",
@@ -1733,7 +1881,7 @@
             "W",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -1776,7 +1924,8 @@
             4
           ],
           "score": 4,
-          "place": "13-22"
+          "place": "20-30",
+          "post_tiebreak_place": "23"
         },
         {
           "name": "Daniels, Drew",
@@ -1789,6 +1938,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            24.5,
+            32.5,
+            19,
+            0,
+            4
           ],
           "results": [
             "L",
@@ -1798,7 +1952,7 @@
             "W",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -1841,7 +1995,8 @@
             4
           ],
           "score": 4,
-          "place": "13-22"
+          "place": "20-30",
+          "post_tiebreak_place": "22"
         },
         {
           "name": "Zhang, Hanrui",
@@ -1854,6 +2009,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            23.5,
+            32,
+            16.5,
+            0,
+            4
           ],
           "results": [
             "W",
@@ -1863,7 +2023,7 @@
             "L",
             "W",
             "W",
-            " "
+            "D"
           ],
           "colors": [
             "B",
@@ -1903,10 +2063,11 @@
             1.5,
             2.5,
             3.5,
-            3.5
+            4
           ],
-          "score": 3.5,
-          "place": "23-30"
+          "score": 4,
+          "place": "20-30",
+          "post_tiebreak_place": "25"
         },
         {
           "name": "Dacharaju, Anika",
@@ -1920,6 +2081,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            29,
+            32,
+            22,
+            0,
+            4
           ],
           "results": [
             "L",
@@ -1929,7 +2095,7 @@
             "W",
             "D",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -1969,10 +2135,11 @@
             3.5,
             4,
             4,
-            4
+            5
           ],
-          "score": 4,
-          "place": "13-22"
+          "score": 5,
+          "place": "8-16",
+          "post_tiebreak_place": "16"
         },
         {
           "name": "Barua, Dhruv",
@@ -1985,6 +2152,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            23.5,
+            32.5,
+            15.5,
+            0,
+            4
           ],
           "results": [
             "L",
@@ -1994,7 +2166,7 @@
             "W",
             "L",
             "D",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -2034,10 +2206,11 @@
             2.5,
             2.5,
             3,
-            3
+            4
           ],
-          "score": 3,
-          "place": "31-39"
+          "score": 4,
+          "place": "20-30",
+          "post_tiebreak_place": "24"
         },
         {
           "name": "Harris, Lawrence",
@@ -2050,6 +2223,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            20.5,
+            27,
+            14,
+            0,
+            4
           ],
           "results": [
             "L",
@@ -2059,7 +2237,7 @@
             "W",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -2099,10 +2277,11 @@
             2,
             3,
             3,
-            3
+            4
           ],
-          "score": 3,
-          "place": "31-39"
+          "score": 4,
+          "place": "20-30",
+          "post_tiebreak_place": "29"
         },
         {
           "name": "Sundara Rajan, Iniya",
@@ -2115,6 +2294,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            21,
+            28,
+            16,
+            0,
+            4
           ],
           "results": [
             "L",
@@ -2124,7 +2308,7 @@
             "L",
             "L",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -2164,10 +2348,11 @@
             2,
             2,
             3,
-            3
+            4
           ],
-          "score": 3,
-          "place": "31-39"
+          "score": 4,
+          "place": "20-30",
+          "post_tiebreak_place": "27"
         },
         {
           "name": "Sathish, Dhanvanth",
@@ -2180,6 +2365,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            28.5,
+            35.5,
+            17,
+            0,
+            4
           ],
           "results": [
             "D",
@@ -2189,7 +2379,7 @@
             "L",
             "L",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -2229,10 +2419,11 @@
             2.5,
             2.5,
             2.5,
-            2.5
+            3.5
           ],
-          "score": 2.5,
-          "place": "40-43"
+          "score": 3.5,
+          "place": "31-38",
+          "post_tiebreak_place": "31"
         },
         {
           "name": "Jolly, Kaydin",
@@ -2245,6 +2436,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            27,
+            32.5,
+            17,
+            0,
+            4
           ],
           "results": [
             "L",
@@ -2254,7 +2450,7 @@
             "D",
             "W",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -2297,7 +2493,8 @@
             3.5
           ],
           "score": 3.5,
-          "place": "23-30"
+          "place": "31-38",
+          "post_tiebreak_place": "33"
         },
         {
           "name": "Nagolu, Krishna",
@@ -2310,6 +2507,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            20,
+            27,
+            16.5,
+            0,
+            4
           ],
           "results": [
             "L",
@@ -2319,7 +2521,7 @@
             "L",
             "W",
             "D",
-            " "
+            "D"
           ],
           "colors": [
             "W",
@@ -2359,10 +2561,11 @@
             2,
             3,
             3.5,
-            3.5
+            4
           ],
-          "score": 3.5,
-          "place": "23-30"
+          "score": 4,
+          "place": "20-30",
+          "post_tiebreak_place": "30"
         },
         {
           "name": "Rojo, Deion",
@@ -2376,6 +2579,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            20.5,
+            27.5,
+            16,
+            0,
+            4
           ],
           "results": [
             "L",
@@ -2385,7 +2593,7 @@
             "W",
             "L",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -2425,10 +2633,11 @@
             3,
             3,
             3,
-            3
+            4
           ],
-          "score": 3,
-          "place": "31-39"
+          "score": 4,
+          "place": "20-30",
+          "post_tiebreak_place": "28"
         },
         {
           "name": "Verdugo, Emmanuel",
@@ -2442,6 +2651,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            23,
+            28.5,
+            10,
+            0,
+            4
           ],
           "results": [
             "L",
@@ -2451,7 +2665,7 @@
             "W",
             "L",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -2494,7 +2708,8 @@
             2
           ],
           "score": 2,
-          "place": "44-48"
+          "place": "47-50",
+          "post_tiebreak_place": "47"
         },
         {
           "name": "Kusky, Dan",
@@ -2508,6 +2723,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            22.5,
+            27.5,
+            12,
+            0,
+            5
           ],
           "results": [
             "L",
@@ -2517,7 +2737,7 @@
             "D",
             "W",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -2560,7 +2780,8 @@
             2.5
           ],
           "score": 2.5,
-          "place": "40-43"
+          "place": "43-46",
+          "post_tiebreak_place": "43"
         },
         {
           "name": "Adambarage De Alwia, Kaushi",
@@ -2574,6 +2795,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            31.5,
+            34,
+            16.5,
+            0,
+            4
           ],
           "results": [
             "L",
@@ -2583,7 +2809,7 @@
             "W",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -2623,10 +2849,11 @@
             2.5,
             3.5,
             3.5,
-            3.5
+            4.5
           ],
-          "score": 3.5,
-          "place": "23-30"
+          "score": 4.5,
+          "place": "17-19",
+          "post_tiebreak_place": "19"
         },
         {
           "name": "Vasa, Avyukthram",
@@ -2640,6 +2867,11 @@
           "class": " ",
           "byes": "4",
           "tiebreaks": [
+            20.5,
+            26.5,
+            13.5,
+            0,
+            4
           ],
           "results": [
             "L",
@@ -2649,7 +2881,7 @@
             "L",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -2692,7 +2924,8 @@
             3
           ],
           "score": 3,
-          "place": "31-39"
+          "place": "39-42",
+          "post_tiebreak_place": "41"
         },
         {
           "name": "Garcia, Aiden",
@@ -2706,6 +2939,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            28.5,
+            33.5,
+            17,
+            0,
+            4
           ],
           "results": [
             "W",
@@ -2715,7 +2953,7 @@
             "L",
             "W",
             "D",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -2758,7 +2996,8 @@
             3.5
           ],
           "score": 3.5,
-          "place": "23-30"
+          "place": "31-38",
+          "post_tiebreak_place": "32"
         },
         {
           "name": "Sotelo, Salvador",
@@ -2772,6 +3011,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            31.5,
+            33.5,
+            24.5,
+            0,
+            4
           ],
           "results": [
             "W",
@@ -2781,7 +3025,7 @@
             "D",
             "W",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -2821,10 +3065,11 @@
             3,
             4,
             5,
-            5
+            6
           ],
-          "score": 5,
-          "place": "4-10"
+          "score": 6,
+          "place": "3-6",
+          "post_tiebreak_place": "6"
         },
         {
           "name": "Hopkins, Jeremiah",
@@ -2838,6 +3083,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            26.5,
+            32.5,
+            16,
+            0,
+            4
           ],
           "results": [
             "W",
@@ -2847,7 +3097,7 @@
             "L",
             "W",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -2890,7 +3140,8 @@
             3.5
           ],
           "score": 3.5,
-          "place": "23-30"
+          "place": "31-38",
+          "post_tiebreak_place": "34"
         },
         {
           "name": "GANNON, Colton Mic",
@@ -2905,6 +3156,11 @@
           "class": " ",
           "byes": "1,2",
           "tiebreaks": [
+            7.5,
+            11.5,
+            14,
+            0,
+            2
           ],
           "results": [
             "H",
@@ -2914,7 +3170,7 @@
             "W",
             "W",
             "L",
-            " "
+            "D"
           ],
           "colors": [
             "-",
@@ -2954,10 +3210,11 @@
             2,
             3,
             3,
-            3
+            3.5
           ],
-          "score": 3,
-          "place": "31-39"
+          "score": 3.5,
+          "place": "31-38",
+          "post_tiebreak_place": "38"
         },
         {
           "name": "Taylor, Braylon",
@@ -2970,6 +3227,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            22.5,
+            26.5,
+            10,
+            0,
+            4
           ],
           "results": [
             "L",
@@ -2979,7 +3241,7 @@
             "W",
             "L",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -3022,7 +3284,8 @@
             2
           ],
           "score": 2,
-          "place": "44-48"
+          "place": "47-50",
+          "post_tiebreak_place": "48"
         },
         {
           "name": "Lin, Jolie",
@@ -3036,6 +3299,11 @@
           "class": " ",
           "byes": "1",
           "tiebreaks": [
+            16.5,
+            20.5,
+            11.5,
+            0,
+            4
           ],
           "results": [
             "H",
@@ -3045,7 +3313,7 @@
             "L",
             "L",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "-",
@@ -3085,10 +3353,11 @@
             1.5,
             1.5,
             2.5,
-            2.5
+            3.5
           ],
-          "score": 2.5,
-          "place": "40-43"
+          "score": 3.5,
+          "place": "31-38",
+          "post_tiebreak_place": "36"
         },
         {
           "name": "Huang, Ronan",
@@ -3101,6 +3370,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            26,
+            32,
+            16,
+            0,
+            4
           ],
           "results": [
             "W",
@@ -3110,7 +3384,7 @@
             "L",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -3153,7 +3427,8 @@
             3
           ],
           "score": 3,
-          "place": "31-39"
+          "place": "39-42",
+          "post_tiebreak_place": "40"
         },
         {
           "name": "Ren, Davis",
@@ -3166,6 +3441,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            20,
+            25,
+            9,
+            0,
+            5
           ],
           "results": [
             "L",
@@ -3175,7 +3455,7 @@
             "L",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -3215,10 +3495,11 @@
             1,
             2,
             2,
-            2
+            3
           ],
-          "score": 2,
-          "place": "44-48"
+          "score": 3,
+          "place": "39-42",
+          "post_tiebreak_place": "42"
         },
         {
           "name": "Dacharaju, Rudraan",
@@ -3232,6 +3513,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            18,
+            22,
+            6.5,
+            0,
+            4
           ],
           "results": [
             "L",
@@ -3241,7 +3527,7 @@
             "X",
             "L",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -3281,10 +3567,11 @@
             1.5,
             1.5,
             1.5,
-            1.5
+            2.5
           ],
-          "score": 1.5,
-          "place": "49-51"
+          "score": 2.5,
+          "place": "43-46",
+          "post_tiebreak_place": "44"
         },
         {
           "name": "Esquivel, Madison",
@@ -3298,6 +3585,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            21,
+            26,
+            10,
+            0,
+            4
           ],
           "results": [
             "L",
@@ -3307,7 +3599,7 @@
             "L",
             "W",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -3350,7 +3642,8 @@
             2
           ],
           "score": 2,
-          "place": "44-48"
+          "place": "47-50",
+          "post_tiebreak_place": "49"
         },
         {
           "name": "Rajeshkumar, Saswin",
@@ -3363,6 +3656,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            9,
+            14,
+            0,
+            0,
+            2
           ],
           "results": [
             "L",
@@ -3415,7 +3713,8 @@
             0
           ],
           "score": 0,
-          "place": "53-54"
+          "place": "53-54",
+          "post_tiebreak_place": "53"
         },
         {
           "name": "Prabu, Aaradhya",
@@ -3430,6 +3729,11 @@
           "class": " ",
           "byes": "5,6,7z,8z",
           "tiebreaks": [
+            10.5,
+            15,
+            5,
+            0,
+            2
           ],
           "results": [
             "L",
@@ -3482,7 +3786,8 @@
             1.5
           ],
           "score": 1.5,
-          "place": "49-51"
+          "place": "51",
+          "post_tiebreak_place": "51"
         },
         {
           "name": "Robertson, Trayvon",
@@ -3495,6 +3800,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            15,
+            19.5,
+            6.5,
+            0,
+            3
           ],
           "results": [
             "L",
@@ -3504,7 +3814,7 @@
             "L",
             "L",
             "W",
-            " "
+            "D"
           ],
           "colors": [
             "W",
@@ -3544,10 +3854,11 @@
             1,
             1,
             2,
-            2
+            2.5
           ],
-          "score": 2,
-          "place": "44-48"
+          "score": 2.5,
+          "place": "43-46",
+          "post_tiebreak_place": "45"
         },
         {
           "name": "Zhang, Jacob",
@@ -3560,6 +3871,11 @@
           "state": "TX",
           "class": " ",
           "tiebreaks": [
+            20,
+            27,
+            9.5,
+            0,
+            4
           ],
           "results": [
             "B",
@@ -3569,7 +3885,7 @@
             "D",
             "L",
             "L",
-            " "
+            "D"
           ],
           "colors": [
             "-",
@@ -3609,10 +3925,11 @@
             1.5,
             1.5,
             1.5,
-            1.5
+            2
           ],
-          "score": 1.5,
-          "place": "49-51"
+          "score": 2,
+          "place": "47-50",
+          "post_tiebreak_place": "50"
         },
         {
           "name": "Lamptey, Aidan",
@@ -3625,6 +3942,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            26,
+            34.5,
+            21,
+            0,
+            4
           ],
           "results": [
             "W",
@@ -3634,7 +3956,7 @@
             "W",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -3677,7 +3999,8 @@
             4
           ],
           "score": 4,
-          "place": "13-22"
+          "place": "20-30",
+          "post_tiebreak_place": "21"
         },
         {
           "name": "DONNELLY, Erin Andrew",
@@ -3691,6 +4014,11 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            0,
+            0,
+            0,
+            0,
+            0
           ],
           "results": [
             "U",
@@ -3743,7 +4071,8 @@
             0
           ],
           "score": 0,
-          "place": "53-54"
+          "place": "53-54",
+          "post_tiebreak_place": "54"
         },
         {
           "name": "Malipeddi, Pruthvi",
@@ -3756,6 +4085,11 @@
           "state": "MI",
           "class": " ",
           "tiebreaks": [
+            26.5,
+            32.5,
+            15,
+            0,
+            3
           ],
           "results": [
             "L",
@@ -3765,7 +4099,7 @@
             "D",
             "L",
             "D",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -3808,38 +4142,23 @@
             3
           ],
           "score": 3,
-          "place": "31-39"
+          "place": "39-42",
+          "post_tiebreak_place": "39"
         }
       ],
       "teams": [
         {
-          "code": "KOMLINE",
-          "team": "KOMLINE",
-          "rating": "1013.0",
-          "score": 5,
-          "team_tiebreaks": [
-          ],
-          "members": [
-            {
-              "pair_number": 6,
-              "name": "Komline, Paul",
-              "rating": 1013,
-              "score": 5
-            },
-            {
-              "pair_number": 7,
-              "name": "Komline, Kenneth",
-              "rating": 1005,
-              "score": 5
-            }
-          ]
-        },
-        {
           "code": "BHATIA",
           "team": "BHATIA",
           "rating": "1154.0",
-          "score": 5,
+          "score": 6,
           "team_tiebreaks": [
+            "37.5",
+            "40.5",
+            "28.5",
+            "0",
+            "4",
+            "28"
           ],
           "members": [
             {
@@ -3852,7 +4171,7 @@
               "pair_number": 11,
               "name": "Bhatia, Rhythm",
               "rating": 878,
-              "score": 5
+              "score": 6
             }
           ]
         },
@@ -3860,8 +4179,14 @@
           "code": "FITE",
           "team": "FITE",
           "rating": "764.0",
-          "score": 5,
+          "score": 6,
           "team_tiebreaks": [
+            "31.5",
+            "33.5",
+            "24.5",
+            "0",
+            "4",
+            "23.25"
           ],
           "members": [
             {
@@ -3874,13 +4199,13 @@
               "pair_number": 21,
               "name": "Garcia, Addison",
               "rating": 739,
-              "score": 4
+              "score": 5
             },
             {
               "pair_number": 33,
               "name": "Rojo, Deion",
               "rating": 622,
-              "score": 3
+              "score": 4
             },
             {
               "pair_number": 34,
@@ -3892,7 +4217,7 @@
               "pair_number": 36,
               "name": "Adambarage De Alwia, Kaushi",
               "rating": 580,
-              "score": 3.5
+              "score": 4.5
             },
             {
               "pair_number": 38,
@@ -3904,7 +4229,7 @@
               "pair_number": 39,
               "name": "Sotelo, Salvador",
               "rating": 522,
-              "score": 5
+              "score": 6
             },
             {
               "pair_number": 40,
@@ -3924,15 +4249,21 @@
           "code": "KUSKY",
           "team": "KUSKY",
           "rating": "1060.0",
-          "score": 4,
+          "score": 5,
           "team_tiebreaks": [
+            "37.5",
+            "41.5",
+            "25",
+            "0",
+            "3",
+            "22.5"
           ],
           "members": [
             {
               "pair_number": 4,
               "name": "Kusky, Zion",
               "rating": 1060,
-              "score": 4
+              "score": 5
             },
             {
               "pair_number": 35,
@@ -3943,24 +4274,58 @@
           ]
         },
         {
+          "code": "KOMLINE",
+          "team": "KOMLINE",
+          "rating": "1013.0",
+          "score": 5,
+          "team_tiebreaks": [
+            "37.5",
+            "41",
+            "26",
+            "0",
+            "3",
+            "23.75"
+          ],
+          "members": [
+            {
+              "pair_number": 6,
+              "name": "Komline, Paul",
+              "rating": 1013,
+              "score": 5
+            },
+            {
+              "pair_number": 7,
+              "name": "Komline, Kenneth",
+              "rating": 1005,
+              "score": 5
+            }
+          ]
+        },
+        {
           "code": "DACHA",
           "team": "DACHA",
           "rating": "679.0",
-          "score": 4,
+          "score": 5,
           "team_tiebreaks": [
+            "29",
+            "32",
+            "22",
+            "0",
+            "4",
+            "18"
           ],
           "members": [
             {
               "pair_number": 26,
               "name": "Dacharaju, Anika",
               "rating": 679,
-              "score": 4
+              "score": 5
             },
             {
               "pair_number": 46,
               "name": "Dacharaju, Rudraan",
               "rating": 255,
-              "score": 1.5
+              "score": 2.5
             }
           ]
         },
@@ -3970,6 +4335,12 @@
           "rating": "778.0",
           "score": 2.5,
           "team_tiebreaks": [
+            "9.5",
+            "13",
+            "12",
+            "0",
+            "2",
+            "7.5"
           ],
           "members": [
             {
@@ -3991,14 +4362,32 @@
         {
           "code": "BOOSTER",
           "rating": "675.7",
-          "score": 179.5,
+          "score": 203,
           "tiebreaks": [
+            "1341.5",
+            "1592",
+            "922.5",
+            "1",
+            "195",
+            "732.5"
           ],
           "members": [
+            {
+              "pair_number": 5,
+              "name": "Varunjikar, Ishaan",
+              "rating": 1019,
+              "score": 7
+            },
             {
               "pair_number": 2,
               "name": "Ray, Cornelius",
               "rating": 1146,
+              "score": 7
+            },
+            {
+              "pair_number": 11,
+              "name": "Bhatia, Rhythm",
+              "rating": 878,
               "score": 6
             },
             {
@@ -4008,33 +4397,27 @@
               "score": 6
             },
             {
-              "pair_number": 5,
-              "name": "Varunjikar, Ishaan",
-              "rating": 1019,
+              "pair_number": 15,
+              "name": "Pieniadz, Noah",
+              "rating": 818,
               "score": 6
             },
             {
-              "pair_number": 7,
-              "name": "Komline, Kenneth",
-              "rating": 1005,
-              "score": 5
+              "pair_number": 39,
+              "name": "Sotelo, Salvador",
+              "rating": 522,
+              "score": 6
             },
             {
-              "pair_number": 11,
-              "name": "Bhatia, Rhythm",
-              "rating": 878,
-              "score": 5
+              "pair_number": 9,
+              "name": "Mogalluri, Eswar",
+              "rating": 967,
+              "score": 5.5
             },
             {
-              "pair_number": 10,
-              "name": "Bansod, Saish",
-              "rating": 909,
-              "score": 5
-            },
-            {
-              "pair_number": 8,
-              "name": "Li, Henry",
-              "rating": 1001,
+              "pair_number": 4,
+              "name": "Kusky, Zion",
+              "rating": 1060,
               "score": 5
             },
             {
@@ -4044,15 +4427,45 @@
               "score": 5
             },
             {
-              "pair_number": 39,
-              "name": "Sotelo, Salvador",
-              "rating": 522,
+              "pair_number": 7,
+              "name": "Komline, Kenneth",
+              "rating": 1005,
               "score": 5
             },
             {
-              "pair_number": 15,
-              "name": "Pieniadz, Noah",
-              "rating": 818,
+              "pair_number": 8,
+              "name": "Li, Henry",
+              "rating": 1001,
+              "score": 5
+            },
+            {
+              "pair_number": 10,
+              "name": "Bansod, Saish",
+              "rating": 909,
+              "score": 5
+            },
+            {
+              "pair_number": 21,
+              "name": "Garcia, Addison",
+              "rating": 739,
+              "score": 5
+            },
+            {
+              "pair_number": 18,
+              "name": "Garg, Yuveen",
+              "rating": 767,
+              "score": 5
+            },
+            {
+              "pair_number": 20,
+              "name": "Yadav, Ayansh",
+              "rating": 747,
+              "score": 5
+            },
+            {
+              "pair_number": 26,
+              "name": "Dacharaju, Anika",
+              "rating": 679,
               "score": 5
             },
             {
@@ -4062,33 +4475,21 @@
               "score": 4.5
             },
             {
-              "pair_number": 9,
-              "name": "Mogalluri, Eswar",
-              "rating": 967,
+              "pair_number": 22,
+              "name": "Peterman, Caden",
+              "rating": 737,
               "score": 4.5
             },
             {
-              "pair_number": 4,
-              "name": "Kusky, Zion",
-              "rating": 1060,
-              "score": 4
-            },
-            {
-              "pair_number": 18,
-              "name": "Garg, Yuveen",
-              "rating": 767,
-              "score": 4
+              "pair_number": 36,
+              "name": "Adambarage De Alwia, Kaushi",
+              "rating": 580,
+              "score": 4.5
             },
             {
               "pair_number": 13,
               "name": "Joshi, Shriya",
               "rating": 837,
-              "score": 4
-            },
-            {
-              "pair_number": 20,
-              "name": "Yadav, Ayansh",
-              "rating": 747,
               "score": 4
             },
             {
@@ -4098,21 +4499,9 @@
               "score": 4
             },
             {
-              "pair_number": 26,
-              "name": "Dacharaju, Anika",
-              "rating": 679,
-              "score": 4
-            },
-            {
               "pair_number": 24,
               "name": "Daniels, Drew",
               "rating": 725,
-              "score": 4
-            },
-            {
-              "pair_number": 21,
-              "name": "Garcia, Addison",
-              "rating": 739,
               "score": 4
             },
             {
@@ -4122,21 +4511,51 @@
               "score": 4
             },
             {
+              "pair_number": 27,
+              "name": "Barua, Dhruv",
+              "rating": 674,
+              "score": 4
+            },
+            {
+              "pair_number": 25,
+              "name": "Zhang, Hanrui",
+              "rating": 682,
+              "score": 4
+            },
+            {
               "pair_number": 19,
               "name": "Mazon, Axel",
               "rating": 764,
               "score": 4
             },
             {
-              "pair_number": 22,
-              "name": "Peterman, Caden",
-              "rating": 737,
-              "score": 3.5
+              "pair_number": 29,
+              "name": "Sundara Rajan, Iniya",
+              "rating": 654,
+              "score": 4
             },
             {
-              "pair_number": 36,
-              "name": "Adambarage De Alwia, Kaushi",
-              "rating": 580,
+              "pair_number": 33,
+              "name": "Rojo, Deion",
+              "rating": 622,
+              "score": 4
+            },
+            {
+              "pair_number": 28,
+              "name": "Harris, Lawrence",
+              "rating": 657,
+              "score": 4
+            },
+            {
+              "pair_number": 32,
+              "name": "Nagolu, Krishna",
+              "rating": 629,
+              "score": 4
+            },
+            {
+              "pair_number": 30,
+              "name": "Sathish, Dhanvanth",
+              "rating": 646,
               "score": 3.5
             },
             {
@@ -4152,21 +4571,21 @@
               "score": 3.5
             },
             {
-              "pair_number": 25,
-              "name": "Zhang, Hanrui",
-              "rating": 682,
-              "score": 3.5
-            },
-            {
               "pair_number": 40,
               "name": "Hopkins, Jeremiah",
               "rating": 479,
               "score": 3.5
             },
             {
-              "pair_number": 32,
-              "name": "Nagolu, Krishna",
-              "rating": 629,
+              "pair_number": 16,
+              "name": "Townsend, Genevieve",
+              "rating": 785,
+              "score": 3.5
+            },
+            {
+              "pair_number": 43,
+              "name": "Lin, Jolie",
+              "rating": 399,
               "score": 3.5
             },
             {
@@ -4176,45 +4595,15 @@
               "score": 3.5
             },
             {
-              "pair_number": 44,
-              "name": "Huang, Ronan",
-              "rating": 378,
-              "score": 3
-            },
-            {
-              "pair_number": 27,
-              "name": "Barua, Dhruv",
-              "rating": 674,
-              "score": 3
-            },
-            {
               "pair_number": 54,
               "name": "Malipeddi, Pruthvi",
               "rating": 0,
               "score": 3
             },
             {
-              "pair_number": 29,
-              "name": "Sundara Rajan, Iniya",
-              "rating": 654,
-              "score": 3
-            },
-            {
-              "pair_number": 33,
-              "name": "Rojo, Deion",
-              "rating": 622,
-              "score": 3
-            },
-            {
-              "pair_number": 28,
-              "name": "Harris, Lawrence",
-              "rating": 657,
-              "score": 3
-            },
-            {
-              "pair_number": 16,
-              "name": "Townsend, Genevieve",
-              "rating": 785,
+              "pair_number": 44,
+              "name": "Huang, Ronan",
+              "rating": 378,
               "score": 3
             },
             {
@@ -4224,10 +4613,10 @@
               "score": 3
             },
             {
-              "pair_number": 30,
-              "name": "Sathish, Dhanvanth",
-              "rating": 646,
-              "score": 2.5
+              "pair_number": 45,
+              "name": "Ren, Davis",
+              "rating": 312,
+              "score": 3
             },
             {
               "pair_number": 35,
@@ -4236,9 +4625,15 @@
               "score": 2.5
             },
             {
-              "pair_number": 43,
-              "name": "Lin, Jolie",
-              "rating": 399,
+              "pair_number": 46,
+              "name": "Dacharaju, Rudraan",
+              "rating": 255,
+              "score": 2.5
+            },
+            {
+              "pair_number": 50,
+              "name": "Robertson, Trayvon",
+              "rating": 148,
               "score": 2.5
             },
             {
@@ -4254,40 +4649,22 @@
               "score": 2
             },
             {
-              "pair_number": 47,
-              "name": "Esquivel, Madison",
-              "rating": 236,
-              "score": 2
-            },
-            {
               "pair_number": 42,
               "name": "Taylor, Braylon",
               "rating": 433,
               "score": 2
             },
             {
-              "pair_number": 45,
-              "name": "Ren, Davis",
-              "rating": 312,
-              "score": 2
-            },
-            {
-              "pair_number": 50,
-              "name": "Robertson, Trayvon",
-              "rating": 148,
+              "pair_number": 47,
+              "name": "Esquivel, Madison",
+              "rating": 236,
               "score": 2
             },
             {
               "pair_number": 51,
               "name": "Zhang, Jacob",
               "rating": 113,
-              "score": 1.5
-            },
-            {
-              "pair_number": 46,
-              "name": "Dacharaju, Rudraan",
-              "rating": 255,
-              "score": 1.5
+              "score": 2
             },
             {
               "pair_number": 49,
