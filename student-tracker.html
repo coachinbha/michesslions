@@ -1,730 +1,1461 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Chess Tracker</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cantarell:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg:       #1e1e2e;
-      --surface:  #28283d;
-      --surface2: #313149;
-      --border:   #3a3a55;
-      --text:     #cdd6f4;
-      --subtext:  #6c7086;
-      --accent:   #89b4fa;
-      --green:    #a6e3a1;
-      --red:      #f38ba8;
-      --today-bg: #89b4fa;
-      --today-fg: #1e1e2e;
-      --r:        8px;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<title>Chess Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cantarell:wght@400;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════ Tokens ══════════════════════════ */
+:root {
+  --r-sm: 6px;  --r: 10px;  --r-lg: 16px;
+  --ease: cubic-bezier(.2,.8,.2,1);
+  --sidebar-w: 236px;
+  --font: 'Cantarell', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+}
 
-    body {
-      font-family: 'Cantarell', 'Segoe UI', sans-serif;
-      background: var(--bg); color: var(--text);
-      height: 100vh; display: flex; flex-direction: column;
-    }
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg:        #15151e;
+  --bg-grad:   radial-gradient(900px 500px at 12% -15%, rgba(137,180,250,.10), transparent 60%),
+               radial-gradient(800px 450px at 105% 5%,  rgba(166,227,161,.07), transparent 55%);
+  --surface:   #1c1c28;
+  --surface-2: #252534;
+  --surface-3: #2f2f42;
+  --border:    #313148;
+  --border-2:  #454565;
+  --text:      #cdd6f4;
+  --text-2:    #a6adc8;
+  --subtext:   #767b96;
+  --accent:    #89b4fa;
+  --accent-soft: rgba(137,180,250,.14);
+  --on-accent: #15151e;
+  --green:     #a6e3a1;
+  --red:       #f38ba8;
+  --yellow:    #f9e2af;
+  --green-dim: rgba(166,227,161,.14);
+  --red-dim:   rgba(243,139,168,.14);
+  --yellow-dim:rgba(249,226,175,.14);
+  --tint-win:  166,227,161;
+  --tint-loss: 243,139,168;
+  --tint-draw: 249,226,175;
+  --ink-win:   #a6e3a1;
+  --ink-loss:  #f38ba8;
+  --ink-draw:  #f9e2af;
+  --shadow:    0 4px 16px rgba(0,0,0,.35);
+  --shadow-lg: 0 24px 64px rgba(0,0,0,.62);
+  --today-bg:  #89b4fa;
+  --today-fg:  #15151e;
+  --skeleton:  linear-gradient(90deg,#252534 25%,#32324a 50%,#252534 75%);
+  --scrim:     rgba(8,8,14,.68);
+}
 
-    /* ── Top bar ── */
-    #topbar {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 9px 18px; background: var(--surface);
-      border-bottom: 1px solid var(--border); flex-shrink: 0;
-    }
-    #topbar h1 { font-size: 14px; font-weight: 700; }
-    #topbar .sub { font-size: 11px; color: var(--subtext); margin-top: 1px; }
-    .icon-btn {
-      background: none; border: none; color: var(--subtext);
-      cursor: pointer; padding: 5px; border-radius: 6px; font-size: 15px;
-    }
-    .icon-btn:hover { background: var(--surface2); color: var(--text); }
+[data-theme="light"] {
+  color-scheme: light;
+  --bg:        #f5f6fa;
+  --bg-grad:   radial-gradient(900px 500px at 12% -15%, rgba(37,99,235,.07), transparent 60%),
+               radial-gradient(800px 450px at 105% 5%,  rgba(22,163,74,.06), transparent 55%);
+  --surface:   #ffffff;
+  --surface-2: #f2f3f8;
+  --surface-3: #e7e9f1;
+  --border:    #e1e3ed;
+  --border-2:  #c7cbd9;
+  --text:      #191a24;
+  --text-2:    #454b60;
+  --subtext:   #7b8296;
+  --accent:    #2563eb;
+  --accent-soft: rgba(37,99,235,.10);
+  --on-accent: #ffffff;
+  --green:     #15803d;
+  --red:       #dc2626;
+  --yellow:    #a16207;
+  --green-dim: rgba(21,128,61,.10);
+  --red-dim:   rgba(220,38,38,.10);
+  --yellow-dim:rgba(161,98,7,.10);
+  --tint-win:  34,197,94;
+  --tint-loss: 239,68,68;
+  --tint-draw: 234,179,8;
+  --ink-win:   #15803d;
+  --ink-loss:  #b91c1c;
+  --ink-draw:  #a16207;
+  --shadow:    0 2px 10px rgba(20,25,50,.07);
+  --shadow-lg: 0 24px 64px rgba(20,25,50,.20);
+  --today-bg:  #2563eb;
+  --today-fg:  #ffffff;
+  --skeleton:  linear-gradient(90deg,#eceef5 25%,#f8f9fd 50%,#eceef5 75%);
+  --scrim:     rgba(30,35,60,.42);
+}
 
-    /* ── Middle (sidebar + main) ── */
-    #app {
-      display: flex; flex: 1; min-height: 0; /* critical for flex overflow */
-    }
+/* ══════════════════════════ Base ══════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+button, input { font: inherit; color: inherit; }
+button { background: none; border: none; cursor: pointer; }
+a { color: inherit; }
 
-    /* ── Sidebar ── */
-    #sidebar {
-      width: 200px; background: var(--surface);
-      border-right: 1px solid var(--border);
-      display: flex; flex-direction: column; flex-shrink: 0;
-    }
-    #sidebar-header {
-      padding: 12px 14px 8px; font-size: 10px; font-weight: 700;
-      letter-spacing: 1px; color: var(--subtext); text-transform: uppercase; flex-shrink: 0;
-    }
-    #student-list { flex: 1; overflow-y: auto; padding: 0 6px; min-height: 0; }
-    .student-item {
-      display: flex; align-items: center; padding: 7px 8px;
-      border-radius: var(--r); cursor: pointer; gap: 8px;
-      transition: background 0.12s; margin-bottom: 2px;
-    }
-    .student-item:hover, .student-item.active { background: var(--surface2); }
-    .s-avatar {
-      width: 26px; height: 26px; border-radius: 50%; background: var(--surface2);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 12px; font-weight: 700; color: var(--accent); flex-shrink: 0;
-    }
-    .s-name { font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; }
-    .s-count { font-size: 10px; color: var(--subtext); flex-shrink: 0; }
-    .s-remove {
-      background: none; border: none; color: transparent;
-      cursor: pointer; font-size: 11px; padding: 2px 4px; border-radius: 3px;
-    }
-    .student-item:hover .s-remove { color: var(--subtext); }
-    .s-remove:hover { color: var(--red) !important; }
-    #add-area { padding: 8px 6px 12px; border-top: 1px solid var(--border); flex-shrink: 0; }
-    #add-area input {
-      width: 100%; background: var(--bg); border: 1px solid var(--border);
-      border-radius: 7px; color: var(--text); font-family: inherit;
-      font-size: 12px; padding: 6px 9px; outline: none;
-    }
-    #add-area input:focus { border-color: var(--accent); }
-    #add-area input::placeholder { color: var(--subtext); }
-    #add-btn {
-      width: 100%; margin-top: 5px; background: var(--accent);
-      color: var(--today-fg); border: none; border-radius: 7px;
-      padding: 6px; font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer;
-    }
+html, body { height: 100%; }
+body {
+  font-family: var(--font);
+  background-color: var(--bg);
+  background-image: var(--bg-grad);
+  background-attachment: fixed;
+  color: var(--text);
+  display: flex; flex-direction: column;
+  height: 100dvh; overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
 
-    /* ── Main column ── */
-    #main { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; border: 3px solid transparent; background-clip: content-box; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-2); background-clip: content-box; }
 
-    #cal-header {
-      display: flex; align-items: center; padding: 11px 20px; gap: 10px;
-      flex-shrink: 0; border-bottom: 1px solid var(--border);
-    }
-    #cal-title { font-size: 16px; font-weight: 700; flex: 1; text-align: center; }
-    #cal-sub { font-size: 11px; color: var(--subtext); text-align: center; margin-top: 1px; }
-    .nav-btn {
-      background: var(--surface2); border: 1px solid var(--border);
-      color: var(--text); width: 28px; height: 28px; border-radius: 7px;
-      cursor: pointer; font-size: 18px; display: flex; align-items: center;
-      justify-content: center; flex-shrink: 0;
-    }
-    .nav-btn:hover { background: var(--border); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
 
-    /* The scrollable calendar area */
-    #view-area { flex: 1; overflow-y: auto; min-height: 0; }
+/* ══════════════════════════ Topbar ══════════════════════════ */
+#topbar {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 16px;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0; z-index: 30;
+}
+.brand { display: flex; align-items: center; gap: 11px; flex: 1; min-width: 0; }
+.brand-mark {
+  width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0;
+  display: grid; place-items: center; font-size: 19px; line-height: 1;
+  background: linear-gradient(145deg, var(--accent), color-mix(in srgb, var(--accent) 55%, var(--green)));
+  color: var(--on-accent);
+  box-shadow: 0 4px 14px -4px color-mix(in srgb, var(--accent) 70%, transparent);
+}
+.brand-text { min-width: 0; }
+.brand-title {
+  font-size: 14px; font-weight: 700; letter-spacing: -.1px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.brand-sub { font-size: 11px; color: var(--subtext); margin-top: 1px; }
+.topbar-actions { display: flex; gap: 4px; }
 
-    /* ── Status bar — lives OUTSIDE the scrollable area ── */
-    #status-bar {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 5px 18px; font-size: 11px; color: var(--subtext);
-      background: var(--surface); border-top: 1px solid var(--border); flex-shrink: 0;
-    }
-    #refresh-btn {
-      background: var(--surface2); border: 1px solid var(--border); color: var(--subtext);
-      border-radius: 5px; padding: 3px 12px; font-family: inherit; font-size: 11px; cursor: pointer;
-    }
-    #refresh-btn:hover { background: var(--border); color: var(--text); }
-    #refresh-btn:disabled { opacity: 0.4; cursor: default; }
+.icon-btn {
+  display: inline-grid; place-items: center;
+  width: 34px; height: 34px; border-radius: 9px;
+  color: var(--subtext); font-size: 16px; line-height: 1;
+  transition: background .14s var(--ease), color .14s var(--ease), transform .1s var(--ease);
+}
+.icon-btn:hover { background: var(--surface-2); color: var(--text); }
+.icon-btn:active { transform: scale(.94); }
 
-    /* ── Calendar ── */
-    .cal-wrap { max-width: 720px; margin: 0 auto; padding: 14px 16px 24px; }
-    .day-headers { display: grid; grid-template-columns: repeat(7, 1fr); margin-bottom: 5px; }
-    .day-header {
-      text-align: center; font-size: 12px; font-weight: 700;
-      letter-spacing: 0.5px; color: var(--subtext); text-transform: uppercase; padding: 4px 0;
-    }
-    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+/* ══════════════════════════ Layout ══════════════════════════ */
+#app { display: flex; flex: 1; min-height: 0; position: relative; }
 
-    .cal-cell {
-      height: 72px; border-radius: var(--r);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      background: var(--surface); border: 1px solid var(--border);
-      transition: filter 0.1s; padding: 4px; overflow: hidden;
-    }
-    .cal-cell.other-month { background: transparent; border-color: transparent; opacity: 0.2; }
-    .cal-cell.future { opacity: 0.35; }
-    .cal-cell.has-games { cursor: pointer; }
-    .cal-cell.has-games:hover { filter: brightness(1.15); }
-    .cal-cell.today .day-num {
-      background: var(--today-bg); color: var(--today-fg);
-      border-radius: 50%; width: 28px; height: 28px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .day-num  { font-size: 15px; font-weight: 700; line-height: 1; margin-bottom: 3px; }
-    .g-count  { font-size: 17px; font-weight: 700; line-height: 1; }
-    .g-label  { font-size: 10px; opacity: 0.75; line-height: 1; }
+/* ══════════════════════════ Sidebar ══════════════════════════ */
+#sidebar {
+  width: var(--sidebar-w); flex-shrink: 0;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; min-height: 0;
+}
+.side-top {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 14px 8px; flex-shrink: 0;
+}
+.side-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 1.3px;
+  text-transform: uppercase; color: var(--subtext);
+}
+.side-search { padding: 0 10px 8px; flex-shrink: 0; }
+.side-search input {
+  width: 100%; background: var(--surface-2); border: 1px solid transparent;
+  border-radius: 8px; padding: 7px 10px; font-size: 12.5px;
+  outline: none; transition: border-color .15s, background .15s;
+}
+.side-search input::placeholder { color: var(--subtext); }
+.side-search input:focus { border-color: var(--accent); background: var(--bg); }
 
-    /* ── Game popup ── */
-    #popup-overlay {
-      display: none; position: fixed; inset: 0;
-      background: rgba(0,0,0,0.6); z-index: 50;
-      align-items: center; justify-content: center;
-    }
-    #popup-overlay.open { display: flex; }
-    #popup {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 12px; padding: 18px 20px;
-      width: min(700px, 95vw); max-height: 85vh;
-      display: flex; flex-direction: column;
-      box-shadow: 0 16px 48px rgba(0,0,0,0.5);
-    }
-    #popup h3 { font-size: 14px; margin-bottom: 12px; flex-shrink: 0; }
-    #popup-games { display: grid; gap: 4px; overflow-y: auto; flex: 1; }
-    .game-row {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 7px 8px; border-radius: 6px; gap: 8px;
-      background: var(--surface2); font-size: 12px;
-      text-decoration: none; color: var(--text); transition: background 0.12s;
-    }
-    .game-row:hover { background: var(--border); }
-    .g-sub { color: var(--subtext); font-size: 11px; margin-top: 2px; }
-    .badge {
-      font-size: 10px; padding: 2px 8px; border-radius: 4px;
-      background: var(--bg); font-weight: 700; flex-shrink: 0;
-    }
-    .badge.win  { color: var(--green); }
-    .badge.loss { color: var(--red); }
-    .badge.draw { color: var(--subtext); }
-    .popup-close {
-      width: 100%; margin-top: 10px; background: var(--surface2);
-      color: var(--text); border: 1px solid var(--border);
-      border-radius: 7px; padding: 7px; font-family: inherit; font-size: 12px; cursor: pointer;
-    }
+#student-list { flex: 1; overflow-y: auto; padding: 0 8px 8px; min-height: 0; }
 
-    /* ── Settings ── */
-    #settings-panel {
-      display: none; position: fixed; inset: 0;
-      background: rgba(0,0,0,0.6); z-index: 100;
-      align-items: center; justify-content: center;
-    }
-    #settings-panel.open { display: flex; }
-    .s-box {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 12px; padding: 22px; width: 360px;
-    }
-    .s-box h2 { font-size: 15px; margin-bottom: 4px; }
-    .s-box p  { font-size: 12px; color: var(--subtext); margin-bottom: 14px; }
-    .s-box input {
-      width: 100%; background: var(--bg); border: 1px solid var(--border);
-      border-radius: 7px; color: var(--text); font-family: monospace;
-      font-size: 12px; padding: 8px 10px; outline: none; margin-bottom: 12px;
-    }
-    .s-box input:focus { border-color: var(--accent); }
-    .s-actions { display: flex; gap: 8px; justify-content: flex-end; }
-    .btn-p {
-      background: var(--accent); color: var(--today-fg); border: none;
-      border-radius: 7px; padding: 7px 16px; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer;
-    }
-    .btn-s {
-      background: var(--surface2); color: var(--text); border: 1px solid var(--border);
-      border-radius: 7px; padding: 7px 12px; font-family: inherit; font-size: 13px; cursor: pointer;
-    }
-    .empty { text-align: center; color: var(--subtext); font-size: 13px; padding: 60px 20px; }
-  </style>
+.student-item {
+  width: 100%; display: flex; align-items: center; gap: 9px;
+  padding: 7px 8px; border-radius: 9px; text-align: left;
+  transition: background .13s var(--ease); margin-bottom: 2px;
+  position: relative;
+}
+.student-item:hover { background: var(--surface-2); }
+.student-item.active { background: var(--accent-soft); }
+.student-item.active .s-name { color: var(--accent); font-weight: 700; }
+
+.s-avatar {
+  width: 27px; height: 27px; border-radius: 50%; flex-shrink: 0;
+  display: grid; place-items: center;
+  font-size: 12px; font-weight: 700;
+  background: hsl(var(--h,220) 65% 55% / .16);
+  color: hsl(var(--h,220) 70% 68%);
+}
+[data-theme="light"] .s-avatar {
+  background: hsl(var(--h,220) 70% 50% / .12);
+  color: hsl(var(--h,220) 65% 38%);
+}
+.s-name {
+  flex: 1; min-width: 0; font-size: 12.5px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.s-streak { font-size: 10px; flex-shrink: 0; opacity: .85; letter-spacing: -.3px; }
+.s-count {
+  font-size: 10.5px; font-weight: 700; flex-shrink: 0;
+  color: var(--subtext); font-family: var(--mono);
+}
+.student-item.active .s-count { color: var(--accent); }
+.s-remove {
+  flex-shrink: 0; width: 18px; height: 18px; border-radius: 5px;
+  display: grid; place-items: center; font-size: 11px;
+  color: transparent; transition: color .13s, background .13s;
+}
+.student-item:hover .s-remove { color: var(--subtext); }
+.s-remove:hover { color: var(--red) !important; background: var(--red-dim); }
+
+.side-empty { padding: 18px 10px; font-size: 12px; color: var(--subtext); text-align: center; }
+
+#add-area { padding: 10px; border-top: 1px solid var(--border); flex-shrink: 0; display: grid; gap: 6px; }
+#add-area input {
+  width: 100%; background: var(--bg); border: 1px solid var(--border);
+  border-radius: 8px; padding: 7px 10px; font-size: 12.5px;
+  outline: none; transition: border-color .15s;
+}
+#add-area input::placeholder { color: var(--subtext); }
+#add-area input:focus { border-color: var(--accent); }
+#add-btn {
+  width: 100%; background: var(--accent); color: var(--on-accent);
+  border-radius: 8px; padding: 8px; font-size: 12.5px; font-weight: 700;
+  transition: filter .14s, transform .1s;
+}
+#add-btn:hover { filter: brightness(1.08); }
+#add-btn:active { transform: scale(.98); }
+
+/* ══════════════════════════ Main ══════════════════════════ */
+#main { flex: 1; display: flex; flex-direction: column; min-height: 0; min-width: 0; }
+
+#cal-header {
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  gap: 12px; padding: 13px 20px 11px; flex-shrink: 0;
+  border-bottom: 1px solid var(--border);
+}
+.cal-nav-left, .cal-nav-right { display: flex; gap: 6px; }
+.cal-nav-left { justify-content: flex-start; }
+.cal-nav-right { justify-content: flex-end; }
+.cal-title-wrap { text-align: center; min-width: 0; }
+#cal-title { font-size: 16px; font-weight: 700; letter-spacing: -.2px; }
+#cal-sub { font-size: 11.5px; color: var(--subtext); margin-top: 2px; }
+
+.nav-btn {
+  width: 30px; height: 30px; border-radius: 8px;
+  background: var(--surface-2); border: 1px solid var(--border);
+  display: grid; place-items: center; font-size: 17px; line-height: 1;
+  color: var(--text-2); transition: background .13s, color .13s, transform .1s;
+}
+.nav-btn:hover { background: var(--surface-3); color: var(--text); }
+.nav-btn:active { transform: scale(.93); }
+.nav-btn[hidden] { visibility: hidden; display: grid; }
+
+.btn-ghost {
+  padding: 6px 13px; border-radius: 8px; font-size: 12px; font-weight: 700;
+  background: var(--surface-2); border: 1px solid var(--border); color: var(--text-2);
+  transition: background .13s, color .13s;
+}
+.btn-ghost:hover { background: var(--surface-3); color: var(--text); }
+.btn-ghost[hidden] { visibility: hidden; }
+
+/* ── Stats strip ── */
+#stats-strip {
+  display: flex; gap: 7px; flex-wrap: wrap;
+  padding: 11px 20px 0; flex-shrink: 0;
+}
+#stats-strip[hidden] { display: none; }
+.stat-pill {
+  display: inline-flex; align-items: baseline; gap: 5px;
+  padding: 4px 11px; border-radius: 99px; font-size: 11.5px;
+  background: var(--surface); border: 1px solid var(--border); color: var(--subtext);
+}
+.stat-pill b { font-size: 13px; font-weight: 700; color: var(--text); font-family: var(--mono); }
+.stat-pill.win  b { color: var(--ink-win); }
+.stat-pill.loss b { color: var(--ink-loss); }
+.stat-pill.draw b { color: var(--ink-draw); }
+
+/* ── Scroll area ── */
+#view-area { flex: 1; overflow-y: auto; min-height: 0; }
+
+/* ── Status bar ── */
+#status-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 6px 18px; font-size: 11.5px; color: var(--subtext);
+  background: var(--surface); border-top: 1px solid var(--border); flex-shrink: 0;
+}
+#status-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#status-text.err { color: var(--red); }
+#refresh-btn {
+  background: var(--surface-2); border: 1px solid var(--border); color: var(--subtext);
+  border-radius: 7px; padding: 4px 13px; font-size: 11.5px; font-weight: 700; flex-shrink: 0;
+  transition: background .13s, color .13s;
+}
+#refresh-btn:hover:not(:disabled) { background: var(--surface-3); color: var(--text); }
+#refresh-btn:disabled { opacity: .45; cursor: default; }
+
+/* ══════════════════════════ Calendar ══════════════════════════ */
+.cal-wrap { max-width: 780px; margin: 0 auto; padding: 16px 16px 36px; }
+.day-headers {
+  display: grid; grid-template-columns: repeat(7, 1fr);
+  gap: 6px; margin-bottom: 7px;
+}
+.day-header {
+  text-align: center; font-size: 10.5px; font-weight: 700;
+  letter-spacing: .9px; text-transform: uppercase; color: var(--subtext);
+  padding: 3px 0;
+}
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+
+.cal-cell {
+  position: relative;
+  min-height: 76px;
+  border-radius: var(--r);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 6px 7px 12px;
+  display: flex; flex-direction: column; align-items: flex-start;
+  overflow: hidden;
+  transition: transform .14s var(--ease), box-shadow .14s var(--ease),
+              border-color .14s var(--ease), background .14s var(--ease);
+}
+.cal-cell.tint-win  { background: rgba(var(--tint-win),  var(--a, .18)); border-color: rgba(var(--tint-win),  var(--a2, .32)); }
+.cal-cell.tint-loss { background: rgba(var(--tint-loss), var(--a, .18)); border-color: rgba(var(--tint-loss), var(--a2, .32)); }
+.cal-cell.tint-draw { background: rgba(var(--tint-draw), var(--a, .18)); border-color: rgba(var(--tint-draw), var(--a2, .32)); }
+
+.cal-cell.other-month { background: transparent; border-color: transparent; opacity: .26; }
+.cal-cell.future { opacity: .34; }
+.cal-cell.has-games { cursor: pointer; }
+.cal-cell.has-games:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: var(--border-2);
+}
+.cal-cell.has-games:active { transform: translateY(-1px) scale(.985); }
+
+.day-num {
+  font-size: 12px; font-weight: 700; line-height: 1;
+  color: var(--text-2); font-family: var(--mono);
+  padding: 2px 5px; border-radius: 6px;
+  transition: background .15s, color .15s;
+}
+.cal-cell.today { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+.cal-cell.today .day-num { background: var(--today-bg); color: var(--today-fg); }
+
+.cell-count {
+  position: absolute; left: 0; right: 0; bottom: 15px;
+  text-align: center;
+  font-size: 20px; font-weight: 700; line-height: 1;
+  font-family: var(--mono); letter-spacing: -.5px;
+}
+.cal-cell.tint-win  .cell-count { color: var(--ink-win); }
+.cal-cell.tint-loss .cell-count { color: var(--ink-loss); }
+.cal-cell.tint-draw .cell-count { color: var(--ink-draw); }
+
+.cell-bar {
+  position: absolute; left: 7px; right: 7px; bottom: 6px; height: 4px;
+  border-radius: 99px; overflow: hidden; display: flex; gap: 1px;
+  background: color-mix(in srgb, var(--text) 10%, transparent);
+}
+.cell-bar i { display: block; height: 100%; }
+.cell-bar .b-win  { background: var(--green); }
+.cell-bar .b-loss { background: var(--red); }
+.cell-bar .b-draw { background: var(--yellow); }
+
+/* ── Skeleton ── */
+.skel {
+  background: var(--skeleton); background-size: 220% 100%;
+  animation: shimmer 1.5s linear infinite; border-color: transparent !important;
+}
+@keyframes shimmer { 0% { background-position: 220% 0; } 100% { background-position: -220% 0; } }
+
+/* ── Empty state ── */
+.empty {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 6px; padding: 72px 24px; text-align: center; color: var(--subtext);
+}
+.empty-icon { font-size: 44px; opacity: .35; margin-bottom: 6px; }
+.empty-title { font-size: 14px; font-weight: 700; color: var(--text-2); }
+.empty-sub { font-size: 12.5px; max-width: 300px; line-height: 1.55; }
+
+/* ── Month summary line ── */
+.month-summary {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; margin-bottom: 14px; flex-wrap: wrap;
+}
+.month-link {
+  font-size: 12px; color: var(--accent); text-decoration: none; font-weight: 700;
+  display: inline-flex; align-items: center; gap: 4px;
+}
+.month-link:hover { text-decoration: underline; }
+.month-stats { font-size: 11.5px; color: var(--subtext); font-family: var(--mono); }
+
+/* ══════════════════════════ Popup ══════════════════════════ */
+#popup-overlay, #settings-panel {
+  position: fixed; inset: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: center; padding: 16px;
+  background: var(--scrim);
+  backdrop-filter: blur(7px); -webkit-backdrop-filter: blur(7px);
+  opacity: 0; pointer-events: none;
+  transition: opacity .2s var(--ease);
+}
+#popup-overlay.open, #settings-panel.open { opacity: 1; pointer-events: auto; }
+
+#popup {
+  width: min(760px, 100%); max-height: min(86vh, 840px);
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-lg); box-shadow: var(--shadow-lg);
+  display: flex; flex-direction: column; overflow: hidden;
+  transform: translateY(10px) scale(.975);
+  transition: transform .22s var(--ease);
+}
+#popup-overlay.open #popup { transform: none; }
+
+.popup-head {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 14px;
+  padding: 16px 18px 13px; border-bottom: 1px solid var(--border); flex-shrink: 0;
+}
+#popup-title { font-size: 15px; font-weight: 700; letter-spacing: -.2px; }
+.popup-sub { font-size: 12px; color: var(--subtext); margin-top: 3px; }
+.popup-sub .ink-win  { color: var(--ink-win); font-weight: 700; }
+.popup-sub .ink-loss { color: var(--ink-loss); font-weight: 700; }
+.popup-sub .ink-draw { color: var(--ink-draw); font-weight: 700; }
+
+#popup-games {
+  flex: 1; overflow-y: auto; display: grid; gap: 6px;
+  padding: 13px 18px 16px; align-content: start;
+}
+@media (min-width: 620px) { #popup-games.two-col { grid-template-columns: 1fr 1fr; } }
+
+.game-row {
+  display: grid; grid-template-columns: 20px 1fr auto; align-items: center;
+  gap: 10px; padding: 9px 12px;
+  border-radius: 9px; background: var(--surface-2);
+  text-decoration: none; color: var(--text);
+  border-left: 3px solid var(--border-2);
+  transition: background .13s var(--ease), transform .13s var(--ease);
+  min-width: 0;
+}
+.game-row:hover { background: var(--surface-3); transform: translateX(2px); }
+.game-row.win  { border-left-color: var(--green); }
+.game-row.loss { border-left-color: var(--red); }
+.game-row.draw { border-left-color: var(--yellow); }
+
+.g-color { font-size: 15px; text-align: center; opacity: .8; }
+.g-main { min-width: 0; display: grid; gap: 3px; }
+.g-line1 {
+  font-size: 12.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.g-user { color: var(--accent); font-weight: 700; }
+.g-elo { color: var(--subtext); font-size: 11px; font-family: var(--mono); }
+.g-line2 {
+  font-size: 10.5px; color: var(--subtext); display: flex; gap: 6px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.g-speed {
+  text-transform: uppercase; letter-spacing: .5px; font-weight: 700;
+  font-size: 9.5px; opacity: .85;
+}
+.g-opening { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.g-right { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; flex-shrink: 0; }
+.badge {
+  font-size: 9.5px; font-weight: 700; letter-spacing: .7px;
+  text-transform: uppercase; padding: 3px 8px; border-radius: 99px;
+}
+.badge.win  { background: var(--green-dim);  color: var(--ink-win); }
+.badge.loss { background: var(--red-dim);    color: var(--ink-loss); }
+.badge.draw { background: var(--yellow-dim); color: var(--ink-draw); }
+.g-diff { font-size: 10px; font-family: var(--mono); font-weight: 700; }
+.g-diff.up   { color: var(--ink-win); }
+.g-diff.down { color: var(--ink-loss); }
+
+.popup-foot { padding: 12px 18px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; flex-shrink: 0; }
+
+/* ══════════════════════════ Settings ══════════════════════════ */
+.s-box {
+  width: min(430px, 100%);
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-lg); box-shadow: var(--shadow-lg); padding: 24px;
+  transform: translateY(10px) scale(.975);
+  transition: transform .22s var(--ease);
+}
+#settings-panel.open .s-box { transform: none; }
+.s-box h2 { font-size: 16px; margin-bottom: 5px; letter-spacing: -.2px; }
+.s-box p { font-size: 12.5px; color: var(--subtext); line-height: 1.6; margin-bottom: 16px; }
+.s-box label {
+  display: block; font-size: 10.5px; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--subtext); margin-bottom: 6px;
+}
+.s-box input {
+  width: 100%; background: var(--bg); border: 1px solid var(--border);
+  border-radius: 9px; padding: 10px 12px; font-size: 12.5px;
+  font-family: var(--mono); outline: none; margin-bottom: 18px;
+  transition: border-color .15s;
+}
+.s-box input:focus { border-color: var(--accent); }
+.s-actions { display: flex; gap: 8px; justify-content: flex-end; }
+.btn-primary {
+  background: var(--accent); color: var(--on-accent); border-radius: 9px;
+  padding: 9px 20px; font-size: 13px; font-weight: 700;
+  transition: filter .14s, transform .1s;
+}
+.btn-primary:hover { filter: brightness(1.08); }
+.btn-primary:active { transform: scale(.97); }
+.btn-secondary {
+  background: var(--surface-2); color: var(--text-2); border: 1px solid var(--border);
+  border-radius: 9px; padding: 9px 16px; font-size: 13px; font-weight: 700;
+  transition: background .14s, color .14s;
+}
+.btn-secondary:hover { background: var(--surface-3); color: var(--text); }
+
+/* ══════════════════════════ Toasts ══════════════════════════ */
+#toasts {
+  position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%);
+  z-index: 300; display: flex; flex-direction: column; align-items: center; gap: 8px;
+  pointer-events: none;
+}
+.toast {
+  background: var(--surface); border: 1px solid var(--border-2);
+  color: var(--text); padding: 10px 18px; border-radius: 99px;
+  font-size: 12.5px; font-weight: 700; box-shadow: var(--shadow-lg);
+  opacity: 0; transform: translateY(12px) scale(.96);
+  transition: opacity .25s var(--ease), transform .25s var(--ease);
+  max-width: 90vw; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.toast.show { opacity: 1; transform: none; }
+.toast.error   { border-color: var(--red);   color: var(--ink-loss); }
+.toast.success { border-color: var(--green); color: var(--ink-win); }
+
+/* ══════════════════════════ Mobile ══════════════════════════ */
+.only-mobile { display: none !important; }
+#sidebar-backdrop {
+  position: fixed; inset: 0; z-index: 50;
+  background: var(--scrim); backdrop-filter: blur(3px);
+  opacity: 0; pointer-events: none; transition: opacity .22s var(--ease);
+}
+#sidebar-backdrop.open { opacity: 1; pointer-events: auto; }
+
+@media (max-width: 780px) {
+  .only-mobile { display: inline-grid !important; }
+  #sidebar {
+    position: fixed; top: 0; bottom: 0; left: 0; z-index: 60;
+    width: 268px; transform: translateX(-102%);
+    transition: transform .24s var(--ease);
+    box-shadow: var(--shadow-lg);
+    border-right: 1px solid var(--border);
+  }
+  #sidebar.open { transform: none; }
+  .cal-wrap { padding: 12px 10px 28px; }
+  .cal-grid, .day-headers { gap: 4px; }
+  .cal-cell { min-height: 62px; padding: 5px 5px 11px; border-radius: 8px; }
+  .cell-count { font-size: 16px; bottom: 13px; }
+  .day-num { font-size: 11px; padding: 1px 4px; }
+  #cal-header { padding: 11px 12px 9px; }
+  #stats-strip { padding: 9px 12px 0; gap: 6px; }
+  .stat-pill { font-size: 10.5px; padding: 3px 9px; }
+  .stat-pill b { font-size: 12px; }
+  #popup-games { padding: 11px 12px 14px; }
+  .popup-head { padding: 14px 14px 11px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
+</style>
 </head>
 <body>
 
-<div id="topbar">
-  <div>
-    <h1 id="page-title">♟ Chess Tracker</h1>
-    <div class="sub" id="page-sub">This week's activity</div>
-  </div>
-  <button class="icon-btn" onclick="openSettings()">⚙</button>
-</div>
-
-<div id="app">
-  <div id="sidebar">
-    <div id="sidebar-header">Students</div>
-    <div id="student-list"></div>
-    <div id="add-area">
-      <input id="newUser" placeholder="lichess username..."
-             onkeydown="if(event.key==='Enter')addStudent()" />
-      <button id="add-btn" onclick="addStudent()">+ Add Student</button>
+<!-- ══════════════ Topbar ══════════════ -->
+<header id="topbar">
+  <button class="icon-btn only-mobile" id="menu-btn" aria-label="Open menu">☰</button>
+  <div class="brand">
+    <div class="brand-mark">♞</div>
+    <div class="brand-text">
+      <div class="brand-title" id="page-title">Chess Tracker</div>
+      <div class="brand-sub" id="page-sub">This week's activity</div>
     </div>
   </div>
+  <div class="topbar-actions">
+    <button class="icon-btn" id="theme-btn" title="Toggle theme (T)" aria-label="Toggle theme">◐</button>
+    <button class="icon-btn" id="settings-btn" title="Settings" aria-label="Settings">⚙</button>
+  </div>
+</header>
 
-  <div id="main">
-    <div id="cal-header">
-      <button class="nav-btn" id="prev-btn" onclick="navigate(-1)" style="visibility:hidden">‹</button>
-      <div style="flex:1;text-align:center">
+<!-- ══════════════ App ══════════════ -->
+<div id="app">
+  <aside id="sidebar">
+    <div class="side-top"><span class="side-label">Students</span></div>
+    <div class="side-search">
+      <input id="search" placeholder="Search…  ( / )" autocomplete="off" spellcheck="false">
+    </div>
+    <div id="student-list"></div>
+    <div id="add-area">
+      <input id="newUser" placeholder="lichess username" autocomplete="off" spellcheck="false">
+      <button id="add-btn">+ Add student</button>
+    </div>
+  </aside>
+
+  <div id="sidebar-backdrop"></div>
+
+  <main id="main">
+    <header id="cal-header">
+      <div class="cal-nav-left">
+        <button class="nav-btn" id="prev-btn" title="Previous month (←)" hidden>‹</button>
+        <button class="nav-btn" id="next-btn" title="Next month (→)" hidden>›</button>
+      </div>
+      <div class="cal-title-wrap">
         <div id="cal-title">This Week</div>
         <div id="cal-sub"></div>
       </div>
-      <button class="nav-btn" id="next-btn" onclick="navigate(1)" style="visibility:hidden">›</button>
-    </div>
+      <div class="cal-nav-right">
+        <button class="btn-ghost" id="today-btn" hidden>Today</button>
+      </div>
+    </header>
+
+    <div id="stats-strip" hidden></div>
 
     <div id="view-area"></div>
 
-    <div id="status-bar">
-      <span id="status-text">Connecting...</span>
-      <button id="refresh-btn" onclick="forceRefresh()">↻ Refresh</button>
-    </div>
-  </div>
+    <footer id="status-bar">
+      <span id="status-text">Connecting…</span>
+      <button id="refresh-btn">↻ Refresh</button>
+    </footer>
+  </main>
 </div>
 
-<!-- Game popup -->
-<div id="popup-overlay" onclick="if(event.target===this)closePopup()">
-  <div id="popup">
-    <h3 id="popup-title"></h3>
+<!-- ══════════════ Game popup ══════════════ -->
+<div id="popup-overlay">
+  <div id="popup" role="dialog" aria-modal="true">
+    <div class="popup-head">
+      <div style="min-width:0">
+        <h3 id="popup-title"></h3>
+        <div class="popup-sub" id="popup-sub"></div>
+      </div>
+      <button class="icon-btn" id="popup-x" aria-label="Close">✕</button>
+    </div>
     <div id="popup-games"></div>
-    <button class="popup-close" onclick="closePopup()">Close</button>
-  </div>
-</div>
-
-<!-- Settings -->
-<div id="settings-panel">
-  <div class="s-box">
-    <h2>Worker URL</h2>
-    <p>Paste your Cloudflare Worker URL.</p>
-    <input id="workerInput" placeholder="https://your-worker.workers.dev" />
-    <div class="s-actions">
-      <button class="btn-s" onclick="closeSettings()">Cancel</button>
-      <button class="btn-p" onclick="saveSettings()">Save</button>
+    <div class="popup-foot">
+      <button class="btn-secondary" id="popup-close">Close</button>
     </div>
   </div>
 </div>
+
+<!-- ══════════════ Settings ══════════════ -->
+<div id="settings-panel">
+  <div class="s-box" role="dialog" aria-modal="true">
+    <h2>Worker URL</h2>
+    <p>Paste the URL of your deployed Cloudflare Worker (the one that talks to Lichess). It should look like
+      <code style="font-family:var(--mono);font-size:11px">https://your-worker.workers.dev</code>.</p>
+    <label for="workerInput">Endpoint</label>
+    <input id="workerInput" placeholder="https://your-worker.workers.dev" spellcheck="false">
+    <div class="s-actions">
+      <button class="btn-secondary" id="settings-cancel">Cancel</button>
+      <button class="btn-primary" id="settings-save">Save</button>
+    </div>
+  </div>
+</div>
+
+<div id="toasts"></div>
 
 <script>
-  // ── Constants ────────────────────────────────────────────────────
-  const TODAY       = new Date().toISOString().slice(0,10);
-  const DAY_LABELS  = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-  const MONTH_NAMES = ["January","February","March","April","May","June",
-                       "July","August","September","October","November","December"];
-  const CV = "v3"; // cache version — bump to bust all old data
+/* ═══════════════════════════════════════════════════════════════
+   Constants
+   ═══════════════════════════════════════════════════════════════ */
+const DAY_LABELS  = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+const MONTH_NAMES = ["January","February","March","April","May","June",
+                     "July","August","September","October","November","December"];
+const CV = "v4";                 // cache version — bump to bust old data
+const WEEK_TTL = 5 * 60 * 1000;  // 5 min
 
-  // ── State ────────────────────────────────────────────────────────
-  let API = localStorage.getItem("workerUrl") || "";
-  let students  = [];
-  let weekData  = [];       // array of { username, days:{date:[games]}, total }
-  let view      = "week";   // "week" | "month"
-  let activeUser = null;
-  let calMonth  = new Date();
-  let timer     = null;
+/* ═══════════════════════════════════════════════════════════════
+   State
+   ═══════════════════════════════════════════════════════════════ */
+let API        = localStorage.getItem("workerUrl") || "";
+let students   = [];          // ["alice","bob"]
+let weekData   = [];          // [{username, days:{}, total}]
+let view       = "week";      // "week" | "month"
+let activeUser = null;
+let calMonth   = new Date();
+let timer      = null;
+let searchQ    = "";
+let loading    = false;
 
-  // game store: keyed by dateStr, holds array of game objects
-  const GS = {};
-  function gs(key, arr) { GS[key] = arr; }
-  function go(key)      { showPopup(GS[key] || [], key); }
+const GS = {};                // date → [games]  (for the popup)
+const $  = id => document.getElementById(id);
 
-  // ── Cache ────────────────────────────────────────────────────────
-  function cSet(k, v) {
-    try { localStorage.setItem(CV+"_"+k, JSON.stringify({ts:Date.now(), v})); } catch {}
+/* ═══════════════════════════════════════════════════════════════
+   Helpers
+   ═══════════════════════════════════════════════════════════════ */
+function esc(s) {
+  return String(s ?? "").replace(/[&<>"']/g, c =>
+    ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+}
+function todayStr() { return new Date().toISOString().slice(0,10); }
+function hashHue(s) {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0;
+  return Math.abs(h) % 360;
+}
+function fmtRange(a, b) {
+  const da = new Date(a + "T12:00:00Z"), db = new Date(b + "T12:00:00Z");
+  return da.toLocaleDateString(undefined,{day:"numeric",month:"short"}) + " – " +
+         db.toLocaleDateString(undefined,{day:"numeric",month:"short",year:"numeric"});
+}
+function weekMap() {
+  const m = {};
+  for (const r of weekData) if (r?.username) m[r.username] = r;
+  return m;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Cache (localStorage, namespaced)
+   ═══════════════════════════════════════════════════════════════ */
+function cSet(k, v) {
+  try { localStorage.setItem(CV + "_" + k, JSON.stringify({ ts: Date.now(), v })); } catch {}
+}
+function cGet(k, ttl) {
+  try {
+    const raw = localStorage.getItem(CV + "_" + k);
+    if (!raw) return null;
+    const { ts, v } = JSON.parse(raw);
+    return Date.now() - ts < ttl ? v : null;
+  } catch { return null; }
+}
+function cStale(k) {
+  try {
+    const r = localStorage.getItem(CV + "_" + k);
+    return r ? JSON.parse(r).v : null;
+  } catch { return null; }
+}
+function cDel(k) { try { localStorage.removeItem(CV + "_" + k); } catch {} }
+
+/* ═══════════════════════════════════════════════════════════════
+   Toasts
+   ═══════════════════════════════════════════════════════════════ */
+function toast(msg, type = "") {
+  const el = document.createElement("div");
+  el.className = "toast " + type;
+  el.textContent = msg;
+  $("toasts").appendChild(el);
+  requestAnimationFrame(() => el.classList.add("show"));
+  setTimeout(() => {
+    el.classList.remove("show");
+    setTimeout(() => el.remove(), 320);
+  }, 2800);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Theme
+   ═══════════════════════════════════════════════════════════════ */
+function applyTheme(t) {
+  document.documentElement.setAttribute("data-theme", t);
+  try { localStorage.setItem("theme", t); } catch {}
+  $("theme-btn").textContent = t === "dark" ? "☀" : "☾";
+}
+function toggleTheme() {
+  applyTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Boot
+   ═══════════════════════════════════════════════════════════════ */
+window.addEventListener("DOMContentLoaded", () => {
+  const saved = localStorage.getItem("theme");
+  applyTheme(saved || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark"));
+  wireEvents();
+  if (!API) { openSettings(); return; }
+  $("workerInput").value = API;
+  start();
+});
+
+function start() {
+  clearInterval(timer);
+  loadAll();
+  timer = setInterval(() => loadAll(false, true), WEEK_TTL);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Data loading
+   ═══════════════════════════════════════════════════════════════ */
+async function loadAll(force = false, silent = false) {
+  if (!API) return;
+  const cs = cGet("students", WEEK_TTL);
+  const cw = cGet("week",     WEEK_TTL);
+
+  if (!force && cs && cw) {
+    students = cs; weekData = cw;
+    renderSidebar();
+    if (view === "week") { renderWeek(); renderStats(); }
+    setStatus("cached");
+    fetchWeek(true);            // silent background refresh
+    return;
   }
-  function cGet(k, ttl) {
-    try {
-      const raw = localStorage.getItem(CV+"_"+k);
-      if (!raw) return null;
-      const {ts, v} = JSON.parse(raw);
-      return (Date.now()-ts < ttl) ? v : null;
-    } catch { return null; }
-  }
-  function cStale(k) {
-    try { const r = localStorage.getItem(CV+"_"+k); return r ? JSON.parse(r).v : null; }
-    catch { return null; }
-  }
-  function cDel(k) { localStorage.removeItem(CV+"_"+k); }
 
-  // ── Init ─────────────────────────────────────────────────────────
-  window.onload = () => {
-    if (!API) { openSettings(); return; }
-    document.getElementById("workerInput").value = API;
-    start();
-  };
+  if (!silent) setStatus("loading");
+  if (view === "week" && !students.length) renderSkeleton("week");
+  await fetchWeek(false);
+}
 
-  function start() {
-    clearInterval(timer);
-    loadAll();
-    timer = setInterval(loadAll, 5*60*1000);
+async function fetchWeek(silent = false) {
+  if (loading) return;
+  loading = true;
+  try {
+    const [sr, wr] = await Promise.all([
+      fetch(API + "/students"),
+      fetch(API + "/week"),
+    ]);
+    if (!sr.ok || !wr.ok) throw new Error("HTTP " + (sr.ok ? wr.status : sr.status));
+    students = await sr.json();
+    weekData = await wr.json();
+    cSet("students", students);
+    cSet("week", weekData);
+    renderSidebar();
+    if (view === "week") { renderWeek(); renderStats(); }
+    setStatus("ok");
+  } catch (e) {
+    students = cStale("students") || students;
+    weekData = cStale("week")    || weekData;
+    renderSidebar();
+    if (view === "week") { renderWeek(); renderStats(); }
+    setStatus("error");
+    if (!silent) toast("Could not reach the worker — showing cached data", "error");
+  } finally {
+    loading = false;
   }
+}
 
-  // ── Core load ────────────────────────────────────────────────────
-  async function loadAll(force=false) {
-    if (!API) return;
-    const cs = cGet("students", 5*60*1000);
-    const cw = cGet("week",     5*60*1000);
-    if (!force && cs && cw) {
-      students = cs; weekData = cw;
-      renderSidebar();
-      if (view === "week") renderWeek();
-      setStatus("cached");
-      fetchWeek();        // silent background update
-      return;
-    }
-    setStatus("loading");
-    await fetchWeek();
-  }
+/* ═══════════════════════════════════════════════════════════════
+   Students — add / remove
+   ═══════════════════════════════════════════════════════════════ */
+async function addStudent() {
+  const inp = $("newUser");
+  const u = inp.value.trim().toLowerCase();
+  if (!u) return;
+  if (!API) { openSettings(); return; }
+  if (students.includes(u)) { toast("@" + u + " is already in the list", "error"); return; }
 
-  async function fetchWeek() {
-    try {
-      const [sr, wr] = await Promise.all([
-        fetch(API+"/students"),
-        fetch(API+"/week"),
-      ]);
-      if (!sr.ok || !wr.ok) throw new Error("bad status");
-      students = await sr.json();
-      weekData  = await wr.json();
-      cSet("students", students);
-      cSet("week",     weekData);
-      renderSidebar();
-      if (view === "week") renderWeek();
-      setStatus("ok");
-    } catch(e) {
-      students = cStale("students") || students;
-      weekData  = cStale("week")    || weekData;
-      renderSidebar();
-      if (view === "week") renderWeek();
-      setStatus("error");
-    }
-  }
-
-  // ── Student add/remove ───────────────────────────────────────────
-  async function addStudent() {
-    const inp = document.getElementById("newUser");
-    const u = inp.value.trim();
-    if (!u || !API) return;
-    const r = await fetch(API+"/students", {
-      method:"POST", headers:{"Content-Type":"application/json"},
-      body: JSON.stringify({username:u}),
+  $("add-btn").disabled = true;
+  try {
+    const r = await fetch(API + "/students", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username: u }),
     });
-    const d = await r.json();
-    if (d.error) { alert(d.error); return; }
+    const d = await r.json().catch(() => ({}));
+    if (!r.ok || d.error) throw new Error(d.error || ("HTTP " + r.status));
     inp.value = "";
     cDel("students"); cDel("week");
+    toast("Added @" + u, "success");
     await loadAll(true);
+  } catch (e) {
+    toast(e.message || "Could not add student", "error");
+  } finally {
+    $("add-btn").disabled = false;
+  }
+}
+
+async function removeStudent(u) {
+  if (!confirm("Remove @" + u + " from the tracker?")) return;
+  try {
+    await fetch(API + "/students/" + encodeURIComponent(u), { method: "DELETE" });
+  } catch {}
+  cDel("students"); cDel("week");
+  for (const k of Object.keys(GS)) delete GS[k];
+  toast("Removed @" + u);
+  if (activeUser === u) showWeekView();
+  else await loadAll(true);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Sidebar
+   ═══════════════════════════════════════════════════════════════ */
+function computeStreak(rec) {
+  if (!rec?.days) return 0;
+  const d = new Date();
+  const t = d.toISOString().slice(0,10);
+  if (!rec.days[t]?.length) d.setUTCDate(d.getUTCDate() - 1);
+  let s = 0;
+  for (let i = 0; i < 7; i++) {
+    const ds = d.toISOString().slice(0,10);
+    if (rec.days[ds]?.length) { s++; d.setUTCDate(d.getUTCDate() - 1); }
+    else break;
+  }
+  return s;
+}
+
+function renderSidebar() {
+  const el = $("student-list");
+  const byUser = weekMap();
+
+  let list = students.slice();
+  if (searchQ) {
+    const q = searchQ.toLowerCase();
+    list = list.filter(u => u.toLowerCase().includes(q));
+  }
+  list.sort((a, b) => {
+    const ta = byUser[a]?.total || 0;
+    const tb = byUser[b]?.total || 0;
+    if (tb !== ta) return tb - ta;
+    return a.localeCompare(b);
+  });
+
+  if (!list.length) {
+    el.innerHTML = `<div class="side-empty">${students.length ? "No matches" : "No students yet"}</div>`;
+    return;
   }
 
-  async function removeStudent(u) {
-    if (!confirm("Remove "+u+"?")) return;
-    await fetch(API+"/students/"+u, {method:"DELETE"});
-    cDel("students"); cDel("week");
-    if (activeUser === u) showWeekView();
-    else await loadAll(true);
-  }
+  el.innerHTML = list.map(u => {
+    const rec    = byUser[u];
+    const total  = rec?.total || 0;
+    const streak = computeStreak(rec);
+    return `<div class="student-item ${activeUser === u ? "active" : ""}" data-user="${esc(u)}" role="button" tabindex="0">
+      <span class="s-avatar" style="--h:${hashHue(u)}">${esc(u[0].toUpperCase())}</span>
+      <span class="s-name">@${esc(u)}</span>
+      ${streak >= 2 ? `<span class="s-streak" title="${streak}-day streak">🔥${streak}</span>` : ""}
+      <span class="s-count">${total ? total : ""}</span>
+      <span class="s-remove" data-remove="${esc(u)}" title="Remove">✕</span>
+    </div>`;
+  }).join("");
+}
 
-  // ── Sidebar ──────────────────────────────────────────────────────
-  function renderSidebar() {
-    const el = document.getElementById("student-list");
-    if (!students.length) {
-      el.innerHTML = `<div style="padding:10px 8px;font-size:12px;color:var(--subtext)">No students yet.</div>`;
-      return;
-    }
-    const byUser = {};
-    for (const r of weekData) if (r.username) byUser[r.username] = r;
-
-    el.innerHTML = students.map(u => {
-      const total = byUser[u]?.total || 0;
-      return `<div class="student-item ${activeUser===u?'active':''}" onclick="openStudent('${u}')">
-        <div class="s-avatar">${u[0].toUpperCase()}</div>
-        <div class="s-name">@${u}</div>
-        <div class="s-count">${total>0?total+"♟":""}</div>
-        <button class="s-remove" onclick="event.stopPropagation();removeStudent('${u}')">✕</button>
-      </div>`;
-    }).join("");
-  }
-
-  // ── Week view ─────────────────────────────────────────────────────
-  function showWeekView() {
-    view = "week"; activeUser = null;
-    document.getElementById("prev-btn").style.visibility = "hidden";
-    document.getElementById("next-btn").style.visibility = "hidden";
-    document.getElementById("page-title").textContent = "♟ Chess Tracker";
-    document.getElementById("page-sub").textContent   = "This week's activity";
-    renderSidebar();
-    renderWeek();
-  }
-
-  function renderWeek() {
-    const days = weekDays();
-    document.getElementById("cal-title").textContent = "This Week";
-    document.getElementById("cal-sub").textContent   = fmtDate(days[0])+" – "+fmtDate(days[6]);
-
-    const el = document.getElementById("view-area");
-    const byUser = {};
-    for (const r of weekData) if (r.username) byUser[r.username] = r;
-
-    if (!students.length) {
-      el.innerHTML = `<div class="empty">♟<br><br>Add students in the sidebar.</div>`;
-      return;
-    }
-
-    let html = `<div class="cal-wrap"><div class="day-headers">`;
-    for (const d of days) {
-      const dt = new Date(d+"T12:00:00Z");
-      const hi = d===TODAY ? "color:var(--accent)" : "";
-      html += `<div class="day-header" style="${hi}">${DAY_LABELS[dt.getUTCDay()]}<br>
-        <span style="font-size:13px;font-weight:700;letter-spacing:0">${dt.getUTCDate()}</span></div>`;
-    }
-    html += `</div><div class="cal-grid">`;
-
-    for (const d of days) {
-      const dt       = new Date(d+"T12:00:00Z");
-      const isFuture = d > TODAY;
-      const isToday  = d === TODAY;
-      const games    = [];
-      for (const u of students) {
-        const dg = byUser[u]?.days?.[d] || [];
-        for (const g of dg) games.push({...g, username:u});
+/* ═══════════════════════════════════════════════════════════════
+   Week stats strip
+   ═══════════════════════════════════════════════════════════════ */
+function computeWeekStats() {
+  let total = 0, w = 0, l = 0, d = 0, active = 0;
+  for (const rec of weekData) {
+    let any = false;
+    for (const arr of Object.values(rec.days || {})) {
+      for (const g of arr) {
+        total++;
+        if (g.result === "win") w++;
+        else if (g.result === "loss") l++;
+        else d++;
+        any = true;
       }
-      const count = games.length;
-      const has   = count > 0 && !isFuture;
-      if (has) gs(d, games);
-
-      const cs  = has ? colorStyle(games) : null;
-      const sty = cs  ? `style="background:${cs.bg};border-color:${cs.bd}"` : "";
-      const cls = ["cal-cell", has?"has-games":"", isToday?"today":"", isFuture?"future":""].filter(Boolean).join(" ");
-      const clk = has ? `onclick="go('${d}')"` : "";
-
-      html += `<div class="${cls}" ${sty} ${clk}>
-        <div class="day-num">${dt.getUTCDate()}</div>`;
-      if (has && cs) html += `<div class="g-count" style="color:${cs.tx}">${count}</div>
-        <div class="g-label" style="color:${cs.tx}">${count===1?"game":"games"}</div>`;
-      html += `</div>`;
     }
-    html += `</div></div>`;
-    el.innerHTML = html;
+    if (any) active++;
+  }
+  const score = total ? Math.round(((w + d * 0.5) / total) * 100) : 0;
+  return { total, w, l, d, active, score };
+}
+
+function renderStats() {
+  const el = $("stats-strip");
+  if (view !== "week") { el.hidden = true; return; }
+  const s = computeWeekStats();
+  if (!s.total && !students.length) { el.hidden = true; return; }
+  el.hidden = false;
+  el.innerHTML = `
+    <span class="stat-pill"><b>${s.total}</b> games</span>
+    <span class="stat-pill win"><b>${s.w}</b> W</span>
+    <span class="stat-pill loss"><b>${s.l}</b> L</span>
+    <span class="stat-pill draw"><b>${s.d}</b> D</span>
+    <span class="stat-pill"><b>${s.score}%</b> score</span>
+    <span class="stat-pill"><b>${s.active}</b> active</span>`;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Shared calendar cell builder
+   ═══════════════════════════════════════════════════════════════ */
+function tintFor(games) {
+  const t = games.length;
+  let w = 0, l = 0, d = 0;
+  for (const g of games) {
+    if (g.result === "win") w++;
+    else if (g.result === "loss") l++;
+    else d++;
+  }
+  const score = (w + d * 0.5) / t;
+  const dev   = Math.abs(score - 0.5) * 2;     // 0 … 1
+  let key;
+  if (dev < 0.12)        key = "draw";
+  else if (score > 0.5)  key = "win";
+  else                   key = "loss";
+
+  const base = key === "draw" ? 0.14 : 0.10 + dev * 0.26;
+  return { key, a: base.toFixed(3), a2: (base + 0.20).toFixed(3) };
+}
+
+function resultBarHTML(games) {
+  let w = 0, l = 0, d = 0;
+  for (const g of games) {
+    if (g.result === "win") w++;
+    else if (g.result === "loss") l++;
+    else d++;
+  }
+  const parts = [];
+  if (w) parts.push(`<i class="b-win" style="flex:${w}"></i>`);
+  if (d) parts.push(`<i class="b-draw" style="flex:${d}"></i>`);
+  if (l) parts.push(`<i class="b-loss" style="flex:${l}"></i>`);
+  return `<div class="cell-bar">${parts.join("")}</div>`;
+}
+
+function cellHTML({ dateStr, dayNum, games, isToday, isFuture, isOther }) {
+  const count = games.length;
+  const has   = count > 0;
+  const cls   = ["cal-cell"];
+  if (isOther)  cls.push("other-month");
+  if (isFuture) cls.push("future");
+  if (isToday)  cls.push("today");
+
+  let style = "", bar = "", num = "";
+  if (has) {
+    const tint = tintFor(games);
+    cls.push("has-games", "tint-" + tint.key);
+    style = `style="--a:${tint.a};--a2:${tint.a2}"`;
+    bar   = resultBarHTML(games);
+    num   = `<span class="cell-count">${count}</span>`;
   }
 
-  // ── Month view ────────────────────────────────────────────────────
-  async function openStudent(u) {
-    view = "month"; activeUser = u;
-    calMonth = new Date(); calMonth.setDate(1);
-    document.getElementById("prev-btn").style.visibility = "visible";
-    document.getElementById("next-btn").style.visibility = "visible";
-    document.getElementById("page-title").textContent = "@"+u;
-    document.getElementById("page-sub").textContent   = "Monthly activity";
-    renderSidebar();
-    await fetchMonth(u);
+  const click = has ? `data-date="${dateStr}"` : "";
+  return `<div class="${cls.join(" ")}" ${style} ${click}>
+    <span class="day-num">${dayNum}</span>
+    ${num}
+    ${bar}
+  </div>`;
+}
+
+function renderSkeleton(kind) {
+  const cells = kind === "week" ? 7 : 35;
+  let html = `<div class="cal-wrap"><div class="day-headers">`;
+  for (let i = 0; i < 7; i++) html += `<div class="day-header">${DAY_LABELS[(i+1)%7]}</div>`;
+  html += `</div><div class="cal-grid">`;
+  for (let i = 0; i < cells; i++) html += `<div class="cal-cell skel"></div>`;
+  html += `</div></div>`;
+  $("view-area").innerHTML = html;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Week view
+   ═══════════════════════════════════════════════════════════════ */
+function showWeekView() {
+  view = "week"; activeUser = null;
+  $("prev-btn").hidden = true;
+  $("next-btn").hidden = true;
+  $("today-btn").hidden = true;
+  $("page-title").textContent = "Chess Tracker";
+  $("page-sub").textContent   = "This week's activity";
+  $("cal-title").textContent  = "This Week";
+  renderSidebar();
+  renderWeek();
+  renderStats();
+  closeDrawer();
+}
+
+function weekDays() {
+  const now  = new Date();
+  const diff = now.getUTCDay() === 0 ? -6 : 1 - now.getUTCDay();
+  const mon  = new Date(now);
+  mon.setUTCDate(now.getUTCDate() + diff);
+  return Array.from({ length: 7 }, (_, i) => {
+    const d = new Date(mon);
+    d.setUTCDate(mon.getUTCDate() + i);
+    return d.toISOString().slice(0,10);
+  });
+}
+
+function renderWeek() {
+  const days = weekDays();
+  const TODAY = todayStr();
+  $("cal-title").textContent = "This Week";
+  $("cal-sub").textContent   = fmtRange(days[0], days[6]);
+
+  const el = $("view-area");
+
+  if (!students.length) {
+    el.innerHTML = `<div class="empty">
+      <div class="empty-icon">♟</div>
+      <div class="empty-title">No students yet</div>
+      <div class="empty-sub">Add a Lichess username in the sidebar to start tracking weekly activity.</div>
+    </div>`;
+    return;
   }
 
-  async function navigate(dir) {
-    if (view !== "month" || !activeUser) return;
-    calMonth.setMonth(calMonth.getMonth()+dir);
-    await fetchMonth(activeUser);
+  const byUser = weekMap();
+  let html = `<div class="cal-wrap"><div class="day-headers">`;
+  for (const d of days) {
+    const dt = new Date(d + "T12:00:00Z");
+    html += `<div class="day-header" ${d === TODAY ? 'style="color:var(--accent)"' : ""}>
+      ${DAY_LABELS[dt.getUTCDay()]}<br>
+      <span style="font-family:var(--mono);font-size:12px">${dt.getUTCDate()}</span>
+    </div>`;
   }
+  html += `</div><div class="cal-grid">`;
 
-  async function fetchMonth(u) {
-    const y = calMonth.getFullYear();
-    const m = calMonth.getMonth();
-    document.getElementById("cal-title").textContent = MONTH_NAMES[m]+" "+y;
-    document.getElementById("cal-sub").textContent   = "@"+u;
+  for (const d of days) {
+    const dt       = new Date(d + "T12:00:00Z");
+    const isFuture = d > TODAY;
+    const isToday  = d === TODAY;
+    const games    = [];
 
-    const isPast = y < new Date().getFullYear() ||
-                  (y === new Date().getFullYear() && m < new Date().getMonth());
-    const ck  = `month_${u}_${y}_${m}`;
-    const ttl = isPast ? 24*60*60*1000 : 60*60*1000;
-
-    const cached = cGet(ck, ttl);
-    if (cached) {
-      renderMonth(u, cached);
-      setStatus("cached");
-      return;
+    for (const u of students) {
+      const arr = byUser[u]?.days?.[d] || [];
+      for (const g of arr) games.push(g);
     }
+    if (games.length) GS[d] = games;
 
-    document.getElementById("view-area").innerHTML =
-      `<div class="empty">Loading games from Lichess...</div>`;
-    setStatus("loading");
-
-    const since = new Date(Date.UTC(y,m,1)).getTime();
-    const until = new Date(Date.UTC(y,m+1,1)).getTime();
-    const dayGames = {};
-
-    try {
-      const res  = await fetch(
-        `https://lichess.org/api/games/user/${u}?since=${since}&until=${until}&moves=false&clocks=false&evals=false&max=500`,
-        { headers: { Accept: "application/x-ndjson" } }
-      );
-      if (!res.ok) throw new Error("lichess "+res.status);
-      const text = await res.text();
-      const lines = text.trim().split("\n").filter(l => l.trim());
-
-      for (const line of lines) {
-        let g;
-        try { g = JSON.parse(line); } catch { continue; }
-        const ts = g.lastMoveAt || g.createdAt;
-        if (!ts) continue;
-        const date  = new Date(ts).toISOString().slice(0,10);
-        const white = (g.players?.white?.user?.name || "").toLowerCase();
-        const black = (g.players?.black?.user?.name || "").toLowerCase();
-        const uLower = u.toLowerCase();
-        const color  = white === uLower ? "white" : "black";
-        const oppName = color === "white"
-          ? (g.players?.black?.user?.name || "?")
-          : (g.players?.white?.user?.name || "?");
-        // g.winner is "white", "black", or absent for draw
-        const result = !g.winner ? "draw" : g.winner === color ? "win" : "loss";
-
-        if (!dayGames[date]) dayGames[date] = [];
-        dayGames[date].push({
-          id: g.id, url: `https://lichess.org/${g.id}`,
-          speed: g.speed || "?",
-          color, result, opponent: oppName, username: u,
-        });
-      }
-
-      cSet(ck, dayGames);
-      renderMonth(u, dayGames);
-      setStatus("ok");
-    } catch(e) {
-      const stale = cStale(ck);
-      if (stale) { renderMonth(u, stale); setStatus("error"); return; }
-      document.getElementById("view-area").innerHTML =
-        `<div class="empty">Could not load from Lichess.<br>${e.message}</div>`;
-      setStatus("error");
-    }
-  }
-
-  function renderMonth(u, dayGames) {
-    const y = calMonth.getFullYear();
-    const m = calMonth.getMonth();
-    const firstDay   = new Date(Date.UTC(y,m,1)).getUTCDay();
-    const daysInMon  = new Date(Date.UTC(y,m+1,0)).getUTCDate();
-    const prevLast   = new Date(Date.UTC(y,m,0)).getUTCDate();
-    const total      = Object.values(dayGames).flat().length;
-    const active     = Object.keys(dayGames).length;
-
-    let html = `<div class="cal-wrap">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
-        <a href="https://lichess.org/@/${u}" target="_blank"
-           style="color:var(--accent);font-size:12px;text-decoration:none">Open on Lichess ↗</a>
-        <span style="font-size:11px;color:var(--subtext)">${total} games · ${active} active days</span>
-      </div>
-      <div class="day-headers">
-        ${DAY_LABELS.map(d=>`<div class="day-header">${d}</div>`).join("")}
-      </div>
-      <div class="cal-grid">`;
-
-    // leading blanks
-    for (let i=0; i<firstDay; i++)
-      html += `<div class="cal-cell other-month"><div class="day-num">${prevLast-firstDay+1+i}</div></div>`;
-
-    for (let d=1; d<=daysInMon; d++) {
-      const ds = `${y}-${String(m+1).padStart(2,"0")}-${String(d).padStart(2,"0")}`;
-      const games    = dayGames[ds] || [];
-      const count    = games.length;
-      const isToday  = ds === TODAY;
-      const isFuture = ds > TODAY;
-      const has      = count > 0;
-      if (has) gs(ds, games);
-
-      const cs  = has ? colorStyle(games) : null;
-      const sty = cs  ? `style="background:${cs.bg};border-color:${cs.bd}"` : "";
-      const cls = ["cal-cell", has?"has-games":"", isToday?"today":"", isFuture?"future":""].filter(Boolean).join(" ");
-      const clk = has ? `onclick="go('${ds}')"` : "";
-
-      html += `<div class="${cls}" ${sty} ${clk}>
-        <div class="day-num">${d}</div>`;
-      if (has && cs) html += `<div class="g-count" style="color:${cs.tx}">${count}</div>
-        <div class="g-label" style="color:${cs.tx}">${count===1?"game":"games"}</div>`;
-      html += `</div>`;
-    }
-
-    const trail = 7 - ((firstDay+daysInMon)%7);
-    if (trail < 7) for (let d=1; d<=trail; d++)
-      html += `<div class="cal-cell other-month"><div class="day-num">${d}</div></div>`;
-
-    html += `</div></div>`;
-    document.getElementById("view-area").innerHTML = html;
-  }
-
-  // ── Popup ────────────────────────────────────────────────────────
-  function showPopup(games, dateStr) {
-    const dt = new Date(dateStr+"T12:00:00Z");
-    document.getElementById("popup-title").textContent =
-      "Games on "+dt.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"});
-
-    const cols = games.length > 4 ? 2 : 1;
-    document.getElementById("popup-games").style.gridTemplateColumns =
-      cols > 1 ? "1fr 1fr" : "1fr";
-
-    document.getElementById("popup-games").innerHTML = games.map(g => {
-      const icon   = g.color==="white" ? "♔" : "♚";
-      const clabel = g.color==="white" ? "White" : "Black";
-      const rl     = g.result==="win" ? "Win" : g.result==="loss" ? "Loss" : "Draw";
-      const rc     = g.result==="win" ? "win" : g.result==="loss" ? "loss" : "draw";
-      const opp    = g.opponent || "?";
-      const who    = g.username ? `<span style="color:var(--accent)">@${g.username}</span>` : "";
-      return `<a href="${g.url}" target="_blank" class="game-row">
-        <div style="min-width:0">
-          <div style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${who} vs ${opp}</div>
-          <div class="g-sub">${icon} ${clabel} · ${g.speed}</div>
-        </div>
-        <div class="badge ${rc}">${rl}</div>
-      </a>`;
-    }).join("");
-
-    document.getElementById("popup-overlay").classList.add("open");
-  }
-
-  function closePopup() { document.getElementById("popup-overlay").classList.remove("open"); }
-
-  // ── Force refresh ─────────────────────────────────────────────────
-  function forceRefresh() {
-    const btn = document.getElementById("refresh-btn");
-    btn.disabled = true; btn.textContent = "↻ Refreshing...";
-
-    cDel("students"); cDel("week");
-
-    let op;
-    if (view === "month" && activeUser) {
-      const y = calMonth.getFullYear(), m = calMonth.getMonth();
-      cDel(`month_${activeUser}_${y}_${m}`);
-      op = fetchMonth(activeUser);
-    } else {
-      op = fetchWeek();
-    }
-    op.finally(() => { btn.disabled=false; btn.textContent="↻ Refresh"; });
-  }
-
-  // ── Color style for a day ─────────────────────────────────────────
-  function colorStyle(games) {
-    const total = games.length; if (!total) return null;
-    const w = games.filter(g=>g.result==="win").length / total;
-    const l = games.filter(g=>g.result==="loss").length / total;
-    if (w > l && w > (1-w-l)) {
-      const a = 0.12 + w*0.28;
-      return { bg:`rgba(166,227,161,${a})`, bd:`rgba(166,227,161,${a+0.3})`, tx:"#a6e3a1" };
-    } else if (l > w && l > (1-w-l)) {
-      const a = 0.12 + l*0.28;
-      return { bg:`rgba(243,139,168,${a})`, bd:`rgba(243,139,168,${a+0.3})`, tx:"#f38ba8" };
-        } else {
-      // A dim, desaturated yellow/gold for draws
-      return { bg:"rgba(230, 200, 110, 0.25)", bd:"rgba(230, 200, 110, 0.5)", tx:"#e6c86e" };
-    }
-  }
-
-  // ── Status ────────────────────────────────────────────────────────
-  function setStatus(s) {
-    const el  = document.getElementById("status-text");
-    const now = new Date().toLocaleTimeString();
-    if      (s==="loading") el.textContent = "Loading...";
-    else if (s==="cached")  el.textContent = "Cached · refreshing in background";
-    else if (s==="error")   el.textContent = "⚠ Could not reach API — showing cached data";
-    else                    el.textContent = `Updated ${now} · auto-refreshes every 5 min`;
-  }
-
-  // ── Settings ──────────────────────────────────────────────────────
-  function openSettings()  { document.getElementById("settings-panel").classList.add("open"); }
-  function closeSettings() { document.getElementById("settings-panel").classList.remove("open"); }
-  function saveSettings()  {
-    API = document.getElementById("workerInput").value.trim().replace(/\/$/,"");
-    localStorage.setItem("workerUrl", API);
-    closeSettings(); start();
-  }
-
-  // ── Helpers ───────────────────────────────────────────────────────
-  function weekDays() {
-    const now  = new Date();
-    const diff = now.getUTCDay()===0 ? -6 : 1-now.getUTCDay();
-    const mon  = new Date(now);
-    mon.setUTCDate(now.getUTCDate()+diff);
-    return Array.from({length:7}, (_,i) => {
-      const d = new Date(mon); d.setUTCDate(mon.getUTCDate()+i);
-      return d.toISOString().slice(0,10);
+    html += cellHTML({
+      dateStr: d,
+      dayNum: dt.getUTCDate(),
+      games: isFuture ? [] : games,
+      isToday, isFuture, isOther: false,
     });
   }
 
-  function fmtDate(s) {
-    return new Date(s+"T12:00:00Z").toLocaleDateString("en-GB",{day:"numeric",month:"short"});
+  html += `</div></div>`;
+  el.innerHTML = html;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Month view
+   ═══════════════════════════════════════════════════════════════ */
+async function openStudent(u) {
+  view = "month"; activeUser = u;
+  calMonth = new Date();
+  calMonth.setDate(1);
+  $("prev-btn").hidden = false;
+  $("next-btn").hidden = false;
+  $("today-btn").hidden = false;
+  $("page-title").textContent = "@" + u;
+  $("page-sub").textContent   = "Monthly activity";
+  renderSidebar();
+  renderStats();
+  closeDrawer();
+  await fetchMonth(u);
+}
+
+async function navigate(dir) {
+  if (view !== "month" || !activeUser) return;
+  calMonth.setMonth(calMonth.getMonth() + dir);
+  await fetchMonth(activeUser);
+}
+
+async function fetchMonth(u) {
+  const y = calMonth.getFullYear();
+  const m = calMonth.getMonth();
+  $("cal-title").textContent = MONTH_NAMES[m] + " " + y;
+  $("cal-sub").textContent   = "@" + u;
+
+  const now    = new Date();
+  const isPast = y < now.getFullYear() || (y === now.getFullYear() && m < now.getMonth());
+  const ck     = `month_${u}_${y}_${m + 1}`;
+  const ttl    = isPast ? 24 * 60 * 60 * 1000 : 60 * 60 * 1000;
+
+  const cached = cGet(ck, ttl);
+  if (cached) {
+    renderMonth(u, cached);
+    setStatus("cached");
+    return;
   }
+
+  renderSkeleton("month");
+  setStatus("loading");
+
+  try {
+    const res  = await fetch(`${API}/month/${encodeURIComponent(u)}?year=${y}&month=${m + 1}`);
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || data.error) throw new Error(data.error || ("HTTP " + res.status));
+    const days = data.days || {};
+    cSet(ck, days);
+    renderMonth(u, days);
+    setStatus("ok");
+  } catch (e) {
+    const stale = cStale(ck);
+    if (stale) { renderMonth(u, stale); setStatus("error"); return; }
+    $("view-area").innerHTML = `<div class="empty">
+      <div class="empty-icon">⚠</div>
+      <div class="empty-title">Could not load games</div>
+      <div class="empty-sub">${esc(e.message || "Unknown error")}</div>
+    </div>`;
+    setStatus("error");
+  }
+}
+
+function renderMonth(u, dayGames) {
+  const y = calMonth.getFullYear();
+  const m = calMonth.getMonth();
+  const TODAY = todayStr();
+
+  const firstDay  = new Date(Date.UTC(y, m, 1)).getUTCDay();
+  const daysInMon = new Date(Date.UTC(y, m + 1, 0)).getUTCDate();
+  const prevLast  = new Date(Date.UTC(y, m, 0)).getUTCDate();
+
+  let total = 0, wins = 0, losses = 0, draws = 0;
+  for (const arr of Object.values(dayGames)) {
+    for (const g of arr) {
+      total++;
+      if (g.result === "win") wins++;
+      else if (g.result === "loss") losses++;
+      else draws++;
+    }
+  }
+  const active = Object.keys(dayGames).length;
+  const score  = total ? Math.round(((wins + draws * 0.5) / total) * 100) : 0;
+
+  let html = `<div class="cal-wrap">
+    <div class="month-summary">
+      <a class="month-link" href="https://lichess.org/@/${esc(u)}" target="_blank" rel="noopener">
+        Open on Lichess <span style="font-size:10px">↗</span>
+      </a>
+      <span class="month-stats">${total} games · ${active} days · ${score}%</span>
+    </div>
+    <div class="day-headers">
+      ${DAY_LABELS.map(d => `<div class="day-header">${d}</div>`).join("")}
+    </div>
+    <div class="cal-grid">`;
+
+  for (let i = 0; i < firstDay; i++) {
+    html += `<div class="cal-cell other-month"><span class="day-num">${prevLast - firstDay + 1 + i}</span></div>`;
+  }
+
+  for (let d = 1; d <= daysInMon; d++) {
+    const ds       = `${y}-${String(m + 1).padStart(2,"0")}-${String(d).padStart(2,"0")}`;
+    const games    = dayGames[ds] || [];
+    const isToday  = ds === TODAY;
+    const isFuture = ds > TODAY;
+    if (games.length) GS[ds] = games;
+
+    html += cellHTML({
+      dateStr: ds, dayNum: d,
+      games: isFuture ? [] : games,
+      isToday, isFuture, isOther: false,
+    });
+  }
+
+  const trail = (7 - ((firstDay + daysInMon) % 7)) % 7;
+  for (let d = 1; d <= trail; d++) {
+    html += `<div class="cal-cell other-month"><span class="day-num">${d}</span></div>`;
+  }
+
+  html += `</div></div>`;
+  $("view-area").innerHTML = html;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Game popup
+   ═══════════════════════════════════════════════════════════════ */
+function gameRowHTML(g) {
+  const colorIcon   = g.color === "white" ? "♔" : "♚";
+  const resultLabel = g.result === "win" ? "Win" : g.result === "loss" ? "Loss" : "Draw";
+  const opp         = g.opponent || "?";
+  const oppElo      = g.opponentRating ? ` <span class="g-elo">${g.opponentRating}</span>` : "";
+  const speed       = g.speed ? `<span class="g-speed">${esc(g.speed)}</span>` : "";
+  const opening     = g.opening ? `<span class="g-opening">${esc(g.opening)}</span>` : "";
+  const who         = g.username ? `<span class="g-user">@${esc(g.username)}</span> ` : "";
+  const diff = (g.ratingDiff != null && g.ratingDiff !== 0)
+    ? `<span class="g-diff ${g.ratingDiff > 0 ? "up" : "down"}">${g.ratingDiff > 0 ? "+" : ""}${g.ratingDiff}</span>`
+    : "";
+
+  const line2 = (speed || opening)
+    ? `<span class="g-line2">${speed}${speed && opening ? "<span style='opacity:.4'>·</span>" : ""}${opening}</span>`
+    : "";
+
+  return `<a href="${esc(g.url)}" target="_blank" rel="noopener" class="game-row ${g.result}">
+    <span class="g-color" title="${esc(g.color)}">${colorIcon}</span>
+    <span class="g-main">
+      <span class="g-line1">${who}vs ${esc(opp)}${oppElo}</span>
+      ${line2}
+    </span>
+    <span class="g-right">
+      <span class="badge ${g.result}">${resultLabel}</span>
+      ${diff}
+    </span>
+  </a>`;
+}
+
+function showPopup(games, dateStr) {
+  const dt = new Date(dateStr + "T12:00:00Z");
+  $("popup-title").textContent = dt.toLocaleDateString(undefined, {
+    weekday: "long", day: "numeric", month: "long", year: "numeric",
+  });
+
+  let w = 0, l = 0, d = 0;
+  for (const g of games) {
+    if (g.result === "win") w++;
+    else if (g.result === "loss") l++;
+    else d++;
+  }
+  $("popup-sub").innerHTML =
+    `${games.length} game${games.length !== 1 ? "s" : ""} · ` +
+    `<span class="ink-win">${w}W</span> <span class="ink-loss">${l}L</span> <span class="ink-draw">${d}D</span>`;
+
+  const box = $("popup-games");
+  box.classList.toggle("two-col", games.length > 5);
+  box.innerHTML = games.map(gameRowHTML).join("");
+
+  $("popup-overlay").classList.add("open");
+}
+function closePopup() { $("popup-overlay").classList.remove("open"); }
+
+/* ═══════════════════════════════════════════════════════════════
+   Status
+   ═══════════════════════════════════════════════════════════════ */
+function setStatus(s) {
+  const el = $("status-text");
+  el.classList.toggle("err", s === "error");
+  if (s === "loading")      el.textContent = "Loading…";
+  else if (s === "cached")  el.textContent = "Cached · refreshing in the background";
+  else if (s === "error")   el.textContent = "⚠ Could not reach the API — showing cached data";
+  else                      el.textContent = `Updated ${new Date().toLocaleTimeString()} · auto-refreshes every 5 min`;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Force refresh
+   ═══════════════════════════════════════════════════════════════ */
+async function forceRefresh() {
+  const btn = $("refresh-btn");
+  if (btn.disabled) return;
+  btn.disabled = true;
+  const orig = btn.textContent;
+  btn.textContent = "↻ Refreshing…";
+
+  cDel("students"); cDel("week");
+
+  try {
+    if (view === "month" && activeUser) {
+      const y = calMonth.getFullYear(), m = calMonth.getMonth();
+      cDel(`month_${activeUser}_${y}_${m + 1}`);
+      await fetchMonth(activeUser);
+    } else {
+      await fetchWeek();
+    }
+  } finally {
+    btn.disabled = false;
+    btn.textContent = orig;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Settings modal
+   ═══════════════════════════════════════════════════════════════ */
+function openSettings()  { $("settings-panel").classList.add("open"); }
+function closeSettings() { $("settings-panel").classList.remove("open"); }
+function saveSettings() {
+  const v = $("workerInput").value.trim().replace(/\/+$/, "");
+  if (!v) { toast("Please paste a Worker URL", "error"); return; }
+  API = v;
+  try { localStorage.setItem("workerUrl", API); } catch {}
+  closeSettings();
+  toast("Worker URL saved", "success");
+  start();
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Mobile drawer
+   ═══════════════════════════════════════════════════════════════ */
+function openDrawer() {
+  $("sidebar").classList.add("open");
+  $("sidebar-backdrop").classList.add("open");
+}
+function closeDrawer() {
+  $("sidebar").classList.remove("open");
+  $("sidebar-backdrop").classList.remove("open");
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Event wiring
+   ═══════════════════════════════════════════════════════════════ */
+function wireEvents() {
+  // Topbar
+  $("theme-btn").addEventListener("click", toggleTheme);
+  $("settings-btn").addEventListener("click", () => {
+    $("workerInput").value = API;
+    openSettings();
+  });
+  $("menu-btn").addEventListener("click", openDrawer);
+  $("sidebar-backdrop").addEventListener("click", closeDrawer);
+
+  // Sidebar
+  $("add-btn").addEventListener("click", addStudent);
+  $("newUser").addEventListener("keydown", e => { if (e.key === "Enter") addStudent(); });
+  $("search").addEventListener("input", e => {
+    searchQ = e.target.value.trim();
+    renderSidebar();
+  });
+
+  $("student-list").addEventListener("click", e => {
+    const rm = e.target.closest("[data-remove]");
+    if (rm) { e.stopPropagation(); removeStudent(rm.dataset.remove); return; }
+    const item = e.target.closest(".student-item");
+    if (item?.dataset.user) openStudent(item.dataset.user);
+  });
+  $("student-list").addEventListener("keydown", e => {
+    if (e.key !== "Enter" && e.key !== " ") return;
+    const item = e.target.closest(".student-item");
+    if (item?.dataset.user) { e.preventDefault(); openStudent(item.dataset.user); }
+  });
+
+  // Calendar navigation
+  $("prev-btn").addEventListener("click", () => navigate(-1));
+  $("next-btn").addEventListener("click", () => navigate(1));
+  $("today-btn").addEventListener("click", () => {
+    calMonth = new Date();
+    calMonth.setDate(1);
+    if (activeUser) fetchMonth(activeUser);
+  });
+
+  // Calendar cell clicks (delegated — cells are re-rendered constantly)
+  $("view-area").addEventListener("click", e => {
+    const cell = e.target.closest(".cal-cell[data-date]");
+    if (!cell) return;
+    const ds = cell.dataset.date;
+    showPopup(GS[ds] || [], ds);
+  });
+
+  // Popup
+  $("popup-close").addEventListener("click", closePopup);
+  $("popup-x").addEventListener("click", closePopup);
+  $("popup-overlay").addEventListener("click", e => {
+    if (e.target === $("popup-overlay")) closePopup();
+  });
+
+  // Settings
+  $("settings-save").addEventListener("click", saveSettings);
+  $("settings-cancel").addEventListener("click", closeSettings);
+  $("settings-panel").addEventListener("click", e => {
+    if (e.target === $("settings-panel")) closeSettings();
+  });
+  $("workerInput").addEventListener("keydown", e => {
+    if (e.key === "Enter") saveSettings();
+  });
+
+  // Status bar
+  $("refresh-btn").addEventListener("click", forceRefresh);
+
+  // Global keyboard shortcuts
+  document.addEventListener("keydown", e => {
+    const tag = (e.target.tagName || "").toLowerCase();
+    const typing = tag === "input" || tag === "textarea" || e.target.isContentEditable;
+
+    if (e.key === "Escape") {
+      if (typing) { e.target.blur(); return; }
+      closePopup(); closeSettings(); closeDrawer();
+      return;
+    }
+    if (typing) return;
+
+    if (e.key === "ArrowLeft")  { e.preventDefault(); navigate(-1); }
+    if (e.key === "ArrowRight") { e.preventDefault(); navigate(1); }
+    if (e.key === "/")          { e.preventDefault(); $("search").focus(); }
+    if (e.key === "t" || e.key === "T") toggleTheme();
+    if (e.key === "r" || e.key === "R") forceRefresh();
+    if (e.key === "w" || e.key === "W") { if (view === "month") showWeekView(); }
+  });
+}
 </script>
 </body>
 </html>
