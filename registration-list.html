@@ -283,7 +283,13 @@
         .table-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
         table { width: 100%; border-collapse: collapse; margin-top: 2rem; border: 1px solid var(--text-color); transition: opacity 0.3s ease, transform 0.3s ease; }
         table.updating { opacity: 0.5; transform: translateY(-10px); }
-        th { background-color: var(--bg-color); color: var(--text-color); padding: 1.5rem; text-align: left; font-weight: 900; border-bottom: 2px solid var(--text-color); text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; white-space: nowrap; }
+        th { background-color: var(--bg-color); color: var(--text-color); padding: 1.5rem; text-align: left; font-weight: 900; border-bottom: 2px solid var(--text-color); text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; white-space: nowrap; position: relative; }
+        th.sortable { cursor: pointer; user-select: none; -webkit-user-select: none; transition: background-color 0.3s ease; }
+        th.sortable:hover { background-color: var(--gray-100); }
+        th.sortable:active { background-color: var(--gray-200); }
+        .sort-indicator { display: inline-block; margin-left: 0.5rem; font-size: 0.75rem; opacity: 0.4; transition: opacity 0.3s ease, transform 0.3s ease; letter-spacing: 0; }
+        th.sortable:hover .sort-indicator { opacity: 0.8; }
+        th.sortable.sort-active .sort-indicator { opacity: 1; }
         td { padding: 1.2rem 1.5rem; border-bottom: 1px solid #e0e0e0; font-size: 0.95rem; vertical-align: middle; }
         tr:hover { background-color: #f9f9f9; }
         tr:last-child td { border-bottom: 1px solid var(--text-color); }
@@ -444,7 +450,7 @@
             </div>
 
             <div class="refresh-info" data-aos="fade-up" data-aos-delay="600">
-                Last updated: <span id="lastUpdate">just now</span> | Auto-refresh every 30 seconds | Ratings fetched automatically
+                Last updated: <span id="lastUpdate">just now</span> | Auto-refresh every 30 seconds | Ratings fetched automatically | Click RATING header to sort
             </div>
         </div>
         
@@ -483,6 +489,7 @@
         let selectedSections = {};
         let searchQuery = '';
         let ratingCache = {};
+        let sortState = 'none'; // 'none' | 'desc' | 'asc'
 
         function loadRatingCache() {
             try {
@@ -548,6 +555,34 @@
             renderTable(activeTournament, data, tournament);
         }
 
+        // ── SORT HELPERS ────────────────────────────────────────
+        function getNumericRating(rating) {
+            if (!rating || rating === '-' || rating === 'Unrated' || rating === 'Error' || rating === 'Loading...') {
+                return null;
+            }
+            const num = parseInt(String(rating), 10);
+            return isNaN(num) ? null : num;
+        }
+
+        function sortData(data, sortState) {
+            if (sortState === 'none') return data;
+            return [...data].sort((a, b) => {
+                const ratingA = getNumericRating(getRatingDisplay(a[USCF_ID_KEY]));
+                const ratingB = getNumericRating(getRatingDisplay(b[USCF_ID_KEY]));
+
+                // Both numeric — sort by value
+                if (ratingA !== null && ratingB !== null) {
+                    return sortState === 'desc' ? ratingB - ratingA : ratingA - ratingB;
+                }
+                // Only A is numeric — A always comes before non-numeric
+                if (ratingA !== null) return -1;
+                // Only B is numeric — B always comes before non-numeric
+                if (ratingB !== null) return 1;
+                // Both non-numeric — preserve original order
+                return 0;
+            });
+        }
+
         function getFilteredData(tournamentIdx, data, tournament) {
             let filtered = selectedSections[tournamentIdx] === 'All'
                 ? data
@@ -561,7 +596,8 @@
                     })
                 );
             }
-            return filtered;
+            // Apply sorting after filtering
+            return sortData(filtered, sortState);
         }
 
         function highlightText(text, query) {
@@ -705,6 +741,7 @@
                     searchInput.value = '';
                     searchQuery = '';
                     searchClear.classList.remove('visible');
+                    sortState = 'none'; // Reset sort when switching tournaments
                     createTournamentTabs();
                     displayTournament(idx);
                 });
@@ -766,8 +803,33 @@
             headerRow.innerHTML = '';
             tournament.columns.forEach(col => {
                 const th = document.createElement('th');
-                th.textContent = getLabel(tournament, col);
+
+                const labelEl = document.createElement('span');
+                labelEl.textContent = getLabel(tournament, col);
+                th.appendChild(labelEl);
+
                 if (col === USCF_ID_KEY || col === "Rating") th.classList.add('hide-on-mobile');
+
+                // ── Make Rating column sortable ──
+                if (col === "Rating") {
+                    th.classList.add('sortable');
+                    if (sortState !== 'none') th.classList.add('sort-active');
+
+                    const sortIndicator = document.createElement('span');
+                    sortIndicator.className = 'sort-indicator';
+                    if (sortState === 'desc') sortIndicator.textContent = '▼';
+                    else if (sortState === 'asc') sortIndicator.textContent = '▲';
+                    else sortIndicator.textContent = '⇅';
+                    th.appendChild(sortIndicator);
+
+                    th.addEventListener('click', () => {
+                        if (sortState === 'none') sortState = 'desc';
+                        else if (sortState === 'desc') sortState = 'asc';
+                        else sortState = 'none';
+                        applyFiltersAndRender();
+                    });
+                }
+
                 headerRow.appendChild(th);
             });
 
@@ -797,8 +859,8 @@
                                 span.className = 'rating-loading';
                             } else if (rating === 'Error') {
                                 span.className = 'rating-error';
-                            } else if (rating === '-') {
-                                // No rating
+                            } else if (rating === '-' || rating === 'Unrated') {
+                                span.className = 'rating-unrated';
                             } else {
                                 span.className = 'rating-display';
                             }
