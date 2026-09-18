@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament CSV to Section TXT Generator</title>
+    <!-- PapaParse for robust CSV parsing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        h1 { color: #2c3e50; }
+        .drop-zone {
+            border: 2px dashed #bdc3c7;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            background: #fff;
+            transition: all 0.2s ease;
+            margin-bottom: 20px;
+        }
+        .drop-zone.hover {
+            background: #ecf0f1;
+            border-color: #3498db;
+        }
+        .drop-zone p { margin: 0; font-size: 1.1em; color: #7f8c8d; }
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+        button:hover:not(:disabled) { background-color: #2980b9; }
+        button:disabled { background-color: #bdc3c7; cursor: not-allowed; }
+        #status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            display: none;
+        }
+        .success { background-color: #d4edda; color: #155724; display: block !important; }
+        .error { background-color: #f8d7da; color: #721c24; display: block !important; }
+        #links {
+            margin-top: 20px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        #links h3 { margin-top: 0; }
+        #links a {
+            display: block;
+            margin: 8px 0;
+            padding: 10px;
+            background: #f1f2f6;
+            color: #2c3e50;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        #links a:hover { background: #dfe4ea; }
+    </style>
+</head>
+<body>
+
+    <h1>CSV to Section TXT Generator</h1>
+    <p>Upload your tournament registration CSV to generate individual <code>.txt</code> files for each section containing the vertical list of USCF IDs.</p>
+
+    <div id="drop-zone" class="drop-zone">
+        <p>Drag & Drop CSV file here or click to browse</p>
+        <input type="file" id="file-input" accept=".csv" style="display: none;">
+    </div>
+
+    <button id="process-btn" disabled>Generate & Download TXT Files</button>
+
+    <div id="status"></div>
+    <div id="links"></div>
+
+    <script>
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-input');
+        const processBtn = document.getElementById('process-btn');
+        const statusDiv = document.getElementById('status');
+        const linksDiv = document.getElementById('links');
+        
+        let currentFile = null;
+
+        // UI Interactions
+        dropZone.addEventListener('click', () => fileInput.click());
+        dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('hover'); });
+        dropZone.addEventListener('dragleave', () => dropZone.classList.remove('hover'));
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('hover');
+            if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+        });
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length) handleFile(e.target.files[0]);
+        });
+
+        function handleFile(file) {
+            if (!file.name.toLowerCase().endsWith('.csv')) {
+                showStatus('Please upload a valid .csv file.', 'error');
+                return;
+            }
+            currentFile = file;
+            dropZone.querySelector('p').innerText = `Selected: ${file.name}`;
+            processBtn.disabled = false;
+            statusDiv.className = '';
+            statusDiv.style.display = 'none';
+            linksDiv.innerHTML = '';
+        }
+
+        function showStatus(msg, type) {
+            statusDiv.innerText = msg;
+            statusDiv.className = type;
+        }
+
+        // Processing Logic
+        processBtn.addEventListener('click', () => {
+            if (!currentFile) return;
+            processBtn.disabled = true;
+            showStatus('Processing file...', 'success');
+
+            Papa.parse(currentFile, {
+                header: true,
+                skipEmptyLines: true,
+                complete: function(results) {
+                    try {
+                        processData(results);
+                    } catch (err) {
+                        showStatus('Error processing file: ' + err.message, 'error');
+                        processBtn.disabled = false;
+                    }
+                },
+                error: function(err) {
+                    showStatus('CSV Parse Error: ' + err.message, 'error');
+                    processBtn.disabled = false;
+                }
+            });
+        });
+
+        function processData(results) {
+            const headers = results.meta.fields;
+            
+            // Dynamically find the correct column indices based on partial header matches
+            let sectionKey = headers.find(h => h.toLowerCase().includes('which section'));
+            let uscfKey = headers.find(h => h.toLowerCase().includes('uscf id'));
+            let withdrawKey = headers.find(h => h.toLowerCase().includes('withdraw'));
+
+            if (!sectionKey || !uscfKey) {
+                throw new Error('Could not find "Which section?" or "USCF ID" columns in the CSV headers.');
+            }
+
+            const sections = {};
+
+            for (let row of results.data) {
+                // Skip if player withdrew
+                if (withdrawKey && row[withdrawKey] && row[withdrawKey].trim() !== '') continue;
+
+                let section = row[sectionKey]?.trim();
+                let uscf = row[uscfKey]?.trim();
+
+                if (!section || !uscf) continue;
+
+                // Clean USCF ID (remove any accidental spaces or non-digits)
+                uscf = uscf.replace(/\D/g, '');
+                if (uscf.length < 8) continue; // Basic validation for 8-digit USCF IDs
+
+                // Clean section name for filename (e.g. "U800 (Rated)" -> "u800_rated")
+                let cleanName = section.replace(/[^a-z0-9]/gi, '_').toLowerCase().replace(/^_+|_+$/g, '');
+
+                if (!sections[cleanName]) {
+                    sections[cleanName] = new Set(); // Use Set to automatically deduplicate
+                }
+                sections[cleanName].add(uscf);
+            }
+
+            if (Object.keys(sections).length === 0) {
+                showStatus('No valid USCF IDs found in the file.', 'error');
+                processBtn.disabled = false;
+                return;
+            }
+
+            generateFiles(sections);
+        }
+
+        function generateFiles(sections) {
+            linksDiv.innerHTML = '<h3>Generated Files:</h3>';
+            let delay = 0;
+            let totalIds = 0;
+
+            for (const [name, idsSet] of Object.entries(sections)) {
+                const ids = Array.from(idsSet);
+                totalIds += ids.length;
+                
+                // Create the text content (vertical list)
+                const textContent = ids.join('\n');
+                const blob = new Blob([textContent], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const filename = `${name}.txt`;
+
+                // 1. Create manual download link
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                a.innerText = `📄 ${filename} (${ids.length} IDs)`;
+                linksDiv.appendChild(a);
+
+                // 2. Trigger automatic download with a slight delay to prevent browser blocking
+                setTimeout(() => {
+                    const autoA = document.createElement('a');
+                    autoA.href = url;
+                    autoA.download = filename;
+                    document.body.appendChild(autoA);
+                    autoA.click();
+                    document.body.removeChild(autoA);
+                }, delay);
+
+                delay += 400; // 400ms delay between auto-downloads
+            }
+
+            showStatus(`Success! Generated ${Object.keys(sections).length} files containing ${totalIds} total IDs. (If your browser blocked the auto-downloads, please click the links above).`, 'success');
+            processBtn.disabled = false;
+        }
+    </script>
+</body>
+</html>
