@@ -90,6 +90,7 @@
             gap: 0;
             border-bottom: 1px solid var(--border);
             margin-bottom: 2rem;
+            flex-wrap: wrap;
         }
 
         .nav-tab {
@@ -806,6 +807,18 @@
 
         .cell-muted { color: var(--muted); font-style: italic; }
 
+        /* ── TXT Generator Status ── */
+        .txt-status-success {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #166534;
+        }
+        .txt-status-error {
+            background: #fff5f5;
+            border: 1px solid #ffc5c5;
+            color: #c0392b;
+        }
+
         /* ── Loader ── */
         .loader {
             display: inline-block;
@@ -846,6 +859,7 @@
     <div class="nav-tabs" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
         <button class="nav-tab active" onclick="switchMain('dashboard', this)">Registration Dashboard</button>
         <button class="nav-tab" onclick="switchMain('verifier', this)">USCF ID Verifier</button>
+        <button class="nav-tab" onclick="switchMain('txt', this)">Section TXTs</button>
     </div>
 
     <!-- ════════════════════════════════
@@ -996,6 +1010,21 @@
 
     </div><!-- /tab-verifier -->
 
+    <!-- ════════════════════════════════
+         TAB 3 — SECTION TXT GENERATOR
+    ════════════════════════════════ -->
+    <div id="tab-txt" class="tab-panel">
+        <div class="form-section" data-aos="fade-up">
+            <div id="txt-csv-status" class="bulk-csv-status"></div>
+            <button class="verify-btn" id="generateTxtBtn" onclick="generateSectionTxts()" disabled>Generate & Download Section TXT Files</button>
+        </div>
+        <div id="txt-status" class="hidden" style="margin-top: 1.5rem; padding: 1rem; border-radius: 6px; font-size: 0.85rem; line-height: 1.5;"></div>
+        <div id="txt-links" style="margin-top: 1.5rem; background: var(--card); padding: 1.5rem; border: 1px solid var(--border); border-radius: 8px; box-shadow: var(--shadow-sm); display: none;">
+            <h3 style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 1rem;">Generated Files:</h3>
+            <div id="txt-links-container" style="display: flex; flex-direction: column; gap: 0.5rem;"></div>
+        </div>
+    </div>
+
 </div><!-- /container -->
 
 <script>
@@ -1090,13 +1119,14 @@ function parseCSV(text) {
     const headers = rows[0].map(h => (h || '').toString().trim().toLowerCase());
     const findIndex = kw => headers.findIndex(h => kw.some(k => h.includes(k)));
     const colMap = {
-        timestamp: findIndex(['timestamp']),
-        name:      findIndex(['player', 'name']),
-        parent:    findIndex(['parent', 'payer']),
-        section:   findIndex(['section']),
-        uscf:      findIndex(['uscf', 'id']),
-        email:     findIndex(['email']),
-        phone:     findIndex(['phone'])
+        timestamp:  findIndex(['timestamp', 'date', 'time']),
+        name:       findIndex(['player', 'name']),
+        parent:     findIndex(['parent', 'payer', 'guardian']),
+        section:    findIndex(['section']),
+        uscf:       findIndex(['uscf', 'id']),
+        email:      findIndex(['email']),
+        phone:      findIndex(['phone']),
+        withdraw:   findIndex(['withdraw', 'withdrawn', 'cancel', 'refund'])
     };
 
     const players = [];
@@ -1119,7 +1149,8 @@ function parseCSV(text) {
                 section,
                 uscfId:     getVal('uscf'),
                 email:      getVal('email'),
-                phone:      getVal('phone')
+                phone:      getVal('phone'),
+                withdraw:   getVal('withdraw')
             });
             sections.add(section);
         }
@@ -1139,6 +1170,7 @@ function processFile(file) {
         AOS.refresh();
         updateDisplay();
         refreshBulkStatus();
+        refreshTxtStatus();
     };
     reader.readAsText(file);
 }
@@ -1313,8 +1345,6 @@ uscfInput.addEventListener('keypress', e => { if (e.key === 'Enter') verifyUSCF(
 uscfInput.addEventListener('input', e => { e.target.value = e.target.value.replace(/\D/g, ''); });
 
 async function fetchUSCFData(uscfId) {
-    // Uses the WORKER_URL constant defined at the top of the script
-    // Ensures NO CACHING via the Cloudflare Worker script provided previously
     const res = await fetch(`${WORKER_URL}?id=${uscfId}`);
     if (!res.ok) { if (res.status === 404) throw new Error('USCF ID not found'); throw new Error(`API error: ${res.status}`); }
     return await res.json();
@@ -1436,7 +1466,6 @@ function renderError(container, msg) {
 }
 
 /* ── Bulk ── */
-
 function refreshBulkStatus() {
     const statusDiv = document.getElementById('bulk-csv-status');
     const btn = document.getElementById('bulkVerifyBtn');
@@ -1593,6 +1622,157 @@ function renderBulkResults(container, results, valid, errors, skipped) {
                 <tbody>${rows}</tbody>
             </table>
         </div>`;
+}
+
+/* ──────────────────────────────────────────
+   SECTION TXT GENERATOR LOGIC
+────────────────────────────────────────── */
+function refreshTxtStatus() {
+    const statusDiv = document.getElementById('txt-csv-status');
+    const btn = document.getElementById('generateTxtBtn');
+    if (!statusDiv) return;
+
+    if (playersData.length === 0) {
+        statusDiv.innerHTML = `
+            <div class="csv-no-data">
+                <span class="csv-warn-text">No CSV loaded — upload one in the Dashboard tab first</span>
+                <button class="goto-dashboard-btn" onclick="switchMain('dashboard', document.querySelectorAll('.nav-tab')[0])">Go to Dashboard</button>
+            </div>`;
+        btn.disabled = true;
+    } else {
+        statusDiv.innerHTML = `
+            <div class="csv-loaded-bar">
+                <div class="csv-info">
+                    <div class="csv-dot"></div>
+                    <span class="csv-label">CSV Loaded</span>
+                    <span class="csv-meta">${playersData.length} players ready for processing</span>
+                </div>
+            </div>`;
+        btn.disabled = false;
+    }
+}
+
+function generateSectionTxts() {
+    const btn = document.getElementById('generateTxtBtn');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="loader"></span> Processing…';
+    
+    showTxtStatus('Processing file...', 'success');
+    document.getElementById('txt-links').style.display = 'none';
+    document.getElementById('txt-links-container').innerHTML = '';
+
+    setTimeout(() => {
+        try {
+            const sections = {};
+            let skippedWithdrawn = 0;
+            let skippedInvalid = 0;
+
+            for (let player of playersData) {
+                // Skip if player withdrew
+                if (player.withdraw && player.withdraw.toString().trim() !== '') {
+                    skippedWithdrawn++;
+                    continue;
+                }
+
+                let section = player.section?.toString().trim();
+                let uscf = player.uscfId?.toString().trim();
+
+                if (!section || !uscf) {
+                    skippedInvalid++;
+                    continue;
+                }
+
+                // Clean USCF ID (remove any accidental spaces or non-digits)
+                uscf = uscf.replace(/\D/g, '');
+                if (uscf.length < 6) { // Adjusted to 6 to match dashboard validation
+                    skippedInvalid++;
+                    continue;
+                }
+
+                // Clean section name for filename (e.g. "U800 (Rated)" -> "u800_rated")
+                let cleanName = section.replace(/[^a-z0-9]/gi, '_').toLowerCase().replace(/^_+|_+$/g, '');
+
+                if (!sections[cleanName]) {
+                    sections[cleanName] = new Set(); // Use Set to automatically deduplicate
+                }
+                sections[cleanName].add(uscf);
+            }
+
+            if (Object.keys(sections).length === 0) {
+                showTxtStatus('No valid USCF IDs found in the file.', 'error');
+                btn.disabled = false;
+                btn.innerHTML = 'Generate & Download Section TXT Files';
+                return;
+            }
+
+            generateTxtFiles(sections, skippedWithdrawn, skippedInvalid);
+        } catch (err) {
+            showTxtStatus('Error processing file: ' + err.message, 'error');
+            btn.disabled = false;
+            btn.innerHTML = 'Generate & Download Section TXT Files';
+        }
+    }, 100);
+}
+
+function showTxtStatus(msg, type) {
+    const statusDiv = document.getElementById('txt-status');
+    statusDiv.innerHTML = msg;
+    statusDiv.className = type === 'error' ? 'txt-status-error' : 'txt-status-success';
+    statusDiv.style.display = 'block';
+}
+
+function generateTxtFiles(sections, skippedWithdrawn, skippedInvalid) {
+    const linksContainer = document.getElementById('txt-links-container');
+    const linksDiv = document.getElementById('txt-links');
+    linksDiv.style.display = 'block';
+    linksContainer.innerHTML = '';
+    
+    let delay = 0;
+    let totalIds = 0;
+
+    for (const [name, idsSet] of Object.entries(sections)) {
+        const ids = Array.from(idsSet);
+        totalIds += ids.length;
+        
+        // Create the text content (vertical list)
+        const textContent = ids.join('\n');
+        const blob = new Blob([textContent], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const filename = `${name}.txt`;
+
+        // 1. Create manual download link
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        a.innerHTML = `<span style="font-weight:600">📄 ${filename}</span> <span style="color:var(--muted);font-size:0.75rem">(${ids.length} IDs)</span>`;
+        a.style.cssText = 'display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem; background: var(--bg); color: var(--fg); text-decoration: none; border-radius: 4px; border: 1px solid var(--border); transition: all 0.2s; font-size: 0.85rem;';
+        a.onmouseover = () => { a.style.background = 'var(--hover)'; a.style.borderColor = 'var(--gold)'; };
+        a.onmouseout = () => { a.style.background = 'var(--bg)'; a.style.borderColor = 'var(--border)'; };
+        linksContainer.appendChild(a);
+
+        // 2. Trigger automatic download with a slight delay to prevent browser blocking
+        setTimeout(() => {
+            const autoA = document.createElement('a');
+            autoA.href = url;
+            autoA.download = filename;
+            document.body.appendChild(autoA);
+            autoA.click();
+            document.body.removeChild(autoA);
+        }, delay);
+
+        delay += 400; // 400ms delay between auto-downloads
+    }
+
+    let msg = `Success! Generated ${Object.keys(sections).length} files containing ${totalIds} total IDs.`;
+    if (skippedWithdrawn > 0) msg += ` <br>• Skipped ${skippedWithdrawn} withdrawn players.`;
+    if (skippedInvalid > 0) msg += ` <br>• Skipped ${skippedInvalid} invalid/missing IDs.`;
+    msg += ` <br><small style="opacity:0.8; margin-top: 0.5rem; display: block;">If your browser blocked the auto-downloads, please click the links above.</small>`;
+    
+    showTxtStatus(msg, 'success');
+    
+    const btn = document.getElementById('generateTxtBtn');
+    btn.disabled = false;
+    btn.innerHTML = 'Generate & Download Section TXT Files';
 }
 </script>
 </body>
