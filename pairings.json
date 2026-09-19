@@ -6,7 +6,7 @@
     "state": "MI",
     "country": "USA",
     "td": "Sundara Rajan",
-    "time_stamp": "9/19/2026 - 14:25",
+    "time_stamp": "9/19/2026 - 18:52",
     "affiliate": ""
   },
   "options": {
@@ -26,7 +26,7 @@
     "standings_id": false,
     "standings_age": false,
     "standings_grade": false,
-    "standings_prize": false,
+    "standings_prize": true,
     "pchart_pairnums": false,
     "pchart_boardnums": true,
     "pchart_team": false,
@@ -52,77 +52,94 @@
   "sections": [
     {
       "section": "Upper/U1400+",
-      "rounds_paired": 3,
-      "rounds_played": 2,
-      "final_round": false,
+      "rounds_paired": 4,
+      "rounds_played": 4,
+      "final_round": true,
       "reportStatus": {
-        "kind": "hidden",
-        "roundsPlayed": 2,
+        "kind": "final",
+        "roundsPlayed": 4,
         "finalRound": 4,
         "gamesRemaining": 0,
         "prizesClinched": 0,
         "prizesPending": 0,
-        "bannerText": ""
+        "bannerText": "FINAL RESULTS"
       },
       "prizeAwards": [
       ],
       "pendingPrizes": [
       ],
       "standings": [
-        4,
         6,
         13,
+        2,
+        4,
+        5,
+        12,
         9,
         1,
-        2,
-        5,
         8,
         11,
-        12,
-        3,
         7,
+        3,
         10
       ],
       "pairings": [
         {
-          "white": 4,
-          "black": 13,
+          "white": 13,
+          "black": 6,
           "board": 1
         },
         {
-          "white": 6,
-          "black": 9,
+          "white": 1,
+          "black": 4,
           "board": 2
         },
         {
-          "white": 1,
-          "black": 11,
+          "white": 2,
+          "black": 5,
           "board": 3
         },
         {
-          "white": 12,
-          "black": 2,
+          "white": 9,
+          "black": 8,
           "board": 4
         },
         {
-          "white": 5,
-          "black": 8,
+          "white": 11,
+          "black": 12,
           "board": 5
         },
         {
-          "white": 10,
-          "black": 7,
-          "board": 6
+          "white": 7,
+          "black": 0,
+          "board": 0
         },
         {
           "white": 3,
           "black": 0,
           "board": 0
+        },
+        {
+          "white": 10,
+          "black": 0,
+          "board": 0
         }
       ],
       "tiebreaks": [
+        "Mod. Med",
+        "Solk",
+        "Cumul.",
+        "1-on-1",
+        "BPG",
+        "SB"
       ],
       "team_tiebreaks": [
+        "Mod. Med",
+        "Solk",
+        "Cumul.",
+        "1-on-1",
+        "BPG",
+        "SB"
       ],
       "players": [
         {
@@ -138,34 +155,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            3,
+            7,
+            5,
+            0,
+            2,
+            2.5
           ],
           "results": [
             "L",
             "W",
-            " "
+            "W",
+            "L"
           ],
           "colors": [
             "B",
             "B",
+            "W",
             "W"
           ],
           "ops": [
             8,
             3,
-            11
+            11,
+            4
           ],
           "boards": [
             1,
             4,
-            3
+            3,
+            2
           ],
           "cumulatives": [
             0,
             1,
-            1
+            2,
+            2
           ],
-          "score": 1,
-          "place": "5-10"
+          "score": 2,
+          "place": "5-8",
+          "post_tiebreak_place": "8"
         },
         {
           "name": "TRIPATHI, Amogh",
@@ -180,34 +209,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            7.5,
+            7.5,
+            6,
+            0,
+            1,
+            7
           ],
           "results": [
             "X",
             "L",
-            " "
+            "W",
+            "W"
           ],
           "colors": [
             "-",
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             0,
             6,
-            12
+            12,
+            5
           ],
           "boards": [
             0,
             1,
-            4
+            4,
+            3
           ],
           "cumulatives": [
             1,
             1,
-            1
+            2,
+            3
           ],
-          "score": 1,
-          "place": "5-10"
+          "score": 3,
+          "place": "2-4",
+          "post_tiebreak_place": "3"
         },
         {
           "name": "SUNDARA RAJAN, Inbhavenkat",
@@ -223,34 +264,46 @@
           "class": " ",
           "byes": "3,4z",
           "tiebreaks": [
+            2,
+            4,
+            2.5,
+            0,
+            1,
+            1.5
           ],
           "results": [
             "D",
             "L",
-            "H"
+            "H",
+            "U"
           ],
           "colors": [
             "B",
             "W",
+            "-",
             "-"
           ],
           "ops": [
             9,
             1,
+            0,
             0
           ],
           "boards": [
             3,
             4,
+            0,
             0
           ],
           "cumulatives": [
             0.5,
             0.5,
+            1,
             1
           ],
-          "score": 0.5,
-          "place": "11"
+          "score": 1,
+          "place": "10-13",
+          "post_tiebreak_place": "12"
         },
         {
           "name": "GANI, Neil",
@@ -265,34 +318,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            6.5,
+            8,
+            8,
+            0,
+            2,
+            5
           ],
           "results": [
             "W",
             "W",
-            " "
+            "L",
+            "W"
           ],
           "colors": [
             "W",
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             10,
             8,
-            13
+            13,
+            1
           ],
           "boards": [
             4,
             2,
-            1
+            1,
+            2
           ],
           "cumulatives": [
             1,
             2,
-            2
+            2,
+            3
           ],
-          "score": 2,
-          "place": "1-3"
+          "score": 3,
+          "place": "2-4",
+          "post_tiebreak_place": "4"
         },
         {
           "name": "GABBARA, Faris F",
@@ -307,34 +372,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            4,
+            8,
+            6,
+            0,
+            2,
+            2.5
           ],
           "results": [
             "W",
             "L",
-            " "
+            "W",
+            "L"
           ],
           "colors": [
             "B",
             "W",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             11,
             13,
-            8
+            8,
+            2
           ],
           "boards": [
             5,
             3,
-            5
+            5,
+            3
           ],
           "cumulatives": [
             1,
             1,
-            1
+            2,
+            2
           ],
-          "score": 1,
-          "place": "5-10"
+          "score": 2,
+          "place": "5-8",
+          "post_tiebreak_place": "5"
         },
         {
           "name": "RAMASWAMY, Rohit",
@@ -349,34 +426,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            7.5,
+            9,
+            10,
+            0,
+            2,
+            10
           ],
           "results": [
             "W",
             "W",
-            " "
+            "W",
+            "W"
           ],
           "colors": [
             "W",
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             12,
             2,
-            9
+            9,
+            13
           ],
           "boards": [
             6,
             1,
-            2
+            2,
+            1
           ],
           "cumulatives": [
             1,
             2,
-            2
+            3,
+            4
           ],
-          "score": 2,
-          "place": "1-3"
+          "score": 4,
+          "place": "1",
+          "post_tiebreak_place": "1"
         },
         {
           "name": "JIANG, Derrick",
@@ -390,34 +479,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            3.5,
+            6.5,
+            0,
+            0,
+            2,
+            1
           ],
           "results": [
             "L",
             "L",
-            " "
+            "L",
+            "B"
           ],
           "colors": [
             "B",
             "W",
-            "B"
+            "B",
+            "-"
           ],
           "ops": [
             13,
             9,
-            10
+            10,
+            0
           ],
           "boards": [
             7,
             5,
-            6
+            6,
+            0
           ],
           "cumulatives": [
             0,
             0,
-            0
+            0,
+            1
           ],
-          "score": 0,
-          "place": "12-13"
+          "score": 1,
+          "place": "10-13",
+          "post_tiebreak_place": "11"
         },
         {
           "name": "GONG, Zhaomingyang",
@@ -431,34 +532,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            6,
+            9,
+            4.5,
+            0,
+            2,
+            3
           ],
           "results": [
             "W",
             "L",
-            " "
+            "L",
+            "D"
           ],
           "colors": [
             "W",
             "W",
+            "B",
             "B"
           ],
           "ops": [
             1,
             4,
-            5
+            5,
+            9
           ],
           "boards": [
             1,
             2,
-            5
+            5,
+            4
           ],
           "cumulatives": [
             1,
             1,
-            1
+            1,
+            1.5
           ],
-          "score": 1,
-          "place": "5-10"
+          "score": 1.5,
+          "place": "9",
+          "post_tiebreak_place": "9"
         },
         {
           "name": "GONG, Zhaoqijun",
@@ -472,34 +585,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            3,
+            7.5,
+            5.5,
+            0,
+            2,
+            2.5
           ],
           "results": [
             "D",
             "W",
-            " "
+            "L",
+            "D"
           ],
           "colors": [
             "W",
             "B",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             3,
             7,
-            6
+            6,
+            8
           ],
           "boards": [
             3,
             5,
-            2
+            2,
+            4
           ],
           "cumulatives": [
             0.5,
             1.5,
-            1.5
+            1.5,
+            2
           ],
-          "score": 1.5,
-          "place": "4"
+          "score": 2,
+          "place": "5-8",
+          "post_tiebreak_place": "7"
         },
         {
           "name": "HAAKONSTAD, Olaf",
@@ -513,35 +638,48 @@
           "org1": "USCF",
           "org2": "USCF",
           "class": " ",
+          "byes": "4z",
           "tiebreaks": [
+            1.5,
+            4.5,
+            2,
+            0,
+            1,
+            1
           ],
           "results": [
             "L",
             "L",
-            " "
+            "W",
+            "U"
           ],
           "colors": [
             "B",
             "W",
-            "W"
+            "W",
+            "-"
           ],
           "ops": [
             4,
             11,
-            7
+            7,
+            0
           ],
           "boards": [
             4,
             6,
-            6
+            6,
+            0
           ],
           "cumulatives": [
             0,
             0,
-            0
+            1,
+            1
           ],
-          "score": 0,
-          "place": "12-13"
+          "score": 1,
+          "place": "10-13",
+          "post_tiebreak_place": "13"
         },
         {
           "name": "WEIDIG, Garrett Spencer",
@@ -555,34 +693,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            5,
+            7,
+            3,
+            0,
+            2,
+            1.5
           ],
           "results": [
             "L",
             "W",
-            " "
+            "L",
+            "L"
           ],
           "colors": [
             "W",
             "B",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             5,
             10,
-            1
+            1,
+            12
           ],
           "boards": [
             5,
             6,
-            3
+            3,
+            5
           ],
           "cumulatives": [
             0,
             1,
+            1,
             1
           ],
           "score": 1,
-          "place": "5-10"
+          "place": "10-13",
+          "post_tiebreak_place": "10"
         },
         {
           "name": "SHAJI, Madhav",
@@ -596,34 +746,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            3.5,
+            7.5,
+            3,
+            0,
+            2,
+            3
           ],
           "results": [
             "L",
             "B",
-            " "
+            "L",
+            "W"
           ],
           "colors": [
             "B",
             "-",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             6,
             0,
-            2
+            2,
+            11
           ],
           "boards": [
             6,
             0,
-            4
+            4,
+            5
           ],
           "cumulatives": [
             0,
             1,
-            1
+            1,
+            2
           ],
-          "score": 1,
-          "place": "5-10"
+          "score": 2,
+          "place": "5-8",
+          "post_tiebreak_place": "6"
         },
         {
           "name": "SASIDHARAN, Kishoredev",
@@ -638,34 +800,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            9,
+            9.5,
+            9,
+            0,
+            2,
+            6
           ],
           "results": [
             "W",
             "W",
-            " "
+            "W",
+            "L"
           ],
           "colors": [
             "W",
             "B",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             7,
             5,
-            4
+            4,
+            6
           ],
           "boards": [
             7,
             3,
+            1,
             1
           ],
           "cumulatives": [
             1,
             2,
-            2
+            3,
+            3
           ],
-          "score": 2,
-          "place": "1-3"
+          "score": 3,
+          "place": "2-4",
+          "post_tiebreak_place": "2"
         }
       ],
       "clubs": [
@@ -673,106 +847,118 @@
     },
     {
       "section": "U1400",
-      "rounds_paired": 3,
-      "rounds_played": 2,
-      "final_round": false,
+      "rounds_paired": 4,
+      "rounds_played": 4,
+      "final_round": true,
       "reportStatus": {
-        "kind": "hidden",
-        "roundsPlayed": 2,
+        "kind": "final",
+        "roundsPlayed": 4,
         "finalRound": 4,
         "gamesRemaining": 0,
         "prizesClinched": 0,
         "prizesPending": 0,
-        "bannerText": ""
+        "bannerText": "FINAL RESULTS"
       },
       "prizeAwards": [
       ],
       "pendingPrizes": [
       ],
       "standings": [
-        1,
         2,
-        15,
-        16,
-        6,
-        14,
-        3,
-        4,
-        5,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
+        1,
         13,
+        16,
+        15,
+        8,
+        3,
+        9,
+        14,
+        6,
+        11,
         21,
-        17,
-        18,
-        19,
         20,
-        22
+        10,
+        17,
+        5,
+        4,
+        12,
+        7,
+        22,
+        19,
+        18
       ],
       "pairings": [
         {
-          "white": 1,
-          "black": 16,
+          "white": 2,
+          "black": 1,
           "board": 8
         },
         {
-          "white": 15,
-          "black": 2,
+          "white": 13,
+          "black": 6,
           "board": 9
         },
         {
-          "white": 6,
-          "black": 3,
+          "white": 14,
+          "black": 8,
           "board": 10
         },
         {
-          "white": 5,
-          "black": 14,
+          "white": 16,
+          "black": 10,
           "board": 11
         },
         {
-          "white": 10,
-          "black": 4,
+          "white": 11,
+          "black": 15,
           "board": 12
         },
         {
-          "white": 11,
-          "black": 7,
+          "white": 3,
+          "black": 5,
           "board": 13
         },
         {
-          "white": 8,
-          "black": 12,
+          "white": 4,
+          "black": 20,
           "board": 14
         },
         {
-          "white": 13,
-          "black": 9,
+          "white": 7,
+          "black": 17,
           "board": 15
         },
         {
-          "white": 17,
-          "black": 21,
+          "white": 9,
+          "black": 22,
           "board": 16
         },
         {
-          "white": 20,
-          "black": 18,
+          "white": 12,
+          "black": 21,
           "board": 17
         },
         {
-          "white": 22,
+          "white": 18,
           "black": 19,
           "board": 18
         }
       ],
       "tiebreaks": [
+        "Mod. Med",
+        "Solk",
+        "Cumul.",
+        "1-on-1",
+        "BPG",
+        "SB"
       ],
       "team_tiebreaks": [
+        "Mod. Med",
+        "Solk",
+        "Cumul.",
+        "1-on-1",
+        "BPG",
+        "SB"
       ],
       "players": [
         {
@@ -788,23 +974,33 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            9,
+            10,
+            9,
+            0,
+            2,
+            6
           ],
           "results": [
             "W",
             "W",
-            " "
+            "W",
+            "L"
           ],
           "colors": [
             "W",
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             12,
             9,
-            16
+            16,
+            2
           ],
           "boards": [
+            8,
             8,
             8,
             8
@@ -812,10 +1008,12 @@
           "cumulatives": [
             1,
             2,
-            2
+            3,
+            3
           ],
-          "score": 2,
-          "place": "1-4"
+          "score": 3,
+          "place": "2-6",
+          "post_tiebreak_place": "2"
         },
         {
           "name": "SULE, Avneesh Anupam",
@@ -828,34 +1026,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            9,
+            11,
+            10,
+            0,
+            2,
+            11
           ],
           "results": [
             "W",
             "W",
-            " "
+            "W",
+            "W"
           ],
           "colors": [
             "B",
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             13,
             11,
-            15
+            15,
+            1
           ],
           "boards": [
             9,
             9,
-            9
+            9,
+            8
           ],
           "cumulatives": [
             1,
             2,
-            2
+            3,
+            4
           ],
-          "score": 2,
-          "place": "1-4"
+          "score": 4,
+          "place": "1",
+          "post_tiebreak_place": "1"
         },
         {
           "name": "YADAV, Ved",
@@ -870,34 +1080,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            6,
+            7.5,
+            5,
+            0,
+            2,
+            4.5
           ],
           "results": [
             "L",
             "W",
-            " "
+            "D",
+            "W"
           ],
           "colors": [
             "W",
             "B",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             14,
             21,
-            6
+            6,
+            5
           ],
           "boards": [
             10,
             13,
-            10
+            10,
+            13
           ],
           "cumulatives": [
             0,
             1,
-            1
+            1.5,
+            2.5
           ],
-          "score": 1,
-          "place": "7-17"
+          "score": 2.5,
+          "place": "7",
+          "post_tiebreak_place": "7"
         },
         {
           "name": "HILLAKER, Daniel",
@@ -911,34 +1133,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            6,
+            9,
+            3,
+            0,
+            2,
+            2
           ],
           "results": [
             "L",
             "W",
-            " "
+            "L",
+            "L"
           ],
           "colors": [
             "B",
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             15,
             17,
-            10
+            10,
+            20
           ],
           "boards": [
             11,
             14,
-            12
+            12,
+            14
           ],
           "cumulatives": [
             0,
             1,
+            1,
             1
           ],
           "score": 1,
-          "place": "7-17"
+          "place": "17-21",
+          "post_tiebreak_place": "17"
         },
         {
           "name": "KURUDUMALE, Yashwin Srinivasa",
@@ -952,34 +1186,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            4.5,
+            7.5,
+            4,
+            0,
+            2,
+            1
           ],
           "results": [
             "L",
             "W",
-            " "
+            "D",
+            "L"
           ],
           "colors": [
             "W",
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             16,
             18,
-            14
+            14,
+            3
           ],
           "boards": [
             12,
             15,
-            11
+            11,
+            13
           ],
           "cumulatives": [
             0,
             1,
-            1
+            1.5,
+            1.5
           ],
-          "score": 1,
-          "place": "7-17"
+          "score": 1.5,
+          "place": "16",
+          "post_tiebreak_place": "16"
         },
         {
           "name": "SINGH, Arjun",
@@ -993,34 +1239,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            4.5,
+            7.5,
+            6.5,
+            0,
+            2,
+            2.25
           ],
           "results": [
             "W",
             "D",
-            " "
+            "D",
+            "L"
           ],
           "colors": [
             "W",
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             18,
             14,
-            3
+            3,
+            13
           ],
           "boards": [
             14,
             10,
-            10
+            10,
+            9
           ],
           "cumulatives": [
             1,
             1.5,
-            1.5
+            2,
+            2
           ],
-          "score": 1.5,
-          "place": "5-6"
+          "score": 2,
+          "place": "8-15",
+          "post_tiebreak_place": "10"
         },
         {
           "name": "HOERLEIN, Benjamin",
@@ -1034,34 +1292,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            5,
+            8,
+            4,
+            0,
+            2,
+            1
           ],
           "results": [
             "W",
             "L",
-            " "
+            "L",
+            "L"
           ],
           "colors": [
             "B",
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             19,
             15,
-            11
+            11,
+            17
           ],
           "boards": [
             15,
             11,
-            13
+            13,
+            15
           ],
           "cumulatives": [
+            1,
             1,
             1,
             1
           ],
           "score": 1,
-          "place": "7-17"
+          "place": "17-21",
+          "post_tiebreak_place": "19"
         },
         {
           "name": "PILLAI, Arya",
@@ -1075,34 +1345,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            7,
+            8,
+            7,
+            0,
+            2,
+            5
           ],
           "results": [
             "W",
             "L",
-            " "
+            "W",
+            "W"
           ],
           "colors": [
             "W",
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             20,
             16,
-            12
+            12,
+            14
           ],
           "boards": [
             16,
             12,
-            14
+            14,
+            10
           ],
           "cumulatives": [
             1,
             1,
-            1
+            2,
+            3
           ],
-          "score": 1,
-          "place": "7-17"
+          "score": 3,
+          "place": "2-6",
+          "post_tiebreak_place": "6"
         },
         {
           "name": "BURDZINSKI, Jan Raymond",
@@ -1117,34 +1399,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            5,
+            9,
+            5,
+            0,
+            2,
+            3
           ],
           "results": [
             "W",
             "L",
-            " "
+            "L",
+            "W"
           ],
           "colors": [
             "B",
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             17,
             1,
-            13
+            13,
+            22
           ],
           "boards": [
             17,
             8,
-            15
+            15,
+            16
           ],
           "cumulatives": [
             1,
             1,
-            1
+            1,
+            2
           ],
-          "score": 1,
-          "place": "7-17"
+          "score": 2,
+          "place": "8-15",
+          "post_tiebreak_place": "8"
         },
         {
           "name": "SUMESH, Isabella Cecily",
@@ -1159,34 +1453,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            3,
+            7,
+            5,
+            0,
+            2,
+            2
           ],
           "results": [
             "L",
             "W",
-            " "
+            "W",
+            "L"
           ],
           "colors": [
             "W",
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             21,
             19,
-            4
+            4,
+            16
           ],
           "boards": [
             18,
             16,
-            12
+            12,
+            11
           ],
           "cumulatives": [
             0,
             1,
-            1
+            2,
+            2
           ],
-          "score": 1,
-          "place": "7-17"
+          "score": 2,
+          "place": "8-15",
+          "post_tiebreak_place": "14"
         },
         {
           "name": "JIMENEZ, Iker",
@@ -1200,34 +1506,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            4,
+            9,
+            6,
+            0,
+            2,
+            2
           ],
           "results": [
             "W",
             "L",
-            " "
+            "W",
+            "L"
           ],
           "colors": [
             "B",
             "B",
+            "W",
             "W"
           ],
           "ops": [
             22,
             2,
-            7
+            7,
+            15
           ],
           "boards": [
             19,
             9,
-            13
+            13,
+            12
           ],
           "cumulatives": [
             1,
             1,
-            1
+            2,
+            2
           ],
-          "score": 1,
-          "place": "7-17"
+          "score": 2,
+          "place": "8-15",
+          "post_tiebreak_place": "11"
         },
         {
           "name": "DONNELLY, Erin Andrew",
@@ -1241,34 +1559,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            6,
+            9,
+            3,
+            0,
+            2,
+            1
           ],
           "results": [
             "L",
             "W",
-            " "
+            "L",
+            "L"
           ],
           "colors": [
             "B",
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             1,
             22,
-            8
+            8,
+            21
           ],
           "boards": [
             8,
             17,
-            14
+            14,
+            17
           ],
           "cumulatives": [
             0,
             1,
+            1,
             1
           ],
           "score": 1,
-          "place": "7-17"
+          "place": "17-21",
+          "post_tiebreak_place": "18"
         },
         {
           "name": "METTELA, Sambasiva Rao",
@@ -1283,34 +1613,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            8,
+            10,
+            6,
+            0,
+            1,
+            6
           ],
           "results": [
             "L",
             "W",
-            " "
+            "W",
+            "W"
           ],
           "colors": [
             "W",
             "B",
+            "W",
             "W"
           ],
           "ops": [
             2,
             20,
-            9
+            9,
+            6
           ],
           "boards": [
             9,
             18,
-            15
+            15,
+            9
           ],
           "cumulatives": [
             0,
             1,
-            1
+            2,
+            3
           ],
-          "score": 1,
-          "place": "7-17"
+          "score": 3,
+          "place": "2-6",
+          "post_tiebreak_place": "3"
         },
         {
           "name": "SOTELO, Salvador",
@@ -1324,34 +1666,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            4.5,
+            9,
+            6.5,
+            0,
+            2,
+            4.25
           ],
           "results": [
             "W",
             "D",
-            " "
+            "D",
+            "L"
           ],
           "colors": [
             "B",
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             3,
             6,
-            5
+            5,
+            8
           ],
           "boards": [
             10,
             10,
-            11
+            11,
+            10
           ],
           "cumulatives": [
             1,
             1.5,
-            1.5
+            2,
+            2
           ],
-          "score": 1.5,
-          "place": "5-6"
+          "score": 2,
+          "place": "8-15",
+          "post_tiebreak_place": "9"
         },
         {
           "name": "LENTINE, Charlie",
@@ -1365,34 +1719,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            7,
+            8,
+            8,
+            0,
+            2,
+            4
           ],
           "results": [
             "W",
             "W",
-            " "
+            "L",
+            "W"
           ],
           "colors": [
             "W",
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             4,
             7,
-            2
+            2,
+            11
           ],
           "boards": [
             11,
             11,
-            9
+            9,
+            12
           ],
           "cumulatives": [
             1,
             2,
-            2
+            2,
+            3
           ],
-          "score": 2,
-          "place": "1-4"
+          "score": 3,
+          "place": "2-6",
+          "post_tiebreak_place": "5"
         },
         {
           "name": "ZHANG, Joseph",
@@ -1406,34 +1772,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            8,
+            9.5,
+            8,
+            0,
+            2,
+            6.5
           ],
           "results": [
             "W",
             "W",
-            " "
+            "L",
+            "W"
           ],
           "colors": [
             "B",
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             5,
             8,
-            1
+            1,
+            10
           ],
           "boards": [
             12,
             12,
-            8
+            8,
+            11
           ],
           "cumulatives": [
             1,
             2,
-            2
+            2,
+            3
           ],
-          "score": 2,
-          "place": "1-4"
+          "score": 3,
+          "place": "2-6",
+          "post_tiebreak_place": "4"
         },
         {
           "name": "TIME, Milo",
@@ -1447,34 +1825,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            3,
+            6,
+            3,
+            0,
+            2,
+            3
           ],
           "results": [
             "L",
             "L",
-            " "
+            "W",
+            "W"
           ],
           "colors": [
             "W",
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             9,
             4,
-            21
+            21,
+            7
           ],
           "boards": [
             17,
             14,
-            16
+            16,
+            15
           ],
           "cumulatives": [
             0,
             0,
-            0
+            1,
+            2
           ],
-          "score": 0,
-          "place": "18-22"
+          "score": 2,
+          "place": "8-15",
+          "post_tiebreak_place": "15"
         },
         {
           "name": "SUMESH, Immanuel Abraham",
@@ -1489,34 +1879,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            4.5,
+            6.5,
+            0,
+            0,
+            2,
+            0
           ],
           "results": [
             "L",
             "L",
-            " "
+            "L",
+            "L"
           ],
           "colors": [
             "B",
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             6,
             5,
-            20
+            20,
+            19
           ],
           "boards": [
             14,
             15,
-            17
+            17,
+            18
           ],
           "cumulatives": [
+            0,
             0,
             0,
             0
           ],
           "score": 0,
-          "place": "18-22"
+          "place": "22",
+          "post_tiebreak_place": "22"
         },
         {
           "name": "GALLOWAY, Tristan",
@@ -1530,34 +1932,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            2,
+            4,
+            1,
+            0,
+            2,
+            0
           ],
           "results": [
             "L",
             "L",
-            " "
+            "L",
+            "W"
           ],
           "colors": [
             "W",
             "W",
+            "B",
             "B"
           ],
           "ops": [
             7,
             10,
-            22
+            22,
+            18
           ],
           "boards": [
             15,
             16,
+            18,
             18
           ],
           "cumulatives": [
             0,
             0,
-            0
+            0,
+            1
           ],
-          "score": 0,
-          "place": "18-22"
+          "score": 1,
+          "place": "17-21",
+          "post_tiebreak_place": "21"
         },
         {
           "name": "LIAN, Peter",
@@ -1571,34 +1985,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            4,
+            7,
+            3,
+            0,
+            2,
+            1
           ],
           "results": [
             "L",
             "L",
-            " "
+            "W",
+            "W"
           ],
           "colors": [
             "B",
             "W",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             8,
             13,
-            18
+            18,
+            4
           ],
           "boards": [
             16,
             18,
-            17
+            17,
+            14
           ],
           "cumulatives": [
             0,
             0,
-            0
+            1,
+            2
           ],
-          "score": 0,
-          "place": "18-22"
+          "score": 2,
+          "place": "8-15",
+          "post_tiebreak_place": "13"
         },
         {
           "name": "GARCIA, Addison",
@@ -1612,34 +2038,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            4,
+            7.5,
+            5,
+            0,
+            3,
+            3
           ],
           "results": [
             "W",
             "L",
-            " "
+            "L",
+            "W"
           ],
           "colors": [
             "B",
             "W",
+            "B",
             "B"
           ],
           "ops": [
             10,
             3,
-            17
+            17,
+            12
           ],
           "boards": [
             18,
             13,
-            16
+            16,
+            17
           ],
           "cumulatives": [
             1,
             1,
-            1
+            1,
+            2
           ],
-          "score": 1,
-          "place": "7-17"
+          "score": 2,
+          "place": "8-15",
+          "post_tiebreak_place": "12"
         },
         {
           "name": "ABRAHAM, Sumesh",
@@ -1654,34 +2092,46 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            4,
+            6,
+            2,
+            0,
+            2,
+            1
           ],
           "results": [
             "L",
             "L",
-            " "
+            "W",
+            "L"
           ],
           "colors": [
             "W",
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             11,
             12,
-            19
+            19,
+            9
           ],
           "boards": [
             19,
             17,
-            18
+            18,
+            16
           ],
           "cumulatives": [
             0,
             0,
-            0
+            1,
+            1
           ],
-          "score": 0,
-          "place": "18-22"
+          "score": 1,
+          "place": "17-21",
+          "post_tiebreak_place": "20"
         }
       ],
       "teams": [
@@ -1689,15 +2139,21 @@
           "code": "SUMESH",
           "team": "SUMESH",
           "rating": "984.0",
-          "score": 1,
+          "score": 2,
           "team_tiebreaks": [
+            "3",
+            "7",
+            "5",
+            "0",
+            "2",
+            "2"
           ],
           "members": [
             {
               "pair_number": 10,
               "name": "SUMESH, Isabella Cecily",
               "rating": 984,
-              "score": 1
+              "score": 2
             },
             {
               "pair_number": 18,
@@ -1709,7 +2165,7 @@
               "pair_number": 22,
               "name": "ABRAHAM, Sumesh",
               "rating": 606,
-              "score": 0
+              "score": 1
             }
           ]
         }
@@ -1720,56 +2176,56 @@
     {
       "section": "U800",
       "rounds_paired": 4,
-      "rounds_played": 3,
-      "final_round": false,
+      "rounds_played": 4,
+      "final_round": true,
       "reportStatus": {
-        "kind": "hidden",
-        "roundsPlayed": 3,
+        "kind": "final",
+        "roundsPlayed": 4,
         "finalRound": 4,
         "gamesRemaining": 0,
         "prizesClinched": 0,
         "prizesPending": 0,
-        "bannerText": ""
+        "bannerText": "FINAL RESULTS"
       },
       "prizeAwards": [
       ],
       "pendingPrizes": [
       ],
       "standings": [
-        4,
         6,
         10,
-        21,
+        4,
         32,
-        2,
-        3,
-        5,
         8,
-        11,
-        13,
-        17,
-        20,
-        23,
+        21,
         30,
+        5,
+        13,
+        34,
         9,
+        2,
+        17,
+        3,
+        16,
+        20,
+        1,
+        23,
+        7,
+        11,
+        18,
+        33,
         19,
         27,
-        34,
-        1,
-        7,
-        14,
-        16,
-        18,
-        22,
+        12,
         24,
+        22,
         25,
         31,
-        33,
-        12,
-        15,
-        26,
+        14,
+        29,
         28,
-        29
+        26,
+        15
       ],
       "pairings": [
         {
@@ -1864,8 +2320,20 @@
         }
       ],
       "tiebreaks": [
+        "Mod. Med",
+        "Solk",
+        "Cumul.",
+        "1-on-1",
+        "BPG",
+        "SB"
       ],
       "team_tiebreaks": [
+        "Mod. Med",
+        "Solk",
+        "Cumul.",
+        "1-on-1",
+        "BPG",
+        "SB"
       ],
       "players": [
         {
@@ -1880,12 +2348,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            3.5,
+            8.5,
+            5,
+            0,
+            3,
+            3
           ],
           "results": [
             "W",
             "L",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -1909,10 +2383,11 @@
             1,
             1,
             1,
-            1
+            2
           ],
-          "score": 1,
-          "place": "20-29"
+          "score": 2,
+          "place": "12-22",
+          "post_tiebreak_place": "17"
         },
         {
           "name": "SATHISH, Dhanvanth",
@@ -1926,12 +2401,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            5.5,
+            11.5,
+            7,
+            0,
+            2,
+            4
           ],
           "results": [
             "W",
             "W",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -1958,7 +2439,8 @@
             2
           ],
           "score": 2,
-          "place": "6-15"
+          "place": "12-22",
+          "post_tiebreak_place": "12"
         },
         {
           "name": "GARCIA, Aiden",
@@ -1972,12 +2454,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            5,
+            9.5,
+            5,
+            0,
+            2,
+            3.5
           ],
           "results": [
             "L",
             "W",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -2004,7 +2492,8 @@
             2
           ],
           "score": 2,
-          "place": "6-15"
+          "place": "12-22",
+          "post_tiebreak_place": "14"
         },
         {
           "name": "DACHARAJU, Anika",
@@ -2018,12 +2507,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            8,
+            9,
+            9.5,
+            0,
+            2,
+            7.25
           ],
           "results": [
             "W",
             "W",
             "W",
-            " "
+            "D"
           ],
           "colors": [
             "W",
@@ -2047,10 +2542,11 @@
             1,
             2,
             3,
-            3
+            3.5
           ],
-          "score": 3,
-          "place": "1-4"
+          "score": 3.5,
+          "place": "2-4",
+          "post_tiebreak_place": "3"
         },
         {
           "name": "SHAIK, Mohammad Kashif",
@@ -2064,12 +2560,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            7.5,
+            9.5,
+            8,
+            0,
+            2,
+            6
           ],
           "results": [
             "W",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -2093,10 +2595,11 @@
             1,
             2,
             2,
-            2
+            3
           ],
-          "score": 2,
-          "place": "6-15"
+          "score": 3,
+          "place": "5-9",
+          "post_tiebreak_place": "8"
         },
         {
           "name": "DEVISETTI, Nishant",
@@ -2110,12 +2613,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            7,
+            8,
+            10,
+            0,
+            2,
+            8
           ],
           "results": [
             "W",
             "W",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -2139,10 +2648,11 @@
             1,
             2,
             3,
-            3
+            4
           ],
-          "score": 3,
-          "place": "1-4"
+          "score": 4,
+          "place": "1",
+          "post_tiebreak_place": "1"
         },
         {
           "name": "KRISHNAKUMAR, Sanjay",
@@ -2156,12 +2666,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            3,
+            7,
+            5,
+            0,
+            2,
+            2
           ],
           "results": [
             "W",
             "L",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -2185,10 +2701,11 @@
             1,
             1,
             1,
-            1
+            2
           ],
-          "score": 1,
-          "place": "20-29"
+          "score": 2,
+          "place": "12-22",
+          "post_tiebreak_place": "19"
         },
         {
           "name": "DE ALWIS, Kaushi Yashodha Adambarage",
@@ -2202,12 +2719,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            8.5,
+            9,
+            8,
+            0,
+            2,
+            6
           ],
           "results": [
             "W",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -2231,10 +2754,11 @@
             1,
             2,
             2,
-            2
+            3
           ],
-          "score": 2,
-          "place": "6-15"
+          "score": 3,
+          "place": "5-9",
+          "post_tiebreak_place": "5"
         },
         {
           "name": "KANUTRI, Deepak",
@@ -2248,12 +2772,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            7.5,
+            7.5,
+            5.5,
+            0.5,
+            1,
+            5.75
           ],
           "results": [
             "B",
             "D",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "-",
@@ -2277,10 +2807,11 @@
             1,
             1.5,
             1.5,
-            1.5
+            2.5
           ],
-          "score": 1.5,
-          "place": "16-19"
+          "score": 2.5,
+          "place": "10-11",
+          "post_tiebreak_place": "11"
         },
         {
           "name": "ROJO, Deion",
@@ -2294,12 +2825,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            8.5,
+            10,
+            9.5,
+            0,
+            1,
+            8.25
           ],
           "results": [
             "W",
             "W",
             "W",
-            " "
+            "D"
           ],
           "colors": [
             "W",
@@ -2323,10 +2860,11 @@
             1,
             2,
             3,
-            3
+            3.5
           ],
-          "score": 3,
-          "place": "1-4"
+          "score": 3.5,
+          "place": "2-4",
+          "post_tiebreak_place": "2"
         },
         {
           "name": "WANG, Chris",
@@ -2340,12 +2878,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            3,
+            6.5,
+            6,
+            0,
+            2,
+            1.5
           ],
           "results": [
             "W",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -2372,7 +2916,8 @@
             2
           ],
           "score": 2,
-          "place": "6-15"
+          "place": "12-22",
+          "post_tiebreak_place": "20"
         },
         {
           "name": "BARUA, Dhruv",
@@ -2386,12 +2931,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            4,
+            7.5,
+            3,
+            0,
+            2,
+            2.25
           ],
           "results": [
             "D",
             "L",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -2415,10 +2966,11 @@
             0.5,
             0.5,
             0.5,
-            0.5
+            1.5
           ],
-          "score": 0.5,
-          "place": "30-31"
+          "score": 1.5,
+          "place": "23-25",
+          "post_tiebreak_place": "25"
         },
         {
           "name": "SINGH, Mudit",
@@ -2432,12 +2984,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            6,
+            7,
+            6,
+            0,
+            3,
+            4
           ],
           "results": [
             "L",
             "W",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -2461,10 +3019,11 @@
             0,
             1,
             2,
-            2
+            3
           ],
-          "score": 2,
-          "place": "6-15"
+          "score": 3,
+          "place": "5-9",
+          "post_tiebreak_place": "9"
         },
         {
           "name": "SUNDARA RAJAN, Iniya",
@@ -2479,6 +3038,12 @@
           "class": " ",
           "byes": "4z",
           "tiebreaks": [
+            3,
+            6.5,
+            4,
+            0,
+            1,
+            1
           ],
           "results": [
             "W",
@@ -2511,7 +3076,8 @@
             1
           ],
           "score": 1,
-          "place": "20-29"
+          "place": "26-31",
+          "post_tiebreak_place": "30"
         },
         {
           "name": "BALAJI NAGA, Sashireghaa",
@@ -2525,12 +3091,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            3,
+            6.5,
+            1.5,
+            0,
+            1,
+            0.25
           ],
           "results": [
             "H",
             "L",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "-",
@@ -2557,7 +3129,8 @@
             0.5
           ],
           "score": 0.5,
-          "place": "30-31"
+          "place": "32-34",
+          "post_tiebreak_place": "34"
         },
         {
           "name": "CHOPADE, Shantanu Sagar",
@@ -2571,12 +3144,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            4,
+            8.5,
+            5,
+            0,
+            2,
+            1.5
           ],
           "results": [
             "W",
             "L",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -2600,10 +3179,11 @@
             1,
             1,
             1,
-            1
+            2
           ],
-          "score": 1,
-          "place": "20-29"
+          "score": 2,
+          "place": "12-22",
+          "post_tiebreak_place": "15"
         },
         {
           "name": "GAWALAPU, Raj Alexander",
@@ -2617,12 +3197,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            5,
+            10,
+            6,
+            0,
+            2,
+            4
           ],
           "results": [
             "W",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -2649,7 +3235,8 @@
             2
           ],
           "score": 2,
-          "place": "6-15"
+          "place": "12-22",
+          "post_tiebreak_place": "13"
         },
         {
           "name": "ROZARIO, Abdiel M",
@@ -2663,12 +3250,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            3,
+            6,
+            4,
+            0,
+            2,
+            1.5
           ],
           "results": [
             "L",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -2692,10 +3285,11 @@
             0,
             1,
             1,
-            1
+            2
           ],
-          "score": 1,
-          "place": "20-29"
+          "score": 2,
+          "place": "12-22",
+          "post_tiebreak_place": "21"
         },
         {
           "name": "SINGH, Agastya",
@@ -2709,12 +3303,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            5,
+            7.5,
+            3.5,
+            0,
+            2,
+            2.25
           ],
           "results": [
             "L",
             "D",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -2741,7 +3341,8 @@
             1.5
           ],
           "score": 1.5,
-          "place": "16-19"
+          "place": "23-25",
+          "post_tiebreak_place": "23"
         },
         {
           "name": "PATEL, Arav",
@@ -2755,12 +3356,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            4,
+            7.5,
+            5,
+            0,
+            2,
+            2.5
           ],
           "results": [
             "L",
             "W",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -2787,7 +3394,8 @@
             2
           ],
           "score": 2,
-          "place": "6-15"
+          "place": "12-22",
+          "post_tiebreak_place": "16"
         },
         {
           "name": "BODIS, Mitchell Irving",
@@ -2801,12 +3409,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            8,
+            10,
+            9,
+            0,
+            2,
+            6.5
           ],
           "results": [
             "W",
             "W",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -2833,7 +3447,8 @@
             3
           ],
           "score": 3,
-          "place": "1-4"
+          "place": "5-9",
+          "post_tiebreak_place": "6"
         },
         {
           "name": "LONG, Henri Zimo",
@@ -2847,12 +3462,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            4.5,
+            8,
+            3,
+            0,
+            2,
+            1
           ],
           "results": [
             "L",
             "W",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -2879,7 +3500,8 @@
             1
           ],
           "score": 1,
-          "place": "20-29"
+          "place": "26-31",
+          "post_tiebreak_place": "27"
         },
         {
           "name": "COOPER, Aiden Brian-Robert",
@@ -2893,12 +3515,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            3.5,
+            7.5,
+            5,
+            0,
+            2,
+            2.5
           ],
           "results": [
             "L",
             "W",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -2925,7 +3553,8 @@
             2
           ],
           "score": 2,
-          "place": "6-15"
+          "place": "12-22",
+          "post_tiebreak_place": "18"
         },
         {
           "name": "MARISELVAN, Vidhul",
@@ -2939,12 +3568,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            7,
+            11,
+            3,
+            0,
+            2,
+            2
           ],
           "results": [
             "L",
             "W",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -2971,7 +3606,8 @@
             1
           ],
           "score": 1,
-          "place": "20-29"
+          "place": "26-31",
+          "post_tiebreak_place": "26"
         },
         {
           "name": "VEKARIYA, Neev",
@@ -2985,12 +3621,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            4.5,
+            7.5,
+            2,
+            0,
+            2,
+            1
           ],
           "results": [
             "L",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -3017,7 +3659,8 @@
             1
           ],
           "score": 1,
-          "place": "20-29"
+          "place": "26-31",
+          "post_tiebreak_place": "28"
         },
         {
           "name": "LING, Leon",
@@ -3031,12 +3674,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            3.5,
+            5.5,
+            0.5,
+            0,
+            2,
+            0.25
           ],
           "results": [
             "L",
             "L",
             "L",
-            " "
+            "D"
           ],
           "colors": [
             "W",
@@ -3060,10 +3709,11 @@
             0,
             0,
             0,
-            0
+            0.5
           ],
-          "score": 0,
-          "place": "32-34"
+          "score": 0.5,
+          "place": "32-34",
+          "post_tiebreak_place": "33"
         },
         {
           "name": "DACHARAJU, Rudraan",
@@ -3077,12 +3727,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            4,
+            7.5,
+            3.5,
+            0,
+            2,
+            1.25
           ],
           "results": [
             "L",
             "D",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -3109,7 +3765,8 @@
             1.5
           ],
           "score": 1.5,
-          "place": "16-19"
+          "place": "23-25",
+          "post_tiebreak_place": "24"
         },
         {
           "name": "CELESTIN, Patrick",
@@ -3123,12 +3780,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            4.5,
+            6.5,
+            0.5,
+            0,
+            2,
+            0.25
           ],
           "results": [
             "L",
             "L",
             "L",
-            " "
+            "D"
           ],
           "colors": [
             "W",
@@ -3152,10 +3815,11 @@
             0,
             0,
             0,
-            0
+            0.5
           ],
-          "score": 0,
-          "place": "32-34"
+          "score": 0.5,
+          "place": "32-34",
+          "post_tiebreak_place": "32"
         },
         {
           "name": "WESTBERRY, N'Azier",
@@ -3169,6 +3833,12 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            2,
+            5,
+            0,
+            0,
+            2,
+            1
           ],
           "results": [
             "L",
@@ -3200,8 +3870,9 @@
             0,
             1
           ],
-          "score": 0,
-          "place": "32-34"
+          "score": 1,
+          "place": "26-31",
+          "post_tiebreak_place": "31"
         },
         {
           "name": "TRIVEDI, Ayaan",
@@ -3215,12 +3886,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            8,
+            10,
+            7,
+            0,
+            2,
+            7
           ],
           "results": [
             "W",
             "L",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -3244,10 +3921,11 @@
             1,
             1,
             2,
-            2
+            3
           ],
-          "score": 2,
-          "place": "6-15"
+          "score": 3,
+          "place": "5-9",
+          "post_tiebreak_place": "7"
         },
         {
           "name": "PEDDI, Jaidev",
@@ -3261,12 +3939,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            4,
+            6,
+            2,
+            0,
+            2,
+            0.5
           ],
           "results": [
             "L",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -3293,7 +3977,8 @@
             1
           ],
           "score": 1,
-          "place": "20-29"
+          "place": "26-31",
+          "post_tiebreak_place": "29"
         },
         {
           "name": "LULICH, Jack Kazimir",
@@ -3307,12 +3992,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            6,
+            6.5,
+            8,
+            0,
+            2,
+            5.75
           ],
           "results": [
             "D",
             "W",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -3336,10 +4027,11 @@
             0.5,
             1.5,
             2.5,
-            2.5
+            3.5
           ],
-          "score": 2.5,
-          "place": "5"
+          "score": 3.5,
+          "place": "2-4",
+          "post_tiebreak_place": "4"
         },
         {
           "name": "BALCHUNAS, Nathan Grey",
@@ -3353,12 +4045,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            2,
+            4.5,
+            3,
+            0,
+            2,
+            1.5
           ],
           "results": [
             "L",
             "L",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -3382,10 +4080,11 @@
             0,
             0,
             1,
-            1
+            2
           ],
-          "score": 1,
-          "place": "20-29"
+          "score": 2,
+          "place": "12-22",
+          "post_tiebreak_place": "22"
         },
         {
           "name": "KARTHICK, Viyan",
@@ -3399,12 +4098,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            7.5,
+            9,
+            6.5,
+            0.5,
+            2,
+            4.75
           ],
           "results": [
             "W",
             "D",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -3428,10 +4133,11 @@
             1,
             1.5,
             1.5,
-            1.5
+            2.5
           ],
-          "score": 1.5,
-          "place": "16-19"
+          "score": 2.5,
+          "place": "10-11",
+          "post_tiebreak_place": "10"
         }
       ],
       "clubs": [
@@ -3440,16 +4146,16 @@
     {
       "section": "GIRLS U800",
       "rounds_paired": 4,
-      "rounds_played": 3,
-      "final_round": false,
+      "rounds_played": 4,
+      "final_round": true,
       "reportStatus": {
-        "kind": "hidden",
-        "roundsPlayed": 3,
+        "kind": "final",
+        "roundsPlayed": 4,
         "finalRound": 4,
         "gamesRemaining": 0,
         "prizesClinched": 0,
         "prizesPending": 0,
-        "bannerText": ""
+        "bannerText": "FINAL RESULTS"
       },
       "prizeAwards": [
       ],
@@ -3488,8 +4194,20 @@
         }
       ],
       "tiebreaks": [
+        "Mod. Med",
+        "Solk",
+        "Cumul.",
+        "1-on-1",
+        "BPG",
+        "SB"
       ],
       "team_tiebreaks": [
+        "Mod. Med",
+        "Solk",
+        "Cumul.",
+        "1-on-1",
+        "BPG",
+        "SB"
       ],
       "players": [
         {
@@ -3504,12 +4222,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            7,
+            9,
+            10,
+            0,
+            2,
+            9
           ],
           "results": [
             "W",
             "W",
             "W",
-            " "
+            "W"
           ],
           "colors": [
             "B",
@@ -3533,10 +4257,11 @@
             1,
             2,
             3,
-            3
+            4
           ],
-          "score": 3,
-          "place": "1"
+          "score": 4,
+          "place": "1",
+          "post_tiebreak_place": "1"
         },
         {
           "name": "SONDKAR, Akshita",
@@ -3550,12 +4275,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            8,
+            8,
+            8,
+            0,
+            2,
+            4
           ],
           "results": [
             "W",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -3579,10 +4310,11 @@
             1,
             2,
             2,
-            2
+            3
           ],
-          "score": 2,
-          "place": "2-4"
+          "score": 3,
+          "place": "2",
+          "post_tiebreak_place": "2"
         },
         {
           "name": "KODURU, Aruhi",
@@ -3596,12 +4328,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            5,
+            11,
+            6,
+            0,
+            3,
+            4
           ],
           "results": [
             "W",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -3628,7 +4366,8 @@
             2
           ],
           "score": 2,
-          "place": "2-4"
+          "place": "3-6",
+          "post_tiebreak_place": "3"
         },
         {
           "name": "AUSTIN, Kasey",
@@ -3642,12 +4381,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            5,
+            10,
+            6,
+            0,
+            1,
+            3
           ],
           "results": [
             "W",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "W",
@@ -3674,7 +4419,8 @@
             2
           ],
           "score": 2,
-          "place": "2-4"
+          "place": "3-6",
+          "post_tiebreak_place": "4"
         },
         {
           "name": "GOWDA, Dhara",
@@ -3688,12 +4434,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            3,
+            7,
+            4,
+            0,
+            1,
+            1
           ],
           "results": [
             "L",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -3717,10 +4469,11 @@
             0,
             1,
             1,
-            1
+            2
           ],
-          "score": 1,
-          "place": "5-7"
+          "score": 2,
+          "place": "3-6",
+          "post_tiebreak_place": "5"
         },
         {
           "name": "HOERLEIN, Johanna",
@@ -3734,12 +4487,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            3,
+            5,
+            4,
+            0,
+            2,
+            1
           ],
           "results": [
             "L",
             "W",
             "L",
-            " "
+            "W"
           ],
           "colors": [
             "W",
@@ -3763,10 +4522,11 @@
             0,
             1,
             1,
-            1
+            2
           ],
-          "score": 1,
-          "place": "5-7"
+          "score": 2,
+          "place": "3-6",
+          "post_tiebreak_place": "6"
         },
         {
           "name": "GILBERT, Aubrielle",
@@ -3780,12 +4540,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            5,
+            8,
+            0,
+            0,
+            3,
+            0
           ],
           "results": [
             "L",
             "L",
             "L",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -3812,7 +4578,8 @@
             0
           ],
           "score": 0,
-          "place": "8"
+          "place": "8",
+          "post_tiebreak_place": "8"
         },
         {
           "name": "RAY, Udita",
@@ -3826,12 +4593,18 @@
           "org2": "USCF",
           "class": " ",
           "tiebreaks": [
+            4,
+            6,
+            2,
+            0,
+            2,
+            0
           ],
           "results": [
             "L",
             "L",
             "W",
-            " "
+            "L"
           ],
           "colors": [
             "B",
@@ -3858,7 +4631,8 @@
             1
           ],
           "score": 1,
-          "place": "5-7"
+          "place": "7",
+          "post_tiebreak_place": "7"
         }
       ],
       "clubs": [
@@ -3887,10 +4661,10 @@
         3,
         1,
         4,
-        5,
         6,
-        7,
-        8
+        5,
+        8,
+        7
       ],
       "pairings": [
         {
@@ -3915,8 +4689,20 @@
         }
       ],
       "tiebreaks": [
+        "Mod. Med",
+        "Solk",
+        "Cumul.",
+        "1-on-1",
+        "BPG",
+        "SB"
       ],
       "team_tiebreaks": [
+        "Mod. Med",
+        "Solk",
+        "Cumul.",
+        "1-on-1",
+        "BPG",
+        "SB"
       ],
       "players": [
         {
@@ -3926,6 +4712,12 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            5,
+            10,
+            7,
+            0,
+            2,
+            4
           ],
           "results": [
             "W",
@@ -3958,7 +4750,8 @@
             2
           ],
           "score": 2,
-          "place": "3-6"
+          "place": "3-6",
+          "post_tiebreak_place": "3"
         },
         {
           "name": "BOBBA, Nitish",
@@ -3967,6 +4760,12 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            7,
+            9,
+            9,
+            1,
+            2,
+            7
           ],
           "results": [
             "W",
@@ -3999,7 +4798,8 @@
             3
           ],
           "score": 3,
-          "place": "1-2"
+          "place": "1-2",
+          "post_tiebreak_place": "1"
         },
         {
           "name": "ARUNPRASATH, Akira",
@@ -4008,6 +4808,12 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            6,
+            7,
+            7,
+            0,
+            1,
+            4
           ],
           "results": [
             "W",
@@ -4040,7 +4846,8 @@
             3
           ],
           "score": 3,
-          "place": "1-2"
+          "place": "1-2",
+          "post_tiebreak_place": "2"
         },
         {
           "name": "KUMAR, Reyansh",
@@ -4049,6 +4856,12 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            4,
+            8,
+            5,
+            0,
+            3,
+            4
           ],
           "results": [
             "W",
@@ -4081,7 +4894,8 @@
             2
           ],
           "score": 2,
-          "place": "3-6"
+          "place": "3-6",
+          "post_tiebreak_place": "4"
         },
         {
           "name": "SENTHILRAJA, Srilakshanya",
@@ -4090,6 +4904,12 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            3,
+            6,
+            3,
+            0,
+            2,
+            3
           ],
           "results": [
             "L",
@@ -4122,7 +4942,8 @@
             2
           ],
           "score": 2,
-          "place": "3-6"
+          "place": "3-6",
+          "post_tiebreak_place": "6"
         },
         {
           "name": "Bommala, Divisha",
@@ -4131,6 +4952,12 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            4,
+            8,
+            5,
+            0,
+            2,
+            3
           ],
           "results": [
             "L",
@@ -4163,7 +4990,8 @@
             2
           ],
           "score": 2,
-          "place": "3-6"
+          "place": "3-6",
+          "post_tiebreak_place": "5"
         },
         {
           "name": "Nahar, Misha",
@@ -4172,6 +5000,12 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            5,
+            8,
+            1,
+            1,
+            2,
+            1
           ],
           "results": [
             "L",
@@ -4204,7 +5038,8 @@
             1
           ],
           "score": 1,
-          "place": "7-8"
+          "place": "7-8",
+          "post_tiebreak_place": "8"
         },
         {
           "name": "KISHORE, Ithiha",
@@ -4213,6 +5048,12 @@
           "rating2": 0,
           "class": " ",
           "tiebreaks": [
+            5,
+            8,
+            3,
+            0,
+            2,
+            2
           ],
           "results": [
             "L",
@@ -4245,7 +5086,8 @@
             1
           ],
           "score": 1,
-          "place": "7-8"
+          "place": "7-8",
+          "post_tiebreak_place": "7"
         }
       ],
       "clubs": [
