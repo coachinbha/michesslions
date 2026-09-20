@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -1030,10 +1031,12 @@ body {
       <noscript>
         <h2>Upcoming Tournaments</h2>
         <ul class="noscript-list">
-          <li><strong>Chess Lions: September Open &mdash; At the Holiday Inn Express Farmington Hills</strong><span>Sunday, September 19, 2026 &mdash; 4 Round Swiss, rated &amp; unrated sections &mdash; Holiday Inn Express &amp; Suites, 33103 Hamilton Ct, Farmington Hills, MI 48334</span></li>
+          <li><strong>Chess Lions: November Tournament at Holiday Inn Exp - Farmington Hills</strong><span>Saturday, November 14, 2026 &mdash; 4 Round Swiss, rated &mdash; Holiday Inn Express &amp; Suites, 33103 Hamilton Ct, Farmington Hills, MI 48334</span></li>
         </ul>
         <h2>Past Tournaments</h2>
         <ul class="noscript-list">
+          <li><strong>Chess Lions: September Open &mdash; At the Holiday Inn Express Farmington Hills</strong><span>Sunday, September 19, 2026 &mdash; 4 Round Swiss, rated &amp; unrated sections &mdash; Holiday Inn Express &amp; Suites, 33103 Hamilton Ct, Farmington Hills, MI 48334</span></li>
+          <li><strong>Chess Lions &ndash; August Open 2026 @ Holiday Inn Express Farmington Hills</strong><span>Sunday, August 16, 2026 &mdash; Holiday Inn Express &amp; Suites, 33103 Hamilton Ct, Farmington Hills, MI 48334</span></li>
           <li><strong>Chess Lions &ndash; August Open 2026 @ Holiday Inn Express Farmington Hills</strong><span>Sunday, August 16, 2026 &mdash; Holiday Inn Express &amp; Suites, 33103 Hamilton Ct, Farmington Hills, MI 48334</span></li>
           <li><strong>Chess Lions: Mega Junior Championship with Side Events for all ages</strong><span>Sunday, July 12, 2026 &mdash; Holiday Inn Express &amp; Suites, 33103 Hamilton Ct, Farmington Hills, MI 48334</span></li>
           <li><strong>Chess Lions June Open &mdash; At the Holiday Inn Express Farmington Hills</strong><span>Sunday, June 7, 2026 &mdash; Holiday Inn Express &amp; Suites, 33103 Hamilton Ct, Farmington Hills, MI 48334</span></li>
@@ -1076,21 +1079,21 @@ body {
 const upcomingTournaments = [
 
   {
-    title: "Chess Lions: September Open - At the Holiday Inn Express Farmington Hills",
-    date: "Saturday, September 19, 2026",
+    title: "Chess Lions: November Tournament at Holiday Inn Exp - Farmington Hills",
+    date: "Saturday, November 14, 2026",
     details: {
       "Organizer": "Chess Lions",
       "Location": "Holiday Inn Express & Suites, 33103 Hamilton Ct, Farmington Hills, MI 48334",
       "About": "Now at the same, spacious venue, we will be having a new food vendor and have both ballrooms for an excellent, bigger tournament with a dedicated skittles room",
       "Format": "4 Round Swiss",
-      "Sections": ["Rated Sections: Open/Upper(1400+), U1400, U800, Girls U800", "Unrated Sections: Grades K-6"],
+      "Sections": ["Rated Sections: Open/Upper(1400+), U1400, U800", "Unrated Sections: Grades K-6"],
       "Rounds": {
         type: 'roundTable',
         checkIn: 'ASAP - between 30-10 minutes before your first round (see below!)',
         rows: [
           { section: 'Upper (1400+)', rounds: ['9:30 am', '11:30 am', '2:00 pm', '4:00 pm'] },
           { section: 'U1400', rounds: ['9:30 am', '11:30 am', '2:00 pm', '4:00 pm'] },
-          { section: 'U800, Girls U800, Unrated K-6', rounds: ['10:30 am', '11:45 am', '1:15 pm', '2:15 pm'] }
+          { section: 'U800', rounds: ['10:30 am', '11:45 am', '1:15 pm', '2:15 pm'] }
         ]
       },
       "Time Control": ["G/50;d5 for Upper (1400+) & U1400", "G/30;d5 for U800"],
@@ -1106,6 +1109,11 @@ const upcomingTournaments = [
 
 
 const pastTournaments = [{
+title: "Chess Lions: September Open - At the Holiday Inn Express Farmington Hills",
+  date: "Saturday, September 19, 2026",
+  resultsUrl: "https://ratings.uschess.org/event/https://ratings.uschess.org/event/202609190363?section=3",
+  details: { "Organizer": "Chess Lions", "Location": "Holiday Inn Express & Suites, 33103 Hamilton Ct, Farmington Hills, MI 48334" }
+}, {
 title: "Chess Lions - August Open 2026 @ Holiday Inn Express Farmington Hills",
   date: "Sunday, August 16, 2026",
   resultsUrl: "https://ratings.uschess.org/event/202608160333",
