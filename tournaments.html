@@ -1085,14 +1085,15 @@ const upcomingTournaments = [
       "Location": "Holiday Inn Express & Suites, 33103 Hamilton Ct, Farmington Hills, MI 48334",
       "About": "Now at the same, spacious venue, we will be having a new food vendor and have both ballrooms for an excellent, bigger tournament with a dedicated skittles room",
       "Format": "4 Round Swiss",
-      "Sections": ["Rated Sections: Open/Upper(1400+), U1400, U800"],
+      "Sections": ["Rated Sections: Open/Upper(1400+), U1400, U800","Unrated Sections: K to 3, K to 5, K to 8"],
       "Rounds": {
         type: 'roundTable',
-        checkIn: 'ASAP - between 30-10 minutes before your first round (see below!)',
+        checkIn: 'ASAP - between 30-10 minutes before your first round (see below!). For all Unrated sections, the first round will be at 10:30 am, and all games (rounds) will finish before 1 pm.',
         rows: [
           { section: 'Upper (1400+)', rounds: ['9:30 am', '11:30 am', '2:00 pm', '4:00 pm'] },
           { section: 'U1400', rounds: ['9:30 am', '11:30 am', '2:00 pm', '4:00 pm'] },
-          { section: 'U800', rounds: ['10:30 am', '11:45 am', '1:15 pm', '2:15 pm'] }
+          { section: 'U800', rounds: ['10:30 am', '11:45 am', '1:15 pm', '2:15 pm'] },
+          { section: 'All Unrated Sections', rounds: ['See above note', '', '', ''] }
         ]
       },
       "Time Control": ["G/50;d5 for Upper (1400+) & U1400", "G/30;d5 for U800"],
