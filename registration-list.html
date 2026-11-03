@@ -460,9 +460,10 @@
     <script>
         AOS.init({ duration: 1000, once: true, disable: false });
 
-        // ✅ ADDED MISSING CONSTANTS HERE
+        // ✅ CONSTANTS
         const SECTION_KEY = "Which section? Note: sections may be combined based upon entries.";
-        const USCF_ID_KEY = 'USCF ID (an 8 digit number, like "12892910" )';
+        // ✅ UPDATED: Removed the trailing space before the closing parenthesis to match the new OpenSheet JSON output exactly.
+        const USCF_ID_KEY = 'USCF ID (an 8 digit number, like "12892910")';
         const RATING_CACHE_KEY = 'uscf_rating_cache';
         const CACHE_DURATION = 24 * 60 * 60 * 1000;
 
@@ -481,8 +482,6 @@
                     "Players Name (Last name, First name)": "Player Name",
                     [SECTION_KEY]: "Section",
                     [USCF_ID_KEY]: "USCF ID"
-                    // "Rating" is intentionally omitted here because getLabel() automatically 
-                    // falls back to returning the key itself if it's not found in this object.
                 }
             }
         ];
