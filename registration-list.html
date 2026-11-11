@@ -285,6 +285,7 @@
         th.sortable { cursor: pointer; user-select: none; -webkit-user-select: none; transition: background-color 0.3s ease; }
         th.sortable:hover { background-color: var(--gray-100); }
         th.sortable:active { background-color: var(--gray-200); }
+        th.sortable:focus-visible { outline: 2px solid var(--text-color); outline-offset: -2px; }
         .sort-indicator { display: inline-block; margin-left: 0.5rem; font-size: 0.75rem; opacity: 0.4; transition: opacity 0.3s ease, transform 0.3s ease; letter-spacing: 0; }
         th.sortable:hover .sort-indicator { opacity: 0.8; }
         th.sortable.sort-active .sort-indicator { opacity: 1; }
@@ -298,6 +299,15 @@
         .rating-loading { font-style: italic; color: #aaa; font-size: 0.85rem; }
         .rating-error { color: #d32f2f; font-weight: 700; }
         .rating-unrated { color: #666; font-weight: 700; }
+
+        /* ── SCROLLBARS (monochrome, on-brand) ───────────────── */
+        html { scrollbar-width: thin; scrollbar-color: #000 #f0f0f0; }
+        ::-webkit-scrollbar { width: 10px; height: 10px; }
+        ::-webkit-scrollbar-track { background: #f0f0f0; }
+        ::-webkit-scrollbar-thumb { background: #000; border: 2px solid #f0f0f0; }
+        ::-webkit-scrollbar-thumb:hover { background: #333; }
+        .table-wrapper::-webkit-scrollbar { height: 8px; }
+        .mobile-menu::-webkit-scrollbar { width: 8px; }
 
         footer { text-align: center; padding: 2rem 0; font-size: 1rem; transition: transform 0.3s ease; margin-top: 2rem; border-top: 1px solid #e0e0e0; }
         footer:hover { transform: scale(1.02); }
@@ -431,8 +441,8 @@
 
             <div class="search-section" data-aos="fade-up">
                 <div class="search-wrapper">
-                    <input type="text" id="searchInput" class="search-input" placeholder="Search players..." autocomplete="off" spellcheck="false"/>
-                    <button class="search-clear" id="searchClear" title="Clear search">&times;</button>
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search players..." autocomplete="off" spellcheck="false" aria-label="Search players"/>
+                    <button class="search-clear" id="searchClear" title="Clear search" aria-label="Clear search">&times;</button>
                 </div>
             </div>
 
@@ -446,10 +456,10 @@
             </div>
 
             <div class="refresh-info" data-aos="fade-up" data-aos-delay="600">
-                Last updated: <span id="lastUpdate">just now</span> | Auto-refresh every 30 seconds | Ratings fetched automatically | Click RATING header to sort
+                Last updated: <span id="lastUpdate">just now</span> | Auto-refresh every 30 seconds | Ratings fetched automatically in batches | Click RATING header to sort
             </div>
         </div>
-        
+
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
@@ -459,8 +469,10 @@
         // ── CONSTANTS ───────────────────────────────────────────────────────
         const SECTION_KEY = "Which section? Note: sections may be combined based upon entries.";
         const USCF_ID_KEY = 'USCF ID (an 8 digit number, like "12892910")';
-        const RATING_CACHE_KEY = 'uscf_rating_cache';
-        const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours
+        const RATING_CACHE_KEY = 'uscf_rating_cache_v2'; // bumped → discards old poisoned "Unrated" entries
+        const CACHE_DURATION = 24 * 60 * 60 * 1000;      // 24 hours for genuine answers
+        const ERROR_RETRY_MS = 2 * 60 * 1000;            // failed lookups retry after 2 minutes
+        const BATCH_SIZE = 30;                           // worker caps at 50 subrequests → batches of 30
 
         // ⚠️ REPLACE THIS WITH YOUR NEW WORKER'S URL AFTER DEPLOYING
         const WORKER_URL = "https://easy-ratings-pull.windsorchesslions.workers.dev/";
@@ -490,6 +502,7 @@
         let searchQuery = '';
         let ratingCache = {};
         let sortState = 'none';
+        let ratingsFetchBusy = false;
 
         // ── CACHE MANAGEMENT ────────────────────────────────────────────────
         function loadRatingCache() {
@@ -499,18 +512,18 @@
                     const parsed = JSON.parse(stored);
                     const now = Date.now();
                     let needsSave = false;
-                    
+
                     Object.keys(parsed).forEach(id => {
                         if (parsed[id].rating === 'Error') {
                             delete parsed[id];
                             needsSave = true;
-                        } 
+                        }
                         else if (now - parsed[id].timestamp > CACHE_DURATION) {
                             delete parsed[id];
                             needsSave = true;
                         }
                     });
-                    
+
                     ratingCache = parsed;
                     if (needsSave) localStorage.setItem(RATING_CACHE_KEY, JSON.stringify(ratingCache));
                 }
@@ -528,7 +541,7 @@
             }
         }
 
-        // ── SEARCH ──────────────────────────────────────────────────────────
+        // ── SEARCH ─────────────────────────────────────────────────────────
         const searchInput = document.getElementById('searchInput');
         const searchClear = document.getElementById('searchClear');
 
@@ -595,14 +608,24 @@
         }
 
         function highlightText(text, query) {
-            if (!query || !text) return escapeHtml(text || '');
-            const escaped = escapeHtml(text);
-            const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-            return escaped.replace(new RegExp(`(${escapedQuery})`, 'gi'), '<mark class="search-highlight">$1</mark>');
+            const raw = String(text == null ? '' : text);
+            if (!query || !raw) return escapeHtml(raw);
+            const lower = raw.toLowerCase();
+            const q = query.toLowerCase();
+            let result = '';
+            let pos = 0;
+            let idx;
+            while ((idx = lower.indexOf(q, pos)) !== -1) {
+                result += escapeHtml(raw.slice(pos, idx));
+                result += '<mark class="search-highlight">' + escapeHtml(raw.slice(idx, idx + q.length)) + '</mark>';
+                pos = idx + q.length;
+            }
+            result += escapeHtml(raw.slice(pos));
+            return result;
         }
 
         function escapeHtml(str) {
-            return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+            return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
         }
 
         function getLabel(tournament, key) {
@@ -637,85 +660,87 @@
             }
         }
 
-        // ── BATCH RATING FETCH (Production-Safe) ────────────────────────────
+        // ── BATCH RATING FETCH (batches of 30, sequential) ──────────────────
         async function fetchAllRatings() {
-            // 1. Gather all unique, valid 8-digit USCF IDs from the loaded tournament data
-            const uscfIds = new Set();
-            Object.values(tournamentsData).forEach(data => {
-                if (Array.isArray(data)) {
-                    data.forEach(row => {
-                        const id = row[USCF_ID_KEY];
-                        if (id && id.trim() && /^\d{8}$/.test(id.trim())) {
-                            uscfIds.add(id.trim());
-                        }
-                    });
-                }
-            });
-
-            const idsArray = Array.from(uscfIds);
-            
-            // 🛡️ PRODUCTION FIX: Filter out IDs already cached in localStorage
-            // This prevents burning through the 100k Worker limit on the 30s auto-refresh
-            const now = Date.now();
-            const idsToFetch = idsArray.filter(id => {
-                const cached = ratingCache[id];
-                if (!cached) return true;            // Not cached yet
-                if (cached.rating === 'Error') return true; // Retry errors
-                if (now - cached.timestamp > CACHE_DURATION) return true; // Cache expired
-                return false; // Valid cache exists, skip
-            });
-
-            if (idsToFetch.length === 0) {
-                applyFiltersAndRender();
-                return; // 🚀 Skips the Worker entirely — 0 requests used!
-            }
-
-            console.log(`Requesting batch ratings for ${idsToFetch.length} players...`);
-
+            if (ratingsFetchBusy) return; // previous batch cycle still running (30s refresh overlap guard)
+            ratingsFetchBusy = true;
             try {
-                const response = await fetch(WORKER_URL, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ ids: idsToFetch })
+                // 1. Gather all unique, valid 8-digit USCF IDs
+                const uscfIds = new Set();
+                Object.values(tournamentsData).forEach(data => {
+                    if (Array.isArray(data)) {
+                        data.forEach(row => {
+                            const id = row[USCF_ID_KEY];
+                            if (id && id.trim() && /^\d{8}$/.test(id.trim())) {
+                                uscfIds.add(id.trim());
+                            }
+                        });
+                    }
                 });
 
-                if (!response.ok) throw new Error(`Worker returned ${response.status}`);
-                
-                const data = await response.json();
-                const ratingsMap = data.ratings || {};
-                let needsSave = false;
-
-                // 2. Parse the USCF response and update the local cache
-                idsToFetch.forEach(id => {
-                    const uscfData = ratingsMap[id];
-                    if (!uscfData || uscfData.error) {
-                        if (!ratingCache[id] || ratingCache[id].rating === 'Error') {
-                            ratingCache[id] = { rating: 'Unrated', timestamp: now };
-                            needsSave = true;
-                        }
-                        return;
-                    }
-
-                    let rating = 'Unrated';
-                    if (uscfData.ratings && Array.isArray(uscfData.ratings)) {
-                        const regularRating = uscfData.ratings.find(r => r.ratingSystem === 'R');
-                        if (regularRating && regularRating.rating) {
-                            rating = regularRating.rating;
-                        } else if (uscfData.ratings.length > 0 && uscfData.ratings[0].rating) {
-                            rating = uscfData.ratings[0].rating;
-                        }
-                    }
-
-                    ratingCache[id] = { rating: rating, timestamp: now };
-                    needsSave = true;
+                // 2. Only fetch IDs without a fresh, genuine answer
+                const now = Date.now();
+                const idsToFetch = Array.from(uscfIds).filter(id => {
+                    const cached = ratingCache[id];
+                    if (!cached) return true;                                        // never fetched
+                    if (cached.rating === 'Error') return now - cached.timestamp > ERROR_RETRY_MS;
+                    return now - cached.timestamp > CACHE_DURATION;                  // expired
                 });
 
-                if (needsSave) saveRatingCache();
-                applyFiltersAndRender();
+                if (idsToFetch.length === 0) {
+                    applyFiltersAndRender();
+                    return; // 🚀 0 worker requests used
+                }
 
-            } catch (error) {
-                console.error("Error fetching batch ratings:", error);
-                applyFiltersAndRender(); // Fallback: render anyway, ratings show as "Loading..."
+                console.log(`Fetching ${idsToFetch.length} ratings in batches of ${BATCH_SIZE}...`);
+
+                // 3. Query the worker sequentially, 30 IDs per call
+                for (let i = 0; i < idsToFetch.length; i += BATCH_SIZE) {
+                    const batch = idsToFetch.slice(i, i + BATCH_SIZE);
+                    try {
+                        const response = await fetch(WORKER_URL, {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ ids: batch })
+                        });
+                        if (!response.ok) throw new Error(`Worker returned ${response.status}`);
+
+                        const data = await response.json();
+                        const ratingsMap = data.ratings || {};
+                        const ts = Date.now();
+
+                        batch.forEach(id => {
+                            const uscfData = ratingsMap[id];
+
+                            // Failure ≠ unrated: short-lived Error marker, retried in 2 min
+                            if (!uscfData || uscfData.error) {
+                                ratingCache[id] = { rating: 'Error', timestamp: ts };
+                                return;
+                            }
+
+                            // Genuine API answer → safe to cache for 24 hours
+                            let rating = 'Unrated';
+                            if (Array.isArray(uscfData.ratings)) {
+                                const regular = uscfData.ratings.find(r =>
+                                    r.ratingSystem === 'R' || r.ratingSystem === 'OverTheBoardRegular');
+                                if (regular && regular.rating) {
+                                    rating = regular.rating;
+                                } else if (uscfData.ratings[0] && uscfData.ratings[0].rating) {
+                                    rating = uscfData.ratings[0].rating;
+                                }
+                            }
+                            ratingCache[id] = { rating, timestamp: ts };
+                        });
+
+                        saveRatingCache();
+                        applyFiltersAndRender(); // table fills in after each batch
+                    } catch (error) {
+                        console.error(`Rating batch ${Math.floor(i / BATCH_SIZE) + 1} failed:`, error);
+                        // Cache nothing for this batch → IDs stay "Loading..." and retry next cycle
+                    }
+                }
+            } finally {
+                ratingsFetchBusy = false;
             }
         }
 
@@ -724,9 +749,7 @@
                 return '-';
             }
             const cached = ratingCache[uscfId.trim()];
-            if (cached) {
-                return cached.rating;
-            }
+            if (cached) return cached.rating === 'Error' ? 'Loading...' : cached.rating;
             return 'Loading...';
         }
 
@@ -816,6 +839,9 @@
                 if (col === "Rating") {
                     th.classList.add('sortable');
                     if (sortState !== 'none') th.classList.add('sort-active');
+                    th.tabIndex = 0;
+                    th.setAttribute('role', 'button');
+                    th.setAttribute('aria-sort', sortState === 'desc' ? 'descending' : sortState === 'asc' ? 'ascending' : 'none');
 
                     const sortIndicator = document.createElement('span');
                     sortIndicator.className = 'sort-indicator';
@@ -829,6 +855,9 @@
                         else if (sortState === 'desc') sortState = 'asc';
                         else sortState = 'none';
                         applyFiltersAndRender();
+                    });
+                    th.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); th.click(); }
                     });
                 }
 
@@ -960,7 +989,8 @@
             }
         });
 
-        // ── INIT ────────────────────────────────────────────────────────────
+        // ── INIT ───────────────────────────────────────────────────────────
+        try { localStorage.removeItem('uscf_rating_cache'); } catch (e) {} // drop old poisoned cache
         loadRatingCache();
         fetchAllTournaments();
         setInterval(fetchAllTournaments, 30000);
