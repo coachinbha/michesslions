@@ -6,7 +6,7 @@
     "state": "MI",
     "country": "USA",
     "td": "Inbha",
-    "time_stamp": "11/14/2026 - 13:07",
+    "time_stamp": "11/14/2026 - 13:24",
     "affiliate": ""
   },
   "options": {
@@ -52,12 +52,12 @@
   "sections": [
     {
       "section": "Upper",
-      "rounds_paired": 2,
-      "rounds_played": 1,
+      "rounds_paired": 3,
+      "rounds_played": 2,
       "final_round": false,
       "reportStatus": {
         "kind": "hidden",
-        "roundsPlayed": 1,
+        "roundsPlayed": 2,
         "finalRound": 4,
         "gamesRemaining": 0,
         "prizesClinched": 0,
@@ -71,21 +71,21 @@
       "pendingPrizes": [
       ],
       "standings": [
-        2,
-        5,
         3,
         1,
+        2,
+        5,
         4
       ],
       "pairings": [
         {
-          "white": 3,
-          "black": 5,
+          "white": 4,
+          "black": 3,
           "board": 1
         },
         {
-          "white": 1,
-          "black": 4,
+          "white": 5,
+          "black": 1,
           "board": 2
         }
       ],
@@ -110,26 +110,31 @@
           ],
           "results": [
             "L",
+            "W",
             " "
           ],
           "colors": [
             "B",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             2,
-            4
+            4,
+            5
           ],
           "boards": [
             1,
+            2,
             2
           ],
           "cumulatives": [
             0,
-            0
+            1,
+            1
           ],
-          "score": 0,
-          "place": "4-5"
+          "score": 1,
+          "place": "2-4"
         },
         {
           "name": "FAWCETT, Aaron",
@@ -146,26 +151,31 @@
           ],
           "results": [
             "W",
+            "U",
             "U"
           ],
           "colors": [
             "W",
+            "-",
             "-"
           ],
           "ops": [
             1,
+            0,
             0
           ],
           "boards": [
             1,
+            0,
             0
           ],
           "cumulatives": [
             1,
+            1,
             1
           ],
           "score": 1,
-          "place": "1-2"
+          "place": "2-4"
         },
         {
           "name": "YANNI, Eli Marcus",
@@ -183,26 +193,31 @@
           ],
           "results": [
             "H",
+            "W",
             " "
           ],
           "colors": [
             "-",
-            "W"
+            "W",
+            "B"
           ],
           "ops": [
             0,
-            5
+            5,
+            4
           ],
           "boards": [
             0,
+            1,
             1
           ],
           "cumulatives": [
             0.5,
-            0.5
+            1.5,
+            1.5
           ],
-          "score": 0.5,
-          "place": "3"
+          "score": 1.5,
+          "place": "1"
         },
         {
           "name": "RAMESH, Kavya",
@@ -219,26 +234,31 @@
           ],
           "results": [
             "L",
+            "L",
             " "
           ],
           "colors": [
             "B",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             5,
-            1
+            1,
+            3
           ],
           "boards": [
             2,
-            2
+            2,
+            1
           ],
           "cumulatives": [
+            0,
             0,
             0
           ],
           "score": 0,
-          "place": "4-5"
+          "place": "5"
         },
         {
           "name": "SINGH, Arjun",
@@ -255,26 +275,31 @@
           ],
           "results": [
             "W",
+            "L",
             " "
           ],
           "colors": [
             "W",
-            "B"
+            "B",
+            "W"
           ],
           "ops": [
             4,
-            3
+            3,
+            1
           ],
           "boards": [
             2,
-            1
+            1,
+            2
           ],
           "cumulatives": [
+            1,
             1,
             1
           ],
           "score": 1,
-          "place": "1-2"
+          "place": "2-4"
         }
       ],
       "clubs": [
