@@ -6,7 +6,7 @@
     "state": "MI",
     "country": "USA",
     "td": "Inbha",
-    "time_stamp": "11/14/2026 - 7:37",
+    "time_stamp": "11/14/2026 - 9:06",
     "affiliate": ""
   },
   "options": {
@@ -76,8 +76,7 @@
         3,
         4,
         5,
-        6,
-        7
+        6
       ],
       "pairings": [
       ],
@@ -87,36 +86,9 @@
       ],
       "players": [
         {
-          "name": "DAVIDOVICH, Manis",
-          "player_title": "NM",
-          "pair_number": 1,
-          "id1": "12744534",
-          "rating": 2200,
-          "rating2": 1961,
-          "exp1": "01/31/2027",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-          ],
-          "results": [
-          ],
-          "colors": [
-          ],
-          "ops": [
-          ],
-          "boards": [
-          ],
-          "cumulatives": [
-          ],
-          "score": 0,
-          "place": "1-7"
-        },
-        {
           "name": "GABBARA, Faris F",
           "player_title": "NM",
-          "pair_number": 2,
+          "pair_number": 1,
           "id1": "12187800",
           "rating": 2013,
           "rating2": 1907,
@@ -138,11 +110,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-7"
+          "place": "1-6"
         },
         {
           "name": "BAZZI, Mohammad",
-          "pair_number": 3,
+          "pair_number": 2,
           "id1": "13323770",
           "rating": 1741,
           "rating2": 1611,
@@ -164,11 +136,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-7"
+          "place": "1-6"
         },
         {
           "name": "FAWCETT, Aaron",
-          "pair_number": 4,
+          "pair_number": 3,
           "id1": "31818431",
           "rating": 1717,
           "rating2": 1478,
@@ -190,11 +162,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-7"
+          "place": "1-6"
         },
         {
           "name": "YANNI, Eli Marcus",
-          "pair_number": 5,
+          "pair_number": 4,
           "id1": "31569233",
           "rating": 1494,
           "rating2": 1285,
@@ -217,11 +189,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-7"
+          "place": "1-6"
         },
         {
           "name": "RAMESH, Kavya",
-          "pair_number": 6,
+          "pair_number": 5,
           "id1": "16769854",
           "rating": 1368,
           "rating2": 1130,
@@ -243,11 +215,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-7"
+          "place": "1-6"
         },
         {
           "name": "SINGH, Arjun",
-          "pair_number": 7,
+          "pair_number": 6,
           "id1": "32320964",
           "rating": 1208,
           "rating2": 921,
@@ -269,7 +241,7 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-7"
+          "place": "1-6"
         }
       ],
       "clubs": [
@@ -322,8 +294,7 @@
         24,
         25,
         26,
-        27,
-        28
+        27
       ],
       "pairings": [
       ],
@@ -333,34 +304,8 @@
       ],
       "players": [
         {
-          "name": "NARENDRAN, Balamitra",
-          "pair_number": 1,
-          "id1": "32301120",
-          "rating": 1283,
-          "rating2": 1179,
-          "exp1": "07/31/2028",
-          "state": "MI",
-          "org1": "USCF",
-          "org2": "USCF",
-          "class": " ",
-          "tiebreaks": [
-          ],
-          "results": [
-          ],
-          "colors": [
-          ],
-          "ops": [
-          ],
-          "boards": [
-          ],
-          "cumulatives": [
-          ],
-          "score": 0,
-          "place": "1-28"
-        },
-        {
           "name": "SAREEN, Ronit",
-          "pair_number": 2,
+          "pair_number": 1,
           "id1": "32794508",
           "rating": 1198,
           "rating2": 1136,
@@ -382,11 +327,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         },
         {
           "name": "YANNI, Tamer",
-          "pair_number": 3,
+          "pair_number": 2,
           "id1": "31921710",
           "rating": 1195,
           "rating2": 1047,
@@ -409,11 +354,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         },
         {
           "name": "ZHANG, Joseph",
-          "pair_number": 4,
+          "pair_number": 3,
           "id1": "33124943",
           "rating": 1145,
           "rating2": 988,
@@ -435,11 +380,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         },
         {
           "name": "CHENG, Yukai",
-          "pair_number": 5,
+          "pair_number": 4,
           "id1": "31903326",
           "rating": 1130,
           "rating2": 967,
@@ -461,11 +406,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         },
         {
           "name": "VARUNJIKAR, Ishaan Tejas",
-          "pair_number": 6,
+          "pair_number": 5,
           "id1": "32385201",
           "rating": 1118,
           "rating2": 1055,
@@ -487,11 +432,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         },
         {
           "name": "YANG, Luke",
-          "pair_number": 7,
+          "pair_number": 6,
           "id1": "32510880",
           "rating": 1097,
           "rating2": 1060,
@@ -512,11 +457,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         },
         {
           "name": "SCALLY, Jackson Timothy",
-          "pair_number": 8,
+          "pair_number": 7,
           "id1": "32872409",
           "rating": 1087,
           "rating2": 1052,
@@ -538,11 +483,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         },
         {
           "name": "TARALUNGA, Vlad Dumitru",
-          "pair_number": 9,
+          "pair_number": 8,
           "id1": "33133004",
           "rating": 1048,
           "rating2": 956,
@@ -564,11 +509,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         },
         {
           "name": "WILKS, James D",
-          "pair_number": 10,
+          "pair_number": 9,
           "id1": "33162975",
           "rating": 1029,
           "rating2": 0,
@@ -590,11 +535,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         },
         {
           "name": "HEDE, Aloke Uday",
-          "pair_number": 11,
+          "pair_number": 10,
           "id1": "17060480",
           "rating": 1028,
           "rating2": 874,
@@ -616,11 +561,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         },
         {
           "name": "KATTI, Mihir",
-          "pair_number": 12,
+          "pair_number": 11,
           "id1": "31972678",
           "rating": 997,
           "rating2": 926,
@@ -642,11 +587,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         },
         {
           "name": "ROJO, Deion",
-          "pair_number": 13,
+          "pair_number": 12,
           "id1": "32576230",
           "rating": 984,
           "rating2": 928,
@@ -668,11 +613,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         },
         {
           "name": "LI, Henry Yuan",
-          "pair_number": 14,
+          "pair_number": 13,
           "id1": "32124806",
           "rating": 984,
           "rating2": 925,
@@ -694,11 +639,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         },
         {
           "name": "BURDZINSKI, Jan Raymond",
-          "pair_number": 15,
+          "pair_number": 14,
           "id1": "12583552",
           "rating": 962,
           "rating2": 870,
@@ -720,11 +665,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         },
         {
           "name": "MOGALLURI, Eswar Krishna",
-          "pair_number": 16,
+          "pair_number": 15,
           "id1": "32688226",
           "rating": 952,
           "rating2": 877,
@@ -746,11 +691,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         },
         {
           "name": "SUMESH, Isabella Cecily",
-          "pair_number": 17,
+          "pair_number": 16,
           "id1": "31929572",
           "rating": 947,
           "rating2": 872,
@@ -772,11 +717,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         },
         {
           "name": "JIMENEZ, Iker",
-          "pair_number": 18,
+          "pair_number": 17,
           "id1": "31550774",
           "rating": 943,
           "rating2": 939,
@@ -798,11 +743,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         },
         {
           "name": "GARCIA, Addison",
-          "pair_number": 19,
+          "pair_number": 18,
           "id1": "32576361",
           "rating": 939,
           "rating2": 896,
@@ -824,11 +769,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         },
         {
           "name": "BURLA, Vihaan",
-          "pair_number": 20,
+          "pair_number": 19,
           "id1": "32192154",
           "rating": 937,
           "rating2": 935,
@@ -850,11 +795,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         },
         {
           "name": "SOTELO, Salvador",
-          "pair_number": 21,
+          "pair_number": 20,
           "id1": "32576291",
           "rating": 919,
           "rating2": 846,
@@ -876,11 +821,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         },
         {
           "name": "TIME, Milo",
-          "pair_number": 22,
+          "pair_number": 21,
           "id1": "32299324",
           "rating": 904,
           "rating2": 832,
@@ -902,11 +847,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         },
         {
           "name": "DEVISETTI, Nishant",
-          "pair_number": 23,
+          "pair_number": 22,
           "id1": "32603000",
           "rating": 897,
           "rating2": 874,
@@ -927,11 +872,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         },
         {
           "name": "PIENIADZ, Noah Samuel",
-          "pair_number": 24,
+          "pair_number": 23,
           "id1": "32549885",
           "rating": 884,
           "rating2": 823,
@@ -953,11 +898,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         },
         {
           "name": "BOTHUELL, Lillian",
-          "pair_number": 25,
+          "pair_number": 24,
           "id1": "32120882",
           "rating": 864,
           "rating2": 748,
@@ -979,11 +924,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         },
         {
           "name": "SUMESH, Immanuel Abraham",
-          "pair_number": 26,
+          "pair_number": 25,
           "id1": "32496247",
           "rating": 777,
           "rating2": 712,
@@ -1005,11 +950,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         },
         {
           "name": "DE ALWIS, Kaushi Yashodha Adambarage",
-          "pair_number": 27,
+          "pair_number": 26,
           "id1": "32586189",
           "rating": 747,
           "rating2": 692,
@@ -1031,11 +976,11 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         },
         {
           "name": "ABRAHAM, Sumesh",
-          "pair_number": 28,
+          "pair_number": 27,
           "id1": "32455229",
           "rating": 592,
           "rating2": 535,
@@ -1057,7 +1002,7 @@
           "cumulatives": [
           ],
           "score": 0,
-          "place": "1-28"
+          "place": "1-27"
         }
       ],
       "clubs": [
