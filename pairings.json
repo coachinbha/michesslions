@@ -6,7 +6,7 @@
     "state": "MI",
     "country": "USA",
     "td": "Inbha",
-    "time_stamp": "11/14/2026 - 9:27",
+    "time_stamp": "11/14/2026 - 9:41",
     "affiliate": ""
   },
   "options": {
@@ -85,12 +85,12 @@
           "board": 1
         },
         {
-          "white": 2,
+          "white": 6,
           "black": 5,
           "board": 2
         },
         {
-          "white": 6,
+          "white": 2,
           "black": 0,
           "board": 0
         },
@@ -151,19 +151,19 @@
           "tiebreaks": [
           ],
           "results": [
-            " "
+            "B"
           ],
           "colors": [
-            "W"
+            "-"
           ],
           "ops": [
-            5
+            0
           ],
           "boards": [
-            2
+            0
           ],
           "cumulatives": [
-            0
+            1
           ],
           "score": 0,
           "place": "1-6"
@@ -251,7 +251,7 @@
             "B"
           ],
           "ops": [
-            2
+            6
           ],
           "boards": [
             2
@@ -276,19 +276,19 @@
           "tiebreaks": [
           ],
           "results": [
-            "B"
+            " "
           ],
           "colors": [
-            "-"
+            "W"
           ],
           "ops": [
-            0
+            5
           ],
           "boards": [
-            0
+            2
           ],
           "cumulatives": [
-            1
+            0
           ],
           "score": 0,
           "place": "1-6"
