@@ -467,8 +467,8 @@
         AOS.init({ duration: 1000, once: true, disable: false });
 
         // ── CONSTANTS ───────────────────────────────────────────────────────
-        const SECTION_KEY = "Which section? Note: sections may be combined based upon entries.";
-        const USCF_ID_KEY = 'USCF ID (an 8 digit number, like "12892910")';
+        const SECTION_KEY = "Playing section?";
+        const USCF_ID_KEY = 'USCF ID (an 8 digit number, like \"12892910\")\n\nIf you are NOT playing in a rated section, please type \"N/A\".';
         const RATING_CACHE_KEY = 'uscf_rating_cache_v2'; // bumped → discards old poisoned "Unrated" entries
         const CACHE_DURATION = 24 * 60 * 60 * 1000;      // 24 hours for genuine answers
         const ERROR_RETRY_MS = 2 * 60 * 1000;            // failed lookups retry after 2 minutes
@@ -480,7 +480,7 @@
         const TOURNAMENTS = [
             {
                 name: "Chess Lions: November Open",
-                url: "https://opensheet.elk.sh/1KrTlwVfj6QEXyJ8ZuNUASkIS2Zl6_IwyGp6H8YEXfwY/dataforopensheet",
+                url: "https://opensheet.elk.sh/1U2fKXguu-IyOGCcbtPL5qRwY5SKegaW_8thjZxEHBrk/dataforopensheet",
                 columns: [
                     "Players Name (Last name, First name)",
                     SECTION_KEY,
